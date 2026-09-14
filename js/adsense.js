@@ -1,4 +1,4 @@
-﻿/**
+/**
  * 애드센스&황금키워드 모듈 (adsense.js)
  * - 머니대외비 ?page=keywordcenter 1:1 완벽 데이터 및 인터페이스 연동
  * - 8개 카테고리 알약 탭 필터링
@@ -3710,6 +3710,8 @@ function updateSubFilterHeader() {
       subHeader.textContent = '전체 공개 10개 · 검증 통과 10개 · 최소 5개 / 목표 10개 · 고단가 CPC $5~$25 검증 확보';
     } else if (currentFilterType === 'type-4') {
       subHeader.textContent = '전체 공개 10개 · 검증 통과 10개 · 최소 5개 / 목표 10개 · 목표 확보';
+    } else if (currentFilterType === 'type-5') {
+      subHeader.textContent = '전체 공개 20개 · 검증 통과 20개 · 최소 10개 / 목표 20개 · 목표 확보';
     } else {
       subHeader.textContent = '전체 공개 30개 · 검증 통과 30개 · 최소 15개 / 목표 30개 · 목표 확보';
     }
@@ -3784,6 +3786,29 @@ function renderCardsList() {
           </div>
           <div>
             <span class="kc-card-ai-prob">AI브리핑 실측확률 ${item.aiProb || '30%'}</span>
+          </div>
+        </div>
+      `;
+    } else if (item.categoryType === 'type-5') {
+      // 5. 지식iN Q&A 전용 카드 UI (스크린샷 1:1 완벽 일치)
+      const kinSearchUrl = `https://kin.naver.com/search/list.naver?query=${encodeURIComponent(item.keyword)}`;
+      card.innerHTML = `
+        <div class="kc-card-num-box">${item.rank}</div>
+        <div class="kc-card-body">
+          <div class="kc-card-kw-title">${escapeHtml(item.keyword)}</div>
+          <div class="kc-card-sub-row">
+            <span class="kc-card-mate-tag" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">지식iN Q&amp;A</span>
+            <span class="kc-card-mate-tag" style="background: rgba(147, 51, 234, 0.15); color: #c084fc;">지식iN 질문 동향</span>
+            <span class="kc-badge-blueocean">블루오션</span>
+          </div>
+          <div class="kc-card-kin-row">
+            <span class="kc-chip-kin-views">실제 지식iN 조회수 <strong>${item.views || '34회'}</strong></span>
+            <span class="kc-chip-kin-answers">답변수 <strong>${item.answers || '1개'}</strong></span>
+          </div>
+          <div>
+            <a href="${kinSearchUrl}" target="_blank" rel="noopener noreferrer" class="kc-btn-kin-orig" onclick="event.stopPropagation();">
+              질문 원문 ↗
+            </a>
           </div>
         </div>
       `;
@@ -3961,6 +3986,49 @@ function selectCard(idx, dataList = KEYWORD_CENTER_DATA) {
     </div>
   ` : '';
 
+  // 3-2-3. type-5 전용 상단 지식iN 질문 실측 배너 및 3대 분석 박스 (스크린샷 1:1 완벽 일치)
+  const isType5 = item.categoryType === 'type-5';
+  const type5TopHtml = isType5 ? `
+    <div style="margin-top: 18px; margin-bottom: 20px;">
+      <!-- 지식iN 질문 실측 블루 배너 -->
+      <div class="kc-kin-live-banner">
+        <span class="kc-kin-badge-main">지식iN 질문 실측</span>
+        <span class="kc-kin-stat-text">조회수 ${item.views || '34회'}</span>
+        <span class="kc-kin-stat-ans">답변수 ${item.answers || '1개'}</span>
+      </div>
+
+      <!-- 1. 추천 블로그 포스팅 제목 -->
+      <div class="kc-kin-box">
+        <div class="kc-kin-box-title" style="color: #38bdf8;">
+          🎨 추천 블로그 포스팅 제목:
+        </div>
+        <p class="kc-kin-box-desc" style="font-weight: 700; color: #f8fafc;">
+          ${escapeHtml(item.postTitle || `${item.keyword} 해결 가이드`)}
+        </p>
+      </div>
+
+      <!-- 2. 기회 분석 -->
+      <div class="kc-kin-box">
+        <div class="kc-kin-box-title" style="color: #f43f5e;">
+          🎯 기회 분석:
+        </div>
+        <p class="kc-kin-box-desc">
+          ${escapeHtml(item.opportunity || '질문자의 구체적 필요를 채워줄 콘텐츠가 부족한 블루오션입니다.')}
+        </p>
+      </div>
+
+      <!-- 3. 작성 가이드 -->
+      <div class="kc-kin-box">
+        <div class="kc-kin-box-title" style="color: #fbbf24;">
+          💡 작성 가이드:
+        </div>
+        <p class="kc-kin-box-desc">
+          ${escapeHtml(item.guideline || '질문자의 의도에 맞춰 단계별 캡처와 명확한 해결책을 제시하세요.')}
+        </p>
+      </div>
+    </div>
+  ` : '';
+
   // 3-3. type-3 전용 내 최근 30일 평균 RPM 입력 박스
   const type3RpmBoxHtml = isType3 ? `
     <div class="kc-rpm-calc-box">
@@ -4042,7 +4110,7 @@ function selectCard(idx, dataList = KEYWORD_CENTER_DATA) {
           </div>
         </div>
 
-        ${(!isType3 && !isType4) ? `
+        ${(!isType3 && !isType4 && !isType5) ? `
         <!-- 우측 상단 종합 참고 점수 (19.5 / 30) -->
         <div class="kc-big-score-card">
           <div class="kc-score-head-title">종합 참고 점수</div>
@@ -4062,6 +4130,8 @@ function selectCard(idx, dataList = KEYWORD_CENTER_DATA) {
       ${type3TopHtml}
 
       ${type4TopHtml}
+
+      ${type5TopHtml}
 
       <!-- 3. 점수 읽는 법 안내 박스 -->
       <div class="kc-guide-box-clean">
