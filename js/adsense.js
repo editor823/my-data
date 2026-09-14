@@ -3612,20 +3612,33 @@ document.addEventListener('DOMContentLoaded', () => {
   selectCard(1);
 });
 
+// 상단 8개 알약 탭 전역 전환 함수 (인라인 onclick 및 리스너 공용)
+window.switchKcTab = function(type) {
+  const pillBtns = document.querySelectorAll('.kc-pill-btn');
+  pillBtns.forEach(b => {
+    if (b.getAttribute('data-type') === type) {
+      b.classList.add('active');
+    } else {
+      b.classList.remove('active');
+    }
+  });
+
+  currentFilterType = type;
+  currentSubFilter = 'all';
+  currentSelectedIdx = 0;
+  updateSubFilterHeader();
+  renderSubFilterButtons();
+  renderCardsList();
+  selectCard(0);
+};
+
 // 상단 8개 알약 탭 이벤트
 function renderKeywordCenterTabs() {
   const pillBtns = document.querySelectorAll('.kc-pill-btn');
   pillBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      pillBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentFilterType = btn.getAttribute('data-type');
-      currentSubFilter = 'all';
-      currentSelectedIdx = 0;
-      updateSubFilterHeader();
-      renderSubFilterButtons();
-      renderCardsList();
-      selectCard(0);
+      const type = btn.getAttribute('data-type');
+      window.switchKcTab(type);
     });
   });
 
