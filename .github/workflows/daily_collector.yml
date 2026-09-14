@@ -1,0 +1,34 @@
+name: Daily Keyword Auto Collector (매일 아침 06:00 자동 키워드 갱신)
+
+on:
+  schedule:
+    # 매일 한국시간 오전 6시 (UTC 21:00) 자동 실행
+    - cron: '0 21 * * *'
+  workflow_dispatch: # 관리자가 깃허브에서 수동으로 '지금 실행' 버튼을 누를 수도 있음
+
+jobs:
+  collect-and-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node.js 환경 설정
+        uses: setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 1번 황금키워드 & 2번 제휴마케팅 일일 자동 수집 실행
+        run: node scripts/auto_collector.js
+        env:
+          NAVER_AD_CUSTOMER_ID: ${{ secrets.NAVER_AD_CUSTOMER_ID }}
+          NAVER_AD_ACCESS_LICENSE: ${{ secrets.NAVER_AD_ACCESS_LICENSE }}
+          NAVER_AD_SECRET_KEY: ${{ secrets.NAVER_AD_SECRET_KEY }}
+
+      - name: 변경된 키워드 데이터 자동 커밋 및 배포
+        run: |
+          git config --global user.name 'KeywordBot'
+          git config --global user.email 'bot@auto-collector.local'
+          git add js/adsense.js
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(auto): daily keyword update for tab 1 and tab 2 [skip ci]" && git push)
