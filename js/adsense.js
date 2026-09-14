@@ -3718,6 +3718,18 @@ function updateSubFilterHeader() {
   }
 }
 
+// 현재 탭 및 서브 카테고리 기준 필터링된 데이터 반환
+function getCurrentFilteredData() {
+  let filtered = KEYWORD_CENTER_DATA.filter(d => d.categoryType === currentFilterType);
+  if (filtered.length === 0) {
+    filtered = KEYWORD_CENTER_DATA;
+  }
+  if (currentSubFilter && currentSubFilter !== 'all') {
+    filtered = filtered.filter(d => d.subCat === currentSubFilter);
+  }
+  return filtered;
+}
+
 // 좌측 카드 목록 렌더링 (8개 탭 & 서브 카테고리 완벽 개별 분기 필터링)
 function renderCardsList() {
   const container = document.getElementById('kc-cards-container');
@@ -3725,16 +3737,7 @@ function renderCardsList() {
 
   container.innerHTML = '';
 
-  // 1. 메인 탭 필터링
-  let filtered = KEYWORD_CENTER_DATA.filter(d => d.categoryType === currentFilterType);
-  if (filtered.length === 0) {
-    filtered = KEYWORD_CENTER_DATA;
-  }
-
-  // 2. 서브 카테고리 필터링 (all이 아닐 경우)
-  if (currentSubFilter && currentSubFilter !== 'all') {
-    filtered = filtered.filter(d => d.subCat === currentSubFilter);
-  }
+  const filtered = getCurrentFilteredData();
 
   filtered.forEach((item, idx) => {
     const card = document.createElement('div');
@@ -3843,9 +3846,10 @@ function renderCardsList() {
 }
 
 // 우측 상세 리포트 렌더링 (스크린샷 1, 2, 3 완벽 1:1 매칭)
-function selectCard(idx, dataList = KEYWORD_CENTER_DATA) {
+function selectCard(idx, dataList = null) {
+  const list = dataList || getCurrentFilteredData();
   currentSelectedIdx = idx;
-  const item = dataList[idx] || dataList[0];
+  const item = list[idx] || list[0];
   if (!item) return;
 
   const panel = document.getElementById('kc-detail-panel');
