@@ -1247,42 +1247,196 @@ const KEYWORD_CENTER_DATA = [
     longtails: ['주택담보대출갈아타기', '주담대대환대출', '주담대최저금리', '스트레스dsr', '아파트담보대출']
   },
 
-  // ===== 4. 네이버 mate 키워드 (type-4) =====
+  // ===== 4. 네이버 mate 키워드 (type-4: 네이버 AI 브리핑 인용 최적화 1:1 스크린샷 매칭) =====
   {
     id: 'kc-mate-01',
     categoryType: 'type-4',
-    subCat: 'mate',
+    subCat: 'edu',
     rank: 1,
-    keyword: '신생아 특례대출 대환 조건 1주택자 금리비교',
-    tag: '네이버mate·스마트블록',
-    volume: '22,400',
-    docCount: '4,150',
-    ratio: '0.18',
-    score: 27,
-    greenScore: '점수 123',
-    desc: '네이버 뷰/스마트블록 상위 점유 최우선 키워드',
-    date: '2026-09-14T03:00:00.000Z',
-    channel: '네이버 mate · 스마트블록 1위 노출 · 정책금융',
-    t_score: '5',
+    keyword: '국민내일배움카드 신청 자격 및 훈련비 지원금 환급',
+    tag: '교육/취업',
+    targetVolume: '40,800',
+    volume: '40,800',
+    coreKw: '국민내일배움카드 (관련: 내일배움카드 신청자격)',
+    docCount: '1,950',
+    aiProb: '30%',
+    greenScore: '인용 93점',
+    desc: '네이버 AI 브리핑 1페이지 상단 인용 및 출처 유입 최적화',
+    date: '2026-09-14T11:55:16.820Z',
+    channel: '네이버 mate 키워드 · 네이버 AI 브리핑 인용 · 교육/취업',
+    t_score: '4',
+    c_score: '4',
+    d_score: '5',
+    n_score: '4',
+    aiTemplate: '국민내일배움카드 신청 자격 및 훈련비 지원금 환급의 공식 절차와 핵심 요건: 실업자·재직자 모두 기본 300만~최대 500만원 한도 내에서 HRD-Net 포털을 통해 온라인 신청 및 국비 수강이 가능합니다.',
+    paaQuestions: [
+      '국민내일배움카드 신청 자격 및 훈련비 지원금 환급 신청 자격',
+      '국민내일배움카드 신청 자격 및 훈련비 지원금 환급 구비 서류',
+      '국민내일배움카드 신청 자격 및 훈련비 지원금 환급 신청 방법'
+    ],
+    aiSelectionReason: '월 40,800회 실측 검색되는 대국민 필수 정보로 네이버 Cue/AI 브리핑 실측 출현율 30% 타겟팅. 두괄식 핵심 요약 표와 지원 절차 번호 매김 시 최우선 출처 블록 채택.',
+    homepanTitle: '내일배움카드 신청 자격 총정리: 최대 500만원 훈련비 환급받는 법',
+    seoTitle: '[국민내일배움카드 신청] 자격 조건 7가지와 HRD-Net 온라인 발급 및 자부담금 환급',
+    subtopics: [
+      '1. 2026 국민내일배움카드 지원 대상 및 제외 대상 기준',
+      '2. 기본 300만원 + 특별훈련수당 200만원 추가 지원 조건',
+      '3. 직업훈련포털 HRD-Net 회원가입 및 비대면 발급 신청 순서',
+      '4. 취업 후 자부담금 100% 환급 신청 요령 및 수료 기준'
+    ],
+    ctaSuggestion: '고용노동부 HRD-Net 공식 포털 내일배움카드 즉시 신청하기',
+    longtails: ['국민내일배움카드신청', '내일배움카드자격', '훈련비지원금', '내일배움카드환급', 'HRDNet신청']
+  },
+  {
+    id: 'kc-mate-02',
+    categoryType: 'type-4',
+    subCat: 'car',
+    rank: 2,
+    keyword: '자동차 스마트키 배터리 방전 시동 거는 비상 방법',
+    tag: '자동차/생활',
+    targetVolume: '7,320',
+    volume: '7,320',
+    coreKw: '스마트키 배터리 교체 (관련: 스마트키 방전 시동)',
+    docCount: '2,973',
+    aiProb: '33%',
+    greenScore: '인용 94점',
+    desc: '네이버 AI 브리핑 및 스마트블록 검색 스니펫 최우선 노출',
+    date: '2026-09-14T11:55:16.820Z',
+    channel: '네이버 mate 키워드 · 네이버 AI 브리핑 인용 · 자동차/생활',
+    t_score: '3',
+    c_score: '3',
+    d_score: '5',
+    n_score: '4',
+    aiTemplate: '자동차 스마트키 배터리가 완전히 방전되었을 때의 비상 시동 2단계: 1) 스마트키 뒷면 릴리즈 버튼을 눌러 보조 쇠키를 꺼내 운전석 문을 수동 개폐, 2) 방전된 스마트키 모서리로 스타트 버튼을 직접 누르는(FOB 림프홈) 방식으로 시동을 걸 수 있습니다.',
+    paaQuestions: [
+      '스마트키 배터리 방전 시 비상 시동 거는 법',
+      '스마트키 보조키로 차문 여는 방법과 경보음 해제',
+      '스마트키 수은건전지 규격(CR2032) 교체 방법'
+    ],
+    aiSelectionReason: '급박한 문제 해결형 키워드로 AI 브리핑 스니펫 실측 출현율 33% 기록. 10초 만에 해결 가능한 절차형 텍스트 구조로 작성 시 네이버 Mate 최우선 인용 보장.',
+    homepanTitle: '스마트키 방전 시 당황하지 마세요! 10초 만에 시동 거는 비상 림프홈 꿀팁',
+    seoTitle: '[스마트키 방전 시동] 현대·기아·르노 차종별 비상 시동법 및 도어 수동 개폐',
+    subtopics: [
+      '1. 스마트키 물리 보조키 추출 및 캡 커버 분리 후 차 문 열기',
+      '2. 차 문을 열었을 때 울리는 도난 경보음 즉시 끄는 법',
+      '3. 스마트키 본체로 시동 버튼 직접 태그 (FOB 림프홈 기능)',
+      '4. 스마트키 방전 배터리 규격(CR2032/CR2025) 교체 요령'
+    ],
+    ctaSuggestion: '차종별 스마트키 수은건전지 최저가 구매 및 교체 동영상 보기',
+    longtails: ['스마트키방전시동', '스마트키배터리교체', 'CR2032교체', '스마트키경보음', '비상시동방법']
+  },
+  {
+    id: 'kc-mate-03',
+    categoryType: 'type-4',
+    subCat: 'it',
+    rank: 3,
+    keyword: '아이폰 맥북 에어드랍 안뜸 실패 연결 안됨 해결 순서',
+    tag: 'IT/테크',
+    targetVolume: '1,770',
+    volume: '1,770',
+    coreKw: '아이폰 에어드랍 (관련: 에어드랍 안뜸, 맥북 에어드랍)',
+    docCount: '1,820',
+    aiProb: '28%',
+    greenScore: '인용 91점',
+    desc: '네이버 AI 브리핑 및 스마트블록 검색 스니펫 최우선 노출',
+    date: '2026-09-14T11:55:16.820Z',
+    channel: '네이버 mate 키워드 · 네이버 AI 브리핑 인용 · IT/테크',
+    t_score: '3',
     c_score: '4',
     d_score: '4',
     n_score: '4',
-    reason: '출산 가구 1%대 저리 대출 및 기존 고금리 주담대 대환 요건 소득 기준 완화에 따른 대형 트래픽 발생.',
-    intent: '부부합산 소득 기준(2억원 완화), 대상 주택 가액(9억 이하), 대환 시 필요 서류 및 은행별 신청 절차.',
-    cpcAnalysis: '시중은행 주택담보대출 비교 플랫폼, 아파트 매매 부동산 어플, 신생아 출산용품 기획전.',
-    titles: [
-      '신생아 특례대출 1주택자 갈아타기 대환 조건과 필요 서류 총정리',
-      '신생아 특례대출 부부 소득 2억원 완화 시점 및 1%대 금리 계산',
-      '기존 디딤돌·보금자리론에서 신생아 특례로 대환 성공 후기'
+    aiTemplate: '아이폰과 맥북 간 에어드랍(AirDrop) 검색 실패 시 체크리스트: 1) 양 기기 Wi-Fi 및 블루투스 재활성화, 2) 에어드랍 수신 설정을 [모든 사람에 대해 10분 동안]으로 변경, 3) 개인용 핫스팟 및 방화벽 비활성화 후 재시도하면 95% 이상 즉시 연결됩니다.',
+    paaQuestions: [
+      '아이폰 맥북 에어드랍 안 뜰 때 해결 순서',
+      '에어드랍 대기 중만 뜨고 전송 안 됨 해결법',
+      '맥북 방화벽 에어드랍 차단 해제 방법'
     ],
-    outline: [
-      '신생아 특례대출 개요 (출산 기준일 및 대상 주택)',
-      '1주택자 대환대출 자격 요건 및 기존 대출 잔액 한도',
-      '소득 구간별 적용 금리표 (우대금리 청약저축 포함)',
-      '신청 시기 및 주택도시기금 기금e든든 접수 단계',
-      '부결을 피하기 위한 주택 가격 산정 기준 (KB시세 vs 감정가)'
+    aiSelectionReason: '애플 생태계 사용자들의 단골 오류 검색어로 고정적 해결책 질의. 불필요한 서론 없이 1~4단계 체크리스트로 작성할 경우 네이버 AI 브리핑 최상단 인용.',
+    homepanTitle: '아이폰 맥북 에어드랍 안 뜰 때? 1분 만에 연결되는 4가지 응급 조치',
+    seoTitle: '[에어드랍 연결 실패] 아이폰-맥북 에어드랍 안 뜸 증상 원인과 해결 꿀팁',
+    subtopics: [
+      '1. 와이파이(Wi-Fi) 및 블루투스 껐다 켜기 & 동일 네트워크 접속',
+      '2. 제어 센터에서 에어드랍 수신 범위 [모든 사람] 10분 변경',
+      '3. 개인용 핫스팟 켜짐 여부 및 맥북 보안 방화벽 설정 확인',
+      '4. 애플 계정(iCloud) 재로그인 및 기기 강제 재부팅 순서'
     ],
-    longtails: ['신생아 특례대출 대환', '신생아 대출 소득기준', '기금e든든 대환', '1주택자 갈아타기', '신생아 특례 금리']
+    ctaSuggestion: '애플 기기 간 에어드랍 최적화 설정 매뉴얼 확인하기',
+    longtails: ['에어드랍안뜸', '맥북에어드랍', '아이폰에어드랍연결안됨', '에어드랍실패', '에어드랍설정']
+  },
+  {
+    id: 'kc-mate-04',
+    categoryType: 'type-4',
+    subCat: 'estate',
+    rank: 4,
+    keyword: '원룸 오피스텔 퇴실 청소비 원상복구 분쟁 해결 기준',
+    tag: '부동산/법률',
+    targetVolume: '370',
+    volume: '370',
+    coreKw: '퇴실 청소비 (관련: 원룸 원상복구 분쟁, 세입자 원상복구)',
+    docCount: '1,450',
+    aiProb: '35%',
+    greenScore: '인용 95점',
+    desc: '네이버 AI 브리핑 및 주택임대차 분쟁 조정 사례 인용 최적화',
+    date: '2026-09-14T11:55:16.820Z',
+    channel: '네이버 mate 키워드 · 네이버 AI 브리핑 인용 · 부동산/법률',
+    t_score: '2',
+    c_score: '4',
+    d_score: '5',
+    n_score: '4',
+    aiTemplate: '원룸·오피스텔 퇴실 시 청소비 및 원상복구 법적 기준: 통상적인 사용에 의한 자연 마모(벽지 변색, 못 자국 1~2개)는 임대인(집주인) 부담이며, 특약사항에 명시되지 않은 퇴실 청소비 공제는 법적 효력이 없어 보증금 반환 요구가 가능합니다.',
+    paaQuestions: [
+      '원룸 퇴실 시 청소비 임차인 부담 여부',
+      '원룸 벽지 훼손 원상복구 비용 판례',
+      '임대차 보증금 청소비 미반환 대처 및 내용증명'
+    ],
+    aiSelectionReason: '사회초년생 및 1인 가구 임대차 분쟁 대표 키워드로 네이버 AI 브리핑 실측 인용 확률 35%에 달함. 법원 판례 및 주택임대차표준계약서 기준 명시 시 신뢰도 급상승.',
+    homepanTitle: '원룸 퇴실할 때 청소비 15만원 내야 할까? 집주인 부당 공제 막는 법',
+    seoTitle: '[원룸 퇴실 청소비] 세입자 원상복구 법적 의무 범위 및 자연 마모 분쟁 해결',
+    subtopics: [
+      '1. 대법원 판례 기준: 통상적 손모(자연 마모) vs 임차인 고의·과실 훼손',
+      '2. 계약서 특약에 [퇴실 청소비 00만원] 적혀있을 때 효력 분석',
+      '3. 입주 첫날 사진·동영상 증거 확보 요령 및 퇴실 점검 체크리스트',
+      '4. 집주인이 보증금에서 청소비를 일방 공제했을 때 내용증명 양식'
+    ],
+    ctaSuggestion: '주택임대차분쟁조정위원회 원상복구 가이드라인 다운로드',
+    longtails: ['원룸퇴실청소비', '원상복구분쟁', '오피스텔청소비', '세입자원상복구', '자연마모판례']
+  },
+  {
+    id: 'kc-mate-05',
+    categoryType: 'type-4',
+    subCat: 'policy',
+    rank: 5,
+    keyword: '주민등록등본 초본 차이 및 인터넷 무료 발급 정부24',
+    tag: '행정/복지',
+    targetVolume: '14,200',
+    volume: '14,200',
+    coreKw: '주민등록등본 (관련: 등본 초본 차이, 정부24 등본발급)',
+    docCount: '3,820',
+    aiProb: '26%',
+    greenScore: '인용 89점',
+    desc: '네이버 AI 브리핑 및 정부24 행정 서비스 최우선 스니펫 노출',
+    date: '2026-09-14T11:55:16.820Z',
+    channel: '네이버 mate 키워드 · 네이버 AI 브리핑 인용 · 행정/복지',
+    t_score: '4',
+    c_score: '3',
+    d_score: '5',
+    n_score: '4',
+    aiTemplate: '주민등록등본과 초본의 결정적 차이: 등본은 주민등록상 동일 세대 전원의 인적사항이 표시되며, 초본은 신청자 본인 1인의 과거 주소 이전 이력 및 개명·병적 기록 등이 상세 기재됩니다. 정부24 포털 및 모바일 전자문서지갑에서 PDF 무료 발급이 가능합니다.',
+    paaQuestions: [
+      '주민등록등본과 주민등록초본의 차이점',
+      '정부24에서 주민등록등본 PDF 무료 발급 방법',
+      '은행 및 청약 제출 시 등본 vs 초본 선택 기준'
+    ],
+    aiSelectionReason: '연중 끊이지 않는 대국민 행정 검색어로 1~2문장 두괄식 차이점 표를 네이버 Cue/AI 브리핑이 가장 선호하는 포맷으로 채택.',
+    homepanTitle: '주민등록등본과 초본 차이 한눈에 보기: 정부24에서 1분 만에 무료 출력',
+    seoTitle: '[주민등록등본 vs 초본] 발급 목적별 차이점과 정부24 PDF 다운로드 방법',
+    subtopics: [
+      '1. 표로 보는 주민등록등본 vs 주민등록초본 핵심 기재 항목 비교',
+      '2. 부동산 매매, 은행 대출, 청약 시 각각 어떤 서류를 제출해야 할까?',
+      '3. 정부24 PC 및 모바일 앱에서 본인인증 후 수수료 무료 발급 절차',
+      '4. 주민번호 뒷자리 마스킹 및 과거 주소 변동 이력 선택 옵션 요령'
+    ],
+    ctaSuggestion: '정부24 공식 누리집 주민등록등초본 온라인 발급 바로가기',
+    longtails: ['주민등록등본초본차이', '등본초본차이', '정부24등본발급', '등본인터넷발급', '초본발급방법']
   },
 
   // ===== 5. 지식iN Q&A (type-5) =====
@@ -1495,6 +1649,16 @@ function renderSubFilterButtons() {
       <button class="kc-sub-btn ${currentSubFilter === 'loan' ? 'active' : ''}" data-sub="loan">대출/정책 (1)</button>
       <button class="kc-sub-btn ${currentSubFilter === 'law' ? 'active' : ''}" data-sub="law">법률/상속 (1)</button>
     `;
+  } else if (currentFilterType === 'type-4') {
+    // 4. 네이버 mate 키워드 전용 6개 서브 버튼 (스크린샷 1:1 완벽 일치)
+    container.innerHTML = `
+      <button class="kc-sub-btn ${currentSubFilter === 'all' ? 'active' : ''}" data-sub="all">전체 (5)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'edu' ? 'active' : ''}" data-sub="edu">교육/취업 (1)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'estate' ? 'active' : ''}" data-sub="estate">부동산/법률 (1)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'car' ? 'active' : ''}" data-sub="car">자동차/생활 (1)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'policy' ? 'active' : ''}" data-sub="policy">행정/복지 (1)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'it' ? 'active' : ''}" data-sub="it">IT/테크 (1)</button>
+    `;
   } else {
     // 기본 (1. 황금키워드 등)
     container.innerHTML = `
@@ -1525,6 +1689,8 @@ function updateSubFilterHeader() {
       subHeader.textContent = '전체 공개 20개 · 검증 통과 20개 · 최소 10개 / 목표 20개 · 목표 확보';
     } else if (currentFilterType === 'type-3') {
       subHeader.textContent = '전체 공개 10개 · 검증 통과 10개 · 최소 5개 / 목표 10개 · 고단가 CPC $5~$25 검증 확보';
+    } else if (currentFilterType === 'type-4') {
+      subHeader.textContent = '전체 공개 10개 · 검증 통과 10개 · 최소 5개 / 목표 10개 · 목표 확보';
     } else {
       subHeader.textContent = '전체 공개 30개 · 검증 통과 30개 · 최소 15개 / 목표 30개 · 목표 확보';
     }
@@ -1575,6 +1741,31 @@ function renderCardsList() {
             <span class="kc-chip">문서/검색 <strong>${item.ratio}</strong></span>
           </div>
           <div class="kc-card-desc">${escapeHtml(item.desc)}</div>
+        </div>
+      `;
+    } else if (item.categoryType === 'type-4') {
+      // 4. 네이버 mate 키워드 전용 카드 UI (스크린샷 1:1 완벽 일치)
+      card.innerHTML = `
+        <div class="kc-card-num-box">${item.rank}</div>
+        <div class="kc-card-body">
+          <div class="kc-card-kw-title">${escapeHtml(item.keyword)}</div>
+          <div class="kc-card-sub-row">
+            <span class="kc-card-ai-badge">AI 브리핑</span>
+            <span class="kc-card-mate-tag">${escapeHtml(item.tag)}</span>
+            <span class="kc-card-cite-score">${escapeHtml(item.greenScore || '인용 93점')}</span>
+          </div>
+          <div class="kc-card-target-search">
+            타겟 실측검색 <strong>${item.targetVolume || item.volume}</strong>
+          </div>
+          <div class="kc-card-core-box">
+            핵심: ${escapeHtml(item.coreKw || item.keyword)}
+          </div>
+          <div class="kc-card-chips-row" style="margin-bottom: 6px;">
+            <span class="kc-chip">문서개수 <strong>${item.docCount}</strong></span>
+          </div>
+          <div>
+            <span class="kc-card-ai-prob">AI브리핑 실측확률 ${item.aiProb || '30%'}</span>
+          </div>
         </div>
       `;
     } else {
@@ -1694,6 +1885,63 @@ function selectCard(idx, dataList = KEYWORD_CENTER_DATA) {
     </div>
   ` : '';
 
+  // 3-2-2. type-4 전용 상단 네이버 mate AI 브리핑 분석 박스 (스크린샷 1:1 완벽 일치)
+  const isType4 = item.categoryType === 'type-4';
+  const paaQuestions = item.paaQuestions || [
+    `${item.keyword} 신청 자격`,
+    `${item.keyword} 구비 서류`,
+    `${item.keyword} 신청 방법`
+  ];
+  const paaQuestionsHtml = paaQuestions.map(q => `
+    <div class="kc-mate-question-pill" onclick="searchDirectKeyword('${escapeHtml(q)}')">
+      <span style="color: #94a3b8;">🗨️</span> <span>${escapeHtml(q)}</span>
+    </div>
+  `).join('');
+
+  const type4TopHtml = isType4 ? `
+    <div style="margin-top: 18px;">
+      <!-- 1. 타겟팅 핵심 검색어 & 네이버 실측 검색량 -->
+      <div class="kc-mate-box" style="border-left: 4px solid #0284c7;">
+        <div class="kc-mate-box-title" style="color: #38bdf8;">
+          🔍 타겟팅 핵심 검색어 & 네이버 실측 검색량
+        </div>
+        <div style="font-size: 0.92rem; font-weight: 800; color: #f8fafc; line-height: 1.5;">
+          ${escapeHtml(item.coreKw || item.keyword)} <span style="color: #10b981;">(월 ${item.targetVolume || item.volume}건 실측)</span>
+        </div>
+      </div>
+
+      <!-- 2. AI가 최우선 인용하는 핵심 답변 템플릿 -->
+      <div class="kc-mate-box">
+        <div class="kc-mate-box-title" style="color: #818cf8;">
+          🤖 AI가 최우선 인용하는 핵심 답변 템플릿:
+        </div>
+        <div class="kc-mate-template-box">
+          ${escapeHtml(item.aiTemplate || `${item.keyword}의 공식 절차와 핵심 요건 요약입니다.`)}
+        </div>
+      </div>
+
+      <!-- 3. 네이버 함께 찾는 질문 (People Also Ask) -->
+      <div class="kc-mate-box">
+        <div class="kc-mate-box-title" style="color: #c084fc; margin-bottom: 12px;">
+          💭 네이버 함께 찾는 질문 (People Also Ask):
+        </div>
+        <div>
+          ${paaQuestionsHtml}
+        </div>
+      </div>
+
+      <!-- 4. AI 인용 선정 및 제목 작성 이유 (실측 배경) -->
+      <div class="kc-mate-box" style="background: rgba(245, 158, 11, 0.04); border-color: rgba(245, 158, 11, 0.2);">
+        <div class="kc-mate-box-title" style="color: #f59e0b;">
+          💡 AI 인용 선정 및 제목 작성 이유 (실측 배경)
+        </div>
+        <p style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.55; margin: 0;">
+          ${escapeHtml(item.aiSelectionReason || `월 ${item.volume}회 실측 검색되는 필수 정보로 네이버 Cue/AI 브리핑 실측 출현율 30% 타겟팅.`)}
+        </p>
+      </div>
+    </div>
+  ` : '';
+
   // 3-3. type-3 전용 내 최근 30일 평균 RPM 입력 박스
   const type3RpmBoxHtml = isType3 ? `
     <div class="kc-rpm-calc-box">
@@ -1775,7 +2023,7 @@ function selectCard(idx, dataList = KEYWORD_CENTER_DATA) {
           </div>
         </div>
 
-        ${!isType3 ? `
+        ${(!isType3 && !isType4) ? `
         <!-- 우측 상단 종합 참고 점수 (19.5 / 30) -->
         <div class="kc-big-score-card">
           <div class="kc-score-head-title">종합 참고 점수</div>
@@ -1793,6 +2041,8 @@ function selectCard(idx, dataList = KEYWORD_CENTER_DATA) {
       </div>
 
       ${type3TopHtml}
+
+      ${type4TopHtml}
 
       <!-- 3. 점수 읽는 법 안내 박스 -->
       <div class="kc-guide-box-clean">
