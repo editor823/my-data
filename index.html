@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>블로그 자동화 허브 (Blog Automation Hub)</title>
+  
+  <!-- 한글 웹폰트 Pretendard CDN 로드 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+  
+  <!-- 스타일시트 로드 -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- ===== 1. 상단 글로벌 네비게이션 ===== -->
+  <nav class="site-nav">
+    <div class="nav-container">
+      <a href="#" class="brand-logo" onclick="switchTab('home'); return false;">
+        <div class="brand-icon">⚡</div>
+        <span>블로그 자동화 허브</span>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><button class="nav-btn active" data-tab="home">HOME</button></li>
+        <li><button class="nav-btn" data-tab="homepan">🔥 홈판형 글쓰기</button></li>
+        <li><button class="nav-btn" data-tab="keyword">키워드분석기</button></li>
+        <li><button class="nav-btn" data-tab="adsense">애드센스&황금키워드</button></li>
+        <li><button class="nav-btn" data-tab="prompt">글쓰기프롬프트</button></li>
+        <li><button class="nav-btn" data-tab="external">외부유입글생성</button></li>
+        <li><button class="nav-btn" data-tab="converter">이미지변환기</button></li>
+        <li><button class="nav-btn" data-tab="imggen">🎨 AI 이미지 생성기</button></li>
+        <li><button class="nav-btn" data-tab="stock" style="color: #38bdf8; font-weight: 800;">📈 주식분석센터</button></li>
+        <li><button class="nav-btn" data-tab="guide">글나침반 안내</button></li>
+      </ul>
+
+      <button class="nav-mobile-toggle" aria-label="메뉴 열기">☰</button>
+    </div>
+  </nav>
+
+  <!-- ===== 2. 메인 콘텐츠 영역 ===== -->
+  <main class="main-content">
+
+    <!-- [TAB 1] 홈 대시보드 화면 -->
+    <section id="tab-home" class="tab-section active">
+      <!-- 1. 메인 히어로 배너 (이미지와 100% 동일) -->
+      <div class="home-hero-container" style="text-align: center; padding: 48px 16px 40px;">
+        <div style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); color: #10b981; font-size: 0.85rem; font-weight: 700; margin-bottom: 20px;">
+          <span>🔥</span> AI 키워드 분석기
+        </div>
+        <h1 style="font-size: 2.8rem; font-weight: 900; color: var(--text-main); line-height: 1.35; margin: 0 0 16px 0; letter-spacing: -0.03em;">
+          네이버 <span style="color: #10b981;">황금키워드</span>를<br>찾아서 자동 발굴해드립니다
+        </h1>
+        <p style="font-size: 1.05rem; color: var(--text-sub); margin: 0 0 6px 0; line-height: 1.6;">
+          검색량 대비 경쟁 문서가 극도로 적은 키워드를 AI로 자동 발굴합니다.
+        </p>
+        <p style="font-size: 1rem; color: var(--text-sub); margin: 0 0 28px 0; font-weight: 600;">
+          총 검색량 500회 이상, 블로그 문서 100개 미만 황금키워드 TOP 10 확인!
+        </p>
+        <div>
+          <button onclick="switchTab('keyword')" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981, #059669); font-size: 1.05rem; font-weight: 800; padding: 14px 32px; border-radius: 12px; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35); border: none; cursor: pointer;">
+            첫 키워드 분석하기 ➔
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. 5대 포털 실시간 급상승어 섹션 (황금 키워드 TOP 10) -->
+      <div class="trending-section" style="margin-top: 20px; margin-bottom: 40px;">
+        <div class="trending-header">
+          <div>
+            <div class="trending-header-title">
+              <span>🔥</span>
+              <span>실시간 급상승어 한눈에 보기</span>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-sub); margin-top: 4px;">
+              검색량 대비 경쟁 문서가 극도로 적은 키워드 (총 검색량 500회 이상, 블로그 문서 100개 미만의 황금키워드 TOP 10)
+            </p>
+          </div>
+          <button id="refresh-trending-btn" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;">
+            <span>🔄</span> <span>실시간 갱신</span>
+          </button>
+        </div>
+
+        <div class="trending-grid">
+          <!-- 1. 네이버 -->
+          <div class="trending-portal-card">
+            <div class="portal-title-row">
+              <div class="portal-name-badge">
+                <span class="dot-indicator dot-naver"></span>
+                <span>네이버</span>
+              </div>
+              <a href="https://www.naver.com" target="_blank" rel="noopener noreferrer" class="portal-goto-link">
+                바로가기 ↗
+              </a>
+            </div>
+            <ol class="trending-list" id="trend-list-naver"></ol>
+          </div>
+
+          <!-- 2. 네이트 -->
+          <div class="trending-portal-card">
+            <div class="portal-title-row">
+              <div class="portal-name-badge">
+                <span class="dot-indicator dot-nate"></span>
+                <span>네이트</span>
+              </div>
+              <a href="https://news.nate.com" target="_blank" rel="noopener noreferrer" class="portal-goto-link">
+                바로가기 ↗
+              </a>
+            </div>
+            <ol class="trending-list" id="trend-list-nate"></ol>
+          </div>
+
+          <!-- 3. 줌(Zum) -->
+          <div class="trending-portal-card">
+            <div class="portal-title-row">
+              <div class="portal-name-badge">
+                <span class="dot-indicator dot-zum"></span>
+                <span>줌</span>
+              </div>
+              <a href="https://zum.com" target="_blank" rel="noopener noreferrer" class="portal-goto-link">
+                바로가기 ↗
+              </a>
+            </div>
+            <ol class="trending-list" id="trend-list-zum"></ol>
+          </div>
+
+          <!-- 4. 구글 -->
+          <div class="trending-portal-card">
+            <div class="portal-title-row">
+              <div class="portal-name-badge">
+                <span class="dot-indicator dot-google"></span>
+                <span>구글</span>
+              </div>
+              <a href="https://trends.google.co.kr/trending" target="_blank" rel="noopener noreferrer" class="portal-goto-link">
+                바로가기 ↗
+              </a>
+            </div>
+            <ol class="trending-list" id="trend-list-google"></ol>
+          </div>
+
+          <!-- 5. 다음 -->
+          <div class="trending-portal-card">
+            <div class="portal-title-row">
+              <div class="portal-name-badge">
+                <span class="dot-indicator dot-daum"></span>
+                <span>다음</span>
+              </div>
+              <a href="https://www.daum.net" target="_blank" rel="noopener noreferrer" class="portal-goto-link">
+                바로가기 ↗
+              </a>
+            </div>
+            <ol class="trending-list" id="trend-list-daum"></ol>
+          </div>
+        </div>
+
+        <div class="trending-footer-bar">
+          <span id="trending-update-time">마지막 갱신 오후 12:15</span>
+        </div>
+      </div>
+
+      <!-- 3. 최신 연예뉴스 섹션 (이미지와 100% 동일) -->
+      <div class="card" style="margin-bottom: 40px; padding: 26px 28px;">
+        <div style="margin-bottom: 18px;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 8px; margin: 0 0 6px 0;">
+            <span>📰</span> 최신 연예뉴스
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-sub); margin: 0;">
+            급상승어와 함께 확인할 수 있는 최신 연예 기사입니다.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;" class="ent-news-grid">
+          <!-- 기사 1 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">스포츠동아 · 수집 09. 14. 12:15 KST</div>
+            <a href="https://search.naver.com/search.naver?where=news&query=강다니엘" target="_blank" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.4;">'아이돌픽' 강다니엘, 캠퍼스 로망 자극하는 선배미 넘치는 아이돌</a>
+          </div>
+          <!-- 기사 2 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">스포츠동아 · 수집 09. 14. 12:15 KST</div>
+            <a href="https://search.naver.com/search.naver?where=news&query=BTS+진" target="_blank" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.4;">BTS 진, 아이돌픽 위클리 최다 득표...플레이브·브브걸·사쿠라·GeLex 각 부문 1위</a>
+          </div>
+          <!-- 기사 3 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">스포츠동아 · 수집 09. 14. 12:15 KST</div>
+            <a href="https://search.naver.com/search.naver?where=news&query=정다경" target="_blank" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.4;">정다경-김의영-미스김-정혜린, '트롯픽' 스포트라이트 전광판 주인공</a>
+          </div>
+          <!-- 기사 4 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">스포츠동아 · 수집 09. 14. 12:15 KST</div>
+            <a href="https://search.naver.com/search.naver?where=news&query=진해성" target="_blank" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.4;">진해성-장민호-정동원, '트롯픽' 명동 전광판 주인공</a>
+          </div>
+
+          <!-- 기사 5 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">스타뉴스 · 수집 09. 14. 12:15 KST</div>
+            <a href="https://search.naver.com/search.naver?where=news&query=스타뉴스" target="_blank" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.4;">STARNEWS APP</a>
+          </div>
+          <!-- 기사 6 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">스타뉴스 · 수집 09. 14. 12:15 KST</div>
+            <a href="https://search.naver.com/search.naver?where=news&query=지민" target="_blank" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.4;">블루도 '로열블루'로 만드는 비주얼...방탄소년단 지민, 'Dior A24' 캠페인 속 빛나는 존재감</a>
+          </div>
+          <!-- 기사 7 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">스타뉴스 · 수집 09. 14. 12:15 KST</div>
+            <a href="https://search.naver.com/search.naver?where=news&query=손예진+현빈" target="_blank" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.4;">손예진♥현빈 판박이 4세 아들 사진 깜짝 공개..."손도 예쁘다" ('냉부해') [★밤Tview]</a>
+          </div>
+          <!-- 기사 8 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">스타뉴스 · 수집 09. 14. 12:15 KST</div>
+            <a href="https://search.naver.com/search.naver?where=news&query=김혜수" target="_blank" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.4;">'56세' 김혜수, 부동산으로 1년만 40억 벌더니...럭셔리한 근황 [스타이슈]</a>
+          </div>
+
+          <!-- 기사 9 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">Google 뉴스 · 09. 14. 09:53 KST</div>
+            <a href="https://news.google.com" target="_blank" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.4;">손예진, 예능서 아들 언급..."저 닮은 것 같다"</a>
+          </div>
+          <!-- 기사 10 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">Google 뉴스 · 09. 14. 08:59 KST</div>
+            <a href="https://news.google.com" target="_blank" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.4;">이동윤, 웹툰 '내가 죽는 이유' OST 14일 발매</a>
+          </div>
+          <!-- 기사 11 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">Google 뉴스 · 09. 14. 08:24 KST</div>
+            <a href="https://news.google.com" target="_blank" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.4;">김승윤, 장동은과 10월 결혼 앞두고 예비 시어머니 도시락 인증</a>
+          </div>
+          <!-- 기사 12 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">Google 뉴스 · 09. 14. 07:01 KST</div>
+            <a href="https://news.google.com" target="_blank" style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.4;">[문화연예 플러스] 영탁, 정규 3집 '고고'..오늘 첫선</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. 하단 4개 핵심 카드 (이미지와 100% 동일) -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 30px;" class="home-feature-cards">
+        <!-- 1. 황금키워드 분석 -->
+        <div class="card" onclick="switchTab('keyword')" style="cursor: pointer; padding: 24px; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+          <div style="font-size: 1.8rem; margin-bottom: 12px;">🔍</div>
+          <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0 0 8px 0;">황금키워드 분석</h3>
+          <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0; line-height: 1.5;">키워드 1개만 입력하면 관련 키워드의 총 검색량, 블로그 문서 수 한눈에 확인.</p>
+        </div>
+
+        <!-- 2. 실시간 급상승 검색어 -->
+        <div class="card" onclick="document.querySelector('.trending-section').scrollIntoView({behavior:'smooth'})" style="cursor: pointer; padding: 24px; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+          <div style="font-size: 1.8rem; margin-bottom: 12px;">📈</div>
+          <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0 0 8px 0;">실시간 급상승 검색어</h3>
+          <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0; line-height: 1.5;">네이버, 줌, 구글 등 실시간 트렌드 키워드를 한 화면에서 즉시 확인.</p>
+        </div>
+
+        <!-- 3. 엑셀 대량 분석 -->
+        <div class="card" onclick="switchTab('keyword')" style="cursor: pointer; padding: 24px; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+          <div style="font-size: 1.8rem; margin-bottom: 12px;">📊</div>
+          <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0 0 8px 0;">엑셀 대량 분석</h3>
+          <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0; line-height: 1.5;">엑셀에 키워드를 담아 업로드하면 자동 일괄 분석 후 결과 다운로드.</p>
+        </div>
+
+        <!-- 4. 애드센스&황금키워드 -->
+        <div class="card" onclick="switchTab('adsense')" style="cursor: pointer; padding: 24px; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+          <div style="font-size: 1.8rem; margin-bottom: 12px;">💎</div>
+          <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0 0 8px 0;">애드센스&황금키워드</h3>
+          <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0; line-height: 1.5;">황금·쇼핑·애드센스 키워드를 하루 고정 데이터로 한눈에 확인.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- [TAB NEW] 네이버 모바일 홈판형 글쓰기 전용 반자동 작업대 -->
+    <section id="tab-homepan" class="tab-section">
+      <!-- 1. 헤더 안내 배너 -->
+      <div class="hp-hero-box">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+          <div>
+            <span class="hp-badge">NAVER HOME FEED PRO · 반자동 전용 작업대</span>
+            <h1 class="hp-main-title">🔥 네이버 홈판형 글쓰기 작업대</h1>
+            <p class="hp-main-desc">
+              이슈 키워드나 뉴스 기사를 넣으면 네이버 모바일 메인 홈피드(MY피드)에 노출되는 <strong>[초강력 후킹 제목 + 3줄 호흡 본문 + 썸네일 문구 + 태그]</strong>를 즉시 생성하고 1초 만에 스마트에디터로 복사합니다.
+            </p>
+          </div>
+          <span style="background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #10b981; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 800; white-space: nowrap;">
+            ⚡ C-Rank & D.I.A.+ 통과 보장 구조
+          </span>
+        </div>
+      </div>
+
+      <!-- 2. 입력 폼 영역 (2열 레이아웃) -->
+      <div class="hp-form-card">
+        <div class="hp-form-grid">
+          <!-- 왼쪽: 키워드 & 핵심 각도 -->
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" style="font-weight: 800; color: var(--text-main); display: flex; justify-content: space-between;">
+                <span>🎯 메인 키워드 (또는 뉴스 주제)</span>
+                <span style="font-size: 0.78rem; color: #60a5fa; cursor: pointer;" onclick="document.getElementById('hp-keyword-input').value='2026 청년도약계좌 기습 발표'">예시 채우기</span>
+              </label>
+              <input type="text" id="hp-keyword-input" class="form-input" placeholder="예: 카시오 엑슬림 z400, 2026 청년도약계좌, 전기차 보조금 축소">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" style="font-weight: 800; color: var(--text-main);">
+                💡 독자가 클릭할 핵심 이유 (앵글 / 타깃)
+              </label>
+              <input type="text" id="hp-angle-input" class="form-input" placeholder="예: 30대 직장인이 놓치면 안 되는 세제 혜택과 신청 마감일">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" style="font-weight: 800; color: var(--text-main);">
+                🎭 글 작성 톤앤매너
+              </label>
+              <select id="hp-tone-select" class="form-select">
+                <option value="curious" selected>흥미 유발형 · "알고 계셨나요? 충격 반전" (홈판 클릭률 1위)</option>
+                <option value="warm">친절한 블로거형 · "~해요, ~합니다" (이웃 소통 및 체류시간 극대화)</option>
+                <option value="expert">전문 분석가형 · 객관적 팩트 체크 및 표 분석 (전문성 C-Rank)</option>
+                <option value="story">스토리텔링형 · 현장감 넘치는 에피소드식 전개</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 오른쪽: 원문 기사나 메모 붙여넣기 (선택) -->
+          <div style="display: flex; flex-direction: column;">
+            <div class="form-group" style="margin-bottom: 0; flex: 1; display: flex; flex-direction: column;">
+              <label class="form-label" style="font-weight: 800; color: var(--text-main);">
+                📝 참고 뉴스 기사 원문 또는 핵심 메모 (선택 사항)
+              </label>
+              <textarea id="hp-raw-content" class="form-textarea" style="flex: 1; min-height: 160px; font-size: 0.88rem;" placeholder="뉴스 기사나 메모를 붙여넣으시면 팩트를 온전히 분석하여 홈판형 서사로 완벽히 재구성합니다. 비워두셔도 키워드로 바로 작성됩니다."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- 하단 액션 버튼 -->
+        <div style="margin-top: 20px; display: flex; gap: 12px;">
+          <button type="button" id="hp-generate-btn" class="hp-btn-submit">
+            ⚡ 네이버 홈판형 완성 원고 1초 생성
+          </button>
+        </div>
+      </div>
+
+      <!-- 3. 원고 생성 결과 작업대 (생성 후 등장) -->
+      <div id="hp-result-workspace" style="display: none; margin-top: 30px;">
+        
+        <!-- 상단 반자동 복사 컨트롤 바 -->
+        <div class="hp-action-bar">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.2rem;">✨</span>
+            <span style="font-size: 1.05rem; font-weight: 900; color: var(--text-main);">네이버 스마트에디터 원터치 복사 작업대</span>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button type="button" class="btn btn-secondary btn-sm" id="hp-copy-title-btn">
+              📋 제목만 복사
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" id="hp-copy-body-btn">
+              📋 본문 전체 복사
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" id="hp-copy-tags-btn">
+              🏷️ 해시태그 복사
+            </button>
+            <a href="https://blog.naver.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="background: #03c75a;">
+              네이버 블로그 글쓰기 열기 ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- 3개 블록 분할 표시 영역 -->
+        <div class="hp-result-grid">
+          
+          <!-- [블록 1] 홈판형 추천 제목 8선 (클릭하면 복사) -->
+          <div class="hp-result-card">
+            <div class="hp-card-header">
+              <span class="hp-header-title">🔥 홈판 추천 제목 (클릭 시 자동 선택 & 복사)</span>
+              <span style="font-size: 0.78rem; color: #10b981;">클릭률(CTR) 극대화</span>
+            </div>
+            <div id="hp-titles-list" class="hp-titles-list"></div>
+          </div>
+
+          <!-- [블록 2] 썸네일 카피 문구 & 이미지 프롬프트 -->
+          <div class="hp-result-card">
+            <div class="hp-card-header">
+              <span class="hp-header-title">🖼️ 썸네일 2줄 카피 문구 (8~15자)</span>
+              <span style="font-size: 0.78rem; color: var(--text-muted);">미리캔버스/캔바 삽입용</span>
+            </div>
+            <div id="hp-thumbnail-copys" style="display: flex; flex-direction: column; gap: 8px;"></div>
+
+            <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border-color);">
+              <span style="font-size: 0.8rem; font-weight: 700; color: #a78bfa; display: block; margin-bottom: 6px;">
+                🎨 AI 이미지 생성 프롬프트 (미드저니/챗GPT용)
+              </span>
+              <textarea id="hp-image-prompt-text" class="form-textarea" style="min-height: 80px; font-size: 0.8rem;" readonly></textarea>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- [블록 3] 완성형 본문 원고 (모바일 가독성 3줄 호흡 + 소제목 4개) -->
+        <div class="hp-result-card" style="margin-top: 20px;">
+          <div class="hp-card-header">
+            <div>
+              <span class="hp-header-title">📄 완성형 본문 원고 (스마트에디터 붙여넣기용)</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 10px;">모바일 2~3줄 줄바꿈 · 두괄식 서사 구조</span>
+            </div>
+            <span id="hp-word-count-badge" style="font-size: 0.8rem; font-weight: 700; color: #3b82f6;">약 2,200자</span>
+          </div>
+
+          <!-- 실제 렌더링 박스 -->
+          <div id="hp-article-body" class="hp-article-body"></div>
+        </div>
+
+        <!-- [블록 4] 하단 해시태그 -->
+        <div class="hp-result-card" style="margin-top: 20px;">
+          <div class="hp-card-header">
+            <span class="hp-header-title">🏷️ 네이버 스마트블록 공략 해시태그 (복사해서 맨 아래 붙여넣기)</span>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="copyHpTags()">태그 한번에 복사</button>
+          </div>
+          <div id="hp-tags-wrap" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- [TAB 2] 키워드 분석기 화면 -->
+    <section id="tab-keyword" class="tab-section">
+      <!-- 1. 상단 타이틀 및 API 키 연동 헤더 카드 -->
+      <div class="card" style="margin-bottom: 24px; padding: 28px 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+          <!-- 왼쪽 타이틀 및 상태 뱃지 -->
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
+              <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 8px;">
+                <span>⚡</span> 키워드 분석기
+              </h2>
+              <span style="background: #4f46e5; color: #fff; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 20px;">
+                실시간 네이버 검색량 분석
+              </span>
+            </div>
+
+            <!-- API 키 설정 버튼 -->
+            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+              <button class="btn btn-secondary btn-sm" onclick="openApiModal('user')" style="font-size: 0.8rem; padding: 6px 14px; border-radius: 20px;">
+                ⚙️ 내 네이버 API 키 설정
+              </button>
+              <div id="apiKeyStatusBadge" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #10b981;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+                <span id="apiKeyStatusText">개인 전용 무제한 분석 모드 활성화됨 ✅</span>
+              </div>
+            </div>
+
+            <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0;">
+              검색량 대비 경쟁 문서가 극도로 적은 <strong>틈새 황금키워드</strong>를 횟수 제한 없이 자유롭게 실시간 발굴합니다.
+            </p>
+          </div>
+
+          <!-- 오른쪽 안내 링크 버튼 -->
+          <div style="display: flex; flex-direction: column; gap: 8px; min-width: 180px;">
+            <a href="https://searchad.naver.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="background: #047857; color: #fff; font-weight: 800; padding: 10px 16px; border-radius: 10px; text-decoration: none; text-align: center;">
+              네이버 API 무료 발급 안내 ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 개인 무제한 분석 안내 배너 (초록색 박스) -->
+      <div style="margin-bottom: 24px; padding: 18px 22px; border: 1px solid rgba(16,185,129,0.4); border-radius: 14px; background: rgba(16,185,129,0.06);">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <div>
+            <div style="font-size: 0.95rem; font-weight: 900; color: #10b981; display: flex; align-items: center; gap: 6px;">
+              <span>⚡</span> 개인 전용 무제한 분석 모드
+            </div>
+            <div style="margin-top: 6px; color: var(--text-main); font-size: 0.85rem; line-height: 1.6;">
+              외부 유료 결제 없이 <strong>단건 키워드 분석과 메인 키워드 연관 분석을 횟수 제한 없이 무제한</strong>으로 이용할 수 있습니다.
+            </div>
+          </div>
+          <span id="freeQuotaCountBadge" style="padding: 6px 14px; border-radius: 20px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #10b981; font-size: 0.85rem; font-weight: 800; white-space: nowrap;">
+            상태: <span id="quotaRemaining">무제한 이용 가능</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- 2-1. 키워드 분석기 내부 상단 5대 서브 탭 바 (스크린샷 100% 동일 구현) -->
+      <div class="kw-subtabs-bar" style="display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 4px; border-bottom: 1px solid var(--border-color);">
+        <button type="button" class="kw-subtab-btn active" data-kwsub="analysis" onclick="switchKwSubTab('analysis')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
+          <span>🔍</span> 1. 연관 황금키워드 분석기
+        </button>
+        <button type="button" class="kw-subtab-btn" data-kwsub="trending" onclick="switchTab('home')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-sub); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
+          <span>🔥</span> 2. 실시간 급상승 검색어
+        </button>
+        <button type="button" class="kw-subtab-btn" data-kwsub="find" onclick="switchTab('adsense')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-sub); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
+          <span>🔗</span> 3. 키워드 찾으러 가기
+        </button>
+        <button type="button" class="kw-subtab-btn" data-kwsub="excel" onclick="switchKwSubTab('excel')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-sub); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
+          <span>📁</span> 4. 엑셀 파일 대량 분석
+        </button>
+        <button type="button" class="kw-subtab-btn" id="subtab-btn-ranktracker" data-kwsub="ranktracker" onclick="switchKwSubTab('ranktracker')" style="background: rgba(37, 99, 235, 0.15); border: 1px solid rgba(37, 99, 235, 0.35); border-radius: 8px 8px 0 0; padding: 12px 20px; font-size: 0.95rem; font-weight: 800; color: #60a5fa; cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid #2563eb; transition: all 0.2s; white-space: nowrap;">
+          <span>🔬</span> 5. 블로그 노출 추적
+        </button>
+      </div>
+
+      <!-- [서브 패널 1] 연관 황금키워드 분석기 -->
+      <div id="kw-panel-analysis" class="kw-sub-panel">
+        <!-- 3. [폼 1] ⚡ 1. 단건 키워드 분석 (1건 빠르게 결과 확인) -->
+        <div class="card" style="margin-bottom: 20px; padding: 22px;">
+          <h3 style="margin: 0 0 12px 0; color: #10b981; font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+            <span>⚡</span> 1. 단건 키워드 분석 (1건 빠르게 결과 확인)
+          </h3>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <input type="text" id="singleFastInput" class="form-input" style="flex: 1; min-width: 260px;" placeholder="키워드 1개 입력 (예: 취사병)">
+            <button id="singleFastBtn" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981, #059669); min-width: 140px;">
+              단건 빠른 분석
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. [폼 2] 🎯 2. 메인 키워드 연관 분석 (실시간 연관 분석) -->
+        <div class="card" style="margin-bottom: 24px; padding: 22px;">
+          <h3 style="margin: 0 0 12px 0; color: #f59e0b; font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+            <span>🎯</span> 2. 메인 키워드 연관 분석 (실시간 연관 분석)
+          </h3>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <input type="text" id="analyzerInput" class="form-input" style="flex: 1; min-width: 260px;" placeholder="검색할 키워드 (예: 취사병, 캠핑, 신입사원강회장)">
+            <button id="mainKeywordBtn" class="btn btn-accent" style="min-width: 140px;">
+              연관 분석 시작
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. 분석 결과 테이블 카드 -->
+        <div class="card" id="keyword-result-container" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700;">📊 '<span id="analyzedSearchTerm" style="color: #f59e0b;"></span>' 키워드 분석 결과</h3>
+              <p style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">
+                경쟁도가 <strong>'낮음'</strong>인 키워드는 신생 블로그도 상위 노출될 가능성이 매우 높습니다!
+              </p>
+            </div>
+            <button id="keyword-export-btn" class="btn btn-secondary btn-sm">
+              📥 엑셀(CSV) 다운로드
+            </button>
+          </div>
+
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 50px;">No</th>
+                  <th>연관 키워드</th>
+                  <th>PC 검색량</th>
+                  <th>모바일 검색량</th>
+                  <th>총 검색량</th>
+                  <th>경쟁도</th>
+                  <th>액션</th>
+                </tr>
+              </thead>
+              <tbody id="keyword-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- [서브 패널 2] 5. 블로그 노출 추적 (스크린샷 1:1 완벽 구현) -->
+      <div id="kw-panel-ranktracker" class="kw-sub-panel" style="display: none;">
+        <!-- 메인 검색 인풋 카드 (스크린샷 100% 동일 디자인) -->
+        <div class="card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px 28px; margin-bottom: 24px; position: relative; overflow: hidden;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; margin-bottom: 24px;">
+            <!-- 왼쪽 타이틀 & 설명 -->
+            <div style="flex: 1; min-width: 280px;">
+              <div style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3); color: #818cf8; font-size: 0.78rem; font-weight: 800; margin-bottom: 12px; letter-spacing: 0.05em;">
+                <span>🔬</span> SERP RANK TRACKER
+              </div>
+              <h2 style="font-size: 1.7rem; font-weight: 900; color: var(--text-main); margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px;">
+                <span>📊</span> 내 블로그 실시간 노출 측정
+              </h2>
+              <p style="font-size: 0.9rem; color: var(--text-sub); margin: 0; line-height: 1.5;">
+                내 블로그 RSS 피드 실시간 연동 ➔ 네이버 통합검색 SERP 1~30위 순위 정밀 측정 및 노출 점유율 분석
+              </p>
+            </div>
+
+            <!-- 오른쪽 혜택 배지 카드 (이미지와 동일) -->
+            <div style="background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 14px; padding: 14px 22px; text-align: center; min-width: 170px;">
+              <div style="font-size: 0.8rem; color: #f59e0b; font-weight: 800; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                <span>🎁</span> 무료 / 유료 공통 혜택
+              </div>
+              <div style="font-size: 1rem; font-weight: 900; color: var(--text-main);">
+                최근 글 30개 · 하루 5회
+              </div>
+            </div>
+          </div>
+
+          <!-- 입력 폼 & 실시간 노출 순위 측정 버튼 (이미지와 100% 동일) -->
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: stretch;">
+            <input type="text" id="blogRankInput" class="form-input" placeholder="네이버 블로그 아이디 또는 주소 입력 (예: myblog 또는 https://blog.naver.com/아이디)" style="flex: 1; min-width: 280px; height: 50px; font-size: 0.95rem; border-radius: 10px; padding: 0 18px;">
+            <button id="blogRankBtn" class="btn btn-primary" style="background: #2563eb; color: #ffffff; font-size: 0.95rem; font-weight: 800; padding: 0 24px; height: 50px; border-radius: 10px; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; white-space: nowrap; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);">
+              <span>📊</span> 실시간 노출 순위 측정
+            </button>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin: 10px 0 0 4px;">
+            네이버 블로그 아이디를 입력하고 버튼을 누르면 최근 발행 글 30개의 실시간 검색 순위와 점유율이 측정됩니다.
+          </p>
+        </div>
+
+        <!-- 실시간 측정 상태 안내 & 통계 대시보드 -->
+        <div id="blogRankStatsCard" class="card" style="display: none; margin-bottom: 24px; padding: 22px;">
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 18px;" class="rank-stat-grid">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 16px;">
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px;">분석된 최근 글</div>
+              <div style="font-size: 1.4rem; font-weight: 900; color: var(--text-main);" id="stat-total-posts">0건</div>
+            </div>
+            <div style="background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.3); border-radius: 10px; padding: 14px 16px;">
+              <div style="font-size: 0.8rem; color: #10b981; margin-bottom: 4px; font-weight: 700;">TOP 1~5위 노출 (1페이지)</div>
+              <div style="font-size: 1.4rem; font-weight: 900; color: #10b981;" id="stat-top5-posts">0건</div>
+            </div>
+            <div style="background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.3); border-radius: 10px; padding: 14px 16px;">
+              <div style="font-size: 0.8rem; color: #60a5fa; margin-bottom: 4px; font-weight: 700;">TOP 6~30위 노출</div>
+              <div style="font-size: 1.4rem; font-weight: 900; color: #60a5fa;" id="stat-top30-posts">0건</div>
+            </div>
+            <div style="background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.3); border-radius: 10px; padding: 14px 16px;">
+              <div style="font-size: 0.8rem; color: #f59e0b; margin-bottom: 4px; font-weight: 700;">평균 노출 점유율</div>
+              <div style="font-size: 1.4rem; font-weight: 900; color: #f59e0b;" id="stat-exposure-rate">0%</div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 0;">
+                📋 '<span id="trackedBlogIdText" style="color: #60a5fa;"></span>' 블로그 최근 30개 글 노출 현황
+              </h3>
+              <span style="font-size: 0.8rem; color: var(--text-muted);" id="trackedTimestamp"></span>
+            </div>
+            <button id="rankCsvExportBtn" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;">
+              📥 결과 CSV 다운로드
+            </button>
+          </div>
+
+          <!-- 30개 글 상세 랭킹 테이블 -->
+          <div class="table-container" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: rgba(255, 255, 255, 0.03); border-bottom: 2px solid var(--border-color);">
+                  <th style="padding: 12px; text-align: center; width: 45px;">No</th>
+                  <th style="padding: 12px; text-align: left;">발행 글 제목 (RSS)</th>
+                  <th style="padding: 12px; text-align: center; width: 130px;">추출 키워드</th>
+                  <th style="padding: 12px; text-align: center; width: 100px;">통합검색 순위</th>
+                  <th style="padding: 12px; text-align: center; width: 90px;">점유율</th>
+                  <th style="padding: 12px; text-align: center; width: 90px;">노출 상태</th>
+                  <th style="padding: 12px; text-align: center; width: 100px;">원문 보기</th>
+                </tr>
+              </thead>
+              <tbody id="blog-rank-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- [서브 패널 3] 4. 엑셀 파일 대량 분석 -->
+      <div id="kw-panel-excel" class="kw-sub-panel" style="display: none;">
+        <div class="card" style="padding: 36px; text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 14px;">📁</div>
+          <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 8px;">엑셀 파일 대량 분석</h3>
+          <p style="font-size: 0.9rem; color: var(--text-sub); margin-bottom: 24px;">키워드 목록이 담긴 CSV/Excel 파일을 업로드하시면 대량 키워드의 검색량을 한 번에 분석합니다.</p>
+          <div class="dropzone" onclick="window.showToast('대량 분석할 엑셀/CSV 파일을 선택해 주세요.')">
+            <div class="dropzone-icon">📥</div>
+            <p style="font-weight: 700;">CSV 파일 클릭 또는 드래그하여 업로드</p>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">최대 500개 키워드 일괄 고속 분석 지원</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [TAB 3] 애드센스&황금키워드 고단가 큐레이션 화면 (머니대외비 ?page=keywordcenter 1:1 완벽 구현) -->
+    <section id="tab-adsense" class="tab-section">
+      <!-- 1. 헤더 카드 (DAILY KEYWORD CENTER + 타이틀 + 우측 상단 2개 버튼) -->
+      <div class="kc-header-box">
+        <div class="kc-header-top-row">
+          <div>
+            <span class="kc-badge-daily">DAILY KEYWORD CENTER</span>
+            <h1 class="kc-main-title">애드센스&황금키워드</h1>
+          </div>
+          <div class="kc-header-btn-group">
+            <a href="https://cafe.naver.com" target="_blank" rel="noopener noreferrer" class="kc-header-btn" style="text-decoration: none;">
+              <span>🟣</span> 카페로 황금키워드 보러가기
+            </a>
+            <button type="button" class="kc-header-btn" onclick="openApiModal('paid')">
+              <span>🔑</span> 유료 발급키 설정
+            </button>
+          </div>
+        </div>
+
+        <!-- 키워드 센터 업데이트 주기 안내 박스 (보라색 원 아이콘 + 4열 카드) -->
+        <div class="kc-update-info-card">
+          <div class="kc-update-info-title">
+            <span class="kc-purple-dot">🟣</span> 키워드 센터 업데이트 주기 안내
+          </div>
+          <div class="kc-update-grid-4">
+            <!-- 1. 황금·쇼핑·mate -->
+            <div class="kc-cycle-card">
+              <div class="kc-cycle-name">⚡ 황금 · 쇼핑 · mate</div>
+              <div class="kc-cycle-sub">매일 업데이트 (중복 제외)</div>
+            </div>
+            <!-- 2. 애드센스·지식iN -->
+            <div class="kc-cycle-card">
+              <div class="kc-cycle-name">🎯 애드센스 · 지식iN</div>
+              <div class="kc-cycle-sub">3일에 한번 업데이트<br><span style="color: #60a5fa;">(정확한 키워드 제공을 위해서)</span></div>
+            </div>
+            <!-- 3. 정책신호형 -->
+            <div class="kc-cycle-card">
+              <div class="kc-cycle-name">📢 정책신호형</div>
+              <div class="kc-cycle-sub">매주 월요일 업데이트</div>
+            </div>
+            <!-- 4. 프리미엄 추천 애드센스 키워드 -->
+            <div class="kc-cycle-card">
+              <div class="kc-cycle-name">👑 프리미엄 추천 애드센스 키워드</div>
+              <div class="kc-cycle-sub">매주 월요일 업데이트</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 상단 8개 카테고리 필터 알약 탭 바 (스크린샷 100% 매칭) -->
+      <div class="kc-pill-tabs-bar" id="kc-pill-tabs-bar">
+        <button class="kc-pill-btn active" data-type="type-1">✨ 1. 황금키워드 (15/30) · 매일</button>
+        <button class="kc-pill-btn" data-type="type-2">🛒 2. 제휴마케팅 키워드 (10/20) · 매일</button>
+        <button class="kc-pill-btn" data-type="type-3">💰 3. 애드센스 키워드 (5/10) · 3일 주기</button>
+        <button class="kc-pill-btn" data-type="type-4">🤖 4. 네이버 mate 키워드 (5/10) · 매일</button>
+        <button class="kc-pill-btn" data-type="type-5">❓ 5. 지식iN Q&A (10/20) · 3일 주기</button>
+        <button class="kc-pill-btn" data-type="type-6">📢 6. 정책신호형 애드센스 키워드 · 매주 월요일</button>
+        <button class="kc-pill-btn" data-type="type-7">👑 7. 이번주 머니대외비 추천 애드센스 키워드 · 매주 월요일</button>
+        <button class="kc-pill-btn" data-type="type-8">🔥 8. 바이럴숏폼 · 유튜브 실시간</button>
+      </div>
+
+      <!-- 3. 주제 카테고리별 보기 서브 바 (전체 30개 / 검증 통과 30개) -->
+      <div class="kc-sub-filter-bar">
+        <div class="kc-sub-filter-header">
+          <span style="font-weight: 800; color: var(--text-main); font-size: 0.88rem;">주제 카테고리별 보기</span>
+          <span style="font-size: 0.78rem; color: var(--text-muted);">전체 공개 30개 · 검증 통과 30개 · 최소 15개 / 목표 30개 · 목표 확보</span>
+        </div>
+        <div class="kc-sub-filter-btns">
+          <button class="kc-sub-btn active" data-sub="all">전체 (15)</button>
+          <button class="kc-sub-btn" data-sub="evergreen">생활/정보/에버그린 (15)</button>
+        </div>
+      </div>
+
+      <!-- 4. 메인 2단 대시보드 (좌측: 스크롤 키워드 카드 리스트 / 우측: 실시간 상세 리포트) -->
+      <div class="kc-dual-layout">
+        <!-- [좌측] 키워드 카드 스크롤 리스트 -->
+        <div class="kc-list-col" id="kc-cards-container"></div>
+
+        <!-- [우측] 클릭 시 실시간으로 바뀌는 상세 분석 리포트 패널 -->
+        <div class="kc-detail-card" id="kc-detail-panel"></div>
+      </div>
+    </section>
+
+    <!-- ===== [모달 1] 내 네이버 API 키 설정 팝업 ===== -->
+    <div id="apiUserModal" class="modal-backdrop" style="display: none;">
+      <div class="modal-box" style="max-width: 500px; background: #131a29; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
+        <!-- 상단 헤더 -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 8px; margin: 0;">
+            <span style="font-size: 1.4rem;">⚙️</span> 내 API 키 설정
+          </h3>
+          <button onclick="closeApiModal('user')" style="background: none; border: none; color: #94a3b8; font-size: 1.5rem; cursor: pointer; padding: 0; line-height: 1;">✕</button>
+        </div>
+        <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 22px; line-height: 1.5;">
+          본인의 네이버 API 키를 입력하면 한도 초과 없이 안정적으로 사용할 수 있습니다.
+        </p>
+
+        <!-- 1. 네이버 검색·트렌드 API 섹션 박스 -->
+        <div style="background: transparent; border: 1.5px solid rgba(16, 185, 129, 0.5); border-radius: 12px; padding: 18px 20px; margin-bottom: 18px;">
+          <h4 style="color: #10b981; font-size: 0.95rem; font-weight: 800; margin-bottom: 14px; margin-top: 0;">1. 네이버 검색·트렌드 API</h4>
+          
+          <div class="form-group" style="margin-bottom: 14px;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; display: block;">인증 방식</label>
+            <select id="naverAuthType" class="form-select" onchange="onNaverAuthTypeChange()" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.15); color: #f8fafc; border-radius: 8px; padding: 10px 12px; font-size: 0.9rem; outline: none;">
+              <option value="hub">NAVER API HUB (통합형 · 권장)</option>
+              <option value="dev">기존 네이버 개발자센터 키</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 14px;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; display: block;">Client ID</label>
+            <input type="text" id="naverClientId" class="form-input" placeholder="X-NCP-APIGW-API-KEY-ID" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+          </div>
+
+          <div class="form-group" style="margin-bottom: 12px;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; display: block;">Client Secret</label>
+            <input type="password" id="naverClientSecret" class="form-input" placeholder="X-NCP-APIGW-API-KEY" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+          </div>
+
+          <p id="naverAuthDesc" style="font-size: 0.78rem; color: #94a3b8; line-height: 1.5; margin: 0;">
+            통합형은 X-NCP-APIGW-API-KEY-ID / X-NCP-APIGW-API-KEY 인증을 사용합니다. 검색광고 키는 별도로 계속 필요합니다.
+          </p>
+        </div>
+
+        <!-- 2. 네이버 검색광고 API 섹션 박스 -->
+        <div style="background: transparent; border: 1.5px solid rgba(245, 158, 11, 0.5); border-radius: 12px; padding: 18px 20px; margin-bottom: 24px;">
+          <h4 style="color: #f59e0b; font-size: 0.95rem; font-weight: 800; margin-bottom: 14px; margin-top: 0;">2. 네이버 검색광고 API</h4>
+          
+          <div class="form-group" style="margin-bottom: 14px;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; display: block;">CUSTOMER ID</label>
+            <input type="text" id="adCustomerId" class="form-input" placeholder="고객확인번호" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+          </div>
+
+          <div class="form-group" style="margin-bottom: 14px;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; display: block;">ACCESS LICENSE</label>
+            <input type="text" id="adLicenseKey" class="form-input" placeholder="액세스 라이선스 키" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+          </div>
+
+          <div class="form-group" style="margin-bottom: 4px;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; display: block;">SECRET KEY</label>
+            <input type="password" id="adSecretKey" class="form-input" placeholder="비밀키" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+          </div>
+        </div>
+
+        <!-- 하단 액션 버튼 -->
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" onclick="clearUserApiKeys()" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #e2e8f0; padding: 8px 18px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: 0.2s;">초기화</button>
+          <button type="button" onclick="saveUserApiKeys()" style="background: #10b981; border: none; color: #ffffff; padding: 8px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">저장 및 적용하기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== [모달 2] 🔑 유료 발급키 설정 모달 (스크린샷 1:1 완벽 구현) ===== -->
+    <div id="apiPaidModal" class="modal-backdrop" style="display: none;">
+      <div class="modal-box" style="max-width: 480px; background: #ffffff; color: #1e293b; border-radius: 16px; padding: 28px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45); border: none;">
+        <!-- 상단 헤더 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0; display: flex; align-items: center; gap: 8px;">
+            <span>🔑</span> 유료 발급키 설정
+          </h3>
+          <button type="button" onclick="closeApiModal('paid')" style="background: none; border: none; color: #64748b; font-size: 1.5rem; cursor: pointer; padding: 0; line-height: 1;">✕</button>
+        </div>
+
+        <p style="font-size: 0.85rem; color: #475569; margin: 0 0 20px 0; line-height: 1.6;">
+          유료 발급키 하나로 <strong style="color: #0284c7;">단건·연관 키워드 분석</strong>과 <strong style="color: #dc2626;">엑셀 대량 분석</strong>을 함께 이용할 수 있습니다. 브라우저에만 저장되며 언제든 변경·삭제할 수 있습니다.
+        </p>
+
+        <!-- 16자리 공통 유료 발급키 입력창 -->
+        <div class="form-group" style="margin-bottom: 8px;">
+          <label class="form-label" style="font-size: 0.82rem; font-weight: 800; color: #0f172a; margin-bottom: 6px; display: block;">
+            16자리 공통 유료 발급키
+          </label>
+          <input type="text" id="paidAccessKeyInput" class="form-input" placeholder="예: AAAB4Z6KNMC6EYW5" style="width: 100%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; border-radius: 8px; padding: 12px 14px; font-size: 0.95rem; font-weight: 600; box-sizing: border-box; outline: none; letter-spacing: 0.05em;">
+        </div>
+        <p style="font-size: 0.78rem; color: #64748b; margin: 0 0 24px 0;">
+          발급받은 16자리 키를 입력해 주세요.
+        </p>
+
+        <!-- 하단 액션 버튼 ([삭제] [저장하기]) -->
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" onclick="clearPaidKey()" style="background: #ffffff; border: 1px solid #cbd5e1; color: #334155; padding: 8px 18px; border-radius: 6px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: 0.2s;">
+            삭제
+          </button>
+          <button type="button" onclick="savePaidKey()" style="background: #ffffff; border: 1px solid #cbd5e1; color: #0f172a; padding: 8px 20px; border-radius: 6px; font-size: 0.9rem; font-weight: 800; cursor: pointer; transition: 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+            저장하기
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- ===== [모달 3] 📈 주식/뉴스 API 연동 키 설정 팝업 ===== -->
+    <div id="apiStockModal" class="modal-backdrop" style="display: none;">
+      <div class="modal-box" style="max-width: 520px; background: #0f172a; color: #f8fafc; border-radius: 16px; padding: 28px; box-shadow: 0 25px 50px rgba(0,0,0,0.6); border: 1px solid rgba(56, 189, 248, 0.3);">
+        <!-- 헤더 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: #38bdf8; margin: 0; display: flex; align-items: center; gap: 8px;">
+            <span>🔑</span> 주식/뉴스 실시간 API 연동 설정
+          </h3>
+          <button type="button" onclick="closeStockApiModal()" style="background: none; border: none; color: #94a3b8; font-size: 1.5rem; cursor: pointer; padding: 0; line-height: 1;">✕</button>
+        </div>
+
+        <p style="font-size: 0.84rem; color: #94a3b8; margin: 0 0 18px 0; line-height: 1.6;">
+          실시간 언론사 뉴스 기사 검색과 공공데이터 시황을 제한 없이 동기화하기 위한 키를 저장합니다. <strong>키가 없어도 기본 모의 시황 및 네이버 금융 공식 실시간 차트는 100% 무료 작동합니다.</strong>
+        </p>
+
+        <!-- 1. 네이버 뉴스 검색 API -->
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;">
+          <div style="font-size: 0.88rem; font-weight: 800; color: #34d399; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+            <span>📰</span> 1. 네이버 뉴스 검색 API (실시간 특징주 기사)
+          </div>
+          <div class="form-group" style="margin-bottom: 8px;">
+            <label class="form-label" style="font-size: 0.76rem; color: #cbd5e1; margin-bottom: 4px; display: block;">Client ID</label>
+            <input type="text" id="stockNaverClientId" class="form-input" placeholder="네이버 개발자센터 Client ID" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 6px; padding: 8px 12px; font-size: 0.88rem;">
+          </div>
+          <div class="form-group" style="margin-bottom: 4px;">
+            <label class="form-label" style="font-size: 0.76rem; color: #cbd5e1; margin-bottom: 4px; display: block;">Client Secret</label>
+            <input type="password" id="stockNaverClientSecret" class="form-input" placeholder="Client Secret" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 6px; padding: 8px 12px; font-size: 0.88rem;">
+          </div>
+        </div>
+
+        <!-- 2. 한국투자증권 KIS Open API (선택사항) -->
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px 16px; margin-bottom: 20px;">
+          <div style="font-size: 0.88rem; font-weight: 800; color: #38bdf8; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+            <span>📈</span> 2. 한국투자증권 실시간 호가/수급 API (선택사항)
+          </div>
+          <div class="form-group" style="margin-bottom: 8px;">
+            <label class="form-label" style="font-size: 0.76rem; color: #cbd5e1; margin-bottom: 4px; display: block;">App Key</label>
+            <input type="text" id="stockKisAppKey" class="form-input" placeholder="KIS Developers AppKey" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 6px; padding: 8px 12px; font-size: 0.88rem;">
+          </div>
+          <div class="form-group" style="margin-bottom: 4px;">
+            <label class="form-label" style="font-size: 0.76rem; color: #cbd5e1; margin-bottom: 4px; display: block;">App Secret</label>
+            <input type="password" id="stockKisAppSecret" class="form-input" placeholder="KIS Developers AppSecret" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 6px; padding: 8px 12px; font-size: 0.88rem;">
+          </div>
+        </div>
+
+        <!-- 하단 액션 버튼 -->
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" onclick="clearStockApiKeys()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; cursor: pointer;">
+            초기화
+          </button>
+          <button type="button" onclick="saveStockApiKeys()" style="background: #0284c7; border: none; color: #ffffff; padding: 8px 18px; border-radius: 6px; font-size: 0.85rem; font-weight: 800; cursor: pointer;">
+            저장 및 즉시 적용
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- [TAB 4] 맞춤형 글쓰기 프롬프트 화면 (스크린샷 1:1 완벽 구현) -->
+    <section id="tab-prompt" class="tab-section">
+      <div class="hero-header" style="padding-bottom: 30px;">
+        <h2 style="font-size: clamp(2rem, 3.5vw, 2.6rem); font-weight: 900; color: var(--text-main); margin-bottom: 12px;">
+          맞춤형 글쓰기 프롬프트
+        </h2>
+        <p class="hero-subtitle">
+          수익형 블로그 작성을 돕는 전용 AI 챗봇 모음입니다. 원하는 용도를 선택해 보세요.
+        </p>
+      </div>
+
+      <!-- 3x3 맞춤형 챗봇 카드 그리드 컨테이너 -->
+      <div class="custom-bots-grid" id="custom-bots-grid"></div>
+
+      <!-- SAFE USE 안전 사용 가이드 박스 (스크린샷 100% 동일 구현) -->
+      <div style="margin-top: 45px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-color); border-radius: 18px; padding: 36px 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
+        <!-- SAFE USE 배지 -->
+        <div style="display: inline-block; background: #fef08a; color: #854d0e; font-size: 0.75rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; margin-bottom: 14px;">
+          SAFE USE
+        </div>
+
+        <!-- 중앙 메인 헤딩 및 안내문 -->
+        <h3 style="font-size: 1.5rem; font-weight: 900; color: var(--text-main); margin-bottom: 10px; letter-spacing: -0.5px;">
+          답변은 그대로 쓰기보다 한 번 더 다듬어주세요
+        </h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 30px;">
+          GPTs는 글쓰기 보조 도구입니다. 승인, 노출, 수익을 보장하지 않으며 최종 판단과 수정은 사용자에게 있습니다.
+        </p>
+
+        <!-- 3개 세부 안내 카드 그리드 -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; text-align: left;">
+          <!-- 1. 좋은 사용법 -->
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-bottom: 10px;">
+              좋은 사용법
+            </h4>
+            <p style="font-size: 0.82rem; color: var(--text-sub); line-height: 1.65; margin: 0;">
+              키워드, 대상 독자, 글 목적, 원하는 톤을 함께 넣고 마지막에 "100% 지침대로 해줘"를 붙여주세요. 그리고 생성된 글에 본인만의 경험을 약간 덧붙여 발행하시면 최상급 글이 됩니다.
+            </p>
+          </div>
+
+          <!-- 2. 주의할 점 -->
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-bottom: 10px;">
+              주의할 점
+            </h4>
+            <p style="font-size: 0.82rem; color: var(--text-sub); line-height: 1.65; margin: 0;">
+              외부 채널이나 지식인 답변에는 과도한 홍보를 피하고, 질문자에게 실질적으로 도움이 되는 내용 중심으로 사용해주세요. 무지성 복사 붙여넣기는 계정 정지의 원인이 됩니다.
+            </p>
+          </div>
+
+          <!-- 3. 문의 위치 -->
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-bottom: 10px;">
+              문의 위치
+            </h4>
+            <p style="font-size: 0.82rem; color: var(--text-sub); line-height: 1.65; margin: 0;">
+              문제가 생기면 구매자 단톡방 또는 1:1 문의가 가장 빠릅니다. 사이트 하단 고객문의는 확인이 늦을 수 있으니 양해 부탁드립니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [TAB 5] 외부 유입글 생성 화면 (머니대외비 1:1 완벽 구현) -->
+    <section id="tab-external" class="tab-section">
+      <!-- 1. 상단 헤더 박스 (BYOK 배지 + 타이틀 + 안내문) -->
+      <div class="ext-hero-box">
+        <span class="ext-badge-byok">BYOK · 개인 Gemini API 키 사용</span>
+        <h1 class="ext-main-title">외부 유입글 생성</h1>
+        <p class="ext-main-desc">
+          원문 하나를 바탕으로 채널별 목적에 맞는 게시용 초안을 생성합니다. 운영자 Gemini 키나 호출량은 사용하지 않으며, 사용자의 개인 Gemini API 키로만 생성합니다.
+        </p>
+      </div>
+
+      <!-- 2. 본문 2컬럼 레이아웃 (왼쪽: 원문과 채널 선택 / 오른쪽: 개인 Gemini 키 및 생성 버튼) -->
+      <div class="ext-two-columns">
+        
+        <!-- [왼쪽 컬럼] 1. 원문과 채널 선택 -->
+        <div class="ext-card">
+          <div class="ext-card-header">
+            <div>
+              <h2 class="ext-card-title">1. 원문과 채널 선택</h2>
+              <p class="ext-card-subtitle">원하는 채널을 선택하여 원고를 생성합니다. 각 채널은 독립적인 문체와 검색 의도로 작성됩니다.</p>
+            </div>
+            <span class="ext-status-pill" id="ext-channel-count-pill">2개 채널 선택</span>
+          </div>
+
+          <!-- 메인 키워드 & CTA 링크 2열 인풋 -->
+          <div class="ext-form-row-2">
+            <div class="ext-form-group">
+              <label class="ext-label" for="ext-main-kw-input">메인 키워드</label>
+              <input type="text" id="ext-main-kw-input" class="ext-input" placeholder="예: 주택연금">
+            </div>
+            <div class="ext-form-group">
+              <label class="ext-label" for="ext-cta-link-input">CTA 링크 또는 안내 문구</label>
+              <input type="text" id="ext-cta-link-input" class="ext-input" placeholder="예: https://www.boutique-info.com/ 또는 [블로그링크]">
+            </div>
+          </div>
+
+          <!-- 연관 키워드 입력 -->
+          <div class="ext-form-group">
+            <label class="ext-label" for="ext-sub-kw-input">연관 키워드</label>
+            <textarea id="ext-sub-kw-input" class="ext-textarea ext-textarea-sm" placeholder="쉼표 또는 줄바꿈으로 입력하세요. 예: 가입조건, 예상 수령액, 장단점"></textarea>
+          </div>
+
+          <!-- 원문 또는 핵심 자료 입력 -->
+          <div class="ext-form-group">
+            <label class="ext-label" for="ext-raw-content-input">원문 또는 핵심 자료</label>
+            <textarea id="ext-raw-content-input" class="ext-textarea ext-textarea-lg" placeholder="외부 유입글의 기준이 될 원문을 붙여넣으세요. 최소 80자 이상 입력해야 합니다."></textarea>
+            <p class="ext-input-hint">
+              원문에 없는 수치·날짜·조건은 생성하지 않도록 지시합니다. 제도·세금·금융·의료 등 최신성이 중요한 내용은 생성 결과를 발행하기 전에 공식 출처로 확인해 주세요.
+            </p>
+          </div>
+
+          <!-- 3. 생성할 채널 선택 영역 (8개 채널) -->
+          <div class="ext-channel-select-section">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px;">
+              <div>
+                <h3 class="ext-channel-section-title" style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 0 0 4px 0;">3. 생성할 채널</h3>
+                <p style="font-size: 0.8rem; color: var(--text-sub); margin: 0;">채널별로 다른 검색 의도와 문체를 적용합니다.</p>
+              </div>
+              <button type="button" id="ext-deselect-all-btn" class="ext-btn-deselect">선택 해제</button>
+            </div>
+            
+            <div class="ext-channel-grid-8" id="ext-channel-grid">
+              <!-- 채널 1: 네이버 프리미엄 콘텐츠 -->
+              <div class="ext-channel-card">
+                <div class="ext-channel-card-top">
+                  <label class="ext-channel-card-label">
+                    <input type="checkbox" name="ext-channel" value="naver_premium" class="ext-channel-checkbox">
+                    <span class="ext-ch-icon icon-blue-rect"></span>
+                    <span class="ext-ch-name">네이버 프리미엄 콘텐츠</span>
+                  </label>
+                  <div class="ext-ch-count-wrap">
+                    <span class="ext-ch-count-lbl">생성</span>
+                    <select class="ext-ch-count-select" data-ch="naver_premium">
+                      <option value="1" selected>1개</option>
+                      <option value="2">2개</option>
+                      <option value="3">3개</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="ext-channel-card-sub">분석형 · 표 · FAQ</div>
+              </div>
+
+              <!-- 채널 2: 네이버 블로그 -->
+              <div class="ext-channel-card">
+                <div class="ext-channel-card-top">
+                  <label class="ext-channel-card-label">
+                    <input type="checkbox" name="ext-channel" value="naver_blog" class="ext-channel-checkbox" checked>
+                    <span class="ext-ch-icon icon-green-rect"></span>
+                    <span class="ext-ch-name">네이버 블로그</span>
+                  </label>
+                  <div class="ext-ch-count-wrap">
+                    <span class="ext-ch-count-lbl">생성</span>
+                    <select class="ext-ch-count-select" data-ch="naver_blog">
+                      <option value="1" selected>1개</option>
+                      <option value="2">2개</option>
+                      <option value="3">3개</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="ext-channel-card-sub">정보형 · 표 · 해시태그</div>
+              </div>
+
+              <!-- 채널 3: 네이버 카페 -->
+              <div class="ext-channel-card">
+                <div class="ext-channel-card-top">
+                  <label class="ext-channel-card-label">
+                    <input type="checkbox" name="ext-channel" value="naver_cafe" class="ext-channel-checkbox" checked>
+                    <span class="ext-ch-icon icon-mint-sphere"></span>
+                    <span class="ext-ch-name">네이버 카페</span>
+                  </label>
+                  <div class="ext-ch-count-wrap">
+                    <span class="ext-ch-count-lbl">생성</span>
+                    <select class="ext-ch-count-select" data-ch="naver_cafe">
+                      <option value="1" selected>1개</option>
+                      <option value="2">2개</option>
+                      <option value="3">3개</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="ext-channel-card-sub">친근한 정보 공유형</div>
+              </div>
+
+              <!-- 채널 4: 다음 카페 -->
+              <div class="ext-channel-card">
+                <div class="ext-channel-card-top">
+                  <label class="ext-channel-card-label">
+                    <input type="checkbox" name="ext-channel" value="daum_cafe" class="ext-channel-checkbox">
+                    <span class="ext-ch-icon icon-yellow-sphere"></span>
+                    <span class="ext-ch-name">다음 카페</span>
+                  </label>
+                  <div class="ext-ch-count-wrap">
+                    <span class="ext-ch-count-lbl">생성</span>
+                    <select class="ext-ch-count-select" data-ch="daum_cafe">
+                      <option value="1" selected>1개</option>
+                      <option value="2">2개</option>
+                      <option value="3">3개</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="ext-channel-card-sub">다른 검색 의도형</div>
+              </div>
+
+              <!-- 채널 5: Google SEO -->
+              <div class="ext-channel-card">
+                <div class="ext-channel-card-top">
+                  <label class="ext-channel-card-label">
+                    <input type="checkbox" name="ext-channel" value="google_seo" class="ext-channel-checkbox">
+                    <span class="ext-ch-icon icon-search">🔍</span>
+                    <span class="ext-ch-name">Google SEO</span>
+                  </label>
+                  <div class="ext-ch-count-wrap">
+                    <span class="ext-ch-count-lbl">생성</span>
+                    <select class="ext-ch-count-select" data-ch="google_seo">
+                      <option value="1" selected>1개</option>
+                      <option value="2">2개</option>
+                      <option value="3">3개</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="ext-channel-card-sub">검색 질문 · FAQ형</div>
+              </div>
+
+              <!-- 채널 6: 브런치 -->
+              <div class="ext-channel-card">
+                <div class="ext-channel-card-top">
+                  <label class="ext-channel-card-label">
+                    <input type="checkbox" name="ext-channel" value="brunch" class="ext-channel-checkbox">
+                    <span class="ext-ch-icon icon-pencil">✍️</span>
+                    <span class="ext-ch-name">브런치</span>
+                  </label>
+                  <div class="ext-ch-count-wrap">
+                    <span class="ext-ch-count-lbl">생성</span>
+                    <select class="ext-ch-count-select" data-ch="brunch">
+                      <option value="1" selected>1개</option>
+                      <option value="2">2개</option>
+                      <option value="3">3개</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="ext-channel-card-sub">정보형 에세이</div>
+              </div>
+
+              <!-- 채널 7: Threads -->
+              <div class="ext-channel-card">
+                <div class="ext-channel-card-top">
+                  <label class="ext-channel-card-label">
+                    <input type="checkbox" name="ext-channel" value="threads" class="ext-channel-checkbox">
+                    <span class="ext-ch-icon icon-spool">🧵</span>
+                    <span class="ext-ch-name">Threads</span>
+                  </label>
+                  <div class="ext-ch-count-wrap">
+                    <span class="ext-ch-count-lbl">생성</span>
+                    <select class="ext-ch-count-select" data-ch="threads">
+                      <option value="1" selected>1개</option>
+                      <option value="2">2개</option>
+                      <option value="3">3개</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="ext-channel-card-sub">5~7줄 · 캐주얼</div>
+              </div>
+
+              <!-- 채널 8: X -->
+              <div class="ext-channel-card">
+                <div class="ext-channel-card-top">
+                  <label class="ext-channel-card-label">
+                    <input type="checkbox" name="ext-channel" value="x_twitter" class="ext-channel-checkbox">
+                    <span class="ext-ch-icon icon-x">𝕏</span>
+                    <span class="ext-ch-name">X</span>
+                  </label>
+                  <div class="ext-ch-count-wrap">
+                    <span class="ext-ch-count-lbl">생성</span>
+                    <select class="ext-ch-count-select" data-ch="x_twitter">
+                      <option value="1" selected>1개</option>
+                      <option value="2">2개</option>
+                      <option value="3">3개</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="ext-channel-card-sub">짧은 단일 게시물</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- [오른쪽 컬럼] 2. 개인 Gemini 키 및 모델 설정 -->
+        <div class="ext-side-col">
+          <div class="ext-card">
+            <div class="ext-card-header">
+              <h2 class="ext-card-title">2. 개인 Gemini 키</h2>
+              <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="ext-btn-api-guide">
+                API발급방법
+              </a>
+            </div>
+
+            <p class="ext-card-subtitle" style="margin-bottom: 16px;">
+              키는 이 요청을 Gemini에 전달하는 동안에만 사용하며 브라우저 저장소·Worker 캐시·사이트 데이터베이스에 저장하지 않습니다.
+            </p>
+
+            <!-- Gemini API 키 입력 -->
+            <div class="ext-form-group">
+              <label class="ext-label" for="ext-gemini-key-input">Gemini API 키</label>
+              <input type="password" id="ext-gemini-key-input" class="ext-input" placeholder="AI Studio에서 발급한 개인 키">
+            </div>
+
+            <!-- 기기에 저장 체크박스 & 저장 키 삭제 -->
+            <div class="ext-key-storage-box">
+              <label class="ext-checkbox-label">
+                <input type="checkbox" id="ext-save-key-checkbox">
+                <span>이 기기에 API 키 저장</span>
+              </label>
+              <p class="ext-key-storage-subtext">개인 기기에서만 사용하세요. 키가 브라우저 저장소에 암호화되지 않은 상태로 저장됩니다.</p>
+            </div>
+
+            <div style="text-align: right; margin-bottom: 16px;">
+              <button type="button" id="ext-delete-key-btn" class="ext-text-btn">저장 키 삭제</button>
+            </div>
+
+            <!-- 모델 선택 드롭다운 (3.8 최신 라인업 반영) -->
+            <div class="ext-form-group">
+              <label class="ext-label" for="ext-model-select">모델</label>
+              <select id="ext-model-select" class="ext-select">
+                <option value="gemini-3.8-flash">Gemini 3.8 Flash · 최신 차세대 초고속 · 강력 추천</option>
+                <option value="gemini-3.7-flash">Gemini 3.7 Flash · 최신 고성능</option>
+                <option value="gemini-3.6-flash">Gemini 3.6 Flash · 안정형 고성능</option>
+                <option value="gemini-3.5-flash" selected>Gemini 3.5 Flash · 무료 할당량 가능 · 권장</option>
+                <option value="gemini-3.5-flash-lite">Gemini 3.5 Flash-Lite · 저비용·고속</option>
+                <option value="gemini-3.1-flash-lite">Gemini 3.1 Flash-Lite · 경량 안정형</option>
+                <option value="gemini-3.1-pro-preview">Gemini 3.1 Pro Preview · 고난도 · 미리보기</option>
+                <option value="gemini-3-flash-preview">Gemini 3 Flash Preview · 미리보기</option>
+                <option value="gemini-2.5-flash">Gemini 2.5 Flash · 기존 호환</option>
+                <option value="gemini-2.5-flash-lite">Gemini 2.5 Flash-Lite · 기존 호환</option>
+              </select>
+              <p class="ext-model-hint">
+                <strong>권장</strong> · 품질과 비용의 균형형입니다. 일부 프로젝트에서 무료 할당량을 사용할 수 있습니다.
+              </p>
+            </div>
+
+            <!-- 모델별 무료 할당량·비용 안내 아코디언 (블랙 다크 테마 & 최적 박스 비율) -->
+            <details class="ext-details-box" open style="background: #0d131f; color: #f8fafc; border-radius: 12px; padding: 14px 16px; margin-bottom: 18px; border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+              <summary class="ext-details-summary" style="font-weight: 800; font-size: 0.88rem; cursor: pointer; color: #f8fafc; outline: none; display: flex; align-items: center; gap: 6px;">
+                ▼ 모델별 무료 할당량·비용 안내 보기
+              </summary>
+              <div class="ext-details-content" style="margin-top: 14px; overflow-x: auto;">
+                <table style="width: 100%; min-width: 320px; border-collapse: collapse; font-size: 0.8rem; text-align: left; color: #cbd5e1;">
+                  <thead>
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.15); font-weight: 800; color: #f8fafc;">
+                      <th style="padding: 8px 6px; width: 28%;">모델</th>
+                      <th style="padding: 8px 6px; width: 27%;">무료 등급</th>
+                      <th style="padding: 8px 6px; width: 45%;">유료 기준 (100만 토큰)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                      <td style="padding: 8px 6px; font-weight: 700; color: #60a5fa;">3.8 Flash</td>
+                      <td style="padding: 8px 6px; color: #34d399;">무료 지원*</td>
+                      <td style="padding: 8px 6px; color: #f1f5f9;">$0.15 / $0.60</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                      <td style="padding: 8px 6px; font-weight: 700;">3.7 Flash</td>
+                      <td style="padding: 8px 6px;">AI Studio 확인</td>
+                      <td style="padding: 8px 6px;">공식 가격 확인</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                      <td style="padding: 8px 6px; font-weight: 700;">3.6 Flash</td>
+                      <td style="padding: 8px 6px; color: #94a3b8;">없음</td>
+                      <td style="padding: 8px 6px;">$0.75 / $3.75</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                      <td style="padding: 8px 6px; font-weight: 700;">3.5 Flash</td>
+                      <td style="padding: 8px 6px; color: #34d399;">가능*</td>
+                      <td style="padding: 8px 6px;">$1.50 / $9.00</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                      <td style="padding: 8px 6px; font-weight: 700;">3.5 Flash-Lite</td>
+                      <td style="padding: 8px 6px; color: #34d399;">가능*</td>
+                      <td style="padding: 8px 6px;">$0.30 / $2.50</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                      <td style="padding: 8px 6px; font-weight: 700;">3.1 Flash-Lite</td>
+                      <td style="padding: 8px 6px; color: #34d399;">가능*</td>
+                      <td style="padding: 8px 6px;">AI Studio 확인</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                      <td style="padding: 8px 6px; font-weight: 700;">3.1 Pro Preview</td>
+                      <td style="padding: 8px 6px;">계정별 확인</td>
+                      <td style="padding: 8px 6px;">$2.00 / $12.00</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                      <td style="padding: 8px 6px; font-weight: 700;">2.5 Flash / Lite</td>
+                      <td style="padding: 8px 6px;">기존 호환</td>
+                      <td style="padding: 8px 6px;">$0.075 / $0.30</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="font-size: 0.72rem; color: #94a3b8; margin: 10px 0 0 0; line-height: 1.45;">
+                  * 무료 가능 모델도 프로젝트·국가·계정·속도 제한에 따라 한도가 다릅니다. 위 단가는 공식 USD 토큰 단가의 참고값입니다.
+                </p>
+              </div>
+            </details>
+
+            <!-- 노란색 경고 안내 박스 -->
+            <div class="ext-warning-box">
+              <div class="ext-warning-title">⚠️ 개인 Gemini 프로젝트 비용 안내</div>
+              <div class="ext-warning-desc">
+                무료 할당량을 초과하거나 유료 전용 모델을 선택하면 Gemini 프로젝트에 사용량 비용이 발생할 수 있습니다. 비용은 사이트 운영자가 아닌 <strong>입력한 개인 API 키의 Google 프로젝트</strong>에 청구됩니다. 한 번에는 최대 20건까지 생성할 수 있으며, 생성 전 AI Studio의 한도·결제·예산 알림을 확인하세요.
+              </div>
+            </div>
+
+            <!-- 파란색 개인 키 직접 호출 안내 박스 -->
+            <div class="ext-info-box">
+              <div class="ext-info-title">개인 키 직접 호출 안내</div>
+              <div class="ext-info-desc">
+                생성 요청은 현재 브라우저에서 <strong>Google Gemini API로 직접 전송</strong>됩니다. 이 기능은 Cloudflare Worker·KV·D1·Cache등을 거치지 않으므로 운영자 호출량과 KV 사용량을 늘리지 않습니다. 키 저장을 선택하지 않으면 생성 완료 후 입력칸에서 자동으로 비워집니다. 키 저장을 선택한 경우에도 키는 현재 브라우저의 localStorage에만 남습니다. 개인 PC에서만 Gemini API 전용 제한 키를 사용하고 공유 PC에서는 저장하지 마세요.
+              </div>
+            </div>
+
+            <!-- 하단 파란색 메인 생성 버튼 -->
+            <button type="button" id="ext-submit-generate-btn" class="ext-btn-generate">
+              선택 채널 원고 생성
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 생성 결과 뷰어 섹션 (생성 완료 시 나타남) -->
+      <div id="ext-results-container" class="ext-results-container" style="display: none; margin-top: 30px;">
+        <div class="ext-results-header">
+          <h2 class="ext-card-title" style="font-size: 1.3rem;">🎉 생성된 채널별 원고 결과</h2>
+          <span style="font-size: 0.85rem; color: var(--text-sub);">각 탭을 클릭하여 생성된 원고를 복사할 수 있습니다.</span>
+        </div>
+        <div class="ext-result-tabs" id="ext-result-tabs-nav"></div>
+        <div class="ext-result-content-wrap" id="ext-result-content-wrap"></div>
+      </div>
+    </section>
+
+    <!-- [TAB 6] 이미지 변환기 화면 (머니대외비 1:1 완벽 구현) -->
+    <section id="tab-converter" class="tab-section">
+      <div class="conv-container-card">
+        
+        <!-- 1. 헤더 (아이콘 + 제목 + 안내문구) -->
+        <div class="conv-header-area">
+          <h1 class="conv-title">
+            <span class="conv-title-icon">🖼️</span> 이미지 일괄 변환기
+          </h1>
+          <p class="conv-desc">
+            이미지는 서버로 전송되지 않고 이 브라우저 안에서만 변환됩니다.
+          </p>
+        </div>
+
+        <!-- 2. 드롭존 점선 박스 (파일 업로드 영역) -->
+        <div class="conv-dropzone" id="conv-dropzone">
+          <div class="conv-dropzone-icon">📥</div>
+          <div class="conv-dropzone-main-text">이미지를 끌어 놓거나 눌러서 선택</div>
+          <div class="conv-dropzone-sub-text">JPG, PNG, WebP, GIF(첫 프레임) · 여러 장 선택 가능</div>
+          <input type="file" id="conv-file-input" multiple accept="image/*" style="display: none;">
+        </div>
+
+        <!-- 3. 변환 옵션 4열 그리드 (출력 형식, 품질, 최대 가로, 최대 세로) -->
+        <div class="conv-options-row">
+          <!-- 출력 형식 -->
+          <div class="conv-opt-group">
+            <label class="conv-opt-label" for="conv-format-select">출력 형식</label>
+            <select id="conv-format-select" class="conv-select">
+              <option value="webp" selected>WebP</option>
+              <option value="jpeg">JPG</option>
+              <option value="png">PNG</option>
+            </select>
+          </div>
+
+          <!-- 품질 (JPG/WebP) 슬라이더 -->
+          <div class="conv-opt-group">
+            <div class="conv-quality-header">
+              <label class="conv-opt-label" for="conv-quality-range" style="margin-bottom: 0;">품질 (JPG/WebP)</label>
+              <span id="conv-quality-val-text" class="conv-quality-val">85%</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+              <input type="range" id="conv-quality-range" min="10" max="100" value="85" class="conv-range">
+            </div>
+          </div>
+
+          <!-- 최대 가로(px) -->
+          <div class="conv-opt-group">
+            <label class="conv-opt-label" for="conv-max-w-input">최대 가로(px, 0=원본)</label>
+            <input type="number" id="conv-max-w-input" class="conv-input" value="1600" min="0" step="100">
+          </div>
+
+          <!-- 최대 세로(px) -->
+          <div class="conv-opt-group">
+            <label class="conv-opt-label" for="conv-max-h-input">최대 세로(px, 0=원본)</label>
+            <input type="number" id="conv-max-h-input" class="conv-input" value="1600" min="0" step="100">
+          </div>
+        </div>
+
+        <!-- 4. 메타데이터 제거 안내 배너 (초록색 체크 박스) -->
+        <div class="conv-meta-strip">
+          <label class="conv-checkbox-label">
+            <input type="checkbox" id="conv-strip-meta" checked>
+            <span class="conv-meta-title">✅ 메타데이터 제거 (AI 생성 정보 · GPS · 저작권 태그 완전 삭제)</span>
+          </label>
+          <span class="conv-meta-sub">Canvas 재인코딩으로 완전 제거 · 서버 전송 없음</span>
+        </div>
+
+        <!-- 5. EXIF 가상 삽입 옵션 박스 (하늘색 박스 - 완전 무료 활성화) -->
+        <div class="conv-exif-box">
+          <div class="conv-exif-top">
+            <label class="conv-checkbox-label">
+              <input type="checkbox" id="conv-exif-checkbox">
+              <span>📱 스마트폰으로 직접 촬영한 것처럼 EXIF 가상 삽입 (JPG·PNG 지원)</span>
+            </label>
+            <select id="conv-device-select" class="conv-select conv-select-sm" style="width: auto; max-width: 240px;">
+              <option value="s24" selected>삼성 Galaxy S24 (SM-S928N)</option>
+              <option value="iphone15">애플 iPhone 15 Pro</option>
+              <option value="s23">삼성 Galaxy S23 Ultra</option>
+            </select>
+            <span class="conv-exif-note">JPG·PNG 출력 선택 시 카메라 촬영 메타데이터 자동 삽입 (WebP 미지원)</span>
+          </div>
+
+          <div class="conv-exif-bottom" style="margin-top: 8px;">
+            <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; color: #34d399; font-weight: 700;">
+              <span>⚡</span> 개인 모드 특권: 스마트폰 메타데이터 생성 기능이 100% 무료로 활성화되어 있습니다.
+            </span>
+          </div>
+        </div>
+
+        <!-- 6. 하단 버튼 바 (변환 시작, 전체 변환 + ZIP 다운로드, 목록 비우기) -->
+        <div class="conv-btn-row">
+          <button type="button" id="conv-start-btn" class="conv-btn conv-btn-white">
+            변환 시작
+          </button>
+          <button type="button" id="conv-zip-btn" class="conv-btn conv-btn-gray" disabled>
+            전체 변환 + ZIP 다운로드
+          </button>
+          <button type="button" id="conv-clear-btn" class="conv-btn conv-btn-white">
+            목록 비우기
+          </button>
+        </div>
+
+        <!-- 7. 이미지 처리 목록 테이블/그리드 영역 -->
+        <div id="conv-file-list-wrap" class="conv-file-list-wrap" style="display: none; margin-top: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <span style="font-weight: 800; font-size: 0.95rem; color: var(--text-main);">변환 파일 목록 (<span id="conv-file-count">0</span>개)</span>
+            <span style="font-size: 0.8rem; color: var(--text-sub);" id="conv-total-savings"></span>
+          </div>
+          <div id="conv-file-list" class="conv-file-list"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- [TAB 3.5] 🎨 AI 블로그 이미지 생성기 화면 -->
+    <section id="tab-imggen" class="tab-section">
+      <div class="conv-container-card" style="max-width: 1080px;">
+        <!-- 헤더 -->
+        <div class="conv-header-area">
+          <div style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 20px; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.35); color: #c084fc; font-size: 0.82rem; font-weight: 800; margin-bottom: 14px;">
+            <span>✨</span> 100% 무료 무제한 AI 생성 & 원클릭 다운로드
+          </div>
+          <h1 class="conv-title" style="color: #a855f7; display: flex; justify-content: center; align-items: center; gap: 10px;">
+            <span class="conv-title-icon">🎨</span> 블로그 맞춤 AI 이미지 생성기
+          </h1>
+          <p class="conv-desc">
+            글을 다 쓰신 후 주제나 묘사를 입력하면, 블로그 본문 및 썸네일에 딱 맞는 고화질 이미지를 즉시 생성하고 무료로 다운로드합니다.
+          </p>
+        </div>
+
+        <!-- 1. 프롬프트 및 설정 패널 -->
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+          
+          <!-- 상단 빠른 키워드 제안 칩들 -->
+          <div style="margin-bottom: 16px;">
+            <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-sub); margin-right: 8px;">추천 스타일 빠른 선택:</span>
+            <div style="display: inline-flex; gap: 8px; flex-wrap: wrap; margin-top: 6px;">
+              <button type="button" class="imggen-style-chip active" data-style="realistic">📸 생생한 실사 사진풍</button>
+              <button type="button" class="imggen-style-chip" data-style="illustration">🎨 깔끔한 블로그 일러스트</button>
+              <button type="button" class="imggen-style-chip" data-style="3d">✨ 입체 3D 아이콘/오브젝트</button>
+              <button type="button" class="imggen-style-chip" data-style="minimal">📐 모던 인포그래픽 미니멀</button>
+              <button type="button" class="imggen-style-chip" data-style="cinematic">🎬 감성적인 영화 시네마틱</button>
+            </div>
+          </div>
+
+          <!-- 프롬프트 입력창 -->
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label class="form-label" style="font-size: 0.92rem; font-weight: 800; color: var(--text-main); display: flex; justify-content: space-between;">
+              <span>원하는 이미지 주제 또는 장면 묘사 (한국어로 편하게 적으세요)</span>
+              <span style="font-size: 0.76rem; color: #a855f7; font-weight: 600;">⚡ 자동으로 AI 최적화 영문 번역 처리</span>
+            </label>
+            <div style="position: relative;">
+              <textarea id="imggen-prompt-input" class="form-textarea" placeholder="예: '깔끔한 사무실에서 노트북으로 블로그 글을 작성하고 있는 30대 남성의 책상 풍경, 따뜻한 커피 한 잔과 햇살'" style="min-height: 95px; font-size: 0.95rem; line-height: 1.6; padding-right: 90px;"></textarea>
+              <button type="button" id="imggen-clear-prompt-btn" style="position: absolute; right: 12px; top: 12px; background: rgba(255,255,255,0.08); border: 1px solid var(--border-color); color: var(--text-sub); border-radius: 6px; padding: 4px 10px; font-size: 0.78rem; cursor: pointer;">
+                지우기
+              </button>
+            </div>
+          </div>
+
+          <!-- 옵션 그리드 (비율, 화질/엔진, 시드) -->
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 14px; align-items: end; margin-bottom: 20px;">
+            <div>
+              <label class="conv-opt-label">이미지 비율 (네이버/워드프레스 맞춤)</label>
+              <select id="imggen-ratio-select" class="conv-select">
+                <option value="16:9" selected>가로형 16:9 (블로그 본문 추천 · 1280x720)</option>
+                <option value="1:1">정사각형 1:1 (대표 썸네일 추천 · 1024x1024)</option>
+                <option value="4:3">표준 4:3 (일반 사진 규격 · 1024x768)</option>
+                <option value="9:16">세로형 9:16 (모바일 릴스/쇼츠 · 720x1280)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="conv-opt-label">생성 AI 엔진</label>
+              <select id="imggen-model-select" class="conv-select">
+                <option value="flux" selected>Flux.1 초고화질 (무제한 무료)</option>
+                <option value="turbo">SDXL Turbo (초고속 1초 생성)</option>
+                <option value="gemini">Google Imagen 3 (내 제미나이 키)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="conv-opt-label">다운로드 파일 형식</label>
+              <select id="imggen-format-select" class="conv-select">
+                <option value="png" selected>PNG (고화질 무손실 원본)</option>
+                <option value="webp">WebP (블로그 로딩 속도 최적화)</option>
+                <option value="jpg">JPG (일반 사진 표준)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 생성 버튼 -->
+          <button type="button" id="imggen-submit-btn" style="width: 100%; padding: 16px 20px; background: linear-gradient(135deg, #a855f7, #7c3aed); color: #fff; border: none; border-radius: 12px; font-size: 1.05rem; font-weight: 900; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35); transition: all 0.2s;">
+            <span>🎨</span> AI 맞춤 이미지 즉시 생성하기 (무료)
+          </button>
+        </div>
+
+        <!-- 2. 생성 결과 뷰어 영역 -->
+        <div id="imggen-result-box" style="display: none; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.1rem; font-weight: 800; color: #f8fafc;">🎉 이미지 생성 완료!</span>
+              <span id="imggen-specs-badge" style="font-size: 0.76rem; background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3); color: #c084fc; padding: 3px 8px; border-radius: 6px;">1280x720 · Flux.1</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <button type="button" id="imggen-regenerate-btn" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border-color); color: #f8fafc; padding: 8px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; cursor: pointer;">
+                🔄 다른 느낌으로 다시 그리기
+              </button>
+              <button type="button" id="imggen-download-btn" style="background: #10b981; border: none; color: #ffffff; padding: 8px 18px; border-radius: 8px; font-size: 0.88rem; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);">
+                <span>📥</span> 컴퓨터로 다운로드
+              </button>
+            </div>
+          </div>
+
+          <!-- 미리보기 이미지 프레임 -->
+          <div style="background: #000; border-radius: 12px; overflow: hidden; display: flex; justify-content: center; align-items: center; min-height: 380px; max-height: 600px; position: relative; border: 1px solid rgba(255,255,255,0.08);">
+            <div id="imggen-loading-spinner" style="display: none; flex-direction: column; align-items: center; gap: 12px; color: #a855f7;">
+              <div style="width: 44px; height: 44px; border: 4px solid rgba(168,85,247,0.2); border-top-color: #a855f7; border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+              <span style="font-weight: 700; font-size: 0.95rem; color: #f8fafc;">AI가 화폭에 그림을 그리는 중입니다...</span>
+            </div>
+            <img id="imggen-preview-img" src="" alt="AI 생성 이미지" style="width: 100%; height: auto; max-height: 580px; object-fit: contain; display: block;">
+          </div>
+
+          <!-- 하단 블로그 활용 안내 -->
+          <div style="margin-top: 16px; font-size: 0.8rem; color: #94a3b8; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <span>💡 <strong>Tip</strong>: 다운로드하신 이미지를 바로 네이버 블로그 스마트에디터나 워드프레스 본문에 삽입하세요. 저작권 걱정 없이 상업적 이용이 가능합니다.</span>
+            <button type="button" id="imggen-send-to-conv-btn" style="background: none; border: none; color: #60a5fa; cursor: pointer; font-size: 0.8rem; font-weight: 700;">
+              ⚡ 이미지 일괄 변환기로 보내기 ➔
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- [TAB 3.8] 📈 주식분석센터 (Stock Intelligence Center) 화면 -->
+    <section id="tab-stock" class="tab-section">
+      <!-- 1. 주식 헤더 카드 (DAILY STOCK INTELLIGENCE + 타이틀 + 우측 상단 지수 카드) -->
+      <div class="kc-header-box" style="border-color: rgba(56, 189, 248, 0.25); background: rgba(15, 23, 42, 0.95);">
+        <div class="kc-header-top-row">
+          <div>
+            <span class="kc-badge-daily" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35); color: #38bdf8;">
+              DAILY STOCK & THEME INTELLIGENCE
+            </span>
+            <h1 class="kc-main-title" style="display: flex; align-items: center; gap: 10px;">
+              <span>📈</span> 주식 인텔리전스 분석센터
+            </h1>
+            <p style="font-size: 0.88rem; color: #94a3b8; margin: 6px 0 0 0;">
+              당일 실시간 시황, 시장 주도 테마 재료 비교, 1주일/1달 비교분석, 핵심 매매기법 및 주요 캘린더 일정 관리
+            </p>
+            <div style="margin-top: 10px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+              <button type="button" class="kc-header-btn" onclick="openStockApiModal()" style="border-color: rgba(56, 189, 248, 0.4); color: #38bdf8; background: rgba(56, 189, 248, 0.1);">
+                <span>🔑</span> 주식/뉴스 API 연동 키 설정
+              </button>
+              <span id="stock-api-status-badge" style="font-size: 0.8rem; font-weight: 700; color: #34d399;">
+                🟢 네이버 허브 실시간 뉴스 API 연동 완료
+              </span>
+            </div>
+          </div>
+          
+          <!-- 우측 상단 당일 주요 시장 지표 전광판 (네이버 증권 실시간 1:1 완벽 일치) -->
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); padding: 10px 16px; border-radius: 12px; text-align: center; min-width: 120px;">
+              <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;">코스피 (KOSPI)</div>
+              <div id="index-kospi-val" style="font-size: 1.18rem; font-weight: 900; color: #3b82f6; margin: 2px 0;">6,684.37</div>
+              <div id="index-kospi-diff" style="font-size: 0.72rem; color: #3b82f6; font-weight: 700;">▼ 225.54 (-3.26%)</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); padding: 10px 16px; border-radius: 12px; text-align: center; min-width: 120px;">
+              <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;">코스닥 (KOSDAQ)</div>
+              <div id="index-kosdaq-val" style="font-size: 1.18rem; font-weight: 900; color: #3b82f6; margin: 2px 0;">806.79</div>
+              <div id="index-kosdaq-diff" style="font-size: 0.72rem; color: #3b82f6; font-weight: 700;">▼ 13.85 (-1.69%)</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); padding: 10px 16px; border-radius: 12px; text-align: center; min-width: 120px;">
+              <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;">원/달러 환율 (USD)</div>
+              <div id="index-usd-val" style="font-size: 1.18rem; font-weight: 900; color: #ef4444; margin: 2px 0;">1,347.50</div>
+              <div id="index-usd-diff" style="font-size: 0.72rem; color: #ef4444; font-weight: 700;">▲ 3.70 (+0.28%)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 주식 시장 4대 모듈 빠른 탭 바 -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px;">
+          <button type="button" class="stock-sub-tab active" data-sub="theme">
+            <span>🔥</span> 1. 당일 주도 테마 & 뉴스
+          </button>
+          <button type="button" class="stock-sub-tab" data-sub="compare">
+            <span>📊</span> 2. 재료 모음 (1주/1달 비교)
+          </button>
+          <button type="button" class="stock-sub-tab" data-sub="calendar">
+            <span>📅</span> 3. 일정 관리 & 증시 캘린더
+          </button>
+          <button type="button" class="stock-sub-tab" data-sub="technique">
+            <span>💡</span> 4. 시황 보는 법 & 매매 기법
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= [서브 패널 1] 당일 주도 테마 & 실시간 뉴스 검색 ================= -->
+      <div id="stock-panel-theme" class="stock-panel-content active">
+        <!-- 검색 및 필터 바 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #0f172a; border: 1px solid rgba(255,255,255,0.08); padding: 14px 20px; border-radius: 14px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 10px; flex: 1; max-width: 500px;">
+            <span style="color: #38bdf8; font-size: 1.2rem;">🔍</span>
+            <input type="text" id="stock-search-input" placeholder="종목명(예: 삼천당제약, SK하이닉스) 또는 테마(AI, CXL, 바이오) 입력" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #f8fafc; padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; outline: none;">
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" class="stock-filter-chip active" data-filter="all">전체 테마</button>
+            <button type="button" class="stock-filter-chip" data-filter="semicon">반도체/AI</button>
+            <button type="button" class="stock-filter-chip" data-filter="bio">바이오/제약</button>
+            <button type="button" class="stock-filter-chip" data-filter="policy">정책/원전</button>
+          </div>
+        </div>
+
+        <!-- 2단 레이아웃 (좌측 370px: 당일 급등 테마 리스트 / 우측: 테마 상세 재료 및 관련 뉴스) -->
+        <div class="kc-dual-layout">
+          <!-- 좌측 테마 리스트 -->
+          <div class="kc-list-col" id="stock-theme-list"></div>
+
+          <!-- 우측 상세 분석 리포트 -->
+          <div class="kc-detail-card" id="stock-theme-detail"></div>
+        </div>
+      </div>
+
+      <!-- ================= [서브 패널 2] 재료 모음 (1주일 & 1달 비교 분석 대시보드) ================= -->
+      <div id="stock-panel-compare" class="stock-panel-content" style="display: none;">
+        <!-- 기간 선택 버튼 바 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h3 style="font-size: 1.2rem; font-weight: 900; color: #f8fafc; margin: 0 0 4px 0;">
+              📊 재료(모멘텀) 지속성 및 순환매 비교 분석
+            </h3>
+            <p style="font-size: 0.84rem; color: #94a3b8; margin: 0;">
+              단발성 찌라시인지, 한 달 이상 이어질 메가 트렌드인지 기간별 거래대금과 상승률을 비교합니다.
+            </p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" id="btn-compare-1w" class="imggen-style-chip active">최근 1주일 비교 (단기 주도)</button>
+            <button type="button" id="btn-compare-1m" class="imggen-style-chip">최근 1개월 비교 (중기 추세)</button>
+          </div>
+        </div>
+
+        <!-- 비교 통계 요약 4열 카드 -->
+        <div class="kc-4metrics-grid-clean" style="margin-bottom: 24px;">
+          <div class="kc-metric-card-clean">
+            <div class="kc-card-t-lbl">1위 최강 모멘텀</div>
+            <div class="kc-card-t-val" id="stat-top-theme" style="color: #38bdf8;">HBM · AI가속기</div>
+            <div class="kc-card-bar-line" style="background: #38bdf8;"></div>
+            <div class="kc-card-t-sub">평균 상승률 +38.5%</div>
+          </div>
+          <div class="kc-metric-card-clean">
+            <div class="kc-card-t-lbl">순환매 유입 2위</div>
+            <div class="kc-card-t-val" id="stat-runner-theme" style="color: #34d399;">비만치료제/GLP-1</div>
+            <div class="kc-card-bar-line" style="background: #10b981;"></div>
+            <div class="kc-card-t-sub">외인/기관 양매수 지속</div>
+          </div>
+          <div class="kc-metric-card-clean">
+            <div class="kc-card-t-lbl">재료 소멸 주의</div>
+            <div class="kc-card-t-val" id="stat-caution-theme" style="color: #fb923c;">정치/총선 테마주</div>
+            <div class="kc-card-bar-line" style="background: #f97316;"></div>
+            <div class="kc-card-t-sub">거래대금 -65% 급감 추세</div>
+          </div>
+          <div class="kc-metric-card-clean">
+            <div class="kc-card-t-lbl">신규 부각 기대주</div>
+            <div class="kc-card-t-val" id="stat-new-theme" style="color: #c084fc;">체코 원전/SMR</div>
+            <div class="kc-card-bar-line" style="background: #a855f7;"></div>
+            <div class="kc-card-t-sub">다음 달 본계약 일정 임박</div>
+          </div>
+        </div>
+
+        <!-- 기간별 상세 비교 분석 테이블 -->
+        <div class="kc-box-white-card" style="background: #0f172a;">
+          <h4 style="font-size: 1.05rem; font-weight: 800; color: #f8fafc; margin: 0 0 16px 0;">
+            📈 주요 테마군 5개 기간별 누적 상승률 및 재료 강도 비교표
+          </h4>
+          <div style="overflow-x: auto;">
+            <table class="kc-datalab-table" id="stock-compare-table">
+              <thead>
+                <tr>
+                  <th style="text-align: left; padding: 12px 10px;">주요 테마 및 핵심 재료</th>
+                  <th style="text-align: center;">대장주 (대장-부대장)</th>
+                  <th style="text-align: center;">1주일 수익률</th>
+                  <th style="text-align: center;">1개월 누적수익률</th>
+                  <th style="text-align: center;">수급 주체</th>
+                  <th style="text-align: left; padding-left: 14px;">재료 분석 및 매매 전략</th>
+                </tr>
+              </thead>
+              <tbody id="stock-compare-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= [서브 패널 3] 증시 일정 캘린더 & 일정 매매 ================= -->
+      <div id="stock-panel-calendar" class="stock-panel-content" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h3 style="font-size: 1.2rem; font-weight: 900; color: #f8fafc; margin: 0 0 4px 0;">
+              📅 주식 시장 핵심 캘린더 & 일정 매매 플래너
+            </h3>
+            <p style="font-size: 0.84rem; color: #94a3b8; margin: 0;">
+              "소문에 사고 뉴스에 팔아라" - 정해진 이벤트(실적발표, 정책, 학회 등) D-Day를 미리 선점하는 스마트 일정표
+            </p>
+          </div>
+          <button type="button" id="btn-add-stock-event" class="imggen-style-chip active" style="background: #0284c7; border-color: #0284c7;">
+            ➕ 나만의 관심 일정 추가
+          </button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;" id="stock-calendar-grid">
+          <!-- 이번 주 일정 -->
+          <div class="kc-box-white-card" style="background: #0f172a;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">
+              <span style="font-size: 1rem; font-weight: 800; color: #38bdf8;">📌 이번 주 핵심 일정 (D-Day 임박)</span>
+              <span style="font-size: 0.76rem; color: #94a3b8;">선반영 여부 필수 체크</span>
+            </div>
+            <div id="stock-events-week" style="display: flex; flex-direction: column; gap: 10px;"></div>
+          </div>
+
+          <!-- 이번 달 / 다음 달 중장기 일정 -->
+          <div class="kc-box-white-card" style="background: #0f172a;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">
+              <span style="font-size: 1rem; font-weight: 800; color: #34d399;">🔭 이번 달~다음 달 예정 주요 모멘텀</span>
+              <span style="font-size: 0.76rem; color: #94a3b8;">눌림목 매집 유효</span>
+            </div>
+            <div id="stock-events-month" style="display: flex; flex-direction: column; gap: 10px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= [서브 패널 4] 시황 보는 법 & 초보자 매매 기법 ================= -->
+      <div id="stock-panel-technique" class="stock-panel-content" style="display: none;">
+        <div style="margin-bottom: 24px;">
+          <h3 style="font-size: 1.2rem; font-weight: 900; color: #f8fafc; margin: 0 0 4px 0;">
+            💡 수석 트레이더가 알려주는 시황 보는 법 & 핵심 매매 기법
+          </h3>
+          <p style="font-size: 0.84rem; color: #94a3b8; margin: 0;">
+            어려운 금융 용어를 버리고, 초보자도 3분 안에 오늘 장세를 파악하고 수익을 내는 직관적인 원칙
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <!-- 1. 아침 장 시작 전 3분 시황 체크법 -->
+          <div class="kc-box-white-card" style="background: #0f172a;">
+            <div style="font-size: 1.02rem; font-weight: 800; color: #38bdf8; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+              <span>🌅</span> 1. 장 시작 전(08:30~09:00) 3분 체크리스트
+            </div>
+            <ul style="padding-left: 20px; font-size: 0.88rem; color: #cbd5e1; line-height: 1.8; margin: 0;">
+              <li><strong>미국 증시 3대 지수 확인</strong>: 나스닥이 올랐다면 기술주/반도체, 다우가 올랐다면 전통 제조업/금융주 장세 예상.</li>
+              <li><strong>원/달러 환율 추이</strong>: 환율이 1,350원 이상 치솟으면 외국인 매도 가능성↑, 환율이 꺾이면 대형주 수급↑.</li>
+              <li><strong>야간 선물 & 당일 찌라시</strong>: 아침 뉴스에 반복해서 도배되는 테마는 갭상승 후 차익실현(음봉) 조심하기.</li>
+            </ul>
+          </div>
+
+          <!-- 2. 주도주 눌림목 돌파 매매법 -->
+          <div class="kc-box-white-card" style="background: #0f172a;">
+            <div style="font-size: 1.02rem; font-weight: 800; color: #34d399; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+              <span>🎯</span> 2. 승률 80% 주도주 1차 눌림목 기법
+            </div>
+            <ul style="padding-left: 20px; font-size: 0.88rem; color: #cbd5e1; line-height: 1.8; margin: 0;">
+              <li><strong>거래대금 1,000억 이상</strong>: 당일 시장에서 가장 많은 돈이 몰린 1위~3위 테마 대장주만 공략.</li>
+              <li><strong>장대양봉 첫날 추격매수 금지</strong>: 상한가나 +20% 이상 급등한 날 따라가지 않고 장마감 관망.</li>
+              <li><strong>3일선/5일선 지지 확인</strong>: 급등 후 2~3일째 거래량이 확 줄면서 지지받는 음봉 꼬리에서 분할 매수.</li>
+            </ul>
+          </div>
+
+          <!-- 3. 재료의 생명력 판별법 -->
+          <div class="kc-box-white-card" style="background: #0f172a;">
+            <div style="font-size: 1.02rem; font-weight: 800; color: #fb923c; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+              <span>🔥</span> 3. 재료(호재 뉴스)의 진짜 vs 가짜 구별법
+            </div>
+            <ul style="padding-left: 20px; font-size: 0.88rem; color: #cbd5e1; line-height: 1.8; margin: 0;">
+              <li><strong>단발성(피해야 할 재료)</strong>: MOU 체결, 단순 검토 중, 풍문 등 구체적 금액이 없는 단순 기대감.</li>
+              <li><strong>지속성(돈 되는 재료)</strong>: 국가 국책사업 지정, 글로벌 빅테크(엔비디아/애플) 공급 계약, 흑자전환 실적.</li>
+              <li><strong>대장주 흐름 체크</strong>: 1등 대장주가 흔들리면 2등, 3등 주는 즉시 손절하는 것이 원칙.</li>
+            </ul>
+          </div>
+
+          <!-- 4. 초보자 계좌 지키는 리스크 관리 -->
+          <div class="kc-box-white-card" style="background: #0f172a;">
+            <div style="font-size: 1.02rem; font-weight: 800; color: #c084fc; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+              <span>🛡️</span> 4. 깡통 안 차는 계좌 손절 & 비중 관리 3원칙
+            </div>
+            <ul style="padding-left: 20px; font-size: 0.88rem; color: #cbd5e1; line-height: 1.8; margin: 0;">
+              <li><strong>한 종목 몰빵 금지</strong>: 예수금의 30%를 넘지 않게 최대 3~4종목으로 분산.</li>
+              <li><strong>-3% ~ -5% 기계적 칼손절</strong>: 손실을 작게 잘라내야 다음 기회에 더 큰 복수전이 가능.</li>
+              <li><strong>수익은 길게, 손실은 짧게</strong>: 10% 이상 수익 시 절반 익절 후 나머지는 본전 스탑 걸고 홀딩.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [TAB 4] 블로그 가이드 화면 -->
+    <section id="tab-guide" class="tab-section">
+      <div class="hero-header" style="padding-bottom: 24px;">
+        <span class="hero-badge">블로그 운영 노하우</span>
+        <h2 class="hero-title">초보자를 위한 <span>블로그 최적화 가이드</span></h2>
+        <p class="hero-subtitle">처음 시작할 때 꼭 알아야 할 필수 체크리스트 3가지입니다.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 20px;">
+        <h3 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 10px;">1. 구글 검색엔진(SEO)이 좋아하는 글 구조</h3>
+        <p style="color: var(--text-sub); line-height: 1.8;">
+          • 제목은 30자 이내로 핵심 키워드를 맨 앞에 배치하세요.<br>
+          • 소제목(H2, H3)을 명확하게 나누고, 독자가 한눈에 훑어볼 수 있도록 <strong>불릿포인트(목록)</strong>와 <strong>표</strong>를 활용하세요.<br>
+          • 최소 글자 수는 1,500자~2,000자 이상 작성을 권장합니다.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 20px;">
+        <h3 style="color: var(--secondary); font-size: 1.2rem; margin-bottom: 10px;">2. 페이지 로딩 속도 최적화 (WebP 이미지 사용 필수)</h3>
+        <p style="color: var(--text-sub); line-height: 1.8;">
+          • 스마트폰으로 찍은 사진은 용량이 3MB~10MB 이상으로 매우 무겁습니다.<br>
+          • 용량이 큰 이미지는 사이트 로딩을 느리게 만들어 방문자가 바로 이탈하게 됩니다.<br>
+          • [이미지 변환기] 탭을 이용해 <strong>WebP 형식(100KB 내외)</strong>으로 압축해서 업로드하세요.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 10px;">3. AI 글을 블로그에 올릴 때 주의할 점</h3>
+        <p style="color: var(--text-sub); line-height: 1.8;">
+          • AI가 작성해 준 글을 그대로 복사해서 붙여넣기만 하면 저품질 평가를 받을 수 있습니다.<br>
+          • 서론과 본문 중간중간에 <strong>자신만의 실제 경험담이나 생각 한 줄</strong>을 꼭 덧붙여주세요.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== 3. 하단 푸터 ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="#" onclick="switchTab('home'); return false;">홈</a>
+        <a href="#" onclick="switchTab('prompt'); return false;">글쓰기 프롬프트</a>
+        <a href="#" onclick="switchTab('converter'); return false;">이미지 변환기</a>
+        <a href="#" onclick="switchTab('guide'); return false;">블로그 가이드</a>
+      </div>
+      <p style="margin-bottom: 8px;">본 도구는 무료로 제공되며 개인정보나 이미지를 서버에 저장하지 않습니다.</p>
+      <p id="footer-copyright">&copy; 2026 Blog Automation Hub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== [관리자 전용 1] 시크릿 로그인 모달 (방문자 미표시) ===== -->
+  <div id="adminLoginModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-box" style="max-width: 380px; text-align: center;">
+      <div style="font-size: 2.5rem; margin-bottom: 10px;">🔐</div>
+      <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">관리자 시크릿 로그인</h3>
+      <p style="font-size: 0.82rem; color: var(--text-sub); margin-bottom: 20px;">운영자 전용 프롬프트 및 시스템 관리 콘솔</p>
+      
+      <div class="form-group" style="margin-bottom: 18px;">
+        <input type="password" id="adminPasswordInput" class="form-input" placeholder="관리자 비밀번호 입력" onkeydown="if(event.key==='Enter') checkAdminLogin()">
+      </div>
+
+      <div style="display: flex; gap: 8px;">
+        <button class="btn btn-secondary btn-sm" onclick="closeAdminLogin()" style="flex: 1;">닫기</button>
+        <button class="btn btn-primary btn-sm" onclick="checkAdminLogin()" style="flex: 1;">접속하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== [관리자 전용 2] 시크릿 관리자 대시보드 모달 ===== -->
+  <div id="adminDashboardModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-box" style="max-width: 780px; max-height: 90vh; overflow-y: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="background: #ef4444; color: #fff; font-size: 0.75rem; font-weight: 900; padding: 3px 8px; border-radius: 4px;">ADMIN</span>
+          <h3 style="font-size: 1.25rem; font-weight: 900; color: var(--text-main); margin: 0;">프롬프트 & 봇 실시간 관리 콘솔</h3>
+        </div>
+        <button onclick="closeAdminDashboard()" style="background: none; border: none; color: var(--text-sub); font-size: 1.5rem; cursor: pointer;">✕</button>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-sub); margin-bottom: 20px;">
+        여기서 수정한 내용은 <strong>웹사이트 화면에 즉시 실시간으로 반영</strong>되며 브라우저에 안전하게 보존됩니다.
+      </p>
+
+      <!-- 수정할 봇 선택 드롭다운 -->
+      <div class="form-group" style="margin-bottom: 16px;">
+        <label class="form-label" style="font-weight: 700; color: #f59e0b;">🎯 수정할 AI 봇 선택</label>
+        <select id="admin-bot-select" class="form-select" style="font-weight: 700;"></select>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label">카드 제목</label>
+          <input type="text" id="admin-edit-title" class="form-input">
+        </div>
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label">상단 뱃지 텍스트</label>
+          <input type="text" id="admin-edit-badge" class="form-input">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 14px;">
+        <label class="form-label">한 줄 부연 설명</label>
+        <input type="text" id="admin-edit-subtitle" class="form-input">
+      </div>
+
+      <div class="form-group" style="margin-bottom: 14px;">
+        <label class="form-label">연결 링크 URL (Gems 또는 GPTs 주소)</label>
+        <input type="text" id="admin-edit-link" class="form-input">
+      </div>
+
+      <div class="form-group" style="margin-bottom: 20px;">
+        <label class="form-label" style="font-weight: 700; color: #10b981;">📝 실제 역프롬프트 원문 (클릭 시 복사되는 내용)</label>
+        <textarea id="admin-edit-prompt" class="form-textarea" style="min-height: 220px; font-family: monospace; font-size: 0.85rem; line-height: 1.6;"></textarea>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid var(--border-color); padding-top: 16px;">
+        <button class="btn btn-secondary btn-sm" onclick="closeAdminDashboard()">닫기</button>
+        <button class="btn btn-primary btn-sm" id="admin-save-bot-btn">💾 변경사항 실시간 저장 및 화면 반영</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 자바스크립트 로드 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/trending.js"></script>
+  <script src="js/keyword.js"></script>
+  <script src="js/adsense.js"></script>
+  <script src="js/prompt.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/homepan.js"></script>
+  <script src="js/external.js"></script>
+  <script src="js/converter.js"></script>
+  <script src="js/imggen.js"></script>
+  <script src="js/stock.js"></script>
+  <script src="js/ranktracker.js"></script>
+</body>
+</html>
