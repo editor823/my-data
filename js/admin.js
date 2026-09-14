@@ -156,3 +156,60 @@ function restoreSavedBotData() {
 
 // 초기화 시 로컬 저장 데이터 자동 복원
 restoreSavedBotData();
+
+/**
+ * 👑 관리자 전용 마스터 키 1초 자동 채우기 함수
+ * - 일반 방문자에게는 기본 빈칸 유지 (유출 방지)
+ * - 관리자 비밀번호 입력 시에만 브라우저에 안전하게 키 일괄 주입
+ */
+window.loadAdminMasterKeys = function() {
+  const isAuthed = sessionStorage.getItem('is_admin_authenticated') === 'true';
+  const realPassword = localStorage.getItem(ADMIN_PASSWORD_KEY) || DEFAULT_ADMIN_PASSWORD;
+
+  let allow = isAuthed;
+  if (!allow) {
+    const inputPw = prompt('👑 관리자 비밀번호를 입력하세요:');
+    if (inputPw === realPassword) {
+      sessionStorage.setItem('is_admin_authenticated', 'true');
+      allow = true;
+    } else if (inputPw !== null) {
+      alert('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+  }
+
+  if (allow) {
+    // 1. 네이버 API HUB 키 자동 주입
+    const hubId = 'u8xuqbb564';
+    const hubSec = 'z4Ijlccm7b1SRXfuY2RpEfBcyOAwX1fyw10RRA6C';
+    const adId = '2324578';
+    const adLic = '0100000000208dc5957c1a2add2acad1a4e8cbe174ebb98cbc03a1ce716e59acebca9095e4';
+    const adSec = 'AQAAAAAgjcWVfBoq3SrK0aToy+F0BabsvQJiXpBqHK3KfiQiNg==';
+
+    localStorage.setItem('naver_auth_type', 'hub');
+    localStorage.setItem('naver_client_id', hubId);
+    localStorage.setItem('naver_client_secret', hubSec);
+    localStorage.setItem('stock_naver_client_id', hubId);
+    localStorage.setItem('stock_naver_client_secret', hubSec);
+    localStorage.setItem('ad_customer_id', adId);
+    localStorage.setItem('ad_license_key', adLic);
+    localStorage.setItem('ad_secret_key', adSec);
+
+    // 모달 내 인풋창 즉시 동기화
+    if (document.getElementById('naverClientId')) document.getElementById('naverClientId').value = hubId;
+    if (document.getElementById('naverClientSecret')) document.getElementById('naverClientSecret').value = hubSec;
+    if (document.getElementById('stockNaverClientId')) document.getElementById('stockNaverClientId').value = hubId;
+    if (document.getElementById('stockNaverClientSecret')) document.getElementById('stockNaverClientSecret').value = hubSec;
+    if (document.getElementById('adCustomerId')) document.getElementById('adCustomerId').value = adId;
+    if (document.getElementById('adLicenseKey')) document.getElementById('adLicenseKey').value = adLic;
+    if (document.getElementById('adSecretKey')) document.getElementById('adSecretKey').value = adSec;
+
+    // 배지 갱신
+    if (typeof updateStockApiBadge === 'function') updateStockApiBadge();
+    if (typeof initApiStatusBadge === 'function') initApiStatusBadge();
+
+    if (window.showToast) {
+      window.showToast('관리자 전용 API 키가 성공적으로 자동 채움 및 저장되었습니다! 👑');
+    }
+  }
+};

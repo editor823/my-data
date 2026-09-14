@@ -811,9 +811,14 @@
         </div>
 
         <!-- 하단 액션 버튼 -->
-        <div style="display: flex; justify-content: flex-end; gap: 10px;">
-          <button type="button" onclick="clearUserApiKeys()" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #e2e8f0; padding: 8px 18px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: 0.2s;">초기화</button>
-          <button type="button" onclick="saveUserApiKeys()" style="background: #10b981; border: none; color: #ffffff; padding: 8px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">저장 및 적용하기</button>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+          <button type="button" onclick="loadAdminMasterKeys()" style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24; padding: 7px 14px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;">
+            <span>👑</span> 관리자 키 자동 채우기
+          </button>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" onclick="clearUserApiKeys()" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #e2e8f0; padding: 8px 18px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: 0.2s;">초기화</button>
+            <button type="button" onclick="saveUserApiKeys()" style="background: #10b981; border: none; color: #ffffff; padding: 8px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">저장 및 적용하기</button>
+          </div>
         </div>
       </div>
     </div>
@@ -901,13 +906,18 @@
         </div>
 
         <!-- 하단 액션 버튼 -->
-        <div style="display: flex; justify-content: flex-end; gap: 10px;">
-          <button type="button" onclick="clearStockApiKeys()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; cursor: pointer;">
-            초기화
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+          <button type="button" onclick="loadAdminMasterKeys()" style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24; padding: 7px 14px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;">
+            <span>👑</span> 관리자 키 자동 채우기
           </button>
-          <button type="button" onclick="saveStockApiKeys()" style="background: #0284c7; border: none; color: #ffffff; padding: 8px 18px; border-radius: 6px; font-size: 0.85rem; font-weight: 800; cursor: pointer;">
-            저장 및 즉시 적용
-          </button>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" onclick="clearStockApiKeys()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; cursor: pointer;">
+              초기화
+            </button>
+            <button type="button" onclick="saveStockApiKeys()" style="background: #0284c7; border: none; color: #ffffff; padding: 8px 18px; border-radius: 6px; font-size: 0.85rem; font-weight: 800; cursor: pointer;">
+              저장 및 즉시 적용
+            </button>
+          </div>
         </div>
       </div>
     </div>
