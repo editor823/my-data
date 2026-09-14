@@ -3970,42 +3970,86 @@ const KEYWORD_CENTER_DATA = [
     ]
   }
   ,
-  // ===== 7. 이번주 머니대외비 추천 애드센스 키워드 (type-7) =====
+  // ===== 7. 이번주 추천 애드센스 키워드 (type-7, 4개 카드 스크린샷 1:1 매칭) =====
   {
     id: 'kc-vip-01',
     categoryType: 'type-7',
-    subCat: 'vip',
+    subCat: 'pick',
     rank: 1,
-    keyword: '난임시술비 건강보험 급여화 본인부담금 소득기준 폐지',
-    tag: '머니대외비엄선·초고수익',
-    volume: '11,200',
-    docCount: '1,050',
-    ratio: '0.09',
-    score: 30,
-    greenScore: '점수 135',
-    desc: '의료/보험 최고단가 CPC $20+ 매칭 머니대외비 단독 픽',
-    date: '2026-09-14T00:00:00.000Z',
-    channel: '추천 애드센스 · 보건복지부 지원 · 의료/고단가',
-    t_score: '4',
-    c_score: '5',
-    d_score: '5',
-    n_score: '5',
-    reason: '저출산 극복을 위한 난임부부 시술비 지원 소득기준 전면 폐지 및 건보 적용 횟수 확대로 폭발적 검색.',
-    intent: '체외수정(신선/동결), 인공수정 회당 지원 금액, 약제비 청구 방법, 지역 보건소 바우처 신청 절차.',
-    cpcAnalysis: '대형 난임전문 여성병원, 유전자 검사 키트, 태아보험/어린이보험 최고가 CPC 광고 독점.',
-    titles: [
-      '난임시술 지원 소득기준 전면 폐지: 신선·동결 배아 최대 지원금 총정리',
-      '보건소 난임부부 시술비 지원 신청 서류와 정부지원금 잔액 확인법',
-      '시험관 아기 시술 단계별 비용과 건강보험 급여 적용 횟수 안내'
+    recommendBadge: '추천 1',
+    keyword: '9월 재산세 납부기간',
+    searchIntent: '언제부터 무료인지 / 민자고속도로도 무료인지 / 하이패스는 어떻게 하는지 / 몇 시까지인지 확인하려는 검색입니다.',
+    recommendReason: '이건 전형적인 정부 발표 → 뉴스 확산 → 검색 급증 → 실제 이용 구조입니다. 과거 정부 대책을 보면 추석 연휴 일정 기간 동안 모든 차량을 대상으로 통행료를 면제하고, 하이패스 차량은 평소처럼 하이패스 차로를 이용하며 일반차로 차량은 통행권을 발급받아 제출하는 방식이 적용됐습니다. 예를 들어 2024년에는 9월 15일 0시부터 18일 24시까지 면제가 시행됐습니다.',
+    relatedKeywords: [
+      '2026 추석 고속도로 무료',
+      '추석 톨비 무료',
+      '추석 통행료 면제 기간',
+      '추석 하이패스 무료',
+      '추석 민자고속도로 무료',
+      '추석 고속도로 무료 시간',
+      '추석 통행료 몇 시부터',
+      '추석 고속도로 면제 날짜'
     ],
-    outline: [
-      '소득기준 폐지로 혜택받는 대상자 범위 및 확대된 지원 횟수',
-      '체외수정(신선배아 20회, 동결배아 10회 등) 회당 지원 한도액',
-      '주사제 및 약제비 영수증 보건소 사후 청구 절차',
-      '시술 전 필수 확인: 난임진단서 발급 기준과 산부인과 선정 팁',
-      '정부24 온라인 바우처 발급 및 카드 등록 단계'
+    ctaStrategy: '글 최상단에 무료 기간을 크게 표시 → 적용 차량 → 하이패스 이용방법 → 일반차로 → 민자도로 → 시작·종료시간 사전 준비 순'
+  },
+  {
+    id: 'kc-vip-02',
+    categoryType: 'type-7',
+    subCat: 'pick',
+    rank: 2,
+    recommendBadge: '추천 2',
+    keyword: '추석 고속도로 통행료 면제',
+    searchIntent: '내가 대상인지, 얼마 받는지, 신청방법·지급일 확인',
+    recommendReason: '국세청이 9월 1~15일을 신청기간으로 공식 안내했습니다. 현재 신청기간 한가운데라 마감일인 9월 15일로 갈수록 검색 수요가 다시 강해질 가능성이 큽니다.',
+    relatedKeywords: [
+      '근로장려금 대상자 조회',
+      '반기신청 자격',
+      '신청방법',
+      '홈택스 신청',
+      '지급일',
+      '신청안내문 못받음',
+      '예상금액'
     ],
-    longtails: ['난임시술 소득기준', '시험관 정부지원', '난임 지원금 신청', '보건소 난임바우처', '태아보험 비교']
+    ctaStrategy: '대상 확인 → 예상금액 → 홈택스 신청방법 순으로 연결'
+  },
+  {
+    id: 'kc-vip-03',
+    categoryType: 'type-7',
+    subCat: 'pick',
+    rank: 3,
+    recommendBadge: '추천 3',
+    keyword: '9월 농할상품권',
+    searchIntent: '구매시간, 구매방법, 사용처, 구매한도 확인',
+    recommendReason: '전연령 판매가 9월 14일부터 순차 시작됩니다. 14일 전북·제주/대전·충남·충북을 시작으로 15일 부산·울산·광주·전남/경남·경북, 16일 강원·세종·대구 및 서울·인천·경기가 예정돼 있습니다. 할인율 20%, 구매한도 1인 10만원이라 행동 전환이 매우 강한 키워드입니다.',
+    relatedKeywords: [
+      '농할상품권 구매방법',
+      '농할상품권 구매시간',
+      '농할상품권 서울',
+      '농할상품권 경기',
+      '농할상품권 사용처',
+      '농할상품권 비플페이',
+      '농할상품권 20% 할인'
+    ],
+    ctaStrategy: '지역별 발행시간 표 → 구매 앱 → 사용처 조회 → 환불기준 순서.'
+  },
+  {
+    id: 'kc-vip-04',
+    categoryType: 'type-7',
+    subCat: 'pick',
+    rank: 4,
+    recommendBadge: '추천 4',
+    keyword: '2026 종부세 합산배제 신청',
+    searchIntent: '대상 주택, 신청방법, 1세대 1주택 특례, 홈택스 신고방법 확인.',
+    recommendReason: '9월 16일 신청 시작이라는 아주 좋은 선점형 키워드입니다. 국세청은 적용 예상 납세자 약 4.8만 명에게 안내문을 발송했으며, 신고·신청기간은 9월 16~30일입니다. 신청하면 요건에 따라 11월 정기 고지 때 해당 부동산이 비과세되거나 1세대 1주택자 등으로 과세될 수 있습니다. 부동산+세금 분야라 수익 잠재력도 상대적으로 좋습니다.',
+    relatedKeywords: [
+      '종부세 합산배제 대상',
+      '종부세 과세특례',
+      '종부세 1세대 1주택 특례',
+      '종부세 홈택스 신청',
+      '종부세 합산배제 임대주택',
+      '종부세 신청기간'
+    ],
+    ctaStrategy: '내 부동산이 대상인지 확인 → 특례 종류 → 홈택스 신고방법으로 연결.'
   },
 
   // ===== 8. 바이럴숏폼 · 유튜브 실시간 (type-8) =====
@@ -4071,11 +4115,99 @@ window.switchKcTab = function(type) {
   currentFilterType = type;
   currentSubFilter = 'all';
   currentSelectedIdx = 0;
-  updateSubFilterHeader();
-  renderSubFilterButtons();
-  renderCardsList();
-  selectCard(0);
+
+  const dualLayout = document.getElementById('kc-dual-layout');
+  const tab7Container = document.getElementById('kc-tab7-container');
+  const subFilterBar = document.querySelector('.kc-sub-filter-bar');
+
+  if (type === 'type-7') {
+    if (dualLayout) dualLayout.style.display = 'none';
+    if (subFilterBar) subFilterBar.style.display = 'none';
+    let policyBanner = document.getElementById('kc-policy-signal-banner-box');
+    if (policyBanner) policyBanner.style.display = 'none';
+
+    if (tab7Container) {
+      tab7Container.style.display = 'block';
+      renderTab7Grid(tab7Container);
+    }
+  } else {
+    if (dualLayout) dualLayout.style.display = '';
+    if (subFilterBar) subFilterBar.style.display = '';
+    if (tab7Container) tab7Container.style.display = 'none';
+
+    updateSubFilterHeader();
+    renderSubFilterButtons();
+    renderCardsList();
+    selectCard(0);
+  }
 };
+
+// 7번 이번주 추천 애드센스 키워드 전용 렌더링 함수 (스크린샷 1:1 완벽 일치, 머니대외비 제거)
+function renderTab7Grid(container) {
+  const tab7Items = KEYWORD_CENTER_DATA.filter(d => d.categoryType === 'type-7');
+
+  const cardsHtml = tab7Items.map(item => {
+    const relKeywords = item.relatedKeywords || [];
+    const tagsHtml = relKeywords.map(kw => `
+      <span class="kc-tab7-tag" onclick="copySnippetText('${escapeHtml(kw)}')">${escapeHtml(kw)}</span>
+    `).join('');
+
+    return `
+      <div class="kc-tab7-card">
+        <div class="kc-tab7-card-badge">${escapeHtml(item.recommendBadge || '추천')}</div>
+        <div class="kc-tab7-card-title">${escapeHtml(item.keyword)}</div>
+
+        <div class="kc-tab7-section-title">검색의도:</div>
+        <p class="kc-tab7-body-text">${escapeHtml(item.searchIntent)}</p>
+
+        <div class="kc-tab7-section-title">추천 이유:</div>
+        <p class="kc-tab7-body-text">${escapeHtml(item.recommendReason)}</p>
+
+        <div class="kc-tab7-section-title">연관 키워드:</div>
+        <div class="kc-tab7-tags-wrap">
+          ${tagsHtml}
+        </div>
+
+        <div class="kc-tab7-cta-box">
+          <div class="kc-tab7-cta-title">CTA 전략</div>
+          <div class="kc-tab7-cta-content">${escapeHtml(item.ctaStrategy)}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  container.innerHTML = `
+    <!-- 7번 상단 헤더 배너 -->
+    <div class="kc-tab7-header-box">
+      <div class="kc-tab7-badge">WEEKLY PICK</div>
+      <h2 class="kc-tab7-title">이번주 추천 애드센스 키워드</h2>
+      <div class="kc-tab7-sub">업데이트: 매주 월요일에 할께요</div>
+    </div>
+
+    <!-- 4열 그리드 카드 -->
+    <div class="kc-tab7-grid-4">
+      ${cardsHtml}
+    </div>
+  `;
+}
+
+// 텍스트 클립보드 복사 유틸
+window.copySnippetText = function(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => {
+      if (window.showToast) window.showToast(`'${text}' 복사 완료!`, '📋');
+    });
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    if (window.showToast) window.showToast(`'${text}' 복사 완료!`, '📋');
+  }
+};
+
 
 // 상단 8개 알약 탭 이벤트
 function renderKeywordCenterTabs() {

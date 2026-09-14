@@ -3707,3 +3707,169 @@
   padding: 3px 8px;
   border-radius: 4px;
 }
+
+/* ==========================================================================
+   7. 이번주 추천 애드센스 키워드 전용 4열 카드 그리드 레이아웃 (스크린샷 1:1)
+   ========================================================================== */
+.kc-tab7-container {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* 7번 헤더 배너 */
+.kc-tab7-header-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 26px 30px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.kc-tab7-badge {
+  display: inline-block;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #c084fc;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+}
+
+.kc-tab7-title {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 900;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.kc-tab7-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* 4열 그리드 */
+.kc-tab7-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+@media (max-width: 1200px) {
+  .kc-tab7-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .kc-tab7-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 4개 개별 추천 카드 */
+.kc-tab7-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kc-tab7-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.kc-tab7-card-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #38bdf8;
+  margin-bottom: 12px;
+}
+
+.kc-tab7-card-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.45;
+  margin-bottom: 16px;
+  word-break: keep-all;
+}
+
+.kc-tab7-section-title {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #cbd5e1;
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+
+.kc-tab7-body-text {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 0 0 10px 0;
+  word-break: keep-all;
+}
+
+/* 연관 키워드 태그 알약 */
+.kc-tab7-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+
+.kc-tab7-tag {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  font-size: 0.74rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.kc-tab7-tag:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #a5b4fc;
+}
+
+/* 최하단 CTA 전략 박스 (연한 녹색/민트 틴트) */
+.kc-tab7-cta-box {
+  margin-top: auto;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.kc-tab7-cta-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #10b981;
+  margin-bottom: 6px;
+}
+
+.kc-tab7-cta-content {
+  font-size: 0.78rem;
+  color: #34d399;
+  line-height: 1.5;
+  font-weight: 600;
+  word-break: keep-all;
+}
+

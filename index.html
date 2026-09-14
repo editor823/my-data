@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
   
   <!-- 스타일시트 로드 -->
-  <link rel="stylesheet" href="css/style.css?v=20260914_tab6">
-  <link rel="stylesheet" href="css/components.css?v=20260914_tab6">
+  <link rel="stylesheet" href="css/style.css?v=20260914_tab7">
+  <link rel="stylesheet" href="css/components.css?v=20260914_tab7">
 </head>
 <body>
 
@@ -723,7 +723,7 @@
         <button class="kc-pill-btn" data-type="type-4" onclick="switchKcTab('type-4')">🤖 4. 네이버 mate 키워드 (5/10) · 매일</button>
         <button class="kc-pill-btn" data-type="type-5" onclick="switchKcTab('type-5')">❓ 5. 지식iN Q&A (10/20) · 3일 주기</button>
         <button class="kc-pill-btn" data-type="type-6" onclick="switchKcTab('type-6')">📢 6. 정책신호형 애드센스 키워드 · 매주 월요일</button>
-        <button class="kc-pill-btn" data-type="type-7" onclick="switchKcTab('type-7')">👑 7. 이번주 머니대외비 추천 애드센스 키워드 · 매주 월요일</button>
+        <button class="kc-pill-btn" data-type="type-7" onclick="switchKcTab('type-7')">👑 7. 이번주 추천 애드센스 키워드 · 매주 월요일</button>
         <button class="kc-pill-btn" data-type="type-8" onclick="switchKcTab('type-8')">🔥 8. 바이럴숏폼 · 유튜브 실시간</button>
       </div>
 
@@ -739,14 +739,17 @@
         </div>
       </div>
 
-      <!-- 4. 메인 2단 대시보드 (좌측: 스크롤 키워드 카드 리스트 / 우측: 실시간 상세 리포트) -->
-      <div class="kc-dual-layout">
+      <!-- 4. 메인 2단 대시보드 (좌측: 스크롤 키워드 카드 리스트 / 우측: 실시간 상세 리포트 - 탭 1~6, 8용) -->
+      <div class="kc-dual-layout" id="kc-dual-layout">
         <!-- [좌측] 키워드 카드 스크롤 리스트 -->
         <div class="kc-list-col" id="kc-cards-container"></div>
 
         <!-- [우측] 클릭 시 실시간으로 바뀌는 상세 분석 리포트 패널 -->
         <div class="kc-detail-card" id="kc-detail-panel"></div>
       </div>
+
+      <!-- 5. 7번 탭 전용 4열 그리드 컨테이너 (스크린샷 1:1 완벽 일치) -->
+      <div class="kc-tab7-container" id="kc-tab7-container" style="display: none;"></div>
     </section>
 
     <!-- ===== [모달 1] 내 네이버 API 키 설정 팝업 ===== -->
@@ -2002,7 +2005,7 @@
   <script src="js/app.js?v=20260914_final"></script>
   <script src="js/trending.js?v=20260914_final"></script>
   <script src="js/keyword.js?v=20260914_final"></script>
-  <script src="js/adsense.js?v=20260914_tab6"></script>
+  <script src="js/adsense.js?v=20260914_tab7"></script>
   <script src="js/prompt.js?v=20260914_final"></script>
   <script src="js/admin.js?v=20260914_final"></script>
   <script src="js/homepan.js?v=20260914_final"></script>
