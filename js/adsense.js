@@ -4405,11 +4405,14 @@ function renderTab8Cards() {
   const container = document.getElementById('kc-tab8-grid-container');
   if (!container) return;
 
-  const dataset = window.VIRAL_SHORTS_50 || [];
+  // 0. 검색 기간에 따른 50개 데이터셋 선택 (당일 / 최근 일주일 / 30일)
+  const periodKey = tab8State.period || 'week';
+  const periodMap = window.VIRAL_SHORTS_BY_PERIOD || {};
+  const dataset = periodMap[periodKey] || window.VIRAL_SHORTS_50 || [];
   let filtered = [...dataset];
 
   // 1. 키워드 검색어 필터
-  if (tab8State.keyword.trim()) {
+  if (tab8State.keyword && tab8State.keyword.trim()) {
     const q = tab8State.keyword.trim().toLowerCase();
     filtered = filtered.filter(item => 
       item.title.toLowerCase().includes(q) || 

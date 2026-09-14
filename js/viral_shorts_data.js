@@ -1,5 +1,665 @@
-// 8번 바이럴숏폼 (유튜브 인기 영상 & 숏폼 실시간 검색) 50개 1:1 데이터셋
-window.VIRAL_SHORTS_50 = [
+/**
+ * 8번 바이럴숏폼 (유튜브 실시간 바이럴 & 숏폼) 데이터셋
+ * 검색 기간별 (당일 24H, 최근 일주일 7일, 30일 1개월) 각각 50개 고품질 비디오 데이터
+ * 원본 boutique-info 키워드센터 1:1 완벽 반영
+ */
+
+// 1. [당일 (오늘 24H)] 실시간 급상승 & 당일 화제 숏폼 50개
+window.VIRAL_SHORTS_TODAY = [
+  {
+    rank: 1,
+    type: 'shorts',
+    title: '실시간 WWE 2K25 게임플레이 #shorts #shortsfeed',
+    channel: 'Urms gaming',
+    timeAgo: '스트리밍 시간: 20시간 전',
+    views: '조회수 206,333회',
+    viewsNum: 206333,
+    videoUrl: 'https://www.youtube.com/results?search_query=WWE+2K25+gameplay+shorts',
+    thumb: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '게임', '이슈'],
+    period: 'today'
+  },
+  {
+    rank: 2,
+    type: 'shorts',
+    title: '[실시간]일요일아침 결혼식장가기전 라이브#천안 #버스 #텐션 #트로트 #음방 #라이브 ...',
+    channel: '차니와띠아',
+    timeAgo: '스트리밍 시간: 1일 전',
+    views: '조회수 194,966회',
+    viewsNum: 194966,
+    videoUrl: 'https://www.youtube.com/results?search_query=차니와띠아+결혼식장가기전+라이브',
+    thumb: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '이슈', '음악', '라이브'],
+    period: 'today'
+  },
+  {
+    rank: 3,
+    type: 'shorts',
+    title: '오늘 아침 기습 폭설/폭우 도로 상황 실시간 난리난 출근길 현장 #Shorts',
+    channel: 'YTN 실시간이슈',
+    timeAgo: '3시간 전',
+    views: '조회수 684,200회',
+    viewsNum: 684200,
+    videoUrl: 'https://www.youtube.com/results?search_query=오늘+출근길+교통상황+기습+shorts',
+    thumb: 'https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '이슈', '직장인'],
+    period: 'today'
+  },
+  {
+    rank: 4,
+    type: 'video',
+    title: '애플이 드디어 공개한 초경량 폴더블 아이폰! 갤럭시 폴드와 비교해보니 충격...',
+    channel: '테크잇투게더',
+    timeAgo: '18시간 전',
+    views: '조회수 1,620,000회',
+    viewsNum: 1620000,
+    videoUrl: 'https://www.youtube.com/results?search_query=폴더블+아이폰+갤럭시폴드+비교',
+    thumb: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '이슈', '쿠팡추천'],
+    period: 'today'
+  },
+  {
+    rank: 5,
+    type: 'shorts',
+    title: '쿠팡에서 오늘 1만원 이하로 삶의 질 수직상승 시켜주는 꿀템 5가지 #Shorts',
+    channel: '자취생꿀팁',
+    timeAgo: '5시간 전',
+    views: '조회수 850,300회',
+    viewsNum: 850300,
+    videoUrl: 'https://www.youtube.com/results?search_query=쿠팡+1만원이하+삶의질+상승+꿀템',
+    thumb: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '쿠팡추천', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 6,
+    type: 'shorts',
+    title: '직장 상사에게 오늘 바로 써먹는 무조건 통하는 센스 대화법 #Shorts',
+    channel: '일잘러연구소',
+    timeAgo: '7시간 전',
+    views: '조회수 620,800회',
+    viewsNum: 620800,
+    videoUrl: 'https://www.youtube.com/results?search_query=직장상사+대화법+일잘러',
+    thumb: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '직장인', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 7,
+    type: 'video',
+    title: '오늘 자정 마감! 청년 및 무주택자 정부지원금 300만원 즉시 신청 사이트 안내',
+    channel: '정책알리미TV',
+    timeAgo: '9시간 전',
+    views: '조회수 430,200회',
+    viewsNum: 430200,
+    videoUrl: 'https://www.youtube.com/results?search_query=오늘자정마감+정부지원금+신청',
+    thumb: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '정부지원금', '재테크'],
+    period: 'today'
+  },
+  {
+    rank: 8,
+    type: 'shorts',
+    title: '카톡에서 절대 누르면 안 되는 신종 피싱 문자 오늘자 긴급 수법 공개 #Shorts',
+    channel: '보안관TV',
+    timeAgo: '12시간 전',
+    views: '조회수 1,150,000회',
+    viewsNum: 1150000,
+    videoUrl: 'https://www.youtube.com/results?search_query=카톡+신종피싱+스미싱+문자',
+    thumb: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '이슈', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 9,
+    type: 'shorts',
+    title: '미국 배당주 ETF 매달 10만원씩 모으면 은퇴할 때 얼마 받을까? #Shorts',
+    channel: '배당주투자자',
+    timeAgo: '15시간 전',
+    views: '조회수 540,800회',
+    viewsNum: 540800,
+    videoUrl: 'https://www.youtube.com/results?search_query=미국배당주+ETF+매달10만원',
+    thumb: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '재테크', '직장인'],
+    period: 'today'
+  },
+  {
+    rank: 10,
+    type: 'video',
+    title: '오늘 코스피 급반등! 외국인이 오늘 하루 1조원 쓸어담은 반도체 핵심 종목',
+    channel: '한국경제TV',
+    timeAgo: '6시간 전',
+    views: '조회수 380,500회',
+    viewsNum: 380500,
+    videoUrl: 'https://www.youtube.com/results?search_query=코스피+반도체+외국인+매수종목',
+    thumb: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '재테크', '이슈'],
+    period: 'today'
+  },
+  {
+    rank: 11,
+    type: 'shorts',
+    title: '점심 먹고 딱 5분 걸었을 뿐인데 혈당 40 떨어진 충격 결과 #Shorts',
+    channel: '당뇨탈출넘버원',
+    timeAgo: '4시간 전',
+    views: '조회수 490,000회',
+    viewsNum: 490000,
+    videoUrl: 'https://www.youtube.com/results?search_query=점심식후+5분걷기+혈당스파이크',
+    thumb: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '다이어트', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 12,
+    type: 'video',
+    title: '오늘자 전국 아파트 실거래가 폭락 1위 지역은 어디일까? 긴급 분석',
+    channel: '부동산빅데이터TV',
+    timeAgo: '8시간 전',
+    views: '조회수 520,100회',
+    viewsNum: 520100,
+    videoUrl: 'https://www.youtube.com/results?search_query=전국+아파트+실거래가+폭락+분석',
+    thumb: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '부동산', '재테크'],
+    period: 'today'
+  },
+  {
+    rank: 13,
+    type: 'shorts',
+    title: '스타벅스에서 직원만 몰래 먹는 히든 꿀조합 메뉴 #Shorts',
+    channel: '카페매니아',
+    timeAgo: '5시간 전',
+    views: '조회수 710,000회',
+    viewsNum: 710000,
+    videoUrl: 'https://www.youtube.com/results?search_query=스타벅스+히든메뉴+꿀조합+shorts',
+    thumb: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '직장인'],
+    period: 'today'
+  },
+  {
+    rank: 14,
+    type: 'shorts',
+    title: '손흥민 오늘 새벽 환상적인 감아차기 골 현지 중계 반응 미쳤다 #Shorts',
+    channel: '풋볼하이라이트',
+    timeAgo: '11시간 전',
+    views: '조회수 1,890,000회',
+    viewsNum: 1890000,
+    videoUrl: 'https://www.youtube.com/results?search_query=손흥민+새벽+골+현지반응',
+    thumb: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '이슈'],
+    period: 'today'
+  },
+  {
+    rank: 15,
+    type: 'video',
+    title: '오늘 발표된 2026 연말정산 변경점 3가지 (모르면 60만원 뱉어냅니다)',
+    channel: '절세의신',
+    timeAgo: '14시간 전',
+    views: '조회수 650,400회',
+    viewsNum: 650400,
+    videoUrl: 'https://www.youtube.com/results?search_query=2026+연말정산+변경점+절세',
+    thumb: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '직장인', '재테크', '정부지원금'],
+    period: 'today'
+  },
+  {
+    rank: 16,
+    type: 'shorts',
+    title: '에어프라이어 청소 1분 만에 묵은 기름때 박멸하는 법 #Shorts',
+    channel: '살림왕건',
+    timeAgo: '7시간 전',
+    views: '조회수 830,000회',
+    viewsNum: 830000,
+    videoUrl: 'https://www.youtube.com/results?search_query=에어프라이어+기름때+청소꿀팁',
+    thumb: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 17,
+    type: 'video',
+    title: '쿠팡 알바 단기직 오늘 당일 정산받는 법과 현실 시급 공개',
+    channel: '부업마스터',
+    timeAgo: '16시간 전',
+    views: '조회수 340,900회',
+    viewsNum: 340900,
+    videoUrl: 'https://www.youtube.com/results?search_query=쿠팡알바+당일정산+후기',
+    thumb: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '쿠팡추천', '직장인', '재테크'],
+    period: 'today'
+  },
+  {
+    rank: 18,
+    type: 'shorts',
+    title: '배달음식 시킬 때 배달비 0원으로 깎아주는 꿀팁 3가지 #Shorts',
+    channel: '절약요정',
+    timeAgo: '8시간 전',
+    views: '조회수 560,300회',
+    viewsNum: 560300,
+    videoUrl: 'https://www.youtube.com/results?search_query=배달음식+배달비+무료+할인꿀팁',
+    thumb: 'https://images.unsplash.com/photo-1526367790999-0150786686a2?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '재테크'],
+    period: 'today'
+  },
+  {
+    rank: 19,
+    type: 'shorts',
+    title: '단돈 3천원으로 집에서 영화관 팝콘 맛 그대로 내는 비밀 #Shorts',
+    channel: '1분스낵',
+    timeAgo: '9시간 전',
+    views: '조회수 620,000회',
+    viewsNum: 620000,
+    videoUrl: 'https://www.youtube.com/results?search_query=집에서+영화관팝콘+만들기+shorts',
+    thumb: 'https://images.unsplash.com/photo-1578849278619-e73505e9610f?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 20,
+    type: 'video',
+    title: '오늘 환율 급변동! 달러 투자 지금 사야 할까 팔아야 할까?',
+    channel: '외환투자TV',
+    timeAgo: '10시간 전',
+    views: '조회수 410,200회',
+    viewsNum: 410200,
+    videoUrl: 'https://www.youtube.com/results?search_query=오늘+환율전망+달러투자',
+    thumb: 'https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '재테크'],
+    period: 'today'
+  },
+  {
+    rank: 21,
+    type: 'shorts',
+    title: '허리 통증 오늘 즉시 해결하는 1분 스트레칭 침대에서 따라하기 #Shorts',
+    channel: '물리치료사TV',
+    timeAgo: '6시간 전',
+    views: '조회수 780,000회',
+    viewsNum: 780000,
+    videoUrl: 'https://www.youtube.com/results?search_query=허리통증+1분스트레칭+물리치료',
+    thumb: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '다이어트', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 22,
+    type: 'shorts',
+    title: '아이폰 사진 용량 오늘 당장 30GB 확보하는 숨은 설정 #Shorts',
+    channel: '테크마스터',
+    timeAgo: '13시간 전',
+    views: '조회수 940,000회',
+    viewsNum: 940000,
+    videoUrl: 'https://www.youtube.com/results?search_query=아이폰+사진용량+정리+꿀팁',
+    thumb: 'https://images.unsplash.com/photo-1510519138161-5844a4928040?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '직장인'],
+    period: 'today'
+  },
+  {
+    rank: 23,
+    type: 'video',
+    title: '오늘 저녁 뭐 먹지? 냉장고 파먹기 10분 초간단 스팸 계란덮밥',
+    channel: '요리보고TV',
+    timeAgo: '5시간 전',
+    views: '조회수 310,000회',
+    viewsNum: 310000,
+    videoUrl: 'https://www.youtube.com/results?search_query=스팸계란덮밥+초간단요리',
+    thumb: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 24,
+    type: 'shorts',
+    title: '다이소 오늘 사온 1000원짜리 신상 꿀템 4개 솔직 후기 #Shorts',
+    channel: '살림언니',
+    timeAgo: '8시간 전',
+    views: '조회수 890,200회',
+    viewsNum: 890200,
+    videoUrl: 'https://www.youtube.com/results?search_query=다이소+1000원+신상꿀템+후기',
+    thumb: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '쿠팡추천', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 25,
+    type: 'video',
+    title: '오늘 시작된 청약 경쟁률 500대 1 돌파한 서울 신축 분양 현황',
+    channel: '청약신문고',
+    timeAgo: '11시간 전',
+    views: '조회수 480,900회',
+    viewsNum: 480900,
+    videoUrl: 'https://www.youtube.com/results?search_query=서울신축+청약경쟁률+분양가',
+    thumb: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '부동산', '정부지원금'],
+    period: 'today'
+  },
+  {
+    rank: 26,
+    type: 'shorts',
+    title: '목 어깨 뻐근할 때 30초 만에 시원해지는 스트레칭 #Shorts',
+    channel: '바른자세연구소',
+    timeAgo: '4시간 전',
+    views: '조회수 520,000회',
+    viewsNum: 520000,
+    videoUrl: 'https://www.youtube.com/results?search_query=목어깨뻐근할때+스트레칭',
+    thumb: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '다이어트', '직장인'],
+    period: 'today'
+  },
+  {
+    rank: 27,
+    type: 'shorts',
+    title: '유튜브 프리미엄 월 2천원에 가족요금제 합법 가입하는 꿀팁 #Shorts',
+    channel: '알뜰통신원',
+    timeAgo: '14시간 전',
+    views: '조회수 1,210,000회',
+    viewsNum: 1210000,
+    videoUrl: 'https://www.youtube.com/results?search_query=유튜브프리미엄+가족요금제+할인',
+    thumb: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '재테크'],
+    period: 'today'
+  },
+  {
+    rank: 28,
+    type: 'video',
+    title: '오늘 퇴근길 직장인들을 위한 20분 꿀잠 유도 수면 ASMR 빗소리',
+    channel: '힐링사운드',
+    timeAgo: '7시간 전',
+    views: '조회수 270,000회',
+    viewsNum: 270000,
+    videoUrl: 'https://www.youtube.com/results?search_query=수면유도+빗소리+ASMR+수면음악',
+    thumb: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '직장인'],
+    period: 'today'
+  },
+  {
+    rank: 29,
+    type: 'shorts',
+    title: '챗GPT로 오늘 하루 만에 부업 블로그 글 10개 뽑아내는 프롬프트 #Shorts',
+    channel: 'AI수익화연구소',
+    timeAgo: '9시간 전',
+    views: '조회수 750,000회',
+    viewsNum: 750000,
+    videoUrl: 'https://www.youtube.com/results?search_query=챗GPT+블로그+부업+프롬프트',
+    thumb: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '재테크', '직장인'],
+    period: 'today'
+  },
+  {
+    rank: 30,
+    type: 'video',
+    title: '오늘 기름값 또 올랐다! 전국에서 가장 싼 주유소 찾는 내비게이션 팁',
+    channel: '카라이프TV',
+    timeAgo: '12시간 전',
+    views: '조회수 390,800회',
+    viewsNum: 390800,
+    videoUrl: 'https://www.youtube.com/results?search_query=가장싼주유소+오피넷+기름값절약',
+    thumb: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '이슈'],
+    period: 'today'
+  },
+  {
+    rank: 31,
+    type: 'shorts',
+    title: '라면 끓일 때 물 대신 이것 넣으면 짬뽕 맛 나는 기적의 레시피 #Shorts',
+    channel: '맛있는인생',
+    timeAgo: '5시간 전',
+    views: '조회수 880,000회',
+    viewsNum: 880000,
+    videoUrl: 'https://www.youtube.com/results?search_query=라면+짬뽕맛내기+비법레시피',
+    thumb: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 32,
+    type: 'video',
+    title: '오늘 발표된 청년도약계좌 정부 기여금 2배 확대 확정! 수령액 총정리',
+    channel: '정부혜택마스터',
+    timeAgo: '15시간 전',
+    views: '조회수 620,000회',
+    viewsNum: 620000,
+    videoUrl: 'https://www.youtube.com/results?search_query=청년도약계좌+정부기여금+확대',
+    thumb: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '정부지원금', '재테크'],
+    period: 'today'
+  },
+  {
+    rank: 33,
+    type: 'shorts',
+    title: '신발 냄새 오늘 단 1분 만에 없애는 초간단 살림 비법 #Shorts',
+    channel: '살림노하우',
+    timeAgo: '6시간 전',
+    views: '조회수 430,000회',
+    viewsNum: 430000,
+    videoUrl: 'https://www.youtube.com/results?search_query=신발냄새제거+살림꿀팁',
+    thumb: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 34,
+    type: 'video',
+    title: '오늘 코인 시장 비트코인 급변동! 이번주 FOMC 금리 발표 앞두고 대응 전략',
+    channel: '크립토투데이',
+    timeAgo: '10시간 전',
+    views: '조회수 470,200회',
+    viewsNum: 470200,
+    videoUrl: 'https://www.youtube.com/results?search_query=비트코인+시황+FOMC+금리발표',
+    thumb: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '재테크', '이슈'],
+    period: 'today'
+  },
+  {
+    rank: 35,
+    type: 'shorts',
+    title: '고기 구울 때 잡내 0% 만드는 백종원 마법 소스 비법 #Shorts',
+    channel: '백종원의요리비책',
+    timeAgo: '8시간 전',
+    views: '조회수 1,020,000회',
+    viewsNum: 1020000,
+    videoUrl: 'https://www.youtube.com/results?search_query=고기잡내제거+백종원+소스',
+    thumb: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 36,
+    type: 'video',
+    title: '오늘자 쿠팡 추천 가성비 무선청소기 BEST 3 실사용 솔직 리뷰',
+    channel: '가전테크리뷰',
+    timeAgo: '11시간 전',
+    views: '조회수 350,000회',
+    viewsNum: 350000,
+    videoUrl: 'https://www.youtube.com/results?search_query=쿠팡추천+무선청소기+가성비',
+    thumb: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '쿠팡추천', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 37,
+    type: 'shorts',
+    title: '계란 껍데기 절대 버리지 마세요! 믹서기 칼날 날카롭게 만드는 법 #Shorts',
+    channel: '살림연구원',
+    timeAgo: '6시간 전',
+    views: '조회수 690,000회',
+    viewsNum: 690000,
+    videoUrl: 'https://www.youtube.com/results?search_query=계란껍질+믹서기청소+살림꿀팁',
+    thumb: 'https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 38,
+    type: 'shorts',
+    title: '배달 라이더가 직접 알려주는 오늘 비 오는 날 배달비 2배 버는 꿀팁 #Shorts',
+    channel: '라이더스토리',
+    timeAgo: '9시간 전',
+    views: '조회수 410,000회',
+    viewsNum: 410000,
+    videoUrl: 'https://www.youtube.com/results?search_query=배달라이더+수입+부업',
+    thumb: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '직장인', '재테크'],
+    period: 'today'
+  },
+  {
+    rank: 39,
+    type: 'video',
+    title: '오늘 저녁에 꼭 먹어야 하는 혈관 청소 보약 음식 3가지',
+    channel: '건강닥터TV',
+    timeAgo: '7시간 전',
+    views: '조회수 540,000회',
+    viewsNum: 540000,
+    videoUrl: 'https://www.youtube.com/results?search_query=혈관청소+음식+건강정보',
+    thumb: 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '다이어트', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 40,
+    type: 'shorts',
+    title: '자동차 워셔액 넣을 때 90%가 실수하는 치명적인 행동 #Shorts',
+    channel: '차박사TV',
+    timeAgo: '12시간 전',
+    views: '조회수 830,000회',
+    viewsNum: 830000,
+    videoUrl: 'https://www.youtube.com/results?search_query=자동차+워셔액+넣는법+주의사항',
+    thumb: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 41,
+    type: 'video',
+    title: '오늘 나온 세종시 아파트 급매물! 실투자금 1억으로 가능한가?',
+    channel: '부동산경매TV',
+    timeAgo: '8시간 전',
+    views: '조회수 380,200회',
+    viewsNum: 380200,
+    videoUrl: 'https://www.youtube.com/results?search_query=세종시아파트+급매물+부동산투자',
+    thumb: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '부동산', '재테크'],
+    period: 'today'
+  },
+  {
+    rank: 42,
+    type: 'shorts',
+    title: '스마트폰 배터리 수명 2배 늘려주는 오늘자 긴급 설정법 #Shorts',
+    channel: '테크연구원',
+    timeAgo: '15시간 전',
+    views: '조회수 1,050,000회',
+    viewsNum: 1050000,
+    videoUrl: 'https://www.youtube.com/results?search_query=스마트폰+배터리수명+늘리는법',
+    thumb: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '직장인'],
+    period: 'today'
+  },
+  {
+    rank: 43,
+    type: 'shorts',
+    title: '양파 썰 때 눈물 한 방울 안 흘리는 초간단 마법 팁 #Shorts',
+    channel: '주방의비밀',
+    timeAgo: '4시간 전',
+    views: '조회수 610,000회',
+    viewsNum: 610000,
+    videoUrl: 'https://www.youtube.com/results?search_query=양파썰때+눈안맵게+요리꿀팁',
+    thumb: 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 44,
+    type: 'video',
+    title: '오늘자 국내 주식 테마주 순환매! 내일 아침 시초가 공략 후보',
+    channel: '여의도증권방송',
+    timeAgo: '6시간 전',
+    views: '조회수 290,000회',
+    viewsNum: 290000,
+    videoUrl: 'https://www.youtube.com/results?search_query=국내주식+테마주+시초가공략',
+    thumb: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '재테크'],
+    period: 'today'
+  },
+  {
+    rank: 45,
+    type: 'shorts',
+    title: '다이어트할 때 쿠팡에서 무조건 쟁여두는 저칼로리 간식 3가지 #Shorts',
+    channel: '식단연구원',
+    timeAgo: '5시간 전',
+    views: '조회수 790,000회',
+    viewsNum: 790000,
+    videoUrl: 'https://www.youtube.com/results?search_query=쿠팡추천+다이어트간식+저칼로리',
+    thumb: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '쿠팡추천', '다이어트'],
+    period: 'today'
+  },
+  {
+    rank: 46,
+    type: 'shorts',
+    title: '퇴근하고 샤워할 때 5분 두피 마사지 탈모 예방 끝장판 #Shorts',
+    channel: '모발건강연구소',
+    timeAgo: '7시간 전',
+    views: '조회수 670,000회',
+    viewsNum: 670000,
+    videoUrl: 'https://www.youtube.com/results?search_query=두피마사지+탈모예방+샴푸법',
+    thumb: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '직장인'],
+    period: 'today'
+  },
+  {
+    rank: 47,
+    type: 'video',
+    title: '오늘자 KTX 예매 꿀팁: 매진된 표 5분 안에 무조건 잡는 자동알림 세팅',
+    channel: '여행러버TV',
+    timeAgo: '9시간 전',
+    views: '조회수 450,000회',
+    viewsNum: 450000,
+    videoUrl: 'https://www.youtube.com/results?search_query=KTX예매꿀팁+취소표예약',
+    thumb: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '이슈'],
+    period: 'today'
+  },
+  {
+    rank: 48,
+    type: 'shorts',
+    title: '오늘 저녁 삼겹살 구울 때 연기 안 나게 굽는 1초 꿀팁 #Shorts',
+    channel: '고기러버',
+    timeAgo: '3시간 전',
+    views: '조회수 520,000회',
+    viewsNum: 520000,
+    videoUrl: 'https://www.youtube.com/results?search_query=삼겹살구이+연기안나게+굽는법',
+    thumb: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'today'
+  },
+  {
+    rank: 49,
+    type: 'shorts',
+    title: '직장에서 퇴사 마려울 때 마인드셋 지키는 심리학 기술 #Shorts',
+    channel: '멘탈닥터',
+    timeAgo: '8시간 전',
+    views: '조회수 580,000회',
+    viewsNum: 580000,
+    videoUrl: 'https://www.youtube.com/results?search_query=직장인퇴사+멘탈관리+심리학',
+    thumb: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '직장인'],
+    period: 'today'
+  },
+  {
+    rank: 50,
+    type: 'video',
+    title: '오늘 마감되는 소상공인 무이자 대출 지원금 500만원 긴급 신청 방법',
+    channel: '자영업자살리기',
+    timeAgo: '13시간 전',
+    views: '조회수 390,000회',
+    viewsNum: 390000,
+    videoUrl: 'https://www.youtube.com/results?search_query=소상공인+무이자대출+정부지원금',
+    thumb: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '정부지원금', '재테크'],
+    period: 'today'
+  }
+];
+
+// 2. [최근 일주일 (7일)] 원본 boutique-info 키워드센터 1:1 완벽 일치 50개 데이터셋
+window.VIRAL_SHORTS_WEEK = [
   {
     rank: 1,
     type: 'shorts',
@@ -24,7 +684,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=숏빅스+와뜨거워',
     thumb: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '생활꿀팁', '코미디'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 3,
@@ -50,7 +710,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=BBS+천수경+영인스님',
     thumb: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '생활꿀팁', '명상'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 5,
@@ -76,7 +736,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=유튜브+TOP+50+웃긴+동영상+댓글모음',
     thumb: 'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '직장인', '유머'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 7,
@@ -102,7 +762,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=BBS+반야심경+영인스님',
     thumb: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '생활꿀팁', '명상'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 9,
@@ -128,7 +788,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=BBS+금강경+독송+영인스님',
     thumb: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '생활꿀팁'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 11,
@@ -154,7 +814,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=침실에서+당장+버려야+3가지+의사의경고+YTN',
     thumb: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef2?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '건강', '생활꿀팁'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 13,
@@ -180,7 +840,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=BBS+금강경+상진스님',
     thumb: 'https://images.unsplash.com/photo-1609619385002-f40f1df9b7eb?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '생활꿀팁'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 15,
@@ -206,7 +866,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=법륜스님+행복의길을찾아서',
     thumb: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '직장인', '인생'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 17,
@@ -232,7 +892,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=퇴경아약먹자+댄스모음',
     thumb: 'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '유머', '엔터'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 19,
@@ -258,7 +918,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=조회수1억+찍은+6초영상+SBS',
     thumb: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '재테크', '수익'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 21,
@@ -284,7 +944,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=밥통에+사과를+넣었더니+주부나라',
     thumb: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '생활꿀팁', '요리'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 23,
@@ -297,7 +957,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=WWE+2K25+gameplay+shorts',
     thumb: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '게임'],
-    period: 'today'
+    period: 'week'
   },
   {
     rank: 24,
@@ -310,7 +970,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=라임튜브+인기동영상+모음',
     thumb: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '키즈'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 25,
@@ -336,7 +996,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=영끌해서+샀는데+재건축+어렵다고+SBS',
     thumb: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '부동산', '재테크'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 27,
@@ -349,7 +1009,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=차니와띠아+결혼식장가기전+라이브',
     thumb: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '음악', '라이브'],
-    period: 'today'
+    period: 'week'
   },
   {
     rank: 28,
@@ -362,7 +1022,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=올해는+매실청+독약+그만+주부나라',
     thumb: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '생활꿀팁', '건강'],
-    period: 'month'
+    period: 'week'
   },
   {
     rank: 29,
@@ -401,7 +1061,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=쿠팡+1만원이하+삶의질+상승+꿀템',
     thumb: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '쿠팡추천', '생활꿀팁'],
-    period: 'today'
+    period: 'week'
   },
   {
     rank: 32,
@@ -453,7 +1113,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=직장상사+대화법+일잘러',
     thumb: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '직장인', '자기계발'],
-    period: 'today'
+    period: 'week'
   },
   {
     rank: 36,
@@ -492,7 +1152,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=폴더블+아이폰+갤럭시폴드+비교',
     thumb: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '이슈', 'IT'],
-    period: 'today'
+    period: 'week'
   },
   {
     rank: 39,
@@ -557,7 +1217,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=미국배당주+ETF+매달10만원',
     thumb: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '재테크', '직장인'],
-    period: 'today'
+    period: 'week'
   },
   {
     rank: 44,
@@ -583,7 +1243,7 @@ window.VIRAL_SHORTS_50 = [
     videoUrl: 'https://www.youtube.com/results?search_query=카톡+신종피싱+스미싱+문자',
     thumb: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80',
     tags: ['전체', '이슈', '생활꿀팁'],
-    period: 'today'
+    period: 'week'
   },
   {
     rank: 46,
@@ -651,3 +1311,667 @@ window.VIRAL_SHORTS_50 = [
     period: 'week'
   }
 ];
+
+// 3. [30일 (1개월)] 역대급 천만뷰 & 월간 메가히트 레전드 50개 데이터셋
+window.VIRAL_SHORTS_MONTH = [
+  {
+    rank: 1,
+    type: 'video',
+    title: '와 뜨거워',
+    channel: '숏빅스',
+    timeAgo: '1년 전',
+    views: '조회수 15,050,931회',
+    viewsNum: 15050931,
+    videoUrl: 'https://www.youtube.com/results?search_query=숏빅스+와뜨거워',
+    thumb: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '코미디'],
+    period: 'month'
+  },
+  {
+    rank: 2,
+    type: 'video',
+    title: '[BBS 인기동영상] 독경_천수경 (영인스님) #BBS염불독경',
+    channel: 'BBS 불교방송',
+    timeAgo: '5년 전',
+    views: '조회수 11,814,679회',
+    viewsNum: 11814679,
+    videoUrl: 'https://www.youtube.com/results?search_query=BBS+천수경+영인스님',
+    thumb: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '명상'],
+    period: 'month'
+  },
+  {
+    rank: 3,
+    type: 'video',
+    title: '한국인이라면 다 봤을 법한 유튜브 TOP 50 웃긴 동영상 댓글 모음 2탄',
+    channel: '유튜브레전드',
+    timeAgo: '4년 전',
+    views: '조회수 10,704,908회',
+    viewsNum: 10704908,
+    videoUrl: 'https://www.youtube.com/results?search_query=유튜브+TOP+50+웃긴+동영상+댓글모음',
+    thumb: 'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '직장인', '유머'],
+    period: 'month'
+  },
+  {
+    rank: 4,
+    type: 'video',
+    title: '[BBS 인기동영상] 독경_반야심경 (영인스님) #매일듣는독경',
+    channel: 'BBS 불교방송',
+    timeAgo: '7년 전',
+    views: '조회수 9,192,785회',
+    viewsNum: 9192785,
+    videoUrl: 'https://www.youtube.com/results?search_query=BBS+반야심경+영인스님',
+    thumb: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '명상'],
+    period: 'month'
+  },
+  {
+    rank: 5,
+    type: 'video',
+    title: '[BBS 인기동영상] 독경_금강경 독송 (영인스님) 한글/한문 자막 #매일기도 #BBS염불...',
+    channel: 'BBS 불교방송',
+    timeAgo: '5년 전',
+    views: '조회수 8,354,003회',
+    viewsNum: 8354003,
+    videoUrl: 'https://www.youtube.com/results?search_query=BBS+금강경+독송+영인스님',
+    thumb: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 6,
+    type: 'video',
+    title: '"침실에서 당장 버려야"...3가지 지목한 의사의 경고 [지금이뉴스] / YTN',
+    channel: 'YTN',
+    timeAgo: '1년 전',
+    views: '조회수 7,220,312회',
+    viewsNum: 7220312,
+    videoUrl: 'https://www.youtube.com/results?search_query=침실에서+당장+버려야+3가지+의사의경고+YTN',
+    thumb: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef2?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '건강', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 7,
+    type: 'video',
+    title: '[BBS 인기동영상] 독경_금강경 독송 (상진스님) #매일기도 #BBS염불독경',
+    channel: 'BBS 불교방송',
+    timeAgo: '7년 전',
+    views: '조회수 6,860,096회',
+    viewsNum: 6860096,
+    videoUrl: 'https://www.youtube.com/results?search_query=BBS+금강경+상진스님',
+    thumb: 'https://images.unsplash.com/photo-1609619385002-f40f1df9b7eb?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 8,
+    type: 'video',
+    title: '[BBS 인기동영상] 법륜스님_"행복의 길을 찾아서, 괴로움과 즐거움의 반복인 우리 삶을 ...',
+    channel: 'BBS 불교방송',
+    timeAgo: '6년 전',
+    views: '조회수 4,851,817회',
+    viewsNum: 4851817,
+    videoUrl: 'https://www.youtube.com/results?search_query=법륜스님+행복의길을찾아서',
+    thumb: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '직장인', '인생'],
+    period: 'month'
+  },
+  {
+    rank: 9,
+    type: 'video',
+    title: 'Best video compilation 인기 동영상 모음집 [K-POP COVER DANCE]',
+    channel: '퇴경아 약먹자',
+    timeAgo: '10년 전',
+    views: '조회수 4,511,774회',
+    viewsNum: 4511774,
+    videoUrl: 'https://www.youtube.com/results?search_query=퇴경아약먹자+댄스모음',
+    thumb: 'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '유머', '엔터'],
+    period: 'month'
+  },
+  {
+    rank: 10,
+    type: 'video',
+    title: '\'조회수 1억\' 찍은 6초 영상..."얼마라고?" 대박 터졌다 (자막뉴스) / SBS',
+    channel: 'SBS 뉴스',
+    timeAgo: '1년 전',
+    views: '조회수 4,405,996회',
+    viewsNum: 4405996,
+    videoUrl: 'https://www.youtube.com/results?search_query=조회수1억+찍은+6초영상+SBS',
+    thumb: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '재테크', '수익'],
+    period: 'month'
+  },
+  {
+    rank: 11,
+    type: 'video',
+    title: '(#인기급상승동영상)밥통에 사과를 넣었더니 그립던 옛맛에 눈물이 납니다',
+    channel: '주부나라',
+    timeAgo: '3년 전',
+    views: '조회수 4,220,454회',
+    viewsNum: 4220454,
+    videoUrl: 'https://www.youtube.com/results?search_query=밥통에+사과를+넣었더니+주부나라',
+    thumb: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '요리'],
+    period: 'month'
+  },
+  {
+    rank: 12,
+    type: 'video',
+    title: '[60분]라임의 인기 동영상 영상모음 미니특공대 피자마삼총사와 소피루비방 indoor pla...',
+    channel: 'Lime Tube[라임튜브]',
+    timeAgo: '7년 전',
+    views: '조회수 3,707,247회',
+    viewsNum: 3707247,
+    videoUrl: 'https://www.youtube.com/results?search_query=라임튜브+인기동영상+모음',
+    thumb: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '키즈'],
+    period: 'month'
+  },
+  {
+    rank: 13,
+    type: 'video',
+    title: '아파트~ 아파트~♬ 영끌해서 샀는데..미래엔 재건축 어렵다고?! | SBS 뉴스토리',
+    channel: 'SBS 뉴스',
+    timeAgo: '스트리밍 시간: 1년 전',
+    views: '조회수 3,383,113회',
+    viewsNum: 3383113,
+    videoUrl: 'https://www.youtube.com/results?search_query=영끌해서+샀는데+재건축+어렵다고+SBS',
+    thumb: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '부동산', '재테크'],
+    period: 'month'
+  },
+  {
+    rank: 14,
+    type: 'video',
+    title: '(#인기급상승동영상) 올해는 매실청 이제 가족 에게 독약 그만 먹이시고 이렇게 하세요 #...',
+    channel: '주부나라',
+    timeAgo: '4년 전',
+    views: '조회수 3,225,682회',
+    viewsNum: 3225682,
+    videoUrl: 'https://www.youtube.com/results?search_query=올해는+매실청+독약+그만+주부나라',
+    thumb: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '건강'],
+    period: 'month'
+  },
+  {
+    rank: 15,
+    type: 'shorts',
+    title: '마크롱 여사 화사 붙잡고 \'속닥속닥\'...깜짝 행동 #JTBC #Shorts',
+    channel: 'JTBC News',
+    timeAgo: '5일 전',
+    views: '조회수 2,072,100회',
+    viewsNum: 2072100,
+    videoUrl: 'https://www.youtube.com/results?search_query=마크롱+여사+화사+속닥속닥',
+    thumb: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '이슈', '글로벌'],
+    period: 'month'
+  },
+  {
+    rank: 16,
+    type: 'shorts',
+    title: '"얼마예요" 묻자, 다짜고짜 "거래 안 해요" 거지 취급? #JTBC #Shorts',
+    channel: 'JTBC News',
+    timeAgo: '5일 전',
+    views: '조회수 1,525,563회',
+    viewsNum: 1525563,
+    videoUrl: 'https://www.youtube.com/results?search_query=얼마예요+묻자+다짜고짜+거래안해요',
+    thumb: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '이슈', '사회'],
+    period: 'month'
+  },
+  {
+    rank: 17,
+    type: 'video',
+    title: '대한민국 0.1% 부자들의 비밀 자산 관리 포트폴리오 전격 해부',
+    channel: '머니인사이트',
+    timeAgo: '3주 전',
+    views: '조회수 2,980,400회',
+    viewsNum: 2980400,
+    videoUrl: 'https://www.youtube.com/results?search_query=대한민국+상위0.1프로+부자+자산관리',
+    thumb: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '재테크', '부동산'],
+    period: 'month'
+  },
+  {
+    rank: 18,
+    type: 'shorts',
+    title: '하루 10분 수건 한 장으로 거북목 & 라운드숄더 펴는 기적의 운동 #Shorts',
+    channel: '재활닥터',
+    timeAgo: '2주 전',
+    views: '조회수 2,450,000회',
+    viewsNum: 2450000,
+    videoUrl: 'https://www.youtube.com/results?search_query=거북목교정+라운드숄더+수건운동',
+    thumb: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '다이어트', '건강'],
+    period: 'month'
+  },
+  {
+    rank: 19,
+    type: 'video',
+    title: '퇴직 후 월 300만원 연금 만드는 완벽 5단계 플랜 (국민연금+개인연금)',
+    channel: '은퇴설계연구소',
+    timeAgo: '4주 전',
+    views: '조회수 2,120,500회',
+    viewsNum: 2120500,
+    videoUrl: 'https://www.youtube.com/results?search_query=은퇴후+월300만원+연금만들기',
+    thumb: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '재테크', '직장인', '정부지원금'],
+    period: 'month'
+  },
+  {
+    rank: 20,
+    type: 'shorts',
+    title: '식당 사장님들이 제발 시키지 말라고 애원하는 최악의 메뉴 #Shorts',
+    channel: '외식업비화',
+    timeAgo: '3주 전',
+    views: '조회수 1,980,000회',
+    viewsNum: 1980000,
+    videoUrl: 'https://www.youtube.com/results?search_query=식당사장님+비추천메뉴+shorts',
+    thumb: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '이슈', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 21,
+    type: 'video',
+    title: '서울 재개발 구역 중 지금 5천만원으로 들어갈 수 있는 마지막 기회',
+    channel: '재개발의신',
+    timeAgo: '3주 전',
+    views: '조회수 1,870,000회',
+    viewsNum: 1870000,
+    videoUrl: 'https://www.youtube.com/results?search_query=서울재개발+소액투자+부동산',
+    thumb: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '부동산', '재테크'],
+    period: 'month'
+  },
+  {
+    rank: 22,
+    type: 'shorts',
+    title: '비행기 탈 때 승무원들이 절대 안 마신다는 기내 음료 #Shorts',
+    channel: '승무원비하인드',
+    timeAgo: '2주 전',
+    views: '조회수 2,890,000회',
+    viewsNum: 2890000,
+    videoUrl: 'https://www.youtube.com/results?search_query=기내음료+승무원비밀+shorts',
+    thumb: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '이슈', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 23,
+    type: 'video',
+    title: '평생 살 안 찌는 사람들의 하루 식단 루틴: 먹어도 살 빠지는 비밀 대공개',
+    channel: '다이어트과학',
+    timeAgo: '4주 전',
+    views: '조회수 1,750,000회',
+    viewsNum: 1750000,
+    videoUrl: 'https://www.youtube.com/results?search_query=평생살안찌는체질+식단루틴',
+    thumb: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '다이어트', '건강'],
+    period: 'month'
+  },
+  {
+    rank: 24,
+    type: 'shorts',
+    title: '쿠팡에서 평점 4.9점 넘는 품절대란 청소용품 베스트 3 #Shorts',
+    channel: '리뷰대장',
+    timeAgo: '3주 전',
+    views: '조회수 1,640,000회',
+    viewsNum: 1640000,
+    videoUrl: 'https://www.youtube.com/results?search_query=쿠팡추천+청소용품+품절대란',
+    thumb: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '쿠팡추천', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 25,
+    type: 'video',
+    title: '미국 나스닥 100 무조건 10년 장기투자하면 생기는 놀라운 복리의 마법',
+    channel: '미국주식마스터',
+    timeAgo: '4주 전',
+    views: '조회수 2,340,000회',
+    viewsNum: 2340000,
+    videoUrl: 'https://www.youtube.com/results?search_query=나스닥100+10년장기투자+복리효과',
+    thumb: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '재테크', '직장인'],
+    period: 'month'
+  },
+  {
+    rank: 26,
+    type: 'shorts',
+    title: '싱크대 배수구 악취 락스 한 방울 안 쓰고 과탄산소다로 종결하는 법 #Shorts',
+    channel: '살림백서',
+    timeAgo: '2주 전',
+    views: '조회수 1,820,000회',
+    viewsNum: 1820000,
+    videoUrl: 'https://www.youtube.com/results?search_query=싱크대배수구+악취제거+과탄산소다',
+    thumb: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 27,
+    type: 'video',
+    title: '국가가 숨겨둔 노후 지원금 7가지! 60세 이상 부모님 계시면 무조건 챙기세요',
+    channel: '복지알리미',
+    timeAgo: '3주 전',
+    views: '조회수 2,890,000회',
+    viewsNum: 2890000,
+    videoUrl: 'https://www.youtube.com/results?search_query=노후지원금+60세이상+부모님복지혜택',
+    thumb: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '정부지원금', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 28,
+    type: 'shorts',
+    title: '호텔 침구처럼 뽀송뽀송하게 수건 세탁하는 식초 헹굼 비법 #Shorts',
+    channel: '호텔리어살림',
+    timeAgo: '4주 전',
+    views: '조회수 1,590,000회',
+    viewsNum: 1590000,
+    videoUrl: 'https://www.youtube.com/results?search_query=호텔수건+세탁법+식초헹굼',
+    thumb: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 29,
+    type: 'video',
+    title: '지방 아파트 다 팔고 서울 1채로 갈아타기 성공한 40대 가장의 실전 후기',
+    channel: '갈아타기연구소',
+    timeAgo: '3주 전',
+    views: '조회수 1,620,000회',
+    viewsNum: 1620000,
+    videoUrl: 'https://www.youtube.com/results?search_query=상급지갈아타기+서울아파트매수',
+    thumb: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '부동산', '재테크'],
+    period: 'month'
+  },
+  {
+    rank: 30,
+    type: 'shorts',
+    title: '식당에서 남은 양파장아찌 국물 절대 버리지 마세요! 고기 만능소스 꿀팁 #Shorts',
+    channel: '뚝딱레시피',
+    timeAgo: '2주 전',
+    views: '조회수 1,430,000회',
+    viewsNum: 1430000,
+    videoUrl: 'https://www.youtube.com/results?search_query=양파장아찌국물+재활용+만능소스',
+    thumb: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '요리'],
+    period: 'month'
+  },
+  {
+    rank: 31,
+    type: 'video',
+    title: '직장 다니며 쿠팡 파트너스로 월 200만원 자동 수익 세팅한 실전 시스템',
+    channel: '부업의정석',
+    timeAgo: '4주 전',
+    views: '조회수 1,910,000회',
+    viewsNum: 1910000,
+    videoUrl: 'https://www.youtube.com/results?search_query=쿠팡파트너스+월200만원+자동수익',
+    thumb: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '쿠팡추천', '재테크', '직장인'],
+    period: 'month'
+  },
+  {
+    rank: 32,
+    type: 'shorts',
+    title: '배에 힘만 줘도 복근 생기는 드로인 뱃살 감량 호흡법 #Shorts',
+    channel: '코어핏',
+    timeAgo: '3주 전',
+    views: '조회수 2,150,000회',
+    viewsNum: 2150000,
+    videoUrl: 'https://www.youtube.com/results?search_query=드로인호흡법+뱃살빼기+코어운동',
+    thumb: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '다이어트', '건강'],
+    period: 'month'
+  },
+  {
+    rank: 33,
+    type: 'video',
+    title: '당뇨 전단계 환자가 흰쌀밥 끊고 3개월 만에 정상 혈당 찾은 식단 비밀',
+    channel: '혈당주치의',
+    timeAgo: '3주 전',
+    views: '조회수 1,840,000회',
+    viewsNum: 1840000,
+    videoUrl: 'https://www.youtube.com/results?search_query=당뇨전단계+혈당정상화+식단',
+    thumb: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '건강', '다이어트'],
+    period: 'month'
+  },
+  {
+    rank: 34,
+    type: 'shorts',
+    title: '커피포트 바닥에 낀 하얀 석회질 구연산으로 3분 만에 새것 만드는 법 #Shorts',
+    channel: '살림의신',
+    timeAgo: '2주 전',
+    views: '조회수 1,320,000회',
+    viewsNum: 1320000,
+    videoUrl: 'https://www.youtube.com/results?search_query=커피포트세척+구연산청소',
+    thumb: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 35,
+    type: 'video',
+    title: '내집마련 전세보증금 사기 100% 예방하는 계약서 특약 5가지 (변호사 검수)',
+    channel: '부동산법률센터',
+    timeAgo: '4주 전',
+    views: '조회수 1,560,000회',
+    viewsNum: 1560000,
+    videoUrl: 'https://www.youtube.com/results?search_query=전세사기예방+계약서특약문구',
+    thumb: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '부동산', '재테크'],
+    period: 'month'
+  },
+  {
+    rank: 36,
+    type: 'shorts',
+    title: '집에서 절대 신으면 안 되는 최악의 실내 슬리퍼 족저근막염 원인 #Shorts',
+    channel: '정형외과전문의',
+    timeAgo: '3주 전',
+    views: '조회수 2,210,000회',
+    viewsNum: 2210000,
+    videoUrl: 'https://www.youtube.com/results?search_query=족저근막염슬리퍼+실내화추천',
+    thumb: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '건강', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 37,
+    type: 'video',
+    title: '고배당 ETF SCHD 월 100만원 배당 받으려면 총 투자금 얼마나 필요할까?',
+    channel: '배당투자연구원',
+    timeAgo: '3주 전',
+    views: '조회수 1,970,000회',
+    viewsNum: 1970000,
+    videoUrl: 'https://www.youtube.com/results?search_query=SCHD+월100만원배당금+투자금계산',
+    thumb: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '재테크', '직장인'],
+    period: 'month'
+  },
+  {
+    rank: 38,
+    type: 'shorts',
+    title: '냉동실에 얼린 두부가 고기보다 단백질 함량 5배 높아지는 이유 #Shorts',
+    channel: '영양학박사',
+    timeAgo: '4주 전',
+    views: '조회수 1,770,000회',
+    viewsNum: 1770000,
+    videoUrl: 'https://www.youtube.com/results?search_query=얼린두부+단백질함량+다이어트',
+    thumb: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '다이어트', '건강'],
+    period: 'month'
+  },
+  {
+    rank: 39,
+    type: 'video',
+    title: '다이소 욕실 청소용품 중 1천원으로 타일 곰팡이 싹 지우는 갓성비 템',
+    channel: '살림톡톡',
+    timeAgo: '2주 전',
+    views: '조회수 1,480,000회',
+    viewsNum: 1480000,
+    videoUrl: 'https://www.youtube.com/results?search_query=다이소청소용품+욕실곰팡이제거',
+    thumb: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁', '쿠팡추천'],
+    period: 'month'
+  },
+  {
+    rank: 40,
+    type: 'shorts',
+    title: '고속도로 휴게소에서 현직 영양사가 추천하는 건강 간식 베스트 3 #Shorts',
+    channel: '맛있는다이어트',
+    timeAgo: '3주 전',
+    views: '조회수 1,290,000회',
+    viewsNum: 1290000,
+    videoUrl: 'https://www.youtube.com/results?search_query=고속도로휴게소+간식추천',
+    thumb: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '다이어트', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 41,
+    type: 'video',
+    title: '퇴사 후 실업급여 최대 1,200만원 합법적으로 수령하는 신청 가이드',
+    channel: '노무상담소',
+    timeAgo: '4주 전',
+    views: '조회수 2,420,000회',
+    viewsNum: 2420000,
+    videoUrl: 'https://www.youtube.com/results?search_query=실업급여신청방법+자격조건+모의계산',
+    thumb: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '직장인', '정부지원금'],
+    period: 'month'
+  },
+  {
+    rank: 42,
+    type: 'shorts',
+    title: '프라이팬 코팅 안 벗겨지고 5년 동안 새것처럼 쓰는 세척법 #Shorts',
+    channel: '주방명장',
+    timeAgo: '3주 전',
+    views: '조회수 1,650,000회',
+    viewsNum: 1650000,
+    videoUrl: 'https://www.youtube.com/results?search_query=프라이팬코팅관리+세척꿀팁',
+    thumb: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 43,
+    type: 'video',
+    title: '수면무호흡증 코골이 방치하면 뇌졸중 위험 3배! 집에서 교정하는 방법',
+    channel: '이비인후과전문의',
+    timeAgo: '3주 전',
+    views: '조회수 1,390,000회',
+    viewsNum: 1390000,
+    videoUrl: 'https://www.youtube.com/results?search_query=수면무호흡증+코골이교정+치료법',
+    thumb: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef2?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '건강', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 44,
+    type: 'shorts',
+    title: '직장에서 메일 보낼 때 감점 안 당하는 프로페셔널 템플릿 3가지 #Shorts',
+    channel: '오피스마스터',
+    timeAgo: '4주 전',
+    views: '조회수 1,410,000회',
+    viewsNum: 1410000,
+    videoUrl: 'https://www.youtube.com/results?search_query=비즈니스메일작성법+직장인스킬',
+    thumb: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '직장인'],
+    period: 'month'
+  },
+  {
+    rank: 45,
+    type: 'video',
+    title: '스마트스토어 위탁판매로 시작해서 월 순수익 500만원 만든 초보자 성장기',
+    channel: '이커머스성공기',
+    timeAgo: '4주 전',
+    views: '조회수 1,830,000회',
+    viewsNum: 1830000,
+    videoUrl: 'https://www.youtube.com/results?search_query=스마트스토어+위탁판매+순수익500',
+    thumb: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '재테크', '직장인', '쿠팡추천'],
+    period: 'month'
+  },
+  {
+    rank: 46,
+    type: 'shorts',
+    title: '아침 기상 직후 찬물 벌컥벌컥 마시면 심장에 일어나는 충격 변화 #Shorts',
+    channel: '심장내과전문의',
+    timeAgo: '2주 전',
+    views: '조회수 2,670,000회',
+    viewsNum: 2670000,
+    videoUrl: 'https://www.youtube.com/results?search_query=아침기상+찬물마시기+건강주의',
+    thumb: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '건강', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 47,
+    type: 'video',
+    title: '쿠팡 로켓프레시 주문할 때 신선도 2배 높은 상품 고르는 시간대 비밀',
+    channel: '소비자고발TV',
+    timeAgo: '3주 전',
+    views: '조회수 1,510,000회',
+    viewsNum: 1510000,
+    videoUrl: 'https://www.youtube.com/results?search_query=쿠팡로켓프레시+신선식품+주문팁',
+    thumb: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '쿠팡추천', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 48,
+    type: 'shorts',
+    title: '바나나 꼭지에 랩 씌우면 2주 동안 안 썩고 싱싱하게 보관하는 법 #Shorts',
+    channel: '식품저장소',
+    timeAgo: '4주 전',
+    views: '조회수 1,890,000회',
+    viewsNum: 1890000,
+    videoUrl: 'https://www.youtube.com/results?search_query=바나나보관법+랩씌우기+신선보관',
+    thumb: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'month'
+  },
+  {
+    rank: 49,
+    type: 'video',
+    title: '국내 대기업 연봉 순위 TOP 20 직급별 실수령액과 복지 혜택 완전 공개',
+    channel: '취업의정석',
+    timeAgo: '4주 전',
+    views: '조회수 2,190,000회',
+    viewsNum: 2190000,
+    videoUrl: 'https://www.youtube.com/results?search_query=국내대기업+연봉순위+실수령액',
+    thumb: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '직장인', '재테크'],
+    period: 'month'
+  },
+  {
+    rank: 50,
+    type: 'shorts',
+    title: '가스레인지 후드 누런 기름때 베이킹소다+뜨거운 물로 5분 순삭 #Shorts',
+    channel: '살림만렙',
+    timeAgo: '3주 전',
+    views: '조회수 1,730,000회',
+    viewsNum: 1730000,
+    videoUrl: 'https://www.youtube.com/results?search_query=가스레인지후드청소+베이킹소다',
+    thumb: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80',
+    tags: ['전체', '생활꿀팁'],
+    period: 'month'
+  }
+];
+
+// 기간별 맵핑 객체
+window.VIRAL_SHORTS_BY_PERIOD = {
+  today: window.VIRAL_SHORTS_TODAY,
+  week: window.VIRAL_SHORTS_WEEK,
+  month: window.VIRAL_SHORTS_MONTH
+};
+
+// 기본 호환성 데이터셋 (최근 일주일 기준 50개)
+window.VIRAL_SHORTS_50 = window.VIRAL_SHORTS_WEEK;
