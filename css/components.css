@@ -1,4 +1,4 @@
-/* ===== 버튼 (Buttons) ===== */
+﻿/* ===== 버튼 (Buttons) ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -3312,3 +3312,130 @@
 
 
 
+
+
+
+/* ==========================================================================
+   5번 지식iN Q&A 전용 1:1 완벽 매칭 스타일 (조회수/답변수 칩 & 질문원문 버튼)
+   ========================================================================== */
+.kc-card-kin-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.kc-chip-kin-views {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 0.74rem;
+  color: #93c5fd;
+}
+
+.kc-chip-kin-views strong {
+  color: #f8fafc;
+  font-weight: 800;
+}
+
+.kc-chip-kin-answers {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 0.74rem;
+  color: #fca5a5;
+}
+
+.kc-chip-kin-answers strong {
+  color: #ef4444;
+  font-weight: 800;
+}
+
+.kc-btn-kin-orig {
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.kc-btn-kin-orig:hover {
+  background: #0369a1;
+  transform: translateY(-1px);
+}
+
+.kc-badge-blueocean {
+  margin-left: auto;
+  color: #3b82f6;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+/* 5번 우측 리포트 지식iN 실측 배너 및 3대 박스 */
+.kc-kin-live-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-top: 18px;
+  margin-bottom: 16px;
+}
+
+.kc-kin-badge-main {
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.kc-kin-stat-text {
+  font-size: 0.88rem;
+  color: #38bdf8;
+  font-weight: 800;
+}
+
+.kc-kin-stat-ans {
+  font-size: 0.88rem;
+  color: #f87171;
+  font-weight: 800;
+}
+
+.kc-kin-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.kc-kin-box-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kc-kin-box-desc {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  margin: 0;
+}
