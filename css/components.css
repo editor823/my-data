@@ -3873,3 +3873,448 @@
   word-break: keep-all;
 }
 
+/* ==========================================================================
+   8. 바이럴숏폼 (유튜브 인기 영상 & 숏폼 실시간 검색) 전용 풀 레이아웃 (스크린샷 1:1)
+   ========================================================================== */
+.kc-tab8-container {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* 8번 헤더 배너 */
+.kc-tab8-header-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.kc-tab8-badge {
+  display: inline-block;
+  background: #ea580c;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+}
+
+.kc-tab8-title {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 900;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kc-tab8-sub {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.kc-tab8-count-badge {
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  color: #f97316;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+/* 검색 & 필터 메인 카드 박스 */
+.kc-tab8-filter-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+/* 검색창 인풋 바 */
+.kc-tab8-search-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.kc-tab8-search-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 0 16px;
+  height: 48px;
+  transition: border-color 0.2s;
+}
+
+.kc-tab8-search-wrap:focus-within {
+  border-color: #ea580c;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+}
+
+.kc-tab8-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-main);
+  font-size: 0.92rem;
+  font-family: inherit;
+}
+
+.kc-tab8-search-btn {
+  background: #ea580c;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.92rem;
+  padding: 0 24px;
+  height: 48px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.kc-tab8-search-btn:hover {
+  background: #c2410c;
+  transform: translateY(-1px);
+}
+
+/* 빠른 선택 해시태그 바 */
+.kc-tab8-quick-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  margin-bottom: 16px;
+}
+
+.kc-tab8-quick-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+
+.kc-tab8-quick-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.kc-tab8-quick-pill:hover,
+.kc-tab8-quick-pill.active {
+  background: rgba(234, 88, 12, 0.15);
+  border-color: rgba(234, 88, 12, 0.4);
+  color: #ea580c;
+}
+
+/* 필터 제어 행 (검색 기간 / 정렬 기준 / 영상 형태) */
+.kc-tab8-controls-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.kc-tab8-control-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kc-tab8-control-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.kc-tab8-btn-group {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.kc-tab8-opt-btn {
+  background: transparent;
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.kc-tab8-opt-btn:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.kc-tab8-opt-btn.active {
+  background: #ea580c;
+  color: #ffffff;
+}
+
+/* 검색 결과 상태 서브 바 */
+.kc-tab8-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+.kc-tab8-status-tag {
+  color: #ea580c;
+  font-weight: 800;
+}
+
+.kc-tab8-result-badge {
+  background: rgba(234, 88, 12, 0.1);
+  border: 1px solid rgba(234, 88, 12, 0.3);
+  color: #ea580c;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+/* 4열 비디오 카드 그리드 */
+.kc-tab8-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1280px) {
+  .kc-tab8-grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .kc-tab8-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .kc-tab8-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 개별 영상 카드 */
+.kc-tab8-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.kc-tab8-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(234, 88, 12, 0.45);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+}
+
+/* 썸네일 박스 */
+.kc-tab8-thumb-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #0b0f19;
+  overflow: hidden;
+}
+
+.kc-tab8-thumb-box.shorts-ratio {
+  aspect-ratio: 9 / 13;
+}
+
+.kc-tab8-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 썸네일 위 뱃지들 */
+.kc-tab8-type-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  z-index: 2;
+}
+
+.kc-tab8-type-badge.shorts {
+  background: #e11d48;
+}
+
+.kc-tab8-type-badge.video {
+  background: #2563eb;
+}
+
+.kc-tab8-rank-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ea580c;
+  color: #ffffff;
+  font-size: 0.74rem;
+  font-weight: 900;
+  padding: 3px 8px;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.kc-tab8-views-overlay {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+
+/* 카드 본문 */
+.kc-tab8-card-body {
+  padding: 14px 14px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.kc-tab8-video-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.45;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 2.9em;
+  word-break: keep-all;
+}
+
+.kc-tab8-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.kc-tab8-channel-name {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 유튜브 시청하기 버튼 (빨간색) */
+.kc-tab8-watch-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  background: #ea580c;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 8px 0;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.15s;
+  margin-bottom: 8px;
+}
+
+.kc-tab8-watch-btn:hover {
+  background: #c2410c;
+}
+
+/* 하단 버튼 2개: 제목 복사 / 글감 복사 */
+.kc-tab8-btn-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.kc-tab8-action-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 6px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.kc-tab8-action-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+

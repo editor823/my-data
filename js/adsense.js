@@ -4200,11 +4200,13 @@ window.switchKcTab = function(type) {
 
   const dualLayout = document.getElementById('kc-dual-layout');
   const tab7Container = document.getElementById('kc-tab7-container');
+  const tab8Container = document.getElementById('kc-tab8-container');
   const subFilterBar = document.querySelector('.kc-sub-filter-bar');
 
   if (type === 'type-7') {
     if (dualLayout) dualLayout.style.display = 'none';
     if (subFilterBar) subFilterBar.style.display = 'none';
+    if (tab8Container) tab8Container.style.display = 'none';
     let policyBanner = document.getElementById('kc-policy-signal-banner-box');
     if (policyBanner) policyBanner.style.display = 'none';
 
@@ -4212,10 +4214,22 @@ window.switchKcTab = function(type) {
       tab7Container.style.display = 'block';
       renderTab7Grid(tab7Container);
     }
+  } else if (type === 'type-8') {
+    if (dualLayout) dualLayout.style.display = 'none';
+    if (subFilterBar) subFilterBar.style.display = 'none';
+    if (tab7Container) tab7Container.style.display = 'none';
+    let policyBanner = document.getElementById('kc-policy-signal-banner-box');
+    if (policyBanner) policyBanner.style.display = 'none';
+
+    if (tab8Container) {
+      tab8Container.style.display = 'block';
+      renderTab8ViralShorts(tab8Container);
+    }
   } else {
     if (dualLayout) dualLayout.style.display = '';
     if (subFilterBar) subFilterBar.style.display = '';
     if (tab7Container) tab7Container.style.display = 'none';
+    if (tab8Container) tab8Container.style.display = 'none';
 
     updateSubFilterHeader();
     renderSubFilterButtons();
@@ -4272,6 +4286,289 @@ function renderTab7Grid(container) {
     </div>
   `;
 }
+
+// 8번 바이럴숏폼 상태 변수
+let tab8State = {
+  keyword: '',
+  quickTag: '전체 종합 (실시간 인기)',
+  period: 'week', // 'today', 'week', 'month'
+  sort: 'views',  // 'views', 'surge'
+  type: 'shorts'  // 'shorts', 'all'
+};
+
+// 8번 바이럴숏폼 전용 렌더링 함수 (스크린샷 1:1 완벽 일치)
+function renderTab8ViralShorts(container) {
+  const quickPills = [
+    '전체 종합 (실시간 인기)',
+    '재테크',
+    '정부지원금',
+    '생활꿀팁',
+    '쿠팡추천',
+    '부동산',
+    '직장인',
+    '다이어트',
+    '이슈'
+  ];
+
+  const quickPillsHtml = quickPills.map(tag => `
+    <button type="button" class="kc-tab8-quick-pill ${tab8State.quickTag === tag ? 'active' : ''}" onclick="setTab8QuickTag('${escapeHtml(tag)}')">
+      ${tag.includes('전체') ? '🌟 ' : '#'}${escapeHtml(tag)}
+    </button>
+  `).join('');
+
+  container.innerHTML = `
+    <!-- 8번 상단 헤더 배너 -->
+    <div class="kc-tab8-header-box">
+      <div>
+        <div class="kc-tab8-badge">YOUTUBE VIRAL SHORTS</div>
+        <h2 class="kc-tab8-title">🔥 8. 바이럴숏폼 (유튜브 인기 영상 &amp; 숏폼 실시간 검색)</h2>
+        <div class="kc-tab8-sub">
+          유튜브에서 지금 실시간으로 화제가 되고 있는 인기 숏폼 및 급상승 영상을 발굴합니다. 당일 / 최근 일주일 / 30일 기간별로 조회수가 폭발한 영상을 분석하고 블로그 글감 및 쇼츠 대본에 즉시 활용하세요.
+        </div>
+      </div>
+      <div>
+        <span class="kc-tab8-count-badge" id="kc-tab8-total-count">조회 완료 (50개 영상)</span>
+      </div>
+    </div>
+
+    <!-- 검색창 & 필터 박스 -->
+    <div class="kc-tab8-filter-card">
+      <!-- 검색 인풋 행 -->
+      <div class="kc-tab8-search-row">
+        <div class="kc-tab8-search-wrap">
+          <span style="font-size: 1.1rem; color: #94a3b8;">🔍</span>
+          <input type="text" id="kc-tab8-search-input" class="kc-tab8-search-input" 
+                 placeholder="검색할 키워드를 입력하세요 (비워두고 [영상 검색]을 누르면 유튜브 전체 실시간 바이럴 영상이 조회됩니다)"
+                 value="${escapeHtml(tab8State.keyword)}"
+                 onkeydown="if(event.key==='Enter') executeTab8Search();">
+        </div>
+        <button type="button" class="kc-tab8-search-btn" onclick="executeTab8Search()">영상 검색</button>
+      </div>
+
+      <!-- 빠른 선택 해시태그 바 -->
+      <div class="kc-tab8-quick-row">
+        <span class="kc-tab8-quick-label">빠른 선택:</span>
+        ${quickPillsHtml}
+      </div>
+
+      <!-- 컨트롤 필터 (검색 기간 / 정렬 기준 / 영상 형태) -->
+      <div class="kc-tab8-controls-row">
+        <!-- 1. 검색 기간 -->
+        <div class="kc-tab8-control-group">
+          <span class="kc-tab8-control-title">📅 검색 기간</span>
+          <div class="kc-tab8-btn-group">
+            <button type="button" class="kc-tab8-opt-btn ${tab8State.period === 'today' ? 'active' : ''}" onclick="setTab8Filter('period', 'today')">당일 (오늘 24H)</button>
+            <button type="button" class="kc-tab8-opt-btn ${tab8State.period === 'week' ? 'active' : ''}" onclick="setTab8Filter('period', 'week')">최근 일주일 (7일)</button>
+            <button type="button" class="kc-tab8-opt-btn ${tab8State.period === 'month' ? 'active' : ''}" onclick="setTab8Filter('period', 'month')">30일 (1개월)</button>
+          </div>
+        </div>
+
+        <!-- 2. 정렬 기준 -->
+        <div class="kc-tab8-control-group">
+          <span class="kc-tab8-control-title">⚡ 정렬 기준</span>
+          <div class="kc-tab8-btn-group">
+            <button type="button" class="kc-tab8-opt-btn ${tab8State.sort === 'views' ? 'active' : ''}" onclick="setTab8Filter('sort', 'views')">🏆 조회수 많은 순</button>
+            <button type="button" class="kc-tab8-opt-btn ${tab8State.sort === 'surge' ? 'active' : ''}" onclick="setTab8Filter('sort', 'surge')">🔥 조회급상승 순</button>
+          </div>
+        </div>
+
+        <!-- 3. 영상 형태 -->
+        <div class="kc-tab8-control-group">
+          <span class="kc-tab8-control-title">🎬 영상 형태</span>
+          <div class="kc-tab8-btn-group">
+            <button type="button" class="kc-tab8-opt-btn ${tab8State.type === 'shorts' ? 'active' : ''}" onclick="setTab8Filter('type', 'shorts')">⚡ 쇼츠(Shorts) 우선</button>
+            <button type="button" class="kc-tab8-opt-btn ${tab8State.type === 'all' ? 'active' : ''}" onclick="setTab8Filter('type', 'all')">모든 영상</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 검색 결과 상태 바 -->
+    <div class="kc-tab8-status-bar">
+      <div id="kc-tab8-status-summary">
+        "${tab8State.keyword ? escapeHtml(tab8State.keyword) : '🌟 ' + escapeHtml(tab8State.quickTag)}" · ${tab8State.period === 'today' ? '당일 (오늘 24H)' : tab8State.period === 'week' ? '최근 일주일 (7일)' : '30일 (1개월)'} · ${tab8State.sort === 'views' ? '조회수 많은 순' : '조회급상승 순'}
+      </div>
+      <span class="kc-tab8-result-badge" id="kc-tab8-filtered-count">50개 영상</span>
+    </div>
+
+    <!-- 4열 영상 카드 그리드 컨테이너 -->
+    <div class="kc-tab8-grid-4" id="kc-tab8-grid-container">
+      <!-- 동적 카드 렌더링 -->
+    </div>
+  `;
+
+  renderTab8Cards();
+}
+
+// 8번 카드 목록 필터링 & 렌더링
+function renderTab8Cards() {
+  const container = document.getElementById('kc-tab8-grid-container');
+  if (!container) return;
+
+  const dataset = window.VIRAL_SHORTS_50 || [];
+  let filtered = [...dataset];
+
+  // 1. 키워드 검색어 필터
+  if (tab8State.keyword.trim()) {
+    const q = tab8State.keyword.trim().toLowerCase();
+    filtered = filtered.filter(item => 
+      item.title.toLowerCase().includes(q) || 
+      item.channel.toLowerCase().includes(q) ||
+      (item.tags && item.tags.some(t => t.toLowerCase().includes(q)))
+    );
+  } else if (tab8State.quickTag && !tab8State.quickTag.includes('전체')) {
+    // 2. 빠른 선택 태그 필터
+    filtered = filtered.filter(item => item.tags && item.tags.includes(tab8State.quickTag));
+  }
+
+  // 3. 영상 형태 필터
+  if (tab8State.type === 'shorts') {
+    // 쇼츠 우선 정렬 (쇼츠 먼저 배치)
+    filtered.sort((a, b) => {
+      if (a.type === 'shorts' && b.type !== 'shorts') return -1;
+      if (a.type !== 'shorts' && b.type === 'shorts') return 1;
+      return 0;
+    });
+  }
+
+  // 4. 정렬 기준
+  if (tab8State.sort === 'views') {
+    filtered.sort((a, b) => (b.viewsNum || 0) - (a.viewsNum || 0));
+  } else if (tab8State.sort === 'surge') {
+    // 급상승 순: 랭크 순 정렬
+    filtered.sort((a, b) => a.rank - b.rank);
+  }
+
+  // 카운트 배지 갱신
+  const countBadge = document.getElementById('kc-tab8-filtered-count');
+  if (countBadge) countBadge.textContent = `${filtered.length}개 영상`;
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: var(--text-muted);">
+        <div style="font-size: 2.4rem; margin-bottom: 12px;">🔍</div>
+        <div style="font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 6px;">일치하는 바이럴 영상이 없습니다</div>
+        <div style="font-size: 0.85rem;">다른 키워드로 검색하거나 필터를 초기화해보세요.</div>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map((item, idx) => {
+    const isShorts = item.type === 'shorts';
+    const typeLabel = isShorts ? '⚡ Shorts' : '🎬 Video';
+    const typeClass = isShorts ? 'shorts' : 'video';
+    const thumbAspect = isShorts ? 'shorts-ratio' : '';
+    const displayRank = `TOP ${item.rank || idx + 1}`;
+
+    return `
+      <div class="kc-tab8-card">
+        <!-- 썸네일 박스 -->
+        <div class="kc-tab8-thumb-box ${thumbAspect}">
+          <img src="${escapeHtml(item.thumb)}" alt="${escapeHtml(item.title)}" class="kc-tab8-thumb-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop&q=80'">
+          <span class="kc-tab8-type-badge ${typeClass}">${typeLabel}</span>
+          <span class="kc-tab8-rank-badge">${displayRank}</span>
+          <span class="kc-tab8-views-overlay">👁️ ${escapeHtml(item.views)}</span>
+        </div>
+
+        <!-- 카드 본문 -->
+        <div class="kc-tab8-card-body">
+          <div class="kc-tab8-video-title" title="${escapeHtml(item.title)}">${escapeHtml(item.title)}</div>
+          
+          <div class="kc-tab8-meta-row">
+            <span class="kc-tab8-channel-name">📺 ${escapeHtml(item.channel)}</span>
+            <span>${escapeHtml(item.timeAgo)}</span>
+          </div>
+
+          <!-- 유튜브 시청하기 버튼 (새창 링크) -->
+          <a href="${escapeHtml(item.videoUrl)}" target="_blank" rel="noopener noreferrer" class="kc-tab8-watch-btn">
+            ▶ 유튜브 시청하기
+          </a>
+
+          <!-- 하단 버튼: 제목 복사 / 글감 복사 -->
+          <div class="kc-tab8-btn-row">
+            <button type="button" class="kc-tab8-action-btn" onclick="copyTab8Snippet('${escapeHtml(item.title)}', '영상 제목이 복사되었습니다!')">
+              📑 제목 복사
+            </button>
+            <button type="button" class="kc-tab8-action-btn" onclick="copyTab8Idea('${escapeHtml(item.title)}', '${escapeHtml(item.channel)}')">
+              💡 글감 복사
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// 8번 검색어 실행
+window.executeTab8Search = function() {
+  const input = document.getElementById('kc-tab8-search-input');
+  if (input) {
+    tab8State.keyword = input.value.trim();
+  }
+  updateTab8StatusBar();
+  renderTab8Cards();
+};
+
+// 8번 빠른 선택 태그 클릭
+window.setTab8QuickTag = function(tag) {
+  tab8State.quickTag = tag;
+  const input = document.getElementById('kc-tab8-search-input');
+  if (input) {
+    input.value = '';
+    tab8State.keyword = '';
+  }
+  // 태그 버튼 active 갱신
+  document.querySelectorAll('.kc-tab8-quick-pill').forEach(btn => {
+    if (btn.innerText.includes(tag)) btn.classList.add('active');
+    else btn.classList.remove('active');
+  });
+  updateTab8StatusBar();
+  renderTab8Cards();
+};
+
+// 8번 컨트롤 필터 클릭
+window.setTab8Filter = function(category, value) {
+  tab8State[category] = value;
+  const container = document.getElementById('kc-tab8-container');
+  if (container) {
+    renderTab8ViralShorts(container);
+  }
+};
+
+// 8번 상태 안내 바 텍스트 갱신
+function updateTab8StatusBar() {
+  const summary = document.getElementById('kc-tab8-status-summary');
+  if (!summary) return;
+  const kwText = tab8State.keyword ? escapeHtml(tab8State.keyword) : '🌟 ' + escapeHtml(tab8State.quickTag);
+  const periodText = tab8State.period === 'today' ? '당일 (오늘 24H)' : tab8State.period === 'week' ? '최근 일주일 (7일)' : '30일 (1개월)';
+  const sortText = tab8State.sort === 'views' ? '조회수 많은 순' : '조회급상승 순';
+  summary.innerHTML = `"${kwText}" · ${periodText} · ${sortText}`;
+}
+
+// 8번 스니펫 복사
+window.copyTab8Snippet = function(text, successMsg) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => {
+      if (window.showToast) window.showToast(successMsg, '📋');
+    });
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    if (window.showToast) window.showToast(successMsg, '📋');
+  }
+};
+
+// 8번 글감 복사 (블로그/쇼츠 대본 포맷)
+window.copyTab8Idea = function(title, channel) {
+  const idea = `[바이럴 숏폼 글감 기획안]\n- 원본 영상: ${title}\n- 채널: ${channel}\n- 기획 포인트: 시청자 유입률이 높은 후킹 요소 분석 및 블로그 서두 3줄 요약 활용`;
+  window.copyTab8Snippet(idea, '블로그 글감 기획안이 복사되었습니다!');
+};
+
 
 // 텍스트 클립보드 복사 유틸
 window.copySnippetText = function(text) {
