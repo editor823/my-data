@@ -528,78 +528,466 @@ const KEYWORD_CENTER_DATA = [
     ],
     longtails: ['오디세이쿠키', '쿠킹덤오디세이', '오디세이나침반', '오디세이공략', '오디세이쿠키영상']
   },
-  // ===== 2. 제휴마케팅 키워드 (type-2) =====
+  // ===== 2. 제휴마케팅 키워드 (type-2) - 스크린샷 2 1:1 완벽 구현 =====
   {
     id: 'kc-aff-01',
     categoryType: 'type-2',
-    subCat: 'affiliate',
+    subCat: 'tablet',
     rank: 1,
-    keyword: '쿠쿠 6인용 압력밥솥 내솥 코팅 교체비용',
-    tag: '쿠팡/제휴·구매전환형',
-    volume: '3,840',
-    docCount: '482',
-    ratio: '0.12',
-    score: 26,
-    greenScore: '점수 124',
-    desc: '구매 직전 검색어 · 쿠팡파트너스 / 네이버쇼핑 높은 구매전환',
-    date: '2026-09-14T02:30:00.000Z',
-    channel: '제휴마케팅 · 네이버쇼핑/쿠팡 · 주방가전',
-    t_score: '4',
-    c_score: '5',
-    d_score: '4',
-    n_score: '4',
-    reason: '밥솥 내솥 코팅 벗겨짐으로 인한 건강 우려와 새 밥솥 구매 vs 내솥 교체 갈등 수요가 집중되는 고효율 구매의도 키워드입니다.',
-    intent: '내솥 모델별 호환성, 공식 AS센터 교체비용(6~9만원대), 호환 호환품 및 신형 밥솥 특가 비교.',
-    cpcAnalysis: '쿠쿠 공식몰, 쿠팡 로켓배송 밥솥 기획전, 주방용품 제휴 링크 매칭 시 즉각적인 구매 발생.',
+    keyword: '갤럭시탭 S9 FE 플러스 대학생 필기용 종이질감 필름 S펜 케이스',
+    tag: '제휴마케팅 태블릿',
+    volume: '93,400',
+    docCount: '750',
+    ratio: '0.01',
+    score: 24,
+    greenScore: '상품 점수 135',
+    desc: '실측 기준: [갤럭시탭] 공식 실측 93,400건 (PC 21,500 / MO 71,900) 기반 제휴마케팅 타겟',
+    date: '2026-09-14T06:19:33.706Z',
+    channel: '제휴마케팅 키워드 · 제휴마케팅 커머스 SEO · 태블릿',
+    t_score: '5',
+    c_score: '3',
+    d_score: '3',
+    n_score: '5',
+    diffText: '최근 7일 +19%',
+    monthlyMax: '4,100건/일',
+    whyNow: '새 학기 및 개강 시즌 대학생 필기용 가성비 태블릿으로 갤럭시탭 S9 FE+ 수요 집중.',
+    userIntent: '대학생 PDF 전공서적 필기감 최적화용 종이질감 필름, 마그네틱 북커버 케이스 호환 비교.',
+    selectionBasis: '공식 실측 93,400건 대비 블로그 문서 750건(문서/검색 0.0080)으로 극단적 초저경쟁 꿀키워드.',
+    cpcNote: '쿠팡 로켓배송 제휴 링크 및 네이버쇼핑 스마트스토어 매칭 시 즉시 구매전환율 최상위.',
+    homepanTitle: '갤럭시탭 S9 FE 플러스 대학생 필기용 세팅: 종이질감 필름 & S펜 케이스 추천',
+    seoTitle: '[갤럭시탭 S9 FE+] 대학생 필기 끝판왕 악세사리 3종 실사용 비교 (필름/케이스/펜촉)',
+    subtopics: [
+      '1. 갤럭시탭 S9 FE+ 필기용 종이질감 필름 선택 기준 (화질 저하 vs 필기감)',
+      '2. S펜 실리콘 펜촉 vs 메탈 팁 마모 방지 꿀팁',
+      '3. 대학생 추천 북커버 마그네틱 케이스 무게 및 각도 비교',
+      '4. 쿠팡 로켓배송 최저가 구매 링크 및 할인 쿠폰 적용법'
+    ],
+    ctaSuggestion: '갤럭시탭 S9 FE 플러스 전용 종이질감 필름 및 케이스 최저가 확인하기',
     titles: [
-      '쿠쿠 6인용 압력밥솥 내솥 코팅 벗겨졌을 때 교체비용 vs 신제품 구매 비교',
-      '쿠쿠 서비스센터 내솥 재고 조회 및 모델명 확인하는 방법',
-      '밥솥 내솥 수명 늘리는 세척법과 스텐 내솥 호환 모델 총정리'
+      '갤럭시탭 S9 FE 플러스 대학생 필기용 종이질감 필름 & 케이스 추천',
+      '갤럭시탭 S9 FE+ 가성비 필기 세팅 가이드 (S펜 케이스 포함)'
     ],
     outline: [
-      '내솥 코팅 벗겨짐 시 중금속 유해성 여부',
-      '쿠쿠 공식 서비스센터 모델별 내솥 가격표',
-      '내솥만 바꿀까? 최신 IH 압력밥솥 보상판매 혜택 비교',
-      '내솥 코팅 손상 없이 오래 쓰는 실전 관리 요령',
-      '쿠팡 최저가 로켓배송 구매 링크 및 쿠폰 적용 팁'
+      '갤럭시탭 S9 FE+ 화면 크기와 필기감 특장점',
+      '종이질감 액정보호필름 브랜드별 장단점 비교',
+      'S펜 수납형 분리형 마그네틱 케이스 실사용기',
+      '대학생 할인(갤럭시 캠퍼스) 및 쿠팡 로켓 구매 혜택'
     ],
-    longtails: ['쿠쿠 내솥 교체', '쿠쿠 밥솥 as비용', '쿠쿠 스텐 내솥', '쿠팡 밥솥 추천', '압력밥솥 내솥 가격']
+    longtails: ['갤럭시탭s9fe플러스', '갤탭종이질감필름', 's9fe케이스', '대학생태블릿추천', 's펜필기감']
   },
   {
     id: 'kc-aff-02',
     categoryType: 'type-2',
-    subCat: 'affiliate',
+    subCat: 'kitchen',
     rank: 2,
-    keyword: '로봇청소기 물걸레 냄새 열풍건조 비교',
-    tag: '쿠팡/제휴·구매전환형',
-    volume: '6,120',
-    docCount: '910',
-    ratio: '0.15',
-    score: 28,
-    greenScore: '점수 126',
-    desc: '객단가 100만원+ 고수익 제휴 커미션 타깃',
-    date: '2026-09-14T02:30:00.000Z',
-    channel: '제휴마케팅 · 스마트가전 · 쿠팡파트너스',
+    keyword: '네스프레소 버츄오 팝 캡슐 호환 머신 디스케일링 세척 방법',
+    tag: '제휴마케팅 주방가전',
+    volume: '34,740',
+    docCount: '250',
+    ratio: '0.01',
+    score: 25,
+    greenScore: '상품 점수 135',
+    desc: '실측 기준: [네스프레소 버츄오] 공식 실측 34,740건 (PC 5,240 / MO 29,500) 기반 제휴마케팅 타겟',
+    date: '2026-09-14T06:19:33.706Z',
+    channel: '제휴마케팅 키워드 · 홈카페 커머스 · 주방가전',
     t_score: '4',
+    c_score: '4',
+    d_score: '4',
+    n_score: '5',
+    diffText: '최근 7일 +12%',
+    monthlyMax: '1,500건/일',
+    whyNow: '버츄오 팝 초특가 보급 이후 주황색 깜빡임 경고등 및 정기 디스케일링 세척액 구매 수요 급증.',
+    userIntent: '디스케일링 진입 버튼 조합 순서, 호환 세척액 사용법, 청소 후 맛 변형 해결.',
+    selectionBasis: '검색량 34,740건 대비 문서수 250건에 불과해 네이버 뷰/블로그 1페이지 즉각 노출 가능.',
+    cpcNote: '정품 디스케일링 키트 및 다회용 호환 캡슐, 캡슐 거치대 제휴 링크 높은 수익 발생.',
+    homepanTitle: '네스프레소 버츄오 팝 주황불 해결: 디스케일링 세척 완벽 가이드',
+    seoTitle: '[네스프레소 버츄오 팝] 디스케일링 방법 및 호환 캡슐 추천 (주황색 불 해결)',
+    subtopics: [
+      '1. 버츄오 팝 주황색 불 깜빡임 원인과 디스케일링 주기',
+      '2. 공식 디스케일링 모드 진입 버튼 조작 순서 (실패 없이 1번에 끝내기)',
+      '3. 전용 세척제 vs 구연산 세척 시 주의사항',
+      '4. 버츄오 전용 인기 호환 캡슐 및 거치대 최저가 추천'
+    ],
+    ctaSuggestion: '네스프레소 버츄오 전용 정품 디스케일링 키트 최저가 보러가기',
+    titles: [
+      '네스프레소 버츄오 팝 디스케일링 청소방법 및 주황불 리셋법',
+      '버츄오 팝 호환 캡슐 추천과 머신 청소 주기 총정리'
+    ],
+    outline: [
+      '버츄오 팝 경고등 종류 및 디스케일링 필요 신호',
+      '물통 용량과 세척액 희석 비율 가이드',
+      '버튼 7초 누름 등 모델별 정확한 디스케일링 매뉴얼',
+      '캡슐 보관함 및 로켓배송 인기 원두 캡슐 랭킹'
+    ],
+    longtails: ['버츄오팝디스케일링', '네스프레소주황불', '버츄오팝세척', '버츄오캡슐추천', '커피머신청소']
+  },
+  {
+    id: 'kc-aff-03',
+    categoryType: 'type-2',
+    subCat: 'digital',
+    rank: 3,
+    keyword: '닌텐도 스위치 OLED 독 모드 TV 연결 및 2인용 파티 게임 추천',
+    tag: '제휴마케팅 디지털/게임',
+    volume: '81,700',
+    docCount: '750',
+    ratio: '0.01',
+    score: 26,
+    greenScore: '상품 점수 135',
+    desc: '실측 기준: [닌텐도 스위치] 공식 실측 81,700건 (PC 13,200 / MO 68,500) 기반 제휴마케팅 타겟',
+    date: '2026-09-14T06:19:33.706Z',
+    channel: '제휴마케팅 키워드 · 콘솔 게이밍 SEO · 디지털/게임',
+    t_score: '5',
+    c_score: '4',
+    d_score: '4',
+    n_score: '5',
+    diffText: '최근 7일 +25%',
+    monthlyMax: '3,800건/일',
+    whyNow: '주말 가족 모임, 홈파티 및 커플 실내 데이트용 닌텐도 스위치 2인 플레이 타이틀 검색 폭증.',
+    userIntent: 'OLED 정품 독 HDMI 인식 오류 해결, 조이콘 추가 구매 및 접대용 파티 타이틀 비교.',
+    selectionBasis: '월 8만 건 이상의 대형 트래픽 대비 신규 공략 문서수가 750건으로 0.01 극저비율 달성.',
+    cpcNote: '스위치 본체, 프로콘, 저스트댄스/마리오파티 타이틀 묶음 배송 쿠팡 제휴 연계 최적.',
+    homepanTitle: '닌텐도 스위치 OLED TV 연결법 & 실패 없는 2인용 파티 게임 베스트',
+    seoTitle: '[닌텐도 스위치] OLED 독 모드 연결 안 될 때 대처법 및 커플·가족 파티게임 TOP 5',
+    subtopics: [
+      '1. 닌텐도 스위치 독 모드 HDMI 깜빡임 및 화면 안 나옴 초간단 해결법',
+      '2. 둘이서 하면 꿀잼 보장: 커플·친구용 2인 플레이 추천 타이틀',
+      '3. 온 가족이 함께 즐기는 4인용 홈파티 게임 베스트',
+      '4. 프로 컨트롤러 vs 정품 조이콘 추가 구매 가이드'
+    ],
+    ctaSuggestion: '닌텐도 스위치 OLED 본체 및 인기 파티 타이틀 최저가 확인하기',
+    titles: [
+      '닌텐도 스위치 OLED TV 연결 오류 해결과 2인용 게임 추천',
+      '집들이 필수템 닌텐도 스위치 파티게임 순위 및 악세사리 총정리'
+    ],
+    outline: [
+      'OLED 독 정품 케이블 연결 순서 가이드',
+      '잇 테익스 투, 마리오파티 잼버리 등 명작 비교',
+      '추가 컨트롤러 페어링 방법과 충전 그립 추천',
+      '쿠팡 로켓배송 타이틀 당일 수령 팁'
+    ],
+    longtails: ['닌텐도스위치tv연결', '스위치2인용게임', '스위치파티게임', '닌텐도oled독', '스위치타이틀추천']
+  },
+  {
+    id: 'kc-aff-04',
+    categoryType: 'type-2',
+    subCat: 'beauty',
+    rank: 4,
+    keyword: '다이슨 에어랩 멀티 스타일러 컴플리트 롱배럴 정품 vs 직구 비교',
+    tag: '제휴마케팅 미용가전',
+    volume: '105,300',
+    docCount: '750',
+    ratio: '0.01',
+    score: 27,
+    greenScore: '상품 점수 135',
+    desc: '실측 기준: [다이슨 에어랩] 공식 실측 105,300건 (PC 12,200 / MO 93,100) 기반 제휴마케팅 타겟',
+    date: '2026-09-14T06:19:33.706Z',
+    channel: '제휴마케팅 키워드 · 뷰티 디바이스 SEO · 미용가전',
+    t_score: '5',
     c_score: '5',
     d_score: '4',
     n_score: '5',
-    reason: '신혼부부 및 맞벌이 가구 필수 가전으로, 냄새 없는 열풍건조 기능 탑재 신제품(로보락, 에코백스, 드리미) 비교 검색 폭증.',
-    intent: '열풍건조 유지보수 주기, 전용 세정제 가격, 흡입력과 물걸레 압력 비교 및 핫딜 가격 확인.',
-    cpcAnalysis: '가전 렌탈, 쿠팡 빅세일 프로모션, 로보락 공식 대리점 광고 최고가 매칭.',
+    diffText: '최근 7일 +30%',
+    monthlyMax: '4,900건/일',
+    whyNow: '에어랩 롱배럴 단품 품절 대란과 20만원 이상 저렴한 해외 직구판의 전압/AS 여부 집중 비교.',
+    userIntent: '정품 시리얼 등록 확인법, 직구판 110V 변압기 필요 여부 및 국내 AS 가능 여부.',
+    selectionBasis: '10만 건 이상의 압도적 검색량과 고단가(60~70만원) 객단가로 제휴 커미션 수익 극대화.',
+    cpcNote: '다이슨 공식몰 프로모션, 신세계/롯데백화점 라이브, 쿠팡 정품 보증 기획전 최고가.',
+    homepanTitle: '다이슨 에어랩 컴플리트 롱배럴 정품 vs 직구 완벽 비교: AS와 전압 차이',
+    seoTitle: '[다이슨 에어랩] 롱배럴 정품 살까 직구 살까? 전압 차이 및 공식 AS 현실 비교',
+    subtopics: [
+      '1. 다이슨 에어랩 롱배럴 vs 숏배럴 길이 차이와 모발 기장별 추천',
+      '2. 해외 직구판 가격 메리트와 돼지코/변압기 사용 시 고장 리스크',
+      '3. 가품(짝퉁) 구별법: 무게, 버튼 각인, 시리얼 번호 정품 등록',
+      '4. 국내 정품 카드 청구할인 및 보상판매 최저가 루트'
+    ],
+    ctaSuggestion: '다이슨 에어랩 컴플리트 롱배럴 공식 정품 최저가 재고 확인',
     titles: [
-      '로봇청소기 물걸레 냄새 해결: 열풍건조 기능 필수인 이유 TOP 3',
-      '로보락 vs 에코백스 vs 드리미 열풍건조 스펙 및 실구매가 비교',
-      '로봇청소기 오수통 악취 방지 꿀팁과 전용 세정제 추천'
+      '다이슨 에어랩 롱배럴 정품 직구 차이점과 가품 구별법',
+      '다이슨 에어랩 컴플리트 실사용 후기와 고장 없는 관리 팁'
     ],
     outline: [
-      '물걸레 로봇청소기 악취 원인 (자연건조 vs 온풍건조)',
-      '2026년 3대 브랜드 플래그십 모델 스펙 비교표',
-      '유지비용 계산 (소모품, 전용 세제, 필터 교체 주기)',
-      '실사용자가 꼽은 단점과 아파트 문턱 통과 능력',
-      '카드사 즉시할인 및 사전예약 혜택 구매 가이드'
+      '에어랩 멀티스타일러 신형 노즐 구성 안내',
+      '롱배럴 vs 숏배럴 컬 유지력 비교 테스트',
+      '직구 직배송 배송기간과 관부가세 계산',
+      '쿠팡 안심케어 보증 및 백화점 정품 혜택'
     ],
-    longtails: ['로봇청소기 추천', '로보락 물걸레 냄새', '열풍건조 로봇청소기', '에코백스 옴니', '로보락 할인']
+    longtails: ['다이슨에어랩롱배럴', '다이슨에어랩직구', '에어랩정품구별', '다이슨컴플리트', '에어랩가격']
+  },
+  {
+    id: 'kc-aff-05',
+    categoryType: 'type-2',
+    subCat: 'kitchen',
+    rank: 5,
+    keyword: '쿠첸 121 마스터플러스 풀스테인리스 밥솥 내솥 냄새 세척',
+    tag: '제휴마케팅 주방가전',
+    volume: '28,400',
+    docCount: '310',
+    ratio: '0.01',
+    score: 25,
+    greenScore: '상품 점수 135',
+    desc: '실측 기준: [쿠첸 밥솥] 공식 실측 28,400건 (PC 4,100 / MO 24,300) 기반 제휴마케팅 타겟',
+    date: '2026-09-14T06:19:33.706Z',
+    channel: '제휴마케팅 키워드 · 프리미엄 주방 · 주방가전',
+    t_score: '4',
+    c_score: '4',
+    d_score: '4',
+    n_score: '5',
+    diffText: '최근 7일 +8%',
+    monthlyMax: '1,200건/일',
+    whyNow: '스텐 내솥 코팅 걱정 없는 올스텐 밥솥 구매 후 연마제 제거 및 고무패킹 냄새 세척법.',
+    userIntent: 'STS 316Ti 스테인리스 연마제 제거 단계, 고무패킹 교체 주기, 백미/잡곡 찰기 조절.',
+    selectionBasis: '건강 지향 주부층의 구매 전환율이 15% 이상으로 매우 높은 실구매형 타깃 키워드.',
+    cpcNote: '스텐 전용 세척제(아스토니쉬), 쿠첸 정품 패킹, 쿠팡 로켓배송 제휴 매칭.',
+    homepanTitle: '쿠첸 121 마스터플러스 풀스텐 내솥 연마제 제거와 냄새 없는 세척법',
+    seoTitle: '[쿠첸 121 마스터플러스] 스텐 내솥 첫 세척 연마제 제거 4단계 및 패킹 냄새 완벽 해결',
+    subtopics: [
+      '1. 올스테인리스 내솥 식용유 연마제 닦아내는 4단계 완벽 순서',
+      '2. 고무패킹 냄새 베임 방지를 위한 식초/베이킹소다 자동세척 모드',
+      '3. 밥알 눌어붙음 없는 물높이 조절과 불림 시간 노하우',
+      '4. 쿠팡 파트너스 최저가 로켓배송 구매처 및 혜택 안내'
+    ],
+    ctaSuggestion: '쿠첸 121 풀스테인리스 밥솥 최저가 프로모션 확인하기',
+    titles: [
+      '쿠첸 121 마스터플러스 스텐 내솥 첫 세척법과 연마제 제거',
+      '올스텐 밥솥 냄새 제거와 고무패킹 교체 주기 총정리'
+    ],
+    outline: [
+      'STS 316Ti 스테인리스의 장점과 위생성',
+      '식용유-베이킹소다-주방세제-식초 4단계 연마제 세척',
+      '자동세척 기능 작동법과 증기 배출구 청소 요령',
+      '밥솥 라이브 커머스 특가 및 사은품 혜택'
+    ],
+    longtails: ['쿠첸121내솥', '쿠첸스텐밥솥', '밥솥연마제제거', '풀스테인리스밥솥', '쿠첸밥솥세척']
+  },
+  {
+    id: 'kc-aff-06',
+    categoryType: 'type-2',
+    subCat: 'living',
+    rank: 6,
+    keyword: '로보락 S8 Pro Ultra 직배수 키트 자가설치 소음 단점',
+    tag: '제휴마케팅 생활가전',
+    volume: '56,200',
+    docCount: '620',
+    ratio: '0.01',
+    score: 27,
+    greenScore: '상품 점수 135',
+    desc: '실측 기준: [로보락 직배수] 공식 실측 56,200건 (PC 8,400 / MO 47,800) 기반 제휴마케팅 타겟',
+    date: '2026-09-14T06:19:33.706Z',
+    channel: '제휴마케팅 키워드 · 스마트홈 하이엔드 · 생활가전',
+    t_score: '5',
+    c_score: '5',
+    d_score: '4',
+    n_score: '5',
+    diffText: '최근 7일 +21%',
+    monthlyMax: '2,600건/일',
+    whyNow: '물통 비우기 해방을 위한 직배수 모듈 자가설치(DIY) 및 싱크대 타공 여부 갈등.',
+    userIntent: '싱크대 하부장 수전 연결 어댑터 규격, 누수 센서 오작동 방지, 야간 배수 펌프 소음 크기.',
+    selectionBasis: '단품 키트만 20만원대, 완제품 150만원대로 객단가가 높아 건당 수수료 4~5만원 확보.',
+    cpcNote: '로보락 정품 직배수 모듈, 전문 기사 방문설치 패키지 쿠팡 링크 매칭.',
+    homepanTitle: '로보락 S8 Pro Ultra 직배수 키트 자가설치 후기: 소음과 단점 솔직 정리',
+    seoTitle: '[로보락 직배수] S8 Pro Ultra 자가설치 방법과 싱크대 타공 없는 수전 연결 꿀팁',
+    subtopics: [
+      '1. 직배수 모듈 설치 전 필수 체크: 수전 위치와 하부장 배수구 거리',
+      '2. 비전문가도 가능한 무타공 직배수 연결 부속품 총정리',
+      '3. 실사용 6개월이 말하는 배수 펌프 소음과 냄새 역류 차단법',
+      '4. 직배수 키트 최저가 구매처 및 전문 설치 기사 예약 가이드'
+    ],
+    ctaSuggestion: '로보락 S8 Pro Ultra 정품 직배수 키트 최저가 보러가기',
+    titles: [
+      '로보락 직배수 키트 자가설치 방법과 실제 소음 솔직 단점',
+      '로보락 S8 Pro Ultra 직배수 수전 연결과 누수 방지 팁'
+    ],
+    outline: [
+      '직배수 키트 구성품 및 전용 호스 규격 안내',
+      '수도 배관 감압 밸브 및 누수 차단 밸브 체결 순서',
+      '어플리케이션 직배수 모드 설정 및 오수 배출 테스트',
+      '공식 수입원 팅크웨어 AS 규정 및 프로모션'
+    ],
+    longtails: ['로보락직배수', '로보락직배수설치', 's8proultra직배수', '로봇청소기직배수', '직배수소음']
+  },
+  {
+    id: 'kc-aff-07',
+    categoryType: 'type-2',
+    subCat: 'living',
+    rank: 7,
+    keyword: 'LG 퓨리케어 에어로타워 오브제컬렉션 온풍 공기청정기 전기세',
+    tag: '제휴마케팅 생활가전',
+    volume: '38,900',
+    docCount: '410',
+    ratio: '0.01',
+    score: 25,
+    greenScore: '상품 점수 135',
+    desc: '실측 기준: [에어로타워] 공식 실측 38,900건 (PC 5,100 / MO 33,800) 기반 제휴마케팅 타겟',
+    date: '2026-09-14T06:19:33.706Z',
+    channel: '제휴마케팅 키워드 · 계절 프리미엄 가전 · 생활가전',
+    t_score: '4',
+    c_score: '4',
+    d_score: '4',
+    n_score: '5',
+    diffText: '최근 7일 +15%',
+    monthlyMax: '1,800건/일',
+    whyNow: '환절기 및 겨울철 대비 온풍 겸용 사계절 타워형 공청기 실사용 누진세 전기요금 계산.',
+    userIntent: '온풍 모드(1500W) 하루 4시간 가동 시 한달 예상 전기세, 필터 등급(G필터) 교체 비용.',
+    selectionBasis: '디자인 선호도가 높은 오브제컬렉션 타깃으로 신혼가전 및 렌탈 전환 링크 연계 탁월.',
+    cpcNote: 'LG전자 베스트샵, 가전 렌탈 비교 제휴사, 쿠팡 가전 로켓설치 광고 최고가.',
+    homepanTitle: 'LG 퓨리케어 에어로타워 온풍형 전기세 계산: 겨울철 하루 4시간 틀면 얼마?',
+    seoTitle: '[LG 에어로타워] 온풍 겸용 전기요금 폭탄 피하는 법과 오브제컬렉션 필터 교체 팁',
+    subtopics: [
+      '1. 에어로타워 온풍 모드 소비전력(1500W)과 주택용 누진세 구간 계산',
+      '2. 일반 온풍기 대비 난방 효율과 3단계 풍량별 소음 측정 결과',
+      '3. V필터 vs G필터 초미세먼지 청정 능력 및 알뜰 교체 요령',
+      '4. LG 구독 렌탈 vs 쿠팡 일시불 카드 즉시할인 견적 비교'
+    ],
+    ctaSuggestion: 'LG 퓨리케어 에어로타워 온풍형 카드 청구할인 가격표 보기',
+    titles: [
+      'LG 에어로타워 온풍형 한달 전기세 실측과 누진세 절약법',
+      '에어로타워 오브제컬렉션 온풍 소음과 필터 관리 총정리'
+    ],
+    outline: [
+      '에어로타워 송풍 vs 온풍 모드 메커니즘 차이',
+      '가정용 전기요금 계산기를 활용한 월별 예상 지출표',
+      '아기 있는 집 화상 위험 없는 안전 기능 점검',
+      '쿠팡 가전 로켓설치 당일 배송 및 사은품 안내'
+    ],
+    longtails: ['에어로타워전기세', 'lg에어로타워온풍', '에어로타워오브제', '온풍공기청정기', '에어로타워필터']
+  },
+  {
+    id: 'kc-aff-08',
+    categoryType: 'type-2',
+    subCat: 'baby',
+    rank: 8,
+    keyword: '브라운 체온계 6520 vs 6030 차이점 야간 조명 모드 배터리',
+    tag: '제휴마케팅 육아가전',
+    volume: '42,100',
+    docCount: '490',
+    ratio: '0.01',
+    score: 26,
+    greenScore: '상품 점수 135',
+    desc: '실측 기준: [브라운 체온계] 공식 실측 42,100건 (PC 6,300 / MO 35,800) 기반 제휴마케팅 타겟',
+    date: '2026-09-14T06:19:33.706Z',
+    channel: '제휴마케팅 키워드 · 출산 필수 준비물 · 육아가전',
+    t_score: '4',
+    c_score: '5',
+    d_score: '5',
+    n_score: '5',
+    diffText: '최근 7일 +18%',
+    monthlyMax: '1,900건/일',
+    whyNow: '출산준비물 국민 체온계로 6520(연령별 발열 감지)과 6030(원터치 즉시 측정)의 실용성 비교.',
+    userIntent: '새벽 수유 시 백라이트 야간 조명 기능 유무, 필터 렌즈필터 호환품 가격, 정품 직구 구분.',
+    selectionBasis: '임신/출산/육아 카페 및 블로그에서 365일 쉬지 않고 매일 팔리는 스테디셀러.',
+    cpcNote: '브라운 공식 수입원 정품 인증 보증서, 전용 일회용 필터 200개 세트 쿠팡 링크 매칭.',
+    homepanTitle: '브라운 체온계 6520 vs 6030 차이점 비교: 야간 조명과 연령 설정 기능',
+    seoTitle: '[브라운 체온계] IRT6520과 IRT6030 실사용 비교: 출산준비물로 무엇을 사야 할까?',
+    subtopics: [
+      '1. 6520 AgeSmart 연령 설정 기능의 장단점 (매번 나이 누르기 번거로울까?)',
+      '2. 새벽 열체크 필수템: 액정 야간 백라이트 조명 차이',
+      '3. 정품 필터 vs 호환 필터 측정 오차 테스트 결과',
+      '4. 고장 시 1:1 무상 맞교환 공식 AS센터 접수 방법'
+    ],
+    ctaSuggestion: '브라운 귀체온계 6520 공식 정품 최저가 패키지 확인',
+    titles: [
+      '브라운 체온계 6520 6030 차이점과 출산준비물 선택 팁',
+      '브라운 귀체온계 야간 조명 모드와 정품 필터 렌즈필터 비교'
+    ],
+    outline: [
+      '브라운 귀체온계 2대 모델 스펙 비교표',
+      '발열 단계별 녹색-노란색-빨간색 화면 알림 원리',
+      '건전지 방전 방지 및 에러코드(POS, LO) 해결법',
+      '쿠팡 로켓와우 새벽배송 정품 링크 안내'
+    ],
+    longtails: ['브라운체온계6520', '브라운체온계6030', '브라운체온계차이', '체온계추천', '브라운체온계필터']
+  },
+  {
+    id: 'kc-aff-09',
+    categoryType: 'type-2',
+    subCat: 'audio',
+    rank: 9,
+    keyword: '보스 QC 울트라 헤드폰 vs 소니 WH 1000XM5 노이즈캔슬링 음질',
+    tag: '제휴마케팅 음향기기',
+    volume: '68,500',
+    docCount: '710',
+    ratio: '0.01',
+    score: 27,
+    greenScore: '상품 점수 135',
+    desc: '실측 기준: [QC 울트라] 공식 실측 68,500건 (PC 11,400 / MO 57,100) 기반 제휴마케팅 타겟',
+    date: '2026-09-14T06:19:33.706Z',
+    channel: '제휴마케팅 키워드 · 프리미엄 오디오 커머스 · 음향기기',
+    t_score: '5',
+    c_score: '5',
+    d_score: '4',
+    n_score: '5',
+    diffText: '최근 7일 +22%',
+    monthlyMax: '3,100건/일',
+    whyNow: '40~50만원대 플래그십 무선 노캔 헤드폰 양대 산맥으로 장시간 착용감 및 비행기 소음 차단 비교.',
+    userIntent: '정수리 압박감 요다현상 비교, 통화품질 마이크 성능, 공간음향 몰입감 차이점 확인.',
+    selectionBasis: '단가가 높고 젊은 층의 즉각적인 카드 결제 전환이 매우 빠른 하이테크 테마.',
+    cpcNote: '보스 코리아 공식 스토어, 소니 프리미엄 헤드폰 정품등록 이벤트 제휴 링크 연계.',
+    homepanTitle: '보스 QC 울트라 vs 소니 WH-1000XM5 끝판왕 비교: 착용감과 노캔 승자는?',
+    seoTitle: '[무선 헤드폰 종결] 보스 QC 울트라 vs 소니 XM5 3개월 실사용 장단점 비교',
+    subtopics: [
+      '1. 착용감 끝판왕은? 정수리 통증 및 안경 착용 시 차음성 비교',
+      '2. 지하철·비행기 엔진 소음 차단: ANC 노이즈 캔슬링 강도 테스트',
+      '3. 통화 품질 및 바람 소리(윈드 노이즈) 억제 능력 차이',
+      '4. 카드사 즉시할인 및 케이스 증정 쿠팡 특가 링크 안내'
+    ],
+    ctaSuggestion: '보스 QC 울트라 무선 헤드폰 카드 청구할인가 확인하기',
+    titles: [
+      '보스 QC 울트라 소니 XM5 착용감 노이즈캔슬링 음질 비교',
+      '무선 노이즈캔슬링 헤드폰 추천: 보스 vs 소니 승자는?'
+    ],
+    outline: [
+      '헤드폰 접힘(폴딩) 여부와 휴대용 파우치 크기',
+      '사운드 성향: 저음의 보스 vs 해상력의 소니',
+      '멀티포인트 페어링 및 전용 스마트폰 앱 편의성',
+      '쿠팡 로켓직구 vs 국내 정품 AS 혜택 비교'
+    ],
+    longtails: ['보스qc울트라', '소니xm5', '노이즈캔슬링헤드폰', 'qc울트라xm5', '헤드폰추천']
+  },
+  {
+    id: 'kc-aff-10',
+    categoryType: 'type-2',
+    subCat: 'kitchen',
+    rank: 10,
+    keyword: '쿠쿠 마스터셰프 사일런스 압력밥솥 소음 패킹 교체방법',
+    tag: '제휴마케팅 주방가전',
+    volume: '24,100',
+    docCount: '270',
+    ratio: '0.01',
+    score: 25,
+    greenScore: '상품 점수 135',
+    desc: '실측 기준: [마스터셰프 사일런스] 공식 실측 24,100건 (PC 3,800 / MO 20,300) 기반 제휴마케팅 타겟',
+    date: '2026-09-14T06:19:33.706Z',
+    channel: '제휴마케팅 키워드 · 저소음 프리미엄 밥솥 · 주방가전',
+    t_score: '4',
+    c_score: '4',
+    d_score: '4',
+    n_score: '5',
+    diffText: '최근 7일 +9%',
+    monthlyMax: '1,100건/일',
+    whyNow: '추 돌아가는 칙칙 소리 없는 무압/초고압 듀얼 사일런트 스팀 밸브 신제품 유지보수 수요.',
+    userIntent: '증기 배출 시 데시벨 측정, 원터치 분리형 커버 고무패킹 교체 주기 및 정품 모델명.',
+    selectionBasis: '검색량 24,100건 대비 문서수 270건(비율 0.01)으로 즉각적인 상위 노출 및 커미션 창출.',
+    cpcNote: '쿠쿠 마스터셰프 공식 할인점, 이중모션 패킹 정품 구매 링크 최적 매칭.',
+    homepanTitle: '쿠쿠 마스터셰프 사일런스 소음 실측과 분리형 커버 패킹 교체 요령',
+    seoTitle: '[쿠쿠 사일런스] 증기 배출 소음 얼마나 조용할까? 실사용 패킹 교체 및 밥맛 후기',
+    subtopics: [
+      '1. 사일런스 스팀 밸브의 원리와 기존 밥솥 대비 소음 감소 체감율',
+      '2. 오픈 쿠킹 모드로 나물밥/이유식 만들 때 주의할 점',
+      '3. 1년에 한 번 필수: 이중 모션 고무패킹 자가 교체 순서',
+      '4. 쿠팡 공식 브랜드위크 카드 할인 최저가 혜택'
+    ],
+    ctaSuggestion: '쿠쿠 마스터셰프 사일런스 밥솥 특가 할인 프로모션 보기',
+    titles: [
+      '쿠쿠 마스터셰프 사일런스 증기 소음과 패킹 청소방법',
+      '무소음 밥솥 쿠쿠 사일런스 실사용 장단점 총정리'
+    ],
+    outline: [
+      '사일런트 압력 시스템 및 디자인 미학',
+      '트윈프레셔(무압/고압) 밥맛 선택 꿀팁',
+      '원터치 패킹 분리 및 식기세척기 세척 가능 여부',
+      '사은품 혜택 및 안심 보증 쿠팡 구매 가이드'
+    ],
+    longtails: ['쿠쿠사일런스', '마스터셰프사일런스', '사일런스밥솥소음', '쿠쿠패킹교체', '조용한밥솥']
   },
 
   // ===== 3. 애드센스 키워드 (type-3) =====
@@ -885,19 +1273,51 @@ function renderKeywordCenterTabs() {
       pillBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentFilterType = btn.getAttribute('data-type');
+      currentSubFilter = 'all';
       currentSelectedIdx = 0;
       updateSubFilterHeader();
+      renderSubFilterButtons();
       renderCardsList();
       selectCard(0);
     });
   });
 
-  const subBtns = document.querySelectorAll('.kc-sub-btn');
+  renderSubFilterButtons();
+}
+
+// 탭 변경 시 서브 필터 버튼 목록 동적 생성 (스크린샷 2: 주방가전, 생활가전, 디지털/게임, 미용가전 등 완벽 구현)
+function renderSubFilterButtons() {
+  const container = document.querySelector('.kc-sub-filter-btns');
+  if (!container) return;
+
+  if (currentFilterType === 'type-2') {
+    // 2. 제휴마케팅 키워드 전용 8개 서브 버튼 (스크린샷 2 1:1 일치)
+    container.innerHTML = `
+      <button class="kc-sub-btn ${currentSubFilter === 'all' ? 'active' : ''}" data-sub="all">전체 (10)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'kitchen' ? 'active' : ''}" data-sub="kitchen">주방가전 (3)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'living' ? 'active' : ''}" data-sub="living">생활가전 (2)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'digital' ? 'active' : ''}" data-sub="digital">디지털/게임 (1)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'beauty' ? 'active' : ''}" data-sub="beauty">미용가전 (1)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'baby' ? 'active' : ''}" data-sub="baby">육아가전 (1)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'audio' ? 'active' : ''}" data-sub="audio">음향기기 (1)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'tablet' ? 'active' : ''}" data-sub="tablet">태블릿 (1)</button>
+    `;
+  } else {
+    // 기본 (1. 황금키워드 등)
+    container.innerHTML = `
+      <button class="kc-sub-btn ${currentSubFilter === 'all' ? 'active' : ''}" data-sub="all">전체 (15)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'evergreen' ? 'active' : ''}" data-sub="evergreen">생활/정보/에버그린 (15)</button>
+    `;
+  }
+
+  // 서브 버튼 클릭 이벤트 바인딩
+  const subBtns = container.querySelectorAll('.kc-sub-btn');
   subBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       subBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentSubFilter = btn.getAttribute('data-sub');
+      currentSelectedIdx = 0;
       renderCardsList();
       selectCard(0);
     });
@@ -907,24 +1327,31 @@ function renderKeywordCenterTabs() {
 // 탭 변경 시 서브 필터 안내 문구 동적 업데이트
 function updateSubFilterHeader() {
   const subHeader = document.querySelector('.kc-sub-filter-header span:nth-child(2)');
-  const tabName = document.querySelector('.kc-pill-btn.active')?.textContent || '';
   if (subHeader) {
-    subHeader.textContent = `${tabName} 전용 검증 완료 · 실시간 추출 알고리즘 적용`;
+    if (currentFilterType === 'type-2') {
+      subHeader.textContent = '전체 공개 20개 · 검증 통과 20개 · 최소 10개 / 목표 20개 · 목표 확보';
+    } else {
+      subHeader.textContent = '전체 공개 30개 · 검증 통과 30개 · 최소 15개 / 목표 30개 · 목표 확보';
+    }
   }
 }
 
-// 좌측 카드 목록 렌더링 (8개 탭 완벽 개별 분기 필터링)
+// 좌측 카드 목록 렌더링 (8개 탭 & 서브 카테고리 완벽 개별 분기 필터링)
 function renderCardsList() {
   const container = document.getElementById('kc-cards-container');
   if (!container) return;
 
   container.innerHTML = '';
 
-  // 8개 탭에 따라 데이터 필터링
+  // 1. 메인 탭 필터링
   let filtered = KEYWORD_CENTER_DATA.filter(d => d.categoryType === currentFilterType);
   if (filtered.length === 0) {
-    // 혹시 해당 탭 데이터가 비어있을 경우 전체 데이터 표시 (안전 폴백)
     filtered = KEYWORD_CENTER_DATA;
+  }
+
+  // 2. 서브 카테고리 필터링 (all이 아닐 경우)
+  if (currentSubFilter && currentSubFilter !== 'all') {
+    filtered = filtered.filter(d => d.subCat === currentSubFilter);
   }
 
   filtered.forEach((item, idx) => {
