@@ -3488,43 +3488,488 @@ const KEYWORD_CENTER_DATA = [
   },
 
     // ===== 6. 정책신호형 애드센스 키워드 (type-6) =====
+// 6번 정책신호형 애드센스 키워드 실측 데이터 10개 (원본 1:1 매칭)
   {
     id: 'kc-gov-01',
     categoryType: 'type-6',
     subCat: 'policy',
     rank: 1,
-    keyword: '2026년 청년도약계좌 기여금 확대 매칭비율 신청기간',
-    tag: '정부정책·월요일업데이트',
-    volume: '18,300',
-    docCount: '2,950',
-    ratio: '0.16',
-    score: 27,
-    greenScore: '점수 125',
-    desc: '정부 지원 정책 발표 직후 최상단 트래픽 점유',
-    date: '2026-09-14T00:00:00.000Z',
-    channel: '정책신호형 · 금융위원회 공고 · 청년정책',
-    t_score: '5',
-    c_score: '4',
-    d_score: '4',
-    n_score: '4',
-    reason: '정부 예산안 발표에 따른 청년도약계좌 매칭지원금 인상 및 육아휴직자 가입 자격 확대 신호 발생.',
-    intent: '개인소득별 정부 기여금 한도(월 최대 3.3만원 이상), 은행별 우대금리 조건, 중도해지 시 혜택 보존 방안.',
-    cpcAnalysis: '제1금융권 청년적금, 신용카드 발급 프로모션, 청년 월세 지원 정책 광고 매칭.',
-    titles: [
-      '2026년 청년도약계좌 정부 기여금 인상안 총정리: 얼마나 더 받나?',
-      '청년도약계좌 5년 완주 시 만기 예상 수령액과 이자 소득세 비과세',
-      '청년희망적금 만기 후 도약계좌 일시납입 환승 연계 혜택'
+    keyword: '상반기분 근로장려금, 9월 15일까지 신청하세요!',
+    tag: '공식 최신 정책신호',
+    releaseDate: '2026-09-07',
+    officialDate: '2026-09-07',
+    checkCriteria: '공식 출처·시점',
+    searchTiming: '발표 직후~7일',
+    searchIntent: '발표된 제도의 대상, 지원 내용, 신청·지급·시행 시점과 필요한 조건 확인',
+    whyNow: '공식 발표 직후에는 대상 여부·신청 기간·지원 내용 확인 수요가 먼저 생길 수 있어, 사실관계가 확인된 해결형 정보 글로 기획합니다.',
+    relatedKeywords: [
+      '상반기분 근로장려금, 9월 15일까지 신청하세요! 대상',
+      '상반기분 근로장려금, 9월 15일까지 신청하세요! 신청',
+      '상반기분 근로장려금, 9월 15일까지 신청하세요! 기간'
     ],
+    longtailKeywords: [
+      '상반기분 근로장려금, 9월 15일까지 신청하세요! 지원 대상',
+      '상반기분 근로장려금, 9월 15일까지 신청하세요! 신청 방법',
+      '상반기분 근로장려금, 9월 15일까지 신청하세요! 필요 서류',
+      '상반기분 근로장려금, 9월 15일까지 신청하세요! 시행일'
+    ],
+    googleSeoTitle: '상반기분 근로장려금, 9월 15일까지 신청하세요! | 대상·신청기간·시행 시점 정리',
+    naverSeoTitle: '상반기분 근로장려금, 9월 15일까지 신청하세요! 신청 대상 및 필수 조건 확인',
     outline: [
-      '정부 기여금 확대 개정안 핵심 골자',
-      '가입 대상 연령(만 19~34세) 및 개인·가구 소득 기준',
-      '월 납입금액별 은행 기본금리+우대금리+기여금 시뮬레이션',
-      '중도퇴사·소득변동 시에도 기여금 유지 가능한 특별해지 사유',
-      '11개 시중은행 금리 비교 및 신청 앱 다운로드 링크'
+      '상반기분 근로장려금, 9월 15일까지 신청하세요! 핵심 요약과 발표 배경',
+      '누가 신청할 수 있나: 지원 대상과 자격 조건',
+      '지원 내용과 혜택: 무엇이 얼마나 지원되나',
+      '신청 기간과 지급·시행 일정 총정리',
+      '신청 전 반드시 확인해야 할 주의사항과 자주 묻는 질문(FAQ)'
     ],
-    longtails: ['청년도약계좌 기여금', '청년도약계좌 조건', '청년도약계좌 만기', '청년적금 추천', '도약계좌 신청']
+    faq: [
+      {
+        q: '상반기분 근로장려금, 9월 15일까지 신청하세요! 신청은 어디서 하나요?',
+        a: '국세청 홈택스(손택스) 웹사이트 및 모바일 앱의 근로장려금 반기신청 메뉴에서 간편인증 후 즉시 신청할 수 있습니다.'
+      },
+      {
+        q: '소득 기준을 충족하지 못하면 어떻게 되나요?',
+        a: '전년도 부부합산 총소득(단독 2,200만원, 홑벌이 3,200만원, 맞벌이 3,800만원 미만) 및 재산 2.4억원 미만 기준을 초과하면 지급 대상에서 제외되거나 감액됩니다.'
+      },
+      {
+        q: '지급은 언제 완료되나요?',
+        a: '9월 상반기분 신청자는 국세청 심사를 거쳐 당해 연도 12월 말에 산정액의 35%가 조기 지급되며, 이듬해 6월 정산됩니다.'
+      }
+    ]
   },
-
+  {
+    id: 'kc-gov-02',
+    categoryType: 'type-6',
+    subCat: 'policy',
+    rank: 2,
+    keyword: '9월 신청분부터 달라지는 근로장려금',
+    tag: '공식 최신 정책신호',
+    releaseDate: '2026-09-08',
+    officialDate: '2026-09-08',
+    checkCriteria: '공식 출처·시점',
+    searchTiming: '발표 직후~7일',
+    searchIntent: '9월 신청분부터 개정·적용되는 근로장려금 산정액 및 재산 요건 등 변경 사항 확인',
+    whyNow: '기존 신청자와 신규 대상자 모두 변경된 기준 미인지 시 불이익이 발생할 수 있어 명확한 비교 분석 수요 발생.',
+    relatedKeywords: [
+      '9월 신청분부터 달라지는 근로장려금 변경점',
+      '9월 신청분부터 달라지는 근로장려금 재산요건',
+      '9월 신청분부터 달라지는 근로장려금 지급일'
+    ],
+    longtailKeywords: [
+      '9월 신청분부터 달라지는 근로장려금 최대 지급액',
+      '9월 신청분부터 달라지는 근로장려금 맞벌이 기준 완화',
+      '9월 신청분부터 달라지는 근로장려금 자동신청 동의',
+      '9월 신청분부터 달라지는 근로장려금 심사일정'
+    ],
+    googleSeoTitle: '9월 신청분부터 달라지는 근로장려금 개정 요약 | 지급액 및 자격 기준 비교',
+    naverSeoTitle: '9월 신청분부터 달라지는 근로장려금 핵심 변경 사항 3가지 총정리',
+    outline: [
+      '9월 신청분부터 적용되는 근로장려금 개정 배경',
+      '단독·홑벌이·맞벌이 가구별 소득 요건 완화 내역',
+      '재산 합산 평가 시 자동차 가액 및 부채 인정 기준',
+      '고령자 및 중증장애인 자동신청 제도 확대 적용 안내',
+      '놓치지 말아야 할 기한 후 신청 감액 리스크 방어법'
+    ],
+    faq: [
+      {
+        q: '기존에 받던 사람도 다시 신청해야 하나요?',
+        a: '자동신청에 사전 동의하지 않은 근로자는 매 반기 또는 정기 신청 기간에 홈택스를 통해 신규 신청해야 합니다.'
+      },
+      {
+        q: '재산 요건에서 전세보증금은 어떻게 계산되나요?',
+        a: '간주전세금(기준시가의 55%)과 실제 임차보증금 중 적은 금액으로 평가됩니다.'
+      },
+      {
+        q: '체납된 국세가 있으면 장려금에서 차감되나요?',
+        a: '체납액이 있는 경우 지급액의 최대 50% 범위 내에서 체납 국세에 우선 충당된 후 잔액이 지급됩니다.'
+      }
+    ]
+  },
+  {
+    id: 'kc-gov-03',
+    categoryType: 'type-6',
+    subCat: 'policy',
+    rank: 3,
+    keyword: '중소기업육성자금 융자지원 계획 변경공고',
+    tag: '공식 최신 정책신호',
+    releaseDate: '2026-09-06',
+    officialDate: '2026-09-06',
+    checkCriteria: '공식 출처·시점',
+    searchTiming: '발표 직후~7일',
+    searchIntent: '하반기 중소기업 육성자금 융자 한도, 금리 이차보전 및 지원 업종 변경 확인',
+    whyNow: '자금 조달이 시급한 중소기업 및 소상공인 대표자들의 저금리 정책자금 선착순 접수 대응 수요.',
+    relatedKeywords: [
+      '중소기업육성자금 융자지원 계획 변경공고 한도',
+      '중소기업육성자금 융자지원 계획 변경공고 금리',
+      '중소기업육성자금 융자지원 계획 변경공고 대상'
+    ],
+    longtailKeywords: [
+      '중소기업육성자금 융자지원 변경공고 접수일정',
+      '중소기업 운전자금 시설자금 이차보전 지원율',
+      '지자체 중소기업육성자금 은행 대출 연계',
+      '중소벤처기업진흥공단 정책자금 신청 서류'
+    ],
+    googleSeoTitle: '중소기업육성자금 융자지원 계획 변경공고 요약 | 한도·금리·접수일정 가이드',
+    naverSeoTitle: '중소기업육성자금 융자지원 변경공고 핵심: 저리 융자 한도 및 신청 자격',
+    outline: [
+      '중소기업육성자금 지원계획 변경 공고 주요 내용',
+      '운전자금 vs 시설자금 지원 한도 및 상환 기간',
+      '이차보전(금리 지원) 혜택 및 은행별 취급 조건',
+      '신청 자격 제외 업종 및 중복 지원 제한 규정',
+      '온라인 자금 신청 절차 및 필수 증빙 서류 목록'
+    ],
+    faq: [
+      {
+        q: '소상공인도 신청할 수 있나요?',
+        a: '중소기업기본법상 중소기업 및 제조업 기반 소상공인은 신청 가능하며, 일반 소상공인은 소진공 전용 자금이 유리합니다.'
+      },
+      {
+        q: '대출 금리는 몇 % 수준인가요?',
+        a: '지자체 1.5~2.5%p 이차보전 지원 적용 시 실제 부담 금리는 연 2~3%대 초반 수준입니다.'
+      },
+      {
+        q: '접수 첫날 마감될 수 있나요?',
+        a: '자금 소진 시 조기 마감되므로 공고일 직후 사전 상담 및 온라인 신청 예약이 필수적입니다.'
+      }
+    ]
+  },
+  {
+    id: 'kc-gov-04',
+    categoryType: 'type-6',
+    subCat: 'policy',
+    rank: 4,
+    keyword: '경상북도 소공인 AI 콘텐츠 마케팅 지원사업 공고',
+    tag: '공식 최신 정책신호',
+    releaseDate: '2026-09-09',
+    officialDate: '2026-09-09',
+    checkCriteria: '공식 출처·시점',
+    searchTiming: '발표 직후~7일',
+    searchIntent: '경북 지역 도시형 소공인 대상 AI 마케팅 솔루션 및 바우처 지원 조건 확인',
+    whyNow: '제조업 소공인들의 온라인 판로 개척과 AI 마케팅 무상 지원 혜택에 대한 지역 사업자 관심 집중.',
+    relatedKeywords: [
+      '경상북도 소공인 AI 콘텐츠 마케팅 지원사업 신청',
+      '경상북도 소공인 AI 콘텐츠 마케팅 지원사업 자격',
+      '경상북도 소공인 AI 콘텐츠 마케팅 지원사업 금액'
+    ],
+    longtailKeywords: [
+      '경북 소공인 AI 상세페이지 제작 지원사업',
+      '소공인 스마트 마케팅 바우처 경상북도 지원',
+      '경북 경제진흥원 소공인 판로개척 공모',
+      '제조업 소공인 AI 숏폼 콘텐츠 제작비 지원'
+    ],
+    googleSeoTitle: '경상북도 소공인 AI 콘텐츠 마케팅 지원사업 공고 | 지원 규모 및 신청 방법',
+    naverSeoTitle: '경북 소공인 AI 마케팅 지원사업: 제품 홍보영상 무료 제작 및 신청 자격',
+    outline: [
+      '경상북도 소공인 AI 콘텐츠 마케팅 지원사업 개요',
+      '지원 대상: 경북 소재 상시근로자 10인 미만 제조업체',
+      '주요 지원 혜택: AI 생성형 상세페이지·숏폼·카탈로그 제작',
+      '선정 평가 기준 및 가점 부여 우대 조건',
+      '경북경제진흥원 포털 온라인 접수 방법'
+    ],
+    faq: [
+      {
+        q: '자부담금이 별도로 발생하나요?',
+        a: '공고에 따라 공급가액의 90~100% 국비/도비 보조이며, 부가세만 기업 자부담 처리됩니다.'
+      },
+      {
+        q: '유통업이나 도소매업도 신청 가능한가요?',
+        a: '소공인 특별법상 한국표준산업분류 C(제조업) 등록 업체만 신청 자격이 부여됩니다.'
+      },
+      {
+        q: '결과는 언제 발표되나요?',
+        a: '서류 심사 및 현장 실사를 거쳐 접수 마감 후 2주 내 개별 통보 및 진흥원 홈페이지에 공고됩니다.'
+      }
+    ]
+  },
+  {
+    id: 'kc-gov-05',
+    categoryType: 'type-6',
+    subCat: 'policy',
+    rank: 5,
+    keyword: '2026년 청년월세 특별지원 2차 신청 자격 및 지급일',
+    tag: '공식 최신 정책신호',
+    releaseDate: '2026-09-08',
+    officialDate: '2026-09-08',
+    checkCriteria: '공식 출처·시점',
+    searchTiming: '발표 직후~7일',
+    searchIntent: '국토교통부 청년월세 지원 2차 사업의 부모 소득 기준 폐지 여부 및 매월 20만원 수급 요건 확인',
+    whyNow: '월세 부담이 큰 무주택 청년들의 최대 240만원(월 20만원×12개월) 무상 주거비 지원 필수 확인 수요.',
+    relatedKeywords: [
+      '2026년 청년월세 특별지원 2차 자격',
+      '2026년 청년월세 특별지원 2차 소득기준',
+      '2026년 청년월세 특별지원 2차 지급일'
+    ],
+    longtailKeywords: [
+      '청년월세지원 부모소득 기준 완화',
+      '복지로 청년월세 특별지원 모의계산',
+      '원룸 오피스텔 월세 20만원 지원 신청',
+      '청년월세 특별지원 계좌 입금일자'
+    ],
+    googleSeoTitle: '2026 청년월세 특별지원 2차 신청 자격 및 지급일 총정리 | 복지로 모의계산',
+    naverSeoTitle: '청년월세 특별지원 2차: 월 20만원 12개월 받는 법 (소득·재산 기준)',
+    outline: [
+      '2026 청년월세 특별지원 2차 사업 추진 배경',
+      '청년 독립가구 vs 원가구(부모) 소득·재산 평가 기준',
+      '거주 주택 요건: 보증금 5천만원 이하 및 월세 70만원 이하',
+      '복지로(Bokjiro) 웹사이트 및 행정복지센터 신청 절차',
+      '매월 25일 정기 입금일 및 전출 시 변경 신고 의무'
+    ],
+    faq: [
+      {
+        q: '월세가 70만원을 넘으면 무조건 탈락인가요?',
+        a: '보증금 월세 환산액과 월세의 합계가 90만원 이하인 경우 예외적으로 지원 대상에 포함됩니다.'
+      },
+      {
+        q: '군 입대나 해외 체류 시에도 지급되나요?',
+        a: '30일 이상 해외 체류하거나 군 복무 기간에는 지급이 일시 중지됩니다.'
+      },
+      {
+        q: '1차 지원을 이미 다 받은 사람도 신청할 수 있나요?',
+        a: '1차 기수혜자는 원칙적으로 제외되나 사업 지침 개정 시 추가 신청 가능 여부를 복지로에서 조회해야 합니다.'
+      }
+    ]
+  },
+  {
+    id: 'kc-gov-06',
+    categoryType: 'type-6',
+    subCat: 'policy',
+    rank: 6,
+    keyword: '소상공인 전기요금 특별지원 20만원 추가 지원 확대',
+    tag: '공식 최신 정책신호',
+    releaseDate: '2026-09-09',
+    officialDate: '2026-09-09',
+    checkCriteria: '공식 출처·시점',
+    searchTiming: '발표 직후~7일',
+    searchIntent: '영세 소상공인 대상 연 매출 1억 4백만원 이하 전기요금 최대 20만원 감면 혜택 확인',
+    whyNow: '하반기 냉난방비 부담 완화를 위한 정부 추경 예산 집행에 따른 신규 신청자 유입.',
+    relatedKeywords: [
+      '소상공인 전기요금 특별지원 신청방법',
+      '소상공인 전기요금 특별지원 매출기준',
+      '소상공인 전기요금 특별지원 차감일'
+    ],
+    longtailKeywords: [
+      '소상공인전기요금특별지원.kr 공식 홈페이지',
+      '한전 직접계약자 비계약 사용자 전기료 지원',
+      '연매출 1억 400만원 소상공인 전기요금',
+      '관리비 고지서 포함 전기요금 청구 환급'
+    ],
+    googleSeoTitle: '소상공인 전기요금 특별지원 20만원 신청 가이드 | 매출 기준 및 서류',
+    naverSeoTitle: '소상공인 전기요금 20만원 지원 대상 확대: 비계약 사용자 신청 방법',
+    outline: [
+      '소상공인 전기요금 특별지원 2차 확대 주요 변경사항',
+      '신청 자격: 연 매출 1억 4백만원 이하 영세 사업자',
+      '직접 계약자(한전 명의) vs 비계약 사용자(관리비 고지) 신청 차이',
+      '소상공인전기요금특별지원.kr 온라인 접수 절차',
+      '전기요금 차감 청구 및 통장 환급 시점'
+    ],
+    faq: [
+      {
+        q: '1인이 여러 사업장을 운영하면 각각 받을 수 있나요?',
+        a: '1인당 1개 사업장에 한하여 1회만 최대 20만원까지 지원됩니다.'
+      },
+      {
+        q: '폐업한 사업자도 신청 가능한가요?',
+        a: '공고일 기준 폐업 상태가 아닌 정상 영업 중인 사업자만 대상입니다.'
+      },
+      {
+        q: '전기요금 고지서상 명의가 건물주로 되어 있으면 어떻게 하나요?',
+        a: '비계약 사용자로 신청하여 전기요금 납부 확인서 및 관리비 내역서를 첨부하면 됩니다.'
+      }
+    ]
+  },
+  {
+    id: 'kc-gov-07',
+    categoryType: 'type-6',
+    subCat: 'policy',
+    rank: 7,
+    keyword: '청년 주택드림 청약통장 전환 및 대출 연계 혜택 총정리',
+    tag: '공식 최신 정책신호',
+    releaseDate: '2026-09-07',
+    officialDate: '2026-09-07',
+    checkCriteria: '공식 출처·시점',
+    searchTiming: '발표 직후~7일',
+    searchIntent: '최대 연 4.5% 고금리 청약통장 전환 조건과 당첨 시 최저 2.2% 주택드림대출 연계 요건 확인',
+    whyNow: '내 집 마련을 준비하는 2030 청년층의 청약저축 비과세 통장 전환 및 파격적 분양가 대출 혜택 관심.',
+    relatedKeywords: [
+      '청년 주택드림 청약통장 전환방법',
+      '청년 주택드림 청약통장 연소득조건',
+      '청년 주택드림 대출 금리'
+    ],
+    longtailKeywords: [
+      '기존 청약종합저축 청년주택드림통장 전환 납입인정',
+      '청년주택드림대출 분양가 6억원 이하 대상',
+      '군 장병 청년주택드림 가입 서류',
+      '청년주택드림 비과세 소득공제 혜택'
+    ],
+    googleSeoTitle: '청년 주택드림 청약통장 가입·전환 조건 총정리 | 최저 2.2% 대출 연계',
+    naverSeoTitle: '청년 주택드림 청약통장 4.5% 금리: 기존 통장 전환 및 서류 가이드',
+    outline: [
+      '청년 주택드림 청약통장 핵심 특징 및 출시 혜택',
+      '가입 대상: 만 19~34세 무주택자 및 연 소득 5천만원 이하',
+      '기존 주택청약종합저축 통장 전환 시 납입 인정 회차 승계',
+      '청약 당첨 시 연계되는 [청년 주택드림 대출] 파격 조건(최저 2.2%)',
+      '취급 시중은행(국민·신한·우리·하나·농협 등) 전환 절차'
+    ],
+    faq: [
+      {
+        q: '기존 통장에 부었던 회차와 납입 인정 금액은 유지되나요?',
+        a: '통장 전환 시 기존 청약 납입 인정 회차와 납입 금액은 100% 그대로 인정 승계됩니다.'
+      },
+      {
+        q: '통장 전환 시 우대이율은 언제부터 적용되나요?',
+        a: '전환 원금은 기존 이율이 적용되며, 전환 이후 신규 입금분부터 최대 4.5% 우대이율이 적용됩니다.'
+      },
+      {
+        q: '청약 당첨 시 주택드림 대출은 분양가 얼마까지 나오나요?',
+        a: '분양가 6억원 이하, 전용면적 85㎡ 이하 주택에 대해 최대 80%까지 대출 가능합니다.'
+      }
+    ]
+  },
+  {
+    id: 'kc-gov-08',
+    categoryType: 'type-6',
+    subCat: 'policy',
+    rank: 8,
+    keyword: '부모급여 2026년 지급 금액 및 육아휴직 급여 중복 수급',
+    tag: '공식 최신 정책신호',
+    releaseDate: '2026-09-08',
+    officialDate: '2026-09-08',
+    checkCriteria: '공식 출처·시점',
+    searchTiming: '발표 직후~7일',
+    searchIntent: '0세 월 100만원, 1세 월 50만원 부모급여와 고용보험 육아휴직 급여 동시 수급 여부 확인',
+    whyNow: '출산 및 육아 가정의 복지 혜택과 맞벌이 부부의 육아휴직 수당 최대 수령액 설계 관심.',
+    relatedKeywords: [
+      '부모급여 2026년 금액',
+      '부모급여 육아휴직급여 중복',
+      '부모급여 어린이집 보육료 차액'
+    ],
+    longtailKeywords: [
+      '부모급여 신청기간 복지로 행복출산원스톱',
+      '0세 100만원 1세 50만원 부모급여 입금일',
+      '부모급여 어린이집 바우처 전환 시 환급금',
+      '아동수당 부모급여 동시 수령 가능 여부'
+    ],
+    googleSeoTitle: '2026 부모급여 지원 금액 총정리 | 육아휴직급여 중복 수급 및 어린이집 차액',
+    naverSeoTitle: '부모급여 월 100만원: 육아휴직 급여와 중복 수령 방법 및 입금일',
+    outline: [
+      '2026년 부모급여 지급 기준 및 연령별 금액(0세 100만원, 1세 50만원)',
+      '고용보험 육아휴직 급여와의 중복 수령 합법 인정 기준',
+      '가정양육 vs 어린이집 이용 시 바우처 전환 및 차액 현금 환급',
+      '출생신고 후 60일 이내 신청 필수: 소급 지급 기준',
+      '정부24 및 복지로 온라인 신청 절차'
+    ],
+    faq: [
+      {
+        q: '육아휴직 급여를 받고 있어도 부모급여가 전액 입금되나요?',
+        a: '네, 부모급여는 보건복지부 소관 아동 복지 수당이므로 고용보험 육아휴직 급여와 별개로 100% 중복 수급됩니다.'
+      },
+      {
+        q: '어린이집에 보내면 부모급여가 깎이나요?',
+        a: '어린이집 보육료 바우처를 결제하고 남은 차액(0세 기준 약 50만원 내외)이 부모 계좌로 현금 입금됩니다.'
+      },
+      {
+        q: '부모급여 입금일은 매월 며칠인가요?',
+        a: '매월 25일에 신청 계좌로 현금 입금됩니다.'
+      }
+    ]
+  },
+  {
+    id: 'kc-gov-09',
+    categoryType: 'type-6',
+    subCat: 'policy',
+    rank: 9,
+    keyword: '디딤돌대출 신생아특례 대출 소득 완화 2억원 신청 조건',
+    tag: '공식 최신 정책신호',
+    releaseDate: '2026-09-06',
+    officialDate: '2026-09-06',
+    checkCriteria: '공식 출처·시점',
+    searchTiming: '발표 직후~7일',
+    searchIntent: '부부합산 소득 2억원까지 대폭 완화된 신생아 특례 디딤돌·버팀목 대출 금리와 대상 주택 확인',
+    whyNow: '출산 가구의 주택 구입 및 전세자금 1%대 초저리 대출을 위한 대환 대출 및 신규 매매 수요 급증.',
+    relatedKeywords: [
+      '신생아특례대출 소득 2억 적용 시기',
+      '신생아 디딤돌대출 금리',
+      '신생아특례 대환대출 조건'
+    ],
+    longtailKeywords: [
+      '신생아 특례구입자금 주택가격 9억원 이하',
+      '주택도시기금 기금e든든 신생아대출 신청',
+      '출산 2년 이내 신생아특례 대상 주택',
+      '신생아 특례 전세자금 버팀목 대출 한도'
+    ],
+    googleSeoTitle: '신생아특례 디딤돌대출 소득 2억원 완화 총정리 | 1%대 금리 및 대상 주택',
+    naverSeoTitle: '신생아 특례대출 부부소득 2억 확대: 주택구입 5억원·전세 3억원 한도',
+    outline: [
+      '신생아 특례대출 부부합산 소득 요건 2억원(출산가구 2.5억 추진) 개편안',
+      '대상 주택 기준: 9억원 이하, 전용면적 85㎡ 이하',
+      '소득 구간별 적용 초저금리(연 1.6% ~ 3.3%) 테이블',
+      '기존 고금리 주택담보대출에서 신생아 특례 대환 대출 요건',
+      '기금e든든 홈페이지 온라인 대출 심사 신청 순서'
+    ],
+    faq: [
+      {
+        q: '임신 중인 태아도 대상에 포함되나요?',
+        a: '출산 이후 출생증명서 또는 가족관계증명서 발급이 가능한 신생아만 대상이며, 임신 중에는 신청이 불가합니다.'
+      },
+      {
+        q: '소득 2억원 초과 시 다른 디딤돌 대출은 이용 가능한가요?',
+        a: '신생아 특례를 제외한 일반 디딤돌 대출은 부부합산 연소득 6천만원(생애최초 7천만원) 이하만 가능합니다.'
+      },
+      {
+        q: '대환 대출 시 1주택자도 가능한가요?',
+        a: '기존 주택 구입 자금 대출을 갈아타려는 1주택자에 한해 대환 대출이 허용됩니다.'
+      }
+    ]
+  },
+  {
+    id: 'kc-gov-10',
+    categoryType: 'type-6',
+    subCat: 'policy',
+    rank: 10,
+    keyword: '건강보험료 피부양자 자격 상실 기준 및 지역가입자 전환 대처',
+    tag: '공식 최신 정책신호',
+    releaseDate: '2026-09-08',
+    officialDate: '2026-09-08',
+    checkCriteria: '공식 출처·시점',
+    searchTiming: '발표 직후~7일',
+    searchIntent: '연소득 2천만원 초과 또는 재산세 과표 초과 시 피부양자 박탈 및 건보료 폭탄 방어책 확인',
+    whyNow: '국민건강보험공단 정기 소득·재산 연계 시기 피부양자 제외 통지서를 받은 은퇴자 및 가족들의 대처 수요.',
+    relatedKeywords: [
+      '건강보험 피부양자 자격 기준',
+      '건보료 피부양자 박탈 소득 2000만원',
+      '임의계속가입제도 신청방법'
+    ],
+    longtailKeywords: [
+      '공적연금 2000만원 초과 피부양자 탈락',
+      '건강보험공단 피부양자 재산과표 5억 4천',
+      '피부양자 박탈 시 지역보험료 감면 경감률',
+      '건보료 폭탄 피하는 임의계속가입 기한 2개월'
+    ],
+    googleSeoTitle: '건강보험 피부양자 자격 상실 기준 총정리 | 소득·재산 요건과 임의계속가입 팁',
+    naverSeoTitle: '건보료 피부양자 탈락 시 대처법: 임의계속가입으로 보험료 50% 아끼기',
+    outline: [
+      '건강보험 피부양자 인정 요건 2대 핵심: 연소득 2천만원 & 재산세 과표',
+      '국민연금·공무원연금 수령액 증가로 인한 피부양자 연쇄 탈락 원리',
+      '지역가입자 전환 시 재산+자동차+소득 점수제 부과 체계',
+      '탈락자 필수 방어 무기: [임의계속가입] 제도로 이전 직장보험료 유지',
+      '국민건강보험공단 이의신청 및 피부양자 재취득 요건'
+    ],
+    faq: [
+      {
+        q: '임의계속가입 신청 기한은 언제까지인가요?',
+        a: '지역가입자 최초 보험료 고지서 수령 후 납부기한으로부터 2개월 이내에 공단에 신청해야 합니다.'
+      },
+      {
+        q: '사업자등록증이 있으면 소득이 0원이어도 탈락하나요?',
+        a: '사업자등록이 있는 경우 사업소득이 단 1원이라도 발생하면 피부양자 자격을 즉시 상실합니다.'
+      },
+      {
+        q: '임의계속가입은 최장 몇 년까지 유지할 수 있나요?',
+        a: '최대 36개월(3년) 동안 종전 직장에서 내던 본인 부담금 수준으로 납부할 수 있습니다.'
+      }
+    ]
+  }
+  ,
   // ===== 7. 이번주 머니대외비 추천 애드센스 키워드 (type-7) =====
   {
     id: 'kc-vip-01',
@@ -3688,6 +4133,12 @@ function renderSubFilterButtons() {
       <button class="kc-sub-btn ${currentSubFilter === 'all' ? 'active' : ''}" data-sub="all">전체 (20)</button>
       <button class="kc-sub-btn ${currentSubFilter === 'kin' ? 'active' : ''}" data-sub="kin">지식iN 질문 동향 (20)</button>
     `;
+  } else if (currentFilterType === 'type-6') {
+    // 6. 정책신호형 애드센스 키워드 전용 (서브 카테고리 필터)
+    container.innerHTML = `
+      <button class="kc-sub-btn ${currentSubFilter === 'all' ? 'active' : ''}" data-sub="all">전체 (10)</button>
+      <button class="kc-sub-btn ${currentSubFilter === 'policy' ? 'active' : ''}" data-sub="policy">공식 정책신호 (10)</button>
+    `;
   } else {
     // 1. 황금키워드 (30개 완벽 매칭)
     container.innerHTML = `
@@ -3715,17 +4166,52 @@ function renderSubFilterButtons() {
 
 // 탭 변경 시 서브 필터 안내 문구 동적 업데이트
 function updateSubFilterHeader() {
+  const subFilterBar = document.querySelector('.kc-sub-filter-bar');
   const subHeader = document.querySelector('.kc-sub-filter-header span:nth-child(2)');
+  const subHeaderTitle = document.querySelector('.kc-sub-filter-header span:nth-child(1)');
+
+  // 6번 정책신호형 배너 표시 여부 처리
+  let policyBanner = document.getElementById('kc-policy-signal-banner-box');
+  if (currentFilterType === 'type-6') {
+    if (!policyBanner && subFilterBar) {
+      policyBanner = document.createElement('div');
+      policyBanner.id = 'kc-policy-signal-banner-box';
+      policyBanner.innerHTML = `
+        <div class="kc-policy-banner">
+          📢 정책신호형 전용 · 매주 월요일 공식 발표·지원금·공공서비스 신호 업데이트
+        </div>
+        <div class="kc-policy-sub-notice">
+          주 1회 갱신합니다. 문서수·초기 검색량은 통과 조건으로 사용하지 않고, 최근 7일 공식 출처·발표일·대상/신청/시행 정보를 확인합니다.
+        </div>
+      `;
+      subFilterBar.parentNode.insertBefore(policyBanner, subFilterBar);
+    } else if (policyBanner) {
+      policyBanner.style.display = 'block';
+    }
+  } else {
+    if (policyBanner) {
+      policyBanner.style.display = 'none';
+    }
+  }
+
   if (subHeader) {
     if (currentFilterType === 'type-2') {
+      if (subHeaderTitle) subHeaderTitle.textContent = '주제 카테고리별 보기';
       subHeader.textContent = '전체 공개 20개 · 검증 통과 20개 · 최소 10개 / 목표 20개 · 목표 확보';
     } else if (currentFilterType === 'type-3') {
+      if (subHeaderTitle) subHeaderTitle.textContent = '주제 카테고리별 보기';
       subHeader.textContent = '전체 공개 10개 · 검증 통과 10개 · 최소 5개 / 목표 10개 · 고단가 CPC $5~$25 검증 확보';
     } else if (currentFilterType === 'type-4') {
+      if (subHeaderTitle) subHeaderTitle.textContent = '주제 카테고리별 보기';
       subHeader.textContent = '전체 공개 10개 · 검증 통과 10개 · 최소 5개 / 목표 10개 · 목표 확보';
     } else if (currentFilterType === 'type-5') {
+      if (subHeaderTitle) subHeaderTitle.textContent = '주제 카테고리별 보기';
       subHeader.textContent = '전체 공개 20개 · 검증 통과 20개 · 최소 10개 / 목표 20개 · 목표 확보';
+    } else if (currentFilterType === 'type-6') {
+      if (subHeaderTitle) subHeaderTitle.textContent = '공식 정책신호 큐레이션';
+      subHeader.textContent = '무료 미리보기 · 일부 공개 · 정책신호형 10개 · 매주 1회 갱신';
     } else {
+      if (subHeaderTitle) subHeaderTitle.textContent = '주제 카테고리별 보기';
       subHeader.textContent = '전체 공개 30개 · 검증 통과 30개 · 최소 15개 / 목표 30개 · 목표 확보';
     }
   }
@@ -3828,6 +4314,16 @@ function renderCardsList() {
           </div>
         </div>
       `;
+    } else if (item.categoryType === 'type-6') {
+      // 6. 정책신호형 애드센스 키워드 전용 카드 UI (스크린샷 1:1 완벽 일치)
+      card.innerHTML = `
+        <div class="kc-card-num-box">${item.rank}</div>
+        <div class="kc-card-body">
+          <div class="kc-card-kw-title">${escapeHtml(item.keyword)}</div>
+          <div class="kc-policy-card-date">공식 발표일 ${escapeHtml(item.releaseDate || '2026-09-07')}</div>
+          <div><span class="kc-badge-policy-signal">공식 최신 정책신호</span></div>
+        </div>
+      `;
     } else {
       card.innerHTML = `
         <div class="kc-card-num-box">${item.rank}</div>
@@ -3868,7 +4364,189 @@ function selectCard(idx, dataList = null) {
   const panel = document.getElementById('kc-detail-panel');
   if (!panel) return;
 
-  // 1. 추천 제목 구성 (홈판용 & SEO용)
+  // 6. 정책신호형 애드센스 키워드 전용 상세 리포트 (스크린샷 1:1 완벽 일치)
+  if (item.categoryType === 'type-6') {
+    const relKeywords = item.relatedKeywords || [
+      `${item.keyword} 대상`,
+      `${item.keyword} 신청`,
+      `${item.keyword} 기간`
+    ];
+    const relKeywordsText = relKeywords.join(', ');
+
+    const longKeywords = item.longtailKeywords || [
+      `${item.keyword} 지원 대상`,
+      `${item.keyword} 신청 방법`,
+      `${item.keyword} 필요 서류`,
+      `${item.keyword} 시행일`
+    ];
+    const longKeywordsText = longKeywords.join(', ');
+
+    const googleTitle = item.googleSeoTitle || `${item.keyword} | 대상·신청기간·시행 시점 정리`;
+    const naverTitle = item.naverSeoTitle || `${item.keyword} 신청 대상 및 필수 조건 확인`;
+
+    const outlineItems = (item.outline && item.outline.length > 0) ? item.outline : [
+      `${item.keyword} 핵심 요약과 발표 배경`,
+      '누가 신청할 수 있나: 지원 대상과 자격 조건',
+      '지원 내용과 혜택: 무엇이 얼마나 지원되나',
+      '신청 기간과 지급·시행 일정 총정리',
+      '신청 전 반드시 확인해야 할 주의사항과 자주 묻는 질문(FAQ)'
+    ];
+    const outlineHtml = outlineItems.map((line, i) => {
+      const match = line.match(/^(\d+\.?)\s*(.*)/);
+      const text = match ? match[2] : line;
+      return `
+        <div class="kc-policy-outline-item">
+          <span class="kc-policy-outline-num">${i + 1}.</span>
+          <span>${escapeHtml(text)}</span>
+        </div>
+      `;
+    }).join('');
+
+    const faqs = (item.faq && item.faq.length > 0) ? item.faq : [
+      {
+        q: `${item.keyword} 신청은 어디서 하나요?`,
+        a: '공식 주관 부처 및 정부24, 관련 전용 웹사이트/모바일 앱에서 간편인증 후 즉시 신청할 수 있습니다.'
+      },
+      {
+        q: '지원 요건을 충족하지 못하면 어떻게 되나요?',
+        a: '소득 및 자격 요건 기준을 초과하거나 서류가 미비한 경우 심사 대상에서 제외되거나 반려될 수 있습니다.'
+      },
+      {
+        q: '지급 및 시행 일정은 어떻게 되나요?',
+        a: '공식 발표된 일정에 따라 접수 마감 후 심사를 거쳐 순차적으로 대상자 확정 및 지급·혜택이 적용됩니다.'
+      }
+    ];
+    const faqHtml = faqs.map((f, i) => `
+      <div class="kc-policy-faq-box">
+        <div class="kc-policy-faq-q">
+          <span>Q${i + 1}.</span>
+          <span>${escapeHtml(f.q)}</span>
+        </div>
+        <div class="kc-policy-faq-a">
+          ${escapeHtml(f.a)}
+        </div>
+      </div>
+    `).join('');
+
+    panel.innerHTML = `
+      <div class="kc-white-report-container">
+        <!-- 상단 헤더: 최신 정책신호형 배지 + 타이틀 + 메타 -->
+        <div style="margin-bottom: 20px;">
+          <div style="font-size: 0.78rem; font-weight: 800; color: #94a3b8; margin-bottom: 6px;">최신 정책신호형</div>
+          <h2 class="kc-report-main-title" style="margin-bottom: 10px; font-size: clamp(1.6rem, 2.3vw, 2.2rem);">${escapeHtml(item.keyword)}</h2>
+          <div class="kc-report-sub-meta" style="color: #64748b; font-size: 0.84rem;">
+            <strong style="color: #94a3b8;">정책신호형</strong> · 공식 발표일 <strong style="color: #f8fafc;">${item.releaseDate || '2026-09-07'}</strong> · 공식 출처·시점 검증
+          </div>
+        </div>
+
+        <!-- 3개 메트릭 카드 (발표일, 검증 기준, 검색 시점) -->
+        <div class="kc-policy-metrics-grid">
+          <div class="kc-policy-metric-box">
+            <div class="kc-policy-metric-lbl">발표일</div>
+            <div class="kc-policy-metric-val">${item.releaseDate || '2026-09-07'}</div>
+          </div>
+          <div class="kc-policy-metric-box">
+            <div class="kc-policy-metric-lbl">검증 기준</div>
+            <div class="kc-policy-metric-val">${escapeHtml(item.checkCriteria || '공식 출처·시점')}</div>
+          </div>
+          <div class="kc-policy-metric-box">
+            <div class="kc-policy-metric-lbl">검색 시점</div>
+            <div class="kc-policy-metric-val">${escapeHtml(item.searchTiming || '발표 직후~7일')}</div>
+          </div>
+        </div>
+
+        <!-- 2열 비교 카드 1: 검색의도 vs 왜 지금 발행할까 -->
+        <div class="kc-policy-2col-grid">
+          <div class="kc-policy-intent-card">
+            <div class="kc-policy-card-head-blue">검색의도</div>
+            <p class="kc-policy-card-body-text">
+              ${escapeHtml(item.searchIntent || '발표된 제도의 대상, 지원 내용, 신청·지급·시행 시점과 필요한 조건 확인')}
+            </p>
+          </div>
+          <div class="kc-policy-publish-card">
+            <div class="kc-policy-card-head-sky">왜 지금 발행할까</div>
+            <p class="kc-policy-card-body-text">
+              ${escapeHtml(item.whyNow || '공식 발표 직후에는 대상 여부·신청 기간·지원 내용 확인 수요가 먼저 생길 수 있어, 사실관계가 확인된 해결형 정보 글로 기획합니다.')}
+            </p>
+          </div>
+        </div>
+
+        <!-- 2열 비교 카드 2: 연관 키워드 vs 롱테일 키워드 -->
+        <div class="kc-policy-2col-grid">
+          <div class="kc-policy-rel-card">
+            <div class="kc-policy-card-head-purple">연관 키워드</div>
+            <p class="kc-policy-card-body-text" style="color: #e2e8f0; line-height: 1.7;">
+              ${escapeHtml(relKeywordsText)}
+            </p>
+          </div>
+          <div class="kc-policy-longtail-card">
+            <div class="kc-policy-card-head-purple">롱테일 키워드</div>
+            <p class="kc-policy-card-body-text" style="color: #e2e8f0; line-height: 1.7;">
+              ${escapeHtml(longKeywordsText)}
+            </p>
+          </div>
+        </div>
+
+        <!-- 추천 포스팅 제목: 구글 SEO 최적화 제목 -->
+        <div class="kc-policy-seo-title-card">
+          <div style="font-size: 0.82rem; font-weight: 800; color: #10b981; margin-bottom: 4px;">구글 SEO 최적화 제목</div>
+          <div class="kc-policy-title-val" id="kc-copy-google-seo">${escapeHtml(googleTitle)}</div>
+          <button type="button" class="kc-purple-action-btn" style="margin-top: 10px; background: #059669; border-color: #059669;" onclick="copySnippet('kc-copy-google-seo', '구글 SEO 제목이 복사되었습니다!')">
+            구글 SEO 제목 복사
+          </button>
+        </div>
+
+        <!-- 추천 포스팅 제목: 네이버 블로그 검색 최적화 제목 -->
+        <div class="kc-policy-seo-title-card-naver">
+          <div style="font-size: 0.82rem; font-weight: 800; color: #3b82f6; margin-bottom: 4px;">네이버 블로그 검색 최적화 제목</div>
+          <div class="kc-policy-title-val" id="kc-copy-naver-seo">${escapeHtml(naverTitle)}</div>
+          <button type="button" class="kc-purple-action-btn" style="margin-top: 10px; background: #2563eb; border-color: #2563eb;" onclick="copySnippet('kc-copy-naver-seo', '네이버 SEO 제목이 복사되었습니다!')">
+            네이버 SEO 제목 복사
+          </button>
+        </div>
+
+        <!-- 추천 목차 구성안 (5단계) -->
+        <div class="kc-policy-outline-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc;">
+              📋 추천 목차 구성안
+            </div>
+            <button type="button" class="kc-purple-action-btn" style="margin: 0; padding: 4px 12px; font-size: 0.78rem;" onclick="copyPolicyOutline('${escapeHtml(item.keyword)}')">
+              목차 복사
+            </button>
+          </div>
+          <div id="kc-policy-outline-list">
+            ${outlineHtml}
+          </div>
+        </div>
+
+        <!-- 자주 묻는 질문 (FAQ) -->
+        <div style="margin-top: 18px;">
+          <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; margin-bottom: 12px;">
+            ❓ 자주 묻는 질문 (FAQ)
+          </div>
+          ${faqHtml}
+        </div>
+
+        <!-- 최하단 4대 포털 바로가기 -->
+        <div class="kc-portals-btn-grid" style="margin-top: 22px;">
+          <a href="https://search.naver.com/search.naver?query=${encodeURIComponent(item.keyword)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn portal-green">
+            네이버 검색결과
+          </a>
+          <a href="https://search.naver.com/search.naver?where=blog&query=${encodeURIComponent(item.keyword)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
+            블로그 문서 확인
+          </a>
+          <a href="https://www.google.com/search?q=${encodeURIComponent(item.keyword)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
+            구글 검색결과
+          </a>
+          <a href="https://www.bing.com/search?q=${encodeURIComponent(item.keyword)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
+            빙 검색결과
+          </a>
+        </div>
+      </div>
+    `;
+    return;
+  }
   const homepanTitle = item.homepanTitle || (item.titles && item.titles[0]) || `${item.keyword} 핵심 총정리 및 최신 정보 요약`;
   const seoTitle = item.seoTitle || (item.titles && item.titles[1]) || `[${item.keyword}] 2026 최신 정보 요약 및 핵심 꿀팁`;
 
@@ -4424,6 +5102,27 @@ window.copyOutlineText = function(keyword) {
     document.execCommand('copy');
     document.body.removeChild(ta);
     if (window.showToast) window.showToast('소제목 목차 전체가 클립보드에 복사되었습니다!', '📑');
+  }
+};
+
+// 정책신호형 목차 복사 헬퍼
+window.copyPolicyOutline = function(keyword) {
+  const list = document.getElementById('kc-policy-outline-list');
+  if (!list) return;
+  const items = Array.from(list.querySelectorAll('.kc-policy-outline-item')).map(item => item.innerText.trim()).join('\n');
+  const fullText = `[${keyword}] 정책신호형 추천 목차\n\n` + items;
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(fullText).then(() => {
+      if (window.showToast) window.showToast('추천 목차 구성안이 복사되었습니다!', '📋');
+    });
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = fullText;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    if (window.showToast) window.showToast('추천 목차 구성안이 복사되었습니다!', '📋');
   }
 };
 

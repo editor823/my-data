@@ -1,4 +1,4 @@
-﻿/* ===== 버튼 (Buttons) ===== */
+/* ===== 버튼 (Buttons) ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -3438,4 +3438,272 @@
   color: #cbd5e1;
   line-height: 1.55;
   margin: 0;
+}
+
+
+
+/* ==========================================================================
+   6번 정책신호형 애드센스 키워드 전용 1:1 완벽 매칭 스타일
+   ========================================================================== */
+
+/* 상단 정책신호형 전용 핑크/오렌지 공지 배너 */
+.kc-policy-banner {
+  background: rgba(244, 63, 94, 0.08);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #fb7185;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  margin-bottom: 12px;
+}
+
+.kc-policy-sub-notice {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* 좌측 카드: 공식 발표일 & 공식 최신 정책신호 배지 */
+.kc-policy-card-date {
+  font-size: 0.76rem;
+  color: #94a3b8;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.kc-badge-policy-signal {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #f59e0b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* 우측 상세 리포트 정책신호형 상단 3개 메트릭 카드 */
+.kc-policy-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.kc-policy-metric-box {
+  background: rgba(59, 130, 246, 0.06);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.kc-policy-metric-lbl {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #60a5fa;
+  margin-bottom: 6px;
+}
+
+.kc-policy-metric-val {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #f8fafc;
+}
+
+/* 우측 2열 비교 박스 (검색의도 & 왜 지금 발행할까) */
+.kc-policy-2col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.kc-policy-intent-card {
+  background: rgba(59, 130, 246, 0.04);
+  border-left: 4px solid #3b82f6;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.kc-policy-publish-card {
+  background: rgba(14, 165, 233, 0.04);
+  border-left: 4px solid #0ea5e9;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.kc-policy-card-head-blue {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #60a5fa;
+  margin-bottom: 8px;
+}
+
+.kc-policy-card-head-sky {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #38bdf8;
+  margin-bottom: 8px;
+}
+
+.kc-policy-card-body-text {
+  font-size: 0.84rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 2열 키워드 박스 (연관 키워드 & 롱테일 키워드) */
+.kc-policy-rel-card {
+  background: rgba(168, 85, 247, 0.04);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.kc-policy-longtail-card {
+  background: rgba(168, 85, 247, 0.04);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.kc-policy-card-head-purple {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #c084fc;
+  margin-bottom: 8px;
+}
+
+/* 제목 추천 박스 (구글 SEO / 네이버 블로그 SEO) */
+.kc-policy-seo-title-card {
+  background: rgba(16, 185, 129, 0.04);
+  border-left: 4px solid #10b981;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.kc-policy-seo-title-card-naver {
+  background: rgba(59, 130, 246, 0.04);
+  border-left: 4px solid #3b82f6;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.kc-policy-title-val {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* 정책신호형 목차 카드 */
+.kc-policy-outline-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+
+.kc-policy-outline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.88rem;
+  color: #cbd5e1;
+}
+
+.kc-policy-outline-item:last-child {
+  border-bottom: none;
+}
+
+.kc-policy-outline-num {
+  color: #3b82f6;
+  font-weight: 900;
+}
+
+/* FAQ 아코디언/카드 */
+.kc-policy-faq-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.kc-policy-faq-q {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #38bdf8;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kc-policy-faq-a {
+  font-size: 0.84rem;
+  color: #94a3b8;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* 정책신호형 전용 상단 헤더 박스 */
+.kc-policy-header-badge {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.kc-policy-tag-free {
+  font-size: 0.78rem;
+  color: #60a5fa;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.kc-badge-policy-signal-tag {
+  display: inline-block;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #f59e0b;
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
 }
