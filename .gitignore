@@ -1,0 +1,7 @@
+# 보안 키 및 환경 설정 파일 숨김 (.gitignore)
+.env
+.env.local
+.env.*.local
+*.log
+node_modules/
+.DS_Store

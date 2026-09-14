@@ -6,18 +6,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 0. 기본 네이버 허브 API 키 기본값 사전 세팅 (어떤 도메인에서 열어도 자동 연결)
-  const defaultNaverId = 'u8xuqbb564';
-  const defaultNaverSec = 'z4Ijlccm7b1SRXfuY2RpEfBcyOAwX1fyw10RRA6C';
-
-  if (!localStorage.getItem('naver_client_id')) {
-    localStorage.setItem('naver_client_id', defaultNaverId);
-    localStorage.setItem('stock_naver_client_id', defaultNaverId);
-  }
-  if (!localStorage.getItem('naver_client_secret')) {
-    localStorage.setItem('naver_client_secret', defaultNaverSec);
-    localStorage.setItem('stock_naver_client_secret', defaultNaverSec);
-  }
+  // 0. 기본 환경 설정 초기화
   if (!localStorage.getItem('naver_auth_type')) {
     localStorage.setItem('naver_auth_type', 'hub');
   }
