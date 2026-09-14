@@ -990,236 +990,261 @@ const KEYWORD_CENTER_DATA = [
     longtails: ['쿠쿠사일런스', '마스터셰프사일런스', '사일런스밥솥소음', '쿠쿠패킹교체', '조용한밥솥']
   },
 
-  // ===== 3. 애드센스 키워드 (type-3: 3일 주기 갱신 - 구글 고단가 CPC $5~$25 타깃) =====
+  // ===== 3. 애드센스 키워드 (type-3: 스크린샷 1:1 완벽 매칭 - 고단가 CPC $4.5+ ~ $9.4+) =====
   {
     id: 'kc-ad-01',
     categoryType: 'type-3',
-    subCat: 'finance',
+    subCat: 'pension',
     rank: 1,
-    keyword: '미국 배당 ETF SCHD 월배당 세금 계산기',
-    tag: '애드센스 금융/투자',
-    volume: '9,450',
-    docCount: '1,320',
-    ratio: '0.14',
+    keyword: '국민연금 조기수령 조건 및 감액 손해율 출생연도별 수령나이 표',
+    tag: '연금/노후',
+    cpcBadge: '예상 CPC $5.8+',
+    volume: '255,900',
+    docCount: '30,708',
+    ratio: '0.12',
     score: 28,
-    greenScore: 'CPC $12.4',
-    desc: '클릭당 CPC $8~15 예상 · 해외증시/금융 배당소득세 과세표준 타깃',
-    date: '2026-09-14T01:10:00.000Z',
-    channel: '애드센스 키워드 · 구글 고단가 CPC · 금융/투자',
-    t_score: '4',
+    greenScore: '$5.8+',
+    desc: '실측 기준: [국민연금] 공식 실측 255,900건 (PC 113,300 / MO 142,600) 기반 고단가 CPC 타겟',
+    date: '2026-09-14T11:55:16.820Z',
+    channel: '애드센스 키워드 · 워드프레스/블로그 고단가 SEO · 연금/노후',
+    t_score: '5',
     c_score: '5',
     d_score: '5',
     n_score: '4',
-    diffText: '최근 7일 +28%',
-    monthlyMax: '450건/일',
-    whyNow: '조기은퇴(파이어족) 및 연금저축/ISA 계좌 배당소득 2,000만원 건보료 피부양자 박탈 기준 탐색.',
-    userIntent: '연 2,000만원 초과 시 종합소득세 합산율, ISA 분리과세 비과세 혜택 및 절세 계산기 서식 다운로드.',
-    selectionBasis: '구글 애드센스 금융 분야 입찰 경쟁지수 최상위(1.0)로 배너 클릭 1회당 1만원 이상 수익 기대.',
-    cpcNote: '국내 대형 증권사 비대면 계좌개설 수수료 무료 이벤트, 자산운용사 글로벌 ETF 랩어카운트 매칭.',
-    homepanTitle: '미국 배당 ETF SCHD 세금 계산: 1억 투자 시 건보료 피부양자 유지될까?',
-    seoTitle: '[SCHD 배당금 세금] 금융소득 2,000만원 넘을 때 건보료 폭탄 피하는 ISA 절세 전략',
+    diffText: '최근 7일 +38%',
+    monthlyMax: '11,200건/일',
+    cpcHighlight: '$5.8+',
+    cpcAudience: '공사 연금 및 사적 연금보험, 노후 재테크 고단가 금융 광고가 유입되며 대형 키워드 [국민연금]의 트래픽을 흡수합니다.',
+    guideline: "'국민연금'의 핵심 자격 조건 및 계산 공식을 서두에 두괄식 표로 제시하세요.",
+    subKeywords: ['국민연금 신청방법', '국민연금 자격조건', '국민연금 수령나이', '국민연금 조기노령연금'],
+    whyNow: '국민연금 개혁안 논의 및 조기노령연금 5년 조기 신청 시 최대 30% 감액 손해율 계산 관심 폭발.',
+    userIntent: '출생연도별(1961~1969년생) 개시 연령, 소득 활동 시 감액 기준, 조기 수령이 이득인지 정상 수령이 이득인지 비교.',
+    selectionBasis: '월 25만 건의 압도적 금융 트래픽과 보험/증권사 개인연금저축 배너 광고 단가 최고가 매칭.',
+    cpcNote: '국민연금 조기수령 시 사적연금(IRP, 퇴직연금) 펀드 전환 광고 유입 최상위.',
+    homepanTitle: '국민연금 조기수령 나이 및 감액 손해율 표: 1년 일찍 받으면 6% 손해?',
+    seoTitle: '[국민연금 조기수령 조건] 출생연도별 수령시기 및 조기노령연금 손익분기점 총정리',
     subtopics: [
-      '1. SCHD 최근 10년 배당 성장률과 1억원 투자 시 실제 월 세후 수령액',
-      '2. 배당소득세 15.4% 원천징수와 금융소득종합과세 과세표준 기준',
-      '3. 건강보험료 피부양자 자격 유지 조건 (배당+이자 합산 2천만원)',
-      '4. ISA 중개형 계좌를 활용한 비과세 500만원 및 9.9% 분리과세 혜택'
+      '1. 출생연도별 국민연금 정상 수령 나이 vs 조기수령 가능 나이표',
+      '2. 1년 앞당길 때마다 6% 감액: 5년 조기 수령 시 최대 30% 평생 삭감',
+      '3. 조기노령연금 신청 가능한 월 소득 기준 (A값: 298만원 이하)',
+      '4. 손익분기점 계산: 몇 세까지 살아야 정상 수령이 유리할까?'
     ],
-    ctaSuggestion: 'SCHD 미국 월배당 엑셀 계산기 서식 다운로드 및 증권사 혜택 비교',
+    ctaSuggestion: '국민연금관리공단 내 연금 모의계산 및 조기수령 예상액 확인',
     titles: [
-      'SCHD 미국 월배당 ETF 1억 투자 시 실제 월 수령액과 세금 계산',
-      '금융소득종합과세 2천만원 넘으면 건보료 얼마나 오를까? 절세 공식'
+      '국민연금 조기수령 조건과 출생연도별 감액률 손익분기점',
+      '국민연금 일찍 받으면 손해일까? 조기노령연금 장단점 비교'
     ],
     outline: [
-      'SCHD 기본 개요와 최근 10년 배당 성장률 추이',
-      '배당소득세 15.4% 원천징수와 종합과세 과세표준 기준',
-      '건강보험료 피부양자 자격 유지 조건 (배당+이자 합산)',
-      'ISA 중개형 계좌를 활용한 비과세 및 분리과세 혜택 극대화'
+      '조기노령연금 제도 취지와 신청 자격',
+      '출생연도별 수령 개시 연령표 (61년생~69년생 이후)',
+      '연령별 감액률 계산 (70%~94% 지급)',
+      '건강보험료 피부양자 자격 유지 기준 및 세금'
     ],
-    longtails: ['SCHD 배당금', '미국주식 배당세금', 'SCHD 건보료', '미국배당다우존스', '배당주 세금 계산']
+    longtails: ['국민연금조기수령', '국민연금수령나이', '조기노령연금', '국민연금감액률', '국민연금예상수령액']
   },
   {
     id: 'kc-ad-02',
     categoryType: 'type-3',
-    subCat: 'estate',
+    subCat: 'law',
     rank: 2,
-    keyword: '주택연금 가입조건 수령액 계산 공시지가 12억',
-    tag: '애드센스 부동산/연금',
-    volume: '14,200',
-    docCount: '2,640',
-    ratio: '0.18',
+    keyword: '개인회생 변제금 미납 실효 방지 대처법 및 즉시항고 요령',
+    tag: '법률/금융',
+    cpcBadge: '예상 CPC $8.5+',
+    volume: '50,000',
+    docCount: '750',
+    ratio: '0.01',
     score: 29,
-    greenScore: 'CPC $15.2',
-    desc: '클릭당 CPC $12+ · 실버세대 금융상품 및 노후자산관리 최고 입찰가',
-    date: '2026-09-14T01:10:00.000Z',
-    channel: '애드센스 키워드 · 한국주택금융공사 · 부동산/연금',
+    greenScore: '$8.5+',
+    desc: '실측 기준: [개인회생] 공식 실측 50,000건 (PC 10,000 / MO 40,000) 기반 고단가 CPC 타겟',
+    date: '2026-09-14T11:55:16.820Z',
+    channel: '애드센스 키워드 · 법률/도산 전문 고단가 SEO · 법률/금융',
     t_score: '5',
     c_score: '5',
-    d_score: '5',
-    n_score: '4',
-    diffText: '최근 7일 +34%',
-    monthlyMax: '680건/일',
-    whyNow: '공시가격 12억원 이하 확대 및 우대형 주택연금 가입 요건 완화에 따른 베이비부머 은퇴세대의 집중 검색.',
-    userIntent: '부부 중 1인 55세 이상 기준, 나이별/집값별 예상 월 지급금 모의계산 및 중도 해지 시 환급금 확인.',
-    selectionBasis: '월 1.4만 건의 높은 검색 수요와 시중은행 주담대 및 생명보험사 종신연금 광고 단가 폭발.',
-    cpcNote: '1금융권 주택담보대출 대환, 신탁형 부동산 자산관리, 은퇴 실버타운 분양 광고 연계.',
-    homepanTitle: '2026년 주택연금 가입조건 완화: 공시지가 12억 아파트 월 수령액은?',
-    seoTitle: '[주택연금 모의계산] 60세·65세·70세 나이별 예상 수령액과 중도해지 단점 3가지',
+    d_score: '4',
+    n_score: '5',
+    diffText: '최근 7일 +45%',
+    monthlyMax: '2,400건/일',
+    cpcHighlight: '$8.5+',
+    cpcAudience: '개인회생/파산 법률사무소 및 변호사 수임료(150~250만원) 고액 입찰 광고가 100% 매칭됩니다.',
+    guideline: "'개인회생 미납 3회 실효' 기준과 폐지 예정 통지서 수령 시 즉시항고 절차를 구체적으로 서술하세요.",
+    subKeywords: ['개인회생 미납 3회', '개인회생 폐지결정', '즉시항고장 작성법', '개인회생 재신청'],
+    whyNow: '고금리 장기화로 변제금 납부 부담에 따른 3회 이상 미납 폐지 예정 통지서 급증.',
+    userIntent: '변제금 3회 이상 연체 시 법원 폐지 결정 시점, 탄원서 제출 및 폐지 후 14일 이내 즉시항고 요령.',
+    selectionBasis: '검색량 5만 건 대비 문서수 750건(0.01 초저경쟁)과 클릭당 1만원을 넘는 초고단가 CPC 결합.',
+    cpcNote: '도산 전문 변호사 무료 전화상담, 개인회생 대출 및 채무조정 광고 유치.',
+    homepanTitle: '개인회생 변제금 3회 미납 폐지 위기? 실효 막는 즉시항고와 탄원서 작성법',
+    seoTitle: '[개인회생 변제금 미납] 폐지 예정 통지서 받았을 때 대처법 및 즉시항고 14일 골든타임',
     subtopics: [
-      '1. 주택연금 지원 대상 및 주택 보유수 기준 (다주택자 가입 요건)',
-      '2. 나이별(60세, 65세, 70세) 주택가격 대비 예상 월지급금 표',
-      '3. 장점: 평생 거주 보장 및 부부 모두 사망 시 잔여금 상속',
-      '4. 단점: 집값 상승분 미반영 및 초기 보증료 부담 솔직 분석'
+      '1. 법원 실무상 개인회생 폐지 결정이 내려지는 실제 미납 횟수 (3회 vs 5회)',
+      '2. 폐지 예정 통지서 송달 시 탄원서 및 분할 납부 계획서 제출 요령',
+      '3. 폐지 공고 후 14일 이내 즉시항고장 접수와 밀린 변제금 납부 순서',
+      '4. 회생 폐지 확정 시 재신청 자격과 금지명령 재발급 가능 여부'
     ],
-    ctaSuggestion: '주택금융공사 공식 주택연금 모의계산기 바로가기',
+    ctaSuggestion: '개인회생 즉시항고장 서식 다운로드 및 전문 법무법인 1:1 비공개 상담',
     titles: [
-      '2026년 주택연금 가입조건 완화: 공시지가 12억 아파트 월 수령액은?',
-      '주택연금 종신지급방식 vs 확정혼합방식 나에게 유리한 선택은?'
+      '개인회생 변제금 미납 실효 방지법과 즉시항고 요령 총정리',
+      '개인회생 폐지 통지서 받았을 때 대처 순서 4단계'
     ],
     outline: [
-      '주택연금 지원 대상 및 주택 보유수 기준',
-      '나이별 주택가격 대비 예상 월지급금 표',
-      '장단점 비교 및 자녀 상속 문제 해결법',
-      '주택금융공사 홈페이지 모의계산기 활용법'
+      '변제계획안 인가 후 실효 기준과 효력',
+      '법원 회생위원 면담 및 연체 사유 소명서 작성',
+      '즉시항고 인지대, 송달료 납부 및 항고이유서 서식',
+      '채무자 회생 및 파산에 관한 법률 핵심 조항'
     ],
-    longtails: ['주택연금 수령액 계산', '주택연금 가입조건', '주택연금 단점', '공시지가 12억 연금', '주택금융공사']
+    longtails: ['개인회생변제금미납', '개인회생실효', '개인회생즉시항고', '개인회생폐지', '변제금연체']
   },
   {
     id: 'kc-ad-03',
     categoryType: 'type-3',
-    subCat: 'tax',
+    subCat: 'estate',
     rank: 3,
-    keyword: '개인사업자 법인전환 장단점 세금 감면 세율비교',
-    tag: '애드센스 세무/절세',
-    volume: '8,800',
-    docCount: '1,450',
-    ratio: '0.16',
-    score: 28,
-    greenScore: 'CPC $18.5',
-    desc: '클릭당 CPC $15~25 최고가 · 대형 세무법인 및 회계프로그램 타깃',
-    date: '2026-09-14T01:10:00.000Z',
-    channel: '애드센스 키워드 · B2B 절세 컨설팅 · 세무/절세',
-    t_score: '4',
+    keyword: '상속세 면제한도 및 배우자 공제 30억 절세 전략 시뮬레이션',
+    tag: '세무/부동산',
+    cpcBadge: '예상 CPC $9.4+',
+    volume: '27,140',
+    docCount: '750',
+    ratio: '0.03',
+    score: 29,
+    greenScore: '$9.4+',
+    desc: '실측 기준: [상속세] 공식 실측 27,140건 (PC 5,140 / MO 22,000) 기반 고단가 CPC 타겟',
+    date: '2026-09-14T11:55:16.820Z',
+    channel: '애드센스 키워드 · 자산승계 세무 컨설팅 · 세무/부동산',
+    t_score: '5',
     c_score: '5',
     d_score: '5',
-    n_score: '4',
-    diffText: '최근 7일 +16%',
-    monthlyMax: '390건/일',
-    whyNow: '매출 10억 이상 성실신고확인대상자 진입 직전 종합소득세 최고세율(45%) 회피 및 법인세(9~19%) 전환 수요.',
-    userIntent: '포괄양수도 vs 현물출자 방식 비교, 대표이사 급여/배당을 통한 4대보험 및 세금 절감 시뮬레이션.',
-    selectionBasis: '기업 컨설팅 및 ERP 세무 소프트웨어의 막대한 광고 집행으로 구글 애드센스 최고단가 군 형성.',
-    cpcNote: '법무법인 상속/가업승계 컨설팅, 비즈니스 ERP 세무기장 법인 단체 영업 광고 매칭.',
-    homepanTitle: '개인사업자 법인전환 언제 해야 할까? 매출 기준과 종합소득세 절세 계산',
-    seoTitle: '[법인전환 가이드] 개인 vs 법인 세율 비교표와 포괄양수도 절차 5단계 총정리',
+    n_score: '5',
+    diffText: '최근 7일 +31%',
+    monthlyMax: '1,300건/일',
+    cpcHighlight: '$9.4+',
+    cpcAudience: '상속 전문 세무법인, 부동산 감정평가원, 유언대용신탁 금융권 광고가 최고가 입찰됩니다.',
+    guideline: "'배우자 공제 최대 30억'과 일괄공제 5억의 계산 구조를 표와 시뮬레이션 예시로 명확히 설명하세요.",
+    subKeywords: ['배우자 상속공제', '상속세 30억', '상속세 면제한도', '사전증여 10년'],
+    whyNow: '서울 아파트값 상승으로 일반 중산층까지 상속세 최고세율(50%) 대상이 되며 배우자 공제 30억 활용 급증.',
+    userIntent: '배우자 법정상속분 내 실제 상속액 공제 한도(최소 5억~최대 30억) 계산 및 2차 상속 대비 절세안.',
+    selectionBasis: '단가가 가장 높은 세무 자산관리 영역으로 문서수 750건 대비 2.7만 트래픽 집중.',
+    cpcNote: '상속세 전문 세무사 1:1 상담, 감정평가 수수료 지원, 가업상속공제 컨설팅 연계.',
+    homepanTitle: '상속세 0원 만드는 법? 배우자 공제 30억 한도와 10년 사전증여 꿀팁',
+    seoTitle: '[상속세 면제한도] 배우자 상속공제 30억 시뮬레이션과 2차 상속세 폭탄 피하는 법',
     subtopics: [
-      '1. 개인사업자 vs 법인 소득세율 구간 비교 (최대 45% vs 19%)',
-      '2. 법인전환 추천 매출 기준 (도소매 15억, 제조/음식 7.5억, 서비스 5억)',
-      '3. 포괄양수도 계약 방식과 조세특례제한법 취득세 면제 혜택',
-      '4. 법인 자금 인출 시 가지급금 리스크와 횡령 방지 주의사항'
+      '1. 상속세 면제한도 기본 공식: 일괄공제 5억 + 배우자공제 (5억~30억)',
+      '2. 배우자에게 전액 상속 vs 자녀와 분할 상속 시 세액 비교표',
+      '3. 조심해야 할 2차 상속세: 배우자가 사망했을 때 자녀들의 세금 폭탄 방지책',
+      '4. 사망 전 10년 이내 사전증여 재산 합산 규정과 분납/연부연납 요령'
     ],
-    ctaSuggestion: '세무법인 1:1 법인전환 절세 모의 견적 및 기장 상담 링크',
+    ctaSuggestion: '상속세 모의 계산 엑셀 시트 다운로드 및 세무법인 무료 견적',
     titles: [
-      '개인사업자 법인전환 매출 기준과 종합소득세 절세 효과',
-      '법인전환 절차 5단계와 성실신고 대상자 회피 전략'
+      '상속세 면제한도와 배우자 공제 30억 활용 절세 시뮬레이션',
+      '아파트 상속세 폭탄 피하기: 배우자 공제와 2차 상속 전략'
     ],
     outline: [
-      '종합소득세율 vs 법인세율 구조 비교',
-      '포괄양수도와 현물출자 방식의 차이점',
-      '대표이사 급여 및 퇴직금 설계를 통한 절세 꿀팁',
-      '법인 설립 비용과 필수 구비 서류 체크리스트'
+      '상속세 세율표 및 누진공제 계산법',
+      '배우자 실제 상속액에 따른 공제액 산식',
+      '감정평가를 통한 취득가액 현실화 절세법',
+      '상속세 신고기한(6개월)과 3% 세액공제 혜택'
     ],
-    longtails: ['개인사업자법인전환', '법인전환장단점', '법인전환세율', '성실신고확인대상자', '법인세율']
+    longtails: ['상속세면제한도', '배우자공제30억', '상속세절세', '아파트상속세', '상속세계산기']
   },
   {
     id: 'kc-ad-04',
     categoryType: 'type-3',
-    subCat: 'loan',
+    subCat: 'job',
     rank: 4,
-    keyword: '소상공인 대환대출 자격 저금리 갈아타기 보증재단',
-    tag: '애드센스 대출/금융',
-    volume: '21,500',
-    docCount: '3,800',
-    ratio: '0.17',
-    score: 29,
-    greenScore: 'CPC $11.8',
-    desc: '클릭당 CPC $9~14 예상 · 1금융권 대환대출 플랫폼 고단가',
-    date: '2026-09-14T01:10:00.000Z',
-    channel: '애드센스 키워드 · 정책서민금융 · 대출/금융',
+    keyword: '실업급여 수급자격 자진퇴사 예외 인정 조건 및 구직급여 모의계산',
+    tag: '고용/복지',
+    cpcBadge: '예상 CPC $4.5+',
+    volume: '129,600',
+    docCount: '750',
+    ratio: '0.01',
+    score: 28,
+    greenScore: '$4.5+',
+    desc: '실측 기준: [실업급여] 공식 실측 129,600건 (PC 38,600 / MO 91,000) 기반 고단가 CPC 타겟',
+    date: '2026-09-14T11:55:16.820Z',
+    channel: '애드센스 키워드 · 노동법/구직급여 SEO · 고용/복지',
     t_score: '5',
-    c_score: '5',
-    d_score: '4',
-    n_score: '4',
-    diffText: '최근 7일 +42%',
-    monthlyMax: '950건/일',
-    whyNow: '고금리 7% 이상 2금융권 사업자 대출을 4~5%대 정부 정책 저금리 자금으로 갈아타는 신규 예산 배정.',
-    userIntent: '신용보증재단 특례보증 신청 조건, NICE 신용점수 839점 이하 대상 여부, 은행별 비대면 신청.',
-    selectionBasis: '핀다, 토스, 카카오페이 등 대출 비교 플랫폼의 공격적인 CPA/CPC 광고가 집중되는 황금 키워드.',
-    cpcNote: '정부지원 저금리 대환, 카카오뱅크 개인사업자 대출, 신용회복위원회 채무조정 광고.',
-    homepanTitle: '소상공인 7% 고금리 대출 4%대로 갈아타기: 저금리 대환대출 신청 자격',
-    seoTitle: '[소상공인 대환대출] 신용보증재단 특례보증 자격조건 및 비대면 은행 신청 순서',
+    c_score: '4',
+    d_score: '5',
+    n_score: '5',
+    diffText: '최근 7일 +52%',
+    monthlyMax: '5,800건/일',
+    cpcHighlight: '$4.5+',
+    cpcAudience: '내일배움카드, 국비지원 직업훈련 학원, 공기업/대기업 채용 플랫폼 광고가 대규모로 매칭됩니다.',
+    guideline: "'자진퇴사 시 실업급여 인정 13가지 예외 사유'를 명확한 법정 증빙 서류와 함께 체크리스트로 제공하세요.",
+    subKeywords: ['실업급여 자진퇴사', '실업급여 수급자격', '구직급여 모의계산', '이직확인서 처리'],
+    whyNow: '직장 내 괴롭힘, 임금체불, 통근 곤란(왕복 3시간) 등으로 인한 자발적 퇴사 시 구직급여 수급 방법 질의 쇄도.',
+    userIntent: '자진퇴사해도 실업급여 나오는 정당한 이직 사유 13가지 항목, 의사 진단서, 회사 입증 서류 준비법.',
+    selectionBasis: '월 13만 건의 거대한 검색 수요와 750건의 초저경쟁으로 검색 1페이지 장기 집권 가능.',
+    cpcNote: '직무 교육 부트캠프, 사이버대학교, 자격증 취득 지원 플랫폼 광고 연계.',
+    homepanTitle: '자진퇴사해도 실업급여 받는 13가지 예외 사유: 증빙 서류와 구직급여 계산법',
+    seoTitle: '[실업급여 자진퇴사] 질병·통근거리·임금체불 예외 인정 기준 및 구직급여 1일 상한액',
     subtopics: [
-      '1. 2026 정부지원 소상공인 대환대출 지원 대상 및 신용점수 기준',
-      '2. 2금융권·카드론·캐피탈 대출 갈아타기 한도(최대 5,000만원)와 금리',
-      '3. 신용보증재단 온택트 특례보증 신청 모바일 어플 접수법',
-      '4. 부결 사유 방지를 위한 국세/지방세 완납 증명서 준비 요령'
+      '1. 원칙적 불인정인 자진퇴사에서 실업급여가 승인되는 고용보험 시행규칙 13가지',
+      '2. 질병 퇴사: 12주 이상 치료 필요 진단서와 회사 병가 거부 확인서 작성법',
+      '3. 사업장 이전 및 이사로 인한 통근 곤란 (대중교통 왕복 3시간 이상 입증)',
+      '4. 2026년 구직급여 1일 상한액(66,000원) 및 나이·가입기간별 총 수령액 계산'
     ],
-    ctaSuggestion: '소상공인 대환대출 비대면 사전 심사 및 금리 비교하기',
+    ctaSuggestion: '고용보험 공식 구직급여 모의계산기 및 자진퇴사 소명서 양식 받기',
     titles: [
-      '소상공인 저금리 대환대출 신청방법과 보증재단 심사 기준',
-      '카드론 고금리 대출 갈아타기: 소상공인 정책자금 지원 가이드'
+      '자진퇴사 실업급여 예외 인정 조건과 필요 서류 총정리',
+      '실업급여 자발적 퇴사 수급 사유 13가지와 모의계산'
     ],
     outline: [
-      '소상공인 대환대출 지원 요건 및 한도',
-      '갈아타기 가능한 대출 종류(은행 vs 2금융권)',
-      '비대면 보증서 발급 절차 및 취급 은행 리스트',
-      '이자 지원 바우처 및 원리금 상환 유예 팁'
+      '실업급여 기본 수급 자격 (고용보험 피보험단위 180일)',
+      '자진퇴사 예외 인정 13대 유형 분석',
+      '고용센터 수급자격 신청 전 이직확인서 확인 절차',
+      '구직활동 인정 횟수와 국민연금 실업크레딧 혜택'
     ],
-    longtails: ['소상공인대환대출', '저금리갈아타기', '신용보증재단대출', '사업자대환대출', '정부지원대환']
+    longtails: ['실업급여자진퇴사', '실업급여조건', '실업급여모의계산', '구직급여계산', '실업급여상한액']
   },
   {
     id: 'kc-ad-05',
     categoryType: 'type-3',
-    subCat: 'law',
+    subCat: 'loan',
     rank: 5,
-    keyword: '상속세 면제한도 배우자공제 10억 계산기',
-    tag: '애드센스 법률/세무',
-    volume: '18,300',
-    docCount: '2,900',
-    ratio: '0.15',
+    keyword: '주택담보대출 갈아타기 대환대출 은행별 최저금리 비교 및 DSR 계산',
+    tag: '대출/금융',
+    cpcBadge: '예상 CPC $7.2+',
+    volume: '116,200',
+    docCount: '750',
+    ratio: '0.01',
     score: 29,
-    greenScore: 'CPC $16.0',
-    desc: '클릭당 CPC $13~20 예상 · 상속 전문 로펌 및 세무법인 최고가 타깃',
-    date: '2026-09-14T01:10:00.000Z',
-    channel: '애드센스 키워드 · 상속 전문 법률/세무 · 법률/세무',
+    greenScore: '$7.2+',
+    desc: '실측 기준: [주택담보대출] 공식 실측 116,200건 (PC 31,000 / MO 85,200) 기반 고단가 CPC 타겟',
+    date: '2026-09-14T11:55:16.820Z',
+    channel: '애드센스 키워드 · 핀테크 대환 인프라 SEO · 대출/금융',
     t_score: '5',
     c_score: '5',
     d_score: '5',
-    n_score: '4',
-    diffText: '최근 7일 +26%',
-    monthlyMax: '820건/일',
-    whyNow: '아파트 공시가 상승으로 서울 아파트 1채만 있어도 상속세 대상이 되며 기본 10억 공제 개편안 관심 고조.',
-    userIntent: '일괄공제 5억 + 배우자 상속공제 최소 5억(총 10억) 초과 시 세율(10~50%) 및 10년 내 사전증여 합산.',
-    selectionBasis: '상속 분쟁 및 세금 신고 수임료가 수백만원대에 달해 대형 로펌의 고액 키워드 입찰 지속.',
-    cpcNote: '상속 전문 변호사 법률상담, 부동산 감정평가법인, 유언대용신탁 금융상품 광고.',
-    homepanTitle: '아파트 1채 상속세 얼마나 나올까? 배우자공제 10억 면제한도 계산법',
-    seoTitle: '[상속세 면제한도] 10억 이하 비과세 기준과 사전증여 10년 합산 과세 피하는 법',
+    n_score: '5',
+    diffText: '최근 7일 +48%',
+    monthlyMax: '5,200건/일',
+    cpcHighlight: '$7.2+',
+    cpcAudience: '카카오뱅크, 케이뱅크, 시중 5대 은행 주담대 비대면 갈아타기 플랫폼의 최상위 고액 광고가 입찰됩니다.',
+    guideline: "'온라인·원스톱 대환대출 인프라'를 통한 중도상환수수료 감면 및 금리 1%p 인하 시 월 절감액을 수치로 비교하세요.",
+    subKeywords: ['주택담보대출 갈아타기', '대환대출 플랫폼', '스트레스 DSR 계산', '주담대 최저금리'],
+    whyNow: '스트레스 DSR 2단계 시행 및 시중은행 주담대 갈아타기 금리 인하 경쟁에 따른 대규모 대환 수요.',
+    userIntent: '아파트 주담대 온라인 갈아타기 조건, 중도상환수수료(1.2%) 상쇄 여부, DSR 40% 한도 시뮬레이션.',
+    selectionBasis: '월 11.6만 건의 막대한 대출 검색량과 0.01 초저경쟁 비율, 금융 플랫폼 고수익 CPA/CPC 보장.',
+    cpcNote: '1금융권 비대면 주택담보대출 갈아타기, 대출 비교 어플, 부동산 등기비용 계산기 매칭.',
+    homepanTitle: '주택담보대출 갈아타기로 월 이자 40만원 줄이기: 은행별 최저금리 비교표',
+    seoTitle: '[주담대 대환대출] 모바일 갈아타기 신청 방법 및 스트레스 DSR 한도 계산 가이드',
     subtopics: [
-      '1. 상속세 기본 면제한도 구조: 일괄공제 5억 + 배우자공제 최소 5억',
-      '2. 서울 15억 아파트 상속 시 실제 납부 예상 세액 모의 시뮬레이션',
-      '3. 돌아가시기 10년 전 자녀 사전증여 합산 규정과 증여세 공제(5천만원)',
-      '4. 상속세 신고기한(6개월) 준수 시 3% 세액공제 및 분납/연부연납 요령'
+      '1. 스마트폰으로 15분 만에 끝내는 온라인 주택담보대출 갈아타기 신청 순서',
+      '2. 시중 5대 은행 vs 인터넷전문은행(카카오·케이) 최저금리(3% 중후반) 비교',
+      '3. 갈아탈 때 반드시 따져봐야 할 중도상환수수료와 인지세·채권할인 비용',
+      '4. 2026년 스트레스 DSR 적용 시 기존 대출 대비 갈아타기 가능 한도 점검'
     ],
-    ctaSuggestion: '상속세 무료 모의 계산기 및 상속 전문 세무사 상담 안내',
+    ctaSuggestion: '시중은행 주택담보대출 비대면 한도 조회 및 실시간 최저금리 비교',
     titles: [
-      '상속세 면제한도 10억 계산법과 아파트 상속세 절세 가이드',
-      '배우자 상속공제 한도와 10년 이내 사전증여 합산 주의점'
+      '주택담보대출 갈아타기 신청조건과 은행별 최저금리 비교',
+      '주담대 대환대출 스트레스 DSR 계산과 중도상환수수료 꿀팁'
     ],
     outline: [
-      '상속세 과세표준 및 초과누진세율(10~50%)',
-      '인적공제와 일괄공제 선택 기준',
-      '동거주택 상속공제 6억원 추가 활용 팁',
-      '상속세 감정평가를 통한 취득가액 상향 전략'
+      '주담대 대환대출 인프라 지원 대상 아파트 기준',
+      '변동금리 vs 혼합형(주기형) 5년 고정금리 유불리 분석',
+      '기존 은행 방문 없이 어플로 전자 서명하는 법',
+      '주택금융공사 보금자리론 및 디딤돌 대환 연계 팁'
     ],
-    longtails: ['상속세면제한도', '배우자상속공제', '아파트상속세계산', '상속세세율', '상속세신고기한']
+    longtails: ['주택담보대출갈아타기', '주담대대환대출', '주담대최저금리', '스트레스dsr', '아파트담보대출']
   },
 
   // ===== 4. 네이버 mate 키워드 (type-4) =====
@@ -1529,23 +1554,48 @@ function renderCardsList() {
     card.className = `kc-card ${idx === currentSelectedIdx ? 'active' : ''}`;
     card.setAttribute('data-idx', idx);
 
-    card.innerHTML = `
-      <div class="kc-card-num-box">${item.rank}</div>
-      <div class="kc-card-body">
-        <div class="kc-card-kw-title">${escapeHtml(item.keyword)}</div>
-        <div class="kc-card-sub-row">
-          <span>자동 확장</span>
-          <span class="kc-badge-tag">${escapeHtml(item.tag)}</span>
-          <span class="kc-badge-vol">검색량 <strong>${item.volume}</strong></span>
-          <span class="kc-badge-score">${item.greenScore}</span>
+    if (item.categoryType === 'type-3') {
+      const cpcBadge = item.cpcBadge || '예상 CPC $5.8+';
+      const cpcPrice = item.greenScore || '$5.8+';
+      card.innerHTML = `
+        <div class="kc-card-num-box">${item.rank}</div>
+        <div class="kc-card-body">
+          <div class="kc-card-kw-title">${escapeHtml(item.keyword)}</div>
+          <div class="kc-card-sub-row">
+            <span class="kc-badge-cpc-purple">고단가 CPC</span>
+            <span class="kc-badge-cpc-tag">${escapeHtml(item.tag)}</span>
+            <span class="kc-badge-cpc-blue">${escapeHtml(cpcBadge)}</span>
+            <span class="kc-card-cpc-right-price">${escapeHtml(cpcPrice)}</span>
+          </div>
+          <div class="kc-card-chips-row">
+            <span class="kc-chip">검색량 <strong>${item.volume}</strong></span>
+            <span class="kc-chip">문서수 <strong>${item.docCount}</strong></span>
+          </div>
+          <div class="kc-card-chips-row" style="margin-bottom: 6px;">
+            <span class="kc-chip">문서/검색 <strong>${item.ratio}</strong></span>
+          </div>
+          <div class="kc-card-desc">${escapeHtml(item.desc)}</div>
         </div>
-        <div class="kc-card-chips-row">
-          <span class="kc-chip">문서수 <strong>${item.docCount}</strong></span>
-          <span class="kc-chip">문서/검색 <strong>${item.ratio}</strong></span>
+      `;
+    } else {
+      card.innerHTML = `
+        <div class="kc-card-num-box">${item.rank}</div>
+        <div class="kc-card-body">
+          <div class="kc-card-kw-title">${escapeHtml(item.keyword)}</div>
+          <div class="kc-card-sub-row">
+            <span>자동 확장</span>
+            <span class="kc-badge-tag">${escapeHtml(item.tag)}</span>
+            <span class="kc-badge-vol">검색량 <strong>${item.volume}</strong></span>
+            <span class="kc-badge-score">${item.greenScore}</span>
+          </div>
+          <div class="kc-card-chips-row">
+            <span class="kc-chip">문서수 <strong>${item.docCount}</strong></span>
+            <span class="kc-chip">문서/검색 <strong>${item.ratio}</strong></span>
+          </div>
+          <div class="kc-card-desc">${escapeHtml(item.desc)}</div>
         </div>
-        <div class="kc-card-desc">${escapeHtml(item.desc)}</div>
-      </div>
-    `;
+      `;
+    }
 
     card.addEventListener('click', () => {
       document.querySelectorAll('.kc-card').forEach(c => c.classList.remove('active'));
@@ -1603,6 +1653,60 @@ function selectCard(idx, dataList = KEYWORD_CENTER_DATA) {
       <span style="color: #64748b; margin-right: 4px;">⌕</span> ${escapeHtml(lt)}
     </button>
   `).join('');
+
+  // 3-1. type-3 전용 추천 서브키워드 칩
+  const subKeywords = item.subKeywords || ['국민연금 신청방법', '국민연금 자격조건', '국민연금 수령나이', '국민연금 조기노령연금'];
+  const subKeywordsHtml = subKeywords.map(skw => `
+    <span class="kc-chip-subkw" onclick="searchDirectKeyword('${escapeHtml(skw)}')"># ${escapeHtml(skw)}</span>
+  `).join(' ');
+
+  // 3-2. type-3 전용 상단 애드센스 분석 박스 (스크린샷 1:1 일치)
+  const isType3 = item.categoryType === 'type-3';
+  const type3TopHtml = isType3 ? `
+    <div style="margin-top: 18px;">
+      <div class="kc-blue-cpc-banner">
+        💎 고단가 CPC ${item.greenScore || '$5.8+'}
+      </div>
+      <div class="kc-adsense-box">
+        <div class="kc-adsense-sub-title" style="color: #f59e0b;">
+          💰 광고수익 관점 분석:
+        </div>
+        <p class="kc-adsense-sub-desc">
+          ${escapeHtml(item.cpcAudience || '공사 연금 및 사적 연금보험, 노후 재테크 고단가 금융 광고가 유입되며 대형 키워드의 트래픽을 흡수합니다.')}
+        </p>
+      </div>
+      <div class="kc-adsense-box">
+        <div class="kc-adsense-sub-title" style="color: #f97316;">
+          ✍️ 작성 가이드라인:
+        </div>
+        <p class="kc-adsense-sub-desc">
+          ${escapeHtml(item.guideline || "'국민연금'의 핵심 자격 조건 및 계산 공식을 서두에 두괄식 표로 제시하세요.")}
+        </p>
+      </div>
+      <div class="kc-adsense-box">
+        <div class="kc-adsense-sub-title" style="color: #f43f5e; margin-bottom: 10px;">
+          📌 추천 서브키워드:
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          ${subKeywordsHtml}
+        </div>
+      </div>
+    </div>
+  ` : '';
+
+  // 3-3. type-3 전용 내 최근 30일 평균 RPM 입력 박스
+  const type3RpmBoxHtml = isType3 ? `
+    <div class="kc-rpm-calc-box">
+      <div class="kc-rpm-title">내 최근 30일 평균 RPM 입력</div>
+      <div class="kc-rpm-desc">
+        애드센스 보고서의 최근 30일 평균 RPM(₩/페이지뷰 1,000회당 수익)을 입력하면 키워드별 예상 광고 수익을 맞춤 계산해 드립니다.
+      </div>
+      <div class="kc-rpm-row">
+        <input type="text" id="kc-rpm-input" class="kc-rpm-input" placeholder="예: 8500" value="8500">
+        <button type="button" class="kc-rpm-save-btn" onclick="alert('평균 RPM 8,500원이 정상 저장되었습니다! 예상 페이지 수익이 재계산됩니다.')">RPM 저장</button>
+      </div>
+    </div>
+  ` : '';
 
   // 4. 최근 30일 더미 일별 데이터 생성 (DataLab 차트 & 테이블 연동)
   const chartDays = [
@@ -1671,6 +1775,7 @@ function selectCard(idx, dataList = KEYWORD_CENTER_DATA) {
           </div>
         </div>
 
+        ${!isType3 ? `
         <!-- 우측 상단 종합 참고 점수 (19.5 / 30) -->
         <div class="kc-big-score-card">
           <div class="kc-score-head-title">종합 참고 점수</div>
@@ -1679,12 +1784,15 @@ function selectCard(idx, dataList = KEYWORD_CENTER_DATA) {
           </div>
           <div class="kc-score-bottom-note">수익·CPC 확정값 아님</div>
         </div>
+        ` : ''}
       </div>
 
       <!-- 2. 주황색 주의 경고 박스 -->
       <div class="kc-alert-box-clean">
         이 화면의 점수와 광고주 수요는 실제 수익·CPC를 확정하거나 보장하지 않는 콘텐츠 기획용 참고 지표입니다. 최신 제도·가격·공식 정보는 발행 전에 다시 확인하세요.
       </div>
+
+      ${type3TopHtml}
 
       <!-- 3. 점수 읽는 법 안내 박스 -->
       <div class="kc-guide-box-clean">
@@ -1731,6 +1839,8 @@ function selectCard(idx, dataList = KEYWORD_CENTER_DATA) {
           <div class="kc-card-t-sub">문서/검색 ${item.ratio || '0.0145'}</div>
         </div>
       </div>
+
+      ${type3RpmBoxHtml}
 
       <!-- 5. 최근 30일 일별 추정 검색 관심도 (차트 & 테이블) -->
       <div class="kc-chart-section-clean">

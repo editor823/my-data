@@ -3048,3 +3048,157 @@
   }
 }
 
+/* ==========================================================================
+   3번 애드센스 키워드 전용 1:1 완벽 매칭 스타일 (카드 뱃지 & 우측 리포트)
+   ========================================================================== */
+.kc-badge-cpc-purple {
+  color: #a855f7;
+  font-weight: 800;
+  font-size: 0.74rem;
+}
+
+.kc-badge-cpc-tag {
+  color: #3b82f6;
+  font-weight: 700;
+  font-size: 0.74rem;
+}
+
+.kc-badge-cpc-blue {
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+  font-weight: 800;
+  font-size: 0.74rem;
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.kc-card-cpc-right-price {
+  margin-left: auto;
+  color: #c084fc;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+/* 우측 상단 고단가 CPC 박스 */
+.kc-blue-cpc-banner {
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+  margin-bottom: 14px;
+}
+
+.kc-adsense-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+
+.kc-adsense-sub-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kc-adsense-sub-desc {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.kc-chip-subkw {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kc-chip-subkw:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+/* RPM 계산기 상자 */
+.kc-rpm-calc-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+.kc-rpm-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin-bottom: 6px;
+}
+
+.kc-rpm-desc {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-bottom: 14px;
+}
+
+.kc-rpm-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.kc-rpm-input {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #f8fafc;
+  font-size: 0.88rem;
+  padding: 8px 14px;
+  outline: none;
+  width: 140px;
+  transition: border-color 0.2s;
+}
+
+.kc-rpm-input:focus {
+  border-color: #3b82f6;
+}
+
+.kc-rpm-save-btn {
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: #60a5fa;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.kc-rpm-save-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+
