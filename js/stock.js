@@ -641,15 +641,26 @@ async function fetchLiveMarketIndices() {
       }
       if (usdDiff) {
         const ratio = parseFloat(String(data.usdKrw.fluctuationsRatio || '0').replace(/,/g, ''));
-        const diffVal = parseFloat(String(data.usdKrw.compareToPreviousPrice || data.usdKrw.compareToPreviousClosePrice || '0').replace(/,/g, ''));
-        const isPositive = ratio > 0 || (ratio === 0 && diffVal > 0);
-        const isNegative = ratio < 0 || (ratio === 0 && diffVal < 0);
+        const hasDiff = data.usdKrw.compareToPreviousPrice !== undefined || data.usdKrw.compareToPreviousClosePrice !== undefined;
+        let diffVal = hasDiff ? parseFloat(String(data.usdKrw.compareToPreviousPrice || data.usdKrw.compareToPreviousClosePrice || '0').replace(/,/g, '')) : 0;
+        
+        // 등락폭 값이 없을 경우 현재가와 등락률을 기반으로 자동 계산
+        if (!hasDiff && ratio !== 0 && data.usdKrw.closePrice) {
+          const currentPrice = parseFloat(String(data.usdKrw.closePrice).replace(/,/g, ''));
+          if (!isNaN(currentPrice) && currentPrice > 0) {
+            const prevPrice = currentPrice / (1 + ratio / 100);
+            diffVal = currentPrice - prevPrice;
+          }
+        }
+
+        const isPositive = ratio > 0 || diffVal > 0;
+        const isNegative = ratio < 0 || diffVal < 0;
         const sign = isPositive ? '▲ ' : (isNegative ? '▼ ' : '');
         const color = isPositive ? '#ef4444' : (isNegative ? '#3b82f6' : '#94a3b8');
         const absDiff = Math.abs(diffVal).toFixed(2);
         const ratioText = `${ratio > 0 ? '+' : ''}${ratio.toFixed(2)}%`;
-        
-        if (data.usdKrw.compareToPreviousPrice !== undefined || data.usdKrw.compareToPreviousClosePrice !== undefined) {
+
+        if (diffVal !== 0 || hasDiff) {
           usdDiff.textContent = `${sign}${absDiff} (${ratioText})`;
         } else {
           usdDiff.textContent = `${sign}${ratioText}`;

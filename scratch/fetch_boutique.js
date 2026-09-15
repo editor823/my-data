@@ -20,7 +20,8 @@ async function main() {
       kosdaq: 'https://m.stock.naver.com/api/index/KOSDAQ/basic',
       nasdaq: 'https://api.stock.naver.com/index/.IXIC/basic',
       sp500: 'https://api.stock.naver.com/index/.INX/basic',
-      exchange: 'https://m.stock.naver.com/front-api/v1/marketIndex/prices?category=exchange&reutersCode=FX_USDKRW'
+      // 네이버 검증 완료된 환율 엔드포인트
+      exchange: 'https://m.stock.naver.com/front-api/marketIndex/prices?category=exchange&reutersCode=FX_USDKRW&page=1'
     };
 
     const [kData, kdData, nData, spData, fxRaw] = await Promise.all([
@@ -31,6 +32,7 @@ async function main() {
       fetchJson(urls.exchange)
     ]);
 
+    // 환율 최신 1건 데이터 추출
     const fxData = fxRaw.result?.[0] || {};
 
     const result = {
@@ -61,18 +63,18 @@ async function main() {
       },
       usdKrw: {
         name: '원/달러 환율',
-        closePrice: fxData.closePrice || '0',
-        fluctuationsRatio: fxData.fluctuationsRatio || '0',
-        compareToPreviousPrice: fxData.compareToPreviousPrice || '0'
+        closePrice: fxData.closePrice,
+        fluctuationsRatio: fxData.fluctuationsRatio,
+        compareToPreviousPrice: fxData.compareToPreviousPrice
       }
     };
 
     const outputPath = path.join(__dirname, 'api_result.json');
     fs.writeFileSync(outputPath, JSON.stringify(result, null, 2), 'utf-8');
-    console.log('5대 지표 수집 성공:');
+    console.log('5대 핵심 지표(코스피, 코스닥, 나스닥, S&P500, 환율) 수집 성공!');
     console.log(JSON.stringify(result, null, 2));
   } catch (error) {
-    console.error('수집 실패:', error.message);
+    console.error('수집 실패 원인:', error.message);
   }
 }
 
