@@ -1,47 +1,71 @@
 const fs = require('fs');
+const path = require('path');
 
-// 네이버페이 증권에서 미국 지수 데이터를 가져오는 함수
+const HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'Referer': 'https://m.stock.naver.com/',
+  'Accept': 'application/json, text/plain, */*'
+};
+
 async function fetchIndex(url) {
-  const response = await fetch(url, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-    }
-  });
-
+  const response = await fetch(url, { headers: HEADERS });
   if (!response.ok) {
-    throw new Error(`HTTP 요청 실패: ${response.status}`);
+    throw new Error(`[${response.status}] ${url}`);
   }
-
-  const data = await response.json();
-  return {
-    name: data.indexName,                    // 지수명 (예: 나스닥 종합, S&P 500)
-    closePrice: data.closePrice,            // 장마감 지수 (종가)
-    fluctuationsRatio: data.fluctuationsRatio // 전일대비 변동률 (%)
-  };
+  return await response.json();
 }
 
 async function main() {
-  const nasdaqUrl = 'https://api.stock.naver.com/index/.IXIC/basic';
-  const sp500Url = 'https://api.stock.naver.com/index/.INX/basic';
-
   try {
-    // 두 API를 비동기(동시)로 호출합니다.
-    const [nasdaq, sp500] = await Promise.all([
-      fetchIndex(nasdaqUrl),
-      fetchIndex(sp500Url)
+    // 409 차단 없는 안정적인 네이버 증권 엔드포인트
+    const urls = {
+      kospi: 'https://m.stock.naver.com/api/index/KOSPI/basic',
+      kosdaq: 'https://m.stock.naver.com/api/index/KOSDAQ/basic',
+      nasdaq: 'https://api.stock.naver.com/index/.IXIC/basic',
+      sp500: 'https://api.stock.naver.com/index/.INX/basic'
+    };
+
+    const [kData, kdData, nData, spData] = await Promise.all([
+      fetchIndex(urls.kospi),
+      fetchIndex(urls.kosdaq),
+      fetchIndex(urls.nasdaq),
+      fetchIndex(urls.sp500)
     ]);
 
     const result = {
       updatedAt: new Date().toISOString(),
-      nasdaq,
-      sp500
+      kospi: {
+        name: '코스피',
+        closePrice: kData.closePrice || kData.now,
+        fluctuationsRatio: kData.fluctuationsRatio,
+        compareToPreviousClosePrice: kData.compareToPreviousClosePrice
+      },
+      kosdaq: {
+        name: '코스닥',
+        closePrice: kdData.closePrice || kdData.now,
+        fluctuationsRatio: kdData.fluctuationsRatio,
+        compareToPreviousClosePrice: kdData.compareToPreviousClosePrice
+      },
+      nasdaq: {
+        name: '나스닥 종합',
+        closePrice: nData.closePrice,
+        fluctuationsRatio: nData.fluctuationsRatio,
+        compareToPreviousClosePrice: nData.compareToPreviousClosePrice
+      },
+      sp500: {
+        name: 'S&P 500',
+        closePrice: spData.closePrice,
+        fluctuationsRatio: spData.fluctuationsRatio,
+        compareToPreviousClosePrice: spData.compareToPreviousClosePrice
+      }
     };
 
-    // 결과를 scratch/api_result.json 파일에 저장
-    fs.writeFileSync('scratch/api_result.json', JSON.stringify(result, null, 2), 'utf-8');
-    console.log('성공적으로 저장되었습니다:', result);
+    const outputPath = path.join(__dirname, 'api_result.json');
+    fs.writeFileSync(outputPath, JSON.stringify(result, null, 2), 'utf-8');
+    console.log('4대 지수 데이터 저장 성공!');
+    console.log(JSON.stringify(result, null, 2));
   } catch (error) {
-    console.error('데이터를 가져오는 중 오류가 발생했습니다:', error.message);
+    console.error('수집 실패 원인:', error.message);
   }
 }
 

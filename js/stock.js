@@ -532,9 +532,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initGlobalMarketNews();
   updateStockApiBadge();
   fetchLiveMarketIndices();
+  startMarketIndicesAutoRefresh();
 });
 
-// scratch/api_result.json 기반 실시간 주요 지표 및 나스닥/S&P 500 동적 렌더링
+// 로컬 수집 데이터(scratch/api_result.json)를 읽어와 화면 지수 표시 (CORS 차단 방지)
 async function fetchLiveMarketIndices() {
   // 1. 화면 우측 상단 헤더: 코스피(KOSPI), 코스닥(KOSDAQ), 환율 DOM
   const kospiVal = document.getElementById('index-kospi-val');
@@ -572,95 +573,81 @@ async function fetchLiveMarketIndices() {
   });
 
   // 변동률 및 텍스트/스타일 서식 적용 헬퍼 함수
-  function updateRateElement(diffEl, ratioStr, pointStr) {
+  function updateRateElement(diffEl, ratioStr) {
     if (!diffEl) return;
     const num = parseFloat(String(ratioStr || '0').replace(/,/g, ''));
     const isPositive = num > 0;
     const isZero = num === 0;
     const sign = isPositive ? '▲ ' : (isZero ? '' : '▼ ');
     const color = isPositive ? '#ef4444' : (isZero ? '#94a3b8' : '#3b82f6');
-    
-    if (pointStr) {
-      const pointNum = Math.abs(parseFloat(String(pointStr).replace(/,/g, '')));
-      diffEl.textContent = `${sign}${pointNum.toFixed(2)} (${isPositive ? '+' : ''}${num.toFixed(2)}%)`;
-    } else {
-      diffEl.textContent = `${sign}${isPositive ? '+' : ''}${num.toFixed(2)}%`;
-    }
+    diffEl.textContent = `${sign}${isPositive ? '+' : ''}${num.toFixed(2)}%`;
     diffEl.style.color = color;
   }
 
   try {
+    // 브라우저 CORS 문제 해결을 위해 로컬 파일(scratch/api_result.json)을 로드
     const res = await fetch('scratch/api_result.json?t=' + Date.now());
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
-    // 1) 나스닥 (NASDAQ) 동적 렌더링
+    // 1) 코스피 (KOSPI) 상단 헤더
+    if (data.kospi) {
+      if (kospiVal && data.kospi.closePrice) kospiVal.textContent = data.kospi.closePrice;
+      if (kospiDiff && data.kospi.fluctuationsRatio !== undefined) {
+        updateRateElement(kospiDiff, data.kospi.fluctuationsRatio);
+      }
+    }
+
+    // 2) 코스닥 (KOSDAQ) 상단 헤더
+    if (data.kosdaq) {
+      if (kosdaqVal && data.kosdaq.closePrice) kosdaqVal.textContent = data.kosdaq.closePrice;
+      if (kosdaqDiff && data.kosdaq.fluctuationsRatio !== undefined) {
+        updateRateElement(kosdaqDiff, data.kosdaq.fluctuationsRatio);
+      }
+    }
+
+    // 3) 나스닥 (NASDAQ) 본문 카드
     if (data.nasdaq) {
       if (nasdaqVal && data.nasdaq.closePrice) {
         nasdaqVal.textContent = data.nasdaq.closePrice;
+        const num = parseFloat(String(data.nasdaq.fluctuationsRatio || '0').replace(/,/g, ''));
+        nasdaqVal.style.color = num > 0 ? '#ef4444' : (num < 0 ? '#3b82f6' : '#94a3b8');
       }
       if (nasdaqDiff && data.nasdaq.fluctuationsRatio !== undefined) {
         updateRateElement(nasdaqDiff, data.nasdaq.fluctuationsRatio);
       }
     }
 
-    // 2) S&P 500 동적 렌더링
+    // 4) S&P 500 본문 카드
     if (data.sp500) {
       if (sp500Val && data.sp500.closePrice) {
         sp500Val.textContent = data.sp500.closePrice;
+        const num = parseFloat(String(data.sp500.fluctuationsRatio || '0').replace(/,/g, ''));
+        sp500Val.style.color = num > 0 ? '#ef4444' : (num < 0 ? '#3b82f6' : '#94a3b8');
       }
       if (sp500Diff && data.sp500.fluctuationsRatio !== undefined) {
         updateRateElement(sp500Diff, data.sp500.fluctuationsRatio);
       }
     }
-
-    // 3) 코스피 (KOSPI) 동적 렌더링 (api_result.json에 있을 경우 우선 반영, 없으면 실측치 유지)
-    if (data.kospi) {
-      if (kospiVal && data.kospi.closePrice) kospiVal.textContent = data.kospi.closePrice;
-      if (kospiDiff && data.kospi.fluctuationsRatio !== undefined) {
-        updateRateElement(kospiDiff, data.kospi.fluctuationsRatio, data.kospi.diff);
-      }
-    } else {
-      if (kospiVal) kospiVal.textContent = '2,575.41';
-      if (kospiDiff) {
-        kospiDiff.textContent = '▲ 3.32 (+0.13%)';
-        kospiDiff.style.color = '#ef4444';
-      }
-    }
-
-    // 4) 코스닥 (KOSDAQ) 동적 렌더링 (api_result.json에 있을 경우 우선 반영, 없으면 실측치 유지)
-    if (data.kosdaq) {
-      if (kosdaqVal && data.kosdaq.closePrice) kosdaqVal.textContent = data.kosdaq.closePrice;
-      if (kosdaqDiff && data.kosdaq.fluctuationsRatio !== undefined) {
-        updateRateElement(kosdaqDiff, data.kosdaq.fluctuationsRatio, data.kosdaq.diff);
-      }
-    } else {
-      if (kosdaqVal) kosdaqVal.textContent = '733.20';
-      if (kosdaqDiff) {
-        kosdaqDiff.textContent = '▲ 2.15 (+0.29%)';
-        kosdaqDiff.style.color = '#ef4444';
-      }
-    }
   } catch (err) {
-    console.warn('[stock.js] scratch/api_result.json 로드 실패 또는 기본값 사용:', err);
-    if (kospiVal) kospiVal.textContent = '2,575.41';
-    if (kospiDiff) {
-      kospiDiff.textContent = '▲ 3.32 (+0.13%)';
-      kospiDiff.style.color = '#ef4444';
-    }
-    if (kosdaqVal) kosdaqVal.textContent = '733.20';
-    if (kosdaqDiff) {
-      kosdaqDiff.textContent = '▲ 2.15 (+0.29%)';
-      kosdaqDiff.style.color = '#ef4444';
-    }
+    console.warn('[stock.js] api_result.json 로드 실패:', err);
   }
 
-  // 원/달러 환율
-  if (usdVal) usdVal.textContent = '1,338.70';
-  if (usdDiff) {
+  // 원/달러 환율 기본값
+  if (usdVal && !usdVal.textContent) usdVal.textContent = '1,338.70';
+  if (usdDiff && !usdDiff.textContent) {
     usdDiff.textContent = '▼ 0.30 (-0.02%)';
     usdDiff.style.color = '#3b82f6';
   }
+}
+
+// 60초마다 자동으로 로컬 지표 새로고침
+let marketIndicesIntervalId = null;
+function startMarketIndicesAutoRefresh() {
+  if (marketIndicesIntervalId) clearInterval(marketIndicesIntervalId);
+  marketIndicesIntervalId = setInterval(() => {
+    fetchLiveMarketIndices();
+  }, 60000);
 }
 
 // 서브 탭 전환 로직 (F5 새로고침 시에도 유지)
