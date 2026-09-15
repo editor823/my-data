@@ -524,7 +524,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderThemeMaterialFeed();
   renderStockCalendarFeed();
   renderLeadingThemeFeed();
-  renderStockDeepAnalysis();
+  renderStockDeepAnalysis('SK하이닉스');
+  renderYoutubeBriefingFeed();
   updateStockApiBadge();
   fetchLiveMarketIndices();
   startMarketIndicesAutoRefresh();
@@ -1132,7 +1133,8 @@ function initStockSubTabs() {
     compare: document.getElementById('stock-panel-compare'),
     calendar: document.getElementById('stock-panel-calendar'),
     technique: document.getElementById('stock-panel-technique'),
-    deep: document.getElementById('stock-panel-deep')
+    deep: document.getElementById('stock-panel-deep'),
+    youtube: document.getElementById('stock-panel-youtube')
   };
 
   function activateSubTab(targetSub) {
@@ -1173,7 +1175,10 @@ function initStockSubTabs() {
         renderLeadingThemeFeed();
       }
       if (targetSub === 'deep') {
-        renderStockDeepAnalysis();
+        renderStockDeepAnalysis('SK하이닉스');
+      }
+      if (targetSub === 'youtube') {
+        renderYoutubeBriefingFeed();
       }
     });
   });
@@ -4615,3 +4620,120 @@ function searchStockDeepAnalysis() {
 
 window.renderStockDeepAnalysis = renderStockDeepAnalysis;
 window.searchStockDeepAnalysis = searchStockDeepAnalysis;
+
+// ============================================================================
+// [서브 패널 6] 증시 유튜브 브리핑 동적 렌더링 시스템
+// ============================================================================
+
+let liveYoutubeBriefingCache = [];
+
+async function renderYoutubeBriefingFeed() {
+  const container = document.getElementById('youtube-briefing-container');
+  if (!container) return;
+
+  // 로딩 인디케이터
+  container.innerHTML = `
+    <div style="text-align: center; padding: 40px; color: #94a3b8; font-size: 0.9rem;">
+      <div style="display: inline-block; width: 24px; height: 24px; border: 3px solid rgba(239, 68, 68, 0.2); border-top-color: #ef4444; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 12px;"></div>
+      <div>최신 증시 유튜브 브리핑 영상을 불러오는 중입니다...</div>
+    </div>
+  `;
+
+  let videoList = [];
+
+  try {
+    const res = await fetch('data/youtube_briefing.json');
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data.items) && data.items.length > 0) {
+        videoList = data.items;
+      }
+    }
+  } catch (err) {
+    console.warn('data/youtube_briefing.json 로드 실패, 백업 데이터셋 사용:', err);
+  }
+
+  // 만약 fetch 실패 시 window.VIRAL_SHORTS_TODAY 또는 폴백 데이터셋 사용
+  if (!videoList || videoList.length === 0) {
+    if (typeof window.VIRAL_SHORTS_TODAY !== 'undefined' && Array.isArray(window.VIRAL_SHORTS_TODAY) && window.VIRAL_SHORTS_TODAY.length > 0) {
+      videoList = window.VIRAL_SHORTS_TODAY.slice(0, 16);
+    } else {
+      videoList = [
+        {
+          title: '엔비디아 블랙웰 본격 양산 돌입… HBM4 수혜주 총정리',
+          channel: '삼프로TV_경제의신과함께',
+          views: '조회수 12.5만회',
+          published: '오늘 2시간 전',
+          thumbnail: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80',
+          url: 'https://www.youtube.com/results?search_query=엔비디아+HBM+수혜주'
+        },
+        {
+          title: '코스피 밸류업 지수 발표 직후 외인·기관이 쓸어담은 5대 종목',
+          channel: '한국경제TV',
+          views: '조회수 8.9만회',
+          published: '오늘 3시간 전',
+          thumbnail: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=600&q=80',
+          url: 'https://www.youtube.com/results?search_query=밸류업+외인+기관+매수'
+        },
+        {
+          title: '체코 원전 30조 잭팟 이어 폴란드·루마니아 수주 모멘텀 분석',
+          channel: '슈카월드',
+          views: '조회수 45.2만회',
+          published: '오늘 4시간 전',
+          thumbnail: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80',
+          url: 'https://www.youtube.com/results?search_query=체코+원전+수주'
+        },
+        {
+          title: '피지컬 AI 휴머노이드 로봇 상용화 시점과 부품 대장주 긴급 점검',
+          channel: '머니투데이 방송 MTN',
+          views: '조회수 6.7만회',
+          published: '오늘 5시간 전',
+          thumbnail: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80',
+          url: 'https://www.youtube.com/results?search_query=휴머노이드+로봇+대장주'
+        }
+      ];
+    }
+  }
+
+  liveYoutubeBriefingCache = videoList;
+
+  // 카드 그리드 렌더링
+  container.innerHTML = `
+    <div class="stock-technique-grid">
+      ${videoList.map((video, idx) => {
+        const directUrl = video.url || video.link || (video.id ? `https://www.youtube.com/watch?v=${video.id}` : 'https://www.youtube.com');
+        const thumbUrl = video.thumbnail || 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80';
+        return `
+          <div class="stock-technique-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; padding: 0;">
+            <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000; overflow: hidden;">
+              <img src="${escapeHtml(thumbUrl)}" alt="${escapeHtml(video.title)}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80'">
+              <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.75); color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 6px; border-radius: 4px;">
+                ${video.isShorts ? '⚡ SHORTS' : '📺 HD'}
+              </div>
+            </div>
+            <div style="padding: 14px; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
+              <div>
+                <div style="font-size: 0.74rem; color: #ef4444; font-weight: 800; margin-bottom: 4px;">
+                  ${escapeHtml(video.channel || '증시 전문 채널')}
+                </div>
+                <div style="font-size: 0.88rem; font-weight: 800; color: #f8fafc; line-height: 1.4; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                  ${escapeHtml(video.title)}
+                </div>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; margin-top: 8px;">
+                <span style="font-size: 0.72rem; color: #94a3b8;">
+                  ${escapeHtml(video.views || video.published || '실시간')}
+                </span>
+                <a href="${directUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.35); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; text-decoration: none; font-weight: 800; white-space: nowrap;">
+                  영상 보기 ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
+}
+
+window.renderYoutubeBriefingFeed = renderYoutubeBriefingFeed;

@@ -1689,6 +1689,9 @@
           <button type="button" class="stock-sub-tab" data-sub="deep">
             <span>🔬</span> 5. 종목 상세정보 (딥분석)
           </button>
+          <button type="button" class="stock-sub-tab" data-sub="youtube">
+            <span>📺</span> 6. 증시 유튜브 브리핑
+          </button>
         </div>
         </div>
       </div>
@@ -1780,15 +1783,6 @@
             </span>
           </div>
           <div id="leading-theme-container" class="stock-technique-grid"></div>
-        </div>
-
-        <!-- 2단 레이아웃 (좌측 370px: 당일 급등 테마 리스트 / 우측: 테마 상세 재료 및 관련 뉴스) -->
-        <div class="kc-dual-layout">
-          <!-- 좌측 테마 리스트 -->
-          <div class="kc-list-col" id="stock-theme-list"></div>
-
-          <!-- 우측 상세 분석 리포트 -->
-          <div class="kc-detail-card" id="stock-theme-detail"></div>
         </div>
       </div>
 
@@ -2339,6 +2333,34 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- ================= [서브 패널 6] 증시 유튜브 브리핑 & 핵심 인사이트 ================= -->
+      <div id="stock-panel-youtube" class="stock-panel-content" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #0f172a; border: 1px solid rgba(255,255,255,0.08); padding: 16px 20px; border-radius: 14px; margin-bottom: 20px; flex-wrap: wrap; gap: 14px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+              <span style="font-size: 1.25rem;">📺</span>
+              <h3 style="font-size: 1.2rem; font-weight: 900; color: #f8fafc; margin: 0;">
+                증시 유튜브 브리핑 & 실시간 영상 요약
+              </h3>
+              <span style="font-size: 0.72rem; background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); padding: 2px 8px; border-radius: 6px; font-weight: 700;">
+                실시간 유튜브 피드
+              </span>
+            </div>
+            <p style="font-size: 0.82rem; color: #94a3b8; margin: 0;">
+              국내외 주요 증권 채널, 경제 전문 유튜버들의 최신 시황 및 급등주 분석 영상을 한눈에 확인하고 바로 시청합니다.
+            </p>
+          </div>
+          <div>
+            <button type="button" class="imggen-style-chip" onclick="renderYoutubeBriefingFeed()" style="padding: 4px 12px; font-size: 0.75rem; background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">
+              🔄 영상 피드 새로고침
+            </button>
+          </div>
+        </div>
+
+        <!-- 유튜브 동적 렌더링 컨테이너 -->
+        <div id="youtube-briefing-container"></div>
       </div>
     </section>
 
