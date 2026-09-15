@@ -1,0 +1,13 @@
+{
+  "updatedAt": "2026-09-15T05:56:11.275Z",
+  "nasdaq": {
+    "name": "나스닥 종합",
+    "closePrice": "26,186.41",
+    "fluctuationsRatio": "-0.56"
+  },
+  "sp500": {
+    "name": "S&P 500",
+    "closePrice": "7,619.98",
+    "fluctuationsRatio": "-0.48"
+  }
+}
