@@ -629,11 +629,39 @@ async function fetchLiveMarketIndices() {
         updateRateElement(sp500Diff, data.sp500.fluctuationsRatio);
       }
     }
+
+    // 5) 원/달러 환율 (USD) 상단 헤더 3번째 카드
+    if (data.usdKrw) {
+      if (usdVal && data.usdKrw.closePrice) {
+        usdVal.textContent = data.usdKrw.closePrice;
+        const ratio = parseFloat(String(data.usdKrw.fluctuationsRatio || '0').replace(/,/g, ''));
+        const diffNum = parseFloat(String(data.usdKrw.compareToPreviousPrice || data.usdKrw.compareToPreviousClosePrice || '0').replace(/,/g, ''));
+        const valNum = ratio !== 0 ? ratio : diffNum;
+        usdVal.style.color = valNum > 0 ? '#ef4444' : (valNum < 0 ? '#3b82f6' : '#94a3b8');
+      }
+      if (usdDiff) {
+        const ratio = parseFloat(String(data.usdKrw.fluctuationsRatio || '0').replace(/,/g, ''));
+        const diffVal = parseFloat(String(data.usdKrw.compareToPreviousPrice || data.usdKrw.compareToPreviousClosePrice || '0').replace(/,/g, ''));
+        const isPositive = ratio > 0 || (ratio === 0 && diffVal > 0);
+        const isNegative = ratio < 0 || (ratio === 0 && diffVal < 0);
+        const sign = isPositive ? '▲ ' : (isNegative ? '▼ ' : '');
+        const color = isPositive ? '#ef4444' : (isNegative ? '#3b82f6' : '#94a3b8');
+        const absDiff = Math.abs(diffVal).toFixed(2);
+        const ratioText = `${ratio > 0 ? '+' : ''}${ratio.toFixed(2)}%`;
+        
+        if (data.usdKrw.compareToPreviousPrice !== undefined || data.usdKrw.compareToPreviousClosePrice !== undefined) {
+          usdDiff.textContent = `${sign}${absDiff} (${ratioText})`;
+        } else {
+          usdDiff.textContent = `${sign}${ratioText}`;
+        }
+        usdDiff.style.color = color;
+      }
+    }
   } catch (err) {
     console.warn('[stock.js] api_result.json 로드 실패:', err);
   }
 
-  // 원/달러 환율 기본값
+  // 원/달러 환율 기본값 (데이터가 없을 때만 유지)
   if (usdVal && !usdVal.textContent) usdVal.textContent = '1,338.70';
   if (usdDiff && !usdDiff.textContent) {
     usdDiff.textContent = '▼ 0.30 (-0.02%)';

@@ -7,30 +7,31 @@ const HEADERS = {
   'Accept': 'application/json, text/plain, */*'
 };
 
-async function fetchIndex(url) {
+async function fetchJson(url) {
   const response = await fetch(url, { headers: HEADERS });
-  if (!response.ok) {
-    throw new Error(`[${response.status}] ${url}`);
-  }
+  if (!response.ok) throw new Error(`[${response.status}] ${url}`);
   return await response.json();
 }
 
 async function main() {
   try {
-    // 409 차단 없는 안정적인 네이버 증권 엔드포인트
     const urls = {
       kospi: 'https://m.stock.naver.com/api/index/KOSPI/basic',
       kosdaq: 'https://m.stock.naver.com/api/index/KOSDAQ/basic',
       nasdaq: 'https://api.stock.naver.com/index/.IXIC/basic',
-      sp500: 'https://api.stock.naver.com/index/.INX/basic'
+      sp500: 'https://api.stock.naver.com/index/.INX/basic',
+      exchange: 'https://m.stock.naver.com/front-api/v1/marketIndex/prices?category=exchange&reutersCode=FX_USDKRW'
     };
 
-    const [kData, kdData, nData, spData] = await Promise.all([
-      fetchIndex(urls.kospi),
-      fetchIndex(urls.kosdaq),
-      fetchIndex(urls.nasdaq),
-      fetchIndex(urls.sp500)
+    const [kData, kdData, nData, spData, fxRaw] = await Promise.all([
+      fetchJson(urls.kospi),
+      fetchJson(urls.kosdaq),
+      fetchJson(urls.nasdaq),
+      fetchJson(urls.sp500),
+      fetchJson(urls.exchange)
     ]);
+
+    const fxData = fxRaw.result?.[0] || {};
 
     const result = {
       updatedAt: new Date().toISOString(),
@@ -57,15 +58,21 @@ async function main() {
         closePrice: spData.closePrice,
         fluctuationsRatio: spData.fluctuationsRatio,
         compareToPreviousClosePrice: spData.compareToPreviousClosePrice
+      },
+      usdKrw: {
+        name: '원/달러 환율',
+        closePrice: fxData.closePrice || '0',
+        fluctuationsRatio: fxData.fluctuationsRatio || '0',
+        compareToPreviousPrice: fxData.compareToPreviousPrice || '0'
       }
     };
 
     const outputPath = path.join(__dirname, 'api_result.json');
     fs.writeFileSync(outputPath, JSON.stringify(result, null, 2), 'utf-8');
-    console.log('4대 지수 데이터 저장 성공!');
+    console.log('5대 지표 수집 성공:');
     console.log(JSON.stringify(result, null, 2));
   } catch (error) {
-    console.error('수집 실패 원인:', error.message);
+    console.error('수집 실패:', error.message);
   }
 }
 
