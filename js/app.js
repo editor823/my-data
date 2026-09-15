@@ -44,7 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
       navMenu.classList.remove('open');
     }
 
-    // 브라우저 주소창 파라미터 및 뒤로가기 히스토리 스택 동기화
+    // 브라우저 주소창 파라미터 및 뒤로가기 히스토리 스택 동기화 & F5 새로고침 유지 저장
+    try {
+      localStorage.setItem('antigravity_current_page', tabId);
+    } catch (e) {}
+
     if (pushHistory) {
       const newUrl = new URL(window.location);
       newUrl.searchParams.set('page', tabId);
@@ -55,9 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // URL 쿼리 파라미터 (?page=keywordcenter, ?page=external 등) 확인하여 해당 탭 자동 열기
+  // URL 쿼리 파라미터 (?page=keywordcenter, ?page=external 등) 또는 저장된 최근 탭 확인
   const urlParams = new URLSearchParams(window.location.search);
-  let pageParam = urlParams.get('page') || 'home';
+  let savedPage = null;
+  try {
+    savedPage = localStorage.getItem('antigravity_current_page');
+  } catch (e) {}
+
+  let pageParam = urlParams.get('page') || savedPage || 'home';
   if (pageParam === 'keywordcenter') pageParam = 'adsense';
   
   // 최초 진입 히스토리 상태 설정

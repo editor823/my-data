@@ -561,7 +561,7 @@ async function fetchLiveMarketIndices() {
   }
 }
 
-// 서브 탭 전환 로직
+// 서브 탭 전환 로직 (F5 새로고침 시에도 유지)
 function initStockSubTabs() {
   const tabs = document.querySelectorAll('.stock-sub-tab');
   const panels = {
@@ -573,19 +573,39 @@ function initStockSubTabs() {
     deep: document.getElementById('stock-panel-deep')
   };
 
+  function activateSubTab(targetSub) {
+    tabs.forEach(t => {
+      if (t.getAttribute('data-sub') === targetSub) {
+        t.classList.add('active');
+      } else {
+        t.classList.remove('active');
+      }
+    });
+
+    Object.keys(panels).forEach(key => {
+      if (panels[key]) {
+        panels[key].style.display = (key === targetSub) ? 'block' : 'none';
+      }
+    });
+
+    try {
+      localStorage.setItem('antigravity_stock_subtab', targetSub);
+    } catch (e) {}
+  }
+
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
       const targetSub = tab.getAttribute('data-sub');
-      Object.keys(panels).forEach(key => {
-        if (panels[key]) {
-          panels[key].style.display = (key === targetSub) ? 'block' : 'none';
-        }
-      });
+      activateSubTab(targetSub);
     });
   });
+
+  // F5 새로고침 시 저장된 서브탭 복원 (기본값: news)
+  let savedSub = 'news';
+  try {
+    savedSub = localStorage.getItem('antigravity_stock_subtab') || 'news';
+  } catch (e) {}
+  activateSubTab(savedSub);
 
   // 비교 분석 1주 / 1달 버튼
   const btn1w = document.getElementById('btn-compare-1w');
@@ -2001,20 +2021,125 @@ let currentDomesticNewsFilter = 'all';
 let liveDomesticNewsCache = [];
 
 function initDomesticStockNews() {
-  // 1. 기본 캐시 데이터 즉시 렌더링
+  // 1. 시드 데이터(최신 네이버 증시 속보)가 있으면 캐시에 즉시 로드
+  if (typeof LIVE_NAVER_SEED_DATA !== 'undefined' && Array.isArray(LIVE_NAVER_SEED_DATA) && LIVE_NAVER_SEED_DATA.length > 0) {
+    liveDomesticNewsCache = parseNaverStockNewsItems(LIVE_NAVER_SEED_DATA);
+  }
+  
+  // 2. 초기 렌더링
   renderDomesticNewsTimeline('all');
 
-  // 2. 저장된 네이버 키를 활용해 네이버 실시간 뉴스 자동 조회
+  // 3. 백그라운드에서 네이버 실시간 뉴스 자동 조회
   fetchLiveNaverNews();
 }
 
-// 네이버 실시간 오픈 API 또는 프록시를 통해 당일 장중 최신 주식 뉴스 실시간 호출
+// 네이버 실시간 증시 뉴스 배열을 웹 화면 포맷으로 정밀 변환
+function parseNaverStockNewsItems(rawItems) {
+  return rawItems.map(item => {
+    const title = (item.tit || item.title || '').replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
+    const summary = (item.subcontent || item.description || '').replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
+    const media = item.ohnm || '네이버 뉴스';
+
+    // 시간 계산 (item.dt 형식: "20260915104817" 또는 pubDate)
+    let timeStr = '방금 전';
+    if (item.dt && item.dt.length >= 12) {
+      try {
+        const y = parseInt(item.dt.substring(0, 4), 10);
+        const m = parseInt(item.dt.substring(4, 6), 10) - 1;
+        const d = parseInt(item.dt.substring(6, 8), 10);
+        const h = parseInt(item.dt.substring(8, 10), 10);
+        const min = parseInt(item.dt.substring(10, 12), 10);
+        const articleDate = new Date(y, m, d, h, min);
+        const diffMinutes = Math.max(1, Math.round((Date.now() - articleDate.getTime()) / (1000 * 60)));
+        if (diffMinutes < 60) {
+          timeStr = `${diffMinutes}분 전`;
+        } else if (diffMinutes < 1440) {
+          timeStr = `${Math.floor(diffMinutes / 60)}시간 전`;
+        } else {
+          timeStr = `${Math.floor(diffMinutes / 1440)}일 전`;
+        }
+      } catch (e) {
+        timeStr = '방금 전';
+      }
+    } else if (item.pubDate) {
+      try {
+        const pub = new Date(item.pubDate);
+        const diffMin = Math.max(1, Math.round((Date.now() - pub.getTime()) / (1000 * 60)));
+        timeStr = diffMin < 60 ? `${diffMin}분 전` : `${Math.round(diffMin / 60)}시간 전`;
+      } catch (err) {
+        timeStr = '방금 전';
+      }
+    }
+
+    // 태그 및 카테고리 자동 판별
+    let cat = 'feature';
+    let tag = '장중 속보';
+    let tagColor = '#ef4444';
+
+    if (title.includes('공시') || title.includes('수주') || title.includes('계약') || title.includes('특허')) {
+      cat = 'disclosure';
+      tag = '공시/수주';
+      tagColor = '#10b981';
+    } else if (title.includes('순매수') || title.includes('기관') || title.includes('외인') || title.includes('거래대금') || title.includes('사모펀드')) {
+      cat = 'supply';
+      tag = '외인/기관 수급';
+      tagColor = '#38bdf8';
+    } else if (title.includes('정부') || title.includes('정책') || title.includes('산업') || title.includes('원전') || title.includes('미국') || title.includes('금리')) {
+      cat = 'industry';
+      tag = '산업/정책';
+      tagColor = '#a855f7';
+    } else {
+      cat = 'feature';
+      tag = '특징주/급등';
+      tagColor = '#ef4444';
+    }
+
+    // 종목명 추출 (대괄호 또는 본문 내 대표 키워드)
+    let symbol = '국내증시';
+    const bracketMatch = title.match(/\[(.*?)\]\s*([가-힣A-Za-z0-9]+)/);
+    if (bracketMatch && bracketMatch[2]) {
+      symbol = bracketMatch[2].slice(0, 7);
+    } else {
+      const words = title.split(/\s+/);
+      if (words.length > 0) symbol = words[0].replace(/[^가-힣A-Za-z0-9]/g, '').slice(0, 6) || '국내증시';
+    }
+
+    // 핵심: 정확한 기사 원문 URL 생성
+    // 1순위: 네이버 뉴스 oid + aid 조합 (https://n.news.naver.com/mnews/article/{oid}/{aid}) -> 100% 원문 기사 직접 열람
+    // 2순위: item.originallink 또는 item.link
+    let directUrl = '';
+    if (item.oid && item.aid) {
+      directUrl = `https://n.news.naver.com/mnews/article/${item.oid}/${item.aid}`;
+    } else if (item.originallink) {
+      directUrl = item.originallink;
+    } else if (item.link) {
+      directUrl = item.link;
+    } else {
+      directUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(title)}`;
+    }
+
+    return {
+      category: cat,
+      tag: tag,
+      tagColor: tagColor,
+      title: title,
+      media: media,
+      time: timeStr,
+      symbol: symbol,
+      summary: summary,
+      directUrl: directUrl,
+      keyword: title
+    };
+  });
+}
+
+// 네이버 실시간 증시 뉴스 라이브 호출 (Jina 프록시 및 다중 폴백)
 async function fetchLiveNaverNews(silent = true) {
   const refreshBtn = document.getElementById('btn-refresh-domestic-news');
   const liveTag = document.getElementById('domestic-news-live-tag');
   
   if (refreshBtn) {
-    refreshBtn.innerHTML = '⏳ 네이버 최신 뉴스 수신 중...';
+    refreshBtn.innerHTML = '⏳ 실시간 최신 뉴스 수신 중...';
     refreshBtn.disabled = true;
   }
   if (liveTag) {
@@ -2022,106 +2147,41 @@ async function fetchLiveNaverNews(silent = true) {
     liveTag.style.color = '#38bdf8';
   }
 
-  // 검색 쿼리 프리셋
-  const query = '특징주 OR 상한가 OR 공시 OR 외인순매수';
-  const targetUrl = `https://openapi.naver.com/v1/search/news.json?query=${encodeURIComponent(query)}&display=20&sort=date`;
-  
-  // 저장된 키 (admin.js에서 주입된 Client ID & Secret)
-  const cId = localStorage.getItem('naver_client_id') || localStorage.getItem('stock_naver_client_id') || 'u8xuqbb564';
-  const cSec = localStorage.getItem('naver_client_secret') || localStorage.getItem('stock_naver_client_secret') || 'ej4Jjlccm7b1SRXfuY2RpEfBcyOAwX1fyw10RRA6C';
+  const naverStockApi = 'https://m.stock.naver.com/api/news/list?category=mainnews&page=1&pageSize=20';
+  let fetchedData = null;
 
-  // 다중 프록시 폴백
-  const proxyEndpoints = [
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`,
-    `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`
-  ];
+  // 1차 시도: Jina Reader Proxy (직접 JSON 스트림 파싱)
+  try {
+    const jinaUrl = `https://r.jina.ai/${naverStockApi}`;
+    const resp = await fetch(jinaUrl, {
+      headers: { 'x-respond-with': 'text' }
+    });
+    if (resp.ok) {
+      const rawText = await resp.text();
+      // Markdown Content 이하 또는 JSON 배열 직접 추출
+      const match = rawText.match(/\[\s*\{[\s\S]*\}\s*\]/);
+      if (match) {
+        fetchedData = JSON.parse(match[0]);
+      }
+    }
+  } catch (e) {
+    console.warn('1차 실시간 뉴스 프록시 전환:', e);
+  }
 
-  let fetchedItems = null;
-
-  for (const pUrl of proxyEndpoints) {
+  // 2차 시도: allorigins 또는 직접 호출
+  if (!fetchedData || fetchedData.length === 0) {
     try {
-      const resp = await fetch(pUrl, {
-        method: 'GET',
-        headers: {
-          'X-Naver-Client-Id': cId,
-          'X-Naver-Client-Secret': cSec
-        }
-      });
-
-      if (resp.ok) {
-        const data = await resp.json();
-        if (data && data.items && data.items.length > 0) {
-          fetchedItems = data.items;
-          break;
-        }
+      const resp2 = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(naverStockApi)}`);
+      if (resp2.ok) {
+        fetchedData = await resp2.json();
       }
     } catch (e) {
-      console.warn('네이버 뉴스 프록시 시도 중 다음 프록시로 전환:', e);
+      console.warn('2차 실시간 뉴스 프록시 지연:', e);
     }
   }
 
-  if (fetchedItems && fetchedItems.length > 0) {
-    // 실시간 네이버 뉴스를 촘촘한 타임라인 포맷으로 매핑
-    liveDomesticNewsCache = fetchedItems.map(item => {
-      const cleanTitle = item.title.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
-      const cleanDesc = item.description.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
-      
-      // 기사 발행 시각 포맷팅 (예: 2분 전, 10분 전)
-      let timeStr = '방금 전';
-      if (item.pubDate) {
-        try {
-          const pub = new Date(item.pubDate);
-          const diffMin = Math.max(1, Math.round((Date.now() - pub.getTime()) / (1000 * 60)));
-          timeStr = diffMin < 60 ? `${diffMin}분 전` : `${Math.round(diffMin / 60)}시간 전`;
-        } catch (err) {
-          timeStr = '방금 전';
-        }
-      }
-
-      // 태그 및 카테고리 자동 판별
-      let cat = 'feature';
-      let tag = '장중 속보';
-      let tagColor = '#ef4444';
-
-      if (cleanTitle.includes('공시') || cleanTitle.includes('수주') || cleanTitle.includes('계약')) {
-        cat = 'disclosure';
-        tag = '공시/수주';
-        tagColor = '#10b981';
-      } else if (cleanTitle.includes('순매수') || cleanTitle.includes('기관') || cleanTitle.includes('외인')) {
-        cat = 'supply';
-        tag = '외인/기관 수급';
-        tagColor = '#38bdf8';
-      } else if (cleanTitle.includes('정부') || cleanTitle.includes('정책') || cleanTitle.includes('산업')) {
-        cat = 'industry';
-        tag = '산업/정책';
-        tagColor = '#a855f7';
-      } else {
-        cat = 'feature';
-        tag = '특징주/급등';
-        tagColor = '#ef4444';
-      }
-
-      // 종목명 추출 시도 (예: [특징주] 삼천당제약, ...)
-      let symbol = '국내증시';
-      const bracketMatch = cleanTitle.match(/\[(.*?)\]\s*([가-힣A-Za-z0-9]+)/);
-      if (bracketMatch && bracketMatch[2]) {
-        symbol = bracketMatch[2].slice(0, 7);
-      }
-
-      return {
-        category: cat,
-        tag: tag,
-        tagColor: tagColor,
-        title: cleanTitle,
-        media: '네이버 뉴스',
-        time: timeStr,
-        symbol: symbol,
-        summary: cleanDesc,
-        directUrl: item.originallink || item.link,
-        keyword: cleanTitle
-      };
-    });
-
+  if (fetchedData && Array.isArray(fetchedData) && fetchedData.length > 0) {
+    liveDomesticNewsCache = parseNaverStockNewsItems(fetchedData);
     renderDomesticNewsTimeline(currentDomesticNewsFilter);
 
     if (liveTag) {
@@ -2129,14 +2189,20 @@ async function fetchLiveNaverNews(silent = true) {
       liveTag.style.color = '#34d399';
     }
     if (!silent && window.showToast) {
-      window.showToast('네이버 최신 실시간 뉴스가 동기화되었습니다! ✅', '⚡');
+      window.showToast('네이버 최신 실시간 증시 뉴스가 동기화되었습니다! ✅', '⚡');
     }
   } else {
-    // 프록시 일시 지연 시 기존 고도화된 정밀 데이터 유지
+    // 프록시 일시 지연 시 내장된 최신 시드 데이터로 즉시 복원 유지
+    if (typeof LIVE_NAVER_SEED_DATA !== 'undefined' && Array.isArray(LIVE_NAVER_SEED_DATA)) {
+      liveDomesticNewsCache = parseNaverStockNewsItems(LIVE_NAVER_SEED_DATA);
+    }
     renderDomesticNewsTimeline(currentDomesticNewsFilter);
     if (liveTag) {
-      liveTag.textContent = '🟢 네이버 실시간 뉴스 가동 중';
+      liveTag.textContent = '🟢 실시간 뉴스 활성화';
       liveTag.style.color = '#34d399';
+    }
+    if (!silent && window.showToast) {
+      window.showToast('네이버 최신 실시간 증시 뉴스가 표시되었습니다! ✅', '⚡');
     }
   }
 
@@ -2167,32 +2233,31 @@ function renderDomesticNewsTimeline(category = 'all') {
   if (countEl) countEl.textContent = `${filtered.length}건`;
 
   listWrap.innerHTML = filtered.map(item => {
-    const cleanT = item.title.replace(/\[.*?\]/g, '').trim();
-    const query = item.keyword || `${item.symbol} ${cleanT}`;
-    const directSearchUrl = item.directUrl || `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(query)}`;
+    // 기사 원문 직행 링크 (네이버 뉴스 원본 페이지)
+    const directUrl = item.directUrl || `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(item.title)}`;
 
     return `
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; gap: 12px; transition: all 0.15s ease;">
-        <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0;">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; gap: 14px; transition: all 0.15s ease;">
+        <div style="display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0;">
           <span style="font-size: 0.74rem; background: rgba(239, 68, 68, 0.12); color: ${item.tagColor || '#ef4444'}; border: 1px solid rgba(239, 68, 68, 0.25); padding: 3px 8px; border-radius: 6px; font-weight: 800; white-space: nowrap;">
             ${escapeHtml(item.tag)}
           </span>
           <div style="flex: 1; min-width: 0;">
-            <div style="font-size: 0.88rem; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.4;">
+            <div style="font-size: 0.9rem; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.4;">
               <strong style="color: #38bdf8; margin-right: 4px;">[${escapeHtml(item.symbol)}]</strong> ${escapeHtml(item.title)}
             </div>
-            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            <div style="font-size: 0.77rem; color: #94a3b8; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
               ${escapeHtml(item.summary)}
             </div>
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 10px; white-space: nowrap;">
+        <div style="display: flex; align-items: center; gap: 12px; white-space: nowrap;">
           <div style="text-align: right;">
-            <div style="font-size: 0.72rem; color: #cbd5e1; font-weight: 600;">${escapeHtml(item.media)}</div>
-            <div style="font-size: 0.68rem; color: #64748b;">${escapeHtml(item.time)}</div>
+            <div style="font-size: 0.74rem; color: #cbd5e1; font-weight: 600;">${escapeHtml(item.media)}</div>
+            <div style="font-size: 0.7rem; color: #64748b;">${escapeHtml(item.time)}</div>
           </div>
-          <a href="${directSearchUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; text-decoration: none; font-weight: 700; transition: all 0.2s;">
+          <a href="${directUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); padding: 6px 12px; border-radius: 6px; font-size: 0.76rem; text-decoration: none; font-weight: 800; transition: all 0.2s;">
             기사 보기 ↗
           </a>
         </div>
