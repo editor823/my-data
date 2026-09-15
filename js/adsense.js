@@ -4376,7 +4376,7 @@ function renderTab8ViralShorts(container) {
         <div class="kc-tab8-control-group">
           <span class="kc-tab8-control-title">🎬 영상 형태</span>
           <div class="kc-tab8-btn-group">
-            <button type="button" class="kc-tab8-opt-btn ${tab8State.type === 'shorts' ? 'active' : ''}" onclick="setTab8Filter('type', 'shorts')">⚡ 쇼츠(Shorts) 우선</button>
+            <button type="button" class="kc-tab8-opt-btn ${tab8State.type === 'shorts' ? 'active' : ''}" onclick="setTab8Filter('type', 'shorts')">⚡ 쇼츠(Shorts)</button>
             <button type="button" class="kc-tab8-opt-btn ${tab8State.type === 'all' ? 'active' : ''}" onclick="setTab8Filter('type', 'all')">모든 영상</button>
           </div>
         </div>
@@ -4386,7 +4386,7 @@ function renderTab8ViralShorts(container) {
     <!-- 검색 결과 상태 바 -->
     <div class="kc-tab8-status-bar">
       <div id="kc-tab8-status-summary">
-        "${tab8State.keyword ? escapeHtml(tab8State.keyword) : '🌟 ' + escapeHtml(tab8State.quickTag)}" · ${tab8State.period === 'today' ? '당일 (오늘 24H)' : tab8State.period === 'week' ? '최근 일주일 (7일)' : '30일 (1개월)'} · ${tab8State.sort === 'views' ? '조회수 많은 순' : '조회급상승 순'}
+        "${tab8State.keyword ? escapeHtml(tab8State.keyword) : '🌟 ' + escapeHtml(tab8State.quickTag)}" · ${tab8State.period === 'today' ? '당일 (오늘 24H)' : tab8State.period === 'week' ? '최근 일주일 (7일)' : '30일 (1개월)'} · ${tab8State.sort === 'views' ? '조회수 많은 순' : '조회급상승 순'} · ${tab8State.type === 'shorts' ? '쇼츠' : '모든 영상'}
       </div>
       <span class="kc-tab8-result-badge" id="kc-tab8-filtered-count">50개 영상</span>
     </div>
@@ -4424,14 +4424,9 @@ function renderTab8Cards() {
     filtered = filtered.filter(item => item.tags && item.tags.includes(tab8State.quickTag));
   }
 
-  // 3. 영상 형태 필터
+  // 3. 영상 형태 필터 ('shorts': 쇼츠만 보기, 'all': 모든 영상)
   if (tab8State.type === 'shorts') {
-    // 쇼츠 우선 정렬 (쇼츠 먼저 배치)
-    filtered.sort((a, b) => {
-      if (a.type === 'shorts' && b.type !== 'shorts') return -1;
-      if (a.type !== 'shorts' && b.type === 'shorts') return 1;
-      return 0;
-    });
+    filtered = filtered.filter(item => item.type === 'shorts');
   }
 
   // 4. 정렬 기준
@@ -4546,7 +4541,8 @@ function updateTab8StatusBar() {
   const kwText = tab8State.keyword ? escapeHtml(tab8State.keyword) : '🌟 ' + escapeHtml(tab8State.quickTag);
   const periodText = tab8State.period === 'today' ? '당일 (오늘 24H)' : tab8State.period === 'week' ? '최근 일주일 (7일)' : '30일 (1개월)';
   const sortText = tab8State.sort === 'views' ? '조회수 많은 순' : '조회급상승 순';
-  summary.innerHTML = `"${kwText}" · ${periodText} · ${sortText}`;
+  const typeText = tab8State.type === 'shorts' ? '쇼츠' : '모든 영상';
+  summary.innerHTML = `"${kwText}" · ${periodText} · ${sortText} · ${typeText}`;
 }
 
 // 8번 스니펫 복사
