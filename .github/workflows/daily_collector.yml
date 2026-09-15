@@ -1,4 +1,4 @@
-name: Daily Keyword Auto Collector (매일 아침 06:00 자동 키워드 갱신)
+﻿name: Daily Keyword Auto Collector (매일 아침 06:00 자동 키워드 갱신)
 
 on:
   schedule:
@@ -9,13 +9,15 @@ on:
 jobs:
   collect-and-update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: 저장소 체크아웃
         uses: actions/checkout@v4
 
       - name: Node.js 환경 설정
-        uses: setup-node@v4
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
