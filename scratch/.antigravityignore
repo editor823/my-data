@@ -1,0 +1,7 @@
+scratch/*.json
+scratch/*.html
+scratch/*.ps1
+api_result.json
+node_modules/
+.git/
+*.log

@@ -1532,19 +1532,19 @@
             <div>
               <label class="conv-opt-label">이미지 비율 (네이버/워드프레스 맞춤)</label>
               <select id="imggen-ratio-select" class="conv-select">
-                <option value="16:9" selected>가로형 16:9 (블로그 본문 추천 · 1280x720)</option>
-                <option value="1:1">정사각형 1:1 (대표 썸네일 추천 · 1024x1024)</option>
-                <option value="4:3">표준 4:3 (일반 사진 규격 · 1024x768)</option>
-                <option value="9:16">세로형 9:16 (모바일 릴스/쇼츠 · 720x1280)</option>
+                <option value="16:9" selected>가로형 16:9 (블로그 본문 추천 · 1280×720)</option>
+                <option value="1:1">정사각형 1:1 (블로그 썸네일/인스타 · 1024×1024)</option>
+                <option value="4:3">표준 4:3 (일반 사진 규격 · 1024×768)</option>
+                <option value="9:16">세로형 9:16 (모바일 릴스/쇼츠 · 720×1280)</option>
               </select>
             </div>
 
             <div>
               <label class="conv-opt-label">생성 AI 엔진</label>
               <select id="imggen-model-select" class="conv-select">
-                <option value="flux" selected>Flux.1 초고화질 (무제한 무료)</option>
-                <option value="turbo">SDXL Turbo (초고속 1초 생성)</option>
-                <option value="gemini">Google Imagen 3 (내 제미나이 키)</option>
+                <option value="imagen3" selected>Google Imagen 3 (고화질 · 공식 API)</option>
+                <option value="flux">Flux.1 초고화질 (보조 무료 엔진)</option>
+                <option value="turbo">SDXL Turbo (초고속 보조 엔진)</option>
               </select>
             </div>
 
@@ -1558,9 +1558,30 @@
             </div>
           </div>
 
+          <!-- Google Imagen 3 API 키 입력/안내 영역 -->
+          <div id="imggen-api-key-container" style="background: rgba(168, 85, 247, 0.08); border: 1px dashed rgba(168, 85, 247, 0.35); border-radius: 12px; padding: 12px 16px; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+              <span style="font-size: 0.84rem; font-weight: 800; color: #c084fc; display: flex; align-items: center; gap: 6px;">
+                🔑 Google Gemini API Key (AI Studio 발급)
+              </span>
+              <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style="font-size: 0.78rem; color: #60a5fa; text-decoration: underline;">
+                AI Studio 무료 키 발급받기 ↗
+              </a>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <input type="password" id="imggen-gemini-key-input" class="form-input" placeholder="AI Studio에서 발급받은 Gemini API 키 입력 (AIzaSy...)" style="flex: 1; font-size: 0.85rem; padding: 8px 12px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: #fff;">
+              <button type="button" id="imggen-save-key-btn" style="background: rgba(168, 85, 247, 0.25); border: 1px solid #a855f7; color: #f8fafc; padding: 8px 16px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; cursor: pointer; white-space: nowrap;">
+                키 저장
+              </button>
+            </div>
+            <div style="font-size: 0.74rem; color: var(--text-sub); margin-top: 6px;">
+              * 입력하신 API 키는 브라우저(localStorage)에만 안전하게 보관되며, 서버로 전송되지 않습니다.
+            </div>
+          </div>
+
           <!-- 생성 버튼 -->
           <button type="button" id="imggen-submit-btn" style="width: 100%; padding: 16px 20px; background: linear-gradient(135deg, #a855f7, #7c3aed); color: #fff; border: none; border-radius: 12px; font-size: 1.05rem; font-weight: 900; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35); transition: all 0.2s;">
-            <span>🎨</span> AI 맞춤 이미지 즉시 생성하기 (무료)
+            <span>🎨</span> AI 맞춤 이미지 즉시 생성하기
           </button>
         </div>
 
@@ -2284,9 +2305,9 @@
   <script src="js/homepan.js?v=20260914_final"></script>
   <script src="js/external.js?v=20260914_final"></script>
   <script src="js/converter.js?v=20260914_final"></script>
-  <script src="js/imggen.js?v=20260914_final"></script>
+  <script src="js/imggen.js?v=20260915_imagen3_v2_fallback"></script>
   <script src="js/live_domestic_news_seed.js?v=20260915_fix1"></script>
-  <script src="js/stock.js?v=20260915_stock_v7"></script>
+  <script src="js/stock.js?v=20260915_stock_v8"></script>
   <script src="js/ranktracker.js?v=20260914_final"></script>
 </body>
 </html>

@@ -2971,6 +2971,14 @@
   border-color: rgba(168, 85, 247, 0.35);
 }
 
+.imggen-style-chip.active {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(124, 58, 237, 0.35));
+  color: #f8fafc;
+  border-color: #a855f7;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.45);
+  font-weight: 800;
+}
+
 /* 주식 분석센터 서브 탭 및 필터 칩 */
 .stock-sub-tab {
   background: rgba(255, 255, 255, 0.05);

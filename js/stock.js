@@ -2275,7 +2275,8 @@ async function fetchLiveNaverNews(silent = true) {
     liveTag.style.color = '#38bdf8';
   }
 
-  const naverStockApi = 'https://m.stock.naver.com/api/news/list?category=mainnews&page=1&pageSize=20';
+  // 한 번에 최대 100건 요청 (pageSize=100)
+  const naverStockApi = 'https://m.stock.naver.com/api/news/list?category=mainnews&page=1&pageSize=100';
   let fetchedData = null;
 
   // 1차 시도: Jina Reader Proxy (직접 JSON 스트림 파싱)
@@ -2308,8 +2309,33 @@ async function fetchLiveNaverNews(silent = true) {
     }
   }
 
+  // 3차 시도: 만약 첫 페이지가 100건 미만이고 추가 페이지 순회가 필요한 경우 대비 (페이지 순회 및 병합)
+  if (fetchedData && Array.isArray(fetchedData) && fetchedData.length < 100) {
+    try {
+      const page2Url = 'https://m.stock.naver.com/api/news/list?category=mainnews&page=2&pageSize=50';
+      const respPage2 = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(page2Url)}`);
+      if (respPage2.ok) {
+        const page2Data = await respPage2.json();
+        if (Array.isArray(page2Data) && page2Data.length > 0) {
+          // 중복 기사 제거하며 합치기
+          const existingIds = new Set(fetchedData.map(item => item.aid || item.tit));
+          for (const item of page2Data) {
+            const key = item.aid || item.tit;
+            if (!existingIds.has(key)) {
+              fetchedData.push(item);
+              existingIds.add(key);
+            }
+          }
+        }
+      }
+    } catch (e) {
+      // 보조 페이지 조회 실패 시 기본 1페이지 데이터 유지
+    }
+  }
+
   if (fetchedData && Array.isArray(fetchedData) && fetchedData.length > 0) {
-    liveDomesticNewsCache = parseNaverStockNewsItems(fetchedData);
+    // 최대 100건으로 슬라이스하여 캐시 저장
+    liveDomesticNewsCache = parseNaverStockNewsItems(fetchedData.slice(0, 100));
     renderDomesticNewsTimeline(currentDomesticNewsFilter);
 
     if (liveTag) {
@@ -2320,9 +2346,9 @@ async function fetchLiveNaverNews(silent = true) {
       window.showToast('네이버 최신 실시간 증시 뉴스가 동기화되었습니다! ✅', '⚡');
     }
   } else {
-    // 프록시 일시 지연 시 내장된 최신 시드 데이터로 즉시 복원 유지
+    // 프록시 일시 지연 시 내장된 최신 시드 데이터로 즉시 복원 유지 (최대 100건)
     if (typeof LIVE_NAVER_SEED_DATA !== 'undefined' && Array.isArray(LIVE_NAVER_SEED_DATA)) {
-      liveDomesticNewsCache = parseNaverStockNewsItems(LIVE_NAVER_SEED_DATA);
+      liveDomesticNewsCache = parseNaverStockNewsItems(LIVE_NAVER_SEED_DATA.slice(0, 100));
     }
     renderDomesticNewsTimeline(currentDomesticNewsFilter);
     if (liveTag) {
