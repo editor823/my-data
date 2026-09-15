@@ -4400,10 +4400,69 @@ function renderTab8ViralShorts(container) {
   renderTab8Cards();
 }
 
-// 8번 카드 목록 필터링 & 렌더링
-function renderTab8Cards() {
+// 8번 전역 로딩 타이머 및 세션 ID
+let tab8SearchTimer = null;
+let tab8SearchSeq = 0;
+
+// 8번 카드 목록 필터링 & 렌더링 (실시간 영상 분석 중 5~8초 로딩 연출 포함)
+function renderTab8Cards(skipLoading = false) {
   const container = document.getElementById('kc-tab8-grid-container');
   if (!container) return;
+
+  const totalCountBadge = document.getElementById('kc-tab8-total-count');
+  const countBadge = document.getElementById('kc-tab8-filtered-count');
+
+  // 상태 바 텍스트 즉시 갱신
+  updateTab8StatusBar();
+
+  // 이미 실행 중인 타이머 취소
+  if (tab8SearchTimer) {
+    clearTimeout(tab8SearchTimer);
+    tab8SearchTimer = null;
+  }
+
+  const currentSeq = ++tab8SearchSeq;
+
+  // 첫 진입 시 이미 카드가 있으면 바로 로딩 없이 보여줄 수도 있으나,
+  // 사용자의 요구사항: "검색기간, 정렬 기준, 영상 형태 등등 클릭하면 실시간 영상 분석중 로딩이 5~10초 걸리고 현재 상황을 반영"
+  if (!skipLoading) {
+    // 1. 상단 배지 안내 갱신
+    if (totalCountBadge) {
+      totalCountBadge.textContent = '유튜브 실시간 인기 영상 수집 중...';
+      totalCountBadge.style.background = 'rgba(249, 115, 22, 0.15)';
+      totalCountBadge.style.color = '#f97316';
+    }
+    if (countBadge) {
+      countBadge.textContent = '조회 중...';
+    }
+
+    // 2. 모래시계 로딩 UI 표시 (원본과 100% 동일)
+    container.innerHTML = `
+      <div class="kc-viral-empty">
+        <div class="kc-viral-empty-icon">⏳</div>
+        <div class="kc-viral-empty-title">유튜브 실시간 바이럴 영상 분석 중...</div>
+        <div class="kc-viral-empty-desc">선택하신 조건에 맞춰 조회수 및 급상승 데이터를 조회하고 있습니다.</div>
+      </div>
+    `;
+
+    // 3. 5~8초 (약 5.5초) 동안 실시간 수집/분석 후 결과 렌더링
+    tab8SearchTimer = setTimeout(() => {
+      if (currentSeq !== tab8SearchSeq) return; // 이전 요청 무시
+      executeTab8FilterRender();
+    }, 5500);
+    return;
+  }
+
+  executeTab8FilterRender();
+}
+
+// 실제 필터링 및 카드 렌더링 내부 함수
+function executeTab8FilterRender() {
+  const container = document.getElementById('kc-tab8-grid-container');
+  if (!container) return;
+
+  const totalCountBadge = document.getElementById('kc-tab8-total-count');
+  const countBadge = document.getElementById('kc-tab8-filtered-count');
 
   // 0. 검색 기간에 따른 50개 데이터셋 선택 (당일 / 최근 일주일 / 30일)
   const periodKey = tab8State.period || 'week';
@@ -4437,16 +4496,22 @@ function renderTab8Cards() {
     filtered.sort((a, b) => a.rank - b.rank);
   }
 
-  // 카운트 배지 갱신
-  const countBadge = document.getElementById('kc-tab8-filtered-count');
-  if (countBadge) countBadge.textContent = `${filtered.length}개 영상`;
+  // 상단 및 결과 카운트 배지 갱신
+  if (totalCountBadge) {
+    totalCountBadge.textContent = `조회 완료 (${filtered.length}개 영상)`;
+    totalCountBadge.style.background = 'rgba(249, 115, 22, 0.1)';
+    totalCountBadge.style.color = '#f97316';
+  }
+  if (countBadge) {
+    countBadge.textContent = `${filtered.length}개 영상`;
+  }
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: var(--text-muted);">
-        <div style="font-size: 2.4rem; margin-bottom: 12px;">🔍</div>
-        <div style="font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 6px;">일치하는 바이럴 영상이 없습니다</div>
-        <div style="font-size: 0.85rem;">다른 키워드로 검색하거나 필터를 초기화해보세요.</div>
+      <div class="kc-viral-empty">
+        <div style="font-size: 2.8rem; margin-bottom: 12px;">🔍</div>
+        <div class="kc-viral-empty-title">일치하는 바이럴 영상이 없습니다</div>
+        <div class="kc-viral-empty-desc">기간을 [최근 일주일] 또는 [30일]로 넓히거나 다른 키워드로 검색해 보세요.</div>
       </div>
     `;
     return;
@@ -4504,7 +4569,10 @@ window.executeTab8Search = function() {
   if (input) {
     tab8State.keyword = input.value.trim();
   }
-  updateTab8StatusBar();
+  // 빠른 태그 active 해제
+  document.querySelectorAll('.kc-tab8-quick-pill').forEach(btn => {
+    btn.classList.remove('active');
+  });
   renderTab8Cards();
 };
 
@@ -4521,17 +4589,37 @@ window.setTab8QuickTag = function(tag) {
     if (btn.innerText.includes(tag)) btn.classList.add('active');
     else btn.classList.remove('active');
   });
-  updateTab8StatusBar();
   renderTab8Cards();
 };
 
-// 8번 컨트롤 필터 클릭
+// 8번 컨트롤 필터 클릭 (기간 / 정렬 / 형태)
 window.setTab8Filter = function(category, value) {
+  if (tab8State[category] === value) return; // 이미 선택된 필터면 무시
   tab8State[category] = value;
-  const container = document.getElementById('kc-tab8-container');
-  if (container) {
-    renderTab8ViralShorts(container);
+
+  // 버튼 active 상태 즉시 시각적 반영 (전체 컨테이너를 갈아치우지 않음)
+  if (category === 'period') {
+    document.querySelectorAll('.kc-tab8-control-group:nth-child(1) .kc-tab8-opt-btn').forEach(btn => {
+      const isMatch = (value === 'today' && btn.innerText.includes('당일')) ||
+                      (value === 'week' && btn.innerText.includes('일주일')) ||
+                      (value === 'month' && btn.innerText.includes('30일'));
+      btn.classList.toggle('active', isMatch);
+    });
+  } else if (category === 'sort') {
+    document.querySelectorAll('.kc-tab8-control-group:nth-child(2) .kc-tab8-opt-btn').forEach(btn => {
+      const isMatch = (value === 'views' && btn.innerText.includes('조회수')) ||
+                      (value === 'surge' && btn.innerText.includes('급상승'));
+      btn.classList.toggle('active', isMatch);
+    });
+  } else if (category === 'type') {
+    document.querySelectorAll('.kc-tab8-control-group:nth-child(3) .kc-tab8-opt-btn').forEach(btn => {
+      const isMatch = (value === 'shorts' && btn.innerText.includes('쇼츠')) ||
+                      (value === 'all' && btn.innerText.includes('모든'));
+      btn.classList.toggle('active', isMatch);
+    });
   }
+
+  renderTab8Cards();
 };
 
 // 8번 상태 안내 바 텍스트 갱신
