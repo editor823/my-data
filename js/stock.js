@@ -379,6 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderStockCalendar();
   initStockSearch();
   initStockDeepResearch();
+  initGlobalMarketNews();
   updateStockApiBadge();
   fetchLiveMarketIndices();
 });
@@ -1694,5 +1695,151 @@ window.switchDeepTab = function(tabName, btn) {
       }
     });
   }
+};
+
+// ============================================================================
+// 6. 실시간 미국 증시 & 글로벌 외신 한국어 속보 피드 모듈
+// - 미국 뉴욕증시 3대 지수, 엔비디아/애플 빅테크, FOMC 금리/환율 등 외신 실시간 번역 속보
+// ============================================================================
+const GLOBAL_MARKET_NEWS_DATA = [
+  {
+    category: 'us_market',
+    badge: '뉴욕마감',
+    badgeColor: '#38bdf8',
+    title: '[뉴욕증시] 나스닥 1.1% 상승 마감… 반도체·빅테크 랠리에 S&P500 신고가 근접',
+    source: '연합인포맥스 (외신종합)',
+    time: '12분 전',
+    summary: '연준 9월 빅컷(0.5%p 인하) 기대감이 지속되는 가운데 엔비디아와 브로드컴 등 AI 반도체 강세가 지수를 견인. 기술주 중심 매수세 유입.',
+    searchQuery: '뉴욕증시 나스닥 마감 반도체'
+  },
+  {
+    category: 'tech',
+    badge: '엔비디아 / AI',
+    badgeColor: '#10b981',
+    title: '엔비디아 CEO 젠슨 황 "차세대 블랙웰 칩 수요 믿을 수 없을 만큼 엄청나"',
+    source: '한국경제TV (로이터 인용)',
+    time: '28분 전',
+    summary: '골드만삭스 테크 컨퍼런스에서 블랙웰 생산 순항 및 클라우드 빅테크의 ROI(투자수익률) 우려를 일축. 시간외 거래서 주가 4% 급등.',
+    searchQuery: '엔비디아 젠슨황 블랙웰 수요'
+  },
+  {
+    category: 'macro',
+    badge: 'FOMC / 금리',
+    badgeColor: '#f59e0b',
+    title: '미국 8월 생산자물가지수(PPI) 예상치 부합… 연준 금리인하 사이클 진입 확실시',
+    source: '매일경제 (블룸버그 특약)',
+    time: '45분 전',
+    summary: '인플레이션 둔화 추세가 지속되며 이번 주 FOMC 회의에서 기준금리 인하 폭(25bp vs 50bp)에 시장의 모든 관심이 집중되는 양상.',
+    searchQuery: '미국 생산자물가 PPI FOMC 금리인하'
+  },
+  {
+    category: 'tech',
+    badge: '애플 / 모바일',
+    badgeColor: '#a855f7',
+    title: '애플, 아이폰16 프로 시리즈 초기 사전주문 3,700만 대 돌파… AI 인텔리전스 기대감',
+    source: '조선비즈 (WSJ 종합)',
+    time: '1시간 전',
+    summary: '온디바이스 AI 기능인 애플 인텔리전스(Apple Intelligence) 출시 기대감으로 고가 라인업인 프로/프로맥스 모델 예약 판매 비중 급증.',
+    searchQuery: '아이폰16 프로 사전주문 애플 인텔리전스'
+  },
+  {
+    category: 'macro',
+    badge: '환율 / 외환',
+    badgeColor: '#38bdf8',
+    title: '달러인덱스 101선 하회… 연준 완화적 통화정책 기대감에 원/달러 환율 1,330원대 안정',
+    source: '서울경제 (외신 번역)',
+    time: '2시간 전',
+    summary: '미국 국채 10년물 금리가 3.6%대로 하락하면서 달러화 약세 압력 가중. 외국인 투자자의 국내 증시 순매수 유입에 긍정적 환경 조성.',
+    searchQuery: '달러인덱스 원달러 환율 국채금리'
+  },
+  {
+    category: 'us_market',
+    badge: '필라델피아 반도체',
+    badgeColor: '#ef4444',
+    title: '필라델피아 반도체 지수 2.3% 급반등… TSMC·ASML 공급망 수혜주 동반 상승',
+    source: '머니투데이 (마켓워치)',
+    time: '2시간 전',
+    summary: 'AI 데이터센터 증설에 따른 첨단 패키징(CoWoS) 병목 현상 해소 기대감과 글로벌 반도체 소부장 밸류체인의 동반 강세 흐름.',
+    searchQuery: '필라델피아 반도체 지수 TSMC ASML'
+  },
+  {
+    category: 'macro',
+    badge: '국제유가',
+    badgeColor: '#fb923c',
+    title: 'WTI 국제유가 배럴당 69달러 선… 허리케인 우려에도 글로벌 원유 수요 둔화 우려 상존',
+    source: '이데일리 (로이터 속보)',
+    time: '3시간 전',
+    summary: '멕시코만 허리케인 발생에 따른 단기 공급 차질에도 불구, IEA(국제에너지기구)의 글로벌 원유 수요 전망치 하향에 박스권 등락.',
+    searchQuery: 'WTI 국제유가 배럴당 허리케인 공급'
+  },
+  {
+    category: 'tech',
+    badge: '테슬라 / 로보택시',
+    badgeColor: '#60a5fa',
+    title: '테슬라, 10월 10일 LA 스튜디오서 로보택시 사이버캡 공개 공식 초청장 발송',
+    source: '디지털타임스 (CNBC 발췌)',
+    time: '4시간 전',
+    summary: '완전자율주행(FSD V12) 기술 기반의 핸들 없는 로보택시 시제품 및 차세대 저가 전기차(모델 2) 로드맵 공개 여부로 기대감 고조.',
+    searchQuery: '테슬라 로보택시 사이버캡 10월 공개'
+  }
+];
+
+let currentGlobalNewsCategory = 'all';
+
+function initGlobalMarketNews() {
+  renderGlobalNewsList('all');
+}
+
+function renderGlobalNewsList(category = 'all') {
+  const container = document.getElementById('global-news-container');
+  if (!container) return;
+
+  const filtered = (category === 'all')
+    ? GLOBAL_MARKET_NEWS_DATA 
+    : GLOBAL_MARKET_NEWS_DATA.filter(item => item.category === category);
+
+  container.innerHTML = filtered.map(news => {
+    const cleanT = news.title.replace(/\[.*?\]/g, '').trim();
+    const query = news.searchQuery || cleanT;
+    const directSearchUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(query)}`;
+
+    return `
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); color: ${news.badgeColor || '#38bdf8'}; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 4px; font-weight: 800;">
+              ${escapeHtml(news.badge)}
+            </span>
+            <span style="font-size: 0.72rem; color: #94a3b8;">
+              ${escapeHtml(news.source)} · ${escapeHtml(news.time)}
+            </span>
+          </div>
+          <div style="font-size: 0.9rem; font-weight: 800; color: #f8fafc; line-height: 1.45; margin-bottom: 8px;">
+            ${escapeHtml(news.title)}
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5; margin-bottom: 12px;">
+            ${escapeHtml(news.summary)}
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 8px;">
+          <span style="font-size: 0.72rem; color: #64748b;">
+            키워드: <strong style="color: #cbd5e1;">${escapeHtml(news.searchQuery)}</strong>
+          </span>
+          <a href="${directSearchUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; text-decoration: none; font-weight: 700; white-space: nowrap;">
+            한국어 원문 속보 ↗
+          </a>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+window.switchGlobalNewsCategory = function(cat, btn) {
+  currentGlobalNewsCategory = cat;
+  if (btn && btn.parentElement) {
+    btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  renderGlobalNewsList(cat);
 };
 

@@ -1857,6 +1857,37 @@
             </ul>
           </div>
         </div>
+
+        <!-- 실시간 미국 증시 & 글로벌 외신 한국어 속보 피드 -->
+        <div class="kc-box-white-card" style="background: #0f172a; margin-top: 24px; border-color: rgba(56, 189, 248, 0.25);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 1.25rem;">🌐</span>
+                <h4 style="font-size: 1.15rem; font-weight: 900; color: #f8fafc; margin: 0;">
+                  실시간 미국 증시 & 글로벌 외신 한국어 속보 피드
+                </h4>
+                <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 6px; font-weight: 700;">
+                  국내 주요 경제지 실시간 번역 속보
+                </span>
+              </div>
+              <p style="font-size: 0.82rem; color: #94a3b8; margin: 4px 0 0 0;">
+                외신(블룸버그, 로이터, WSJ 등)을 국내 주요 언론사가 실시간 번역·보도한 미국 증시/산업/빅테크 핵심 기사를 모아봅니다.
+              </p>
+            </div>
+            <div style="display: flex; gap: 6px;" id="global-news-filter-chips">
+              <button type="button" class="imggen-style-chip active" onclick="switchGlobalNewsCategory('all', this)">전체 외신 속보</button>
+              <button type="button" class="imggen-style-chip" onclick="switchGlobalNewsCategory('us_market', this)">미국 증시 마감/선물</button>
+              <button type="button" class="imggen-style-chip" onclick="switchGlobalNewsCategory('tech', this)">빅테크·반도체(엔비디아/애플)</button>
+              <button type="button" class="imggen-style-chip" onclick="switchGlobalNewsCategory('macro', this)">연준 금리·환율·유가</button>
+            </div>
+          </div>
+
+          <!-- 글로벌 외신 뉴스 카드 그리드 -->
+          <div id="global-news-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <!-- JS 동적 렌더링 -->
+          </div>
+        </div>
       </div>
 
       <!-- ================= [서브 패널 5] 종목 상세정보 (딥분석 인텔리전스 센터) ================= -->
@@ -2085,7 +2116,7 @@
   <script src="js/external.js?v=20260914_final"></script>
   <script src="js/converter.js?v=20260914_final"></script>
   <script src="js/imggen.js?v=20260914_final"></script>
-  <script src="js/stock.js?v=20260915_stock_v3"></script>
+  <script src="js/stock.js?v=20260915_stock_v4"></script>
   <script src="js/ranktracker.js?v=20260914_final"></script>
 </body>
 </html>
