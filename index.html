@@ -1647,10 +1647,13 @@
           </div>
         </div>
 
-        <!-- 주식 시장 5대 모듈 빠른 탭 바 -->
-        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 20px;" class="stock-subtabs-grid">
+        <!-- 주식 시장 6대 모듈 빠른 탭 바 -->
+        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 20px;" class="stock-subtabs-grid">
+          <button type="button" class="stock-sub-tab" data-sub="news">
+            <span>📰</span> 0. 실시간 국내 주식 뉴스
+          </button>
           <button type="button" class="stock-sub-tab active" data-sub="theme">
-            <span>🔥</span> 1. 당일 주도 테마 & 뉴스
+            <span>🔥</span> 1. 당일 주도 테마
           </button>
           <button type="button" class="stock-sub-tab" data-sub="compare">
             <span>📊</span> 2. 재료 모음 (1주/1달 비교)
@@ -1667,7 +1670,53 @@
         </div>
       </div>
 
-      <!-- ================= [서브 패널 1] 당일 주도 테마 & 실시간 뉴스 검색 ================= -->
+      <!-- ================= [서브 패널 0] 당일 국내 주식 실시간 뉴스 촘촘한 피드 ================= -->
+      <div id="stock-panel-news" class="stock-panel-content" style="display: none;">
+        <!-- 상단 헤더 & 카테고리 필터 바 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #0f172a; border: 1px solid rgba(255,255,255,0.08); padding: 16px 20px; border-radius: 14px; margin-bottom: 20px; flex-wrap: wrap; gap: 14px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.25rem;">📰</span>
+              <h3 style="font-size: 1.2rem; font-weight: 900; color: #f8fafc; margin: 0;">
+                당일 국내 주식 실시간 뉴스 센터
+              </h3>
+              <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 6px; font-weight: 700;">
+                특징주 · 공시 · 수급 실시간 피드
+              </span>
+            </div>
+            <p style="font-size: 0.82rem; color: #94a3b8; margin: 4px 0 0 0;">
+              국내 증시의 장중 특징주, 상한가/급등 재료, 외인/기관 수급 및 주요 경영공시 뉴스를 촘촘하게 실시간 나열합니다.
+            </p>
+          </div>
+
+          <!-- 뉴스 빠른 필터 칩 -->
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="domestic-news-filter-chips">
+            <button type="button" class="imggen-style-chip active" onclick="filterDomesticNews('all', this)">전체 뉴스</button>
+            <button type="button" class="imggen-style-chip" onclick="filterDomesticNews('feature', this)">🔥 특징주/급등</button>
+            <button type="button" class="imggen-style-chip" onclick="filterDomesticNews('supply', this)">💎 외인/기관 수급</button>
+            <button type="button" class="imggen-style-chip" onclick="filterDomesticNews('disclosure', this)">📑 공시/실적</button>
+            <button type="button" class="imggen-style-chip" onclick="filterDomesticNews('industry', this)">🏭 산업/정책</button>
+          </div>
+        </div>
+
+        <!-- 촘촘한 뉴스 목록 컨테이너 (실시간 타임라인형) -->
+        <div class="kc-box-white-card" style="background: #0f172a; padding: 18px 22px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">
+            <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
+              <span>⚡</span> 당일 국내 증시 실시간 타임라인 속보 (<span id="domestic-news-count" style="color: #38bdf8;">16건</span>)
+            </div>
+            <span style="font-size: 0.74rem; color: #94a3b8;">
+              클릭 시 해당 기사 원문으로 바로 이동 ↗
+            </span>
+          </div>
+          
+          <div id="domestic-news-timeline-list" style="display: flex; flex-direction: column; gap: 8px;">
+            <!-- JS 동적 생성 -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= [서브 패널 1] 당일 주도 테마 ================= -->
       <div id="stock-panel-theme" class="stock-panel-content active">
         <!-- 검색 및 필터 바 -->
         <div style="display: flex; justify-content: space-between; align-items: center; background: #0f172a; border: 1px solid rgba(255,255,255,0.08); padding: 14px 20px; border-radius: 14px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
@@ -2116,7 +2165,7 @@
   <script src="js/external.js?v=20260914_final"></script>
   <script src="js/converter.js?v=20260914_final"></script>
   <script src="js/imggen.js?v=20260914_final"></script>
-  <script src="js/stock.js?v=20260915_stock_v4"></script>
+  <script src="js/stock.js?v=20260915_stock_v5"></script>
   <script src="js/ranktracker.js?v=20260914_final"></script>
 </body>
 </html>

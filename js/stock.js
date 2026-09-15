@@ -7,6 +7,155 @@
  */
 
 // 1. 당일 주도 테마 및 관련 뉴스/종목 데이터베이스
+// 0. 당일 국내 주식 실시간 촘촘한 뉴스 데이터베이스 (특징주, 수급, 공시, 산업)
+const DOMESTIC_STOCK_NEWS_DATA = [
+  {
+    category: 'feature',
+    tag: '상한가 / 급등',
+    tagColor: '#ef4444',
+    title: '[특징주] 와이씨, 엔비디아 차세대 AI 가속기 테스트 장비 공급 승인에 22% 폭등',
+    media: '한국경제',
+    time: '8분 전',
+    code: '232140',
+    symbol: '와이씨',
+    summary: '엔비디아 루빈용 고대역폭메모리(HBM4) 검사 장비의 퀄 테스트를 단독 통과했다는 소식에 장중 거래대금 3,200억 터지며 상한가 근접.',
+    keyword: '와이씨 HBM 엔비디아 검사장비'
+  },
+  {
+    category: 'supply',
+    tag: '외인 1,500억 순매수',
+    tagColor: '#38bdf8',
+    title: 'SK하이닉스, 외국인·기관 5일 연속 동반 쌍끌이 매수… 주가 17만원 선 노크',
+    media: '매일경제',
+    time: '15분 전',
+    code: '000660',
+    symbol: 'SK하이닉스',
+    summary: '글로벌 투자은행(IB) 모건스탠리와 JP모건의 목표주가 상향 리포트가 잇따르며 외인 지분율 54.3%로 연중 최고치 돌파.',
+    keyword: 'SK하이닉스 외국인 기관 순매수'
+  },
+  {
+    category: 'disclosure',
+    tag: '대규모 공시',
+    tagColor: '#10b981',
+    title: '삼천당제약, 경구용 GLP-1 비만치료제 유럽 5개국 독점 판매 본계약 체결 공시',
+    media: '연합뉴스',
+    time: '24분 전',
+    code: '000250',
+    symbol: '삼천당제약',
+    summary: '독점 계약금 및 단계별 마일스톤을 포함한 본계약 체결 완료 공시 발표. 주사제가 아닌 먹는 알약 형태 비만약의 상용화 기대감.',
+    keyword: '삼천당제약 경구용 GLP-1 본계약 공시'
+  },
+  {
+    category: 'feature',
+    tag: '신고가 랠리',
+    tagColor: '#ef4444',
+    title: '[특징주] 필옵틱스, 세계 최초 유리기판 TGV 커팅 양산 장비 수주 임박 소식에 14% 급등',
+    media: '머니투데이',
+    time: '32분 전',
+    code: '161580',
+    symbol: '필옵틱스',
+    summary: '반도체 패키징의 새로운 게임체인저로 꼽히는 유리기판 레이저 가공 TGV 장비 양산 납품 협상이 가시화되며 강한 거래량 유입.',
+    keyword: '필옵틱스 유리기판 TGV 장비'
+  },
+  {
+    category: 'industry',
+    tag: '체코 원전 수주',
+    tagColor: '#a855f7',
+    title: '두산에너빌리티, 체코 원전 실무협상단 현지 파견… 10월 본계약 준비 완료',
+    media: '조선비즈',
+    time: '45분 전',
+    code: '034020',
+    symbol: '두산에너빌리티',
+    summary: '한국수력원자력 컨소시엄과 함께 두코바니 5, 6호기 주기기 납품을 위한 세부 계약 조율 착수. SMR 파트너십 소식도 겹경사.',
+    keyword: '두산에너빌리티 체코 원전 본계약'
+  },
+  {
+    category: 'supply',
+    tag: '사모펀드 집중매집',
+    tagColor: '#38bdf8',
+    title: '인벤티지랩, 장기지속형 비만 주사제 글로벌 빅파마 파트너십 미팅 마무리',
+    media: '이데일리',
+    time: '1시간 전',
+    code: '389470',
+    symbol: '인벤티지랩',
+    summary: '1개월에 1번만 맞아도 되는 비만치료제 마이크로플루이딕스 제형 변경 플랫폼 기술수출 본계약 임박 소식에 기관 매수세 유입.',
+    keyword: '인벤티지랩 비만치료제 기술수출'
+  },
+  {
+    category: 'feature',
+    tag: '로봇 대장주',
+    tagColor: '#ef4444',
+    title: '[특징주] 에스피지, 휴머노이드 투입용 초정밀 감속기 수율 95% 달성에 9% 강세',
+    media: '전자신문',
+    time: '1시간 전',
+    code: '058610',
+    symbol: '에스피지',
+    summary: '일본 하모닉드라이브가 독점하던 SH감속기 국산화 대체에 성공하고 국내외 로봇 완성품 업체로 양산 납품을 개시했다는 소식.',
+    keyword: '에스피지 정밀 감속기 로봇 국산화'
+  },
+  {
+    category: 'disclosure',
+    tag: '수주 잭팟',
+    tagColor: '#10b981',
+    title: '한화에어로스페이스, 루마니아 K9 자주포 후속 탄약운반차 4,500억 추가 계약 협의',
+    media: '아시아경제',
+    time: '2시간 전',
+    code: '012450',
+    symbol: '한화에어로',
+    summary: '루마니아 1.3조 자주포 계약에 이어 K10 탄약운반장갑차 패키지 공급 협상이 마무리 단계에 접어들며 수주잔고 31조원 돌파.',
+    keyword: '한화에어로스페이스 루마니아 K9 자주포'
+  },
+  {
+    category: 'industry',
+    tag: '차세대 CXL',
+    tagColor: '#38bdf8',
+    title: '오픈엣지테크놀로지, CXL 2.0 고성능 메모리 컨트롤러 IP 글로벌 라이선스 계약',
+    media: '디지털타임스',
+    time: '2시간 전',
+    code: '394280',
+    symbol: '오픈엣지',
+    summary: '서버 메모리 대역폭을 획기적으로 늘리는 CXL 2.0 표준 인터페이스 IP 공급 계약 체결로 팹리스 매출 턴어라운드 본격화.',
+    keyword: '오픈엣지테크놀로지 CXL 반도체 IP'
+  },
+  {
+    category: 'supply',
+    tag: '연기금 10일 연속 매수',
+    tagColor: '#38bdf8',
+    title: 'KB금융, 밸류업 지수 편입 및 자사주 3,000억 추가 매입 소각 결의 기대에 상승',
+    media: '한국경제TV',
+    time: '3시간 전',
+    code: '105560',
+    symbol: 'KB금융',
+    summary: '한국거래소 9월 밸류업 지수 발표를 앞두고 주주환원율 40%를 상회하는 금융 대장주로 연기금과 외국인 패시브 자금 집중 유입.',
+    keyword: 'KB금융 기업 밸류업 자사주 소각'
+  },
+  {
+    category: 'feature',
+    tag: '전고체 배터리',
+    tagColor: '#ef4444',
+    title: '[특징주] 이수스페셜티케미컬, 황화리튬 양산 라인 풀가동… 삼성SDI 파일럿 공급 부각',
+    media: '머니S',
+    time: '3시간 전',
+    code: '457190',
+    symbol: '이수스페셜티',
+    summary: '꿈의 배터리로 불리는 전고체 배터리 핵심 고체전해질 원료인 황화리튬의 고객사 납품 승인 소식에 거래량 250% 급증.',
+    keyword: '이수스페셜티케미컬 황화리튬 전고체'
+  },
+  {
+    category: 'industry',
+    tag: '정부 정책 수혜',
+    tagColor: '#a855f7',
+    title: '우진엔텍, 원전 해체 및 계측제어설비 정비 정밀 진단 시스템 특허 등록 완료',
+    media: '파이낸셜뉴스',
+    time: '4시간 전',
+    code: '457550',
+    symbol: '우진엔텍',
+    summary: '국내 가동 원전 정비 정밀 설비에 이어 체코 원전 경상정비 사업 참여 가능성이 커지며 원전 부품 소형주 순환매 주도.',
+    keyword: '우진엔텍 원전 정비 특허 체코'
+  }
+];
+
+// 1. 당일 주도 테마 데이터베이스 (당일 상승률이 가장 높은 순서대로 1번부터 엄격하게 정렬)
 const STOCK_THEMES_DATA = [
   {
     id: 'theme-01',
@@ -16,7 +165,7 @@ const STOCK_THEMES_DATA = [
     rate: '+8.45%',
     rateType: 'up',
     score: 94,
-    scoreNote: '시장 1위 주도 섹터',
+    scoreNote: '당일 상승률 1위 압도적 주도 섹터',
     tradeAmount: '1조 8,400억',
     leader: 'SK하이닉스, 와이씨, 에프에스티, 필옵틱스',
     symbol: '000660',
@@ -41,7 +190,7 @@ const STOCK_THEMES_DATA = [
     rate: '+6.12%',
     rateType: 'up',
     score: 91,
-    scoreNote: '바이오 주도 섹터',
+    scoreNote: '당일 상승률 2위 바이오 주도 섹터',
     tradeAmount: '9,200억',
     leader: '삼천당제약, 인벤티지랩, 디앤디파마텍, 펩트론',
     symbol: '000250',
@@ -61,12 +210,36 @@ const STOCK_THEMES_DATA = [
   {
     id: 'theme-03',
     rank: 3,
+    name: 'CXL 2.0 & 온디바이스 AI',
+    category: 'semicon',
+    rate: '+5.35%',
+    rateType: 'up',
+    score: 86,
+    scoreNote: '당일 상승률 3위 차세대 반도체',
+    tradeAmount: '4,800억',
+    leader: '오픈엣지테크놀로지, 엑시콘, 네오셈, 퀄리타스반도체',
+    symbol: '394280',
+    tvSymbol: 'KRX:394280',
+    desc: 'CXL 2.0 메모리 컨트롤러 양산 진입 및 온디바이스 AI 칩 IP 수요 폭증',
+    badge: '차세대 CXL',
+    badgeColor: '#38bdf8',
+    searchKeyword: 'CXL 2.0 반도체',
+    reason: 'HBM의 뒤를 이을 메모리 대역폭 확장 기술인 CXL(컴퓨트 익스프레스 링크) 2.0 상용화 임박과 글로벌 팹리스들의 IP 라이선스 계약 증가.',
+    news: [
+      { title: '삼성전자·SK하이닉스, CXL 2.0 검증 인프라 구축… 4분기 양산 로드맵', source: '전자신문', time: '1시간 전' },
+      { title: '오픈엣지, 고성능 메모리 컨트롤러 IP 수주잔고 사상 최대', source: '머니투데이', time: '2시간 전' }
+    ],
+    strategy: '실적 턴어라운드 초기 단계. 단기 급등 후 10일선 눌림목 반등 타점을 노리는 매매 유효.'
+  },
+  {
+    id: 'theme-04',
+    rank: 4,
     name: '체코 30조 원전 수주 & SMR',
     category: 'policy',
     rate: '+4.85%',
     rateType: 'up',
     score: 88,
-    scoreNote: '정책 수혜 섹터',
+    scoreNote: '당일 상승률 4위 정책 수혜 섹터',
     tradeAmount: '7,600억',
     leader: '두산에너빌리티, 한신기계, 우진엔텍, 일진파워',
     symbol: '034020',
@@ -84,14 +257,14 @@ const STOCK_THEMES_DATA = [
     strategy: '눌림목 매집 구간. 일정 매매(D-Day 본계약 체결일) 타깃으로 20일선 지지선에서 분할 매수 대응.'
   },
   {
-    id: 'theme-04',
-    rank: 4,
+    id: 'theme-05',
+    rank: 5,
     name: '로봇용 액추에이터 & 피지컬 AI',
     category: 'semicon',
     rate: '+3.90%',
     rateType: 'up',
     score: 85,
-    scoreNote: '피지컬 AI 테마',
+    scoreNote: '당일 상승률 5위 피지컬 AI 테마',
     tradeAmount: '5,400억',
     leader: '레인보우로보틱스, 에스피지, 로보티즈, 두산로보틱스',
     symbol: '277810',
@@ -109,62 +282,14 @@ const STOCK_THEMES_DATA = [
     strategy: '박스권 상단 돌파 시도 중. 대장주 레인보우로보틱스의 기관 수급 유입 확인 후 눌림목 공략.'
   },
   {
-    id: 'theme-05',
-    rank: 5,
-    name: '밸류업 지배구조 & 금융/지주사',
-    category: 'policy',
-    rate: '+2.10%',
-    rateType: 'up',
-    score: 82,
-    scoreNote: '배당 방어 섹터',
-    tradeAmount: '6,100억',
-    leader: 'KB금융, 메리츠금융지주, 신한지주, 삼성물산',
-    symbol: '105560',
-    tvSymbol: 'KRX:105560',
-    desc: '코리아 디스카운트 해소를 위한 밸류업 지수 9월 발표 및 자사주 소각',
-    badge: '안정 배당',
-    badgeColor: '#60a5fa',
-    searchKeyword: '기업 밸류업 지수',
-    reason: '한국거래소 기업 밸류업 지수 공식 발표 및 연기금 패시브 자금 유입 기대감으로 주주환원율 40% 이상 고배당 금융 지주사로 지속적 기관 러브콜.',
-    news: [
-      { title: '거래소, 9월 밸류업 지수 베일 벗는다… 금융·자동차 편입 유력', source: '파이낸셜뉴스', time: '2시간 전' },
-      { title: 'KB금융, 3분기 분기배당 및 추가 자사주 매입 소각 결의 검토', source: '한국경제TV', time: '3시간 전' }
-    ],
-    strategy: '안정적인 배당 성향 투자자에게 최적. 시장 지수 조정 시 강력한 하방 경직성 보유.'
-  },
-  {
     id: 'theme-06',
     rank: 6,
-    name: 'CXL 2.0 & 온디바이스 AI',
-    category: 'semicon',
-    rate: '+5.35%',
-    rateType: 'up',
-    score: 86,
-    scoreNote: '차세대 반도체',
-    tradeAmount: '4,800억',
-    leader: '오픈엣지테크놀로지, 엑시콘, 네오셈, 퀄리타스반도체',
-    symbol: '394280',
-    tvSymbol: 'KRX:394280',
-    desc: 'CXL 2.0 메모리 컨트롤러 양산 진입 및 온디바이스 AI 칩 IP 수요 폭증',
-    badge: '차세대 CXL',
-    badgeColor: '#38bdf8',
-    searchKeyword: 'CXL 2.0 반도체',
-    reason: 'HBM의 뒤를 이을 메모리 대역폭 확장 기술인 CXL(컴퓨트 익스프레스 링크) 2.0 상용화 임박과 글로벌 팹리스들의 IP 라이선스 계약 증가.',
-    news: [
-      { title: '삼성전자·SK하이닉스, CXL 2.0 검증 인프라 구축… 4분기 양산 로드맵', source: '전자신문', time: '1시간 전' },
-      { title: '오픈엣지, 고성능 메모리 컨트롤러 IP 수주잔고 사상 최대', source: '머니투데이', time: '2시간 전' }
-    ],
-    strategy: '실적 턴어라운드 초기 단계. 단기 급등 후 10일선 눌림목 반등 타점을 노리는 매매 유효.'
-  },
-  {
-    id: 'theme-07',
-    rank: 7,
     name: '2차전지 전고체 & 실리콘 음극재',
     category: 'semicon',
     rate: '+3.40%',
     rateType: 'up',
     score: 79,
-    scoreNote: '배당 방어 섹터',
+    scoreNote: '당일 상승률 6위 배터리 혁신',
     tradeAmount: '5,200억',
     leader: '이수스페셜티케미컬, 레이크머티리얼즈, 대주전자재료, 포스코홀딩스',
     symbol: '457190',
@@ -181,14 +306,14 @@ const STOCK_THEMES_DATA = [
     strategy: '중장기 바닥권 탈피 시도. 거래량이 전일 대비 200% 이상 급증할 때 양봉 분할 매수.'
   },
   {
-    id: 'theme-08',
-    rank: 8,
+    id: 'theme-07',
+    rank: 7,
     name: '방산 K-방산 수출 & 자주포/미사일',
     category: 'policy',
     rate: '+2.80%',
     rateType: 'up',
     score: 83,
-    scoreNote: '수주 랠리 섹터',
+    scoreNote: '당일 상승률 7위 수주 랠리',
     tradeAmount: '4,500억',
     leader: '한화에어로스페이스, LIG넥스원, 현대로템, 한국항공우주',
     symbol: '012450',
@@ -203,6 +328,30 @@ const STOCK_THEMES_DATA = [
       { title: '현대로템, 폴란드 K2 전차 2차 실행계약 연내 체결 확실시', source: '조선비즈', time: '4시간 전' }
     ],
     strategy: '실적 기반 우상향 추세. 지수 하락 시에도 기관 수급이 유지되므로 조정 시마다 모아가는 스윙 전략.'
+  },
+  {
+    id: 'theme-08',
+    rank: 8,
+    name: '밸류업 지배구조 & 금융/지주사',
+    category: 'policy',
+    rate: '+2.10%',
+    rateType: 'up',
+    score: 82,
+    scoreNote: '당일 상승률 8위 배당 방어 섹터',
+    tradeAmount: '6,100억',
+    leader: 'KB금융, 메리츠금융지주, 신한지주, 삼성물산',
+    symbol: '105560',
+    tvSymbol: 'KRX:105560',
+    desc: '코리아 디스카운트 해소를 위한 밸류업 지수 9월 발표 및 자사주 소각',
+    badge: '안정 배당',
+    badgeColor: '#60a5fa',
+    searchKeyword: '기업 밸류업 지수',
+    reason: '한국거래소 기업 밸류업 지수 공식 발표 및 연기금 패시브 자금 유입 기대감으로 주주환원율 40% 이상 고배당 금융 지주사로 지속적 기관 러브콜.',
+    news: [
+      { title: '거래소, 9월 밸류업 지수 베일 벗는다… 금융·자동차 편입 유력', source: '파이낸셜뉴스', time: '2시간 전' },
+      { title: 'KB금융, 3분기 분기배당 및 추가 자사주 매입 소각 결의 검토', source: '한국경제TV', time: '3시간 전' }
+    ],
+    strategy: '안정적인 배당 성향 투자자에게 최적. 시장 지수 조정 시 강력한 하방 경직성 보유.'
   }
 ];
 
@@ -373,6 +522,7 @@ let currentThemeIdx = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
   initStockSubTabs();
+  initDomesticStockNews();
   renderStockThemesList();
   selectStockTheme(0);
   renderStockCompareTable();
@@ -415,6 +565,7 @@ async function fetchLiveMarketIndices() {
 function initStockSubTabs() {
   const tabs = document.querySelectorAll('.stock-sub-tab');
   const panels = {
+    news: document.getElementById('stock-panel-news'),
     theme: document.getElementById('stock-panel-theme'),
     compare: document.getElementById('stock-panel-compare'),
     calendar: document.getElementById('stock-panel-calendar'),
@@ -1841,5 +1992,69 @@ window.switchGlobalNewsCategory = function(cat, btn) {
     btn.classList.add('active');
   }
   renderGlobalNewsList(cat);
+};
+
+// ============================================================================
+// 7. [서브 패널 0] 당일 국내 주식 실시간 뉴스 촘촘한 피드 렌더러
+// ============================================================================
+let currentDomesticNewsFilter = 'all';
+
+function initDomesticStockNews() {
+  renderDomesticNewsTimeline('all');
+}
+
+function renderDomesticNewsTimeline(category = 'all') {
+  const listWrap = document.getElementById('domestic-news-timeline-list');
+  const countEl = document.getElementById('domestic-news-count');
+  if (!listWrap) return;
+
+  const filtered = (category === 'all')
+    ? DOMESTIC_STOCK_NEWS_DATA
+    : DOMESTIC_STOCK_NEWS_DATA.filter(n => n.category === category);
+
+  if (countEl) countEl.textContent = `${filtered.length}건`;
+
+  listWrap.innerHTML = filtered.map(item => {
+    const cleanT = item.title.replace(/\[.*?\]/g, '').trim();
+    const query = item.keyword || `${item.symbol} ${cleanT}`;
+    const directSearchUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(query)}`;
+
+    return `
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; gap: 12px; transition: all 0.15s ease;">
+        <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0;">
+          <span style="font-size: 0.74rem; background: rgba(239, 68, 68, 0.12); color: ${item.tagColor || '#ef4444'}; border: 1px solid rgba(239, 68, 68, 0.25); padding: 3px 8px; border-radius: 6px; font-weight: 800; white-space: nowrap;">
+            ${escapeHtml(item.tag)}
+          </span>
+          <div style="flex: 1; min-width: 0;">
+            <div style="font-size: 0.88rem; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.4;">
+              <strong style="color: #38bdf8; margin-right: 4px;">[${escapeHtml(item.symbol)}]</strong> ${escapeHtml(item.title)}
+            </div>
+            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+              ${escapeHtml(item.summary)}
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px; white-space: nowrap;">
+          <div style="text-align: right;">
+            <div style="font-size: 0.72rem; color: #cbd5e1; font-weight: 600;">${escapeHtml(item.media)}</div>
+            <div style="font-size: 0.68rem; color: #64748b;">${escapeHtml(item.time)}</div>
+          </div>
+          <a href="${directSearchUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; text-decoration: none; font-weight: 700; transition: all 0.2s;">
+            기사 보기 ↗
+          </a>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+window.filterDomesticNews = function(cat, btn) {
+  currentDomesticNewsFilter = cat;
+  if (btn && btn.parentElement) {
+    btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  renderDomesticNewsTimeline(cat);
 };
 
