@@ -4376,7 +4376,7 @@ function renderTab8ViralShorts(container) {
         <div class="kc-tab8-control-group">
           <span class="kc-tab8-control-title">🎬 영상 형태</span>
           <div class="kc-tab8-btn-group">
-            <button type="button" class="kc-tab8-opt-btn ${tab8State.type === 'shorts' ? 'active' : ''}" onclick="setTab8Filter('type', 'shorts')">⚡ 쇼츠(Shorts)</button>
+            <button type="button" class="kc-tab8-opt-btn ${tab8State.type === 'shorts' ? 'active' : ''}" onclick="setTab8Filter('type', 'shorts')">⚡ 쇼츠(Shorts) 우선</button>
             <button type="button" class="kc-tab8-opt-btn ${tab8State.type === 'all' ? 'active' : ''}" onclick="setTab8Filter('type', 'all')">모든 영상</button>
           </div>
         </div>
@@ -4488,7 +4488,7 @@ function renderTab8Cards() {
             <button type="button" class="kc-tab8-action-btn" onclick="copyTab8Snippet('${escapeHtml(item.title)}', '영상 제목이 복사되었습니다!')">
               📑 제목 복사
             </button>
-            <button type="button" class="kc-tab8-action-btn" onclick="copyTab8Idea('${escapeHtml(item.title)}', '${escapeHtml(item.channel)}')">
+            <button type="button" class="kc-tab8-action-btn" onclick="copyTab8Idea('${escapeHtml(item.title)}', '${escapeHtml(item.channel)}', '${escapeHtml(item.views)}', '${escapeHtml(item.timeAgo)}', '${escapeHtml(item.videoUrl)}')">
               💡 글감 복사
             </button>
           </div>
@@ -4562,10 +4562,16 @@ window.copyTab8Snippet = function(text, successMsg) {
   }
 };
 
-// 8번 글감 복사 (블로그/쇼츠 대본 포맷)
-window.copyTab8Idea = function(title, channel) {
-  const idea = `[바이럴 숏폼 글감 기획안]\n- 원본 영상: ${title}\n- 채널: ${channel}\n- 기획 포인트: 시청자 유입률이 높은 후킹 요소 분석 및 블로그 서두 3줄 요약 활용`;
-  window.copyTab8Snippet(idea, '블로그 글감 기획안이 복사되었습니다!');
+// 8번 글감 복사 (유튜브 바이럴 숏폼 벤치마킹 글감 포맷 1:1 완벽 일치)
+window.copyTab8Idea = function(title, channel, views, timeAgo, videoUrl) {
+  const viewsInfo = timeAgo ? `${views} (${timeAgo})` : views;
+  const idea = `[유튜브 바이럴 숏폼 벤치마킹 글감]
+• 영상 제목: ${title}
+• 채널: ${channel}
+• 조회수: ${viewsInfo}
+• 영상 링크: ${videoUrl}
+• 추천 글 구성: 도입부 핵심 후킹(3초 요약) -> 본론 문제 해결/핵심 팁 정리 -> 결론 행동 유도`;
+  window.copyTab8Snippet(idea, '숏폼 벤치마킹 글감이 복사되었습니다!');
 };
 
 
