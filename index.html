@@ -1701,13 +1701,19 @@
 
         <!-- 촘촘한 뉴스 목록 컨테이너 (실시간 타임라인형) -->
         <div class="kc-box-white-card" style="background: #0f172a; padding: 18px 22px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; flex-wrap: wrap; gap: 8px;">
             <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
-              <span>⚡</span> 당일 국내 증시 실시간 타임라인 속보 (<span id="domestic-news-count" style="color: #38bdf8;">16건</span>)
+              <span>⚡</span> 당일 국내 증시 실시간 속보 피드 (<span id="domestic-news-count" style="color: #38bdf8;">12건</span>)
+              <span id="domestic-news-live-tag" style="font-size: 0.72rem; background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); padding: 1px 6px; border-radius: 4px; font-weight: 700;">LIVE 자동갱신</span>
             </div>
-            <span style="font-size: 0.74rem; color: #94a3b8;">
-              클릭 시 해당 기사 원문으로 바로 이동 ↗
-            </span>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <button type="button" id="btn-refresh-domestic-news" class="imggen-style-chip" onclick="refreshLiveDomesticNews()" style="padding: 4px 10px; font-size: 0.74rem; background: rgba(56, 189, 248, 0.12); color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">
+                🔄 네이버 실시간 뉴스 즉시 동기화
+              </button>
+              <span style="font-size: 0.74rem; color: #94a3b8;">
+                클릭 시 원문 즉시 이동 ↗
+              </span>
+            </div>
           </div>
           
           <div id="domestic-news-timeline-list" style="display: flex; flex-direction: column; gap: 8px;">
@@ -2165,7 +2171,7 @@
   <script src="js/external.js?v=20260914_final"></script>
   <script src="js/converter.js?v=20260914_final"></script>
   <script src="js/imggen.js?v=20260914_final"></script>
-  <script src="js/stock.js?v=20260915_stock_v5"></script>
+  <script src="js/stock.js?v=20260915_stock_v6"></script>
   <script src="js/ranktracker.js?v=20260914_final"></script>
 </body>
 </html>
