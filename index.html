@@ -1761,6 +1761,27 @@
           </div>
         </div>
 
+        <!-- 실시간 당일 주도 테마 핵심 피드 동적 컨테이너 -->
+        <div class="kc-box-white-card" style="background: #0f172a; margin-bottom: 24px; border: 1px solid rgba(56, 189, 248, 0.25);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.25rem;">🔥</span>
+              <div>
+                <h4 style="font-size: 1.15rem; font-weight: 900; color: #f8fafc; margin: 0;">
+                  당일 시장 주도 테마 & 특징 대장주 실시간 랭킹
+                </h4>
+                <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 2px;">
+                  장중 거래대금 급증, 상한가/급등 재료 및 순환매 1등 대장주를 실시간 분석하여 카드로 렌더링합니다.
+                </div>
+              </div>
+            </div>
+            <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 6px; font-weight: 700;">
+              LIVE 테마 업데이트
+            </span>
+          </div>
+          <div id="leading-theme-container" class="stock-technique-grid"></div>
+        </div>
+
         <!-- 2단 레이아웃 (좌측 370px: 당일 급등 테마 리스트 / 우측: 테마 상세 재료 및 관련 뉴스) -->
         <div class="kc-dual-layout">
           <!-- 좌측 테마 리스트 -->
@@ -1815,6 +1836,27 @@
             <div class="kc-card-bar-line" style="background: #a855f7;"></div>
             <div class="kc-card-t-sub">다음 달 본계약 일정 임박</div>
           </div>
+        </div>
+
+        <!-- 실시간 테마별 핵심 재료 뉴스 동적 컨테이너 -->
+        <div class="kc-box-white-card" style="background: #0f172a; margin-bottom: 24px; border: 1px solid rgba(56, 189, 248, 0.25);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.25rem;">⚡</span>
+              <div>
+                <h4 style="font-size: 1.15rem; font-weight: 900; color: #f8fafc; margin: 0;">
+                  주요 테마별 실시간 최신 재료 속보 피드
+                </h4>
+                <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 2px;">
+                  반도체, AI, 바이오, 방산/원전 등 시장을 움직이는 핵심 재료 뉴스를 실시간 수신합니다.
+                </div>
+              </div>
+            </div>
+            <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 6px; font-weight: 700;">
+              LIVE 재료 업데이트
+            </span>
+          </div>
+          <div id="theme-material-container" class="stock-technique-grid"></div>
         </div>
 
         <!-- [신규] 사용자 수동 종목/테마 추가 & 즉시 수집 패널 -->
@@ -2002,6 +2044,27 @@
           <div id="ai-pending-events-list" style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px; transition: all 0.3s ease;">
             <!-- JS 동적 주입 -->
           </div>
+        </div>
+
+        <!-- 실시간 증시 캘린더 & 핵심 일정 동적 피드 컨테이너 -->
+        <div class="kc-box-white-card" style="background: #0f172a; margin-bottom: 24px; border: 1px solid rgba(56, 189, 248, 0.25);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.25rem;">🗓️</span>
+              <div>
+                <h4 style="font-size: 1.15rem; font-weight: 900; color: #f8fafc; margin: 0;">
+                  실시간 증시 핵심 일정 & 모멘텀 피드
+                </h4>
+                <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 2px;">
+                  실적 발표, FOMC/금통위, 주요 IPO/보호예수 해제 및 산업 학회 일정을 실시간 수신하여 카드로 렌더링합니다.
+                </div>
+              </div>
+            </div>
+            <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 6px; font-weight: 700;">
+              LIVE 일정 갱신
+            </span>
+          </div>
+          <div id="stock-calendar-container" class="stock-technique-grid"></div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;" id="stock-calendar-grid">
@@ -2225,10 +2288,8 @@
             </div>
           </div>
 
-          <!-- 글로벌 외신 뉴스 카드 그리드 -->
-          <div id="global-news-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-            <!-- JS 동적 렌더링 -->
-          </div>
+          <!-- 글로벌 외신 뉴스 카드 동적 그리드 컨테이너 -->
+          <div id="us-live-feed-container" class="stock-technique-grid"></div>
         </div>
       </div>
 
@@ -2251,24 +2312,31 @@
             </p>
           </div>
 
-          <!-- 종목 빠른 전환 칩 및 검색 -->
+        <!-- 종목 빠른 전환 칩 및 검색 -->
           <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-            <div style="display: flex; gap: 6px;" id="stock-deep-quick-chips">
+            <div style="display: flex; gap: 6px; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 4px 10px;">
+              <span style="color: #38bdf8; font-size: 0.85rem;">🔍</span>
+              <input type="text" id="stock-deep-search-input" placeholder="분석할 종목명 (예: SK하이닉스, 삼천당제약)" style="background: transparent; border: none; color: #f8fafc; font-size: 0.82rem; outline: none; width: 180px;" onkeydown="if(event.key==='Enter') searchStockDeepAnalysis()">
+              <button type="button" class="imggen-style-chip" onclick="searchStockDeepAnalysis()" style="padding: 2px 8px; font-size: 0.72rem; background: rgba(56,189,248,0.2); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3);">분석</button>
+            </div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="stock-deep-quick-chips">
               <!-- JS에서 종목 칩 동적 렌더링 -->
             </div>
           </div>
         </div>
 
-        <!-- 딥분석 메인 컨테이너 (좌측 종목 리스트 + 우측 딥 리포트 상세) -->
-        <div class="kc-dual-layout">
-          <!-- 좌측 종목 목록 (8개 핵심 주도주) -->
-          <div class="kc-list-col" id="stock-deep-list" style="max-height: 980px; overflow-y: auto;">
-            <!-- JS 동적 생성 -->
-          </div>
+        <!-- 딥분석 동적 메인 컨테이너 -->
+        <div id="stock-deep-container">
+          <div class="kc-dual-layout">
+            <!-- 좌측 종목 목록 (주요 관심/주도주) -->
+            <div class="kc-list-col" id="stock-deep-list" style="max-height: 980px; overflow-y: auto;">
+              <!-- JS 동적 생성 -->
+            </div>
 
-          <!-- 우측 딥분석 종합 리포트 -->
-          <div class="kc-detail-card" id="stock-deep-detail">
-            <!-- JS 동적 생성 -->
+            <!-- 우측 딥분석 종합 리포트 -->
+            <div class="kc-detail-card" id="stock-deep-detail">
+              <!-- JS 동적 생성 -->
+            </div>
           </div>
         </div>
       </div>

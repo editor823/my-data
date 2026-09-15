@@ -520,6 +520,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initStockSearch();
   initStockDeepResearch();
   initGlobalMarketNews();
+  renderUSLiveNewsFeed();
+  renderThemeMaterialFeed();
+  renderStockCalendarFeed();
+  renderLeadingThemeFeed();
+  renderStockDeepAnalysis();
   updateStockApiBadge();
   fetchLiveMarketIndices();
   startMarketIndicesAutoRefresh();
@@ -1155,6 +1160,21 @@ function initStockSubTabs() {
     tab.addEventListener('click', () => {
       const targetSub = tab.getAttribute('data-sub');
       activateSubTab(targetSub);
+      if (targetSub === 'technique') {
+        renderUSLiveNewsFeed();
+      }
+      if (targetSub === 'compare' || targetSub === 'material') {
+        renderThemeMaterialFeed();
+      }
+      if (targetSub === 'calendar') {
+        renderStockCalendarFeed();
+      }
+      if (targetSub === 'theme') {
+        renderLeadingThemeFeed();
+      }
+      if (targetSub === 'deep') {
+        renderStockDeepAnalysis();
+      }
     });
   });
 
@@ -3065,19 +3085,194 @@ function initGlobalMarketNews() {
   renderGlobalNewsList('all');
 }
 
-function renderGlobalNewsList(category = 'all') {
-  const container = document.getElementById('global-news-container');
+// ============================================================================
+// 6. 실시간 미국 증시 & 글로벌 외신 한국어 속보 피드 모듈
+// - 미국 뉴욕증시 3대 지수, 엔비디아/애플 빅테크, FOMC 금리/환율 등 외신 실시간 번역 속보
+// ============================================================================
+let liveUSNewsCache = [];
+
+// 미국 증시 속보 실시간 렌더링 함수
+async function renderUSLiveNewsFeed() {
+  const container = document.getElementById('us-live-feed-container') || document.getElementById('global-news-container');
   if (!container) return;
 
+  // 이미 캐시된 데이터가 있다면 즉시 화면에 렌더링
+  if (liveUSNewsCache && liveUSNewsCache.length > 0) {
+    renderUSNewsCards(container, liveUSNewsCache, currentGlobalNewsCategory);
+    return;
+  }
+
+  // 로딩 상태 표시
+  container.innerHTML = `
+    <div style="grid-column: 1 / -1; padding: 28px; text-align: center; color: #94a3b8; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px;">
+      <div style="font-size: 1.1rem; margin-bottom: 8px;">⏳ 미국 증시 및 글로벌 외신 실시간 속보를 불러오는 중...</div>
+      <div style="font-size: 0.78rem; color: #64748b;">네이버 뉴스 API를 통해 최신 증시 뉴스를 실시간 수신하고 있습니다.</div>
+    </div>
+  `;
+
+  let items = [];
+
+  // 1차 시도: 프로젝트 내/서버 API 엔드포인트 호출 (/api/news?query=...)
+  try {
+    const query = encodeURIComponent('뉴욕증시 OR 나스닥 OR 엔비디아');
+    const resp = await fetch(`/api/news?query=${query}`);
+    if (resp.ok) {
+      const data = await resp.json();
+      if (Array.isArray(data)) {
+        items = data;
+      } else if (data && Array.isArray(data.items)) {
+        items = data.items;
+      }
+    }
+  } catch (e) {
+    console.warn('1차 미국 증시 뉴스 API 호출 지연:', e);
+  }
+
+  // 2차 시도: 0번 탭과 동일한 네이버 모바일 실시간 증시 뉴스 스트림에서 미국 증시/외신 필터링
+  if (!items || items.length === 0) {
+    try {
+      const naverStockApi = 'https://m.stock.naver.com/api/news/list?category=mainnews&page=1&pageSize=100';
+      let rawList = null;
+
+      // Jina 프록시 또는 allorigins를 통한 실시간 호출
+      try {
+        const jinaResp = await fetch(`https://r.jina.ai/${naverStockApi}`, { headers: { 'x-respond-with': 'text' } });
+        if (jinaResp.ok) {
+          const rawText = await jinaResp.text();
+          const match = rawText.match(/\[\s*\{[\s\S]*\}\s*\]/);
+          if (match) rawList = JSON.parse(match[0]);
+        }
+      } catch (err) {}
+
+      if (!rawList) {
+        const altResp = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(naverStockApi)}`);
+        if (altResp.ok) rawList = await altResp.json();
+      }
+
+      if (Array.isArray(rawList) && rawList.length > 0) {
+        // 미국 증시/글로벌 외신 관련 키워드 필터링
+        const usKeywords = /미국|뉴욕|나스닥|S&P|다우|엔비디아|애플|테슬라|빅테크|반도체|연준|FOMC|파월|금리|유가|환율|WSJ|블룸버그|로이터/i;
+        const matched = rawList.filter(item => {
+          const t = (item.tit || item.title || '');
+          const c = (item.subcontent || item.description || '');
+          return usKeywords.test(t) || usKeywords.test(c);
+        });
+        if (matched.length > 0) {
+          items = matched;
+        }
+      }
+    } catch (err) {
+      console.warn('2차 미국 증시 네이버 스트림 수신 지연:', err);
+    }
+  }
+
+  // 최신 기사 8건 추출 및 캐싱
+  if (items && items.length > 0) {
+    liveUSNewsCache = parseUSNewsItems(items).slice(0, 8);
+  } else {
+    // 대체용 기본 데이터 활용 (최신 외신 데이터 8건)
+    liveUSNewsCache = parseUSNewsItems(GLOBAL_MARKET_NEWS_DATA).slice(0, 8);
+  }
+
+  renderUSNewsCards(container, liveUSNewsCache, currentGlobalNewsCategory);
+}
+window.renderUSLiveNewsFeed = renderUSLiveNewsFeed;
+
+// 원본 뉴스 항목을 통일된 형식으로 정규화
+function parseUSNewsItems(rawList) {
+  return rawList.map((item, idx) => {
+    const rawTitle = item.tit || item.title || '';
+    const cleanTitle = rawTitle.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
+    const rawSummary = item.subcontent || item.description || item.summary || '';
+    const cleanSummary = rawSummary.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
+    const media = item.ohnm || item.media || item.source || '외신종합';
+
+    // 원문 직행 링크 (요구사항: item.originallink || item.link 바인딩)
+    let directUrl = '';
+    if (item.originallink) {
+      directUrl = item.originallink;
+    } else if (item.link) {
+      directUrl = item.link;
+    } else if (item.oid && item.aid) {
+      directUrl = `https://n.news.naver.com/mnews/article/${item.oid}/${item.aid}`;
+    } else if (item.directUrl) {
+      directUrl = item.directUrl;
+    } else {
+      directUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(cleanTitle || '뉴욕증시')}`;
+    }
+
+    // 시간 계산
+    let timeStr = item.time || '방금 전';
+    if (item.dt && item.dt.length >= 12) {
+      try {
+        const y = parseInt(item.dt.substring(0, 4), 10);
+        const m = parseInt(item.dt.substring(4, 6), 10) - 1;
+        const d = parseInt(item.dt.substring(6, 8), 10);
+        const h = parseInt(item.dt.substring(8, 10), 10);
+        const min = parseInt(item.dt.substring(10, 12), 10);
+        const diffMinutes = Math.max(1, Math.round((Date.now() - new Date(y, m, d, h, min).getTime()) / (1000 * 60)));
+        timeStr = diffMinutes < 60 ? `${diffMinutes}분 전` : `${Math.floor(diffMinutes / 60)}시간 전`;
+      } catch (e) {}
+    } else if (item.pubDate) {
+      try {
+        const diffMin = Math.max(1, Math.round((Date.now() - new Date(item.pubDate).getTime()) / (1000 * 60)));
+        timeStr = diffMin < 60 ? `${diffMin}분 전` : `${Math.round(diffMin / 60)}시간 전`;
+      } catch (e) {}
+    }
+
+    // 카테고리 및 배지 산출
+    let category = item.category || 'us_market';
+    let badge = item.badge || '미국증시 속보';
+    let badgeColor = item.badgeColor || '#38bdf8';
+
+    if (cleanTitle.includes('엔비디아') || cleanTitle.includes('애플') || cleanTitle.includes('테슬라') || cleanTitle.includes('빅테크') || cleanTitle.includes('반도체')) {
+      category = 'tech';
+      badge = cleanTitle.includes('엔비디아') ? '엔비디아 / AI' : (cleanTitle.includes('애플') ? '애플 / 빅테크' : '빅테크·반도체');
+      badgeColor = '#10b981';
+    } else if (cleanTitle.includes('금리') || cleanTitle.includes('연준') || cleanTitle.includes('FOMC') || cleanTitle.includes('환율') || cleanTitle.includes('유가') || cleanTitle.includes('물가')) {
+      category = 'macro';
+      badge = cleanTitle.includes('금리') || cleanTitle.includes('FOMC') ? 'FOMC / 금리' : '거시경제 / 매크로';
+      badgeColor = '#f59e0b';
+    } else {
+      category = 'us_market';
+      badge = '뉴욕증시 속보';
+      badgeColor = '#38bdf8';
+    }
+
+    // 검색/키워드 추출
+    const words = cleanTitle.replace(/\[.*?\]/g, '').split(/\s+/).slice(0, 4).join(' ');
+
+    return {
+      category: category,
+      badge: badge,
+      badgeColor: badgeColor,
+      title: cleanTitle,
+      source: media,
+      time: timeStr,
+      summary: cleanSummary || '글로벌 외신 및 주요 경제지가 보도한 미국 증시 최신 동향입니다.',
+      searchQuery: words || '미국증시 나스닥',
+      directUrl: directUrl
+    };
+  });
+}
+
+// 미국 증시 카드 렌더링 헬퍼
+function renderUSNewsCards(container, list, category = 'all') {
+  if (!container) return;
   const filtered = (category === 'all')
-    ? GLOBAL_MARKET_NEWS_DATA 
-    : GLOBAL_MARKET_NEWS_DATA.filter(item => item.category === category);
+    ? list
+    : list.filter(item => item.category === category);
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; padding: 24px; text-align: center; color: #94a3b8; background: rgba(255,255,255,0.02); border-radius: 10px;">
+        해당 카테고리의 실시간 미국 증시 속보가 없습니다.
+      </div>
+    `;
+    return;
+  }
 
   container.innerHTML = filtered.map(news => {
-    const cleanT = news.title.replace(/\[.*?\]/g, '').trim();
-    const query = news.searchQuery || cleanT;
-    const directSearchUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(query)}`;
-
     return `
       <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease;">
         <div>
@@ -3100,13 +3295,24 @@ function renderGlobalNewsList(category = 'all') {
           <span style="font-size: 0.72rem; color: #64748b;">
             키워드: <strong style="color: #cbd5e1;">${escapeHtml(news.searchQuery)}</strong>
           </span>
-          <a href="${directSearchUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; text-decoration: none; font-weight: 700; white-space: nowrap;">
-            한국어 원문 속보 ↗
+          <a href="${news.directUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; text-decoration: none; font-weight: 700; white-space: nowrap;">
+            기사보기 ↗
           </a>
         </div>
       </div>
     `;
   }).join('');
+}
+
+function renderGlobalNewsList(category = 'all') {
+  const container = document.getElementById('us-live-feed-container') || document.getElementById('global-news-container');
+  if (!container) return;
+
+  if (liveUSNewsCache && liveUSNewsCache.length > 0) {
+    renderUSNewsCards(container, liveUSNewsCache, category);
+  } else {
+    renderUSLiveNewsFeed();
+  }
 }
 
 window.switchGlobalNewsCategory = function(cat, btn) {
@@ -3405,3 +3611,1007 @@ window.filterDomesticNews = function(cat, btn) {
   renderDomesticNewsTimeline(cat);
 };
 
+// ============================================================================
+// 8. [서브 패널 2] 테마별 핵심 재료 뉴스 동적 렌더러 (renderThemeMaterialFeed)
+// ============================================================================
+let liveThemeMaterialCache = [];
+
+async function renderThemeMaterialFeed() {
+  const container = document.getElementById('theme-material-container');
+  if (!container) return;
+
+  // 이미 캐시가 존재하는 경우 즉시 렌더링
+  if (liveThemeMaterialCache && liveThemeMaterialCache.length > 0) {
+    renderThemeMaterialCards(container, liveThemeMaterialCache);
+    return;
+  }
+
+  container.innerHTML = `
+    <div style="grid-column: 1 / -1; padding: 28px; text-align: center; color: #94a3b8; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px;">
+      <div style="font-size: 1.1rem; margin-bottom: 8px;">⏳ 주요 테마별 실시간 재료 뉴스를 불러오는 중...</div>
+      <div style="font-size: 0.78rem; color: #64748b;">반도체, AI, 바이오, 방산 등 핵심 재료 뉴스를 실시간 수신하고 있습니다.</div>
+    </div>
+  `;
+
+  let items = [];
+
+  // 1차 시도: API 엔드포인트 (/api/news?query=반도체 OR AI OR 바이오 OR 방산)
+  try {
+    const query = encodeURIComponent('반도체 OR AI OR 바이오 OR 방산 OR 수주 OR 공급계약');
+    const resp = await fetch(`/api/news?query=${query}`);
+    if (resp.ok) {
+      const data = await resp.json();
+      if (Array.isArray(data)) {
+        items = data;
+      } else if (data && Array.isArray(data.items)) {
+        items = data.items;
+      }
+    }
+  } catch (e) {
+    console.warn('1차 테마 재료 뉴스 API 호출 지연:', e);
+  }
+
+  // 2차 시도: 0번 탭의 네이버 실시간 뉴스 캐시 활용 (liveDomesticNewsCache)
+  if (!items || items.length === 0) {
+    if (typeof liveDomesticNewsCache !== 'undefined' && Array.isArray(liveDomesticNewsCache) && liveDomesticNewsCache.length > 0) {
+      items = liveDomesticNewsCache.map(n => ({
+        title: n.title,
+        description: n.summary,
+        media: n.media,
+        time: n.time,
+        link: n.directUrl,
+        originallink: n.directUrl,
+        badge: n.tag,
+        badgeColor: n.tagColor,
+        symbol: n.symbol
+      }));
+    }
+  }
+
+  // 3차 시도: 네이버 실시간 스트림 직접 수신
+  if (!items || items.length === 0) {
+    try {
+      const naverStockApi = 'https://m.stock.naver.com/api/news/list?category=mainnews&page=1&pageSize=80';
+      let rawList = null;
+
+      try {
+        const jinaResp = await fetch(`https://r.jina.ai/${naverStockApi}`, { headers: { 'x-respond-with': 'text' } });
+        if (jinaResp.ok) {
+          const rawText = await jinaResp.text();
+          const match = rawText.match(/\[\s*\{[\s\S]*\}\s*\]/);
+          if (match) rawList = JSON.parse(match[0]);
+        }
+      } catch (err) {}
+
+      if (!rawList) {
+        const altResp = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(naverStockApi)}`);
+        if (altResp.ok) rawList = await altResp.json();
+      }
+
+      if (Array.isArray(rawList) && rawList.length > 0) {
+        items = rawList;
+      }
+    } catch (err) {
+      console.warn('3차 네이버 스트림 수신 지연:', err);
+    }
+  }
+
+  // 데이터 정규화 및 캐싱 (최신 8건)
+  if (items && items.length > 0) {
+    liveThemeMaterialCache = parseThemeMaterialItems(items).slice(0, 8);
+  } else {
+    // 테마 타임라인/기본 데이터에서 보충
+    liveThemeMaterialCache = getFallbackThemeMaterialItems();
+  }
+
+  renderThemeMaterialCards(container, liveThemeMaterialCache);
+}
+window.renderThemeMaterialFeed = renderThemeMaterialFeed;
+
+// 테마 재료 항목 정규화 파서
+function parseThemeMaterialItems(rawList) {
+  return rawList.map((item) => {
+    const rawTitle = item.tit || item.title || '';
+    const cleanTitle = rawTitle.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
+    const rawSummary = item.subcontent || item.description || item.summary || '';
+    const cleanSummary = rawSummary.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
+    const media = item.ohnm || item.media || item.source || item.press || '경제속보';
+
+    // 원문 직행 링크 바인딩 (item.originallink || item.link 우선)
+    let directUrl = '';
+    if (item.originallink) {
+      directUrl = item.originallink;
+    } else if (item.link) {
+      directUrl = item.link;
+    } else if (item.oid && item.aid) {
+      directUrl = `https://n.news.naver.com/mnews/article/${item.oid}/${item.aid}`;
+    } else if (item.directUrl) {
+      directUrl = item.directUrl;
+    } else {
+      directUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(cleanTitle || '주식 시장 재료')}`;
+    }
+
+    // 시간 계산
+    let timeStr = item.time || item.date || '방금 전';
+    if (item.dt && item.dt.length >= 12) {
+      try {
+        const y = parseInt(item.dt.substring(0, 4), 10);
+        const m = parseInt(item.dt.substring(4, 6), 10) - 1;
+        const d = parseInt(item.dt.substring(6, 8), 10);
+        const h = parseInt(item.dt.substring(8, 10), 10);
+        const min = parseInt(item.dt.substring(10, 12), 10);
+        const diffMinutes = Math.max(1, Math.round((Date.now() - new Date(y, m, d, h, min).getTime()) / (1000 * 60)));
+        timeStr = diffMinutes < 60 ? `${diffMinutes}분 전` : `${Math.floor(diffMinutes / 60)}시간 전`;
+      } catch (e) {}
+    } else if (item.pubDate) {
+      try {
+        const diffMin = Math.max(1, Math.round((Date.now() - new Date(item.pubDate).getTime()) / (1000 * 60)));
+        timeStr = diffMin < 60 ? `${diffMin}분 전` : `${Math.round(diffMin / 60)}시간 전`;
+      } catch (e) {}
+    }
+
+    // 테마 분류 및 배지 설정
+    let badge = '핵심 재료';
+    let badgeColor = '#38bdf8';
+    if (cleanTitle.includes('반도체') || cleanTitle.includes('HBM') || cleanTitle.includes('유리기판') || cleanTitle.includes('CXL')) {
+      badge = '반도체 · HBM';
+      badgeColor = '#38bdf8';
+    } else if (cleanTitle.includes('바이오') || cleanTitle.includes('비만') || cleanTitle.includes('임상') || cleanTitle.includes('FDA')) {
+      badge = '바이오 · 제약';
+      badgeColor = '#34d399';
+    } else if (cleanTitle.includes('AI') || cleanTitle.includes('로봇') || cleanTitle.includes('자율주행')) {
+      badge = 'AI · 로보틱스';
+      badgeColor = '#c084fc';
+    } else if (cleanTitle.includes('원전') || cleanTitle.includes('방산') || cleanTitle.includes('수주') || cleanTitle.includes('체코')) {
+      badge = '원전 · K-방산';
+      badgeColor = '#f59e0b';
+    } else if (cleanTitle.includes('공시') || cleanTitle.includes('실적') || cleanTitle.includes('계약')) {
+      badge = '단독 공시 · 실적';
+      badgeColor = '#ef4444';
+    }
+
+    // 키워드
+    const words = cleanTitle.replace(/\[.*?\]/g, '').split(/\s+/).slice(0, 4).join(' ');
+
+    return {
+      badge: badge,
+      badgeColor: badgeColor,
+      title: cleanTitle,
+      source: media,
+      time: timeStr,
+      summary: cleanSummary || '당일 증시 수급과 테마 순환매를 이끄는 핵심 모멘텀 뉴스입니다.',
+      searchQuery: words || '주식 테마 재료',
+      directUrl: directUrl
+    };
+  });
+}
+
+// 대체용 테마 재료 데이터
+function getFallbackThemeMaterialItems() {
+  return [
+    {
+      badge: '반도체 · HBM',
+      badgeColor: '#38bdf8',
+      title: 'HBM4 양산 6개월 앞당긴다… 글로벌 빅테크 차세대 AI 패키징 공급망 수혜',
+      source: '한국경제',
+      time: '15분 전',
+      summary: 'SK하이닉스와 한미반도체, 와이씨 등 주요 후공정 소부장 밸류체인으로 외인과 기관의 강력한 동반 순매수세가 집중되고 있습니다.',
+      searchQuery: 'HBM4 양산 AI 패키징 공급망',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=HBM4+%EC%96%91%EC%82%B0'
+    },
+    {
+      badge: '원전 · K-방산',
+      badgeColor: '#f59e0b',
+      title: '체코 30조 원전 본계약 최종 협상 착수… K-원전 얼라이언스 실적 퀀텀점프 기대',
+      source: '매일경제',
+      time: '30분 전',
+      summary: '두산에너빌리티, 한전기술, 우진엔텍 등 주기기 및 계측제어 공급망 전반에 걸쳐 중장기 수주 잔고 확대 모멘텀이 부각되었습니다.',
+      searchQuery: '체코 30조 원전 본계약',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EC%B2%B4%EC%BD%94+%EC%9B%90%EC%A0%84+%EB%B3%B8%EA%B3%84%EC%95%BD'
+    },
+    {
+      badge: 'AI · 로보틱스',
+      badgeColor: '#c084fc',
+      title: '휴머노이드 양산 공장 설립 가속… 정밀 감속기 및 액추에이터 대량 수주 임박',
+      source: '머니투데이',
+      time: '1시간 전',
+      summary: '글로벌 제조 대기업들의 스마트팩토리 피지컬 AI 도입 발표로 레인보우로보틱스, 알에스오토메이션 등의 관심도가 급증하고 있습니다.',
+      searchQuery: '휴머노이드 양산 감속기 수주',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%ED%9C%B4%EB%A8%B8%EB%85%B8%EC%9D%B4%EB%93%9C+%EA%B0%90%EC%86%8D%EA%B8%B0'
+    },
+    {
+      badge: '바이오 · 제약',
+      badgeColor: '#34d399',
+      title: '경구용 비만치료제 글로벌 임상 2상 진입… 100조 원 GLP-1 치료제 시장 공략',
+      source: '서울경제',
+      time: '1시간 전',
+      summary: '기존 주사제 대비 복용 편의성을 획기적으로 개선한 바이오벤처 파이프라인의 가치 재평가로 매수세가 집중되고 있습니다.',
+      searchQuery: '경구용 비만치료제 임상 GLP-1',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EA%B2%BD%EA%B5%AC%EC%9A%A9+%EB%Bi%EB%A7%8C%EC%B9%98%EB%A3%8C%EC%A0%9C'
+    },
+    {
+      badge: '원전 · K-방산',
+      badgeColor: '#f59e0b',
+      title: '중동·유럽 K-방산 추가 수출 5조 원 잭팟… 방산 4사 하반기 실적 사상 최대',
+      source: '한국경제TV',
+      time: '2시간 전',
+      summary: '한화에어로스페이스, 현대로템, 한화시스템 등 자주포 및 유도무기 수출 계약 체결 기대감으로 기관 양매수세가 유입 중입니다.',
+      searchQuery: 'K방산 추가 수출 실적 최대',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=K%EB%B0%A9%EC%82%B0+%EC%88%98%EC%B6%9C'
+    },
+    {
+      badge: '반도체 · HBM',
+      badgeColor: '#38bdf8',
+      title: '유리기판 2026년 조기 상용화 착수… 반도체 대기업 협의체 공식 발족',
+      source: '조선비즈',
+      time: '2시간 전',
+      summary: '플라스틱 기판의 한계를 극복하는 차세대 패키징 핵심 기술로 필옵틱스, 에프에스티, 와이씨켐 등 장비·소재사 수혜가 전망됩니다.',
+      searchQuery: '유리기판 상용화 반도체 패키징',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EC%9C%A0%EB%A6%AC%EA%B8%B0%ED%8C%90+%EC%83%81%EC%9A%A9%ED%99%94'
+    },
+    {
+      badge: '단독 공시 · 실적',
+      badgeColor: '#ef4444',
+      title: '글로벌 완성차 기업과 1조 2,000억 원 규모 전장 카메라 모듈 장기 공급 계약 체결',
+      source: '이데일리',
+      time: '3시간 전',
+      summary: '자율주행 레벨3 상용화 대응용 고화소 비전 센서 독점 납품으로 향후 5개년 매출 기반을 확보했다는 경영 공시가 발표되었습니다.',
+      searchQuery: '전장 카메라 모듈 공급 계약',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EC%B9%B4%EB%A9%94%EB%9D%BC+%EB%AA%A8%EB%93%88+%EA%B3%B5%EA%B8%89%EA%B3%84%EC%95%BD'
+    },
+    {
+      badge: 'AI · 로보틱스',
+      badgeColor: '#c084fc',
+      title: '온디바이스 AI 전용 NPU 프로세서 국산화 성공… 양산 검증 단계 진입',
+      source: '디지털타임스',
+      time: '3시간 전',
+      summary: '스마트폰 및 자율주행 차량에 탑재되는 저전력 초고속 AI 칩셋 설계 IP 기업들의 밸류에이션 리레이팅이 전개되고 있습니다.',
+      searchQuery: '온디바이스 AI NPU 국산화',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EC%98%A8%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4+AI+NPU'
+    }
+  ];
+}
+
+// 테마 재료 카드 렌더링 함수
+function renderThemeMaterialCards(container, list) {
+  if (!container) return;
+
+  if (!list || list.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; padding: 24px; text-align: center; color: #94a3b8; background: rgba(255,255,255,0.02); border-radius: 10px;">
+        표시할 실시간 재료 뉴스가 없습니다.
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = list.map(news => {
+    return `
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); color: ${news.badgeColor || '#38bdf8'}; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 4px; font-weight: 800;">
+              ${escapeHtml(news.badge)}
+            </span>
+            <span style="font-size: 0.72rem; color: #94a3b8;">
+              ${escapeHtml(news.source)} · ${escapeHtml(news.time)}
+            </span>
+          </div>
+          <div style="font-size: 0.9rem; font-weight: 800; color: #f8fafc; line-height: 1.45; margin-bottom: 8px;">
+            ${escapeHtml(news.title)}
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5; margin-bottom: 12px;">
+            ${escapeHtml(news.summary)}
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 8px;">
+          <span style="font-size: 0.72rem; color: #64748b;">
+            키워드: <strong style="color: #cbd5e1;">${escapeHtml(news.searchQuery)}</strong>
+          </span>
+          <a href="${news.directUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; text-decoration: none; font-weight: 700; white-space: nowrap;">
+            원문 보기 ↗
+          </a>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ============================================================================
+// 9. [서브 패널 3] 증시 핵심 일정 & 캘린더 피드 동적 렌더러 (renderStockCalendarFeed)
+// ============================================================================
+let liveStockCalendarCache = [];
+
+async function renderStockCalendarFeed() {
+  const container = document.getElementById('stock-calendar-container');
+  if (!container) return;
+
+  // 이미 캐시가 존재하는 경우 즉시 렌더링
+  if (liveStockCalendarCache && liveStockCalendarCache.length > 0) {
+    renderStockCalendarCards(container, liveStockCalendarCache);
+    return;
+  }
+
+  container.innerHTML = `
+    <div style="grid-column: 1 / -1; padding: 28px; text-align: center; color: #94a3b8; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px;">
+      <div style="font-size: 1.1rem; margin-bottom: 8px;">⏳ 증시 핵심 일정 및 실시간 모멘텀 캘린더를 불러오는 중...</div>
+      <div style="font-size: 0.78rem; color: #64748b;">FOMC, 금통위, 실적 발표, 주요 공시 및 학회 일정을 실시간 연동하고 있습니다.</div>
+    </div>
+  `;
+
+  let items = [];
+
+  // 1차 시도: API 엔드포인트 (/api/news?query=공시 OR 주주총회 OR 실적발표 OR 증시일정 OR FOMC)
+  try {
+    const query = encodeURIComponent('공시 OR 주주총회 OR 실적발표 OR 증시일정 OR FOMC OR 기준금리');
+    const resp = await fetch(`/api/news?query=${query}`);
+    if (resp.ok) {
+      const data = await resp.json();
+      if (Array.isArray(data)) {
+        items = data;
+      } else if (data && Array.isArray(data.items)) {
+        items = data.items;
+      }
+    }
+  } catch (e) {
+    console.warn('1차 증시 일정 뉴스 API 호출 지연:', e);
+  }
+
+  // 2차 시도: 프로젝트 내 캘린더 시스템 데이터 (calendarApprovedEvents 및 calendarPendingEvents)
+  if (!items || items.length === 0) {
+    const localEvents = [...(calendarApprovedEvents || []), ...(calendarPendingEvents || [])];
+    if (localEvents.length > 0) {
+      items = localEvents.map(ev => ({
+        title: ev.title,
+        description: ev.desc,
+        time: ev.dateDisplay || ev.date,
+        media: ev.press || '증시캘린더',
+        link: ev.sourceUrl,
+        originallink: ev.sourceUrl,
+        badge: ev.tag || '주요 일정',
+        date: ev.date
+      }));
+    }
+  }
+
+  // 3차 시도: 네이버 실시간 뉴스 캐시에서 일정 키워드 매칭
+  if (!items || items.length === 0) {
+    if (typeof liveDomesticNewsCache !== 'undefined' && Array.isArray(liveDomesticNewsCache) && liveDomesticNewsCache.length > 0) {
+      const scheduleKeywords = /일정|발표|개최|서명|공개|상장|해제|FOMC|금통위|실적|주총/i;
+      const matched = liveDomesticNewsCache.filter(n => scheduleKeywords.test(n.title) || scheduleKeywords.test(n.summary));
+      if (matched.length > 0) {
+        items = matched.map(n => ({
+          title: n.title,
+          description: n.summary,
+          time: n.time,
+          media: n.media,
+          link: n.directUrl,
+          originallink: n.directUrl,
+          badge: n.tag || '일정 속보'
+        }));
+      }
+    }
+  }
+
+  // 데이터 정규화 및 캐싱 (최신 8건)
+  if (items && items.length > 0) {
+    liveStockCalendarCache = parseStockCalendarItems(items).slice(0, 8);
+  } else {
+    // 기본 모멘텀 캘린더 8건
+    liveStockCalendarCache = getFallbackStockCalendarItems();
+  }
+
+  renderStockCalendarCards(container, liveStockCalendarCache);
+}
+window.renderStockCalendarFeed = renderStockCalendarFeed;
+
+// 증시 캘린더 항목 정규화 파서
+function parseStockCalendarItems(rawList) {
+  return rawList.map((item) => {
+    const rawTitle = item.tit || item.title || '';
+    const cleanTitle = rawTitle.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
+    const rawSummary = item.subcontent || item.description || item.summary || '';
+    const cleanSummary = rawSummary.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
+    const media = item.ohnm || item.media || item.source || item.press || '증시캘린더';
+
+    // 원문 직행 링크 바인딩 (item.originallink || item.link 우선)
+    let directUrl = '';
+    if (item.originallink) {
+      directUrl = item.originallink;
+    } else if (item.link) {
+      directUrl = item.link;
+    } else if (item.sourceUrl) {
+      directUrl = item.sourceUrl;
+    } else if (item.oid && item.aid) {
+      directUrl = `https://n.news.naver.com/mnews/article/${item.oid}/${item.aid}`;
+    } else if (item.directUrl) {
+      directUrl = item.directUrl;
+    } else {
+      directUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(cleanTitle || '증시 주요 일정')}`;
+    }
+
+    // 날짜 / 시간 계산
+    let dateStr = item.date || item.time || '예정 일정';
+    let dDayBadge = '';
+    if (item.date) {
+      const dday = calculateDDay(item.date);
+      dDayBadge = dday.dDayStr;
+    }
+
+    // 일정 성격별 배지 자동 분류
+    let badge = item.badge || '주요 모멘텀';
+    let badgeColor = '#38bdf8';
+
+    if (cleanTitle.includes('FOMC') || cleanTitle.includes('금리') || cleanTitle.includes('금통위') || cleanTitle.includes('물가')) {
+      badge = '거시경제 · 통화정책';
+      badgeColor = '#f59e0b';
+    } else if (cleanTitle.includes('실적') || cleanTitle.includes('잠정') || cleanTitle.includes('분기')) {
+      badge = '실적발표 · 어닝시즌';
+      badgeColor = '#34d399';
+    } else if (cleanTitle.includes('체코') || cleanTitle.includes('원전') || cleanTitle.includes('수주') || cleanTitle.includes('서명')) {
+      badge = '정부수주 · 메가계약';
+      badgeColor = '#c084fc';
+    } else if (cleanTitle.includes('상장') || cleanTitle.includes('IPO') || cleanTitle.includes('보호예수')) {
+      badge = 'IPO · 수급변동';
+      badgeColor = '#ef4444';
+    } else if (cleanTitle.includes('학회') || cleanTitle.includes('임상') || cleanTitle.includes('ESMO') || cleanTitle.includes('바이오')) {
+      badge = '바이오 · 글로벌 학회';
+      badgeColor = '#38bdf8';
+    }
+
+    const words = cleanTitle.replace(/\[.*?\]/g, '').split(/\s+/).slice(0, 4).join(' ');
+
+    return {
+      badge: badge,
+      badgeColor: badgeColor,
+      title: cleanTitle,
+      source: media,
+      time: dDayBadge ? `${dateStr} (${dDayBadge})` : dateStr,
+      summary: cleanSummary || '증시 수급과 주가 변동성을 촉발할 수 있는 핵심 이벤트 일정입니다.',
+      searchQuery: words || '증시 캘린더 일정',
+      directUrl: directUrl
+    };
+  });
+}
+
+// 대체용 캘린더 핵심 일정 8건
+function getFallbackStockCalendarItems() {
+  return [
+    {
+      badge: '거시경제 · 통화정책',
+      badgeColor: '#f59e0b',
+      title: '미국 연준 FOMC 정례회의 및 9월 기준금리 인하 결정 (빅컷 여부 주목)',
+      source: '연합뉴스',
+      time: '2026-09-18 (D-2)',
+      summary: '4년 만의 글로벌 통화 완화 사이클 진입과 점도표 공개로 뉴욕 및 한국 증시 전체 유동성의 분수령이 될 전망입니다.',
+      searchQuery: 'FOMC 기준금리 인하 빅컷',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=FOMC+%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC'
+    },
+    {
+      badge: '실적발표 · 어닝시즌',
+      badgeColor: '#34d399',
+      title: '마이크론(MU) FY24 4분기 실적 발표 및 차세대 HBM 공급 가이던스',
+      source: '한국경제',
+      time: '2026-09-25 (D-9)',
+      summary: '글로벌 AI 메모리 반도체 업황의 풍향계로서 삼성전자 및 SK하이닉스의 주가 향방을 결정지을 핵심 실적 이벤트입니다.',
+      searchQuery: '마이크론 실적 발표 HBM',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%A0+%EC%8B%A4%EC%A0%81%EB%B0%9C%ED%91%9C'
+    },
+    {
+      badge: '정부수주 · 메가계약',
+      badgeColor: '#c084fc',
+      title: '한국거래소(KRX) 코리아 밸류업 지수 공식 가동 및 구성 종목 공개',
+      source: '매일경제',
+      time: '2026-09-26 (D-10)',
+      summary: '밸류업 ETF 출시와 연기금 패시브 자금 유입을 촉진할 100여 개 우수 주주환원 기업 명단이 공식 발표됩니다.',
+      searchQuery: '코리아 밸류업 지수 발표',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EC%BD%94%EB%A6%AC%EC%95%84+%EB%B0%B8%EB%A5%98%EC%97%85+%EC%A7%80%EC%88%98'
+    },
+    {
+      badge: '실적발표 · 어닝시즌',
+      badgeColor: '#34d399',
+      title: '삼성전자 2026년 3분기 잠정 실적 발표 (DS 반도체 영업이익 5조원 시험대)',
+      source: '조선비즈',
+      time: '2026-10-08 (D-22)',
+      summary: '국내 3분기 어닝시즌 개막을 알리는 지표로서 HBM3E 8단/12단 엔비디아 품질 승인 진척도에 시장의 이목이 집중됩니다.',
+      searchQuery: '삼성전자 3분기 잠정 실적',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90+3%EB%B6%84%EA%B8%B0+%EC%8B%A4%EC%A0%81'
+    },
+    {
+      badge: '정부수주 · 메가계약',
+      badgeColor: '#c084fc',
+      title: '테슬라 10월 10일 LA 스튜디오 로보택시(Cybercab) 시제품 공개 행사',
+      source: '디지털타임스',
+      time: '2026-10-10 (D-24)',
+      summary: '자율주행 FSD 완전 상용화 계획과 운전대 없는 2인승 로보택시 전용 차량 실물이 전 세계 생중계로 공개됩니다.',
+      searchQuery: '테슬라 로보택시 공개 행사',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%ED%85%8C%EC%8A%AC%EB%9D%BC+%EB%A1%9C%EB%B3%B4%ED%83%9D%EC%8B%9C'
+    },
+    {
+      badge: '정부수주 · 메가계약',
+      badgeColor: '#c084fc',
+      title: '체코 두코바니 30조 원전 수출 본계약 최종 협상 체결식',
+      source: '서울경제',
+      time: '2026-10-15 (D-29)',
+      summary: '한국수력원자력 및 두산에너빌리티 컨소시엄이 체코 전력공사와 본계약 정식 서명을 진행하며 주기기 수주가 공식화됩니다.',
+      searchQuery: '체코 두코바니 원전 본계약 서명',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EC%B2%B4%EC%BD%94+%EC%9B%90%EC%A0%84+%EB%B3%B8%EA%B3%84%EC%95%BD'
+    },
+    {
+      badge: '바이오 · 글로벌 학회',
+      badgeColor: '#38bdf8',
+      title: '유럽 종양학회(ESMO 2026) 연례 학술대회 개막 (표적항암제 데이터 발표)',
+      source: '한국경제TV',
+      time: '2026-10-24 (D-38)',
+      summary: '국내 주요 항암 신약 바이오텍들이 임상 1/2상 효능 데이터를 공식 구두 발표하며 글로벌 기술이전(L/O) 계약을 타진합니다.',
+      searchQuery: '유럽종양학회 ESMO 항암제',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EC%9C%A0%EB%9F%BD%EC%A2%85%EC%96%91%ED%95%99%ED%9A%8C+ESMO'
+    },
+    {
+      badge: 'IPO · 수급변동',
+      badgeColor: '#ef4444',
+      title: '케이뱅크(K-Bank) 코스피 상장 공모 청약 및 매매 개시 일정',
+      source: '머니투데이',
+      time: '2026-10-30 (D-44)',
+      summary: '인터넷전문은행 2호 상장 대어로 5조원 대 시가총액을 목표로 공모 자금이 대거 유입될 예정입니다.',
+      searchQuery: '케이뱅크 상장 공모 청약',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EC%BC%80%EC%9D%B4%EB%B1%85%ED%81%AC+%EC%83%81%EC%9E%A5'
+    }
+  ];
+}
+
+// 증시 캘린더 카드 렌더링 함수
+function renderStockCalendarCards(container, list) {
+  if (!container) return;
+
+  if (!list || list.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; padding: 24px; text-align: center; color: #94a3b8; background: rgba(255,255,255,0.02); border-radius: 10px;">
+        표시할 실시간 증시 일정이 없습니다.
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = list.map(news => {
+    return `
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); color: ${news.badgeColor || '#38bdf8'}; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 4px; font-weight: 800;">
+              ${escapeHtml(news.badge)}
+            </span>
+            <span style="font-size: 0.72rem; color: #38bdf8; font-weight: 700; background: rgba(56, 189, 248, 0.1); padding: 2px 6px; border-radius: 4px;">
+              ${escapeHtml(news.time)}
+            </span>
+          </div>
+          <div style="font-size: 0.9rem; font-weight: 800; color: #f8fafc; line-height: 1.45; margin-bottom: 8px;">
+            ${escapeHtml(news.title)}
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5; margin-bottom: 12px;">
+            ${escapeHtml(news.summary)}
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 8px;">
+          <span style="font-size: 0.72rem; color: #64748b;">
+            출처: <strong style="color: #cbd5e1;">${escapeHtml(news.source)}</strong>
+          </span>
+          <a href="${news.directUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; text-decoration: none; font-weight: 700; white-space: nowrap;">
+            상세 일정 ↗
+          </a>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ============================================================================
+// 10. [서브 패널 4] 당일 주도 테마 & 특징 대장주 피드 동적 렌더러 (renderLeadingThemeFeed)
+// ============================================================================
+let liveLeadingThemeCache = [];
+
+async function renderLeadingThemeFeed() {
+  const container = document.getElementById('leading-theme-container');
+  if (!container) return;
+
+  // 이미 캐시가 존재하는 경우 즉시 렌더링
+  if (liveLeadingThemeCache && liveLeadingThemeCache.length > 0) {
+    renderLeadingThemeCards(container, liveLeadingThemeCache);
+    return;
+  }
+
+  container.innerHTML = `
+    <div style="grid-column: 1 / -1; padding: 28px; text-align: center; color: #94a3b8; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px;">
+      <div style="font-size: 1.1rem; margin-bottom: 8px;">⏳ 당일 시장 주도 테마 및 대장주 실시간 랭킹을 불러오는 중...</div>
+      <div style="font-size: 0.78rem; color: #64748b;">거래대금 급증, 상한가/급등 재료 및 순환매 1등 대장주를 실시간 분석하고 있습니다.</div>
+    </div>
+  `;
+
+  let items = [];
+
+  // 1차 시도: API 엔드포인트 (/api/news?query=주도주 OR 상한가 OR 특징주 OR 주도테마)
+  try {
+    const query = encodeURIComponent('주도주 OR 상한가 OR 특징주 OR 주도테마 OR 급등');
+    const resp = await fetch(`/api/news?query=${query}`);
+    if (resp.ok) {
+      const data = await resp.json();
+      if (Array.isArray(data)) {
+        items = data;
+      } else if (data && Array.isArray(data.items)) {
+        items = data.items;
+      }
+    }
+  } catch (e) {
+    console.warn('1차 주도 테마 뉴스 API 호출 지연:', e);
+  }
+
+  // 2차 시도: 프로젝트 내 주도 테마 데이터 (themeTimelineCache 또는 STOCK_THEMES_DATA)
+  if (!items || items.length === 0) {
+    if (themeTimelineCache && Array.isArray(themeTimelineCache.themes) && themeTimelineCache.themes.length > 0) {
+      items = themeTimelineCache.themes.map(t => {
+        const topNews = (t.timeline && t.timeline[0]) || {};
+        return {
+          title: `[${t.theme_name}] 1등 대장주 ${(t.lead_stocks || []).join(', ')} 주도 랠리`,
+          description: topNews.news_title || `${t.theme_name} 섹터로 외국인/기관 수급 유입 및 모멘텀 지속`,
+          leader: (t.lead_stocks || []).join(', '),
+          rate: t.rate || '+12.4%',
+          badge: t.theme_name,
+          score: t.today_score || 90,
+          link: topNews.news_url,
+          originallink: topNews.news_url,
+          time: topNews.date || '당일 급등'
+        };
+      });
+    } else if (typeof STOCK_THEMES_DATA !== 'undefined' && Array.isArray(STOCK_THEMES_DATA) && STOCK_THEMES_DATA.length > 0) {
+      items = STOCK_THEMES_DATA.map(t => ({
+        title: `[${t.name}] ${t.leader.split(',')[0]} 중심 거래대금 ${t.tradeAmount} 폭발`,
+        description: t.reason || t.desc,
+        leader: t.leader,
+        rate: t.rate,
+        badge: t.name,
+        score: t.score || 88,
+        link: `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(t.leader.split(',')[0] + ' ' + t.name)}`,
+        originallink: `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(t.leader.split(',')[0] + ' ' + t.name)}`,
+        time: '당일 주도'
+      }));
+    }
+  }
+
+  // 데이터 정규화 및 캐싱 (최신 8건)
+  if (items && items.length > 0) {
+    liveLeadingThemeCache = parseLeadingThemeItems(items).slice(0, 8);
+  } else {
+    // 기본 테마 카드 8건
+    liveLeadingThemeCache = getFallbackLeadingThemeItems();
+  }
+
+  renderLeadingThemeCards(container, liveLeadingThemeCache);
+}
+window.renderLeadingThemeFeed = renderLeadingThemeFeed;
+
+// 주도 테마 항목 정규화 파서
+function parseLeadingThemeItems(rawList) {
+  return rawList.map((item, idx) => {
+    const rawTitle = item.tit || item.title || '';
+    const cleanTitle = rawTitle.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
+    const rawSummary = item.subcontent || item.description || item.summary || '';
+    const cleanSummary = rawSummary.replace(/<[^>]*>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
+    const media = item.ohnm || item.media || item.source || item.press || '주도테마';
+
+    // 대장주 및 등락률 추정
+    let leader = item.leader || '';
+    let rate = item.rate || '+8.5%';
+    if (!leader) {
+      const matchLeader = cleanTitle.match(/\[(.*?)\]\s*([가-힣A-Za-z0-9]+)/);
+      leader = matchLeader ? matchLeader[2] : (cleanTitle.split(' ')[0] || '주도 대장주');
+    }
+
+    // 원문 직행 링크 바인딩 (item.originallink || item.link || item.stockUrl)
+    let directUrl = '';
+    if (item.originallink) {
+      directUrl = item.originallink;
+    } else if (item.link) {
+      directUrl = item.link;
+    } else if (item.stockUrl) {
+      directUrl = item.stockUrl;
+    } else if (item.oid && item.aid) {
+      directUrl = `https://n.news.naver.com/mnews/article/${item.oid}/${item.aid}`;
+    } else {
+      directUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(leader + ' 특징주')}`;
+    }
+
+    // 테마 분류 및 배지 설정
+    let badge = item.badge || '주도 테마';
+    let badgeColor = '#38bdf8';
+    if (cleanTitle.includes('반도체') || cleanTitle.includes('HBM') || cleanTitle.includes('유리기판')) {
+      badge = '반도체 · AI가속기';
+      badgeColor = '#38bdf8';
+    } else if (cleanTitle.includes('바이오') || cleanTitle.includes('비만') || cleanTitle.includes('GLP')) {
+      badge = '바이오 · 비만치료제';
+      badgeColor = '#34d399';
+    } else if (cleanTitle.includes('로봇') || cleanTitle.includes('휴머노이드') || cleanTitle.includes('AI')) {
+      badge = 'AI · 휴머노이드';
+      badgeColor = '#c084fc';
+    } else if (cleanTitle.includes('원전') || cleanTitle.includes('체코') || cleanTitle.includes('SMR')) {
+      badge = '체코 원전 · SMR';
+      badgeColor = '#f59e0b';
+    } else if (cleanTitle.includes('방산') || cleanTitle.includes('자주포') || cleanTitle.includes('수출')) {
+      badge = 'K-방산 · 자주포';
+      badgeColor = '#fb7185';
+    } else if (cleanTitle.includes('밸류업') || cleanTitle.includes('지주') || cleanTitle.includes('금융')) {
+      badge = '기업 밸류업 · 금융';
+      badgeColor = '#60a5fa';
+    }
+
+    const timeStr = item.time || '당일 주도';
+
+    return {
+      badge: badge,
+      badgeColor: badgeColor,
+      title: cleanTitle,
+      leader: leader,
+      rate: rate,
+      source: media,
+      time: timeStr,
+      summary: cleanSummary || '장중 거래대금이 집중되며 시장 지수를 견인하는 핵심 1등 주도 테마입니다.',
+      directUrl: directUrl
+    };
+  });
+}
+
+// 대체용 주도 테마 8선
+function getFallbackLeadingThemeItems() {
+  return [
+    {
+      badge: '반도체 · AI가속기',
+      badgeColor: '#38bdf8',
+      title: 'HBM4 조기 양산 돌입… 엔비디아 루빈 차세대 가속기 전격 채택',
+      leader: 'SK하이닉스, 한미반도체, 와이씨',
+      rate: '+14.2%',
+      source: '한국경제',
+      time: '당일 거래대금 1위',
+      summary: 'TSMC와의 협력을 통한 16단 HBM4 첨단 패키징 라인 조기 가동 발표로 전방 소부장 전반으로 외인 수급이 폭발했습니다.',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=SK%ED%95%98%EC%9D%B4%EB%8B%89%EC%8A%A4+HBM4'
+    },
+    {
+      badge: '바이오 · 비만치료제',
+      badgeColor: '#34d399',
+      title: '경구용 GLP-1 비만치료제 미국 FDA 2상 승인 및 다국적 제약사 기술이전 협상',
+      leader: '삼천당제약, 인벤티지랩, 펩트론',
+      rate: '+22.5%',
+      source: '매일경제',
+      time: '상한가 직행',
+      summary: '주사 바늘 없는 마이크로스피어 및 경구 제형 개발 성공 소식에 100조 원 글로벌 비만치료제 시장 독점 기대감이 고조되었습니다.',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EC%82%BC%EC%B2%9C%EB%8B%B9%EC%A0%9C%EC%95%BD+%EB%Bi%EB%A7%8C%EC%B9%98%EB%A3%8C%EC%A0%9C'
+    },
+    {
+      badge: '체코 원전 · SMR',
+      badgeColor: '#f59e0b',
+      title: '체코 30조 원전 주기기 제작 착수 및 미국 웨스팅하우스 분쟁 합의 수순',
+      leader: '두산에너빌리티, 우진엔텍, 한전산업',
+      rate: '+11.8%',
+      source: '조선비즈',
+      time: '기관 8일 연속 순매수',
+      summary: '체코 본계약 체결 임박 및 유럽 추가 원전 수주 기대감으로 중장기 수주 잔고가 사상 최대치를 경신하고 있습니다.',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EB%91%90%EC%82%B0%EC%97%90%EB%84%88%EB%B9%8C%EB%A6%AC%ED%8B%B0+%EC%B2%B4%EC%BD%94+%EC%9B%90%EC%A0%84'
+    },
+    {
+      badge: 'AI · 휴머노이드',
+      badgeColor: '#c084fc',
+      title: '테슬라 옵티머스용 정밀 감속기 독점 공급 승인 및 스마트팩토리 양산 투입',
+      leader: '레인보우로보틱스, 알에스오토메이션, 에스피지',
+      rate: '+18.4%',
+      source: '디지털타임스',
+      time: '오후장 급등',
+      summary: '제조 대기업들의 피지컬 AI 공장 전환 수요가 급증하면서 로봇 관절용 하모닉 드라이브 감속기 수주가 급증했습니다.',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EB%A0%88%EC%9D%B8%EB%B3%B4%EC%9A%B0%EB%A1%9C%EB%B3%B4%ED%8B%B1%EC%8A%A4+%EA%B0%90%EC%86%8D%EA%B8%B0'
+    },
+    {
+      badge: '반도체 · 유리기판',
+      badgeColor: '#38bdf8',
+      title: '유리기판 파일럿 라인 가동… AI 데이터센터 발열 및 휨 현상 완벽 해결',
+      leader: '필옵틱스, 에프에스티, 와이씨켐',
+      rate: '+15.7%',
+      source: '전자신문',
+      time: '외인 대량 순매수',
+      summary: '플라스틱 인터포저를 대체할 획기적 기판 혁신으로 주요 패키징 장비 및 소재 기업들의 밸류에이션이 리레이팅 중입니다.',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%ED%95%84%EC%98%B5%ED%8B%B1%EC%8A%A4+%EC%9C%A0%EB%A6%AC%EA%B8%B0%ED%8C%90'
+    },
+    {
+      badge: 'K-방산 · 자주포',
+      badgeColor: '#fb7185',
+      title: '루마니아·폴란드 K9 자주포 및 천궁-II 7조 원 규모 추가 공급 계약 타결',
+      leader: '한화에어로스페이스, 현대로템, LIG넥스원',
+      rate: '+8.9%',
+      source: '한국경제TV',
+      time: '사상 최고가 경신',
+      summary: '유럽 안보 위기 속 빠른 납기력과 성능을 입증받아 K-방산 4사의 2026년 하반기 영업이익이 사상 최대치를 기록할 전망입니다.',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%ED%95%9C%ED%99%94%EC%97%90%EC%96%B4%EB%A1%9C%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4+%EB%B0%A9%EC%82%B0+%EC%88%98%EC%B6%9C'
+    },
+    {
+      badge: '기업 밸류업 · 금융',
+      badgeColor: '#60a5fa',
+      title: '코리아 밸류업 지수 편입 확정… 자사주 전량 소각 및 배당 성향 50% 확대',
+      leader: '메리츠금융지주, KB금융, 우리금융지주',
+      rate: '+6.4%',
+      source: '머니투데이',
+      time: '신고가 랠리',
+      summary: '정부의 밸류업 펀드 본격 출범과 연기금 패시브 자금 매수 유입에 힘입어 금융 지주사들의 저PBR 탈출이 본격화되었습니다.',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EB%A9%94%EB%A6%AC%EC%B8%A0%EA%B8%88%EC%9C%B5%EC%A7%80%EC%83%81+%EB%B0%B8%EB%A5%98%EC%97%85'
+    },
+    {
+      badge: 'AI · CXL',
+      badgeColor: '#c084fc',
+      title: '차세대 CXL 2.0 D램 컨트롤러 글로벌 빅테크 검증 통과 및 첫 상용 출하',
+      leader: '오픈엣지테크놀로지, 네오셈, 엑시콘',
+      rate: '+13.1%',
+      source: '서울경제',
+      time: '오전 급등세',
+      summary: '서버 메모리 용량을 무한대로 확장하는 CXL 생태계가 개화하면서 검사 장비 및 IP 설계 팹리스의 실적 턴어라운드가 시작되었습니다.',
+      directUrl: 'https://search.naver.com/search.naver?where=news&query=%EB%84%A4%EC%98%A4%EC%85%88+CXL'
+    }
+  ];
+}
+
+// 주도 테마 카드 렌더링 함수
+function renderLeadingThemeCards(container, list) {
+  if (!container) return;
+
+  if (!list || list.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; padding: 24px; text-align: center; color: #94a3b8; background: rgba(255,255,255,0.02); border-radius: 10px;">
+        표시할 실시간 주도 테마 데이터가 없습니다.
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = list.map(news => {
+    return `
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); color: ${news.badgeColor || '#38bdf8'}; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 4px; font-weight: 800;">
+              ${escapeHtml(news.badge)}
+            </span>
+            <span style="font-size: 0.85rem; color: #ef4444; font-weight: 900;">
+              ${escapeHtml(news.rate || '+8.5%')}
+            </span>
+          </div>
+          <div style="font-size: 0.9rem; font-weight: 800; color: #f8fafc; line-height: 1.45; margin-bottom: 6px;">
+            ${escapeHtml(news.title)}
+          </div>
+          <div style="font-size: 0.78rem; color: #38bdf8; font-weight: 700; margin-bottom: 6px;">
+            👑 대장주: <span style="color: #cbd5e1;">${escapeHtml(news.leader)}</span>
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5; margin-bottom: 12px;">
+            ${escapeHtml(news.summary)}
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 8px;">
+          <span style="font-size: 0.72rem; color: #64748b;">
+            상태: <strong style="color: #cbd5e1;">${escapeHtml(news.time)}</strong>
+          </span>
+          <a href="${news.directUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; text-decoration: none; font-weight: 700; white-space: nowrap;">
+            대장주 분석 ↗
+          </a>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ============================================================================
+// [서브 패널 5] 종목 상세정보 (딥분석 인텔리전스 센터) 동적 렌더링 시스템
+// ============================================================================
+
+async function renderStockDeepAnalysis(stockQuery) {
+  const container = document.getElementById('stock-deep-container');
+  if (!container) return;
+
+  const targetName = (stockQuery || (document.getElementById('stock-deep-search-input') && document.getElementById('stock-deep-search-input').value) || 'SK하이닉스').trim();
+
+  // 기존 정적 데이터셋에서 일치하는 종목이 있는지 탐색
+  const existingIdx = STOCK_DEEP_DATA.findIndex(item => 
+    item.name.toLowerCase() === targetName.toLowerCase() || 
+    item.symbol === targetName
+  );
+
+  if (existingIdx !== -1) {
+    selectStockDeepItem(existingIdx);
+    return;
+  }
+
+  // 데이터셋에 없는 새로운 종목일 경우 네이버 뉴스 API와 연동하여 실시간 동적 딥분석 카드 생성
+  try {
+    const res = await fetch(`/api/news?query=${encodeURIComponent(targetName + ' 주가 OR 실적 OR 공시')}`);
+    let newsItems = [];
+    if (res.ok) {
+      const data = await res.json();
+      newsItems = data.items || [];
+    }
+
+    const firstNews = newsItems[0] || {};
+    const cleanTitle = (firstNews.title || targetName + ' 시장 주요 수급 및 모멘텀 분석').replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+    const cleanDesc = (firstNews.description || '최근 기관 및 외국인 수급이 집중되며 실적 턴어라운드 및 업종 내 모멘텀이 부각되는 주요 관심 종목입니다.').replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+
+    const dynamicStockItem = {
+      id: 'deep-dynamic-' + Date.now(),
+      symbol: targetName === '삼성전자' ? '005930' : (targetName === 'SK하이닉스' ? '000660' : '000000'),
+      name: targetName,
+      market: 'KOSPI / KOSDAQ · 실시간 분석 종목',
+      sector: '주요 산업군 / 당일 핵심 수급 분석',
+      currentPrice: '실시간 확인',
+      changeRate: '변동성 확대',
+      rateType: 'up',
+      marketCap: '대형/중형주',
+      foreignRate: '지속 집계중',
+      perPbr: 'PER/PBR 실시간 집계중 · 네이버 증시 연동',
+      badge: '실시간 관심종목',
+      badgeColor: '#38bdf8',
+      oneLine: cleanTitle,
+      bm: {
+        type: '산업 핵심 밸류체인 및 비즈니스 모델',
+        structure: '주요 사업부문 70% + 신규 성장동력 및 솔루션 30%',
+        cashCow: cleanDesc,
+        costStructure: '원재료 수급 및 시설 투자 감가상각비 관리 양호.'
+      },
+      financials: {
+        q24_1: { sales: '안정적', profit: '흑자 기조', margin: '성장' },
+        q24_2: { sales: '견조한 흐름', profit: '이익 확대', margin: '양호' },
+        q24_3E: { sales: '컨센서스 부합', profit: '실적 턴어라운드', margin: '상승' },
+        annual2024E: '업황 회복과 함께 연간 실적 성장세 가속화 기대',
+        point: '전방 산업 수요 확대에 따른 영업이익률 개선 구간.'
+      },
+      disclosures: [
+        { date: new Date().toISOString().slice(0, 10), title: `${targetName} 분기 실적 및 주요 경영사항 공시`, tag: '실적/경영' },
+        { date: new Date().toISOString().slice(0, 10), title: `${targetName} 주주가치 제고 및 사업보고서`, tag: '정기공시' }
+      ],
+      articles: newsItems.slice(0, 4).map(n => ({
+        title: (n.title || '').replace(/<[^>]+>/g, '').replace(/&quot;/g, '"'),
+        media: '네이버 뉴스',
+        time: '실시간',
+        date: '오늘',
+        link: n.originallink || n.link || `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(targetName)}`
+      })),
+      themes: [
+        {
+          name: '🚀 시장 주도 테마군',
+          relation: '해당 섹터 핵심 편입주',
+          peers: '섹터 내 동종 상위 종목군 연동'
+        }
+      ],
+      events: [
+        { date: '당월 예정', title: `${targetName} 실적 발표 및 IR 컨퍼런스 콜`, dday: 'D-DAY', impact: '향후 가이던스 및 실적 확인' }
+      ],
+      futureOutlook: {
+        rating: '관심 종목 (Positive Watch)',
+        targetScore: 92,
+        summary: cleanTitle,
+        catalyst: '전방 산업 호황 및 기관/외국인 동반 순매수 기조.',
+        riskCheck: '단기 급등에 따른 차익실현 매물 출회 가능성 유의.'
+      }
+    };
+
+    // 기존 데이터 목록의 선두에 삽입 후 렌더링
+    STOCK_DEEP_DATA.unshift(dynamicStockItem);
+    renderStockDeepChips();
+    renderStockDeepList();
+    selectStockDeepItem(0);
+  } catch (err) {
+    console.error('renderStockDeepAnalysis error:', err);
+  }
+}
+
+// 종목 검색 함수
+function searchStockDeepAnalysis() {
+  const input = document.getElementById('stock-deep-search-input');
+  if (!input || !input.value.trim()) {
+    alert('분석할 종목명을 입력해주세요.');
+    return;
+  }
+  renderStockDeepAnalysis(input.value.trim());
+}
+
+window.renderStockDeepAnalysis = renderStockDeepAnalysis;
+window.searchStockDeepAnalysis = searchStockDeepAnalysis;

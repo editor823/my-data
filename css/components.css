@@ -4657,3 +4657,115 @@ p, li {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ===== [6번 탭] 유튜브 시황 요약 반응형 스타일 ===== */
+#tab-6 {
+  width: 100%;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+#youtube-briefing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.yt-briefing-card {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.yt-briefing-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.yt-briefing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.yt-briefing-channel {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #38bdf8;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.yt-briefing-date {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.yt-briefing-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.yt-briefing-summary {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 12px 14px;
+  white-space: pre-line;
+}
+
+.yt-briefing-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.yt-briefing-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.yt-briefing-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .yt-briefing-card {
+    padding: 14px;
+  }
+  .yt-briefing-title {
+    font-size: 0.95rem;
+  }
+  .yt-briefing-summary {
+    font-size: 0.82rem;
+    padding: 10px 12px;
+  }
+}
+
