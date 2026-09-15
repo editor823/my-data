@@ -1738,20 +1738,18 @@
 
         <!-- 기간별 상세 비교 분석 테이블 -->
         <div class="kc-box-white-card" style="background: #0f172a;">
-          <h4 style="font-size: 1.05rem; font-weight: 800; color: #f8fafc; margin: 0 0 16px 0;">
-            📈 주요 테마군 5개 기간별 누적 상승률 및 재료 강도 비교표
-          </h4>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+            <h4 id="stock-compare-table-title" style="font-size: 1.05rem; font-weight: 800; color: #f8fafc; margin: 0;">
+              📈 최근 1주일 슈팅 테마별 관련 기사 발생량 및 핵심 뉴스 분석
+            </h4>
+            <span id="stock-compare-table-badge" style="font-size: 0.76rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 3px 10px; border-radius: 6px; font-weight: 700;">
+              1주일 기사 모음 모드
+            </span>
+          </div>
           <div style="overflow-x: auto;">
             <table class="kc-datalab-table" id="stock-compare-table">
-              <thead>
-                <tr>
-                  <th style="text-align: left; padding: 12px 10px;">주요 테마 및 핵심 재료</th>
-                  <th style="text-align: center;">대장주 (대장-부대장)</th>
-                  <th style="text-align: center;">1주일 수익률</th>
-                  <th style="text-align: center;">1개월 누적수익률</th>
-                  <th style="text-align: center;">수급 주체</th>
-                  <th style="text-align: left; padding-left: 14px;">재료 분석 및 매매 전략</th>
-                </tr>
+              <thead id="stock-compare-thead">
+                <!-- 동적으로 JavaScript에서 렌더링 -->
               </thead>
               <tbody id="stock-compare-tbody"></tbody>
             </table>
@@ -2043,7 +2041,7 @@
   <script src="js/external.js?v=20260914_final"></script>
   <script src="js/converter.js?v=20260914_final"></script>
   <script src="js/imggen.js?v=20260914_final"></script>
-  <script src="js/stock.js?v=20260915_themes"></script>
+  <script src="js/stock.js?v=20260915_stock_v2"></script>
   <script src="js/ranktracker.js?v=20260914_final"></script>
 </body>
 </html>

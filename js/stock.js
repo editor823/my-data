@@ -24,6 +24,7 @@ const STOCK_THEMES_DATA = [
     desc: '엔비디아 블랙웰 양산 임박 및 차세대 AI 가속기 루빈 16단 HBM4 규격 확정',
     badge: '1위 주도주',
     badgeColor: '#38bdf8',
+    searchKeyword: 'HBM 유리기판',
     reason: '엔비디아의 차세대 AI 가속기 로드맵 가속화로 16단 HBM4 조기 양산 및 대면적 패키징 발열 해소를 위한 유리기판(Glass Substrate) 장비 공급망으로 외인/기관 5천억 이상 동반 순매수 집중.',
     news: [
       { title: '[단독] 엔비디아 차세대 AI 가속기 샘플 테스트 통과… 내달 양산 개시', source: '한국경제', time: '18분 전' },
@@ -48,6 +49,7 @@ const STOCK_THEMES_DATA = [
     desc: '글로벌 제약사 기술수출(L/O) 본계약 협상 및 경구형(먹는 알약) 캡슐 임상 성공',
     badge: '외인 매집',
     badgeColor: '#34d399',
+    searchKeyword: '비만치료제 GLP-1',
     reason: '주사제 일색이던 비만/당뇨 치료제 시장에서 복용 편의성을 극대화한 경구용 제형 변경 플랫폼 기술을 보유한 국내 바이오텍으로 글로벌 판권 계약 체결 소식이 임박하여 수급 폭발.',
     news: [
       { title: '삼천당제약, 경구용 GLP-1 유럽 5개국 공급 독점 계약 체결 공시', source: '연합뉴스', time: '25분 전' },
@@ -72,6 +74,7 @@ const STOCK_THEMES_DATA = [
     desc: '체코 두코바니 신규 원전 최종 우선협상대상자 선정 및 10월 본계약 조율',
     badge: '정책 모멘텀',
     badgeColor: '#a855f7',
+    searchKeyword: '체코 원전 SMR',
     reason: '체코 30조 원전 수주에 이어 폴란드, UAE 등 후속 수주 기대감과 글로벌 빅테크의 AI 데이터센터 전력 공급용 SMR(소형원자로) 파트너십이 지속 부각되며 연기금 매수세 유입.',
     news: [
       { title: '팀코리아 체코 원전 실무협상단 현지 파견… 연내 본계약 마무리 박차', source: '서울경제', time: '2시간 전' },
@@ -96,6 +99,7 @@ const STOCK_THEMES_DATA = [
     desc: '테슬라 옵티머스 3세대 연내 상용화 및 삼성전자 보핏 양산 확대',
     badge: '기술 트렌드',
     badgeColor: '#fb923c',
+    searchKeyword: '로봇 감속기 액추에이터',
     reason: '글로벌 완성차 및 빅테크의 제조 라인 내 휴머노이드 투입 소식으로 정밀 감속기 및 액추에이터 핵심 부품사들의 구조적 실적 턴어라운드 기대감이 증폭됨.',
     news: [
       { title: '테슬라, 공장 투입용 옵티머스 수천 대 양산 공장 부지 확정', source: '헤럴드경제', time: '3시간 전' },
@@ -120,6 +124,7 @@ const STOCK_THEMES_DATA = [
     desc: '코리아 디스카운트 해소를 위한 밸류업 지수 9월 발표 및 자사주 소각',
     badge: '안정 배당',
     badgeColor: '#60a5fa',
+    searchKeyword: '기업 밸류업 지수',
     reason: '한국거래소 기업 밸류업 지수 공식 발표 및 연기금 패시브 자금 유입 기대감으로 주주환원율 40% 이상 고배당 금융 지주사로 지속적 기관 러브콜.',
     news: [
       { title: '거래소, 9월 밸류업 지수 베일 벗는다… 금융·자동차 편입 유력', source: '파이낸셜뉴스', time: '2시간 전' },
@@ -143,6 +148,7 @@ const STOCK_THEMES_DATA = [
     desc: 'CXL 2.0 메모리 컨트롤러 양산 진입 및 온디바이스 AI 칩 IP 수요 폭증',
     badge: '차세대 CXL',
     badgeColor: '#38bdf8',
+    searchKeyword: 'CXL 2.0 반도체',
     reason: 'HBM의 뒤를 이을 메모리 대역폭 확장 기술인 CXL(컴퓨트 익스프레스 링크) 2.0 상용화 임박과 글로벌 팹리스들의 IP 라이선스 계약 증가.',
     news: [
       { title: '삼성전자·SK하이닉스, CXL 2.0 검증 인프라 구축… 4분기 양산 로드맵', source: '전자신문', time: '1시간 전' },
@@ -158,7 +164,7 @@ const STOCK_THEMES_DATA = [
     rate: '+3.40%',
     rateType: 'up',
     score: 79,
-    scoreNote: '배터리 기술혁신',
+    scoreNote: '배당 방어 섹터',
     tradeAmount: '5,200억',
     leader: '이수스페셜티케미컬, 레이크머티리얼즈, 대주전자재료, 포스코홀딩스',
     symbol: '457190',
@@ -166,6 +172,7 @@ const STOCK_THEMES_DATA = [
     desc: '꿈의 배터리 전고체 파일럿 라인 가동 및 에너지 밀도 20% 향상 실리콘 음극재 납품',
     badge: '전고체 배터리',
     badgeColor: '#f59e0b',
+    searchKeyword: '전고체 배터리 실리콘음극재',
     reason: '화재 위험이 없고 주행거리를 획기적으로 늘리는 황화물계 전고체 배터리 소재 납품 테스트 통과 및 실리콘 음극재 탑재 차량 확대 소식 부각.',
     news: [
       { title: '이수스페셜티케미컬, 황화리튬 양산 설비 증설 완료… 글로벌 셀메이커 공급', source: '머니투데이', time: '2시간 전' },
@@ -189,6 +196,7 @@ const STOCK_THEMES_DATA = [
     desc: '루마니아·폴란드 K9 자주포 및 K2 전차 2차 이행계약 체결 가시화',
     badge: '수주 잭팟',
     badgeColor: '#10b981',
+    searchKeyword: 'K-방산 수출 무기',
     reason: '유럽 및 중동 지정학적 리스크 지속에 따른 무기체계 신속 공급 능력 입증과 천궁-II, K9 자주포 대규모 2차 수출 계약 체결 기대감 고조.',
     news: [
       { title: '한화에어로스페이스, 루마니아 자주포 수주 후속 탄약 운반차 계약 협의', source: '아시아경제', time: '3시간 전' },
@@ -198,61 +206,150 @@ const STOCK_THEMES_DATA = [
   }
 ];
 
-// 2. 1주일 vs 1개월 재료 비교분석 데이터
+// 2. 1주일 vs 1개월 재료 비교분석 데이터 (기사 발생량 및 미래 지속성 정밀 분석)
 const STOCK_COMPARE_DATA = [
   {
     theme: '🔥 HBM · 차세대 패키징',
+    searchKeyword: 'HBM4 유리기판',
     leaders: 'SK하이닉스 · 와이씨 · 필옵틱스',
     weekRate: '+14.2%',
     monthRate: '+38.5%',
     buyer: '외인 · 기관 양매수',
     strength: '⭐⭐⭐⭐⭐ 최상',
-    strategy: '엔비디아 차세대 로드맵 발표 전까지 강한 상방 랠리 유지 가능성. 대장주 위주 보유.'
+    // 1주일 단기 슈팅 및 기사 빈도
+    weekNewsCount: '142건',
+    weekNewsHeadline: '엔비디아 16단 HBM4 규격 조기 채택 발표 및 유리기판 공급망 외인 5천억 매집',
+    weekArticles: [
+      { title: '엔비디아 차세대 가속기 루빈 HBM4 규격 채택… 하이닉스 점유율 1위 굳히기', media: '한국경제', date: '3일 전' },
+      { title: '유리기판 파일럿 라인 가동 본격화… 와이씨·필옵틱스 신고가 랠리', media: '매일경제', date: '5일 전' },
+      { title: '외인·기관 반도체 소부장 1조 순매수… HBM4 장비 발주 사이클 도래', media: '머니투데이', date: '6일 전' }
+    ],
+    // 1개월 누적 기사량 및 미래 지속성 전망
+    monthNewsCount: '528건',
+    futureOutlook: '초강력 (지속성 95점)',
+    futureAnalysis: '글로벌 빅테크(MS, 구글, 메타)의 자체 AI 칩 증설 경쟁으로 2026년까지 공급 부족 지속. 단순 단기 테마가 아닌 1년 이상 지속될 슈퍼 사이클로 조정 시마다 비중 확대 전략 유효.',
+    monthArticles: [
+      { title: '글로벌 AI 데이터센터 전력/발열 잡는다… 유리기판 메가 트렌드 부상', media: '조선비즈', date: '2주 전' },
+      { title: 'SK하이닉스 청주 M15X 조기 완공 추진… 차세대 HBM 패키징 라인 대규모 증설', media: '전자신문', date: '3주 전' },
+      { title: '빅테크 AI CAPEX(설비투자) 200조원 상향 돌파… HBM4 납품 선점 경쟁', media: '디지털타임스', date: '4주 전' }
+    ]
   },
   {
     theme: '💊 경구용 비만치료제',
+    searchKeyword: '경구용 비만치료제 GLP-1',
     leaders: '삼천당제약 · 디앤디파마텍 · 펩트론',
     weekRate: '+18.6%',
     monthRate: '+42.1%',
     buyer: '사모펀드 · 투신 순매수',
     strength: '⭐⭐⭐⭐☆ 상',
-    strategy: '글로벌 빅파마 계약 공시 기대감. 5일 이평선 깨지기 전까지 홀딩.'
+    weekNewsCount: '98건',
+    weekNewsHeadline: '경구용 GLP-1 알약 제형 변경 임상 성공 및 유럽 5개국 공급 독점 계약 공시',
+    weekArticles: [
+      { title: '삼천당제약, 경구용 비만약 유럽 독점 판권 본계약 체결 공시', media: '연합뉴스', date: '2일 전' },
+      { title: '주사 바늘 공포 끝… 먹는 비만약 플랫폼 보유 국내 제약사 글로벌 러브콜', media: '이데일리', date: '4일 전' },
+      { title: '인벤티지랩, 1개월 지속형 주사제 기술수출 협상 마무리 단계', media: '바이오스펙테이터', date: '6일 전' }
+    ],
+    monthNewsCount: '346건',
+    futureOutlook: '상승 추세 지속 (지속성 90점)',
+    futureAnalysis: '글로벌 비만 치료제 시장 100조 돌파 전망. 노보노디스크/일라이릴리의 위고비·젭바운드 품귀 현상으로 제형 변경 플랫폼을 보유한 바이오텍의 추가 기술수출(L/O) 계약 모멘텀 상시 대기.',
+    monthArticles: [
+      { title: '노보노디스크 CEO "먹는 비만약 개발 기업 적극 M&A 추진하겠다"', media: '동아일보', date: '2주 전' },
+      { title: '국내 비만 치료제 파이프라인 빅파마 실사 잇따라… 조 단위 기술이전 기대감', media: '한국경제', date: '3주 전' },
+      { title: '비만 치료제 보험 급여 확대 움직임… 글로벌 처방 건수 사상 최고치 경신', media: '매일경제', date: '4주 전' }
+    ]
   },
   {
     theme: '⚡ 체코 원전 & 소형 SMR',
+    searchKeyword: '체코 원전 SMR 수주',
     leaders: '두산에너빌리티 · 우진엔텍 · 한신기계',
     weekRate: '+7.8%',
     monthRate: '+26.4%',
     buyer: '연기금 순매수 지속',
     strength: '⭐⭐⭐⭐☆ 상',
-    strategy: '본계약 D-Day(10월) 이전까지 소문 단계에서 매집 후 당일 뉴스에 전량 분할 매도.'
+    weekNewsCount: '76건',
+    weekNewsHeadline: '체코 두코바니 30조 원전 실무협상단 현지 급파 및 10월 본계약 로드맵',
+    weekArticles: [
+      { title: '팀코리아 체코 정부와 원전 본계약 세부 조항 협상 순항… 10월 서명 유력', media: '서울경제', date: '1일 전' },
+      { title: '두산에너빌리티, 美 뉴스케일파워 소형 모듈 원자로 주기기 추가 수주', media: '조선비즈', date: '3일 전' },
+      { title: '빅테크 AI 전력난 해소 위해 원전 필수… 美 의회 SMR 인허가 패스트트랙 통과', media: '디지털타임스', date: '5일 전' }
+    ],
+    monthNewsCount: '284건',
+    futureOutlook: '강력 정책 수혜 (지속성 88점)',
+    futureAnalysis: '10월 본계약 체결 일정(D-Day)까지 기대감 극대화 구간. 이후 폴란드, 루마니아, 네덜란드 등 유럽 원전 후속 수출과 글로벌 AI 데이터센터의 SMR 결합으로 중장기 수주 랠리 가시화.',
+    monthArticles: [
+      { title: '정부, 원전 생태계 완전 복원 선언… 5년간 4조원 금융·R&D 지원책 발표', media: '한국경제', date: '2주 전' },
+      { title: '웨스팅하우스 소송 리스크 완화… 한미 원전 동맹 수출 길 활짝 열려', media: '파이낸셜뉴스', date: '3주 전' },
+      { title: '유럽 각국 탈원전 폐기하고 신규 원전 20기 건설 발표… K-원전 최대 수혜', media: '연합뉴스', date: '4주 전' }
+    ]
   },
   {
     theme: '🤖 피지컬 AI & 휴머노이드',
+    searchKeyword: '휴머노이드 로봇 액추에이터',
     leaders: '레인보우로보틱스 · 에스피지 · 로보티즈',
     weekRate: '+4.5%',
     monthRate: '+12.0%',
     buyer: '외인 매수 전환',
     strength: '⭐⭐⭐☆☆ 중',
-    strategy: '박스권 등락 반복. 저점 매수 고점 매도 단타/스윙 플레이 추천.'
+    weekNewsCount: '62건',
+    weekNewsHeadline: '테슬라 옵티머스 3세대 공장 투입용 양산 부지 확정 및 감속기 국산화 수율 95%',
+    weekArticles: [
+      { title: '테슬라 옵티머스 3세대 연내 상용화… 부품사 대상 대량 견적 요청서 발송', media: '헤럴드경제', date: '2일 전' },
+      { title: '에스피지, 초정밀 로봇 감속기 국산화 성공… 글로벌 로봇사에 초도 납품', media: '전자신문', date: '4일 전' },
+      { title: '레인보우로보틱스, 삼성전자 스마트팩토리 협동로봇 전면 배치 착수', media: '머니S', date: '5일 전' }
+    ],
+    monthNewsCount: '210건',
+    futureOutlook: '중기 변동성 (지속성 82점)',
+    futureAnalysis: '완성차 조립 라인의 휴머노이드 투입은 거스를 수 없는 대세이나, 실제 실적 반영까지 1~2개 분기 소요 예상. 일정(옵티머스 공개, 로봇 양산 이벤트)에 따른 박스권 눌림목 매매 추천.',
+    monthArticles: [
+      { title: '현대차그룹 보스턴다이내믹스 아틀라스 전기식 신모델 공장 실증 테스트 돌입', media: '매일경제', date: '2주 전' },
+      { title: '피지컬 AI 혁명… 로봇 파운데이션 모델(RFM) 연구에 빅테크 50조 투자', media: '조선일보', date: '3주 전' },
+      { title: '산업부, 지능형 로봇 기본계획 2.0 발표… 지능형 감속기 R&D 세액공제 확대', media: '연합뉴스', date: '4주 전' }
+    ]
   },
   {
     theme: '🏛️ 저PBR 기업 밸류업',
+    searchKeyword: '기업 밸류업 지수 고배당',
     leaders: 'KB금융 · 메리츠금융 · 신한지주',
     weekRate: '+2.1%',
     monthRate: '+9.8%',
     buyer: '외인 지속 매수',
     strength: '⭐⭐⭐☆☆ 중',
-    strategy: '시장 하락장 방어주로 포트폴리오 20% 비중 편입 적합.'
+    weekNewsCount: '54건',
+    weekNewsHeadline: '거래소 9월 하순 KRX 밸류업 지수 공식 발표 및 금융지주 자사주 소각 확대',
+    weekArticles: [
+      { title: '한국거래소, 9월 밸류업 지수 편입 100개 종목 가이드라인 최종 조율', media: '파이낸셜뉴스', date: '2일 전' },
+      { title: '금융지주 4사, 3분기 총주주환원율 40% 돌파… 배당주 펀드로 기관 뭉칫돈 유입', media: '한국경제TV', date: '4일 전' }
+    ],
+    monthNewsCount: '195건',
+    futureOutlook: '하방 경직성 보유 (지속성 80점)',
+    futureAnalysis: '지수 발표 후 10월부터 연계 ETF 신규 상장 및 연기금 패시브 자금 1조원 이상 유입 예정. 시장 급락 시에도 배당 수익률로 하방을 지지하는 든든한 포트폴리오 방어주 역할.',
+    monthArticles: [
+      { title: '국민연금, 국내 주식 위탁운용사에 밸류업 지표 평가 반영 추진', media: '연합뉴스', date: '2주 전' },
+      { title: '상장사 자사주 소각 금액 전년비 2배 폭증… 주주환원 선진국형 안착 가속화', media: '서울경제', date: '3주 전' }
+    ]
   },
   {
     theme: '🛡️ K-방산 수출 랠리',
+    searchKeyword: 'K-방산 수출 계약',
     leaders: '한화에어로 · 현대로템 · LIG넥스원',
     weekRate: '+6.2%',
     monthRate: '+19.5%',
     buyer: '기관 6일 연속 매수',
     strength: '⭐⭐⭐⭐☆ 상',
-    strategy: '수주 잔고 최고치 경신 중. 20일선 눌림목 반등 타점에서 분할 매수.'
+    weekNewsCount: '81건',
+    weekNewsHeadline: '루마니아·폴란드 K9 자주포 및 K2 전차 2차 실행계약 연내 체결 확실시',
+    weekArticles: [
+      { title: '한화에어로스페이스, 루마니아 자주포 수주 후속 탄약 운반차 계약 마무리 단계', media: '아시아경제', date: '1일 전' },
+      { title: '현대로템 폴란드 K2 2차 계약 4조원대 임박… 생산 라인 풀가동 돌입', media: '조선비즈', date: '3일 전' },
+      { title: '중동 천궁-II 미사일 요격체계 추가 수출 타진… K-방산 수주잔고 100조 돌파', media: '매일경제', date: '5일 전' }
+    ],
+    monthNewsCount: '260건',
+    futureOutlook: '실적 기반 탄탄 (지속성 89점)',
+    futureAnalysis: '지정학적 리스크 지속과 전 세계적인 국방비 증액으로 향후 3~4년간 안정적인 매출 인식 확정. 환율 우호적 환경과 분기 실적 서프라이즈가 지속되며 지수 대비 강한 상대적 강도 유지 전망.',
+    monthArticles: [
+      { title: '나토 회원국 국방비 GDP 2% 달성 의무화… 한국산 무기체계 납기 경쟁력 독보적', media: '조선일보', date: '2주 전' },
+      { title: '방산업계 하반기 영업이익 사상 최대 전망… 증권사 일제히 목표주가 상향', media: '한국경제', date: '3주 전' }
+    ]
   }
 ];
 
@@ -397,21 +494,30 @@ function selectStockTheme(idx, dataList = STOCK_THEMES_DATA) {
   const panel = document.getElementById('stock-theme-detail');
   if (!panel || !item) return;
 
-  const newsHtml = item.news.map(n => `
-    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px 14px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
-      <div>
-        <div style="font-size: 0.88rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px;">
+  const newsHtml = item.news.map(n => {
+    // [단독], [특징주] 등의 말머리 태그를 제거한 핵심 검색어로 정확한 기사를 검색
+    const cleanTitle = n.title.replace(/\[.*?\]/g, '').trim();
+    const articleSearchUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(cleanTitle || n.title)}`;
+    return `
+    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px 14px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+      <div style="flex: 1;">
+        <div style="font-size: 0.88rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; line-height: 1.4;">
           ${escapeHtml(n.title)}
         </div>
         <div style="font-size: 0.74rem; color: #94a3b8;">
           ${escapeHtml(n.source)} · ${escapeHtml(n.time)}
         </div>
       </div>
-      <a href="https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(item.name.split(' ')[0])}" target="_blank" rel="noopener noreferrer" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 0.76rem; text-decoration: none; font-weight: 700; white-space: nowrap;">
+      <a href="${articleSearchUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 5px 12px; border-radius: 6px; font-size: 0.76rem; text-decoration: none; font-weight: 700; white-space: nowrap; transition: all 0.2s ease;">
         기사 보기 ↗
       </a>
     </div>
-  `).join('');
+  `;
+  }).join('');
+
+  // 관련 뉴스 전체보기 링크 생성: 테마별 명확한 검색 키워드로 연결
+  const relatedNewsKeyword = item.searchKeyword || `${item.leader.split(',')[0]} ${item.name.replace(/&/g, '')}`.trim();
+  const relatedNewsUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(relatedNewsKeyword)}`;
 
   panel.innerHTML = `
     <div class="kc-white-report-container" style="background: #0f172a; border-color: rgba(255,255,255,0.08);">
@@ -498,8 +604,8 @@ function selectStockTheme(idx, dataList = STOCK_THEMES_DATA) {
         <a href="https://finance.naver.com/item/main.naver?code=${item.symbol || '000660'}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn portal-green">
           네이버 증권 시세
         </a>
-        <a href="https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(item.name.split(' ')[0])}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
-          관련 뉴스 전체보기
+        <a href="${relatedNewsUrl}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn" title="'${escapeHtml(relatedNewsKeyword)}' 네이버 뉴스 검색">
+          관련 뉴스 전체보기 ↗
         </a>
         <a href="https://finance.daum.net/" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
           다음 금융
@@ -535,21 +641,176 @@ window.switchStockChartTime = function(symbol, type, btn) {
   chartImg.src = newUrl;
 };
 
-// 1주일 & 1달 재료 비교 테이블 렌더링
+// 1주일 & 1달 재료 비교 테이블 렌더링 (요구사항 3번 반영)
 function renderStockCompareTable(period = 'week') {
   const tbody = document.getElementById('stock-compare-tbody');
-  if (!tbody) return;
+  const thead = document.getElementById('stock-compare-thead');
+  const titleEl = document.getElementById('stock-compare-table-title');
+  const badgeEl = document.getElementById('stock-compare-table-badge');
+  if (!tbody || !thead) return;
 
-  tbody.innerHTML = STOCK_COMPARE_DATA.map(row => `
-    <tr>
-      <td style="padding: 12px 10px; font-weight: 800; color: #f8fafc;">${row.theme}</td>
-      <td style="padding: 12px 10px; text-align: center; color: #94a3b8; font-weight: 600;">${row.leaders}</td>
-      <td style="padding: 12px 10px; text-align: center; font-weight: 900; color: #ef4444;">${row.weekRate}</td>
-      <td style="padding: 12px 10px; text-align: center; font-weight: 900; color: #f59e0b;">${row.monthRate}</td>
-      <td style="padding: 12px 10px; text-align: center; color: #34d399; font-weight: 700;">${row.buyer}</td>
-      <td style="padding: 12px 14px; color: #cbd5e1; font-size: 0.82rem; line-height: 1.5;">${row.strategy}</td>
-    </tr>
-  `).join('');
+  if (period === 'week') {
+    if (titleEl) titleEl.textContent = '⚡ 오늘 슈팅 테마 2번 재료모음: 최근 1주일간 관련 기사 빈도 및 발생량 모음';
+    if (badgeEl) {
+      badgeEl.textContent = '1주일 기사 모음 모드 (단기 슈팅 모멘텀)';
+      badgeEl.style.background = 'rgba(56, 189, 248, 0.15)';
+      badgeEl.style.color = '#38bdf8';
+      badgeEl.style.borderColor = 'rgba(56, 189, 248, 0.3)';
+    }
+
+    thead.innerHTML = `
+      <tr>
+        <th style="text-align: left; padding: 12px 10px; width: 170px;">주요 슈팅 테마</th>
+        <th style="text-align: center; width: 150px;">대장주 (종목군)</th>
+        <th style="text-align: center; width: 110px;">1주 누적 기사량</th>
+        <th style="text-align: center; width: 100px;">1주 수익률</th>
+        <th style="text-align: left; padding-left: 14px;">1주일간 관련 기사 모음 & 단기 슈팅 핵심 재료</th>
+      </tr>
+    `;
+
+    tbody.innerHTML = STOCK_COMPARE_DATA.map(row => {
+      const articlesHtml = (row.weekArticles || []).map(a => {
+        const cleanT = a.title.replace(/\[.*?\]/g, '').trim();
+        const newsLink = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(cleanT || a.title)}`;
+        return `
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px dashed rgba(255,255,255,0.06); gap: 8px;">
+            <div style="font-size: 0.78rem; color: #cbd5e1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1;">
+              • <strong style="color: #94a3b8;">[${escapeHtml(a.media)}]</strong> ${escapeHtml(a.title)}
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+              <span style="font-size: 0.7rem; color: #64748b;">${escapeHtml(a.date)}</span>
+              <a href="${newsLink}" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; font-size: 0.7rem; text-decoration: none; font-weight: 700;">
+                기사 ↗
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <tr>
+          <td style="padding: 14px 10px; font-weight: 800; color: #f8fafc; vertical-align: top;">
+            ${row.theme}
+            <div style="margin-top: 4px;">
+              <a href="https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(row.searchKeyword || row.theme)}" target="_blank" rel="noopener noreferrer" style="font-size: 0.72rem; color: #38bdf8; text-decoration: none; background: rgba(56,189,248,0.1); padding: 2px 6px; border-radius: 4px; display: inline-block;">
+                1주 뉴스 모음 ↗
+              </a>
+            </div>
+          </td>
+          <td style="padding: 14px 10px; text-align: center; color: #94a3b8; font-weight: 600; vertical-align: top; font-size: 0.84rem;">
+            ${row.leaders}
+          </td>
+          <td style="padding: 14px 10px; text-align: center; vertical-align: top;">
+            <span style="display: inline-block; background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); padding: 4px 10px; border-radius: 8px; font-weight: 900; font-size: 0.88rem;">
+              🔥 ${row.weekNewsCount || '80+건'}
+            </span>
+            <div style="font-size: 0.7rem; color: #64748b; margin-top: 4px;">주간 기사 폭증</div>
+          </td>
+          <td style="padding: 14px 10px; text-align: center; font-weight: 900; color: #ef4444; vertical-align: top; font-size: 0.95rem;">
+            ${row.weekRate}
+          </td>
+          <td style="padding: 14px 14px; vertical-align: top;">
+            <div style="font-size: 0.85rem; font-weight: 700; color: #38bdf8; margin-bottom: 8px; line-height: 1.4;">
+              📢 ${escapeHtml(row.weekNewsHeadline || '')}
+            </div>
+            <div style="background: rgba(0,0,0,0.25); border-radius: 6px; padding: 6px 10px; border: 1px solid rgba(255,255,255,0.05);">
+              ${articlesHtml}
+            </div>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+  } else {
+    // 1개월 비교 모드: 1달 동안 관련 기사 누적량 나열 및 미래 지속성 정밀 분석
+    if (titleEl) titleEl.textContent = '🔮 1달 비교 분석: 1개월간 누적 기사 나열 및 앞으로의 미래 지속성 종합 평가';
+    if (badgeEl) {
+      badgeEl.textContent = '1개월 누적 비교 모드 (미래 지속성 분석)';
+      badgeEl.style.background = 'rgba(16, 185, 129, 0.15)';
+      badgeEl.style.color = '#34d399';
+      badgeEl.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+    }
+
+    thead.innerHTML = `
+      <tr>
+        <th style="text-align: left; padding: 12px 10px; width: 170px;">테마 및 모멘텀</th>
+        <th style="text-align: center; width: 140px;">대장주</th>
+        <th style="text-align: center; width: 110px;">1달 누적 기사량</th>
+        <th style="text-align: center; width: 100px;">1달 상승률</th>
+        <th style="text-align: center; width: 140px;">미래 지속성 평가</th>
+        <th style="text-align: left; padding-left: 14px;">1달간 주요 기사 나열 & 향후 지속성 정밀 분석</th>
+      </tr>
+    `;
+
+    tbody.innerHTML = STOCK_COMPARE_DATA.map(row => {
+      const articlesHtml = (row.monthArticles || []).map(a => {
+        const cleanT = a.title.replace(/\[.*?\]/g, '').trim();
+        const newsLink = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(cleanT || a.title)}`;
+        return `
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px dashed rgba(255,255,255,0.06); gap: 8px;">
+            <div style="font-size: 0.78rem; color: #cbd5e1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1;">
+              • <strong style="color: #34d399;">[${escapeHtml(a.media)}]</strong> ${escapeHtml(a.title)}
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+              <span style="font-size: 0.7rem; color: #64748b;">${escapeHtml(a.date)}</span>
+              <a href="${newsLink}" target="_blank" rel="noopener noreferrer" style="color: #34d399; font-size: 0.7rem; text-decoration: none; font-weight: 700;">
+                기사 ↗
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <tr>
+          <td style="padding: 14px 10px; font-weight: 800; color: #f8fafc; vertical-align: top;">
+            ${row.theme}
+            <div style="margin-top: 4px;">
+              <a href="https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(row.searchKeyword || row.theme)}" target="_blank" rel="noopener noreferrer" style="font-size: 0.72rem; color: #34d399; text-decoration: none; background: rgba(16,185,129,0.1); padding: 2px 6px; border-radius: 4px; display: inline-block;">
+                1달 뉴스 전체 ↗
+              </a>
+            </div>
+          </td>
+          <td style="padding: 14px 10px; text-align: center; color: #94a3b8; font-weight: 600; vertical-align: top; font-size: 0.84rem;">
+            ${row.leaders}
+          </td>
+          <td style="padding: 14px 10px; text-align: center; vertical-align: top;">
+            <span style="display: inline-block; background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); padding: 4px 10px; border-radius: 8px; font-weight: 900; font-size: 0.88rem;">
+              📚 ${row.monthNewsCount || '200+건'}
+            </span>
+            <div style="font-size: 0.7rem; color: #64748b; margin-top: 4px;">1달간 누적</div>
+          </td>
+          <td style="padding: 14px 10px; text-align: center; font-weight: 900; color: #f59e0b; vertical-align: top; font-size: 0.95rem;">
+            ${row.monthRate}
+          </td>
+          <td style="padding: 14px 10px; text-align: center; vertical-align: top;">
+            <div style="font-size: 0.82rem; font-weight: 800; color: #38bdf8; margin-bottom: 4px;">
+              ${escapeHtml(row.futureOutlook || '양호')}
+            </div>
+            <div style="font-size: 0.74rem; color: #e2e8f0; background: rgba(56,189,248,0.1); padding: 2px 6px; border-radius: 4px; display: inline-block;">
+              ${row.strength}
+            </div>
+          </td>
+          <td style="padding: 14px 14px; vertical-align: top;">
+            <!-- 1달 미래 지속성 분석 리포트 -->
+            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 8px; padding: 10px 12px; margin-bottom: 10px;">
+              <div style="font-size: 0.78rem; font-weight: 800; color: #38bdf8; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
+                <span>🔭</span> 향후 미래 지속성 및 수석 연구원 총평:
+              </div>
+              <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.55;">
+                ${escapeHtml(row.futureAnalysis || row.strategy)}
+              </div>
+            </div>
+            <!-- 1개월 주요 기사 목록 나열 -->
+            <div style="background: rgba(0,0,0,0.25); border-radius: 6px; padding: 6px 10px; border: 1px solid rgba(255,255,255,0.05);">
+              <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700; margin-bottom: 4px;">1달간 핵심 주요 기사 히스토리:</div>
+              ${articlesHtml}
+            </div>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }
 }
 
 // 증시 캘린더 렌더링
