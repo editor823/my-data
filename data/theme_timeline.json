@@ -1,0 +1,208 @@
+{
+  "last_updated": "2026-09-15T08:08:52.123Z",
+  "themes": [
+    {
+      "theme_id": "hbm_glass",
+      "theme_name": "차세대 HBM4 & 유리기판",
+      "category": "반도체/AI",
+      "today_score": 100,
+      "today_change_rate": "+8.45%",
+      "today_trading_volume": "1조 8,400억",
+      "lead_stocks": [
+        "SK하이닉스",
+        "와이씨",
+        "에프에스티",
+        "필옵틱스"
+      ],
+      "today_reason": "엔비디아 차세대 AI 가속기 로드맵 가속화 및 유리기판/HBM4 장비 공급망 수급 집중",
+      "timeline": [
+        {
+          "date": "2026-09-15",
+          "news_title": "오픈엣지테크놀로지, CXL 2.0 고성능 메모리 컨트롤러 IP 글로벌 라이선스 계약",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%98%A4%ED%94%88%EC%97%A3%EC%A7%80%ED%85%8C%ED%81%AC%EB%86%80%EB%A1%9C%EC%A7%80%2C%20CXL%202.0%20%EA%B3%A0%EC%84%B1%EB%8A%A5%20%EB%A9%94%EB%AA%A8%EB%A6%AC%20%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%20IP%20%EA%B8%80%EB%A1%9C%EB%B2%8C%20%EB%9D%BC%EC%9D%B4%EC%84%A0%EC%8A%A4%20%EA%B3%84%EC%95%BD",
+          "press": "디지털타임스",
+          "impact": "상승 모멘텀"
+        },
+        {
+          "date": "2026-09-15",
+          "news_title": "[특징주] 필옵틱스, 세계 최초 유리기판 TGV 커팅 양산 장비 수주 임박 소식에 14% 급등",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=%ED%95%84%EC%98%B5%ED%8B%B1%EC%8A%A4%2C%20%EC%84%B8%EA%B3%84%20%EC%B5%9C%EC%B4%88%20%EC%9C%A0%EB%A6%AC%EA%B8%B0%ED%8C%90%20TGV%20%EC%BB%A4%ED%8C%85%20%EC%96%91%EC%82%B0%20%EC%9E%A5%EB%B9%84%20%EC%88%98%EC%A3%BC%20%EC%9E%84%EB%B0%95%20%EC%86%8C%EC%8B%9D%EC%97%90%2014%25%20%EA%B8%89%EB%93%B1",
+          "press": "머니투데이",
+          "impact": "강한 상승"
+        },
+        {
+          "date": "2026-09-15",
+          "news_title": "SK하이닉스, 외국인·기관 5일 연속 동반 쌍끌이 매수… 주가 17만원 선 노크",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=SK%ED%95%98%EC%9D%B4%EB%8B%89%EC%8A%A4%2C%20%EC%99%B8%EA%B5%AD%EC%9D%B8%C2%B7%EA%B8%B0%EA%B4%80%205%EC%9D%BC%20%EC%97%B0%EC%86%8D%20%EB%8F%99%EB%B0%98%20%EC%8C%8D%EB%81%8C%EC%9D%B4%20%EB%A7%A4%EC%88%98%E2%80%A6%20%EC%A3%BC%EA%B0%80%2017%EB%A7%8C%EC%9B%90%20%EC%84%A0%20%EB%85%B8%ED%81%AC",
+          "press": "매일경제",
+          "impact": "상승 모멘텀"
+        },
+        {
+          "date": "2026-09-15",
+          "news_title": "[특징주] 와이씨, 엔비디아 차세대 AI 가속기 테스트 장비 공급 승인에 22% 폭등",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%99%80%EC%9D%B4%EC%94%A8%2C%20%EC%97%94%EB%B9%84%EB%94%94%EC%95%84%20%EC%B0%A8%EC%84%B8%EB%8C%80%20AI%20%EA%B0%80%EC%86%8D%EA%B8%B0%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EC%9E%A5%EB%B9%84%20%EA%B3%B5%EA%B8%89%20%EC%8A%B9%EC%9D%B8%EC%97%90%2022%25%20%ED%8F%AD%EB%93%B1",
+          "press": "한국경제",
+          "impact": "강한 상승"
+        }
+      ]
+    },
+    {
+      "theme_id": "glp1_bio",
+      "theme_name": "비만치료제 GLP-1 & 경구용 펩타이드",
+      "category": "바이오/제약",
+      "today_score": 95,
+      "today_change_rate": "+6.12%",
+      "today_trading_volume": "9,200억",
+      "lead_stocks": [
+        "삼천당제약",
+        "인벤티지랩",
+        "디앤디파마텍",
+        "펩트론"
+      ],
+      "today_reason": "글로벌 제약사 기술수출 본계약 협상 및 주사제가 아닌 먹는 비만약(경구용) 상용화 기대감 고조",
+      "timeline": [
+        {
+          "date": "2026-09-15",
+          "news_title": "인벤티지랩, 장기지속형 비만 주사제 글로벌 빅파마 파트너십 미팅 마무리",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%9D%B8%EB%B2%A4%ED%8B%B0%EC%A7%80%EB%9E%A9%2C%20%EC%9E%A5%EA%B8%B0%EC%A7%80%EC%86%8D%ED%98%95%20%EB%B9%84%EB%A7%8C%20%EC%A3%BC%EC%82%AC%EC%A0%9C%20%EA%B8%80%EB%A1%9C%EB%B2%8C%20%EB%B9%85%ED%8C%8C%EB%A7%88%20%ED%8C%8C%ED%8A%B8%EB%84%88%EC%8B%AD%20%EB%AF%B8%ED%8C%85%20%EB%A7%88%EB%AC%B4%EB%A6%AC",
+          "press": "이데일리",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "date": "2026-09-15",
+          "news_title": "삼천당제약, 경구용 GLP-1 비만치료제 유럽 5개국 독점 판매 본계약 체결 공시",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%82%BC%EC%B2%9C%EB%8B%B9%EC%A0%9C%EC%95%BD%2C%20%EA%B2%BD%EA%B5%AC%EC%9A%A9%20GLP-1%20%EB%B9%84%EB%A7%8C%EC%B9%98%EB%A3%8C%EC%A0%9C%20%EC%9C%A0%EB%9F%BD%205%EA%B0%9C%EA%B5%AD%20%EB%8F%85%EC%A0%90%20%ED%8C%90%EB%A7%A4%20%EB%B3%B8%EA%B3%84%EC%95%BD%20%EC%B2%B4%EA%B2%B0%20%EA%B3%B5%EC%8B%9C",
+          "press": "연합뉴스",
+          "impact": "상승 모멘텀"
+        }
+      ]
+    },
+    {
+      "theme_id": "smr_nuclear",
+      "theme_name": "체코 30조 원전 & 소형 SMR/전력망",
+      "category": "정책/원전/전력",
+      "today_score": 92,
+      "today_change_rate": "+4.85%",
+      "today_trading_volume": "7,600억",
+      "lead_stocks": [
+        "두산에너빌리티",
+        "한신기계",
+        "우진엔텍",
+        "일진파워"
+      ],
+      "today_reason": "체코 두코바니 30조 원전 10월 본계약 기대감 및 AI 데이터센터 전력난 해소용 SMR 수요 폭증",
+      "timeline": [
+        {
+          "date": "2026-09-15",
+          "news_title": "우진엔텍, 원전 해체 및 계측제어설비 정비 정밀 진단 시스템 특허 등록 완료",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%9A%B0%EC%A7%84%EC%97%94%ED%85%8D%2C%20%EC%9B%90%EC%A0%84%20%ED%95%B4%EC%B2%B4%20%EB%B0%8F%20%EA%B3%84%EC%B8%A1%EC%A0%9C%EC%96%B4%EC%84%A4%EB%B9%84%20%EC%A0%95%EB%B9%84%20%EC%A0%95%EB%B0%80%20%EC%A7%84%EB%8B%A8%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%ED%8A%B9%ED%97%88%20%EB%93%B1%EB%A1%9D%20%EC%99%84%EB%A3%8C",
+          "press": "파이낸셜뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "date": "2026-09-15",
+          "news_title": "두산에너빌리티, 체코 원전 실무협상단 현지 파견… 10월 본계약 준비 완료",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=%EB%91%90%EC%82%B0%EC%97%90%EB%84%88%EB%B9%8C%EB%A6%AC%ED%8B%B0%2C%20%EC%B2%B4%EC%BD%94%20%EC%9B%90%EC%A0%84%20%EC%8B%A4%EB%AC%B4%ED%98%91%EC%83%81%EB%8B%A8%20%ED%98%84%EC%A7%80%20%ED%8C%8C%EA%B2%AC%E2%80%A6%2010%EC%9B%94%20%EB%B3%B8%EA%B3%84%EC%95%BD%20%EC%A4%80%EB%B9%84%20%EC%99%84%EB%A3%8C",
+          "press": "조선비즈",
+          "impact": "모멘텀 지속"
+        }
+      ]
+    },
+    {
+      "theme_id": "robot_ai",
+      "theme_name": "로봇용 액추에이터 & 피지컬 AI",
+      "category": "로봇/AI",
+      "today_score": 87,
+      "today_change_rate": "+3.90%",
+      "today_trading_volume": "5,400억",
+      "lead_stocks": [
+        "레인보우로보틱스",
+        "에스피지",
+        "로보티즈",
+        "두산로보틱스"
+      ],
+      "today_reason": "빅테크 제조 라인 내 휴머노이드 투입 및 정밀 감속기 부품 국산화 양산 납품 본격화",
+      "timeline": [
+        {
+          "date": "2026-09-15",
+          "news_title": "[특징주] 에스피지, 휴머노이드 투입용 초정밀 감속기 수율 95% 달성에 9% 강세",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%97%90%EC%8A%A4%ED%94%BC%EC%A7%80%2C%20%ED%9C%B4%EB%A8%B8%EB%85%B8%EC%9D%B4%EB%93%9C%20%ED%88%AC%EC%9E%85%EC%9A%A9%20%EC%B4%88%EC%A0%95%EB%B0%80%20%EA%B0%90%EC%86%8D%EA%B8%B0%20%EC%88%98%EC%9C%A8%2095%25%20%EB%8B%AC%EC%84%B1%EC%97%90%209%25%20%EA%B0%95%EC%84%B8",
+          "press": "전자신문",
+          "impact": "모멘텀 지속"
+        }
+      ]
+    },
+    {
+      "theme_id": "defense_k",
+      "theme_name": "K-방산 수출 & 자주포/미사일",
+      "category": "방산/항공",
+      "today_score": 85,
+      "today_change_rate": "+2.80%",
+      "today_trading_volume": "4,500억",
+      "lead_stocks": [
+        "한화에어로스페이스",
+        "LIG넥스원",
+        "현대로템",
+        "한국항공우주"
+      ],
+      "today_reason": "루마니아·폴란드 후속 탄약운반차 및 전차 2차 실행계약 연내 체결 임박에 따른 수주 랠리",
+      "timeline": [
+        {
+          "date": "2026-09-15",
+          "news_title": "한화에어로스페이스, 루마니아 K9 자주포 후속 탄약운반차 4,500억 추가 계약 협의",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=%ED%95%9C%ED%99%94%EC%97%90%EC%96%B4%EB%A1%9C%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%2C%20%EB%A3%A8%EB%A7%88%EB%8B%88%EC%95%84%20K9%20%EC%9E%90%EC%A3%BC%ED%8F%AC%20%ED%9B%84%EC%86%8D%20%ED%83%84%EC%95%BD%EC%9A%B4%EB%B0%98%EC%B0%A8%204%2C500%EC%96%B5%20%EC%B6%94%EA%B0%80%20%EA%B3%84%EC%95%BD%20%ED%98%91%EC%9D%98",
+          "press": "아시아경제",
+          "impact": "강한 상승"
+        }
+      ]
+    },
+    {
+      "theme_id": "valueup_finance",
+      "theme_name": "밸류업 지배구조 & 금융/지주사",
+      "category": "정책/금융",
+      "today_score": 84,
+      "today_change_rate": "+2.10%",
+      "today_trading_volume": "6,100억",
+      "lead_stocks": [
+        "KB금융",
+        "메리츠금융지주",
+        "신한지주",
+        "삼성물산"
+      ],
+      "today_reason": "한국거래소 9월 밸류업 지수 발표를 앞두고 고배당 금융 지주사로 연기금 매수세 집중",
+      "timeline": [
+        {
+          "date": "2026-09-15",
+          "news_title": "KB금융, 밸류업 지수 편입 및 자사주 3,000억 추가 매입 소각 결의 기대에 상승",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=KB%EA%B8%88%EC%9C%B5%2C%20%EB%B0%B8%EB%A5%98%EC%97%85%20%EC%A7%80%EC%88%98%20%ED%8E%B8%EC%9E%85%20%EB%B0%8F%20%EC%9E%90%EC%82%AC%EC%A3%BC%203%2C000%EC%96%B5%20%EC%B6%94%EA%B0%80%20%EB%A7%A4%EC%9E%85%20%EC%86%8C%EA%B0%81%20%EA%B2%B0%EC%9D%98%20%EA%B8%B0%EB%8C%80%EC%97%90%20%EC%83%81%EC%8A%B9",
+          "press": "한국경제TV",
+          "impact": "모멘텀 지속"
+        }
+      ]
+    },
+    {
+      "theme_id": "battery_solid",
+      "theme_name": "2차전지 전고체 & 실리콘 음극재",
+      "category": "2차전지/소재",
+      "today_score": 82,
+      "today_change_rate": "+3.40%",
+      "today_trading_volume": "5,200억",
+      "lead_stocks": [
+        "이수스페셜티케미컬",
+        "레이크머티리얼즈",
+        "대주전자재료",
+        "포스코홀딩스"
+      ],
+      "today_reason": "꿈의 배터리 전고체 배터리 핵심 원료 고객사 납품 승인 및 차세대 음극재 채택 확대",
+      "timeline": [
+        {
+          "date": "2026-09-15",
+          "news_title": "[특징주] 이수스페셜티케미컬, 황화리튬 양산 라인 풀가동… 삼성SDI 파일럿 공급 부각",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%9D%B4%EC%88%98%EC%8A%A4%ED%8E%98%EC%85%9C%ED%8B%B0%EC%BC%80%EB%AF%B8%EC%BB%AC%2C%20%ED%99%A9%ED%99%94%EB%A6%AC%ED%8A%AC%20%EC%96%91%EC%82%B0%20%EB%9D%BC%EC%9D%B8%20%ED%92%80%EA%B0%80%EB%8F%99%E2%80%A6%20%EC%82%BC%EC%84%B1SDI%20%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EA%B3%B5%EA%B8%89%20%EB%B6%80%EA%B0%81",
+          "press": "머니S",
+          "impact": "상승 모멘텀"
+        }
+      ]
+    }
+  ]
+}

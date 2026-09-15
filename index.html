@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
   
   <!-- 스타일시트 로드 -->
-  <link rel="stylesheet" href="css/style.css?v=20260915_loading">
-  <link rel="stylesheet" href="css/components.css?v=20260915_loading">
+  <link rel="stylesheet" href="css/style.css?v=20260915_responsive">
+  <link rel="stylesheet" href="css/components.css?v=20260915_responsive">
 </head>
 <body>
 
@@ -1649,27 +1649,28 @@
           </div>
           
           <!-- 우측 상단 당일 주요 시장 지표 전광판 (한국거래소 및 네이버 증권 1:1 완벽 일치) -->
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); padding: 10px 16px; border-radius: 12px; text-align: center; min-width: 120px;">
-              <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;">코스피 (KOSPI)</div>
-              <div id="index-kospi-val" style="font-size: 1.18rem; font-weight: 900; color: #ef4444; margin: 2px 0;">2,575.41</div>
-              <div id="index-kospi-diff" style="font-size: 0.72rem; color: #ef4444; font-weight: 700;">▲ 3.32 (+0.13%)</div>
+          <div class="stock-market-indicators">
+            <div class="stock-indicator-card">
+              <div class="stock-indicator-title">코스피 (KOSPI)</div>
+              <div id="index-kospi-val" class="stock-indicator-val" style="color: #ef4444;">2,575.41</div>
+              <div id="index-kospi-diff" class="stock-indicator-diff" style="color: #ef4444;">▲ 3.32 (+0.13%)</div>
             </div>
-            <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); padding: 10px 16px; border-radius: 12px; text-align: center; min-width: 120px;">
-              <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;">코스닥 (KOSDAQ)</div>
-              <div id="index-kosdaq-val" style="font-size: 1.18rem; font-weight: 900; color: #ef4444; margin: 2px 0;">733.20</div>
-              <div id="index-kosdaq-diff" style="font-size: 0.72rem; color: #ef4444; font-weight: 700;">▲ 2.15 (+0.29%)</div>
+            <div class="stock-indicator-card">
+              <div class="stock-indicator-title">코스닥 (KOSDAQ)</div>
+              <div id="index-kosdaq-val" class="stock-indicator-val" style="color: #ef4444;">733.20</div>
+              <div id="index-kosdaq-diff" class="stock-indicator-diff" style="color: #ef4444;">▲ 2.15 (+0.29%)</div>
             </div>
-            <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); padding: 10px 16px; border-radius: 12px; text-align: center; min-width: 120px;">
-              <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;">원/달러 환율 (USD)</div>
-              <div id="index-usd-val" style="font-size: 1.18rem; font-weight: 900; color: #3b82f6; margin: 2px 0;">1,338.70</div>
-              <div id="index-usd-diff" style="font-size: 0.72rem; color: #3b82f6; font-weight: 700;">▼ 0.30 (-0.02%)</div>
+            <div class="stock-indicator-card">
+              <div class="stock-indicator-title">원/달러 환율 (USD)</div>
+              <div id="index-usd-val" class="stock-indicator-val" style="color: #3b82f6;">1,338.70</div>
+              <div id="index-usd-diff" class="stock-indicator-diff" style="color: #3b82f6;">▼ 0.30 (-0.02%)</div>
             </div>
           </div>
         </div>
 
-        <!-- 주식 시장 6대 모듈 빠른 탭 바 -->
-        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 20px;" class="stock-subtabs-grid">
+        <!-- 주식 시장 6대 모듈 빠른 탭 바 (모바일 가로 스크롤 대응) -->
+        <div class="stock-subtabs-scroll-wrap">
+          <div class="stock-subtabs-grid">
           <button type="button" class="stock-sub-tab" data-sub="news">
             <span>📰</span> 0. 실시간 국내 주식 뉴스
           </button>
@@ -1688,6 +1689,7 @@
           <button type="button" class="stock-sub-tab" data-sub="deep">
             <span>🔬</span> 5. 종목 상세정보 (딥분석)
           </button>
+        </div>
         </div>
       </div>
 
@@ -1815,6 +1817,118 @@
           </div>
         </div>
 
+        <!-- [신규] 사용자 수동 종목/테마 추가 & 즉시 수집 패널 -->
+        <div id="custom-stock-tracker-panel" class="kc-box-white-card" style="background: linear-gradient(145deg, #0d1b2a, #0f172a); margin-bottom: 20px; border: 1.5px solid rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 18px 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.25rem;">🎯</span>
+              <div>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #f8fafc; margin: 0;">
+                  계층형 키워드 정밀 추적 · 사용자 관심 종목 추가
+                </h4>
+                <div style="font-size: 0.76rem; color: #94a3b8; margin-top: 2px;">
+                  대분류 테마에 속한 개별 종목을 추가하면 네이버 뉴스를 즉시 단독 검색하여 2번 탭 타임라인 상단에 실시간으로 적재합니다.
+                </div>
+              </div>
+            </div>
+            <span style="font-size: 0.72rem; color: #38bdf8; background: rgba(56,189,248,0.12); padding: 3px 10px; border-radius: 6px; font-weight: 800; border: 1px solid rgba(56,189,248,0.3);">
+              💾 브라우저 로컬 자동 보존
+            </span>
+          </div>
+
+          <!-- 입력 폼 컨트롤 행 -->
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;">
+            <!-- 대분류 테마 선택 셀렉트박스 -->
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <label style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;">대분류 테마 선택</label>
+              <select id="custom-theme-select" onchange="handleCustomThemeSelectChange(this.value)" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.2); color: #f8fafc; padding: 8px 12px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; outline: none; min-width: 150px; cursor: pointer;">
+                <option value="방산">방산 (K-방산 수출/자주포)</option>
+                <option value="로봇">로봇 (휴머노이드/감속기)</option>
+                <option value="원전">원전 (체코 30조/SMR)</option>
+                <option value="반도체">반도체 (HBM4/유리기판)</option>
+                <option value="바이오">바이오 (비만치료제/GLP-1)</option>
+                <option value="__custom__">✏️ [직접 입력...]</option>
+              </select>
+            </div>
+
+            <!-- 직접 입력 시 노출되는 테마명 인풋 -->
+            <div id="custom-theme-direct-wrap" style="display: none; flex-direction: column; gap: 4px;">
+              <label style="font-size: 0.72rem; color: #38bdf8; font-weight: 700;">직접 입력 테마명</label>
+              <input type="text" id="custom-theme-direct-input" placeholder="예: 우주항공, 자율주행" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.4); color: #f8fafc; padding: 8px 12px; border-radius: 8px; font-size: 0.82rem; outline: none; width: 150px;">
+            </div>
+
+            <!-- 하위 추적 종목 입력 인풋 -->
+            <div style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 180px;">
+              <label style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;">하위 추적 종목명</label>
+              <input type="text" id="custom-stock-input" placeholder="예: 엠로, 알에스오토메이션, 현대로템" onkeydown="if(event.key==='Enter') addAndFetchCustomStock();" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.2); color: #f8fafc; padding: 8px 14px; border-radius: 8px; font-size: 0.82rem; outline: none; width: 100%;">
+            </div>
+
+            <!-- + 종목 추가 및 즉시 수집 버튼 -->
+            <div style="display: flex; flex-direction: column; gap: 4px; align-self: flex-end;">
+              <button type="button" id="btn-add-custom-stock" onclick="addAndFetchCustomStock()" class="imggen-style-chip active" style="background: linear-gradient(135deg, #0284c7, #2563eb); border-color: #38bdf8; padding: 8px 16px; font-size: 0.82rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 6px; height: 38px;">
+                <span>➕ 종목 추가 및 즉시 수집</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 추적 등록된 종목 태그 목록 -->
+          <div style="border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span style="font-size: 0.72rem; color: #64748b; font-weight: 700; white-space: nowrap;">현재 추적 중:</span>
+            <div id="custom-tracked-tags-list" style="display: flex; gap: 6px; flex-wrap: wrap;">
+              <!-- JS 동적 주입 -->
+            </div>
+          </div>
+        </div>
+
+        <!-- [신규 연동] 선택 테마 누적 뉴스 타임라인 상세 뷰어 -->
+        <div id="theme-timeline-viewer-section" class="kc-box-white-card" style="background: #0f172a; margin-bottom: 24px; border: 1px solid rgba(56, 189, 248, 0.25); box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.5);">
+          <!-- 타임라인 헤더 & 테마 선택 & 기간 필터 바 -->
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 14px; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+              <span style="font-size: 1.3rem;">🕒</span>
+              <div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <h4 id="theme-timeline-title" style="font-size: 1.15rem; font-weight: 900; color: #f8fafc; margin: 0;">
+                    차세대 HBM4 & 유리기판 재료 타임라인
+                  </h4>
+                  <span id="theme-timeline-badge" style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 6px; font-weight: 800;">
+                    반도체/AI
+                  </span>
+                </div>
+                <div id="theme-timeline-lead-desc" style="font-size: 0.78rem; color: #94a3b8; margin-top: 4px;">
+                  👑 대장주: <span style="color: #cbd5e1; font-weight: 700;">SK하이닉스, 와이씨, 에프에스티, 필옵틱스</span> · 기사 <span id="theme-timeline-count" style="color: #38bdf8; font-weight: 800;">0건</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 우측: 테마 빠른 셀렉터 및 기간 필터 버튼 그룹 -->
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+              <!-- 테마 선택 드롭다운 -->
+              <select id="theme-timeline-select" onchange="switchTimelineTheme(this.value)" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: #f8fafc; padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; outline: none; cursor: pointer;">
+                <!-- JS에서 동적 주입 -->
+              </select>
+
+              <!-- 기간 필터 버튼 [전체 / 최근 7일 / 최근 30일] -->
+              <div style="display: flex; gap: 6px;" id="theme-timeline-period-buttons">
+                <button type="button" class="imggen-style-chip active" data-period="all" onclick="filterTimelinePeriod('all', this)" style="padding: 5px 12px; font-size: 0.76rem;">
+                  전체
+                </button>
+                <button type="button" class="imggen-style-chip" data-period="7d" onclick="filterTimelinePeriod('7d', this)" style="padding: 5px 12px; font-size: 0.76rem;">
+                  최근 7일
+                </button>
+                <button type="button" class="imggen-style-chip" data-period="30d" onclick="filterTimelinePeriod('30d', this)" style="padding: 5px 12px; font-size: 0.76rem;">
+                  최근 30일
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 타임라인 뉴스 기사 피드 컨테이너 (일자별 역순 정렬 카드 리스트) -->
+          <div id="theme-timeline-list" style="display: flex; flex-direction: column; gap: 10px; min-height: 120px;">
+            <!-- JS 동적 생성 -->
+          </div>
+        </div>
+
         <!-- 기간별 상세 비교 분석 테이블 -->
         <div class="kc-box-white-card" style="background: #0f172a;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
@@ -1844,7 +1958,7 @@
               📅 주식 시장 핵심 캘린더 & 일정 매매 플래너
             </h3>
             <p style="font-size: 0.84rem; color: #94a3b8; margin: 0;">
-              "소문에 사고 뉴스에 팔아라" - 정해진 이벤트(실적발표, 정책, 학회 등) D-Day를 미리 선점하는 스마트 일정표
+              "소문에 사고 뉴스에 팔아라" - 뉴스 기사에서 감지된 미래 모멘텀 일정을 승인하여 선점하는 스마트 캘린더
             </p>
           </div>
           <button type="button" id="btn-add-stock-event" class="imggen-style-chip active" style="background: #0284c7; border-color: #0284c7;">
@@ -1852,12 +1966,50 @@
           </button>
         </div>
 
+        <!-- [신규] AI 뉴스 탐지 일정 후보 (승인 대기) 접고 펼치기 패널 -->
+        <div id="ai-pending-events-panel" class="kc-box-white-card" style="background: linear-gradient(145deg, #1e1b4b, #0f172a); margin-bottom: 20px; border: 1.5px solid rgba(168, 85, 247, 0.4); border-radius: 14px; padding: 18px 20px; box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5);">
+          <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="togglePendingEventsPanel()">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 1.3rem;">💡</span>
+              <div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <h4 style="font-size: 1.05rem; font-weight: 900; color: #f8fafc; margin: 0;">
+                    AI 뉴스 탐지 일정 후보
+                  </h4>
+                  <span id="pending-events-badge" style="font-size: 0.72rem; background: rgba(168, 85, 247, 0.25); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); padding: 2px 8px; border-radius: 12px; font-weight: 800;">
+                    승인 대기 0건
+                  </span>
+                </div>
+                <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">
+                  뉴스 기사 본문 및 제목에서 자동 감지된 미래 일정입니다. [승인] 시 공식 캘린더에 자동 등록됩니다.
+                </div>
+              </div>
+            </div>
+
+            <!-- 우측 액션 & 접기/펼치기 아이콘 -->
+            <div style="display: flex; align-items: center; gap: 8px;" onclick="event.stopPropagation()">
+              <button type="button" onclick="approveAllPendingEvents()" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); padding: 4px 10px; border-radius: 6px; font-size: 0.72rem; font-weight: 800; cursor: pointer;">
+                ✔ 모두 승인
+              </button>
+              <button type="button" onclick="rejectAllPendingEvents()" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.35); padding: 4px 10px; border-radius: 6px; font-size: 0.72rem; font-weight: 800; cursor: pointer;">
+                ✖ 모두 거절
+              </button>
+              <span id="pending-toggle-icon" style="font-size: 1rem; color: #94a3b8; padding-left: 6px; cursor: pointer;" onclick="togglePendingEventsPanel()">▼</span>
+            </div>
+          </div>
+
+          <!-- 승인 대기 카드 목록 컨테이너 -->
+          <div id="ai-pending-events-list" style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px; transition: all 0.3s ease;">
+            <!-- JS 동적 주입 -->
+          </div>
+        </div>
+
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;" id="stock-calendar-grid">
           <!-- 이번 주 일정 -->
           <div class="kc-box-white-card" style="background: #0f172a;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">
               <span style="font-size: 1rem; font-weight: 800; color: #38bdf8;">📌 이번 주 핵심 일정 (D-Day 임박)</span>
-              <span style="font-size: 0.76rem; color: #94a3b8;">선반영 여부 필수 체크</span>
+              <span style="font-size: 0.76rem; color: #94a3b8;" id="stock-events-week-count">0건</span>
             </div>
             <div id="stock-events-week" style="display: flex; flex-direction: column; gap: 10px;"></div>
           </div>
@@ -1866,7 +2018,7 @@
           <div class="kc-box-white-card" style="background: #0f172a;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;">
               <span style="font-size: 1rem; font-weight: 800; color: #34d399;">🔭 이번 달~다음 달 예정 주요 모멘텀</span>
-              <span style="font-size: 0.76rem; color: #94a3b8;">눌림목 매집 유효</span>
+              <span style="font-size: 0.76rem; color: #94a3b8;" id="stock-events-month-count">0건</span>
             </div>
             <div id="stock-events-month" style="display: flex; flex-direction: column; gap: 10px;"></div>
           </div>
@@ -1998,7 +2150,7 @@
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <div class="stock-technique-grid">
           <!-- 1. 아침 장 시작 전 3분 시황 체크법 -->
           <div class="kc-box-white-card" style="background: #0f172a;">
             <div style="font-size: 1.02rem; font-weight: 800; color: #38bdf8; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">

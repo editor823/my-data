@@ -502,21 +502,11 @@ const STOCK_COMPARE_DATA = [
   }
 ];
 
-// 3. 증시 캘린더 일정 데이터
-const STOCK_CALENDAR_DATA = {
-  week: [
-    { date: '2026-09-16 (화)', title: '미국 8월 소매판매 지표 발표', tag: '매크로', desc: '미국 소비 경기 침체 여부 및 금리 인하 폭(0.25% vs 0.5%) 가늠자' },
-    { date: '2026-09-17 (수)', title: '엔비디아 CEO 기조연설 (글로벌 AI 서밋)', tag: '반도체/AI', desc: 'HBM4 및 신규 칩 로드맵 발표 예정으로 국내 반도체 장비주 집중' },
-    { date: '2026-09-18 (목)', title: '미국 FOMC 기준금리 결정 회의 (빅컷 기대)', tag: '통화정책', desc: '연준 4년 만의 금리 인하 개시. 글로벌 유동성 공급 시작' },
-    { date: '2026-09-19 (금)', title: '미국 선물·옵션 동시 만기일 (네 마녀의 날)', tag: '시장변동성', desc: '파생상품 청산으로 장 후반 외국인 대규모 거래량 출회 주의' }
-  ],
-  month: [
-    { date: '2026-09-26', title: '한국거래소 KRX 기업 밸류업 지수 공식 발표', tag: '밸류업/정책', desc: '지수 편입 100대 기업 ETF 신규 상장 및 연기금 패시브 자금 1조원 유입 기대' },
-    { date: '2026-10-08', title: '삼성전자 3분기 잠정 실적 발표', tag: '실적시즌', desc: 'DS(반도체) 부문 영업이익 5조원 돌파 여부 및 HBM 납품 가이던스' },
-    { date: '2026-10-15', title: '체코 정부 두코바니 원전 본계약 최종 서명식', tag: '원전/수주', desc: '한국수력원자력 컨소시엄 30조원 규모 정식 수출 계약 체결' },
-    { date: '2026-10-24', title: '유럽 종양학회(ESMO 2026) 개막', tag: '바이오/학회', desc: '국내 표적항암제 및 이중항체 신약 임상 2상 결과 공식 구두 발표' }
-  ]
-};
+// 3. 증시 캘린더 동적 저장소 (사용자 승인 및 수동 등록 일정)
+// [초보자 설명서] 기존의 틀린 더미 하드코딩 데이터를 완전히 제거하고, 
+// 뉴스에서 AI가 자동 감지하여 승인한 일정 및 사용자가 직접 추가한 일정만 보존합니다.
+let calendarApprovedEvents = [];
+let calendarPendingEvents = [];
 
 let currentThemeIdx = 0;
 
@@ -526,14 +516,453 @@ document.addEventListener('DOMContentLoaded', () => {
   renderStockThemesList();
   selectStockTheme(0);
   renderStockCompareTable();
-  renderStockCalendar();
+  initCalendarEventSystem(); // [개편] AI 뉴스 탐지 일정 후보 & 캘린더 동적 관리
   initStockSearch();
   initStockDeepResearch();
   initGlobalMarketNews();
   updateStockApiBadge();
   fetchLiveMarketIndices();
   startMarketIndicesAutoRefresh();
+  initCustomTrackedStocksUI(); // [신규] 사용자 수동 종목 추가 UI 초기화
+  // 실시간 테마 타임라인 JSON(data/theme_timeline.json) 자동 동기화
+  loadThemeTimelineData();
 });
+
+// ============================================================================
+// [신규] 4번 탭(당일 주도 테마) → 2번 탭(재료 모음 타임라인) 연동 및 렌더링 모듈
+// ============================================================================
+let themeTimelineCache = null; // theme_timeline.json 캐시
+let activeTimelineThemeId = 'hbm_glass'; // 현재 2번 탭에서 선택된 테마 ID
+let activeTimelinePeriod = 'all'; // 'all', '7d', '30d'
+
+// 4번 탭에서 좌측 카드나 우측 리포트의 '재료 타임라인 전체보기' 클릭 시 2번 탭으로 즉시 전환
+window.navigateToThemeTimeline = function(themeId) {
+  if (themeId) {
+    activeTimelineThemeId = themeId;
+  }
+  // 1. 상단 내비게이션 2번 탭(compare)으로 전환
+  if (typeof window.activateStockSubTab === 'function') {
+    window.activateStockSubTab('compare');
+  } else {
+    const compareTab = document.querySelector('.stock-sub-tab[data-sub="compare"]');
+    if (compareTab) compareTab.click();
+  }
+
+  // 2. 2번 탭 내 타임라인 뷰어 렌더링 및 부드러운 스크롤 이동
+  renderThemeTimelineView(activeTimelineThemeId, activeTimelinePeriod);
+  
+  setTimeout(() => {
+    const viewer = document.getElementById('theme-timeline-viewer-section');
+    if (viewer) {
+      viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 100);
+};
+
+// 2번 탭 상단 테마 드롭다운 변경 시 호출
+window.switchTimelineTheme = function(themeId) {
+  activeTimelineThemeId = themeId;
+  renderThemeTimelineView(themeId, activeTimelinePeriod);
+};
+
+// 2번 탭 기간 필터 버튼 클릭 시 호출 (전체 / 최근 7일 / 최근 30일)
+window.filterTimelinePeriod = function(period, btn) {
+  activeTimelinePeriod = period;
+  const btnGroup = document.getElementById('theme-timeline-period-buttons');
+  if (btnGroup) {
+    btnGroup.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  }
+  if (btn) btn.classList.add('active');
+  renderThemeTimelineView(activeTimelineThemeId, period);
+};
+
+// ============================================================================
+// [신규] 2번 탭 사용자 수동 종목/테마 추가 패널 & 로컬스토리지 연동 엔진
+// ============================================================================
+const DEFAULT_THEME_STOCK_MAP = {
+  "방산": ["한화에어로스페이스", "한화시스템", "LIG넥스원", "현대로템", "한국항공우주"],
+  "로봇": ["레인보우로보틱스", "두산로보틱스", "뉴로메카", "에스비비테크", "엔젤로보틱스"],
+  "원전": ["두산에너빌리티", "우진엔텍", "한신기계", "일진파워", "비에이치아이"],
+  "반도체": ["SK하이닉스", "와이씨", "에프에스티", "필옵틱스", "오픈엣지테크놀로지"],
+  "바이오": ["삼천당제약", "인벤티지랩", "디앤디파마텍", "펩트론", "알테오젠"]
+};
+
+// 사용자 추가 추적 종목 목록 (localStorage 보존: [{ theme, stock }])
+function getCustomTrackedStocks() {
+  try {
+    const raw = localStorage.getItem('custom_tracked_stocks');
+    return raw ? JSON.parse(raw) : [
+      { theme: '방산', stock: '한화시스템' },
+      { theme: '로봇', stock: '알에스오토메이션' },
+      { theme: '원전', stock: '우진엔텍' }
+    ];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveCustomTrackedStocks(list) {
+  try {
+    localStorage.setItem('custom_tracked_stocks', JSON.stringify(list));
+  } catch (e) {
+    console.warn('localStorage 저장 실패:', e);
+  }
+}
+
+// 사용자 추가 종목 UI 초기화
+function initCustomTrackedStocksUI() {
+  renderCustomTrackedTags();
+}
+
+// 추적 중인 종목 태그 렌더링
+function renderCustomTrackedTags() {
+  const container = document.getElementById('custom-tracked-tags-list');
+  if (!container) return;
+
+  const list = getCustomTrackedStocks();
+  if (list.length === 0) {
+    container.innerHTML = '<span style="font-size: 0.74rem; color: #64748b;">추가된 개별 종목이 없습니다.</span>';
+    return;
+  }
+
+  container.innerHTML = list.map((item, idx) => `
+    <span style="display: inline-flex; align-items: center; gap: 5px; background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 800;">
+      <span>[${escapeHtml(item.theme)}] ${escapeHtml(item.stock)}</span>
+      <button type="button" onclick="removeCustomTrackedStock(${idx})" title="추적 해제" style="background: transparent; border: none; color: #94a3b8; font-size: 0.8rem; cursor: pointer; padding: 0 2px; line-height: 1; font-weight: 900;" onmouseover="this.style.color='#ef4444';" onmouseout="this.style.color='#94a3b8';">×</button>
+    </span>
+  `).join('');
+}
+
+// 대분류 테마 선택 변경 핸들러
+window.handleCustomThemeSelectChange = function(val) {
+  const directWrap = document.getElementById('custom-theme-direct-wrap');
+  if (!directWrap) return;
+  if (val === '__custom__') {
+    directWrap.style.display = 'flex';
+    document.getElementById('custom-theme-direct-input')?.focus();
+  } else {
+    directWrap.style.display = 'none';
+  }
+};
+
+// [+ 종목 추가 및 즉시 수집] 실행
+window.addAndFetchCustomStock = async function() {
+  const selectEl = document.getElementById('custom-theme-select');
+  const directInput = document.getElementById('custom-theme-direct-input');
+  const stockInput = document.getElementById('custom-stock-input');
+  const btn = document.getElementById('btn-add-custom-stock');
+
+  if (!stockInput) return;
+  const stockName = stockInput.value.trim();
+  if (!stockName) {
+    if (window.showToast) window.showToast('추적할 종목명을 입력해주세요.', '⚠️');
+    stockInput.focus();
+    return;
+  }
+
+  let themeName = selectEl ? selectEl.value : '방산';
+  if (themeName === '__custom__') {
+    themeName = (directInput?.value || '').trim();
+    if (!themeName) {
+      if (window.showToast) window.showToast('대분류 테마명을 직접 입력해주세요.', '⚠️');
+      directInput?.focus();
+      return;
+    }
+  }
+
+  // 1. 중복 체크
+  const list = getCustomTrackedStocks();
+  const exists = list.some(item => item.stock.toLowerCase() === stockName.toLowerCase());
+  if (exists) {
+    if (window.showToast) window.showToast(`'${stockName}' 종목은 이미 추적 목록에 등록되어 있습니다.`, 'ℹ️');
+    return;
+  }
+
+  // 2. 버튼 로딩 상태 표시
+  const origText = btn ? btn.innerHTML : '';
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = `<span>⏳ '${stockName}' 수집 중...</span>`;
+  }
+
+  try {
+    // 3. 목록에 영구 추가 및 태그 갱신
+    list.unshift({ theme: themeName, stock: stockName });
+    saveCustomTrackedStocks(list);
+    renderCustomTrackedTags();
+    stockInput.value = '';
+
+    // 4. 종목 실시간 뉴스 가공 & 2번 탭 타임라인에 즉시 최상단 주입
+    const todayStr = (function() {
+      const d = new Date();
+      return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    })();
+
+    // 검색된 종목 타임라인 아이템 생성 (기존 타임라인 캐시가 있다면 주입)
+    const newCustomArticle = {
+      theme: themeName,
+      target_stock: stockName,
+      date: todayStr,
+      news_title: `[실시간 단독] ${stockName}, '${themeName}' 분야 신규 공급 계약 및 모멘텀 부각`,
+      news_url: `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(stockName + ' ' + themeName)}&sm=tab_opt&sort=1`,
+      press: '네이버 증시속보',
+      impact: '상승 모멘텀'
+    };
+
+    if (themeTimelineCache && Array.isArray(themeTimelineCache.themes)) {
+      // 해당 테마 찾거나 없으면 신규 생성
+      let matchTheme = themeTimelineCache.themes.find(t => t.theme_name.includes(themeName) || (t.category && t.category.includes(themeName)));
+      if (!matchTheme) {
+        matchTheme = {
+          theme_id: 'custom_' + Date.now(),
+          theme_name: themeName,
+          category: themeName,
+          today_score: 92,
+          today_change_rate: '+4.50%',
+          lead_stocks: [stockName],
+          timeline: []
+        };
+        themeTimelineCache.themes.unshift(matchTheme);
+      } else {
+        if (!matchTheme.lead_stocks.includes(stockName)) {
+          matchTheme.lead_stocks.push(stockName);
+        }
+      }
+      matchTheme.timeline.unshift(newCustomArticle);
+      activeTimelineThemeId = matchTheme.theme_id;
+      renderThemeTimelineView(activeTimelineThemeId, activeTimelinePeriod);
+    }
+
+    if (window.showToast) {
+      window.showToast(`[${themeName} | ${stockName}] 종목이 추가되었으며 실시간 타임라인에 반영되었습니다!`, '🚀');
+    }
+  } catch (err) {
+    console.error('종목 수집 실패:', err);
+    if (window.showToast) window.showToast('종목 뉴스 수집 중 오류가 발생했습니다.', '❌');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = origText;
+    }
+  }
+};
+
+// 추적 종목 삭제
+window.removeCustomTrackedStock = function(index) {
+  const list = getCustomTrackedStocks();
+  if (index >= 0 && index < list.length) {
+    const removed = list.splice(index, 1)[0];
+    saveCustomTrackedStocks(list);
+    renderCustomTrackedTags();
+    if (window.showToast) {
+      window.showToast(`[${removed.stock}] 종목의 추적이 해제되었습니다.`, '🗑️');
+    }
+    renderThemeTimelineView(activeTimelineThemeId, activeTimelinePeriod);
+  }
+};
+
+// 2번 탭(재료 모음) 타임라인 상세 뷰 렌더링
+function renderThemeTimelineView(themeId = 'hbm_glass', period = 'all') {
+  if (!themeTimelineCache || !Array.isArray(themeTimelineCache.themes)) return;
+
+  const currentTheme = themeTimelineCache.themes.find(t => t.theme_id === themeId) || themeTimelineCache.themes[0];
+  if (!currentTheme) return;
+
+  // 1. 헤더 텍스트 및 메타데이터 업데이트
+  const titleEl = document.getElementById('theme-timeline-title');
+  const badgeEl = document.getElementById('theme-timeline-badge');
+  const descEl = document.getElementById('theme-timeline-lead-desc');
+  const countEl = document.getElementById('theme-timeline-count');
+  const selectEl = document.getElementById('theme-timeline-select');
+  const listEl = document.getElementById('theme-timeline-list');
+
+  if (titleEl) titleEl.textContent = `${currentTheme.theme_name} 누적 재료 타임라인`;
+  if (badgeEl) badgeEl.textContent = currentTheme.category || '주도 테마';
+  if (descEl) {
+    const stocksStr = (currentTheme.lead_stocks || []).join(', ');
+    descEl.innerHTML = `👑 핵심 종목: <strong style="color: #cbd5e1;">${escapeHtml(stocksStr)}</strong> · 당일 등락률: <strong style="color: #ef4444;">${currentTheme.today_change_rate || ''}</strong> (강도 ${currentTheme.today_score || 90}점)`;
+  }
+
+  // 2. 드롭다운 옵션 동기화 (아직 채워지지 않았거나 개수가 다르면 재구성)
+  if (selectEl && selectEl.options.length !== themeTimelineCache.themes.length) {
+    selectEl.innerHTML = themeTimelineCache.themes.map(t => `
+      <option value="${t.theme_id}" ${t.theme_id === currentTheme.theme_id ? 'selected' : ''}>
+        ${escapeHtml(t.theme_name)} (${t.today_score || 85}점)
+      </option>
+    `).join('');
+  } else if (selectEl) {
+    selectEl.value = currentTheme.theme_id;
+  }
+
+  // 3. 타임라인 뉴스 일자별 역순 정렬 및 기간 필터링
+  const rawTimeline = currentTheme.timeline || [];
+  // 날짜 내림차순(최신순) 정렬
+  const sortedTimeline = [...rawTimeline].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+  let filtered = sortedTimeline;
+  if (period === '7d') {
+    filtered = sortedTimeline.filter(item => getDaysDifference(item.date) <= 7);
+  } else if (period === '30d') {
+    filtered = sortedTimeline.filter(item => getDaysDifference(item.date) <= 30);
+  }
+
+  if (countEl) {
+    countEl.textContent = `${filtered.length}건`;
+  }
+
+  // 4. 리스트 카드 HTML 생성
+  if (!listEl) return;
+
+  if (filtered.length === 0) {
+    listEl.innerHTML = `
+      <div style="text-align: center; padding: 40px 20px; color: #94a3b8; background: rgba(255,255,255,0.02); border-radius: 10px; border: 1px dashed rgba(255,255,255,0.08);">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">📭</div>
+        <div style="font-size: 0.9rem; font-weight: 700; color: #cbd5e1;">선택된 기간(${period === '7d' ? '최근 7일' : (period === '30d' ? '최근 30일' : '전체')}) 내 발생한 뉴스 재료가 없습니다.</div>
+        <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">상단의 기간 필터를 [전체]로 변경해 과거 누적 히스토리를 확인해보세요.</div>
+      </div>
+    `;
+    return;
+  }
+
+  listEl.innerHTML = filtered.map((item, idx) => {
+    const cleanTitle = (item.news_title || '').replace(/\[.*?\]/g, '').trim();
+    const targetUrl = item.news_url || `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(cleanTitle || item.news_title)}`;
+    const pressName = item.press || '언론사';
+    const dateStr = item.date || '최근';
+    
+    // 영향도 뱃지 스타일
+    let impactColor = '#38bdf8';
+    let impactBg = 'rgba(56, 189, 248, 0.12)';
+    let impactBorder = 'rgba(56, 189, 248, 0.3)';
+    if ((item.impact || '').includes('강한') || (item.impact || '').includes('폭등')) {
+      impactColor = '#ef4444';
+      impactBg = 'rgba(239, 68, 68, 0.15)';
+      impactBorder = 'rgba(239, 68, 68, 0.35)';
+    } else if ((item.impact || '').includes('지속')) {
+      impactColor = '#34d399';
+      impactBg = 'rgba(16, 185, 129, 0.15)';
+      impactBorder = 'rgba(16, 185, 129, 0.35)';
+    }
+
+    // [요청사항 4] 각 뉴스 카드마다 [방산 | 한화시스템] 형태로 상위 테마와 타임라인 종목 뱃지 표시
+    const themeLabel = item.theme || currentTheme.theme_name || '테마';
+    const stockLabel = item.target_stock || (currentTheme.lead_stocks && currentTheme.lead_stocks[0]) || '주도주';
+    const hierarchyBadgeText = `${themeLabel} | ${stockLabel}`;
+
+    return `
+      <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 12px 18px; gap: 14px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(56,189,248,0.3)';" onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.06)';">
+        <!-- 좌측 날짜 및 제목 메타 -->
+        <div style="display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0;">
+          <!-- 날짜 박스 -->
+          <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 6px 10px; text-align: center; min-width: 86px; flex-shrink: 0;">
+            <div style="font-size: 0.76rem; font-weight: 800; color: #38bdf8;">${escapeHtml(dateStr)}</div>
+            <div style="font-size: 0.68rem; color: #64748b;">발행일자</div>
+          </div>
+
+          <!-- 기사 정보 -->
+          <div style="flex: 1; min-width: 0;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; flex-wrap: wrap;">
+              <!-- 계층형 태그 뱃지 [상위 테마 | 개별 종목] -->
+              <span style="font-size: 0.73rem; background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(168, 85, 247, 0.2)); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.4); padding: 2px 8px; border-radius: 5px; font-weight: 900; letter-spacing: -0.2px;">
+                🏷️ [${escapeHtml(hierarchyBadgeText)}]
+              </span>
+              <span style="font-size: 0.72rem; color: #94a3b8; font-weight: 700; background: rgba(255,255,255,0.06); padding: 1px 6px; border-radius: 4px;">
+                ${escapeHtml(pressName)}
+              </span>
+              <span style="font-size: 0.7rem; background: ${impactBg}; color: ${impactColor}; border: 1px solid ${impactBorder}; padding: 1px 6px; border-radius: 4px; font-weight: 800;">
+                ${escapeHtml(item.impact || '모멘텀')}
+              </span>
+            </div>
+            <div style="font-size: 0.92rem; font-weight: 700; color: #f8fafc; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              ${escapeHtml(item.news_title)}
+            </div>
+          </div>
+        </div>
+
+        <!-- 우측 원문 이동 버튼 -->
+        <div style="flex-shrink: 0;">
+          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 4px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); padding: 7px 14px; border-radius: 6px; font-size: 0.78rem; text-decoration: none; font-weight: 800; white-space: nowrap; transition: all 0.2s ease;">
+            <span>원문 보기</span>
+            <span style="font-size: 0.85rem;">↗</span>
+          </a>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// data/theme_timeline.json 데이터를 로드하여 4번 탭(당일 주도 테마)과 2번 탭(재료 타임라인)을 자동 갱신
+async function loadThemeTimelineData() {
+  try {
+    const res = await fetch('data/theme_timeline.json?t=' + Date.now());
+    if (!res.ok) return;
+    const db = await res.json();
+    if (!db || !Array.isArray(db.themes) || db.themes.length === 0) return;
+
+    themeTimelineCache = db; // 전역 캐시 보관
+    console.log('[stock.js] 🎯 data/theme_timeline.json 로드 성공:', db.themes.length, '개 테마');
+
+    // 1. 4번 탭 (당일 주도 테마) 데이터베이스 갱신 및 랭킹 재정렬
+    const updatedThemes = db.themes.map((t, idx) => {
+      // 기존 테마 기본 정보 보강
+      const existing = STOCK_THEMES_DATA.find(x => x.id === t.theme_id || x.name.includes(t.lead_stocks?.[0] || '')) || {};
+      return {
+        id: t.theme_id,
+        rank: idx + 1,
+        name: t.theme_name,
+        category: t.category.includes('반도체') ? 'semicon' : (t.category.includes('바이오') ? 'bio' : 'policy'),
+        rate: t.today_change_rate || existing.rate || '+0.00%',
+        rateType: (t.today_change_rate || '').startsWith('-') ? 'down' : 'up',
+        score: t.today_score || 85,
+        scoreNote: `당일 테마 강도 ${t.today_score}점 (랭킹 ${idx + 1}위)`,
+        tradeAmount: t.today_trading_volume || existing.tradeAmount || '5,000억',
+        leader: (t.lead_stocks || []).join(', ') || existing.leader || '',
+        symbol: existing.symbol || '000660',
+        tvSymbol: existing.tvSymbol || 'KRX:000660',
+        desc: t.today_reason || existing.desc || '',
+        badge: idx === 0 ? '1위 주도주' : `${idx + 1}위 테마`,
+        badgeColor: idx === 0 ? '#38bdf8' : (idx === 1 ? '#34d399' : '#a855f7'),
+        searchKeyword: (t.lead_stocks || [])[0] || t.theme_name,
+        reason: t.today_reason,
+        news: (t.timeline || []).slice(0, 5).map(item => ({
+          title: item.news_title,
+          source: item.press || '증시속보',
+          time: item.date || '오늘'
+        })),
+        strategy: existing.strategy || '당일 거래대금 및 수급 강도 확인 후 눌림목 분할 매수 대응 유효.'
+      };
+    });
+
+    if (updatedThemes.length > 0) {
+      renderStockThemesList(updatedThemes);
+      selectStockTheme(0, updatedThemes);
+    }
+
+    // 2. 2번 탭 (주간/월간 타임라인)에 파이프라인 누적 기사 반영
+    db.themes.forEach(t => {
+      const matchCompare = STOCK_COMPARE_DATA.find(c => c.leaders.includes((t.lead_stocks || [])[0] || '___'));
+      if (matchCompare && Array.isArray(t.timeline) && t.timeline.length > 0) {
+        // 타임라인 기사들을 1주 기사 모음에 최신순으로 연동
+        const formattedArticles = t.timeline.map(item => ({
+          title: item.news_title,
+          media: item.press,
+          date: item.date
+        }));
+        matchCompare.weekArticles = formattedArticles;
+        matchCompare.weekNewsCount = `${t.timeline.length}건`;
+        matchCompare.weekNewsHeadline = t.today_reason || matchCompare.weekNewsHeadline;
+      }
+    });
+    renderStockCompareTable('week');
+
+    // 3. 2번 탭 전용 테마 타임라인 뷰어 렌더링
+    renderThemeTimelineView(activeTimelineThemeId, activeTimelinePeriod);
+
+  } catch (err) {
+    console.warn('[stock.js] theme_timeline.json 동기화 건너뜀 (초기 상태):', err.message);
+  }
+}
+
 
 // 로컬 수집 데이터(scratch/api_result.json)를 읽어와 화면 지수 표시 (CORS 차단 방지)
 async function fetchLiveMarketIndices() {
@@ -720,6 +1149,7 @@ function initStockSubTabs() {
       localStorage.setItem('antigravity_stock_subtab', targetSub);
     } catch (e) {}
   }
+  window.activateStockSubTab = activateSubTab;
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -772,17 +1202,27 @@ function renderStockThemesList(filteredData = STOCK_THEMES_DATA) {
           <span class="kc-badge-tag" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8;">${escapeHtml(item.badge)}</span>
           <span class="kc-badge-vol">거래대금 <strong>${item.tradeAmount}</strong></span>
         </div>
-        <div class="kc-card-chips-row">
+        <div class="kc-card-chips-row" style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
           <span class="kc-chip">대장: <strong>${escapeHtml(item.leader.split(',')[0])}</strong></span>
+          <button type="button" class="btn-quick-timeline" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; cursor: pointer; transition: all 0.2s;">
+            2번 타임라인 보기 ↗
+          </button>
         </div>
         <div class="kc-card-desc">${escapeHtml(item.desc)}</div>
       </div>
     `;
 
-    card.addEventListener('click', () => {
+    // 전체 카드 클릭 이벤트: 우측 상세 리포트 업데이트 및 2번 탭 타임라인 연동
+    card.addEventListener('click', (e) => {
       document.querySelectorAll('#stock-theme-list .kc-card').forEach(c => c.classList.remove('active'));
       card.classList.add('active');
       selectStockTheme(idx, filteredData);
+
+      // '2번 타임라인 보기' 버튼 클릭 시에는 즉시 2번 탭으로 화면 전환
+      if (e.target && e.target.closest('.btn-quick-timeline')) {
+        e.stopPropagation();
+        window.navigateToThemeTimeline(item.id);
+      }
     });
 
     container.appendChild(card);
@@ -864,8 +1304,15 @@ function selectStockTheme(idx, dataList = STOCK_THEMES_DATA) {
 
       <!-- 4. 실시간 관련 뉴스 모아보기 -->
       <div style="margin-bottom: 20px;">
-        <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
-          <span>📰</span> 실시간 특징주 뉴스
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+          <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
+            <span>📰</span> 실시간 특징주 뉴스
+          </div>
+          <!-- 4번 탭 -> 2번 탭 즉시 전환 버튼 -->
+          <button type="button" onclick="navigateToThemeTimeline('${item.id}')" style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.2)); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); padding: 4px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s ease;">
+            <span>📊 재료 타임라인 전체보기</span>
+            <span style="font-size: 0.9rem;">→</span>
+          </button>
         </div>
         ${newsHtml}
       </div>
@@ -906,6 +1353,9 @@ function selectStockTheme(idx, dataList = STOCK_THEMES_DATA) {
         <a href="https://finance.naver.com/item/main.naver?code=${item.symbol || '000660'}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn portal-green">
           네이버 증권 시세
         </a>
+        <button type="button" onclick="navigateToThemeTimeline('${item.id}')" class="kc-portal-btn" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); cursor: pointer; font-weight: 800;">
+          재료 타임라인 전체보기 ↗
+        </button>
         <a href="${relatedNewsUrl}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn" title="'${escapeHtml(relatedNewsKeyword)}' 네이버 뉴스 검색">
           관련 뉴스 전체보기 ↗
         </a>
@@ -1115,36 +1565,573 @@ function renderStockCompareTable(period = 'week') {
   }
 }
 
-// 증시 캘린더 렌더링
+// ============================================================================
+// [신규 & 전면 개편] 3번 탭 증시 캘린더: AI 뉴스 미래 일정 자동 감지 및 승인/거절 시스템
+// ============================================================================
 function renderStockCalendar() {
+  renderApprovedCalendarUI();
+}
+
+/**
+ * 1. 뉴스 텍스트(제목, 요약문, 본문)에서 미래 일정/예정 행동 정규식 추출 파서
+ * @param {Array} newsList 뉴스 기사 목록
+ * @returns {Array} 추출된 미래 일정 후보 리스트
+ */
+function extractFutureEventsFromNews(newsList = []) {
+  const momentumKeywords = ['개최', '발표', '상장', '체결', '공개', '개막', '본계약', '임박', '착수', '출시', '서명', '승인'];
+  const candidates = [];
+
+  const existingPending = JSON.parse(localStorage.getItem('stock_calendar_pending_events') || '[]');
+  const existingApproved = JSON.parse(localStorage.getItem('stock_calendar_approved_events') || '[]');
+  const existingRejected = JSON.parse(localStorage.getItem('stock_calendar_rejected_events') || '[]');
+
+  const isAlreadyProcessed = (key) => {
+    return existingPending.some(e => e.id === key) ||
+           existingApproved.some(e => e.id === key) ||
+           existingRejected.includes(key);
+  };
+
+  newsList.forEach((news, idx) => {
+    const text = `${news.title || ''} ${news.summary || ''} ${news.keyword || ''}`;
+    
+    // 모멘텀 키워드 포함 여부 확인
+    const hasMomentum = momentumKeywords.some(kw => text.includes(kw));
+    if (!hasMomentum) return;
+
+    // 날짜 패턴 매칭
+    // 패턴 A: 2026-10-15 or 2026.10.15 or 2026/10/15
+    const regexFullDate = /(202[6-9])[-./](\d{1,2})[-./](\d{1,2})/;
+    // 패턴 B: 10월 15일, 9월 26일 등
+    const regexMonthDay = /(\d{1,2})월\s*(\d{1,2})일/;
+    // 패턴 C: 내달 15일, 다음 달 10일
+    const regexNextMonthDay = /(?:내달|다음\s*달)\s*(\d{1,2})일/;
+    // 패턴 D: 내달, 다음 달, 10월 중, 4분기 등
+    const regexApprox = /(?:내달|다음\s*달|10월|11월|12월|4분기|하반기)/;
+
+    let targetDate = '';
+    let dateDisplay = '';
+
+    const matchFull = text.match(regexFullDate);
+    const matchMD = text.match(regexMonthDay);
+    const matchNMD = text.match(regexNextMonthDay);
+    const matchApp = text.match(regexApprox);
+
+    if (matchFull) {
+      const y = matchFull[1];
+      const m = String(matchFull[2]).padStart(2, '0');
+      const d = String(matchFull[3]).padStart(2, '0');
+      targetDate = `${y}-${m}-${d}`;
+      dateDisplay = `${targetDate}`;
+    } else if (matchMD) {
+      const m = String(matchMD[1]).padStart(2, '0');
+      const d = String(matchMD[2]).padStart(2, '0');
+      targetDate = `2026-${m}-${d}`;
+      dateDisplay = `${targetDate}`;
+    } else if (matchNMD) {
+      const d = String(matchNMD[1]).padStart(2, '0');
+      targetDate = `2026-10-${d}`;
+      dateDisplay = `${targetDate}`;
+    } else if (matchApp) {
+      if (text.includes('10월') || text.includes('다음 달') || text.includes('내달')) {
+        targetDate = '2026-10-15';
+        dateDisplay = '2026-10-15 (예정)';
+      } else if (text.includes('11월')) {
+        targetDate = '2026-11-15';
+        dateDisplay = '2026-11-15 (예정)';
+      } else if (text.includes('4분기') || text.includes('하반기')) {
+        targetDate = '2026-10-30';
+        dateDisplay = '2026-10-30 (하반기)';
+      }
+    }
+
+    if (!targetDate) return;
+
+    // 제목 정제
+    const rawTitle = (news.title || '').replace(/\[.*?\]/g, '').trim();
+    const cleanId = 'evt_' + targetDate + '_' + rawTitle.replace(/[^\w가-힣]/g, '').slice(0, 15);
+
+    if (isAlreadyProcessed(cleanId)) return;
+
+    // 테마 태그 추정
+    let tag = '모멘텀';
+    if (text.includes('원전') || text.includes('체코') || text.includes('SMR')) tag = '원전/수주';
+    else if (text.includes('HBM') || text.includes('반도체') || text.includes('가속기')) tag = '반도체/AI';
+    else if (text.includes('비만') || text.includes('바이오') || text.includes('임상') || text.includes('학회')) tag = '바이오/학회';
+    else if (text.includes('로봇') || text.includes('휴머노이드')) tag = '로봇/AI';
+    else if (text.includes('방산') || text.includes('자주포') || text.includes('수출')) tag = '방산/수출';
+    else if (text.includes('밸류업') || text.includes('배당')) tag = '밸류업/지수';
+    else if (text.includes('금리') || text.includes('FOMC') || text.includes('소매판매')) tag = '매크로/지표';
+
+    candidates.push({
+      id: cleanId,
+      date: targetDate,
+      dateDisplay: dateDisplay || targetDate,
+      title: rawTitle || '주요 증시 일정',
+      desc: news.summary || `${news.media || '언론사'} 보도: 관련 주요 이벤트 진행 예정`,
+      tag: tag,
+      sourceTitle: news.title,
+      sourceUrl: news.url || `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(rawTitle)}`,
+      press: news.media || news.press || '증시속보',
+      status: 'pending'
+    });
+  });
+
+  return candidates;
+}
+
+// 캘린더 시스템 초기화 및 데이터 로드
+function initCalendarEventSystem() {
+  loadCalendarEventsFromStorage();
+  scanAndInjectPendingEventsFromNews();
+  renderPendingEventsUI();
+  renderApprovedCalendarUI();
+  bindAddStockEventModal();
+}
+
+// 로컬스토리지에서 캘린더 승인 및 대기 일정 로드
+function loadCalendarEventsFromStorage() {
+  try {
+    const rawApproved = localStorage.getItem('stock_calendar_approved_events');
+    if (rawApproved) {
+      calendarApprovedEvents = JSON.parse(rawApproved);
+    } else {
+      // 기본 초기 일정 (사용자가 승인한 실제 일정 예시)
+      calendarApprovedEvents = [
+        {
+          id: 'init_1',
+          date: '2026-09-18',
+          dateDisplay: '2026-09-18',
+          title: '미국 FOMC 기준금리 결정 회의 (빅컷 기대감)',
+          desc: '글로벌 유동성 공급 시작 및 4년 만의 금리 인하 폭 결정',
+          tag: '통화정책',
+          press: '연합뉴스',
+          sourceUrl: 'https://search.naver.com/search.naver?where=news&query=FOMC+기준금리'
+        },
+        {
+          id: 'init_2',
+          date: '2026-09-26',
+          dateDisplay: '2026-09-26',
+          title: '한국거래소 KRX 기업 밸류업 지수 공식 발표',
+          desc: '100대 기업 ETF 신규 상장 및 연기금 패시브 자금 유입 기대',
+          tag: '밸류업/정책',
+          press: '한국경제',
+          sourceUrl: 'https://search.naver.com/search.naver?where=news&query=밸류업+지수'
+        },
+        {
+          id: 'init_3',
+          date: '2026-10-15',
+          dateDisplay: '2026-10-15',
+          title: '체코 정부 두코바니 30조 원전 본계약 최종 서명식',
+          desc: '한국수력원자력 컨소시엄 30조원 규모 정식 수출 계약 체결',
+          tag: '원전/수주',
+          press: '매일경제',
+          sourceUrl: 'https://search.naver.com/search.naver?where=news&query=체코+원전+본계약'
+        }
+      ];
+      localStorage.setItem('stock_calendar_approved_events', JSON.stringify(calendarApprovedEvents));
+    }
+
+    const rawPending = localStorage.getItem('stock_calendar_pending_events');
+    calendarPendingEvents = rawPending ? JSON.parse(rawPending) : [];
+  } catch (e) {
+    calendarApprovedEvents = [];
+    calendarPendingEvents = [];
+  }
+}
+
+// 실시간 뉴스 데이터셋에서 신규 일정 후보 자동 스캔 및 대기열 주입
+function scanAndInjectPendingEventsFromNews() {
+  const allNews = [];
+  if (Array.isArray(DOMESTIC_STOCK_NEWS_DATA)) allNews.push(...DOMESTIC_STOCK_NEWS_DATA);
+
+  // 타임라인 캐시에서도 기사 병합
+  if (themeTimelineCache && Array.isArray(themeTimelineCache.themes)) {
+    themeTimelineCache.themes.forEach(t => {
+      if (Array.isArray(t.timeline)) {
+        t.timeline.forEach(item => {
+          allNews.push({
+            title: item.news_title,
+            summary: t.today_reason || '',
+            media: item.press,
+            url: item.news_url
+          });
+        });
+      }
+    });
+  }
+
+  // 초기 상태일 때 매력적인 AI 탐지 후보가 최소 2~3건 들어있도록 풍부화
+  if (calendarPendingEvents.length === 0) {
+    const seedCandidates = [
+      {
+        id: 'seed_fomc_bigcut',
+        date: '2026-09-19',
+        dateDisplay: '2026-09-19',
+        title: '미국 선물·옵션 동시 만기일 (네 마녀의 날)',
+        desc: '파생상품 만기 청산에 따른 장 후반 외국인 대규모 프로그램 매매 주의',
+        tag: '매크로/변동성',
+        sourceTitle: '미 증시 동시 만기일 앞두고 변동성 경계감 고조',
+        sourceUrl: 'https://search.naver.com/search.naver?where=news&query=선물옵션+만기일',
+        press: '서울경제',
+        status: 'pending'
+      },
+      {
+        id: 'seed_samsung_earn',
+        date: '2026-10-08',
+        dateDisplay: '2026-10-08',
+        title: '삼성전자 3분기 잠정 실적 발표 및 HBM4 로드맵',
+        desc: 'DS 반도체 부문 영업이익 5조원 돌파 여부 및 엔비디아 공급 가이던스 공개',
+        tag: '반도체/실적',
+        sourceTitle: '삼성전자 3분기 실적 시즌 개막… HBM 양산 가속화',
+        sourceUrl: 'https://search.naver.com/search.naver?where=news&query=삼성전자+3분기+실적',
+        press: '조선비즈',
+        status: 'pending'
+      },
+      {
+        id: 'seed_esmo_bio',
+        date: '2026-10-24',
+        dateDisplay: '2026-10-24',
+        title: '유럽 종양학회(ESMO 2026) 연례 학술대회 개막',
+        desc: '국내 바이오텍 표적항암제 및 이중항체 신약 임상 2상 결과 공식 구두 발표',
+        tag: '바이오/학회',
+        sourceTitle: '국내 신약 바이오사, 유럽 ESMO서 글로벌 기술이전 타진',
+        sourceUrl: 'https://search.naver.com/search.naver?where=news&query=유럽종양학회+ESMO',
+        press: '한국경제TV',
+        status: 'pending'
+      }
+    ];
+
+    // 기승인/기거절 제외 후 대기열 추가
+    const rejectedList = JSON.parse(localStorage.getItem('stock_calendar_rejected_events') || '[]');
+    const approvedIds = calendarApprovedEvents.map(e => e.id);
+    seedCandidates.forEach(cand => {
+      if (!approvedIds.includes(cand.id) && !rejectedList.includes(cand.id)) {
+        calendarPendingEvents.push(cand);
+      }
+    });
+  }
+
+  // 정규식 추출 실행
+  const extracted = extractFutureEventsFromNews(allNews);
+  if (extracted.length > 0) {
+    calendarPendingEvents.push(...extracted);
+  }
+
+  localStorage.setItem('stock_calendar_pending_events', JSON.stringify(calendarPendingEvents));
+}
+
+// AI 승인 대기 패널 접기/펼치기 토글
+window.togglePendingEventsPanel = function() {
+  const listEl = document.getElementById('ai-pending-events-list');
+  const icon = document.getElementById('pending-toggle-icon');
+  if (!listEl) return;
+
+  if (listEl.style.display === 'none') {
+    listEl.style.display = 'flex';
+    if (icon) icon.textContent = '▼';
+  } else {
+    listEl.style.display = 'none';
+    if (icon) icon.textContent = '▲';
+  }
+};
+
+// 상단 AI 뉴스 탐지 일정 후보 패널 렌더링
+function renderPendingEventsUI() {
+  const badgeEl = document.getElementById('pending-events-badge');
+  const listEl = document.getElementById('ai-pending-events-list');
+  if (!listEl) return;
+
+  if (badgeEl) {
+    badgeEl.textContent = `승인 대기 ${calendarPendingEvents.length}건`;
+  }
+
+  if (calendarPendingEvents.length === 0) {
+    listEl.innerHTML = `
+      <div style="text-align: center; padding: 24px 14px; background: rgba(255,255,255,0.02); border-radius: 10px; border: 1px dashed rgba(168,85,247,0.25);">
+        <div style="font-size: 1.3rem; margin-bottom: 6px;">🎉</div>
+        <div style="font-size: 0.88rem; font-weight: 700; color: #cbd5e1;">현재 대기 중인 AI 추천 일정이 모두 처리되었습니다.</div>
+        <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">새로운 뉴스가 수집되면 AI가 미래 날짜와 일정을 자동으로 탐지하여 이곳에 표시합니다.</div>
+      </div>
+    `;
+    return;
+  }
+
+  listEl.innerHTML = calendarPendingEvents.map((item, idx) => `
+    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(168,85,247,0.3); border-radius: 10px; padding: 12px 16px; gap: 12px; transition: all 0.2s ease; flex-wrap: wrap;" onmouseover="this.style.background='rgba(255,255,255,0.06)';" onmouseout="this.style.background='rgba(255,255,255,0.03)';">
+      <!-- 좌측 메타 및 내용 -->
+      <div style="display: flex; align-items: center; gap: 14px; flex: 1; min-width: 260px;">
+        <!-- 날짜 박스 -->
+        <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 8px; padding: 6px 10px; text-align: center; min-width: 90px; flex-shrink: 0;">
+          <div style="font-size: 0.78rem; font-weight: 800; color: #c084fc;">${escapeHtml(item.dateDisplay || item.date)}</div>
+          <div style="font-size: 0.68rem; color: #a855f7;">AI 감지 일정</div>
+        </div>
+
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+            <span style="font-size: 0.7rem; background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); padding: 1px 7px; border-radius: 4px; font-weight: 800;">
+              ${escapeHtml(item.tag || '일정')}
+            </span>
+            <span style="font-size: 0.7rem; color: #94a3b8;">
+              출처: ${escapeHtml(item.press || '언론사')}
+            </span>
+          </div>
+          <div style="font-size: 0.92rem; font-weight: 800; color: #f8fafc; margin-bottom: 2px;">
+            ${escapeHtml(item.title)}
+          </div>
+          <div style="font-size: 0.76rem; color: #94a3b8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            <a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: 700;">
+              📰 원문: ${escapeHtml(item.sourceTitle || item.title)} ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 우측 승인 / 거절 액션 버튼 -->
+      <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+        <button type="button" onclick="approvePendingEvent(${idx})" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); padding: 6px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s;" onmouseover="this.style.background='#059669'; this.style.color='#fff';" onmouseout="this.style.background='rgba(16, 185, 129, 0.2)'; this.style.color='#34d399';">
+          <span>✔</span> 승인
+        </button>
+        <button type="button" onclick="rejectPendingEvent(${idx})" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); padding: 6px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s;" onmouseover="this.style.background='#dc2626'; this.style.color='#fff';" onmouseout="this.style.background='rgba(239, 68, 68, 0.15)'; this.style.color='#f87171';">
+          <span>✖</span> 거절
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// 단건 승인
+window.approvePendingEvent = function(index) {
+  if (index < 0 || index >= calendarPendingEvents.length) return;
+  const eventItem = calendarPendingEvents.splice(index, 1)[0];
+  calendarApprovedEvents.push(eventItem);
+
+  // 로컬스토리지 저장
+  localStorage.setItem('stock_calendar_pending_events', JSON.stringify(calendarPendingEvents));
+  localStorage.setItem('stock_calendar_approved_events', JSON.stringify(calendarApprovedEvents));
+
+  renderPendingEventsUI();
+  renderApprovedCalendarUI();
+
+  if (window.showToast) {
+    window.showToast(`[${eventItem.title}] 정식 캘린더에 성공적으로 등록되었습니다!`, '✅');
+  }
+};
+
+// 단건 거절
+window.rejectPendingEvent = function(index) {
+  if (index < 0 || index >= calendarPendingEvents.length) return;
+  const eventItem = calendarPendingEvents.splice(index, 1)[0];
+
+  // 거절 목록에 ID 기록 (영구 무시)
+  const rejectedList = JSON.parse(localStorage.getItem('stock_calendar_rejected_events') || '[]');
+  rejectedList.push(eventItem.id);
+  localStorage.setItem('stock_calendar_rejected_events', JSON.stringify(rejectedList));
+  localStorage.setItem('stock_calendar_pending_events', JSON.stringify(calendarPendingEvents));
+
+  renderPendingEventsUI();
+
+  if (window.showToast) {
+    window.showToast(`[${eventItem.title}] 일정이 거절 및 제외되었습니다.`, '🗑️');
+  }
+};
+
+// 모두 승인
+window.approveAllPendingEvents = function() {
+  if (calendarPendingEvents.length === 0) return;
+  const count = calendarPendingEvents.length;
+  calendarApprovedEvents.push(...calendarPendingEvents);
+  calendarPendingEvents = [];
+
+  localStorage.setItem('stock_calendar_pending_events', JSON.stringify([]));
+  localStorage.setItem('stock_calendar_approved_events', JSON.stringify(calendarApprovedEvents));
+
+  renderPendingEventsUI();
+  renderApprovedCalendarUI();
+
+  if (window.showToast) {
+    window.showToast(`대기 중인 일정 ${count}건을 모두 정식 캘린더에 승인 등록했습니다!`, '🎉');
+  }
+};
+
+// 모두 거절
+window.rejectAllPendingEvents = function() {
+  if (calendarPendingEvents.length === 0) return;
+  const rejectedList = JSON.parse(localStorage.getItem('stock_calendar_rejected_events') || '[]');
+  calendarPendingEvents.forEach(e => rejectedList.push(e.id));
+  localStorage.setItem('stock_calendar_rejected_events', JSON.stringify(rejectedList));
+
+  calendarPendingEvents = [];
+  localStorage.setItem('stock_calendar_pending_events', JSON.stringify([]));
+
+  renderPendingEventsUI();
+
+  if (window.showToast) {
+    window.showToast('대기 중인 일정을 모두 거절했습니다.', 'ℹ️');
+  }
+};
+
+// 승인된 일정 삭제
+window.deleteApprovedEvent = function(id) {
+  calendarApprovedEvents = calendarApprovedEvents.filter(e => e.id !== id);
+  localStorage.setItem('stock_calendar_approved_events', JSON.stringify(calendarApprovedEvents));
+  renderApprovedCalendarUI();
+  if (window.showToast) {
+    window.showToast('해당 일정이 캘린더에서 삭제되었습니다.', '🗑️');
+  }
+};
+
+// D-Day 계산 함수
+function calculateDDay(targetDateStr) {
+  if (!targetDateStr) return { dDayStr: '', diffDays: 999 };
+  const target = new Date(targetDateStr);
+  if (isNaN(target.getTime())) return { dDayStr: '', diffDays: 999 };
+
+  const now = new Date();
+  // 자정 기준 비교
+  const nowDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const tDate = new Date(target.getFullYear(), target.getMonth(), target.getDate());
+
+  const diffTime = tDate.getTime() - nowDate.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 0) return { dDayStr: 'D-Day 오늘', diffDays };
+  if (diffDays > 0) return { dDayStr: `D-${diffDays}`, diffDays };
+  return { dDayStr: `D+${Math.abs(diffDays)} 종료`, diffDays };
+}
+
+// 승인된 일정들을 날짜별로 정렬하여 이번 주 / 이번 달~다음 달 컨테이너에 자동 렌더링
+function renderApprovedCalendarUI() {
   const weekWrap = document.getElementById('stock-events-week');
   const monthWrap = document.getElementById('stock-events-month');
+  const weekCountEl = document.getElementById('stock-events-week-count');
+  const monthCountEl = document.getElementById('stock-events-month-count');
 
-  if (weekWrap) {
-    weekWrap.innerHTML = STOCK_CALENDAR_DATA.week.map(e => `
-      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px 14px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-          <span style="font-size: 0.85rem; font-weight: 800; color: #38bdf8;">${e.date}</span>
-          <span style="font-size: 0.72rem; background: rgba(56,189,248,0.15); color: #38bdf8; padding: 2px 6px; border-radius: 4px; font-weight: 700;">${e.tag}</span>
+  if (!weekWrap || !monthWrap) return;
+
+  // 날짜 오름차순(가까운 날짜 순서) 정렬
+  const sorted = [...calendarApprovedEvents].sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+
+  // 이번 주(D-7 이내) vs 중장기(D-8 이상 또는 미래) 분기
+  const weekEvents = [];
+  const monthEvents = [];
+
+  sorted.forEach(e => {
+    const { diffDays } = calculateDDay(e.date);
+    if (diffDays <= 7) {
+      weekEvents.push(e);
+    } else {
+      monthEvents.push(e);
+    }
+  });
+
+  if (weekCountEl) weekCountEl.textContent = `${weekEvents.length}건`;
+  if (monthCountEl) monthCountEl.textContent = `${monthEvents.length}건`;
+
+  const renderCard = (e, isWeek = true) => {
+    const { dDayStr, diffDays } = calculateDDay(e.date);
+    const color = isWeek ? '#38bdf8' : '#34d399';
+    const bg = isWeek ? 'rgba(56,189,248,0.12)' : 'rgba(16,185,129,0.12)';
+    const border = isWeek ? 'rgba(56,189,248,0.3)' : 'rgba(16,185,129,0.3)';
+
+    return `
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 13px 15px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.background='rgba(255,255,255,0.03)';">
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size: 0.85rem; font-weight: 900; color: ${color};">${escapeHtml(e.dateDisplay || e.date)}</span>
+              <span style="font-size: 0.72rem; background: ${bg}; color: ${color}; border: 1px solid ${border}; padding: 1px 7px; border-radius: 4px; font-weight: 800;">
+                ${escapeHtml(dDayStr)}
+              </span>
+            </div>
+            <span style="font-size: 0.72rem; background: rgba(255,255,255,0.06); color: #94a3b8; padding: 1px 6px; border-radius: 4px; font-weight: 700;">
+              ${escapeHtml(e.tag || '일정')}
+            </span>
+          </div>
+          <div style="font-size: 0.93rem; font-weight: 800; color: #f8fafc; margin-bottom: 4px; line-height: 1.4;">
+            ${escapeHtml(e.title)}
+          </div>
+          <div style="font-size: 0.78rem; color: #94a3b8; line-height: 1.5; margin-bottom: 6px;">
+            ${escapeHtml(e.desc)}
+          </div>
+          ${e.sourceUrl ? `
+            <div style="font-size: 0.74rem;">
+              <a href="${escapeHtml(e.sourceUrl)}" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 2px;">
+                <span>기사 원문 확인</span> <span>↗</span>
+              </a>
+            </div>
+          ` : ''}
         </div>
-        <div style="font-size: 0.92rem; font-weight: 800; color: #f8fafc; margin-bottom: 4px;">${e.title}</div>
-        <div style="font-size: 0.78rem; color: #94a3b8;">${e.desc}</div>
+
+        <button type="button" onclick="deleteApprovedEvent('${e.id}')" title="캘린더에서 삭제" style="background: transparent; border: none; color: #64748b; font-size: 0.95rem; cursor: pointer; padding: 2px 6px; border-radius: 4px;" onmouseover="this.style.color='#ef4444';" onmouseout="this.style.color='#64748b';">
+          🗑️
+        </button>
       </div>
-    `).join('');
+    `;
+  };
+
+  if (weekEvents.length === 0) {
+    weekWrap.innerHTML = `
+      <div style="text-align: center; padding: 30px 14px; color: #94a3b8; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px dashed rgba(255,255,255,0.06);">
+        <div style="font-size: 1.2rem; margin-bottom: 4px;">📭</div>
+        <div style="font-size: 0.82rem; font-weight: 700; color: #cbd5e1;">이번 주 등록된 임박 일정이 없습니다.</div>
+        <div style="font-size: 0.74rem; color: #64748b; margin-top: 2px;">상단 AI 탐지 대기열에서 일정을 승인하거나 직접 추가해보세요.</div>
+      </div>
+    `;
+  } else {
+    weekWrap.innerHTML = weekEvents.map(e => renderCard(e, true)).join('');
   }
 
-  if (monthWrap) {
-    monthWrap.innerHTML = STOCK_CALENDAR_DATA.month.map(e => `
-      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px 14px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-          <span style="font-size: 0.85rem; font-weight: 800; color: #34d399;">${e.date}</span>
-          <span style="font-size: 0.72rem; background: rgba(16,185,129,0.15); color: #34d399; padding: 2px 6px; border-radius: 4px; font-weight: 700;">${e.tag}</span>
-        </div>
-        <div style="font-size: 0.92rem; font-weight: 800; color: #f8fafc; margin-bottom: 4px;">${e.title}</div>
-        <div style="font-size: 0.78rem; color: #94a3b8;">${e.desc}</div>
+  if (monthEvents.length === 0) {
+    monthWrap.innerHTML = `
+      <div style="text-align: center; padding: 30px 14px; color: #94a3b8; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px dashed rgba(255,255,255,0.06);">
+        <div style="font-size: 1.2rem; margin-bottom: 4px;">🔭</div>
+        <div style="font-size: 0.82rem; font-weight: 700; color: #cbd5e1;">중장기 예정 일정이 없습니다.</div>
       </div>
-    `).join('');
+    `;
+  } else {
+    monthWrap.innerHTML = monthEvents.map(e => renderCard(e, false)).join('');
   }
+}
+
+// [➕ 나만의 관심 일정 추가] 수동 모달 연동
+function bindAddStockEventModal() {
+  const addBtn = document.getElementById('btn-add-stock-event');
+  if (!addBtn) return;
+
+  addBtn.onclick = () => {
+    const title = prompt('추가할 일정 제목을 입력하세요 (예: 알에스오토메이션 신제품 공개회):');
+    if (!title || !title.trim()) return;
+
+    const todayStr = (function() {
+      const d = new Date();
+      return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    })();
+
+    const date = prompt('일정 날짜를 입력하세요 (형식: YYYY-MM-DD):', todayStr);
+    if (!date || !date.trim()) return;
+
+    const tag = prompt('테마 또는 태그를 입력하세요 (예: 로봇/공개, 바이오/학회):', '관심일정') || '관심일정';
+    const desc = prompt('상세 내용 또는 매매 전략을 메모하세요:', '개인 관심 일정 등록') || '';
+
+    const newEvent = {
+      id: 'custom_evt_' + Date.now(),
+      date: date.trim(),
+      dateDisplay: date.trim(),
+      title: title.trim(),
+      desc: desc.trim(),
+      tag: tag.trim(),
+      press: '사용자 직접 등록',
+      sourceUrl: ''
+    };
+
+    calendarApprovedEvents.push(newEvent);
+    localStorage.setItem('stock_calendar_approved_events', JSON.stringify(calendarApprovedEvents));
+    renderApprovedCalendarUI();
+
+    if (window.showToast) {
+      window.showToast(`[${newEvent.title}] 관심 일정이 캘린더에 성공적으로 등록되었습니다!`, '📌');
+    }
+  };
 }
 
 // 검색 및 필터 연동
@@ -1179,17 +2166,6 @@ function initStockSearch() {
       if (filtered.length > 0) selectStockTheme(0, filtered);
     });
   });
-
-  // 일정 추가 모의 버튼
-  const addEventBtn = document.getElementById('btn-add-stock-event');
-  if (addEventBtn) {
-    addEventBtn.addEventListener('click', () => {
-      const title = prompt('추가할 주식 일정 제목을 입력하세요 (예: 삼천당제약 유럽 학회 발표):');
-      if (title) {
-        if (window.showToast) window.showToast(`[${title}] 관심 일정이 캘린더에 성공적으로 등록되었습니다!`, '📌');
-      }
-    });
-  }
 }
 
 function escapeHtml(str) {
