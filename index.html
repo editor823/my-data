@@ -1647,8 +1647,8 @@
           </div>
         </div>
 
-        <!-- 주식 시장 4대 모듈 빠른 탭 바 -->
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px;">
+        <!-- 주식 시장 5대 모듈 빠른 탭 바 -->
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 20px;" class="stock-subtabs-grid">
           <button type="button" class="stock-sub-tab active" data-sub="theme">
             <span>🔥</span> 1. 당일 주도 테마 & 뉴스
           </button>
@@ -1660,6 +1660,9 @@
           </button>
           <button type="button" class="stock-sub-tab" data-sub="technique">
             <span>💡</span> 4. 시황 보는 법 & 매매 기법
+          </button>
+          <button type="button" class="stock-sub-tab" data-sub="deep">
+            <span>🔬</span> 5. 종목 상세정보 (딥분석)
           </button>
         </div>
       </div>
@@ -1855,6 +1858,47 @@
           </div>
         </div>
       </div>
+
+      <!-- ================= [서브 패널 5] 종목 상세정보 (딥분석 인텔리전스 센터) ================= -->
+      <div id="stock-panel-deep" class="stock-panel-content" style="display: none;">
+        <!-- 상단 헤더 & 종목 셀렉터/검색 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 14px; background: #0f172a; border: 1px solid rgba(255,255,255,0.08); padding: 16px 20px; border-radius: 14px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+              <span style="font-size: 1.25rem;">🔬</span>
+              <h3 style="font-size: 1.2rem; font-weight: 900; color: #f8fafc; margin: 0;">
+                종목 심층 딥분석 센터 (Deep Research Center)
+              </h3>
+              <span style="font-size: 0.74rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 6px; font-weight: 700;">
+                공시 · 실적 · BM · 미래총집합
+              </span>
+            </div>
+            <p style="font-size: 0.84rem; color: #94a3b8; margin: 0;">
+              현재 어떻게 돈을 버는지(BM), 수주/제조업 여부, 공시 히스토리, 엮인 테마 종목군 및 향후 미래 로드맵까지 총집합 분석합니다.
+            </p>
+          </div>
+
+          <!-- 종목 빠른 전환 칩 및 검색 -->
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+            <div style="display: flex; gap: 6px;" id="stock-deep-quick-chips">
+              <!-- JS에서 종목 칩 동적 렌더링 -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 딥분석 메인 컨테이너 (좌측 종목 리스트 + 우측 딥 리포트 상세) -->
+        <div class="kc-dual-layout">
+          <!-- 좌측 종목 목록 (8개 핵심 주도주) -->
+          <div class="kc-list-col" id="stock-deep-list" style="max-height: 980px; overflow-y: auto;">
+            <!-- JS 동적 생성 -->
+          </div>
+
+          <!-- 우측 딥분석 종합 리포트 -->
+          <div class="kc-detail-card" id="stock-deep-detail">
+            <!-- JS 동적 생성 -->
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- [TAB 4] 블로그 가이드 화면 -->
@@ -2041,7 +2085,7 @@
   <script src="js/external.js?v=20260914_final"></script>
   <script src="js/converter.js?v=20260914_final"></script>
   <script src="js/imggen.js?v=20260914_final"></script>
-  <script src="js/stock.js?v=20260915_stock_v2"></script>
+  <script src="js/stock.js?v=20260915_stock_v3"></script>
   <script src="js/ranktracker.js?v=20260914_final"></script>
 </body>
 </html>

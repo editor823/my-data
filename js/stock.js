@@ -378,6 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderStockCompareTable();
   renderStockCalendar();
   initStockSearch();
+  initStockDeepResearch();
   updateStockApiBadge();
   fetchLiveMarketIndices();
 });
@@ -416,7 +417,8 @@ function initStockSubTabs() {
     theme: document.getElementById('stock-panel-theme'),
     compare: document.getElementById('stock-panel-compare'),
     calendar: document.getElementById('stock-panel-calendar'),
-    technique: document.getElementById('stock-panel-technique')
+    technique: document.getElementById('stock-panel-technique'),
+    deep: document.getElementById('stock-panel-deep')
   };
 
   tabs.forEach(tab => {
@@ -997,4 +999,700 @@ function updateStockApiBadge() {
     badge.style.color = '#94a3b8';
   }
 }
+
+// ============================================================================
+// 5. 종목 상세정보 딥분석 센터 (Deep Research Data & Functions)
+// - 공시 + 실적 + BM(수주/제조업 돈 버는 구조) + 관련 뉴스 + 캘린더 일정 + 엮인 테마 종목군 + 미래 전망 총집합
+// ============================================================================
+const STOCK_DEEP_DATA = [
+  {
+    id: 'deep-000660',
+    symbol: '000660',
+    name: 'SK하이닉스',
+    market: 'KOSPI · 반도체 대장주',
+    sector: '제조업 / 첨단 반도체 파운드리 연계 패키징',
+    currentPrice: '168,500원',
+    changeRate: '+3.82%',
+    rateType: 'up',
+    marketCap: '122조 6,660억원 (코스피 2위)',
+    foreignRate: '54.2%',
+    perPbr: 'PER 14.8배 · PBR 1.85배 · ROE 18.2%',
+    badge: 'HBM4 세계 1위',
+    badgeColor: '#38bdf8',
+    oneLine: '엔비디아 HBM 점유율 1위 독점 공급자. 16단 HBM4 및 유리기판 양산 주도.',
+    
+    // 1. 비즈니스 모델 (어떻게 현재 돈을 벌고 있는가?)
+    bm: {
+      type: '제조업 (첨단 메모리 & 어드밴스드 패키징)',
+      structure: 'HBM(고대역폭 메모리) 42% + 서버용 DDR5 33% + 기업용 eSSD(낸드) 20% + 기타 5%',
+      cashCow: '엔비디아 AI 가속기(B200, GB200, 루빈) 납품용 12단/16단 HBM3E 및 HBM4. 일반 D램 대비 마진율이 4~5배에 달하는 고부가가치 AI 메모리가 전체 영업이익의 70% 견인.',
+      costStructure: 'EUV(극자외선 노광) 장비 감가상각비 및 TSV(실리콘 관통전극) 본딩 기술 로열티, 웨이퍼 원자재비가 주요 비용이나 압도적인 수율(80% 이상)로 원가 경쟁력 세계 최고.'
+    },
+
+    // 2. 실적 히스토리 & 컨센서스
+    financials: {
+      q24_1: { sales: '12조 4,300억', profit: '2조 8,860억', margin: '23.2%' },
+      q24_2: { sales: '16조 4,233억', profit: '5조 4,685억', margin: '33.3%' },
+      q24_3E: { sales: '18조 1,200억 (예상)', profit: '6조 7,500억 (예상)', margin: '37.2%' },
+      annual2024E: '연간 매출 66조원 / 영업이익 23조원 흑자 대전환 (사상 최대 실적 경신 전망)',
+      point: 'D램과 eSSD 전 제품군 판가(ASP) 상승과 HBM 완판으로 영업이익률 35% 돌파. 과거 사이클 대비 고정비 부담이 대폭 경감됨.'
+    },
+
+    // 3. 최근 주요 공시 & 수주/계약
+    disclosures: [
+      { date: '2026-08-28', title: '청주 M15X 신규 패키징 팹 20조원 투자 진행 현황 안내', tag: '설비투자' },
+      { date: '2026-08-14', title: '반기보고서 (2024.06) 제출 - HBM 매출 비중 역대 최고치', tag: '정기공시' },
+      { date: '2026-07-25', title: '2분기 연결기준 영업이익 5조 4,685억원 달성 (전년비 흑자전환)', tag: '실적공시' },
+      { date: '2026-04-19', title: '美 인디애나주 차세대 패키징 R&D 생산기지 건설 투자 협약', tag: '해외투자' }
+    ],
+
+    // 4. 이 종목에 관련된 모든 핵심 기사 (현재 뉴스 모음)
+    articles: [
+      { title: '엔비디아 차세대 가속기 루빈 HBM4 규격 채택… 하이닉스 1위 굳히기', media: '한국경제', time: '18분 전', date: '오늘' },
+      { title: 'SK하이닉스, HBM3E 12단 3분기 양산 돌입… 경쟁사 격차 1년 이상 벌려', media: '매일경제', time: '1시간 전', date: '오늘' },
+      { title: '외인·기관 반도체 소부장 1조 순매수… 하이닉스 중심 장비 발주 사이클', media: '머니투데이', time: '3시간 전', date: '어제' },
+      { title: '글로벌 빅테크 AI CAPEX 200조원 상향 돌파… HBM4 납품 선점 경쟁', media: '디지털타임스', time: '1일 전', date: '2일 전' }
+    ],
+
+    // 5. 엮여있는 테마 및 관련주 맵
+    themes: [
+      {
+        name: '🔥 차세대 HBM4 & 패키징',
+        relation: '주도 대장주 (글로벌 1등)',
+        peers: '한미반도체, 와이씨, 에프에스티, 필옵틱스, 제우스'
+      },
+      {
+        name: '🧪 유리기판(Glass Substrate)',
+        relation: '유리기판 컨소시엄 주도사',
+        peers: 'SKC, 앱솔릭스, 필옵틱스, 제이앤티씨'
+      },
+      {
+        name: '💾 CXL 2.0 및 온디바이스 메모리',
+        relation: 'CXL D램 규격 공동 표준 수립',
+        peers: '네오셈, 오픈엣지테크놀로지, 엑시콘'
+      }
+    ],
+
+    // 6. 증시 주요 일정 및 D-Day
+    events: [
+      { date: '2026-09-17 (수)', title: '엔비디아 글로벌 AI 서밋 CEO 기조연설', dday: 'D-2', impact: 'HBM4 표준 및 루빈 공급사 언급 여부 초관심' },
+      { date: '2026-10-24 (목)', title: 'SK하이닉스 2024년 3분기 공식 실적 발표', dday: 'D-39', impact: '영업이익 6조 5천억 돌파 여부 및 HBM 납품 가이던스' }
+    ],
+
+    // 7. 이 종목의 미래 종집합소 (미래 지속성 & 최종 총평)
+    futureOutlook: {
+      rating: '적극 매수 (Conviction Buy)',
+      targetScore: 96,
+      summary: '단순 반도체 제조사를 넘어 글로벌 AI 빅테크 인프라의 핵심 엔진으로 도약.',
+      catalyst: '2026년 하반기 16단 HBM4 조기 출하와 용인 반도체 클러스터 가동으로 1등 프리미엄 유지.',
+      riskCheck: '미국의 대중국 AI 반도체 추가 수출 규제와 빅테크의 단기 AI CAPEX 조정 가능성 체크 필요.'
+    }
+  },
+  {
+    id: 'deep-000250',
+    symbol: '000250',
+    name: '삼천당제약',
+    market: 'KOSDAQ · 바이오 대장주',
+    sector: '제약/바이오 (경구용 제형 플랫폼 및 아일리아 바이오시밀러)',
+    currentPrice: '142,000원',
+    changeRate: '+6.12%',
+    rateType: 'up',
+    marketCap: '3조 2,150억원 (코스닥 5위)',
+    foreignRate: '12.8%',
+    perPbr: 'PER 68.2배 · PBR 8.4배 · 기술수출 기대감 선반영',
+    badge: '경구용 GLP-1 1등',
+    badgeColor: '#34d399',
+    oneLine: '먹는(경구용) 비만/당뇨 치료제 플랫폼 S-PASS 보유. 유럽 본계약 체결 가시화.',
+    
+    bm: {
+      type: '바이오 플랫폼 기술수출(L/O) 및 바이오시밀러 제조업',
+      structure: '안과용 치료제(아일리아 시밀러) 판권 45% + 경구용 플랫폼 기술이전 40% + 제네릭 의약품 15%',
+      cashCow: '주사제 전용 약물을 알약으로 흡수시키는 독자적 경구화 기술 \'S-PASS\'. 글로벌 빅파마 대상 유럽/북미 판권 계약금 및 경상기술료(마일스톤/로열티) 유입 구조.',
+      costStructure: '임상 1/3상 시험비용 및 글로벌 실사(Audit) 대응비가 핵심이며, 완제의약품 생산은 글로벌 파트너 CMO와 공동 진행하여 시설투자 리스크 최소화.'
+    },
+
+    financials: {
+      q24_1: { sales: '460억', profit: '22억', margin: '4.8%' },
+      q24_2: { sales: '585억', profit: '68억', margin: '11.6%' },
+      q24_3E: { sales: '720억 (예상)', profit: '145억 (예상)', margin: '20.1%' },
+      annual2024E: '유럽 판권 계약금 유입 시 영업이익 500억 돌파 및 사상 최대 흑자 도약',
+      point: '바이오시밀러 유럽 허가 승인과 비만치료제 본계약 체결 시 폭발적인 기술료 영업이익 전환 구조.'
+    },
+
+    disclosures: [
+      { date: '2026-09-02', title: '경구용 GLP-1 비만치료제 유럽 5개국 공급 독점 판매 본계약 체결', tag: '수주/계약' },
+      { date: '2026-08-20', title: '투자판단 관련 주요경영사항 - 아일리아 바이오시밀러 유럽 품목허가 승인', tag: '주요사항' },
+      { date: '2026-07-15', title: '기타 시장안내 - 전환사채(CB) 전량 조기상환 완료로 오버행 해소', tag: '재무공시' }
+    ],
+
+    articles: [
+      { title: '삼천당제약, 경구용 GLP-1 유럽 5개국 공급 독점 계약 체결 공시', media: '연합뉴스', time: '25분 전', date: '오늘' },
+      { title: '주사 바늘 공포 끝… 먹는 비만약 플랫폼 보유 삼천당제약 수급 폭발', media: '이데일리', time: '1시간 전', date: '오늘' },
+      { title: '노보노디스크·일라이릴리 실적 서프라이즈… 비만약 플랫폼주 재평가', media: '바이오스펙테이터', time: '3시간 전', date: '어제' }
+    ],
+
+    themes: [
+      {
+        name: '💊 경구용 비만/당뇨 치료제',
+        relation: '국내 기술 독점 대장주',
+        peers: '인벤티지랩, 디앤디파마텍, 펩트론, 한미약품'
+      },
+      {
+        name: '👁️ 황반변성 아일리아 바이오시밀러',
+        relation: '유럽 퍼스트무버 승인사',
+        peers: '셀트리온, 삼성바이오에피스, 알테오젠'
+      }
+    ],
+
+    events: [
+      { date: '2026-09-24 (목)', title: '미국 FDA 아일리아 바이오시밀러 품목허가 최종 승인 D-Day', dday: 'D-9', impact: '북미 시장 직판 및 대규모 마일스톤 유입 분기점' },
+      { date: '2026-10-18 (금)', title: '글로벌 바이오 유럽 파트너링 컨퍼런스 참가', dday: 'D-33', impact: '비만약 북미 판권 추가 본계약 협상 결과 발표' }
+    ],
+
+    futureOutlook: {
+      rating: '매수 (Growth Momentum)',
+      targetScore: 92,
+      summary: '경구용 비만 치료제 시장의 패러다임 변화를 이끄는 핵심 게임체인저.',
+      catalyst: '글로벌 100조 비만치료제 시장에서 주사제 복용 불편을 해소한 알약 상용화 독점력.',
+      riskCheck: '글로벌 빅파마 임상 검증 지연 여부 및 계약금 분할 인식 일정 모니터링 필요.'
+    }
+  },
+  {
+    id: 'deep-034020',
+    symbol: '034020',
+    name: '두산에너빌리티',
+    market: 'KOSPI · 원전/에너지 대장주',
+    sector: '수주산업 / 대형 원자력 발전설비 및 SMR 주기기 제작',
+    currentPrice: '21,300원',
+    changeRate: '+4.85%',
+    rateType: 'up',
+    marketCap: '13조 6,400억원 (코스피 24위)',
+    foreignRate: '21.5%',
+    perPbr: 'PER 24.5배 · PBR 1.35배 · 수주잔고 17조원 돌파',
+    badge: '체코 30조 수혜',
+    badgeColor: '#a855f7',
+    oneLine: '체코 30조 원전 주기기 제작 독점. 빅테크 AI 데이터센터 SMR 파트너십.',
+    
+    bm: {
+      type: '수주산업 (글로벌 원전 및 가스터빈/SMR 단조 부품 제조업)',
+      structure: '대형 원전 주기기(원자로·증기발생기) 48% + 가스터빈 및 복합화력 28% + 신재생/SMR 18% + 기타 6%',
+      cashCow: '한국수력원자력 팀코리아의 체코 2기 원전 건설 수주(두산에너빌리티 몫 약 4~5조원 주기기 공급). 뉴스케일파워, 엑스에너지 등 미국 SMR 선두기업 전용 단조품 독점 제작.',
+      costStructure: '원자재(특수강, 티타늄) 가격 및 생산 리드타임(3~4년)에 따른 장기 수주 공사손실 충당금 관리 필요.'
+    },
+
+    financials: {
+      q24_1: { sales: '4조 980억', profit: '3,580억', margin: '8.7%' },
+      q24_2: { sales: '4조 2,150억', profit: '3,890억', margin: '9.2%' },
+      q24_3E: { sales: '4조 4,500억 (예상)', profit: '4,100억 (예상)', margin: '9.2%' },
+      annual2024E: '연간 매출 17조 5천억 / 영업이익 1조 6천억 돌파 확정적',
+      point: '원전 수주잔고 사상 최대치(17조원) 경신으로 향후 4년간 안정적 고마진 공사 진행.'
+    },
+
+    disclosures: [
+      { date: '2026-08-22', title: '단일판매 공급계약 체결 - 美 뉴스케일파워 SMR 소재 제작 계약', tag: '수주공시' },
+      { date: '2026-07-18', title: '체코 신규 원전 건설사업 우선협상대상자 선정 결과 안내', tag: '대규모수주' },
+      { date: '2026-06-11', title: '국내 순수 기술 개발 한국형 초대형 가스터빈 공급 계약 체결', tag: '신성장사업' }
+    ],
+
+    articles: [
+      { title: '팀코리아 체코 원전 실무협상단 현지 파견… 연내 본계약 마무리 박차', media: '서울경제', time: '2시간 전', date: '오늘' },
+      { title: '두산에너빌리티, 美 뉴스케일파워 SMR 핵심 단조품 추가 제작 돌입', media: '조선비즈', time: '3시간 전', date: '오늘' },
+      { title: '글로벌 빅테크 AI 데이터센터 전력난 해법으로 SMR 채택 본격화', media: '디지털타임스', time: '4시간 전', date: '오늘' }
+    ],
+
+    themes: [
+      {
+        name: '⚡ 체코 원전 & 글로벌 수주',
+        relation: '원자로 주기기 독점 제작 총괄',
+        peers: '한신기계, 우진엔텍, 일진파워, 에너토크'
+      },
+      {
+        name: '🤖 AI 데이터센터 전력망 & SMR',
+        relation: '미국 SMR 주기기 제작 파트너',
+        peers: '비에이치아이, 서전기전, LS ELECTRIC'
+      }
+    ],
+
+    events: [
+      { date: '2026-10-15 (목)', title: '체코 정부 두코바니 원전 최종 본계약 체결식', dday: 'D-30', impact: '30조원 정식 수주 확정 및 계약금 10% 유입' },
+      { date: '2026-11-04 (수)', title: '미국 차세대 원자력 에너지 규제 컨퍼런스', dday: 'D-50', impact: '뉴스케일파워 상용 SMR 착공 인허가 발표' }
+    ],
+
+    futureOutlook: {
+      rating: '매수 (Long-term Buy)',
+      targetScore: 90,
+      summary: 'AI 시대 최대 병목인 전력난을 해결하는 원전 르네상스의 최대 수혜주.',
+      catalyst: '체코에 이은 폴란드, UAE 2차 원전 후속 수주 및 대형 가스터빈 실적 레버리지.',
+      riskCheck: '국제 원자재 시세 급등 및 지정학적 수출 통제 인허가 절차 지연 주의.'
+    }
+  },
+  {
+    id: 'deep-277810',
+    symbol: '277810',
+    name: '레인보우로보틱스',
+    market: 'KOSDAQ · 로봇 대장주',
+    sector: '제조업 / 휴머노이드 및 협동로봇 완제품 개발/양산',
+    currentPrice: '156,000원',
+    changeRate: '+3.90%',
+    rateType: 'up',
+    marketCap: '3조 1,200억원 (코스닥 7위)',
+    foreignRate: '9.4%',
+    perPbr: 'PER 95.0배 · PBR 12.1배 · 삼성전자 지분 인수 기대감',
+    badge: '삼성 로봇 협력',
+    badgeColor: '#fb923c',
+    oneLine: '삼성전자가 2대 주주인 휴머노이드 로봇 대표주. 감속기/모터 내재화 100%.',
+    
+    bm: {
+      type: '제조업 (협동로봇 완제품 및 피지컬 AI 휴머노이드 플랫폼)',
+      structure: '협동로봇(RB 시리즈) 60% + 초정밀 모션 제어기/부품 25% + 4족보행 로봇/기타 15%',
+      cashCow: '핵심 부품인 감속기, 모터, 브레이크, 엔코더 100% 자체 개발/내재화로 타 경쟁사 대비 원가율 50% 절감. 삼성전자 평택/기흥 반도체 라인 협동로봇 전면 공급.',
+      costStructure: '휴머노이드 양산 R&D 인력 인건비 및 피지컬 AI 파운데이션 모델 학습 비용 중심.'
+    },
+
+    financials: {
+      q24_1: { sales: '48억', profit: '2억', margin: '4.1%' },
+      q24_2: { sales: '65억', profit: '8억', margin: '12.3%' },
+      q24_3E: { sales: '92억 (예상)', profit: '18억 (예상)', margin: '19.5%' },
+      annual2024E: '삼성전자 스마트팩토리 투입 본격화로 2025년부터 매출 300% 퀀텀점프 기대',
+      point: '국내 유일 부품 수직계열화 성공으로 영업마진율 20% 상회 가능한 구조적 경쟁력.'
+    },
+
+    disclosures: [
+      { date: '2026-08-10', title: '최대주주 변경을 수반하는 주식매수선택권(콜옵션) 행사 현황 안내', tag: '지배구조' },
+      { date: '2026-07-02', title: '반도체 제조공정 투입용 특수 방진 협동로봇 신제품 납품 계약', tag: '수주계약' },
+      { date: '2026-05-18', title: '북미 대형 로봇 자동화 유통망 구축 파트너십 체결', tag: '해외진출' }
+    ],
+
+    articles: [
+      { title: '테슬라 옵티머스 3세대 연내 상용화… 로봇 부품사 견적 발주 본격화', media: '헤럴드경제', time: '3시간 전', date: '오늘' },
+      { title: '레인보우로보틱스 협동로봇 신제품 북미 수출 계약 가시화', media: '머니S', time: '5시간 전', date: '오늘' },
+      { title: '삼성전자, 보핏 양산 확대 및 레인보우로보틱스 콜옵션 행사 시점 임박', media: '조선비즈', time: '1일 전', date: '어제' }
+    ],
+
+    themes: [
+      {
+        name: '🤖 피지컬 AI & 휴머노이드',
+        relation: '국내 휴머노이드 최고 기술 대장주',
+        peers: '에스피지, 로보티즈, 두산로보틱스, 엔젤로보틱스'
+      },
+      {
+        name: '🏢 삼성 로봇 에코시스템',
+        relation: '삼성전자 콜옵션 지분 59.94% 잠재 보유',
+        peers: '이랜시스, 인탑스, 에스비비테크'
+      }
+    ],
+
+    events: [
+      { date: '2026-10-10 (토)', title: '테슬라 로보택시 및 옵티머스 3세대 공개 이벤트', dday: 'D-25', impact: '글로벌 휴머노이드 로봇 부품 수요 재부각 모멘텀' },
+      { date: '2026-11-20 (금)', title: '삼성전자 콜옵션 행사 가능 기한 도래', dday: 'D-66', impact: '삼성전자 자회사 편입 공시 발생 시 주가 재평가' }
+    ],
+
+    futureOutlook: {
+      rating: '스윙 분할 매수 (High Growth)',
+      targetScore: 88,
+      summary: '제조업 무인화와 인공지능이 로봇 몸체를 얻는 피지컬 AI 시대의 최고 수혜주.',
+      catalyst: '삼성전자 자회사 편입 이벤트와 북미 물류/공장 라인 대규모 수출 체결.',
+      riskCheck: '현재 밸류에이션이 높아 분기 실적 미스 시 단기 변동성 확대 주의.'
+    }
+  },
+  {
+    id: 'deep-012450',
+    symbol: '012450',
+    name: '한화에어로스페이스',
+    market: 'KOSPI · K-방산 대장주',
+    sector: '수주산업 / 자주포, 다련장 로켓, 항공기 엔진 및 발사체',
+    currentPrice: '328,000원',
+    changeRate: '+2.80%',
+    rateType: 'up',
+    marketCap: '16조 5,900억원 (코스피 18위)',
+    foreignRate: '38.6%',
+    perPbr: 'PER 16.2배 · PBR 2.1배 · 수주잔고 30조원 돌파',
+    badge: 'K9 자주포 글로벌 1위',
+    badgeColor: '#10b981',
+    oneLine: '글로벌 자주포 시장 점유율 50% 석권. 루마니아·폴란드 2차 수주 잭팟.',
+    
+    bm: {
+      type: '수주산업 (방위산업 지상무기체계 및 항공우주 제조업)',
+      structure: '지상 방산(K9 자주포, 천무 다련장) 65% + 항공우주 엔진 20% + 한화비전/정밀기계 15%',
+      cashCow: '폴란드 1/2차 K9 자주포 및 천무 수출, 호주 레드백 장갑차 수주, 루마니아 1.3조 자주포 계약. 50% 이상 달하는 해외 수출 비중으로 영업이익률 12% 이상 달성.',
+      costStructure: '특수강재 및 화약/엔진 부품 수급비용. 납기 준수율 100%로 페널티 없는 독보적 생산라인 효율성.'
+    },
+
+    financials: {
+      q24_1: { sales: '1조 8,480억', profit: '374억', margin: '2.0%' },
+      q24_2: { sales: '2조 7,860억', profit: '3,588억', margin: '12.9%' },
+      q24_3E: { sales: '3조 1,200억 (예상)', profit: '4,200억 (예상)', margin: '13.5%' },
+      annual2024E: '연간 매출 11조 5천억 / 영업이익 1조 2천억 돌파로 역대 최고 실적',
+      point: '2분기부터 폴란드 납품 물량이 본격 인식되며 영업이익률 13%대의 초호황기 진입.'
+    },
+
+    disclosures: [
+      { date: '2026-08-30', title: '단일판매 공급계약 체결 - 루마니아 국방부 자주포 1조 3,800억원 수주', tag: '대규모수주' },
+      { date: '2026-07-29', title: '연결재무제표 기준 2분기 영업이익 3,588억원 (전년비 356% 폭증)', tag: '어닝서프라이즈' },
+      { date: '2026-06-12', title: '인적분할 완료 안내 - 순수 방산/항공우주 전문 지주사로 재편', tag: '기업지배구조' }
+    ],
+
+    articles: [
+      { title: '한화에어로스페이스, 루마니아 자주포 수주 후속 탄약 운반차 계약 마무리', media: '아시아경제', time: '3시간 전', date: '오늘' },
+      { title: '폴란드 K9 2차 실행계약 체결 임박… 창원 생산 라인 풀가동 돌입', media: '조선비즈', time: '4시간 전', date: '오늘' },
+      { title: '나토 회원국 국방비 GDP 2% 의무화… 한국산 무기 납기 경쟁력 독보적', media: '한국경제', time: '1일 전', date: '어제' }
+    ],
+
+    themes: [
+      {
+        name: '🛡️ K-방산 수주 랠리',
+        relation: '국내 지상 방산 통합 1위 대장주',
+        peers: '현대로템, LIG넥스원, 한국항공우주, 풍산'
+      },
+      {
+        name: '🚀 누리호 & 우주항공청 에코시스템',
+        relation: '누리호 민간 체계종합기업',
+        peers: '한화시스템, 쎄트렉아이, AP위성'
+      }
+    ],
+
+    events: [
+      { date: '2026-10-05 (월)', title: '폴란드 국방부 K9 자주포 2차 잔여 실행계약 서명식', dday: 'D-20', impact: '약 4조원대 2차 이행계약 최종 수주 확정' },
+      { date: '2026-11-12 (목)', title: '중동 방위산업전시회(IDEX) 천궁/천무 대규모 수주 상담', dday: 'D-58', impact: '사우디·UAE 추가 탄약 수출 파트너십 가시화' }
+    ],
+
+    futureOutlook: {
+      rating: '강력 매수 (Top Pick)',
+      targetScore: 95,
+      summary: '지정학적 위기와 글로벌 재무장 트렌드가 만들어낸 10년 주기 메가 트렌드.',
+      catalyst: '30조원 수주잔고 바탕으로 2028년까지 연평균 25% 이상 고성장 담보.',
+      riskCheck: '종전 협상 등 지정학적 리스크 완화 시 단기 차익실현 매물 가능성.'
+    }
+  }
+];
+
+let currentDeepIdx = 0;
+let currentDeepTab = 'all'; // all, bm, finance, news, theme, future
+
+// 5번 종목 딥분석 센터 초기화
+function initStockDeepResearch() {
+  renderStockDeepChips();
+  renderStockDeepList();
+  selectStockDeepItem(0);
+}
+
+// 상단 빠른 종목 칩 렌더링
+function renderStockDeepChips() {
+  const chipWrap = document.getElementById('stock-deep-quick-chips');
+  if (!chipWrap) return;
+
+  chipWrap.innerHTML = STOCK_DEEP_DATA.map((item, idx) => `
+    <button type="button" class="imggen-style-chip ${idx === currentDeepIdx ? 'active' : ''}" 
+            onclick="selectStockDeepItem(${idx})" 
+            style="padding: 4px 12px; font-size: 0.78rem; font-weight: 700;">
+      ${escapeHtml(item.name)} (${item.symbol})
+    </button>
+  `).join('');
+}
+
+// 좌측 종목 목록 렌더링
+function renderStockDeepList() {
+  const listWrap = document.getElementById('stock-deep-list');
+  if (!listWrap) return;
+
+  listWrap.innerHTML = STOCK_DEEP_DATA.map((item, idx) => `
+    <div class="kc-card ${idx === currentDeepIdx ? 'active' : ''}" onclick="selectStockDeepItem(${idx})" style="cursor: pointer; margin-bottom: 10px;">
+      <div class="kc-card-num-box" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 0.78rem;">
+        ${idx + 1}
+      </div>
+      <div class="kc-card-body">
+        <div class="kc-card-kw-title" style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 1.02rem; font-weight: 900; color: #f8fafc;">${escapeHtml(item.name)}</span>
+          <span style="color: #ef4444; font-size: 0.9rem; font-weight: 900;">${item.changeRate}</span>
+        </div>
+        <div class="kc-card-sub-row" style="margin: 4px 0;">
+          <span class="kc-badge-tag" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; font-size: 0.72rem;">${escapeHtml(item.badge)}</span>
+          <span class="kc-badge-vol" style="font-size: 0.75rem; color: #94a3b8;">${item.symbol} · ${escapeHtml(item.market.split('·')[0].trim())}</span>
+        </div>
+        <div style="font-size: 0.76rem; color: #cbd5e1; margin-top: 4px; line-height: 1.4;">
+          ${escapeHtml(item.oneLine)}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// 우측 딥분석 종합 리포트 렌더링
+window.selectStockDeepItem = function(idx) {
+  currentDeepIdx = idx;
+  const item = STOCK_DEEP_DATA[idx] || STOCK_DEEP_DATA[0];
+  const detailPanel = document.getElementById('stock-deep-detail');
+  if (!detailPanel || !item) return;
+
+  // 상단 칩과 좌측 카드 활성화 상태 동기화
+  renderStockDeepChips();
+  document.querySelectorAll('#stock-deep-list .kc-card').forEach((c, i) => {
+    c.classList.toggle('active', i === idx);
+  });
+
+  // 1. 공시 HTML
+  const disclosuresHtml = item.disclosures.map(d => `
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; margin-bottom: 6px;">
+      <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+        <span style="font-size: 0.72rem; color: #38bdf8; background: rgba(56,189,248,0.12); padding: 2px 6px; border-radius: 4px; font-weight: 700; white-space: nowrap;">${escapeHtml(d.tag)}</span>
+        <span style="font-size: 0.84rem; color: #f8fafc; font-weight: 600;">${escapeHtml(d.title)}</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; white-space: nowrap;">
+        <span style="font-size: 0.74rem; color: #94a3b8;">${escapeHtml(d.date)}</span>
+        <a href="https://dart.fss.or.kr/dsac001/mainAll.do?selectDate=${encodeURIComponent(d.date.replace(/-/g, ''))}" target="_blank" rel="noopener noreferrer" style="font-size: 0.72rem; color: #38bdf8; text-decoration: none; font-weight: 700;">
+          DART 공시 ↗
+        </a>
+      </div>
+    </div>
+  `).join('');
+
+  // 2. 기사 HTML
+  const articlesHtml = item.articles.map(a => {
+    const cleanT = a.title.replace(/\[.*?\]/g, '').trim();
+    const link = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(cleanT || a.title)}`;
+    return `
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; margin-bottom: 6px; gap: 8px;">
+      <div style="flex: 1;">
+        <div style="font-size: 0.84rem; color: #f8fafc; font-weight: 600; line-height: 1.4;">${escapeHtml(a.title)}</div>
+        <div style="font-size: 0.72rem; color: #94a3b8; margin-top: 2px;">${escapeHtml(a.media)} · ${escapeHtml(a.time)}</div>
+      </div>
+      <a href="${link}" target="_blank" rel="noopener noreferrer" style="font-size: 0.72rem; color: #38bdf8; background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.3); padding: 4px 10px; border-radius: 6px; text-decoration: none; font-weight: 700; white-space: nowrap;">
+        기사 보기 ↗
+      </a>
+    </div>
+  `;
+  }).join('');
+
+  // 3. 엮인 테마 종목군 HTML
+  const themesHtml = item.themes.map(t => `
+    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+        <span style="font-size: 0.92rem; font-weight: 800; color: #38bdf8;">${escapeHtml(t.name)}</span>
+        <span style="font-size: 0.74rem; background: rgba(56,189,248,0.15); color: #38bdf8; padding: 2px 8px; border-radius: 4px; font-weight: 700;">${escapeHtml(t.relation)}</span>
+      </div>
+      <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.5;">
+        🤝 함께 엮여 움직이는 관련주: <strong style="color: #f8fafc;">${escapeHtml(t.peers)}</strong>
+      </div>
+    </div>
+  `).join('');
+
+  // 4. 주요 일정 HTML
+  const eventsHtml = item.events.map(e => `
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 8px; margin-bottom: 6px;">
+      <div>
+        <div style="font-size: 0.88rem; font-weight: 800; color: #f8fafc; margin-bottom: 2px;">${escapeHtml(e.title)}</div>
+        <div style="font-size: 0.76rem; color: #94a3b8;">${escapeHtml(e.impact)}</div>
+      </div>
+      <div style="text-align: right;">
+        <span style="font-size: 0.92rem; font-weight: 900; color: #34d399; background: rgba(16,185,129,0.15); padding: 3px 8px; border-radius: 6px;">${escapeHtml(e.dday)}</span>
+        <div style="font-size: 0.72rem; color: #64748b; margin-top: 4px;">${escapeHtml(e.date)}</div>
+      </div>
+    </div>
+  `).join('');
+
+  detailPanel.innerHTML = `
+    <div class="kc-white-report-container" style="background: #0f172a; border-color: rgba(255,255,255,0.08);">
+      <!-- A. 최상단 종목 프로필 헤더 -->
+      <div class="kc-detail-header-row" style="margin-bottom: 20px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span class="kc-report-pill-badge" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35); color: #38bdf8;">
+              ${escapeHtml(item.market)}
+            </span>
+            <span style="font-size: 0.76rem; color: #94a3b8; font-weight: 700;">종목코드: ${item.symbol}</span>
+          </div>
+          <h2 class="kc-report-main-title" style="color: #f8fafc; margin-bottom: 6px;">
+            ${escapeHtml(item.name)} <span style="font-size: 1.1rem; color: #ef4444; font-weight: 900;">${item.currentPrice} (${item.changeRate})</span>
+          </h2>
+          <div class="kc-report-sub-meta" style="color: #94a3b8;">
+            시가총액: <strong style="color: #f8fafc;">${item.marketCap}</strong> · 외국인 지분율: <strong style="color: #38bdf8;">${item.foreignRate}</strong>
+          </div>
+          <div style="font-size: 0.8rem; color: #64748b; margin-top: 4px;">
+            밸류에이션: ${item.perPbr}
+          </div>
+        </div>
+
+        <div class="kc-big-score-card" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.35); text-align: center;">
+          <div class="kc-score-head-title" style="color: #38bdf8;">미래 지속성 점수</div>
+          <div class="kc-score-big-val" style="color: #38bdf8;">${item.futureOutlook.targetScore}<span class="kc-score-denom" style="color: #94a3b8;"> / 100</span></div>
+          <div class="kc-score-bottom-note" style="color: #34d399; font-weight: 800;">${escapeHtml(item.futureOutlook.rating)}</div>
+        </div>
+      </div>
+
+      <!-- B. 딥분석 6대 핵심 영역 탭 바 -->
+      <div style="display: flex; gap: 6px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 4px;">
+        <button type="button" class="imggen-style-chip ${currentDeepTab === 'all' ? 'active' : ''}" onclick="switchDeepTab('all', this)">📋 전체 종합 분석</button>
+        <button type="button" class="imggen-style-chip ${currentDeepTab === 'bm' ? 'active' : ''}" onclick="switchDeepTab('bm', this)">💰 비즈니스 모델(BM/돈 버는 법)</button>
+        <button type="button" class="imggen-style-chip ${currentDeepTab === 'finance' ? 'active' : ''}" onclick="switchDeepTab('finance', this)">📊 실적 & 공시</button>
+        <button type="button" class="imggen-style-chip ${currentDeepTab === 'news' ? 'active' : ''}" onclick="switchDeepTab('news', this)">📰 관련 기사 모음</button>
+        <button type="button" class="imggen-style-chip ${currentDeepTab === 'theme' ? 'active' : ''}" onclick="switchDeepTab('theme', this)">🌐 엮인 테마 & 관련주</button>
+        <button type="button" class="imggen-style-chip ${currentDeepTab === 'future' ? 'active' : ''}" onclick="switchDeepTab('future', this)">🔮 미래 총집합소</button>
+      </div>
+
+      <!-- C. 영역 1: 비즈니스 모델 (어떻게 돈을 벌고 있는가? 수주/제조업 구분) -->
+      <div class="deep-section-block" id="deep-sec-bm" style="margin-bottom: 24px;">
+        <div style="font-size: 0.98rem; font-weight: 800; color: #f8fafc; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span>💰</span> 1. 비즈니스 모델 분석 (현재 어떻게 돈을 버는가?)
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 18px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+            <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); padding: 12px; border-radius: 8px;">
+              <div style="font-size: 0.76rem; color: #38bdf8; font-weight: 800; margin-bottom: 4px;">산업 유형 분류</div>
+              <div style="font-size: 0.92rem; font-weight: 900; color: #f8fafc;">${escapeHtml(item.bm.type)}</div>
+            </div>
+            <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); padding: 12px; border-radius: 8px;">
+              <div style="font-size: 0.76rem; color: #34d399; font-weight: 800; margin-bottom: 4px;">매출 포트폴리오 비중</div>
+              <div style="font-size: 0.92rem; font-weight: 800; color: #f8fafc;">${escapeHtml(item.bm.structure)}</div>
+            </div>
+          </div>
+          <div style="margin-bottom: 12px;">
+            <div style="font-size: 0.84rem; font-weight: 800; color: #fb923c; margin-bottom: 4px;">💵 핵심 캐시카우 (수익 창출 엔진):</div>
+            <div style="font-size: 0.86rem; color: #cbd5e1; line-height: 1.6;">${escapeHtml(item.bm.cashCow)}</div>
+          </div>
+          <div>
+            <div style="font-size: 0.84rem; font-weight: 800; color: #94a3b8; margin-bottom: 4px;">⚙️ 원가 구조 및 마진 레버리지:</div>
+            <div style="font-size: 0.86rem; color: #94a3b8; line-height: 1.6;">${escapeHtml(item.bm.costStructure)}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D. 영역 2: 실적 & 공시 히스토리 -->
+      <div class="deep-section-block" id="deep-sec-finance" style="margin-bottom: 24px;">
+        <div style="font-size: 0.98rem; font-weight: 800; color: #f8fafc; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span>📊</span> 2. 분기별 실적 추이 & DART 핵심 공시
+        </div>
+        <!-- 분기 실적 3단 카드 -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px;">
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 0.74rem; color: #94a3b8; font-weight: 700;">2024년 1분기</div>
+            <div style="font-size: 0.92rem; font-weight: 900; color: #f8fafc; margin: 2px 0;">매출 ${item.financials.q24_1.sales}</div>
+            <div style="font-size: 0.78rem; color: #ef4444; font-weight: 800;">영업익 ${item.financials.q24_1.profit} (${item.financials.q24_1.margin})</div>
+          </div>
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 0.74rem; color: #94a3b8; font-weight: 700;">2024년 2분기</div>
+            <div style="font-size: 0.92rem; font-weight: 900; color: #f8fafc; margin: 2px 0;">매출 ${item.financials.q24_2.sales}</div>
+            <div style="font-size: 0.78rem; color: #ef4444; font-weight: 800;">영업익 ${item.financials.q24_2.profit} (${item.financials.q24_2.margin})</div>
+          </div>
+          <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.3); padding: 12px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 0.74rem; color: #38bdf8; font-weight: 700;">2024년 3분기 (컨센서스)</div>
+            <div style="font-size: 0.92rem; font-weight: 900; color: #f8fafc; margin: 2px 0;">매출 ${item.financials.q24_3E.sales}</div>
+            <div style="font-size: 0.78rem; color: #ef4444; font-weight: 800;">영업익 ${item.financials.q24_3E.profit} (${item.financials.q24_3E.margin})</div>
+          </div>
+        </div>
+        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 10px 14px; font-size: 0.84rem; color: #cbd5e1; margin-bottom: 14px;">
+          📈 <strong>실적 종합 총평:</strong> ${escapeHtml(item.financials.annual2024E)} · ${escapeHtml(item.financials.point)}
+        </div>
+        <!-- 공시 목록 -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 12px 14px;">
+          <div style="font-size: 0.82rem; font-weight: 800; color: #38bdf8; margin-bottom: 8px;">📑 최근 DART 전자공시 주요 내역:</div>
+          ${disclosuresHtml}
+        </div>
+      </div>
+
+      <!-- E. 영역 3: 그 종목에 관련된 모든 기사 모음 -->
+      <div class="deep-section-block" id="deep-sec-news" style="margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div style="font-size: 0.98rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 8px;">
+            <span>📰</span> 3. 이 종목 관련 모든 기사 모아보기
+          </div>
+          <a href="https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(item.name + ' 주가 실적')}" target="_blank" rel="noopener noreferrer" style="font-size: 0.74rem; color: #38bdf8; text-decoration: none; font-weight: 700;">
+            네이버 실시간 뉴스 전체 ↗
+          </a>
+        </div>
+        <div>
+          ${articlesHtml}
+        </div>
+      </div>
+
+      <!-- F. 영역 4: 엮여있는 테마 및 관련 종목군 맵 -->
+      <div class="deep-section-block" id="deep-sec-theme" style="margin-bottom: 24px;">
+        <div style="font-size: 0.98rem; font-weight: 800; color: #f8fafc; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span>🌐</span> 4. 엮여있는 테마 및 관련주 에코시스템
+        </div>
+        <div>
+          ${themesHtml}
+        </div>
+      </div>
+
+      <!-- G. 영역 5: 증시 캘린더 D-Day 일정 -->
+      <div class="deep-section-block" id="deep-sec-events" style="margin-bottom: 24px;">
+        <div style="font-size: 0.98rem; font-weight: 800; color: #f8fafc; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span>📅</span> 5. 향후 주요 일정 및 D-Day 카운트다운
+        </div>
+        <div>
+          ${eventsHtml}
+        </div>
+      </div>
+
+      <!-- H. 영역 6: 이 종목의 미래 종집합소 (미래 지속성 & 투자 전략) -->
+      <div class="deep-section-block" id="deep-sec-future" style="background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+        <div style="font-size: 1.05rem; font-weight: 900; color: #38bdf8; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+          <span>🔮</span> 6. 미래 종집합소 (Future Synthesis Report)
+        </div>
+        <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; margin-bottom: 8px; line-height: 1.4;">
+          ${escapeHtml(item.futureOutlook.summary)}
+        </div>
+        <div style="margin-bottom: 10px;">
+          <div style="font-size: 0.82rem; font-weight: 800; color: #34d399; margin-bottom: 3px;">🚀 미래 핵심 성장 동력 (Catalyst):</div>
+          <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">${escapeHtml(item.futureOutlook.catalyst)}</div>
+        </div>
+        <div>
+          <div style="font-size: 0.82rem; font-weight: 800; color: #ef4444; margin-bottom: 3px;">⚠️ 주의해야 할 리스크 (Risk Factor):</div>
+          <div style="font-size: 0.85rem; color: #94a3b8; line-height: 1.6;">${escapeHtml(item.futureOutlook.riskCheck)}</div>
+        </div>
+      </div>
+
+      <!-- I. 포털 바로가기 그리드 -->
+      <div class="kc-portals-btn-grid">
+        <a href="https://finance.naver.com/item/main.naver?code=${item.symbol}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn portal-green">
+          네이버 증권 시세
+        </a>
+        <a href="https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(item.name)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
+          관련 뉴스 전체보기 ↗
+        </a>
+        <a href="https://dart.fss.or.kr/" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
+          DART 전자공시
+        </a>
+        <a href="https://www.google.com/finance/quote/${item.symbol}:KRX" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
+          구글 파이낸스
+        </a>
+      </div>
+    </div>
+  `;
+};
+
+// 딥분석 탭 전환 함수
+window.switchDeepTab = function(tabName, btn) {
+  currentDeepTab = tabName;
+  if (btn && btn.parentElement) {
+    btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  const sections = {
+    bm: document.getElementById('deep-sec-bm'),
+    finance: document.getElementById('deep-sec-finance'),
+    news: document.getElementById('deep-sec-news'),
+    theme: document.getElementById('deep-sec-theme'),
+    future: document.getElementById('deep-sec-future'),
+    events: document.getElementById('deep-sec-events')
+  };
+
+  if (tabName === 'all') {
+    Object.keys(sections).forEach(k => {
+      if (sections[k]) sections[k].style.display = 'block';
+    });
+  } else {
+    Object.keys(sections).forEach(k => {
+      if (sections[k]) {
+        if (tabName === 'bm' && k === 'bm') sections[k].style.display = 'block';
+        else if (tabName === 'finance' && (k === 'finance' || k === 'events')) sections[k].style.display = 'block';
+        else if (tabName === 'news' && k === 'news') sections[k].style.display = 'block';
+        else if (tabName === 'theme' && k === 'theme') sections[k].style.display = 'block';
+        else if (tabName === 'future' && k === 'future') sections[k].style.display = 'block';
+        else sections[k].style.display = 'none';
+      }
+    });
+  }
+};
 

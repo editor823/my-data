@@ -3002,6 +3002,18 @@
   box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
 }
 
+@media (max-width: 1024px) {
+  .stock-subtabs-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .stock-subtabs-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 .stock-filter-chip {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-color);
