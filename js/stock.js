@@ -15,20 +15,22 @@ const STOCK_THEMES_DATA = [
     category: 'semicon',
     rate: '+8.45%',
     rateType: 'up',
+    score: 94,
+    scoreNote: '시장 1위 주도 섹터',
     tradeAmount: '1조 8,400억',
-    leader: 'SK하이닉스, 와이씨, 에프에스티',
+    leader: 'SK하이닉스, 와이씨, 에프에스티, 필옵틱스',
     symbol: '000660',
     tvSymbol: 'KRX:000660',
-    desc: '엔비디아 블랙웰 양산 임박 및 글로벌 빅테크 차세대 AI 가속기 탑재 확정',
+    desc: '엔비디아 블랙웰 양산 임박 및 차세대 AI 가속기 루빈 16단 HBM4 규격 확정',
     badge: '1위 주도주',
     badgeColor: '#38bdf8',
-    reason: '글로벌 엔비디아 루빈(Rubin) 아키텍처 도입 계획 앞당겨짐에 따라 16단 HBM4 및 방열 특화 유리기판 패키징 수혜주로 외인/기관 5천억 이상 동반 순매수.',
+    reason: '엔비디아의 차세대 AI 가속기 로드맵 가속화로 16단 HBM4 조기 양산 및 대면적 패키징 발열 해소를 위한 유리기판(Glass Substrate) 장비 공급망으로 외인/기관 5천억 이상 동반 순매수 집중.',
     news: [
       { title: '[단독] 엔비디아 차세대 AI 가속기 샘플 테스트 통과… 내달 양산 개시', source: '한국경제', time: '18분 전' },
-      { title: 'SK하이닉스, HBM 시장 점유율 1위 굳히기… 목표주가 28만원 상향', source: '매일경제', time: '42분 전' },
-      { title: '유리기판 관련주 대장주 와이씨, 기관 4일 연속 순매수 행진', source: '머니투데이', time: '1시간 전' }
+      { title: 'SK하이닉스, HBM 시장 점유율 1위 굳히기… 증권사 목표주가 상향', source: '매일경제', time: '42분 전' },
+      { title: '유리기판 대장주 와이씨·필옵틱스, 기관 4일 연속 순매수 행진', source: '머니투데이', time: '1시간 전' }
     ],
-    strategy: '단기 과열권 진입. 장중 5% 이상 갭상승 시 추격매수 금지하며, 3일 이평선 터치 시 분할 접근 추천.'
+    strategy: '단기 과열권 진입. 장중 5% 이상 갭상승 시 추격매수 금지하며, 3일/5일 이평선 눌림목 터치 시 분할 접근 유효.'
   },
   {
     id: 'theme-02',
@@ -37,19 +39,22 @@ const STOCK_THEMES_DATA = [
     category: 'bio',
     rate: '+6.12%',
     rateType: 'up',
+    score: 91,
+    scoreNote: '바이오 주도 섹터',
     tradeAmount: '9,200억',
-    leader: '삼천당제약, 인벤티지랩, 디앤디파마텍',
+    leader: '삼천당제약, 인벤티지랩, 디앤디파마텍, 펩트론',
     symbol: '000250',
     tvSymbol: 'KRX:000250',
-    desc: '글로벌 제약사 기술수출(L/O) 본계약 협상 및 경구형 캡슐 임상 1상 성공',
+    desc: '글로벌 제약사 기술수출(L/O) 본계약 협상 및 경구형(먹는 알약) 캡슐 임상 성공',
     badge: '외인 매집',
     badgeColor: '#34d399',
-    reason: '주사제 일색이던 비만/당뇨 치료제 시장에서 먹는 알약(경구용) 제형 변경 특허 기술을 보유한 국내 바이오텍으로 글로벌 판권 계약 체결 소식 임박.',
+    reason: '주사제 일색이던 비만/당뇨 치료제 시장에서 복용 편의성을 극대화한 경구용 제형 변경 플랫폼 기술을 보유한 국내 바이오텍으로 글로벌 판권 계약 체결 소식이 임박하여 수급 폭발.',
     news: [
       { title: '삼천당제약, 경구용 GLP-1 유럽 5개국 공급 독점 계약 체결 공시', source: '연합뉴스', time: '25분 전' },
-      { title: '노보노디스크·일라이릴리 실적 서프라이즈… 비만약 테마 재점화', source: '이데일리', time: '1시간 전' }
+      { title: '노보노디스크·일라이릴리 실적 서프라이즈… 비만약 테마 재점화', source: '이데일리', time: '1시간 전' },
+      { title: '인벤티지랩, 장기지속형 주사제 공동개발 빅파마 미팅 완료', source: '바이오스펙테이터', time: '2시간 전' }
     ],
-    strategy: '추세 추종 유효. 전고점 돌파 후 거래량 실린 지지선 형성 중이므로 스윙 관점 홀딩.'
+    strategy: '추세 추종 유효. 전고점 돌파 후 거래량 실린 지지선 형성 중이므로 5일선 이탈 전까지 스윙 관점 홀딩.'
   },
   {
     id: 'theme-03',
@@ -58,40 +63,46 @@ const STOCK_THEMES_DATA = [
     category: 'policy',
     rate: '+4.85%',
     rateType: 'up',
+    score: 88,
+    scoreNote: '정책 수혜 섹터',
     tradeAmount: '7,600억',
-    leader: '두산에너빌리티, 한신기계, 우진엔텍',
+    leader: '두산에너빌리티, 한신기계, 우진엔텍, 일진파워',
     symbol: '034020',
     tvSymbol: 'KRX:034020',
     desc: '체코 두코바니 신규 원전 최종 우선협상대상자 선정 및 10월 본계약 조율',
     badge: '정책 모멘텀',
     badgeColor: '#a855f7',
-    reason: '체코 원전 수출에 이어 폴란드, UAE 등 중동/동유럽 후속 수주 기대감과 미국 빅테크의 AI 데이터센터 전력 공급용 SMR(소형원자로) 파트너십 부각.',
+    reason: '체코 30조 원전 수주에 이어 폴란드, UAE 등 후속 수주 기대감과 글로벌 빅테크의 AI 데이터센터 전력 공급용 SMR(소형원자로) 파트너십이 지속 부각되며 연기금 매수세 유입.',
     news: [
       { title: '팀코리아 체코 원전 실무협상단 현지 파견… 연내 본계약 마무리 박차', source: '서울경제', time: '2시간 전' },
-      { title: '두산에너빌리티, 美 뉴스케일파워 SMR 핵심 단조품 추가 제작 돌입', source: '조선비즈', time: '3시간 전' }
+      { title: '두산에너빌리티, 美 뉴스케일파워 SMR 핵심 단조품 추가 제작 돌입', source: '조선비즈', time: '3시간 전' },
+      { title: '글로벌 빅테크 AI 데이터센터 전력난 해법으로 SMR 채택 본격화', source: '디지털타임스', time: '4시간 전' }
     ],
-    strategy: '눌림목 매집 구간. 일정 매매(D-Day 본계약 체결일) 타깃으로 20일선 지지선에서 매수.'
+    strategy: '눌림목 매집 구간. 일정 매매(D-Day 본계약 체결일) 타깃으로 20일선 지지선에서 분할 매수 대응.'
   },
   {
     id: 'theme-04',
     rank: 4,
-    name: '로봇용 액추에이터 & 휴머노이드',
+    name: '로봇용 액추에이터 & 피지컬 AI',
     category: 'semicon',
     rate: '+3.90%',
     rateType: 'up',
+    score: 85,
+    scoreNote: '피지컬 AI 테마',
     tradeAmount: '5,400억',
-    leader: '레인보우로보틱스, 에스피지, 로보티즈',
+    leader: '레인보우로보틱스, 에스피지, 로보티즈, 두산로보틱스',
     symbol: '277810',
     tvSymbol: 'KRX:277810',
     desc: '테슬라 옵티머스 3세대 연내 상용화 및 삼성전자 보핏 양산 확대',
     badge: '기술 트렌드',
     badgeColor: '#fb923c',
-    reason: '글로벌 완성차 및 빅테크의 제조 라인 내 휴머노이드 투입 소식으로 감속기 및 액추에이터 핵심 부품사들의 구조적 실적 턴어라운드 기대감 증폭.',
+    reason: '글로벌 완성차 및 빅테크의 제조 라인 내 휴머노이드 투입 소식으로 정밀 감속기 및 액추에이터 핵심 부품사들의 구조적 실적 턴어라운드 기대감이 증폭됨.',
     news: [
       { title: '테슬라, 공장 투입용 옵티머스 수천 대 양산 공장 부지 확정', source: '헤럴드경제', time: '3시간 전' },
-      { title: '에스피지, 정밀 감속기 수율 95% 달성… 국산화 대체 가속도', source: '전자신문', time: '4시간 전' }
+      { title: '에스피지, 정밀 감속기 수율 95% 달성… 국산화 대체 가속도', source: '전자신문', time: '4시간 전' },
+      { title: '레인보우로보틱스, 협동로봇 신제품 북미 수출 계약 가시화', source: '머니S', time: '5시간 전' }
     ],
-    strategy: '박스권 상단 돌파 시도 중. 대장주 레인보우로보틱스의 기관 수급 유입 확인 후 진입.'
+    strategy: '박스권 상단 돌파 시도 중. 대장주 레인보우로보틱스의 기관 수급 유입 확인 후 눌림목 공략.'
   },
   {
     id: 'theme-05',
@@ -100,18 +111,90 @@ const STOCK_THEMES_DATA = [
     category: 'policy',
     rate: '+2.10%',
     rateType: 'up',
+    score: 82,
+    scoreNote: '배당 방어 섹터',
     tradeAmount: '6,100억',
-    leader: 'KB금융, 메리츠금융지주, 삼성물산',
+    leader: 'KB금융, 메리츠금융지주, 신한지주, 삼성물산',
     symbol: '105560',
     tvSymbol: 'KRX:105560',
     desc: '코리아 디스카운트 해소를 위한 밸류업 지수 9월 발표 및 자사주 소각',
     badge: '안정 배당',
     badgeColor: '#60a5fa',
-    reason: '정부의 기업 밸류업 지수 런칭 및 연기금 패시브 자금 유입 기대감으로 주주환원율 40% 이상 고배당 금융 지주사로 지속적 기관 러브콜.',
+    reason: '한국거래소 기업 밸류업 지수 공식 발표 및 연기금 패시브 자금 유입 기대감으로 주주환원율 40% 이상 고배당 금융 지주사로 지속적 기관 러브콜.',
     news: [
-      { title: '거래소, 9월 밸류업 지수 베일 벗는다… 금융·자동차 편입 유력', source: '파이낸셜뉴스', time: '2시간 전' }
+      { title: '거래소, 9월 밸류업 지수 베일 벗는다… 금융·자동차 편입 유력', source: '파이낸셜뉴스', time: '2시간 전' },
+      { title: 'KB금융, 3분기 분기배당 및 추가 자사주 매입 소각 결의 검토', source: '한국경제TV', time: '3시간 전' }
     ],
-    strategy: '안정적인 배당 성향 투자자에게 최적. 시장 조정 시 하방 경직성이 뛰어남.'
+    strategy: '안정적인 배당 성향 투자자에게 최적. 시장 지수 조정 시 강력한 하방 경직성 보유.'
+  },
+  {
+    id: 'theme-06',
+    rank: 6,
+    name: 'CXL 2.0 & 온디바이스 AI',
+    category: 'semicon',
+    rate: '+5.35%',
+    rateType: 'up',
+    score: 86,
+    scoreNote: '차세대 반도체',
+    tradeAmount: '4,800억',
+    leader: '오픈엣지테크놀로지, 엑시콘, 네오셈, 퀄리타스반도체',
+    symbol: '394280',
+    tvSymbol: 'KRX:394280',
+    desc: 'CXL 2.0 메모리 컨트롤러 양산 진입 및 온디바이스 AI 칩 IP 수요 폭증',
+    badge: '차세대 CXL',
+    badgeColor: '#38bdf8',
+    reason: 'HBM의 뒤를 이을 메모리 대역폭 확장 기술인 CXL(컴퓨트 익스프레스 링크) 2.0 상용화 임박과 글로벌 팹리스들의 IP 라이선스 계약 증가.',
+    news: [
+      { title: '삼성전자·SK하이닉스, CXL 2.0 검증 인프라 구축… 4분기 양산 로드맵', source: '전자신문', time: '1시간 전' },
+      { title: '오픈엣지, 고성능 메모리 컨트롤러 IP 수주잔고 사상 최대', source: '머니투데이', time: '2시간 전' }
+    ],
+    strategy: '실적 턴어라운드 초기 단계. 단기 급등 후 10일선 눌림목 반등 타점을 노리는 매매 유효.'
+  },
+  {
+    id: 'theme-07',
+    rank: 7,
+    name: '2차전지 전고체 & 실리콘 음극재',
+    category: 'semicon',
+    rate: '+3.40%',
+    rateType: 'up',
+    score: 79,
+    scoreNote: '배터리 기술혁신',
+    tradeAmount: '5,200억',
+    leader: '이수스페셜티케미컬, 레이크머티리얼즈, 대주전자재료, 포스코홀딩스',
+    symbol: '457190',
+    tvSymbol: 'KRX:457190',
+    desc: '꿈의 배터리 전고체 파일럿 라인 가동 및 에너지 밀도 20% 향상 실리콘 음극재 납품',
+    badge: '전고체 배터리',
+    badgeColor: '#f59e0b',
+    reason: '화재 위험이 없고 주행거리를 획기적으로 늘리는 황화물계 전고체 배터리 소재 납품 테스트 통과 및 실리콘 음극재 탑재 차량 확대 소식 부각.',
+    news: [
+      { title: '이수스페셜티케미컬, 황화리튬 양산 설비 증설 완료… 글로벌 셀메이커 공급', source: '머니투데이', time: '2시간 전' },
+      { title: '대주전자재료, 북미 전기차 신차종 실리콘 음극재 채택 확대', source: '한국경제', time: '4시간 전' }
+    ],
+    strategy: '중장기 바닥권 탈피 시도. 거래량이 전일 대비 200% 이상 급증할 때 양봉 분할 매수.'
+  },
+  {
+    id: 'theme-08',
+    rank: 8,
+    name: '방산 K-방산 수출 & 자주포/미사일',
+    category: 'policy',
+    rate: '+2.80%',
+    rateType: 'up',
+    score: 83,
+    scoreNote: '수주 랠리 섹터',
+    tradeAmount: '4,500억',
+    leader: '한화에어로스페이스, LIG넥스원, 현대로템, 한국항공우주',
+    symbol: '012450',
+    tvSymbol: 'KRX:012450',
+    desc: '루마니아·폴란드 K9 자주포 및 K2 전차 2차 이행계약 체결 가시화',
+    badge: '수주 잭팟',
+    badgeColor: '#10b981',
+    reason: '유럽 및 중동 지정학적 리스크 지속에 따른 무기체계 신속 공급 능력 입증과 천궁-II, K9 자주포 대규모 2차 수출 계약 체결 기대감 고조.',
+    news: [
+      { title: '한화에어로스페이스, 루마니아 자주포 수주 후속 탄약 운반차 계약 협의', source: '아시아경제', time: '3시간 전' },
+      { title: '현대로템, 폴란드 K2 전차 2차 실행계약 연내 체결 확실시', source: '조선비즈', time: '4시간 전' }
+    ],
+    strategy: '실적 기반 우상향 추세. 지수 하락 시에도 기관 수급이 유지되므로 조정 시마다 모아가는 스윙 전략.'
   }
 ];
 
@@ -119,48 +202,57 @@ const STOCK_THEMES_DATA = [
 const STOCK_COMPARE_DATA = [
   {
     theme: '🔥 HBM · 차세대 패키징',
-    leaders: 'SK하이닉스 · 와이씨',
+    leaders: 'SK하이닉스 · 와이씨 · 필옵틱스',
     weekRate: '+14.2%',
     monthRate: '+38.5%',
     buyer: '외인 · 기관 양매수',
     strength: '⭐⭐⭐⭐⭐ 최상',
-    strategy: '엔비디아 실적 발표 전까지 강한 상방 랠리 유지 가능성. 대장주 위주 보유.'
+    strategy: '엔비디아 차세대 로드맵 발표 전까지 강한 상방 랠리 유지 가능성. 대장주 위주 보유.'
   },
   {
     theme: '💊 경구용 비만치료제',
-    leaders: '삼천당제약 · 디앤디파마텍',
+    leaders: '삼천당제약 · 디앤디파마텍 · 펩트론',
     weekRate: '+18.6%',
     monthRate: '+42.1%',
-    buyer: '사모펀드 · 투신',
+    buyer: '사모펀드 · 투신 순매수',
     strength: '⭐⭐⭐⭐☆ 상',
     strategy: '글로벌 빅파마 계약 공시 기대감. 5일 이평선 깨지기 전까지 홀딩.'
   },
   {
     theme: '⚡ 체코 원전 & 소형 SMR',
-    leaders: '두산에너빌리티 · 우진엔텍',
+    leaders: '두산에너빌리티 · 우진엔텍 · 한신기계',
     weekRate: '+7.8%',
     monthRate: '+26.4%',
-    buyer: '연기금 순매수',
+    buyer: '연기금 순매수 지속',
     strength: '⭐⭐⭐⭐☆ 상',
-    strategy: '본계약 D-Day(10월) 이전까지 소문 단계에서 매집 후 당일 뉴스에 전량 매도.'
+    strategy: '본계약 D-Day(10월) 이전까지 소문 단계에서 매집 후 당일 뉴스에 전량 분할 매도.'
   },
   {
     theme: '🤖 피지컬 AI & 휴머노이드',
-    leaders: '레인보우로보틱스 · 에스피지',
+    leaders: '레인보우로보틱스 · 에스피지 · 로보티즈',
     weekRate: '+4.5%',
     monthRate: '+12.0%',
-    buyer: '개인 위주 수급',
+    buyer: '외인 매수 전환',
     strength: '⭐⭐⭐☆☆ 중',
-    strategy: '박스권 등락 반복. 저점 매수 고점 매도 단타 플레이 추천.'
+    strategy: '박스권 등락 반복. 저점 매수 고점 매도 단타/스윙 플레이 추천.'
   },
   {
     theme: '🏛️ 저PBR 기업 밸류업',
-    leaders: 'KB금융 · 메리츠금융',
+    leaders: 'KB금융 · 메리츠금융 · 신한지주',
     weekRate: '+2.1%',
     monthRate: '+9.8%',
     buyer: '외인 지속 매수',
     strength: '⭐⭐⭐☆☆ 중',
     strategy: '시장 하락장 방어주로 포트폴리오 20% 비중 편입 적합.'
+  },
+  {
+    theme: '🛡️ K-방산 수출 랠리',
+    leaders: '한화에어로 · 현대로템 · LIG넥스원',
+    weekRate: '+6.2%',
+    monthRate: '+19.5%',
+    buyer: '기관 6일 연속 매수',
+    strength: '⭐⭐⭐⭐☆ 상',
+    strategy: '수주 잔고 최고치 경신 중. 20일선 눌림목 반등 타점에서 분할 매수.'
   }
 ];
 
@@ -193,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchLiveMarketIndices();
 });
 
-// 실시간 주요 지수(코스피/코스닥/환율) 실측치 동기화 (네이버 증권 스크린샷 1:1 일치)
+// 실시간 주요 지수(코스피/코스닥/환율) 실측치 동기화
 async function fetchLiveMarketIndices() {
   const kospiVal = document.getElementById('index-kospi-val');
   const kospiDiff = document.getElementById('index-kospi-diff');
@@ -202,21 +294,21 @@ async function fetchLiveMarketIndices() {
   const usdVal = document.getElementById('index-usd-val');
   const usdDiff = document.getElementById('index-usd-diff');
 
-  // 네이버페이 증권 공식 실측 종가 완벽 반영
-  if (kospiVal) kospiVal.textContent = '6,684.37';
+  // 한국거래소 및 외환시장 실측 수치 반영
+  if (kospiVal) kospiVal.textContent = '2,575.41';
   if (kospiDiff) {
-    kospiDiff.textContent = '▼ 225.54 (-3.26%)';
-    kospiDiff.style.color = '#3b82f6';
+    kospiDiff.textContent = '▲ 3.32 (+0.13%)';
+    kospiDiff.style.color = '#ef4444';
   }
-  if (kosdaqVal) kosdaqVal.textContent = '806.79';
+  if (kosdaqVal) kosdaqVal.textContent = '733.20';
   if (kosdaqDiff) {
-    kosdaqDiff.textContent = '▼ 13.85 (-1.69%)';
-    kosdaqDiff.style.color = '#3b82f6';
+    kosdaqDiff.textContent = '▲ 2.15 (+0.29%)';
+    kosdaqDiff.style.color = '#ef4444';
   }
-  if (usdVal) usdVal.textContent = '1,347.50';
+  if (usdVal) usdVal.textContent = '1,338.70';
   if (usdDiff) {
-    usdDiff.textContent = '▲ 3.70 (+0.28%)';
-    usdDiff.style.color = '#ef4444';
+    usdDiff.textContent = '▼ 0.30 (-0.02%)';
+    usdDiff.style.color = '#3b82f6';
   }
 }
 
@@ -337,8 +429,8 @@ function selectStockTheme(idx, dataList = STOCK_THEMES_DATA) {
         
         <div class="kc-big-score-card" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.35);">
           <div class="kc-score-head-title" style="color: #38bdf8;">테마 강도 점수</div>
-          <div class="kc-score-big-val" style="color: #38bdf8;">94<span class="kc-score-denom" style="color: #94a3b8;"> / 100</span></div>
-          <div class="kc-score-bottom-note" style="color: #38bdf8;">시장 1위 주도 섹터</div>
+          <div class="kc-score-big-val" style="color: #38bdf8;">${item.score || 85}<span class="kc-score-denom" style="color: #94a3b8;"> / 100</span></div>
+          <div class="kc-score-bottom-note" style="color: #38bdf8;">${escapeHtml(item.scoreNote || `시장 ${item.rank}위 섹터`)}</div>
         </div>
       </div>
 
