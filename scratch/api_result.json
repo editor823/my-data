@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-09-15T12:45:58.199Z",
+  "updatedAt": "2026-09-16T01:31:50.112Z",
   "kospi": {
     "name": "코스피",
-    "closePrice": "6,627.26",
-    "fluctuationsRatio": "-0.85",
-    "compareToPreviousClosePrice": "-57.11"
+    "closePrice": "6,646.00",
+    "fluctuationsRatio": "0.28",
+    "compareToPreviousClosePrice": "18.74"
   },
   "kosdaq": {
     "name": "코스닥",
-    "closePrice": "812.41",
-    "fluctuationsRatio": "0.70",
-    "compareToPreviousClosePrice": "5.62"
+    "closePrice": "805.00",
+    "fluctuationsRatio": "-0.91",
+    "compareToPreviousClosePrice": "-7.41"
   },
   "nasdaq": {
     "name": "나스닥 종합",
-    "closePrice": "26,186.41",
-    "fluctuationsRatio": "-0.56",
-    "compareToPreviousClosePrice": "-146.62"
+    "closePrice": "25,981.57",
+    "fluctuationsRatio": "-0.78",
+    "compareToPreviousClosePrice": "-204.84"
   },
   "sp500": {
     "name": "S&P 500",
-    "closePrice": "7,619.98",
-    "fluctuationsRatio": "-0.48",
-    "compareToPreviousClosePrice": "-37.00"
+    "closePrice": "7,585.73",
+    "fluctuationsRatio": "-0.45",
+    "compareToPreviousClosePrice": "-34.25"
   },
   "usdKrw": {
     "name": "원/달러 환율",
-    "closePrice": "1,359.20",
-    "fluctuationsRatio": "0.79"
+    "closePrice": "1,371.60",
+    "fluctuationsRatio": "0.58"
   }
 }
