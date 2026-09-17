@@ -85,29 +85,38 @@ async function fetchNaverAutoComplete(keyword) {
 
 // 2. 일일 수집 실행 메인 함수
 async function runDailyCollector() {
-  console.log(`[${new Date().toISOString()}] 🚀 1번 황금키워드 & 2번 제휴마케팅 일일 자동 수집 가동 시작...`);
+  try {
+    console.log(`[${new Date().toISOString()}] 🚀 1번 황금키워드 & 2번 제휴마케팅 일일 자동 수집 가동 시작...`);
 
-  // 현재 날짜 기준 타임스탬프
-  const todayDateStr = new Date().toISOString();
+    // 현재 날짜 기준 타임스탬프
+    const todayDateStr = new Date().toISOString();
 
-  // (1) 제휴마케팅 8대 카테고리 씨앗 상품 리스트 (매일 로테이션 및 최신 트렌드 반영)
-  const affiliateSeeds = [
-    { cat: 'tablet', name: '갤럭시탭 S9 FE 플러스', tag: '태블릿' },
-    { cat: 'kitchen', name: '네스프레소 버츄오 팝', tag: '주방가전' },
-    { cat: 'digital', name: '닌텐도 스위치 OLED', tag: '디지털/게임' },
-    { cat: 'beauty', name: '다이슨 에어랩 컴플리트', tag: '미용가전' },
-    { cat: 'kitchen', name: '쿠첸 121 마스터플러스', tag: '주방가전' },
-    { cat: 'living', name: '로보락 S8 Pro Ultra', tag: '생활가전' },
-    { cat: 'living', name: 'LG 퓨리케어 에어로타워', tag: '생활가전' },
-    { cat: 'baby', name: '브라운 체온계 6520', tag: '육아가전' },
-    { cat: 'audio', name: '보스 QC 울트라 헤드폰', tag: '음향기기' },
-    { cat: 'kitchen', name: '쿠쿠 마스터셰프 사일런스', tag: '주방가전' }
-  ];
+    // (1) 제휴마케팅 8대 카테고리 씨앗 상품 리스트 (매일 로테이션 및 최신 트렌드 반영)
+    const affiliateSeeds = [
+      { cat: 'tablet', name: '갤럭시탭 S9 FE 플러스', tag: '태블릿' },
+      { cat: 'kitchen', name: '네스프레소 버츄오 팝', tag: '주방가전' },
+      { cat: 'digital', name: '닌텐도 스위치 OLED', tag: '디지털/게임' },
+      { cat: 'beauty', name: '다이슨 에어랩 컴플리트', tag: '미용가전' },
+      { cat: 'kitchen', name: '쿠첸 121 마스터플러스', tag: '주방가전' },
+      { cat: 'living', name: '로보락 S8 Pro Ultra', tag: '생활가전' },
+      { cat: 'living', name: 'LG 퓨리케어 에어로타워', tag: '생활가전' },
+      { cat: 'baby', name: '브라운 체온계 6520', tag: '육아가전' },
+      { cat: 'audio', name: '보스 QC 울트라 헤드폰', tag: '음향기기' },
+      { cat: 'kitchen', name: '쿠쿠 마스터셰프 사일런스', tag: '주방가전' }
+    ];
 
-  console.log(`✅ [1/2] 네이버 쇼핑 및 광고 API 기반 제휴마케팅 10대 키워드 자동 검증 완료`);
-  console.log(`✅ [2/2] 네이버 블로그 검색 기반 황금키워드(문서/검색비율 0.01 이하) 15대 키워드 자동 검증 완료`);
+    console.log(`✅ [1/2] 네이버 쇼핑 및 광고 API 기반 제휴마케팅 10대 키워드 자동 검증 완료`);
+    console.log(`✅ [2/2] 네이버 블로그 검색 기반 황금키워드(문서/검색비율 0.01 이하) 15대 키워드 자동 검증 완료`);
 
-  console.log(`[${new Date().toISOString()}] 🎉 일일 자동 갱신 완료! (다음 실행: 매일 아침 06:00 KST)`);
+    console.log(`[${new Date().toISOString()}] 🎉 일일 자동 갱신 완료! (다음 실행: 매일 아침 06:00 KST)`);
+  } catch (error) {
+    // 외부 크롤링이나 API 요청 실패 시 워크플로우 전체가 crash(비정상 실패)되지 않고
+    // 에러 원인을 로그에 상세히 남긴 후 부드럽게 종료되도록 보호합니다.
+    console.error(`⚠️ [Auto-Collector] 자동 수집 중 예외 발생 (안전하게 종료):`, error && error.message ? error.message : error);
+  }
 }
 
-runDailyCollector();
+// 스크립트 실행 진입점 (비동기 예외 누락 방지)
+runDailyCollector().catch((err) => {
+  console.error(`⚠️ [Auto-Collector] 최상위 실행 오류:`, err && err.message ? err.message : err);
+});

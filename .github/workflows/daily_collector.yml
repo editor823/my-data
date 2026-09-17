@@ -1,6 +1,10 @@
-﻿name: Daily Keyword Auto Collector (매일 아침 06:00 자동 키워드 갱신)
+name: Daily Keyword Auto Collector (매일 아침 06:00 자동 키워드 갱신)
 
 on:
+  push:
+    paths:
+      - 'scripts/auto_collector.js'
+      - '.github/workflows/daily_collector.yml'
   schedule:
     # 매일 한국시간 오전 6시 (UTC 21:00) 자동 실행
     - cron: '0 21 * * *'
