@@ -1,77 +1,32 @@
 {
-<<<<<<< HEAD
-  "updatedAt": "2026-09-16T12:41:06.356Z",
+  "updatedAt": "2026-09-17T12:39:54.191Z",
   "kospi": {
     "name": "코스피",
-    "closePrice": "6,717.97",
-    "fluctuationsRatio": "1.37",
-    "compareToPreviousClosePrice": "90.71"
+    "closePrice": "6,715.41",
+    "fluctuationsRatio": "-0.04",
+    "compareToPreviousClosePrice": "-2.56"
   },
   "kosdaq": {
     "name": "코스닥",
-    "closePrice": "815.98",
-    "fluctuationsRatio": "0.44",
-    "compareToPreviousClosePrice": "3.57"
+    "closePrice": "822.18",
+    "fluctuationsRatio": "0.76",
+    "compareToPreviousClosePrice": "6.20"
   },
   "nasdaq": {
     "name": "나스닥 종합",
-    "closePrice": "25,981.57",
-    "fluctuationsRatio": "-0.78",
-    "compareToPreviousClosePrice": "-204.84"
+    "closePrice": "25,978.43",
+    "fluctuationsRatio": "-0.01",
+    "compareToPreviousClosePrice": "-3.15"
   },
   "sp500": {
     "name": "S&P 500",
-    "closePrice": "7,585.73",
+    "closePrice": "7,551.81",
     "fluctuationsRatio": "-0.45",
-    "compareToPreviousClosePrice": "-34.25"
+    "compareToPreviousClosePrice": "-33.92"
   },
   "usdKrw": {
     "name": "원/달러 환율",
-    "closePrice": "1,368.30",
-    "fluctuationsRatio": "0.34"
-=======
-  "updatedAt": "2026-09-16T01:06:23.772Z",
-  "kospi": {
-    "name": "코스피",
-    "closePrice": "6,659.25",
-    "fluctuationsRatio": "0.48",
-    "compareToPreviousClosePrice": "31.99"
-  },
-  "kosdaq": {
-    "name": "코스닥",
-    "closePrice": "803.97",
-    "fluctuationsRatio": "-1.04",
-    "compareToPreviousClosePrice": "-8.44"
-  },
-  "usdKrw": {
-    "name": "원/달러 환율",
-    "closePrice": "1,370.80",
-    "fluctuationsRatio": "0.52",
-    "compareToPreviousPrice": "7.10"
-  },
-  "dji": {
-    "name": "다우존스",
-    "closePrice": "52,093.11",
-    "fluctuationsRatio": "-0.63",
-    "compareToPreviousClosePrice": "-328.09"
-  },
-  "nasdaq": {
-    "name": "나스닥 종합",
-    "closePrice": "25,981.57",
-    "fluctuationsRatio": "-0.78",
-    "compareToPreviousClosePrice": "-204.84"
-  },
-  "sp500": {
-    "name": "S&P 500",
-    "closePrice": "7,585.73",
-    "fluctuationsRatio": "-0.45",
-    "compareToPreviousClosePrice": "-34.25"
-  },
-  "sox": {
-    "name": "필라델피아 반도체",
-    "closePrice": "11,175.55",
-    "fluctuationsRatio": "0.40",
-    "compareToPreviousClosePrice": "44.27"
->>>>>>> 943b5b6 (feat: 주식 대시보드 및 캘린더 실시간 연동 백엔드 구축)
+    "closePrice": "1,380.90",
+    "fluctuationsRatio": "0.25"
   }
 }
