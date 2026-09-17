@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // ========================================================
 // [백엔드 데이터 정화] calendar_events.json 및 캐시 파일 공모주/IPO 강제 퍼지
@@ -2644,6 +2644,6 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`>>> [프록시 통합 서버 가동 완료] http://localhost:${PORT}`);
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`>>> [프록시 통합 서버 가동 완료] http://0.0.0.0:${PORT} (PORT: ${PORT})`);
 });

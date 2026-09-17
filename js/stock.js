@@ -1,3 +1,10 @@
+// ========================================================
+// [諛깆뿏??API ?숈쟻 ?쇱슦?? Cloudflare Pages <-> Render API ?곌껐
+// ========================================================
+const BACKEND_API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? ''
+  : 'https://my-stock-api.onrender.com';
+
 
 // ========================================================
 // [탐정 수첩 UI] 7대 재료 체크리스트 & 사건 전개 렌더러
@@ -32,7 +39,7 @@ window.handleThemeDbSearchInput = function(query) {
   // 200ms 디바운스 적용
   themeDbSearchDebounceTimer = setTimeout(async () => {
     try {
-      const res = await fetch(`/api/themes/search?q=${encodeURIComponent(trimmed)}`);
+      const res = await fetch(`${BACKEND_API_BASE}/api/themes/search?q=${encodeURIComponent(trimmed)}`);
       if (!res.ok) throw new Error('검색 실패');
       const data = await res.json();
       const items = (data && Array.isArray(data.items)) ? data.items : [];
@@ -104,7 +111,7 @@ window.selectThemeFromDb = async function(themeName) {
   if (window.showToast) window.showToast(`[${themeName}] 테마를 로드하는 중...`, '📂');
 
   try {
-    const res = await fetch(`/api/themes/stocks?theme=${encodeURIComponent(themeName)}`);
+    const res = await fetch(`${BACKEND_API_BASE}/api/themes/stocks?theme=${encodeURIComponent(themeName)}`);
     if (!res.ok) throw new Error('테마 종목 조회 실패');
     const data = await res.json();
     const stocks = (data && Array.isArray(data.stocks)) ? data.stocks : [];
@@ -167,7 +174,7 @@ window.selectThemeFromDb = async function(themeName) {
 
       window.detectiveThemes.unshift(targetTheme);
       // 서버에도 신규 테마 자동 영구 등록
-      fetch('/api/themes', {
+      fetch(`${BACKEND_API_BASE}/api/themes`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(targetTheme)
@@ -210,7 +217,7 @@ window.enrichThemeWithAllSignals = async function(theme, stockName) {
   const timeoutId = setTimeout(() => controller.abort(), 5000);
 
   try {
-    const radarFetch = fetch(`/api/radar/collect?theme=${encodeURIComponent(themeQuery)}&t=${Date.now()}`, {
+    const radarFetch = fetch(`${BACKEND_API_BASE}/api/radar/collect?theme=${encodeURIComponent(themeQuery)}&t=${Date.now()}`, {
       signal: controller.signal
     }).then(r => r.ok ? r.json() : { items: [] }).catch(err => {
       console.warn('[enrichThemeWithAllSignals] 레이더 수집 타임아웃/오류 방어:', err);
@@ -282,7 +289,7 @@ window.removeStockFromActiveTheme = async function(stockName) {
   leaders.sub = subArr.join(', ') || '관련주 없음';
 
   // 1. stock_dictionary.json에 영구 삭제 반영 API 호출
-  fetch('/api/themes/stocks/update', {
+  fetch(`${BACKEND_API_BASE}/api/themes/stocks/update`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -344,7 +351,7 @@ window.addStockToActiveTheme = async function() {
   if (window.showToast) window.showToast(`'${newStock}' 종목이 추가되었습니다. 4대 채널 레이더를 수집합니다...`, '✨');
 
   // 1. stock_dictionary.json에 영구 등록 반영 API 호출
-  fetch('/api/themes/stocks/update', {
+  fetch(`${BACKEND_API_BASE}/api/themes/stocks/update`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -357,7 +364,7 @@ window.addStockToActiveTheme = async function() {
   // 2. 해당 신규 종목의 최근 뉴스/공시/리포트/블로그 비동기 수집하여 타임라인에 즉각 병합
   try {
     const [newsItems, dartItems, reportItems, blogItems] = await Promise.all([
-      fetch(`/api/news?query=${encodeURIComponent(newStock)}`).then(r => r.ok ? r.json() : { items: [] }).then(d => {
+      fetch(`${BACKEND_API_BASE}/api/news?query=${encodeURIComponent(newStock)}`).then(r => r.ok ? r.json() : { items: [] }).then(d => {
         const raw = (d && Array.isArray(d.items)) ? d.items : [];
         return raw.slice(0, 5).map(n => ({
           date: (n.dt || '').slice(0, 8).replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3') || new Date().toISOString().slice(0, 10),
@@ -370,7 +377,7 @@ window.addStockToActiveTheme = async function() {
       }).catch(() => []),
       window.fetchDartDisclosuresForStock(newStock).catch(() => []),
       window.fetchHkReportsForStock(newStock).catch(() => []),
-      fetch(`/api/search/blogs?query=${encodeURIComponent(newStock + ' 주가 전망')}`).then(r => r.ok ? r.json() : { items: [] }).then(d => (d && d.items) ? d.items.slice(0, 3) : []).catch(() => [])
+      fetch(`${BACKEND_API_BASE}/api/search/blogs?query=${encodeURIComponent(newStock + ' 주가 전망')}`).then(r => r.ok ? r.json() : { items: [] }).then(d => (d && d.items) ? d.items.slice(0, 3) : []).catch(() => [])
     ]);
 
     const newCombined = [...(newsItems || []), ...(dartItems || []), ...(reportItems || []), ...(blogItems || [])];
@@ -407,7 +414,7 @@ window.openManageThemeStocksModal = async function() {
   let stocksList = [];
 
   try {
-    const res = await fetch(`/api/themes/stocks?theme=${encodeURIComponent(themeName)}`);
+    const res = await fetch(`${BACKEND_API_BASE}/api/themes/stocks?theme=${encodeURIComponent(themeName)}`);
     if (res.ok) {
       const data = await res.json();
       stocksList = (data && Array.isArray(data.stocks)) ? data.stocks : [];
@@ -492,7 +499,7 @@ window.openManageThemeStocksModal = async function() {
     if (!confirm(`'${stkName}' 종목을 [${themeName}] 테마에서 영구 삭제하시겠습니까?`)) return;
 
     // 서버 stock_dictionary.json 영구 삭제
-    await fetch('/api/themes/stocks/update', {
+    await fetch(`${BACKEND_API_BASE}/api/themes/stocks/update`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -542,7 +549,7 @@ window.openManageThemeStocksModal = async function() {
     }
 
     // 서버 stock_dictionary.json 영구 등록
-    await fetch('/api/themes/stocks/update', {
+    await fetch(`${BACKEND_API_BASE}/api/themes/stocks/update`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -582,7 +589,7 @@ window.persistActiveTheme = function(theme) {
     localStorage.setItem(`theme_custom_${theme.theme_id}`, JSON.stringify(theme));
 
     // 2. 서버 theme_timeline.json 영구 반영 API 호출
-    fetch('/api/themes', {
+    fetch(`${BACKEND_API_BASE}/api/themes`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(theme)
@@ -757,7 +764,7 @@ window.fetchDartDisclosuresForStock = async function(stockName) {
   if (!cleanName) return [];
 
   try {
-    const res = await fetch(`/api/dart/disclosures?corp_name=${encodeURIComponent(cleanName)}`);
+    const res = await fetch(`${BACKEND_API_BASE}/api/dart/disclosures?corp_name=${encodeURIComponent(cleanName)}`);
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data.items)) {
@@ -779,7 +786,7 @@ window.fetchHkReportsForStock = async function(stockName) {
   if (!cleanName) return [];
 
   try {
-    const res = await fetch(`/api/reports?stock=${encodeURIComponent(cleanName)}`);
+    const res = await fetch(`${BACKEND_API_BASE}/api/reports?stock=${encodeURIComponent(cleanName)}`);
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data.items)) {
@@ -820,7 +827,7 @@ window.loadTodayHkReportsWidget = async function() {
   `;
 
   try {
-    const res = await fetch('/api/reports?type=today');
+    const res = await fetch(`${BACKEND_API_BASE}/api/reports?type=today`);
     if (!res.ok) throw new Error('네트워크 응답 오류');
     const data = await res.json();
     // 기존 5건 제한 해제 -> 전체(20~30건 이상) 전달
@@ -892,7 +899,7 @@ window.fetchStockTechnicals = async function(stockName) {
   if (!cleanName) return null;
 
   try {
-    const res = await fetch(`/api/stock/technicals?corp_name=${encodeURIComponent(cleanName)}`);
+    const res = await fetch(`${BACKEND_API_BASE}/api/stock/technicals?corp_name=${encodeURIComponent(cleanName)}`);
     if (res.ok) {
       return await res.json();
     }
@@ -1022,7 +1029,7 @@ window.saveDetectiveCaseLog = async function() {
   } catch (le) {}
 
   try {
-    const res = await fetch('/api/logs/cases', {
+    const res = await fetch(`${BACKEND_API_BASE}/api/logs/cases`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -1053,7 +1060,7 @@ window.loadDetectiveCaseLogs = async function() {
 
   let items = [];
   try {
-    const res = await fetch('/api/logs/cases');
+    const res = await fetch(`${BACKEND_API_BASE}/api/logs/cases`);
     if (res.ok) {
       const data = await res.json();
       if (data && Array.isArray(data.items)) {
@@ -1179,7 +1186,7 @@ window.updateCaseStatus = async function(caseId, nextStatus) {
 
   // 2) 서버 API 호출
   try {
-    await fetch(`/api/logs/cases?id=${encodeURIComponent(caseId)}`, {
+    await fetch(`${BACKEND_API_BASE}/api/logs/cases?id=${encodeURIComponent(caseId)}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status: nextStatus })
@@ -1209,7 +1216,7 @@ window.deleteCaseLog = async function(caseId) {
 
   // 2) 서버 API 호출
   try {
-    await fetch(`/api/logs/cases?id=${encodeURIComponent(caseId)}`, {
+    await fetch(`${BACKEND_API_BASE}/api/logs/cases?id=${encodeURIComponent(caseId)}`, {
       method: 'DELETE'
     }).catch(() => null);
 
@@ -1805,7 +1812,7 @@ async function fetchRealNewsForStock(stockName) {
   
   // 1차: 로컬 프록시 /api/news
   try {
-    const res = await fetch(`/api/news?query=${encoded}`);
+    const res = await fetch(`${BACKEND_API_BASE}/api/news?query=${encoded}`);
     if (res.ok) {
       const data = await res.json();
       const items = Array.isArray(data) ? data : (data.items || data.result || []);
@@ -2046,7 +2053,7 @@ function initStockTrackAddHandler() {
 
         // 서버 /api/themes 로 영구 보존 요청
         try {
-          fetch('/api/themes', {
+          fetch(`${BACKEND_API_BASE}/api/themes`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(targetDetectiveTheme)
@@ -2080,7 +2087,7 @@ function initStockTrackAddHandler() {
         if (newTimelineEntries.length > 0) {
           targetDetectiveTheme.timeline = [...newTimelineEntries, ...(targetDetectiveTheme.timeline || [])];
           try {
-            fetch('/api/themes', {
+            fetch(`${BACKEND_API_BASE}/api/themes`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(targetDetectiveTheme)
@@ -2534,7 +2541,7 @@ window.loadMarketOverviewRadar = async function(forceRefresh = false) {
   }
 
   try {
-    const res = await fetch(`/api/market/overview-radar?t=${Date.now()}`);
+    const res = await fetch(`${BACKEND_API_BASE}/api/market/overview-radar?t=${Date.now()}`);
     if (res.ok) {
       const data = await res.json();
       if (data && (data.success || data.status === '000')) {
@@ -2839,7 +2846,7 @@ window.selectThemeFromRadar = async function(encodedThemeJson) {
       window.detectiveThemes.unshift(targetTheme);
 
       // 서버 비동기 보존
-      fetch('/api/themes', {
+      fetch(`${BACKEND_API_BASE}/api/themes`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(targetTheme)
@@ -3023,7 +3030,7 @@ window.deleteStockTheme = async function (themeIdOrName) {
 
   // 1. 서버 API 호출하여 data/theme_timeline.json에서도 영구 삭제 시도
   try {
-    fetch(`/api/themes?theme_id=${encodeURIComponent(themeIdOrName)}`, { method: 'DELETE' }).catch(() => {});
+    fetch(`${BACKEND_API_BASE}/api/themes?theme_id=${encodeURIComponent(themeIdOrName)}`, { method: 'DELETE' }).catch(() => {});
   } catch (e) {}
 
   // 2. window.detectiveThemes 캐시에서 제거
@@ -3185,7 +3192,7 @@ async function fetchStockLiveNewsArticles(keyword, maxCount = 5) {
 
   // 1차 시도: /api/news?query=...
   try {
-    const res = await fetch(`/api/news?query=${encodeURIComponent(queryStr)}`);
+    const res = await fetch(`${BACKEND_API_BASE}/api/news?query=${encodeURIComponent(queryStr)}`);
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data)) items = data;
@@ -4670,7 +4677,7 @@ async function loadCalendarEventsFromStorage(forceRefresh = false) {
   }
 
   try {
-    const res = await fetch(`/api/calendar/schedules?t=${Date.now()}`);
+    const res = await fetch(`${BACKEND_API_BASE}/api/calendar/schedules?t=${Date.now()}`);
     if (res.ok) {
       const data = await res.json();
       if (data && data.status === '000') {
@@ -5304,7 +5311,7 @@ window.refreshThemePortfolioStreaming = async function() {
     let items = [];
 
     try {
-      const res = await fetch(`/api/radar/collect?theme=${themeQuery}&t=${Date.now()}`, {
+      const res = await fetch(`${BACKEND_API_BASE}/api/radar/collect?theme=${themeQuery}&t=${Date.now()}`, {
         signal: controller.signal
       });
       if (res.ok) {
@@ -6435,7 +6442,7 @@ async function renderUSLiveNewsFeed() {
   // 1차 시도: 로컬/서버 엔드포인트 (/api/news?query=미증시 OR 나스닥 OR 엔비디아 OR 뉴욕증시)
   try {
     const query = encodeURIComponent('미증시 OR 나스닥 OR 엔비디아 OR 뉴욕증시');
-    const resp = await fetch(`/api/news?query=${query}&t=${Date.now()}`);
+    const resp = await fetch(`${BACKEND_API_BASE}/api/news?query=${query}&t=${Date.now()}`);
     if (resp.ok) {
       const data = await resp.json();
       if (Array.isArray(data) && data.length > 0) {
@@ -7010,7 +7017,7 @@ async function fetchLiveNaverNews(silent = true) {
   if (!fetchedData || fetchedData.length === 0) {
     try {
       const query = encodeURIComponent('특징주 OR 공시 OR 코스피 OR 증시');
-      const resp = await fetch(`/api/news?query=${query}&t=${Date.now()}`);
+      const resp = await fetch(`${BACKEND_API_BASE}/api/news?query=${query}&t=${Date.now()}`);
       if (resp.ok) {
         const data = await resp.json();
         if (Array.isArray(data) && data.length > 0) {
@@ -7237,7 +7244,7 @@ window.loadLeadingThemeDualRadar = async function (force = false) {
   try {
     let data = leadingDualRadarCache;
     if (!data || force) {
-      const res = await fetch(`/api/market/overview-radar?t=${Date.now()}`);
+      const res = await fetch(`${BACKEND_API_BASE}/api/market/overview-radar?t=${Date.now()}`);
       if (res.ok) {
         data = await res.json();
         leadingDualRadarCache = data;
@@ -7521,7 +7528,7 @@ async function renderPastPullbackThemes(currentTopThemes = []) {
 
   // A) 타임라인 DB에서 테마 목록 가져오기
   try {
-    const tlRes = await fetch(`/api/timeline?t=${Date.now()}`);
+    const tlRes = await fetch(`${BACKEND_API_BASE}/api/timeline?t=${Date.now()}`);
     if (tlRes.ok) {
       const tlData = await tlRes.json();
       if (Array.isArray(tlData)) {
@@ -7905,7 +7912,7 @@ async function renderThemeMaterialFeed() {
   // 1차 시도: API 엔드포인트 (/api/news?query=반도체 OR AI OR 바이오 OR 방산)
   try {
     const query = encodeURIComponent('반도체 OR AI OR 바이오 OR 방산 OR 수주 OR 공급계약');
-    const resp = await fetch(`/api/news?query=${query}`);
+    const resp = await fetch(`${BACKEND_API_BASE}/api/news?query=${query}`);
     if (resp.ok) {
       const data = await resp.json();
       if (Array.isArray(data)) {
@@ -8210,7 +8217,7 @@ async function renderStockCalendarFeed() {
 
   // 1차 시도: 최신 공식 캘린더 데이터 (/api/calendar/schedules) 최우선 직접 연동
   try {
-    const resp = await fetch(`/api/calendar/schedules?t=${Date.now()}`);
+    const resp = await fetch(`${BACKEND_API_BASE}/api/calendar/schedules?t=${Date.now()}`);
     if (resp.ok) {
       const data = await resp.json();
       if (data && data.status === '000' && Array.isArray(data.approved_events) && data.approved_events.length > 0) {
@@ -8463,7 +8470,7 @@ async function renderLeadingThemeFeed() {
   // 1차 시도: API 엔드포인트 (/api/news?query=주도주 OR 상한가 OR 특징주 OR 주도테마)
   try {
     const query = encodeURIComponent('주도주 OR 상한가 OR 특징주 OR 주도테마 OR 급등');
-    const resp = await fetch(`/api/news?query=${query}`);
+    const resp = await fetch(`${BACKEND_API_BASE}/api/news?query=${query}`);
     if (resp.ok) {
       const data = await resp.json();
       if (Array.isArray(data)) {
@@ -8755,7 +8762,7 @@ async function renderStockDeepAnalysis(stockQuery) {
 
   // 데이터셋에 없는 새로운 종목일 경우 네이버 뉴스 API와 연동하여 실시간 동적 딥분석 카드 생성
   try {
-    const res = await fetch(`/api/news?query=${encodeURIComponent(targetName + ' 주가 OR 실적 OR 공시')}`);
+    const res = await fetch(`${BACKEND_API_BASE}/api/news?query=${encodeURIComponent(targetName + ' 주가 OR 실적 OR 공시')}`);
     let newsItems = [];
     if (res.ok) {
       const data = await res.json();
@@ -9042,7 +9049,7 @@ window.saveDailyMarketClosing = async function () {
 
     // 서버 API 비동기 저장 요청
     try {
-      await fetch('/api/market/history', {
+      await fetch(`${BACKEND_API_BASE}/api/market/history`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dailyBriefing)
@@ -9065,7 +9072,7 @@ window.loadMarketHistoryReview = async function () {
   try {
     let data = null;
     try {
-      const res = await fetch('/api/market/history');
+      const res = await fetch(`${BACKEND_API_BASE}/api/market/history`);
       if (res.ok) {
         const json = await res.json();
         if (json && json.data) {
@@ -9314,7 +9321,7 @@ window.executeStockQa = async function() {
   const timeoutId = setTimeout(() => controller.abort(), 6000);
 
   try {
-    const res = await fetch(`/api/stock/qa?query=${encodeURIComponent(query)}`, {
+    const res = await fetch(`${BACKEND_API_BASE}/api/stock/qa?query=${encodeURIComponent(query)}`, {
       signal: controller.signal
     });
     clearTimeout(timeoutId);
