@@ -4769,3 +4769,103 @@ p, li {
   }
 }
 
+/* ==========================================================================
+   [0번 탭 긴급 개편] 당일 실시간 뉴스 5대 핵심 카테고리 멀티컬럼 뷰 (5-Column CSS Grid)
+   ========================================================================== */
+.domestic-news-5col-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+@media (max-width: 1440px) {
+  .domestic-news-5col-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .domestic-news-5col-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .domestic-news-5col-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.news-col-card {
+  background: #0b1329;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.news-col-card:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.news-col-header {
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.news-col-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.news-col-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 640px;
+  overflow-y: auto;
+}
+
+.news-col-body::-webkit-scrollbar {
+  width: 5px;
+}
+.news-col-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+.news-col-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+.news-col-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.4);
+}
+
+.news-item-compact-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 10px 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.news-item-compact-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(56, 189, 248, 0.25);
+  transform: translateY(-1px);
+}
+
+

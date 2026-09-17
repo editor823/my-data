@@ -311,3 +311,33 @@ body {
     display: block;
   }
 }
+
+/* ===== [개선] 테마 타임라인 셀렉트 드롭다운 가독성 스타일 ===== */
+#theme-timeline-select,
+#custom-theme-select {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+}
+
+#theme-timeline-select:focus,
+#custom-theme-select:focus {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25) !important;
+}
+
+#theme-timeline-select option,
+#custom-theme-select option {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  padding: 8px 12px !important;
+  font-weight: 600 !important;
+}
+
+#theme-timeline-select option:hover,
+#theme-timeline-select option:checked,
+#custom-theme-select option:hover,
+#custom-theme-select option:checked {
+  background-color: #1e293b !important;
+  color: #38bdf8 !important;
+}
