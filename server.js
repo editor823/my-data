@@ -56,16 +56,72 @@ const PORT = process.env.PORT || 3000;
 // [인터넷 4대 채널 교차 검색 엔진 헬퍼 함수군]
 // ========================================================
 
-// 1. 네이버 뉴스 수집
-function fetchNaverNewsItems(keyword) {
+// [스마트 중복 기사 필터링 (Deduplication) 엔진 헬퍼]
+// 1) 자카드 유사도 (2-gram 기반) 계산 함수: 0.0 ~ 1.0 (70% 이상 중복 판정)
+function calculateJaccardSimilarity(str1, str2) {
+  if (!str1 || !str2) return 0;
+  const clean1 = str1.replace(/[\s\W_]+/g, '').toLowerCase();
+  const clean2 = str2.replace(/[\s\W_]+/g, '').toLowerCase();
+  if (clean1 === clean2) return 1.0;
+  if (clean1.length < 2 || clean2.length < 2) return 0;
+
+  const set1 = new Set();
+  for (let i = 0; i < clean1.length - 1; i++) {
+    set1.add(clean1.substring(i, i + 2));
+  }
+  const set2 = new Set();
+  for (let i = 0; i < clean2.length - 1; i++) {
+    set2.add(clean2.substring(i, i + 2));
+  }
+
+  let intersection = 0;
+  set1.forEach(token => {
+    if (set2.has(token)) intersection++;
+  });
+  const union = set1.size + set2.size - intersection;
+  return union === 0 ? 0 : (intersection / union);
+}
+
+// 2) 신뢰도 높은 경제지/통신사/전문지 우선순위 가중치 (점수가 높을수록 대표 기사로 채택)
+function getPressPriorityScore(pressName) {
+  const p = (pressName || '').toLowerCase();
+  if (/공시|dart|금감원/.test(p)) return 100;
+  if (/리포트|증권|컨센서스/.test(p)) return 90;
+  if (/한국경제|매일경제|서울경제|헤럴드경제|머니투데이|이데일리|아시아경제|파이낸셜뉴스|디지털타임스/.test(p)) return 80;
+  if (/연합뉴스|뉴스1|뉴시스/.test(p)) return 70;
+  if (/조선|중앙|동아|경향|한겨레/.test(p)) return 60;
+  return 40;
+}
+
+// ========================================================
+// [서버 메모리 캐시] 테마별 타임라인 30분 캐싱 (재방문 즉시 반환)
+// ========================================================
+const SERVER_TIMELINE_CACHE = new Map(); // key: theme문자열, value: {items, ts}
+const CACHE_TTL_MS = 30 * 60 * 1000; // 30분
+
+function getServerCache(key) {
+  const cached = SERVER_TIMELINE_CACHE.get(key);
+  if (cached && (Date.now() - cached.ts) < CACHE_TTL_MS) {
+    return cached.items;
+  }
+  return null;
+}
+
+function setServerCache(key, items) {
+  SERVER_TIMELINE_CACHE.set(key, { items, ts: Date.now() });
+}
+
+// 1. 네이버 뉴스 수집 (최근 90일/3개월 전수 수집 및 페이징, pageSize=100)
+function fetchNaverNewsItems(keyword, page = 1) {
   return new Promise((resolve) => {
-    const targetUrl = `https://m.stock.naver.com/api/news/search?keyword=${encodeURIComponent(keyword)}&pageSize=15`;
+    // pageSize=100으로 대폭 확대하여 최대한 많은 기사 수집
+    const targetUrl = `https://m.stock.naver.com/api/news/search?keyword=${encodeURIComponent(keyword)}&pageSize=100&page=${page}`;
     const options = {
       headers: {
         'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X)',
         'Referer': 'https://m.stock.naver.com/'
       },
-      timeout: 3500
+      timeout: 6000
     };
     https.get(targetUrl, options, (proxyRes) => {
       let data = '';
@@ -74,22 +130,47 @@ function fetchNaverNewsItems(keyword) {
         try {
           const parsed = JSON.parse(data);
           const raw = Array.isArray(parsed) ? parsed : (parsed.items || []);
-          const items = raw.map(n => {
+          
+          // 최근 95일(약 3개월) 시계열 기사 전수 수집
+          const cutoffDate = new Date(Date.now() - 95 * 24 * 60 * 60 * 1000);
+          const minDateStr = cutoffDate.toISOString().slice(0, 10);
+          const items = [];
+
+          raw.forEach(n => {
             const rawDt = n.dt || '';
             const formattedDate = (rawDt.length >= 8) 
               ? `${rawDt.substring(0, 4)}-${rawDt.substring(4, 6)}-${rawDt.substring(6, 8)}`
               : new Date().toISOString().slice(0, 10);
-            return {
-              date: formattedDate,
-              stage: '실시간 뉴스',
-              press: n.ohnm || '언론 종합',
-              news_title: n.tit || n.title || keyword,
-              news_url: n.aid && n.oid 
-                ? `https://n.news.naver.com/mnews/article/${n.oid}/${n.aid}` 
-                : (n.link || `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(keyword)}`),
-              key_point: (n.subcontent || '').slice(0, 90) + '...',
-              channel: 'NEWS'
-            };
+
+            if (formattedDate >= minDateStr) {
+              let newsUrl = '';
+              if (n.aid && n.oid) {
+                newsUrl = `https://n.news.naver.com/mnews/article/${n.oid}/${n.aid}`;
+              } else if (n.link && typeof n.link === 'string' && n.link.startsWith('http')) {
+                newsUrl = n.link;
+              } else {
+                newsUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(keyword)}`;
+              }
+
+              // 블로그 URL 완전 차단 (n.news.naver.com 우선)
+              if (newsUrl.includes('blog.naver.com') || newsUrl.includes('cafe.naver.com')) {
+                return;
+              }
+
+              items.push({
+                date: formattedDate,
+                stage: '실시간 뉴스',
+                press: n.ohnm || '언론 종합',
+                news_title: n.tit || n.title || keyword,
+                title: n.tit || n.title || keyword,
+                news_url: newsUrl,
+                link: newsUrl,
+                originallink: newsUrl,
+                key_point: (n.subcontent || '').slice(0, 90) + '...',
+                channel: 'NEWS',
+                stockName: keyword
+              });
+            }
           });
           resolve(items);
         } catch (e) {
@@ -149,6 +230,7 @@ function fetchNaverBlogItems(keyword) {
             posts.push({
               title,
               link: postUrl,
+              originallink: postUrl,
               blogger_name: blogger,
               snippet,
               date: formattedDate,
@@ -159,7 +241,8 @@ function fetchNaverBlogItems(keyword) {
               news_url: postUrl,
               key_point: snippet ? snippet.slice(0, 85) + '...' : '네이버 블로그 실전 테마 및 주가 분석 리포트',
               channel: 'BLOG',
-              is_blog: true
+              is_blog: true,
+              stockName: keyword
             });
           }
           if (posts.length >= 10) break;
@@ -170,72 +253,89 @@ function fetchNaverBlogItems(keyword) {
   });
 }
 
-// 3. OpenDART 공시 수집
+// 3. OpenDART 공시 수집 (최근 90일 / 3개월 전수 수집)
 function fetchDartItems(stockName) {
   return new Promise((resolve) => {
     const DART_API_KEY = 'dade7690697630cab1e0b545c9f09b3eead829ab';
     const now = new Date();
     const endDe = now.toISOString().slice(0, 10).replace(/-/g, '');
-    const bgnDate = new Date(now.getTime() - 60 * 24 * 60 * 60 * 1000);
+    const bgnDate = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000); // 직전 90일 (3개월 전수)
     const bgnDe = bgnDate.toISOString().slice(0, 10).replace(/-/g, '');
 
     const CORP_CODE_MAP = {
+      '와이제이링크': '01861783',
+      '센서뷰': '01121089',
+      '켄코아에어로스페이스': '01031388',
+      '에이치브이엠': '01650307',
+      '스피어': '01428384',
+      '스피어파워': '01428384',
+      '나라스페이스테크놀로지': '01511219',
       '대한전선': '00114002', '가온전선': '00108395', '현대약품': '00127264',
       '삼익제약': '00155601', '레인보우로보틱스': '01391583', '에스비비테크': '00980249',
       '두산에너빌리티': '00111607', '우진엔텍': '01227097', '두산로보틱스': '01393660',
       '한화에어로스페이스': '00161480', '현대로템': '00356361', 'LIG넥스원': '00941912',
       'SK하이닉스': '00164779', '삼성전자': '00126380', '한신기계': '00117081',
       '일진파워': '00469036', '비에이치아이': '00547051', '대원전선': '00108845',
-      'LS에코에너지': '01124402'
+      'LS에코에너지': '01124402', '우리로': '00523293', '케이씨에스': '00813358',
+      '텔레필드': '00650993', '우리넷': '00609342', '엑스게이트': '01272635'
     };
 
     const targetCorpCode = CORP_CODE_MAP[stockName] || '';
-    let dartUrl = `https://opendart.fss.or.kr/api/list.json?crtfc_key=${DART_API_KEY}&bgn_de=${bgnDe}&end_de=${endDe}&page_count=20`;
+    let dartUrl = `https://opendart.fss.or.kr/api/list.json?crtfc_key=${DART_API_KEY}&bgn_de=${bgnDe}&end_de=${endDe}&page_count=40`;
     if (targetCorpCode) dartUrl += `&corp_code=${targetCorpCode}`;
 
     https.get(dartUrl, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' }, timeout: 3500 }, (dartRes) => {
       let rawData = '';
       dartRes.on('data', chunk => rawData += chunk);
-      dartRes.on('end', () => {
-        try {
-          const parsed = JSON.parse(rawData);
-          let rawList = parsed.list || [];
-          if (!targetCorpCode && rawList.length > 0) {
-            const cleanTarget = stockName.replace(/\s+/g, '');
-            rawList = rawList.filter(item => {
-              const cn = (item.corp_name || '').replace(/\s+/g, '');
-              return cn.includes(cleanTarget) || cleanTarget.includes(cn);
+      proxyEnd();
+
+      function proxyEnd() {
+        dartRes.on('end', () => {
+          try {
+            const parsed = JSON.parse(rawData);
+            let rawList = parsed.list || [];
+            if (!targetCorpCode && rawList.length > 0) {
+              const cleanTarget = stockName.replace(/\s+/g, '');
+              rawList = rawList.filter(item => {
+                const cn = (item.corp_name || '').replace(/\s+/g, '');
+                return cn.includes(cleanTarget) || cleanTarget.includes(cn);
+              });
+            }
+            const items = rawList.slice(0, 15).map(item => {
+              const rcpNo = item.rcept_no || '';
+              const rawDt = item.rcept_dt || '';
+              const formattedDate = (rawDt.length === 8)
+                ? `${rawDt.substring(0, 4)}-${rawDt.substring(4, 6)}-${rawDt.substring(6, 8)}`
+                : rawDt;
+              const dartUrl = `https://dart.fss.or.kr/dsaf001/main.do?rcpNo=${rcpNo}`;
+              return {
+                corp_name: item.corp_name,
+                stock_code: item.stock_code,
+                report_nm: item.report_nm,
+                title: `[공시] ${item.report_nm}`,
+                rcept_no: rcpNo,
+                rcept_dt: formattedDate,
+                flr_nm: item.flr_nm || item.corp_name,
+                dart_url: dartUrl,
+                stage: '공식 전자공시',
+                press: 'DART 전자공시',
+                news_title: `[공시] ${item.report_nm}`,
+                news_url: dartUrl,
+                link: dartUrl,
+                originallink: dartUrl,
+                key_point: `${item.corp_name} 금융감독원 정식 공시 (수주/계약/증자/실적 팩트 단서)`,
+                date: formattedDate,
+                channel: 'DART',
+                is_dart: true,
+                stockName: item.corp_name || stockName
+              };
             });
+            resolve(items);
+          } catch (e) {
+            resolve([]);
           }
-          const items = rawList.slice(0, 10).map(item => {
-            const rcpNo = item.rcept_no || '';
-            const rawDt = item.rcept_dt || '';
-            const formattedDate = (rawDt.length === 8)
-              ? `${rawDt.substring(0, 4)}-${rawDt.substring(4, 6)}-${rawDt.substring(6, 8)}`
-              : rawDt;
-            return {
-              corp_name: item.corp_name,
-              stock_code: item.stock_code,
-              report_nm: item.report_nm,
-              rcept_no: rcpNo,
-              rcept_dt: formattedDate,
-              flr_nm: item.flr_nm || item.corp_name,
-              dart_url: `https://dart.fss.or.kr/dsaf001/main.do?rcpNo=${rcpNo}`,
-              stage: '공식 전자공시',
-              press: 'DART 전자공시',
-              news_title: `[공시] ${item.report_nm}`,
-              news_url: `https://dart.fss.or.kr/dsaf001/main.do?rcpNo=${rcpNo}`,
-              key_point: `${item.corp_name} 금융감독원 정식 공시 (수주/계약/증자 등 팩트 단서)`,
-              date: formattedDate,
-              channel: 'DART',
-              is_dart: true
-            };
-          });
-          resolve(items);
-        } catch (e) {
-          resolve([]);
-        }
-      });
+        });
+      }
     }).on('error', () => resolve([]));
   });
 }
@@ -295,13 +395,17 @@ function fetchHkReportItems(stockName) {
                   press: press.includes('증권') ? press : `${press}증권`,
                   stage: '증권사 리서치',
                   news_title: `[리포트] ${title} (목표가: ${targetPriceStr})`,
+                  title: `[리포트] ${title} (목표가: ${targetPriceStr})`,
                   news_url: reportUrl,
+                  link: reportUrl,
+                  originallink: reportUrl,
                   report_url: reportUrl,
                   key_point: `투자의견: ${opinion} | 애널리스트 목표주가 및 모멘텀 분석`,
                   opinion: opinion,
                   target_price: targetPriceStr,
                   channel: 'REPORT',
-                  is_report: true
+                  is_report: true,
+                  stockName: stockName
                 });
               }
             }
@@ -313,6 +417,125 @@ function fetchHkReportItems(stockName) {
       });
     }).on('error', () => resolve([]));
   });
+}
+
+// 5. 비동기 백그라운드 4대 채널 레이더 수집 및 캐시 갱신 함수 (클라이언트 응답 차단 방지)
+function fetchBackgroundRadarData(themeQueries, uniqueTargetStocks, isSpaceTheme, cacheFilePath) {
+  const SPACE_MACRO_KEYWORDS = [
+    '스페이스X 스타십 발사',
+    '스타링크 한국 서비스',
+    '우주항공청 R&D 예산',
+    '누리호 4차 발사체',
+    '달 탐사 아르테미스'
+  ];
+
+  const fetchPromises = [];
+  themeQueries.forEach(themeQuery => {
+    fetchPromises.push(fetchNaverNewsItems(themeQuery, 1));
+    fetchPromises.push(fetchNaverNewsItems(themeQuery, 2));
+    fetchPromises.push(fetchNaverNewsItems(`${themeQuery} 특징주`, 1));
+    fetchPromises.push(fetchNaverNewsItems(`${themeQuery} 수혜주`, 1));
+
+    if (isSpaceTheme) {
+      SPACE_MACRO_KEYWORDS.forEach(macroKey => {
+        fetchPromises.push(fetchNaverNewsItems(macroKey, 1));
+        fetchPromises.push(fetchNaverBlogItems(`${macroKey} 분석 전망`));
+      });
+    }
+
+    uniqueTargetStocks.slice(0, 5).forEach(stockName => {
+      fetchPromises.push(fetchNaverNewsItems(`${stockName}`, 1));
+      fetchPromises.push(fetchNaverNewsItems(`${stockName}`, 2));
+      fetchPromises.push(fetchNaverNewsItems(`${stockName} ${themeQuery}`, 1));
+      fetchPromises.push(fetchDartItems(stockName));
+      fetchPromises.push(fetchHkReportItems(stockName));
+      fetchPromises.push(fetchNaverBlogItems(`${stockName} 주가 전망`));
+    });
+  });
+
+  Promise.allSettled(fetchPromises).then(results => {
+    const rawCollectedItems = [];
+    results.forEach(resObj => {
+      if (resObj && resObj.status === 'fulfilled' && Array.isArray(resObj.value)) {
+        resObj.value.forEach(item => {
+          if (item) rawCollectedItems.push(item);
+        });
+      }
+    });
+
+    const deduplicatedItems = [];
+    const seenUrls = new Set();
+    rawCollectedItems.sort((a, b) => {
+      const dateCmp = (b.date || '').localeCompare(a.date || '');
+      if (dateCmp !== 0) return dateCmp;
+      return getPressPriorityScore(b.press) - getPressPriorityScore(a.press);
+    });
+
+    rawCollectedItems.forEach(candidate => {
+      const normTitle = (candidate.news_title || candidate.title || candidate.report_nm || '').trim();
+      const normUrl = (candidate.news_url || candidate.link || candidate.dart_url || candidate.originallink || '').trim();
+      if (!normTitle || (normUrl && seenUrls.has(normUrl))) return;
+
+      let isDuplicate = false;
+      for (const kept of deduplicatedItems) {
+        const keptTitle = (kept.news_title || kept.title || '').trim();
+        if (calculateJaccardSimilarity(normTitle, keptTitle) >= 0.70) {
+          isDuplicate = true;
+          break;
+        }
+      }
+
+      if (!isDuplicate) {
+        if (normUrl) seenUrls.add(normUrl);
+        let matchedTags = [];
+        const textToScan = `${normTitle} ${candidate.key_point || ''} ${candidate.snippet || ''}`;
+        uniqueTargetStocks.forEach(stk => {
+          if (textToScan.includes(stk)) matchedTags.push(`#${stk}`);
+        });
+
+        let factBadge = '';
+        if (/(직납|직접 납품|엔진용 특수합금|공급망 진입)/.test(textToScan)) factBadge = '직납 팩트';
+        else if (/(단독|독점|단독 협의|본계약 협상)/.test(textToScan)) factBadge = '단독 협의';
+        else if (/(수주|공급계약|단일판매|계약체결)/.test(textToScan) || candidate.is_dart) factBadge = '수주 공시';
+        else if (/(상향|목표가|신규 매수|호실적)/.test(textToScan) || candidate.is_report) factBadge = '목표가 상향';
+
+        const type = candidate.is_dart ? 'dart' : (candidate.is_report ? 'report' : 'news');
+        const source = candidate.press || candidate.source || candidate.blogger_name || '언론 종합';
+        deduplicatedItems.push({
+          id: 'bg_' + Math.random().toString(36).substr(2, 9),
+          date: candidate.date || candidate.pubDate || candidate.rcept_dt || new Date().toISOString().slice(0, 10),
+          stage: candidate.stage || '실시간 레이더',
+          press: source,
+          source: source,
+          news_title: normTitle,
+          title: normTitle,
+          news_url: normUrl,
+          link: normUrl,
+          originallink: normUrl,
+          desc: candidate.key_point || candidate.snippet || candidate.description || '',
+          key_point: candidate.key_point || candidate.snippet || candidate.description || '',
+          type: type,
+          channel: candidate.channel || type.toUpperCase(),
+          is_blog: !!candidate.is_blog,
+          is_dart: !!candidate.is_dart,
+          is_report: !!candidate.is_report,
+          tag: factBadge ? (factBadge === '직납 팩트' ? '🔥 직납 팩트' : (factBadge === '단독 협의' ? '⚡ 단독 협의' : (factBadge === '수주 공시' ? '📑 수주 공시' : '🎯 리포트'))) : '',
+          tags: matchedTags.length > 0 ? matchedTags : (uniqueTargetStocks[0] ? [`#${uniqueTargetStocks[0]}`] : []),
+          fact_badge: factBadge,
+          stockName: candidate.stockName || (matchedTags[0] ? matchedTags[0].replace('#', '') : (uniqueTargetStocks[0] || ''))
+        });
+      }
+    });
+
+    if (deduplicatedItems.length > 0 && isSpaceTheme && cacheFilePath) {
+      try {
+        fs.writeFileSync(cacheFilePath, JSON.stringify(deduplicatedItems.slice(0, 50), null, 2), 'utf8');
+        console.log(`[Radar Background Sync] 캐시 파일이 갱신되었습니다 (${deduplicatedItems.length}건): ${cacheFilePath}`);
+      } catch (e) {
+        console.warn('[Radar Background Sync Write Error]', e.message);
+      }
+    }
+  }).catch(e => console.warn('[Radar Background Task Error]', e.message));
 }
 
 const server = http.createServer((req, res) => {
@@ -365,14 +588,21 @@ const server = http.createServer((req, res) => {
       return res.end(JSON.stringify({ status: '000', items: [] }));
     }
 
-    // 최근 60일 날짜 계산 (YYYYMMDD 형식)
+    // 최근 90일(3개월) 날짜 계산 (YYYYMMDD 형식)
     const now = new Date();
     const endDe = now.toISOString().slice(0, 10).replace(/-/g, '');
-    const bgnDate = new Date(now.getTime() - 60 * 24 * 60 * 60 * 1000);
+    const bgnDate = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000);
     const bgnDe = bgnDate.toISOString().slice(0, 10).replace(/-/g, '');
 
     // 주요 상장사 종목코드/고유번호 매핑 (OpenDART corp_code 직접 매핑 지원)
     const CORP_CODE_MAP = {
+      '와이제이링크': '01861783',
+      '센서뷰': '01121089',
+      '켄코아에어로스페이스': '01031388',
+      '에이치브이엠': '01650307',
+      '스피어': '01428384',
+      '스피어파워': '01428384',
+      '나라스페이스테크놀로지': '01511219',
       '대한전선': '00114002',
       '가온전선': '00108395',
       '현대약품': '00127264',
@@ -391,7 +621,12 @@ const server = http.createServer((req, res) => {
       '일진파워': '00469036',
       '비에이치아이': '00547051',
       '대원전선': '00108845',
-      'LS에코에너지': '01124402'
+      'LS에코에너지': '01124402',
+      '우리로': '00523293',
+      '케이씨에스': '00813358',
+      '텔레필드': '00650993',
+      '우리넷': '00609342',
+      '엑스게이트': '01272635'
     };
 
     const targetCorpCode = CORP_CODE_MAP[corpName] || '';
@@ -653,6 +888,73 @@ const server = http.createServer((req, res) => {
           opinion: "Buy(상향)",
           target_price: "520,000원",
           report_url: "https://finance.naver.com/research/company_list.naver?keyword=" + encodeURIComponent("효성중공업"),
+          is_strong: true,
+          stage: "증권사 리서치"
+        },
+        // [우주항공 & 스페이스X 5대 핵심 종목 증권사 리서치]
+        {
+          date: "2026-09-15",
+          press: "미래에셋증권",
+          target_name: "와이제이링크",
+          title: "美 스페이스X 스타링크 위성용 SMT 단독 공급 협의 착수와 글로벌 밸류체인 진입",
+          opinion: "Buy(신규)",
+          target_price: "24,000원",
+          report_url: "https://finance.naver.com/research/company_list.naver?keyword=" + encodeURIComponent("와이제이링크"),
+          is_strong: true,
+          stage: "증권사 리서치"
+        },
+        {
+          date: "2026-09-08",
+          press: "하나증권",
+          target_name: "센서뷰",
+          title: "초고주파 케이블 및 안테나 모듈, 스타링크 한국 서비스 및 우주항공 수주 랠리",
+          opinion: "Buy(상향)",
+          target_price: "7,800원",
+          report_url: "https://finance.naver.com/research/company_list.naver?keyword=" + encodeURIComponent("센서뷰"),
+          is_strong: true,
+          stage: "증권사 리서치"
+        },
+        {
+          date: "2026-08-28",
+          press: "한국투자증권",
+          target_name: "에이치브이엠",
+          title: "HVM, 스페이스X 로켓 엔진용 첨단 특수합금 직접 납품 본격화와 진입장벽",
+          opinion: "Buy(상향)",
+          target_price: "35,000원",
+          report_url: "https://finance.naver.com/research/company_list.naver?keyword=" + encodeURIComponent("에이치브이엠"),
+          is_strong: true,
+          stage: "증권사 리서치"
+        },
+        {
+          date: "2026-08-14",
+          press: "신한투자증권",
+          target_name: "켄코아에어로스페이스",
+          title: "NASA 아르테미스 파트너 및 스페이스X 우주발사체 특수소재 가공 수주 확대",
+          opinion: "Buy(유지)",
+          target_price: "18,500원",
+          report_url: "https://finance.naver.com/research/company_list.naver?keyword=" + encodeURIComponent("켄코아에어로스페이스"),
+          is_strong: true,
+          stage: "증권사 리서치"
+        },
+        {
+          date: "2026-07-22",
+          press: "키움증권",
+          target_name: "스피어",
+          title: "스페이스X 특수 피팅·초정밀 유압 밸브 글로벌 공급망 독점 납품 팩트",
+          opinion: "Buy(신규)",
+          target_price: "12,000원",
+          report_url: "https://finance.naver.com/research/company_list.naver?keyword=" + encodeURIComponent("스피어"),
+          is_strong: true,
+          stage: "증권사 리서치"
+        },
+        {
+          date: "2026-07-10",
+          press: "NH투자증권",
+          target_name: "우주항공",
+          title: "우주항공청 R&D 예산 1조 시대 개막과 누리호 4차·스타십 발사 모멘텀",
+          opinion: "Overweight",
+          target_price: "비중확대",
+          report_url: "https://finance.naver.com/research/company_list.naver?keyword=" + encodeURIComponent("우주항공청"),
           is_strong: true,
           stage: "증권사 리서치"
         }
@@ -1425,11 +1727,13 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // 6-5. 4대 채널 인터넷 통합 레이더 수집 API (/api/radar/collect)
-  // [DART 공시 + 증권사 리포트 + 네이버 뉴스 + 네이버 블로그] 대키워드 x 소키워드 교차 병렬 수집 (다중 테마 콤마 지원)
-  if (req.url.startsWith('/api/radar/collect')) {
+  // 6-5. 4대 채널 인터넷 통합 레이더 수집 및 타임라인 API (/api/radar/timeline & /api/radar/collect)
+  // [DART 공시 + 증권사 리포트 + 네이버 뉴스] 테마+소속종목 전수 병렬 수집 (블로그 100% 배제)
+  // [강화] 테마 쿼리 + 소속 종목별 전수 쿼리, pageSize=100, 30일 시계열, 서버 메모리 캐시
+  if (req.url.startsWith('/api/radar/timeline') || req.url.startsWith('/api/radar/collect')) {
     const parsedUrl = new URL(req.url, `http://localhost:${PORT}`);
     const rawThemeQuery = (parsedUrl.searchParams.get('theme') || parsedUrl.searchParams.get('keyword') || '').trim();
+    const daysParam = parseInt(parsedUrl.searchParams.get('days') || '90', 10);
 
     if (!rawThemeQuery) {
       res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
@@ -1438,13 +1742,20 @@ const server = http.createServer((req, res) => {
 
     // 대표 테마별 기본 핵심 종목 사전 (사전 파일에 없을 경우 fallback)
     const CORE_THEME_STOCK_MAP = {
+      '스페이스X': ['와이제이링크', '센서뷰', '켄코아에어로스페이스', '에이치브이엠', '스피어'],
+      '우주항공': ['와이제이링크', '센서뷰', '켄코아에어로스페이스', '에이치브이엠', '스피어', '한화에어로스페이스'],
+      '위성': ['와이제이링크', '센서뷰', '켄코아에어로스페이스', '에이치브이엠', '스피어'],
       '로봇': ['레인보우로보틱스', '두산로보틱스', '뉴로메카', '에스비비테크', '엔젤로보틱스'],
       '원전': ['두산에너빌리티', '우진엔텍', '한신기계', '일진파워', '비에이치아이'],
       '원자력': ['두산에너빌리티', '우진엔텍', '한신기계', '일진파워', '비에이치아이'],
       '전력설비': ['대한전선', '가온전선', '대원전선', 'LS에코에너지', '일진전기'],
       '전선': ['대한전선', '가온전선', '대원전선', 'LS에코에너지', '일진전기'],
+      '통신': ['우리로', '케이씨에스', '텔레필드', '우리넷', '쏠리드'],
+      '양자': ['우리로', '케이씨에스', '텔레필드', '엑스게이트', '아이윈플러스'],
+      '양자암호': ['우리로', '케이씨에스', '텔레필드', '엑스게이트', '아이윈플러스'],
+      '네트워크': ['우리로', '텔레필드', '우리넷', '오이솔루션', '대한광통신'],
       '방산': ['한화에어로스페이스', '현대로템', 'LIG넥스원', '한국항공우주', '한화시스템'],
-      '반도체': ['삼성전자', 'SK하이닉스', '와이씨', '에프에스티', '오픈엣지테크놀로지'],
+      '반도체': ['삼성전자', 'SK하이닉스', '한미반도체', '와이씨', '에프에스티', '오픈엣지테크놀로지'],
       '바이오': ['삼천당제약', '알테오젠', 'HLB', '펩트론', '리가켐바이오'],
       'AI': ['솔트룩스', '이스트소프트', '마음AI', '폴라리스AI', '코난테크놀로지'],
       '2차전지': ['에코프로비엠', '에코프로', '포스코퓨처엠', '엘앤에프', 'LG에너지솔루션']
@@ -1462,18 +1773,42 @@ const server = http.createServer((req, res) => {
       } catch (e) {}
     }
 
+    // theme_timeline.json에서도 테마 정보 매핑 조회
+    const timelineJsonPath = path.join(__dirname, 'data', 'theme_timeline.json');
+    let existingThemes = [];
+    if (fs.existsSync(timelineJsonPath)) {
+      try {
+        existingThemes = JSON.parse(fs.readFileSync(timelineJsonPath, 'utf8'));
+      } catch (e) {}
+    }
+
     const allTargetStocks = [];
     const fetchPromises = [];
 
+    // 스페이스X / 우주항공 섹터 매크로 키워드 세트 (3개월 시계열 전수 커버)
+    const SPACE_MACRO_KEYWORDS = [
+      '스페이스X 스타십 발사',
+      '스타링크 한국 서비스',
+      '우주항공청 R&D 예산',
+      '누리호 4차 발사체',
+      '달 탐사 아르테미스'
+    ];
+
     themeQueries.forEach(themeQuery => {
-      // 1) stock_dictionary에서 테마 탐색
+      // 1) theme_timeline.json에서 소속 종목 조회
+      const matchedTimelineTheme = existingThemes.find(t => 
+        (t.theme_name && (t.theme_name.includes(themeQuery) || themeQuery.includes(t.theme_name))) ||
+        (t.theme_id && t.theme_id === themeQuery)
+      );
+
+      // 2) stock_dictionary에서 테마 탐색
       const foundTheme = (dictionary.themes || []).find(t =>
         t.name.toLowerCase() === themeQuery.toLowerCase() ||
         t.name.toLowerCase().includes(themeQuery.toLowerCase()) ||
         themeQuery.toLowerCase().includes(t.name.toLowerCase())
       );
 
-      // 2) 대표 매핑 사전에서 일치 여부 확인
+      // 3) 대표 매핑 사전에서 일치 여부 확인
       let matchedCoreStocks = [];
       for (const [k, stocks] of Object.entries(CORE_THEME_STOCK_MAP)) {
         if (themeQuery.includes(k) || k.includes(themeQuery)) {
@@ -1483,120 +1818,296 @@ const server = http.createServer((req, res) => {
       }
 
       let targetStocks = [];
-      if (foundTheme && foundTheme.stocks && foundTheme.stocks.length > 0) {
-        targetStocks = foundTheme.stocks.map(s => s.name);
-      } else if (matchedCoreStocks.length > 0) {
+      if (matchedTimelineTheme && matchedTimelineTheme.checklist && matchedTimelineTheme.checklist.leaders) {
+        const leadStr = (matchedTimelineTheme.checklist.leaders.lead || '') + ',' + (matchedTimelineTheme.checklist.leaders.sub || '');
+        targetStocks = leadStr.split(',').map(s => s.replace(/\(.*?\)/g, '').trim()).filter(Boolean);
+      }
+      
+      if (targetStocks.length === 0 && matchedCoreStocks.length > 0) {
         targetStocks = matchedCoreStocks;
+      } else if (targetStocks.length === 0 && foundTheme && foundTheme.stocks && foundTheme.stocks.length > 0) {
+        targetStocks = foundTheme.stocks.map(s => s.name);
       }
 
-      // 상위 최대 4개 대표 종목 선정 (없으면 테마명 자체 활용)
-      const topStocks = targetStocks.slice(0, 4);
+      // 소속 종목 전수 확보 (최대 10개까지 확대, 없으면 테마명 활용)
+      const topStocks = targetStocks.slice(0, 10);
       if (topStocks.length === 0) {
         topStocks.push(themeQuery);
       }
 
       allTargetStocks.push(...topStocks);
-
-      // 1) 테마 대키워드 및 핵심 복합 키워드로 뉴스 & 블로그 병렬 질의
-      fetchPromises.push(fetchNaverNewsItems(themeQuery));
-      fetchPromises.push(fetchNaverNewsItems(`${themeQuery} 특징주`));
-      fetchPromises.push(fetchNaverNewsItems(`${themeQuery} 수혜주`));
-      fetchPromises.push(fetchNaverBlogItems(`${themeQuery} 주가 테마 분석 전망`));
-
-      // 2) 소속 상위 종목별 뉴스, 공시, 증권사 리포트, 블로그 4대 채널 교차 전수 수집
-      topStocks.forEach(stockName => {
-        fetchPromises.push(fetchNaverNewsItems(`${stockName}`));
-        fetchPromises.push(fetchNaverNewsItems(`${stockName} ${themeQuery}`));
-        fetchPromises.push(fetchDartItems(stockName));
-        fetchPromises.push(fetchHkReportItems(stockName));
-        fetchPromises.push(fetchNaverBlogItems(`${stockName} 주가 전망`));
-      });
     });
 
     const uniqueTargetStocks = Array.from(new Set(allTargetStocks));
 
-    // 3.5초 타임아웃 레이스 보호: 외부 채널 응답 지연 시에도 지연 없이 현재까지 수집된 데이터 또는 빈 배열 즉시 반환
-    const timeoutPromise = new Promise(resolve => setTimeout(() => resolve([]), 3500));
+    // [서버 메모리 캐시] 동일 테마 재방문 시 0.1초 즉시 반환
+    const isSpaceTheme = /스페이스|우주|항공|위성|스타링크/i.test(rawThemeQuery);
+    const spaceJsonPath = path.join(__dirname, 'data', 'timeline_space.json');
+    const isTimelineEndpoint = req.url.startsWith('/api/radar/timeline');
+    const forceRefresh = parsedUrl.searchParams.get('refresh') === 'true';
+    const cacheKey = `timeline_${rawThemeQuery.replace(/\s+/g, '_')}`;
+
+    // 1) 서버 메모리 캐시 즉시 반환 (30분 TTL, 강제 새로고침 제외)
+    if (!forceRefresh) {
+      const memCached = getServerCache(cacheKey);
+      if (memCached && memCached.length > 0) {
+        console.log(`[Timeline Cache HIT] ${rawThemeQuery} (${memCached.length}건)`);
+        const cacheItems = isTimelineEndpoint
+          ? memCached.filter(it => !it.is_blog && it.channel !== 'BLOG')
+          : memCached;
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        return res.end(JSON.stringify({
+          status: '000',
+          theme: rawThemeQuery,
+          matched_stocks: uniqueTargetStocks,
+          total_count: cacheItems.length,
+          items: cacheItems,
+          cached: true,
+          cache_source: 'memory'
+        }));
+      }
+
+      // 2) 스페이스X/우주항공 테마 파일 캐시 즉시 반환
+      if (isSpaceTheme && fs.existsSync(spaceJsonPath)) {
+        try {
+          const rawJson = fs.readFileSync(spaceJsonPath, 'utf8');
+          const parsedItems = JSON.parse(rawJson);
+          if (Array.isArray(parsedItems) && parsedItems.length > 0) {
+            parsedItems.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+            const cleanItems = isTimelineEndpoint
+              ? parsedItems.filter(it => !it.is_blog && it.channel !== 'BLOG')
+              : parsedItems;
+            res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+            return res.end(JSON.stringify({
+              status: '000',
+              theme: rawThemeQuery,
+              matched_stocks: uniqueTargetStocks,
+              total_count: cleanItems.length,
+              items: cleanItems,
+              cached: true,
+              cache_source: 'file'
+            }));
+          }
+        } catch (e) {
+          console.warn('[Space Cache Read Error]', e.message);
+        }
+      }
+    }
+
+    themeQueries.forEach(themeQuery => {
+      // (A) 테마 대키워드 멀티 쿼리 (테마명 + 관련주 변형)
+      fetchPromises.push(fetchNaverNewsItems(themeQuery, 1));
+      fetchPromises.push(fetchNaverNewsItems(themeQuery, 2));
+      fetchPromises.push(fetchNaverNewsItems(`${themeQuery} 관련주`, 1));
+      fetchPromises.push(fetchNaverNewsItems(`${themeQuery} 특징주`, 1));
+      fetchPromises.push(fetchNaverNewsItems(`${themeQuery} 수혜주`, 1));
+      fetchPromises.push(fetchNaverNewsItems(`${themeQuery} 급등`, 1));
+
+      // (B) 소속 종목별 전수 쿼리 (블로그 배제, DART+뉴스+리포트만)
+      // 종목 수 제한 없이 전체 uniqueTargetStocks 대상으로 병렬 실행
+      const allStocksForQuery = (uniqueTargetStocks && uniqueTargetStocks.length > 0)
+        ? uniqueTargetStocks
+        : [themeQuery];
+
+      allStocksForQuery.forEach(stockName => {
+        // 종목명 단독 뉴스 (1~2페이지)
+        fetchPromises.push(fetchNaverNewsItems(stockName, 1));
+        fetchPromises.push(fetchNaverNewsItems(stockName, 2));
+        // 종목명 + 테마 교차 쿼리
+        fetchPromises.push(fetchNaverNewsItems(`${stockName} ${themeQuery}`, 1));
+        // DART 공시 수집
+        fetchPromises.push(fetchDartItems(stockName));
+        // 증권사 리포트 수집
+        fetchPromises.push(fetchHkReportItems(stockName));
+        // 블로그는 완전 배제 (fetch하지 않음)
+      });
+    });
+
+    // 8초 타임아웃 레이스 보호: 종목 전수 수집에 충분한 시간 부여
+    const timeoutPromise = new Promise(resolve => setTimeout(() => resolve([]), 8000));
     Promise.race([
       Promise.allSettled(fetchPromises),
       timeoutPromise
     ]).then(results => {
       let settledList = Array.isArray(results) ? results : [];
-      const allItems = [];
-      const seenTitles = new Set();
-      const seenUrls = new Set();
+      const rawCollectedItems = [];
 
       settledList.forEach(resObj => {
         if (resObj && resObj.status === 'fulfilled' && Array.isArray(resObj.value)) {
           resObj.value.forEach(item => {
-            if (!item) return;
-            const normTitle = (item.news_title || item.title || item.report_nm || '').trim();
-            const normUrl = (item.news_url || item.link || item.dart_url || item.originallink || '').trim();
-
-            if (!normTitle) return;
-            // 제목 유사 중복 제거
-            const cleanTitleKey = normTitle.replace(/[\s\W]+/g, '').slice(0, 30);
-            if (seenTitles.has(cleanTitleKey) || (normUrl && seenUrls.has(normUrl))) return;
-
-            seenTitles.add(cleanTitleKey);
-            if (normUrl) seenUrls.add(normUrl);
-
-            allItems.push({
-              date: item.date || item.pubDate || item.rcept_dt || new Date().toISOString().slice(0, 10),
-              stage: item.stage || '실시간 레이더',
-              press: item.press || item.source || item.blogger_name || '언론 종합',
-              news_title: normTitle,
-              title: normTitle,
-              news_url: normUrl,
-              link: normUrl,
-              originallink: normUrl,
-              key_point: item.key_point || item.snippet || item.description || '핵심 모멘텀 및 밸류체인 수급 단서',
-              description: item.description || item.snippet || item.key_point || '',
-              snippet: item.snippet || item.description || item.key_point || '',
-              channel: item.channel || 'NEWS',
-              is_blog: !!item.is_blog,
-              is_dart: !!item.is_dart,
-              is_report: !!item.is_report,
-              target_price: item.target_price || '',
-              opinion: item.opinion || ''
-            });
+            if (item) rawCollectedItems.push(item);
           });
         }
       });
 
-      // 최신순 (YYYY-MM-DD) 통합 정렬
-      allItems.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      // [스마트 중복 기사 필터링 (Deduplication) 엔진]
+      // 1. 단순 복사/어뷰징 기사 제거: URL 완전 중복 제거 및 제목 자카드 유사도 70% 이상 클러스터링
+      const deduplicatedItems = [];
+      const seenUrls = new Set();
 
-      // 4대 채널(NEWS, DART, REPORT, BLOG) 균형 필터링 보장 (블로그 쏠림 방지)
+      // 날짜순 및 언론사 우선순위로 1차 정렬
+      rawCollectedItems.sort((a, b) => {
+        const dateCmp = (b.date || '').localeCompare(a.date || '');
+        if (dateCmp !== 0) return dateCmp;
+        return getPressPriorityScore(b.press) - getPressPriorityScore(a.press);
+      });
+
+      rawCollectedItems.forEach(candidate => {
+        const normTitle = (candidate.news_title || candidate.title || candidate.report_nm || '').trim();
+        const normUrl = (candidate.news_url || candidate.link || candidate.dart_url || candidate.originallink || '').trim();
+        if (!normTitle) return;
+
+        // URL 완전 중복 제거
+        if (normUrl && seenUrls.has(normUrl)) return;
+
+        // 기존 선정된 대표 기사들과의 제목 자카드 유사도 검사
+        let isDuplicate = false;
+        for (const kept of deduplicatedItems) {
+          const keptTitle = (kept.news_title || kept.title || '').trim();
+          const similarity = calculateJaccardSimilarity(normTitle, keptTitle);
+
+          // 70% 이상 유사할 경우 중복 기사로 판정
+          if (similarity >= 0.70) {
+            isDuplicate = true;
+            // 만약 새로 들어온 기사의 언론사 신뢰도 점수가 더 높고 최초 보도일 경우 대표 기사 교체
+            if (getPressPriorityScore(candidate.press) > getPressPriorityScore(kept.press)) {
+              Object.assign(kept, candidate);
+            }
+            break;
+          }
+        }
+
+        if (!isDuplicate) {
+          if (normUrl) seenUrls.add(normUrl);
+
+          // 5대 종목 관련 태그 및 직계약 수혜 팩트 뱃지 태깅
+          let matchedTags = [];
+          const textToScan = `${normTitle} ${candidate.key_point || ''} ${candidate.snippet || ''}`;
+          uniqueTargetStocks.forEach(stk => {
+            if (textToScan.includes(stk)) matchedTags.push(`#${stk}`);
+          });
+
+          // 직납 팩트/단독 협의/수주 공시/목표가 상향 배지 도출
+          let factBadge = '';
+          if (/(직납|직접 납품|엔진용 특수합금|공급망 진입)/.test(textToScan)) factBadge = '직납 팩트';
+          else if (/(단독|독점|단독 협의|본계약 협상)/.test(textToScan)) factBadge = '단독 협의';
+          else if (/(수주|공급계약|단일판매|계약체결)/.test(textToScan) || candidate.is_dart) factBadge = '수주 공시';
+          else if (/(상향|목표가|신규 매수|호실적)/.test(textToScan) || candidate.is_report) factBadge = '목표가 상향';
+
+          deduplicatedItems.push({
+            date: candidate.date || candidate.pubDate || candidate.rcept_dt || new Date().toISOString().slice(0, 10),
+            stage: candidate.stage || '실시간 레이더',
+            press: candidate.press || candidate.source || candidate.blogger_name || '언론 종합',
+            news_title: normTitle,
+            title: normTitle,
+            news_url: normUrl,
+            link: normUrl,
+            originallink: normUrl,
+            key_point: candidate.key_point || candidate.snippet || candidate.description || '스페이스X 핵심 모멘텀 및 밸류체인 수급 단서',
+            description: candidate.description || candidate.snippet || candidate.key_point || '',
+            snippet: candidate.snippet || candidate.description || candidate.key_point || '',
+            channel: candidate.channel || 'NEWS',
+            is_blog: !!candidate.is_blog,
+            is_dart: !!candidate.is_dart,
+            is_report: !!candidate.is_report,
+            target_price: candidate.target_price || '',
+            opinion: candidate.opinion || '',
+            tags: matchedTags.length > 0 ? matchedTags : (uniqueTargetStocks[0] ? [`#${uniqueTargetStocks[0]}`] : []),
+            fact_badge: factBadge,
+            stockName: candidate.stockName || (matchedTags[0] ? matchedTags[0].replace('#', '') : (uniqueTargetStocks[0] || ''))
+          });
+        }
+      });
+
+      // 최신순 (YYYY-MM-DD) 최종 정렬
+      deduplicatedItems.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+      // 4대 채널(NEWS, DART, REPORT, BLOG) 균형 볼륨 보장 (총 40~60건 이상 확보)
       const channelBuckets = { NEWS: [], DART: [], REPORT: [], BLOG: [] };
-      allItems.forEach(item => {
+      deduplicatedItems.forEach(item => {
         let ch = item.channel || 'NEWS';
         if (item.is_dart || (item.press && item.press.includes('공시'))) ch = 'DART';
         else if (item.is_report || (item.press && item.press.includes('증권'))) ch = 'REPORT';
         else if (item.is_blog || (item.press && item.press.includes('블로그'))) ch = 'BLOG';
         item.channel = ch;
 
-        if (channelBuckets[ch] && channelBuckets[ch].length < 15) {
+        // 뉴스 최대 35건, 공시 15건, 리포트 15건, 블로그 10건 분배
+        const maxLimit = ch === 'NEWS' ? 35 : 15;
+        if (channelBuckets[ch] && channelBuckets[ch].length < maxLimit) {
           channelBuckets[ch].push(item);
         }
       });
 
+      // 3대 공인 채널(NEWS, DART, REPORT) 균형 조합 (블로그 전면 배제)
       const balancedItems = [
         ...channelBuckets.NEWS,
         ...channelBuckets.DART,
-        ...channelBuckets.REPORT,
-        ...channelBuckets.BLOG
+        ...channelBuckets.REPORT
       ];
+      balancedItems.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+      // 블로그 완전 제거된 clean 목록
+      const cleanDeduplicated = deduplicatedItems.filter(it =>
+        !it.is_blog &&
+        it.channel !== 'BLOG' &&
+        !(it.press && it.press.includes('블로그')) &&
+        !(it.news_url && it.news_url.includes('blog.naver.com'))
+      );
+
+      // 응답: 타임라인/수집 모두 블로그 배제 3대 채널 반환
+      const responseItems = balancedItems.length >= 5 ? balancedItems : cleanDeduplicated;
+
+      console.log(`[Timeline] ${rawThemeQuery}: 총 ${rawCollectedItems.length}건 수집 → ${deduplicatedItems.length}건 중복제거 → ${responseItems.length}건 반환`);
+
+      // 서버 메모리 캐시 저장 (모든 테마)
+      if (responseItems.length > 0) {
+        setServerCache(cacheKey, responseItems);
+      }
+
+      // 스페이스X/우주항공 테마는 파일 캐시에도 저장
+      if (isSpaceTheme && responseItems.length > 0) {
+        try {
+          fs.writeFileSync(spaceJsonPath, JSON.stringify(responseItems.slice(0, 60), null, 2), 'utf8');
+        } catch (e) { console.warn('[Space Cache Write Error]', e.message); }
+      }
 
       res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
       res.end(JSON.stringify({
         status: '000',
         theme: rawThemeQuery,
         matched_stocks: uniqueTargetStocks,
-        total_count: balancedItems.length,
-        items: balancedItems.length > 0 ? balancedItems : allItems
+        total_count: responseItems.length,
+        items: responseItems
       }));
     }).catch(err => {
+      console.warn('[Timeline Collect Error]', err && err.message);
+      // 에러 발생 시 메모리 캐시 또는 파일 캐시 안전 반환
+      const fallbackMem = getServerCache(cacheKey);
+      if (fallbackMem && fallbackMem.length > 0) {
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        return res.end(JSON.stringify({
+          status: '000',
+          theme: rawThemeQuery,
+          matched_stocks: uniqueTargetStocks,
+          total_count: fallbackMem.length,
+          items: fallbackMem,
+          cached: true
+        }));
+      }
+      if (isSpaceTheme && fs.existsSync(spaceJsonPath)) {
+        try {
+          const cached = JSON.parse(fs.readFileSync(spaceJsonPath, 'utf8'));
+          res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+          return res.end(JSON.stringify({
+            status: '000',
+            theme: rawThemeQuery,
+            matched_stocks: uniqueTargetStocks,
+            total_count: cached.length,
+            items: cached,
+            cached: true
+          }));
+        } catch (e) {}
+      }
       res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
       res.end(JSON.stringify({ status: '000', theme: rawThemeQuery, matched_stocks: uniqueTargetStocks, total_count: 0, items: [] }));
     });

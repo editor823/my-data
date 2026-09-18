@@ -1,9 +1,9 @@
 // ========================================================
-// [諛깆뿏??API ?숈쟻 ?쇱슦?? Cloudflare Pages <-> Render API ?곌껐
+// [백엔드 API 동적 라우팅] Cloudflare Pages <-> Render API 연결
 // ========================================================
 const BACKEND_API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
   ? ''
-  : 'https://my-stock-api.onrender.com';
+  : 'https://my-stock-api.onrender.com'; // Render에서 발급받은 백엔드 웹 서비스 주소
 
 
 // ========================================================
@@ -188,6 +188,7 @@ window.selectThemeFromDb = async function(themeName) {
 
     // 현재 활성 테마로 지정 및 7대 체크리스트 카드 즉시 교체 렌더링
     window.currentSelectedDetectiveTheme = targetTheme;
+    // enrichThemeWithAllSignals 내부에서 showTimelineLoading 호출하므로 여기서는 기본 렌더만
     window.renderDetectiveCard(targetTheme, window.activeTimelinePeriod || 'all');
 
     // 대장주 3중 단서(네이버 뉴스, DART 전자공시, 증권사 리포트) 및 6번 차트/국면 자동 분석 재트리거
@@ -206,46 +207,101 @@ window.selectThemeFromDb = async function(themeName) {
   }
 };
 
-// 대장주 및 소속 종목들에 대한 4대 채널(뉴스, 공시, 리포트, 블로그) 통합 레이더 비동기 교차 수집 헬퍼
+// ================================================
+// [타임라인 로딩 인디케이터] 테마 선택 시 스피너 표시
+// ================================================
+function showTimelineLoading(theme) {
+  const container = document.getElementById('stock-material-timeline-list')
+    || document.getElementById('themeTimelineList')
+    || document.getElementById('theme-timeline-container')
+    || document.querySelector('.stock-material-timeline-list, .theme-timeline-cards');
+  if (!container) return;
+  const themeName = (theme && theme.theme_name) ? theme.theme_name : (typeof theme === 'string' ? theme : '테마');
+  container.innerHTML = `
+    <div class="timeline-loading" style="text-align:center; padding:50px 20px; color:#818cf8; display:flex; flex-direction:column; align-items:center; gap:16px;">
+      <div class="spinner" style="width:40px; height:40px; border:3px solid rgba(129,140,248,0.2); border-top-color:#818cf8; border-radius:50%; animation:spin 0.9s linear infinite;"></div>
+      <p style="margin:0; font-weight:700; font-size:0.92rem; color:#a5b4fc;">⏳ [${themeName}] 및 소속 종목 최근 1개월 시계열 뉴스·공시 전수 탐색 중...</p>
+      <p style="margin:0; font-size:0.78rem; color:#64748b;">(테마 + 소속 종목 발행 기사 병렬 수집 중. 2~4초 소요)</p>
+    </div>
+    <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+  `;
+}
+
+// 대장주 및 소속 종목들에 대한 /api/radar/timeline 통합 레이더 비동기 교차 수집 헬퍼
 window.enrichThemeWithAllSignals = async function(theme, stockName) {
   if (!theme) return;
   const themeQuery = theme.theme_name || stockName || '';
   const cleanStock = (stockName || '').replace(/\(.*?\)/g, '').replace(/\[.*?\]/g, '').split(',')[0].trim();
 
-  // 5초 타임아웃 AbortController 구성
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 5000);
+  // 로컬스토리지 캐시 확인 (30분 TTL)
+  const CACHE_KEY = `cache_timeline_${encodeURIComponent(themeQuery)}`;
+  const CACHE_TTL = 30 * 60 * 1000;
+
+  // 데이터 수집 전 로딩 인디케이터 노출
+  showTimelineLoading(theme);
 
   try {
-    const radarFetch = fetch(`${BACKEND_API_BASE}/api/radar/collect?theme=${encodeURIComponent(themeQuery)}&t=${Date.now()}`, {
+    const cachedStr = localStorage.getItem(CACHE_KEY);
+    if (cachedStr) {
+      const cached = JSON.parse(cachedStr);
+      if (cached && cached.ts && (Date.now() - cached.ts) < CACHE_TTL && Array.isArray(cached.items) && cached.items.length > 0) {
+        console.log(`[EnrichTheme Cache HIT] ${themeQuery} (${cached.items.length}건)`);
+        const rawTimeline = [...(theme.timeline || [])];
+        cached.items.forEach(item => {
+          if (!rawTimeline.some(t => t.news_title === item.news_title || (t.news_url && t.news_url === item.news_url))) {
+            rawTimeline.push(item);
+          }
+        });
+        theme.timeline = rawTimeline;
+        theme._asyncSupplementsLoaded = true;
+        if (window.currentSelectedDetectiveTheme === theme && typeof window.renderDetectiveCard === 'function') {
+          window.renderDetectiveCard(theme, window.activeTimelinePeriod || 'all');
+        }
+        // 기술적 분석만 비동기 병렬 실행
+        if (cleanStock) {
+          window.fetchStockTechnicals(cleanStock).then(techData => {
+            if (techData) { theme._technicals = techData; }
+          }).catch(() => {});
+        }
+        return;
+      }
+    }
+  } catch (ce) {}
+
+  // 10초 타임아웃 AbortController
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+  try {
+    const radarFetch = fetch(`${BACKEND_API_BASE}/api/radar/timeline?theme=${encodeURIComponent(themeQuery)}&t=${Date.now()}`, {
       signal: controller.signal
     }).then(r => r.ok ? r.json() : { items: [] }).catch(err => {
-      console.warn('[enrichThemeWithAllSignals] 레이더 수집 타임아웃/오류 방어:', err);
-      // 로컬스토리지 캐시 데이터 조회 폴백
+      console.warn('[enrichThemeWithAllSignals] 타임라인 수집 타임아웃/오류:', err);
       try {
-        const cachedStr = localStorage.getItem(`cache_radar_${encodeURIComponent(themeQuery)}`);
-        if (cachedStr) return JSON.parse(cachedStr);
-      } catch (ce) {}
+        const staleStr = localStorage.getItem(CACHE_KEY);
+        if (staleStr) return JSON.parse(staleStr);
+      } catch (fe) {}
       return { items: [] };
     });
 
     const [radarRes, techData] = await Promise.all([
       radarFetch,
-      // 기술적 차트/슈팅 국면 분석
       cleanStock ? window.fetchStockTechnicals(cleanStock).catch(() => null) : Promise.resolve(null)
     ]);
 
     const collectedItems = (radarRes && Array.isArray(radarRes.items)) ? radarRes.items : [];
     if (collectedItems.length > 0) {
       try {
-        localStorage.setItem(`cache_radar_${encodeURIComponent(themeQuery)}`, JSON.stringify({ items: collectedItems }));
+        localStorage.setItem(CACHE_KEY, JSON.stringify({ items: collectedItems, ts: Date.now() }));
       } catch (se) {}
     }
 
     const rawTimeline = [...(theme.timeline || [])];
 
     collectedItems.forEach(item => {
-      if (!rawTimeline.some(t => t.news_title === item.news_title || (t.news_url && t.news_url === item.news_url))) {
+      // 타임라인에는 블로그 유입 전면 차단 (오직 뉴스, 공시, 리포트 3대 공인 채널만 등록)
+      const isBlogItem = item.is_blog || item.channel === 'BLOG' || (item.press && item.press.includes('블로그')) || (item.news_url && item.news_url.includes('blog.naver.com')) || (item.link && item.link.includes('blog.naver.com'));
+      if (!isBlogItem && !rawTimeline.some(t => t.news_title === item.news_title || (t.news_url && t.news_url === item.news_url))) {
         rawTimeline.push(item);
       }
     });
@@ -744,10 +800,73 @@ function populateDetectiveSelect() {
   });
 
   select.onchange = function() {
+    // 테마 변경 시 종목 칩 필터를 'ALL'로 초기화하여 빈 화면 방지
+    currentStockFilter = 'ALL';
     const target = (window.detectiveThemes || []).find(t => t.theme_id === select.value);
     if (target) {
       window.currentSelectedDetectiveTheme = target;
-      renderDetectiveCard(target, window.activeTimelinePeriod || 'all');
+
+      // 1. 로딩 인디케이터 먼저 표시
+      showTimelineLoading(target);
+
+      // 2. /api/radar/timeline 호출 후 수집 완료 시 카드 렌더링
+      const themeQuery = target.theme_name || '';
+      const CACHE_KEY = `cache_timeline_${encodeURIComponent(themeQuery)}`;
+      const CACHE_TTL = 30 * 60 * 1000;
+
+      // 로컀스토리지 캐시 확인
+      let usedCache = false;
+      try {
+        const cachedStr = localStorage.getItem(CACHE_KEY);
+        if (cachedStr) {
+          const cached = JSON.parse(cachedStr);
+          if (cached && cached.ts && (Date.now() - cached.ts) < CACHE_TTL && Array.isArray(cached.items) && cached.items.length > 0) {
+            // 즉시 로드
+            const rawTimeline = [...(target.timeline || [])];
+            cached.items.forEach(item => {
+              if (!rawTimeline.some(t => t.news_title === item.news_title || (t.news_url && t.news_url === item.news_url))) rawTimeline.push(item);
+            });
+            target.timeline = rawTimeline;
+            usedCache = true;
+          }
+        }
+      } catch (ce) {}
+
+      if (usedCache) {
+        if (typeof window.renderUniversalTimeline === 'function') {
+          window.renderUniversalTimeline(target, window.activeTimelinePeriod || 'all');
+        } else {
+          renderDetectiveCard(target, window.activeTimelinePeriod || 'all');
+        }
+      } else {
+        // API 호출
+        fetch(`${BACKEND_API_BASE}/api/radar/timeline?theme=${encodeURIComponent(themeQuery)}&t=${Date.now()}`)
+          .then(r => r.ok ? r.json() : { items: [] })
+          .then(data => {
+            const items = (data && Array.isArray(data.items)) ? data.items : [];
+            if (items.length > 0) {
+              try { localStorage.setItem(CACHE_KEY, JSON.stringify({ items, ts: Date.now() })); } catch(se) {}
+              const rawTimeline = [...(target.timeline || [])];
+              items.forEach(item => {
+                const isBlog = item.is_blog || item.channel === 'BLOG' || (item.news_url && item.news_url.includes('blog.naver.com'));
+                if (!isBlog && !rawTimeline.some(t => t.news_title === item.news_title || (t.news_url && t.news_url === item.news_url))) {
+                  rawTimeline.push(item);
+                }
+              });
+              target.timeline = rawTimeline;
+            }
+          })
+          .catch(err => console.warn('[Select Theme Timeline Error]', err))
+          .finally(() => {
+            if (window.currentSelectedDetectiveTheme === target) {
+              if (typeof window.renderUniversalTimeline === 'function') {
+                window.renderUniversalTimeline(target, window.activeTimelinePeriod || 'all');
+              } else {
+                renderDetectiveCard(target, window.activeTimelinePeriod || 'all');
+              }
+            }
+          });
+      }
     } else if (typeof window.switchTimelineTheme === 'function') {
       window.switchTimelineTheme(select.value);
     }
@@ -1247,9 +1366,324 @@ window.restoreCaseTheme = function(themeId, themeName) {
   alert(`'${themeName}' 테마 원문 데이터를 찾을 수 없습니다.`);
 };
 
+// 1. 공통 종목 표준 코드 테이블 (우주항공 5대 종목 + 주요 테마 대장주 및 동적 매핑 지원)
+const STOCK_CODES = {
+  '에이치브이엠': '295310',
+  '센서뷰': '321370',
+  '와이제이링크': '206950',
+  '켄코아': '274090',
+  '켄코아에어로스페이스': '274090',
+  '스피어': '467770',
+  '가온전선': '000500',
+  '대한전선': '001440',
+  'LS에코에너지': '229640',
+  '일진전기': '103590',
+  'KBI메탈': '024840',
+  '대원전선': '006340',
+  '두산에너빌리티': '034020',
+  '우리기술': '032820',
+  '우진엔텍': '457550',
+  '비에이치아이': '083650',
+  '한전산업': '130660',
+  '한전KPS': '051600',
+  '삼성전자': '005930',
+  'SK하이닉스': '000660',
+  '한미반도체': '042700',
+  '한화에어로스페이스': '012450',
+  '현대로템': '064350',
+  'LIG넥스원': '079550',
+  '우리로': '046970',
+  '케이씨에스': '115500',
+  '텔레필드': '091440',
+  '우리넷': '115440',
+  '엑스게이트': '356680',
+  '아이윈플러스': '123010',
+  '쏠리드': '057880'
+};
+
+// [재료 라이프사이클 4단계 메타데이터 & 상태 배지 설정]
+const LIFECYCLE_CONFIG = {
+  incubation: {
+    label: '🌱 태동 | 기대감',
+    color: '#10b981',
+    bg: 'rgba(16, 185, 129, 0.15)',
+    border: 'rgba(16, 185, 129, 0.4)',
+    tip: '재료 초기 단계: 모멘텀 형성 및 초기 수급 유입 구간'
+  },
+  ignition: {
+    label: '🔥 점화 | 팩트확정',
+    color: '#ef4444',
+    bg: 'rgba(239, 68, 68, 0.15)',
+    border: 'rgba(239, 68, 68, 0.4)',
+    tip: '공식 공시/수주 체결: 가장 강력한 거래량 동반 구간'
+  },
+  verification: {
+    label: '📊 입증 | 기관수급',
+    color: '#3b82f6',
+    bg: 'rgba(59, 130, 246, 0.15)',
+    border: 'rgba(59, 130, 246, 0.4)',
+    tip: '증권사 분석/목표가: 기관 매수세 안착 및 밸류에이션 리레이팅'
+  },
+  warning: {
+    label: '⚠️ 경고 | 재료소멸',
+    color: '#f59e0b',
+    bg: 'rgba(245, 158, 11, 0.15)',
+    border: 'rgba(245, 158, 11, 0.4)',
+    tip: '이벤트 종료/차익 매물 출회 주의 구간'
+  }
+};
+
+// 라이프사이클 단계 판별 엔진
+function getLifecycleStage(item) {
+  if (!item) return 'incubation';
+  if (item.lifecycle && LIFECYCLE_CONFIG[item.lifecycle]) {
+    return item.lifecycle;
+  }
+
+  const textToScan = `${item.title || item.news_title || ''} ${item.desc || item.key_point || ''} ${item.source || item.press || ''} ${item.tag || ''}`;
+  const isDart = item.type === 'dart' || item.is_dart || item.source?.includes('DART') || (item.press && item.press.includes('DART'));
+  const isReport = item.type === 'report' || item.is_report || item.source?.includes('증권') || item.source?.includes('리포트') || (item.press && item.press.includes('리포트'));
+
+  // 1. DART 공시, '공급계약', '단조설비 신규투자', '퀄 통과' 키워드 포함 ➔ 'ignition'
+  if (isDart || /(공급계약|단조설비 신규투자|단조설비|신규투자|퀄 통과|수주 공시|신규시설투자)/.test(textToScan)) {
+    return 'ignition';
+  }
+
+  // 2. 증권사 리포트, '목표가', '투자의견 Buy' 키워드 포함 ➔ 'verification'
+  if (isReport || /(증권사 리포트|목표가|투자의견 Buy|BUY|컨센서스)/i.test(textToScan)) {
+    return 'verification';
+  }
+
+  // 3. '보호예수', '전환사채', '차익', '비행 완료' 키워드 포함 ➔ 'warning'
+  if (/(보호예수|전환사채|차익|비행 완료|재료소멸|매물 출회)/.test(textToScan)) {
+    return 'warning';
+  }
+
+  // 4. 그 외 협의 착수, '기대감', '단독' 키워드 및 기본 ➔ 'incubation'
+  return 'incubation';
+}
+
+// 2. js/stock.js getSafeTimelineUrl(item) 함수 정비 (전 테마 범용 매핑 & 네이버 뉴스 원문 직결 1순위)
+function getSafeTimelineUrl(item) {
+  if (!item) return '';
+
+  const stock = (item.stockName || item.target_name || '').trim();
+  const code = item.stock_code || STOCK_CODES[stock];
+
+  // A. DART 전자공시: 보안 경고 뜨는 m.dart 폐기 -> 네이버 금융 종목 메인 직결 또는 DART 원문
+  if (item.type === 'dart' || item.is_dart || item.source?.includes('DART') || item.press?.includes('DART')) {
+    if (item.dart_url && item.dart_url.startsWith('https://dart.fss.or.kr')) {
+      return item.dart_url;
+    }
+    if (code) {
+      return `https://finance.naver.com/item/main.naver?code=${code}`;
+    }
+    return stock ? `https://finance.naver.com/search/searchList.naver?query=${encodeURIComponent(stock)}` : 'https://finance.naver.com/';
+  }
+
+  // B. 증권사 리포트: 네이버 리다이렉트 차단 -> HTTP 한경 컨센서스 종목 검색 직결
+  if (item.type === 'report' || item.is_report || item.source?.includes('증권') || item.source?.includes('리포트') || item.press?.includes('리포트')) {
+    if (item.report_url && item.report_url.startsWith('http')) {
+      return item.report_url;
+    }
+    if (item.link && (item.link.includes('hankyung.com') || item.link.includes('.pdf'))) {
+      return item.link;
+    }
+    return `http://consensus.hankyung.com/analysis/list?search_text=${encodeURIComponent(stock || '주도주')}`;
+  }
+
+  // C. 뉴스: 1순위 n.news.naver.com 본문 직결 URL 최우선 매핑
+  const candidateUrls = [item.news_url, item.link, item.originallink].filter(Boolean);
+
+  // 1순위: 네이버 뉴스 본문 직결 URL (모바일/PC 공통 n.news.naver.com)
+  const naverNewsDirect = candidateUrls.find(u => typeof u === 'string' && u.includes('n.news.naver.com'));
+  if (naverNewsDirect) {
+    return naverNewsDirect;
+  }
+
+  // 2순위: 블로그 주소(blog.naver.com)나 더미 주소가 아닌 정상 언론사 URL
+  for (const u of candidateUrls) {
+    if (typeof u === 'string' && (u.startsWith('http://') || u.startsWith('https://')) && !u.includes('undefined') && !u.includes('blog.naver.com')) {
+      return u;
+    }
+  }
+
+  // 3순위 폴백: 404가 나지 않는 네이버 모바일 뉴스 검색 링크
+  const cleanTitle = (item.title || item.news_title || '').replace(/<[^>]+>/g, '').replace(/\[.*?\]/g, '').trim();
+  const queryStr = (stock ? `${stock} ` : '') + cleanTitle.slice(0, 20);
+  return `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(queryStr.trim())}`;
+}
+
+// 5대 종목 원클릭 인터랙티브 필터 상태 관리
+let currentStockFilter = 'ALL';
+
+window.filterTimelineStock = function(stockName, btn) {
+  currentStockFilter = stockName || 'ALL';
+  if (window.currentSelectedDetectiveTheme) {
+    window.renderDetectiveCard(window.currentSelectedDetectiveTheme, window.activeTimelinePeriod || 'all');
+  }
+};
+
+// [고도화 3단계] 타임라인 ➔ 3번 탭 캘린더 매매 플래너 1클릭 자동 등록 연동
+window.addTimelineToCalendar = function(itemIdOrDate) {
+  let targetItem = null;
+
+  // 1. 현재 로드된 테마의 타임라인에서 검색
+  if (window.currentSelectedDetectiveTheme && Array.isArray(window.currentSelectedDetectiveTheme.timeline)) {
+    targetItem = window.currentSelectedDetectiveTheme.timeline.find(t => (t.id === itemIdOrDate || t.date === itemIdOrDate));
+  }
+
+  // 2. 전체 테마 캐시 또는 timeline_space 등에서 보조 검색
+  if (!targetItem && typeof detectiveThemes !== 'undefined' && Array.isArray(detectiveThemes)) {
+    for (const th of detectiveThemes) {
+      if (Array.isArray(th.timeline)) {
+        const found = th.timeline.find(t => (t.id === itemIdOrDate || t.date === itemIdOrDate));
+        if (found) { targetItem = found; break; }
+      }
+    }
+  }
+
+  if (!targetItem) {
+    if (window.showToast) window.showToast('일정 정보를 찾을 수 없습니다.', '⚠️');
+    return;
+  }
+
+  // 캘린더 일정 데이터 포맷으로 정제
+  const stockName = targetItem.stockName || (targetItem.target_name || '우주항공');
+  const rawTitle = targetItem.title || targetItem.news_title || '증시 일정';
+  const cleanTitle = rawTitle.replace(/\[.*?\]/g, '').trim();
+  const truncatedTitle = cleanTitle.length > 25 ? cleanTitle.slice(0, 25) + '...' : cleanTitle;
+  const calTitle = `[${stockName}] ${truncatedTitle}`;
+
+  const sourceName = targetItem.source || targetItem.press || '언론/공시';
+  const rawDesc = targetItem.desc || targetItem.key_point || '';
+  const calDesc = `${sourceName} 보도/공시 기반 일정: ${rawDesc}`;
+
+  const calType = (targetItem.type === 'dart' || targetItem.is_dart) ? 'disclosure'
+    : ((targetItem.type === 'report' || targetItem.is_report) ? 'report' : 'news');
+  const calTag = targetItem.tag || '타임라인 연동';
+  const calDate = (targetItem.targetDate || targetItem.date || new Date().toISOString().slice(0, 10)).trim();
+  const safeUrl = getSafeTimelineUrl(targetItem);
+
+  const newCalEvent = {
+    id: targetItem.id ? `cal_${targetItem.id}` : `cal_tl_${Date.now()}`,
+    date: calDate,
+    dateDisplay: calDate,
+    title: calTitle,
+    desc: calDesc,
+    type: calType,
+    tag: calTag,
+    press: sourceName,
+    sourceUrl: safeUrl,
+    is_custom: true
+  };
+
+  // 3번 탭 캘린더 저장소(stock_calendar_approved_events) 및 전역 변수(calendarApprovedEvents) 동기화
+  if (typeof calendarApprovedEvents === 'undefined' || !Array.isArray(calendarApprovedEvents)) {
+    const rawLocal = localStorage.getItem('stock_calendar_approved_events');
+    window.calendarApprovedEvents = rawLocal ? JSON.parse(rawLocal) : [];
+  }
+
+  // 중복 체크: 동일 id 또는 동일 날짜+제목 방지
+  const isDuplicate = calendarApprovedEvents.some(e => e.id === newCalEvent.id || (e.date === newCalEvent.date && e.title === newCalEvent.title));
+  if (!isDuplicate) {
+    calendarApprovedEvents.push(newCalEvent);
+  }
+
+  // localStorage 영구 저장
+  localStorage.setItem('stock_calendar_approved_events', JSON.stringify(calendarApprovedEvents));
+
+  // 3번 탭 캘린더 피드 캐시 갱신
+  if (typeof liveStockCalendarCache !== 'undefined') {
+    liveStockCalendarCache = [];
+  }
+
+  // 3번 탭 캘린더 렌더 함수 즉시 호출
+  if (typeof renderApprovedCalendarUI === 'function') {
+    renderApprovedCalendarUI();
+  }
+  if (typeof renderStockCalendarFeed === 'function') {
+    renderStockCalendarFeed();
+  }
+
+  // 성공 피드백 토스트 알림
+  if (window.showToast) {
+    window.showToast(`✅ [${stockName}] 일정이 3번 탭 매매 캘린더에 성공적으로 등록되었습니다.`, '📅');
+  } else {
+    alert(`✅ [${stockName}] 일정이 3번 탭 매매 캘린더에 성공적으로 등록되었습니다.`);
+  }
+};
+
+// [고도화 4단계] 종목별 채널 크로스-체크 스코어링 및 트리플 크로스 확정주 판별기
+function calculateStockSignalScores(timelineData = []) {
+  const stockScores = {};
+  timelineData.forEach(item => {
+    const stock = item.stockName || (item.target_name || '');
+    if (!stock) return;
+    if (!stockScores[stock]) {
+      stockScores[stock] = { hasNews: false, hasDart: false, hasReport: false, count: 0 };
+    }
+    if (item.type === 'dart' || item.is_dart || item.source?.includes('DART') || item.press?.includes('DART')) {
+      stockScores[stock].hasDart = true;
+    } else if (item.type === 'report' || item.is_report || item.source?.includes('증권') || item.source?.includes('리포트') || item.press?.includes('리포트')) {
+      stockScores[stock].hasReport = true;
+    } else {
+      stockScores[stock].hasNews = true;
+    }
+  });
+
+  // 채널 카운트 합산
+  Object.keys(stockScores).forEach(stk => {
+    let cnt = 0;
+    if (stockScores[stk].hasNews) cnt++;
+    if (stockScores[stk].hasDart) cnt++;
+    if (stockScores[stk].hasReport) cnt++;
+    stockScores[stk].count = cnt;
+  });
+
+  return stockScores;
+}
+
+// 신뢰도 시그널 배지 HTML 생성기
+function getStockSignalBadgeHtml(scoreObj) {
+  if (!scoreObj || scoreObj.count === 0) return '';
+  if (scoreObj.count >= 3) {
+    return `
+      <span class="signal-badge triple-cross" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(234, 179, 8, 0.2)); border: 1px solid #eab308; color: #fde047; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 800; box-shadow: 0 0 8px rgba(234, 179, 8, 0.3); display: inline-flex; align-items: center; gap: 4px;" title="뉴스+DART공시+증권사리포트 3채널 크로스체크 완료 종목">
+        👑 트리플 크로스 | 팩트 확정주
+      </span>
+    `;
+  }
+  if (scoreObj.count === 2) {
+    return `
+      <span class="signal-badge double-cross" style="background: rgba(168, 85, 247, 0.15); border: 1px solid #a855f7; color: #c084fc; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;" title="2개 채널 교차 검증 완료">
+        ⚡ 더블 크로스 | 수급 입증
+      </span>
+    `;
+  }
+  return `
+    <span class="signal-badge single-cross" style="background: rgba(148, 163, 184, 0.1); border: 1px solid #64748b; color: #94a3b8; padding: 2px 6px; border-radius: 4px; font-size: 11px; display: inline-flex; align-items: center; gap: 4px;" title="단일 채널 보도/일정">
+      🔎 초기 모멘텀
+    </span>
+  `;
+}
+
+window.STOCK_CODES = STOCK_CODES;
+window.LIFECYCLE_CONFIG = LIFECYCLE_CONFIG;
+window.getLifecycleStage = getLifecycleStage;
+window.getSafeTimelineUrl = getSafeTimelineUrl;
+window.calculateStockSignalScores = calculateStockSignalScores;
+window.getStockSignalBadgeHtml = getStockSignalBadgeHtml;
+
 window.renderDetectiveCard = function(theme, period = 'all') {
-  const container = document.getElementById('stock-material-timeline-list');
-  if (!container || !theme) return;
+  const container = document.getElementById('stock-material-timeline-list')
+    || document.getElementById('themeTimelineList')
+    || document.getElementById('theme-timeline-container')
+    || document.querySelector('.stock-material-timeline-list, .theme-timeline-cards');
+  if (!container || !theme) {
+    if (!container) console.error('타임라인 컨테이너를 찾을 수 없습니다.');
+    return;
+  }
   window.currentSelectedDetectiveTheme = theme;
 
   // 상단 좌측 메인 제목(#theme-timeline-title) 및 뱃지(#theme-timeline-badge) 동시 갱신
@@ -1269,10 +1703,118 @@ window.renderDetectiveCard = function(theme, period = 'all') {
     descEl.innerHTML = `👑 핵심 대장주: <span style="color: #cbd5e1; font-weight: 700;">${leadStr}</span> · <span style="color: #38bdf8; font-weight: 700;">${theme.pattern_type || ''}</span>`;
   }
 
-  // 타임라인 기사 목록과 공시, 리포트 통합 목록 준비
-  const rawTimeline = [...(theme.timeline || [])];
+  // 타임라인 기사 목록과 공시, 리포트 통합 목록 준비 (블로그 전면 차단 필터링 적용)
+  const isBlogData = (item) => {
+    if (!item) return false;
+    const src = String(item.press || item.source || item.blogger_name || '');
+    const url = String(item.news_url || item.link || item.originallink || '');
+    const tit = String(item.title || item.news_title || '');
+    return !!item.is_blog ||
+      item.channel === 'BLOG' ||
+      src.includes('블로그') ||
+      url.includes('blog.naver.com') ||
+      tit.startsWith('[블로그]');
+  };
 
-  // DART 공시, 한경 컨센서스 리포트 및 기술적 분석(국면/슈팅/지속도) 비동기 병렬 보강 트리거
+  let rawTimeline = [...(theme.timeline || [])].filter(it => !isBlogData(it));
+
+  const currentTheme = (theme.theme_name || '').trim();
+
+  // [1단계 데이터 소스 연동]: 우주항공/스페이스X 테마일 경우 timeline_space.json 비동기 연동 지원
+  if (/우주항공|스페이스X|스타링크/i.test(currentTheme) && !theme._spaceTimelineLoaded) {
+    theme._spaceTimelineLoaded = true;
+    fetch('/data/timeline_space.json?v=' + Date.now())
+      .then(res => res.ok ? res.json() : null)
+      .then(rawData => {
+        if (!rawData) return;
+        const spaceItems = Array.isArray(rawData) ? rawData : (rawData.items || rawData.data || []);
+        if (Array.isArray(spaceItems) && spaceItems.length > 0) {
+          const curList = [...(theme.timeline || [])].filter(it => !isBlogData(it));
+          let added = false;
+          spaceItems.forEach(si => {
+            if (!isBlogData(si) && !curList.some(t => t.id === si.id || t.news_title === si.title || (t.news_url && t.news_url === si.link))) {
+              curList.push(si);
+              added = true;
+            }
+          });
+          if (added) {
+            theme.timeline = curList;
+            if (window.currentSelectedDetectiveTheme === theme) {
+              window.renderDetectiveCard(theme, window.activeTimelinePeriod || period);
+            }
+          }
+        }
+      })
+      .catch(err => console.warn('Space timeline load notice:', err));
+  }
+
+  // [데이터 부재 시 자동 변환 (빈 화면 방지)]:
+  // 만약 특정 테마의 전용 데이터가 비어있거나 1건 미만인 경우, 체크리스트 대장주 및 테마 요약 기반으로 즉시 기본 타임라인 카드 자동 구성
+  if (rawTimeline.length === 0) {
+    const chkLeaders = theme.checklist?.leaders || {};
+    const leadNames = [chkLeaders.lead, ...(chkLeaders.sub ? chkLeaders.sub.split(',') : [])]
+      .filter(Boolean)
+      .map(s => s.trim().replace(/\(.*?\)/g, ''))
+      .filter(s => s && s !== '종목명' && s !== '관련주 추적 중');
+
+    const primaryStock = leadNames[0] || currentTheme;
+    const todayStr = new Date().toISOString().slice(0, 10);
+
+    const generatedCards = [
+      {
+        id: `gen_news_${theme.theme_id || Date.now()}`,
+        date: theme.analysis_date || todayStr,
+        stage: '실시간 피드',
+        source: '주요 언론 종합',
+        press: '주요 언론 종합',
+        stockName: primaryStock,
+        type: 'news',
+        lifecycle: 'incubation',
+        tag: '🌱 기대감',
+        title: `[${primaryStock}] ${theme.theme_name} 핵심 수혜 및 사업 모멘텀 부각`,
+        desc: theme.checklist?.material || theme.summary || `${currentTheme} 주도 섹터 수급 유입 및 관련주 밸류체인 진입 기대감 형성`,
+        news_url: `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(currentTheme + ' ' + primaryStock)}`,
+        link: `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(currentTheme + ' ' + primaryStock)}`
+      },
+      {
+        id: `gen_dart_${theme.theme_id || Date.now()}`,
+        date: theme.analysis_date || todayStr,
+        stage: '전자공시 확인',
+        source: 'DART 전자공시',
+        press: 'DART 전자공시',
+        stockName: primaryStock,
+        type: 'dart',
+        is_dart: true,
+        lifecycle: 'ignition',
+        tag: '📑 공시 추적',
+        title: `[공시] ${primaryStock} 사업보고서 및 최근 주요 경영사항 전자공시 점검`,
+        desc: `${primaryStock} 관련 DART 금융감독원 최신 정기 공시 및 수주·공급 계약 이행 내역 실시간 추적`,
+        news_url: STOCK_CODES[primaryStock] ? `https://finance.naver.com/item/main.naver?code=${STOCK_CODES[primaryStock]}` : `https://finance.naver.com/search/searchList.naver?query=${encodeURIComponent(primaryStock)}`,
+        link: STOCK_CODES[primaryStock] ? `https://finance.naver.com/item/main.naver?code=${STOCK_CODES[primaryStock]}` : `https://finance.naver.com/search/searchList.naver?query=${encodeURIComponent(primaryStock)}`
+      },
+      {
+        id: `gen_rep_${theme.theme_id || Date.now()}`,
+        date: theme.analysis_date || todayStr,
+        stage: '증권사 리서치',
+        source: '한경컨센서스 리서치',
+        press: '증권사 리포트',
+        stockName: primaryStock,
+        type: 'report',
+        is_report: true,
+        lifecycle: 'verification',
+        tag: '📊 리포트 분석',
+        title: `[리포트] ${primaryStock}, ${currentTheme} 산업군 내 경쟁력 및 실적 전망`,
+        desc: `${currentTheme} 업황 사이클 분석 및 ${primaryStock} 기업가치 밸류에이션 리레이팅 기대`,
+        news_url: `http://consensus.hankyung.com/analysis/list?search_text=${encodeURIComponent(primaryStock)}`,
+        link: `http://consensus.hankyung.com/analysis/list?search_text=${encodeURIComponent(primaryStock)}`
+      }
+    ];
+
+    theme.timeline = generatedCards;
+    rawTimeline = [...generatedCards];
+  }
+
+  // DART 공시, 한경 컨센서스 리포트 및 기술적 분석(국면/슈팅/지속도) 보강 트리거
   const leadStockName = theme.checklist?.leaders?.lead ? theme.checklist.leaders.lead.split(',')[0].trim() : '';
   if (leadStockName && !theme._asyncSupplementsLoaded) {
     theme._asyncSupplementsLoaded = true;
@@ -1284,22 +1826,23 @@ window.renderDetectiveCard = function(theme, period = 'all') {
       let updated = false;
       const combined = [...(dartItems || []), ...(reportItems || [])];
       if (combined.length > 0) {
+        const curList = [...(theme.timeline || rawTimeline)];
         combined.forEach(item => {
-          if (!rawTimeline.some(t => t.news_title === item.news_title || (t.news_url && t.news_url === item.news_url))) {
-            rawTimeline.push(item);
+          if (!curList.some(t => t.news_title === item.news_title || (t.news_url && t.news_url === item.news_url))) {
+            curList.push(item);
             updated = true;
           }
         });
+        if (updated) {
+          theme.timeline = curList;
+        }
       }
       if (techData) {
         theme._technicals = techData;
         updated = true;
       }
-      if (updated) {
-        theme.timeline = rawTimeline;
-        if (window.currentSelectedDetectiveTheme === theme) {
-          window.renderDetectiveCard(theme, window.activeTimelinePeriod || period);
-        }
+      if (updated && window.currentSelectedDetectiveTheme === theme) {
+        window.renderDetectiveCard(theme, window.activeTimelinePeriod || period);
       }
     });
   }
@@ -1315,8 +1858,127 @@ window.renderDetectiveCard = function(theme, period = 'all') {
     filteredTimeline = sortedTimeline.filter(tl => getDaysDifference(tl.date) <= 30);
   }
 
+  // 채널별 필터링 상태 및 카운트 집계
+  const activeChannel = window.activeTimelineChannel || 'ALL';
+  const channelCounts = {
+    ALL: filteredTimeline.length,
+    NEWS: 0,
+    DART: 0,
+    REPORT: 0,
+    EVENT: 0
+  };
+
+  const getTimelineChannelType = (tl) => {
+    if (tl.type === 'report' || tl.channel === 'REPORT' || tl.is_report || (tl.press && tl.press.includes('리포트')) || (tl.source && tl.source.includes('증권')) || (tl.news_title && tl.news_title.startsWith('[리포트]')) || (tl.title && tl.title.startsWith('[리포트]'))) {
+      return 'REPORT';
+    }
+    if (tl.type === 'dart' || tl.channel === 'DART' || tl.is_dart || (tl.press && tl.press.includes('DART')) || (tl.source && (tl.source.includes('DART') || tl.source.includes('공시'))) || (tl.news_title && tl.news_title.startsWith('[공시]')) || (tl.title && tl.title.startsWith('[공시]'))) {
+      return 'DART';
+    }
+    if (tl.type === 'event' || tl.channel === 'EVENT' || tl.is_event || tl.stage === '핵심 일정' || tl.stage === '글로벌 이벤트') {
+      return 'EVENT';
+    }
+    return 'NEWS';
+  };
+
+  filteredTimeline.forEach(tl => {
+    const chType = getTimelineChannelType(tl);
+    if (chType === 'REPORT') {
+      channelCounts.REPORT++;
+    } else if (chType === 'DART') {
+      channelCounts.DART++;
+    } else if (chType === 'EVENT') {
+      channelCounts.EVENT++;
+    } else {
+      channelCounts.NEWS++;
+    }
+  });
+
+  const channelFilteredTimeline = filteredTimeline.filter(tl => {
+    if (activeChannel === 'ALL') return true;
+    return getTimelineChannelType(tl) === activeChannel;
+  });
+
+  // [고도화 4단계] 종목별 4채널 크로스-체크 스코어링
+  const stockSignalScores = calculateStockSignalScores(rawTimeline);
+
+  // [2단계 상단 종목 필터 탭의 동적 생성 (Dynamic Filter Tabs)]
+  // 고정 5대 종목이 아니라, 현재 선택된 테마의 타임라인 데이터 및 체크리스트 대장주에서 종목명 Set 자동 추출
+  const dynamicStockSet = new Set();
+
+  // 1. 테마 체크리스트 내 대장주/부대장주 추출
+  if (theme.checklist && theme.checklist.leaders) {
+    const lLead = theme.checklist.leaders.lead || '';
+    const lSub = theme.checklist.leaders.sub || '';
+    `${lLead},${lSub}`.split(',').forEach(stk => {
+      const clean = stk.trim().replace(/\(.*?\)/g, '').replace(/\[.*?\]/g, '');
+      if (clean && clean !== '종목명' && clean !== '관련주 추적 중' && clean !== '대장' && clean !== '연관 수급주 실시간 탐색 중') {
+        dynamicStockSet.add(clean);
+      }
+    });
+  }
+
+  // 2. 현재 로드된 타임라인 아이템 내 stockName 또는 target_name 추출
+  rawTimeline.forEach(tl => {
+    const sName = (tl.stockName || tl.target_name || '').trim().replace(/\(.*?\)/g, '');
+    if (sName && sName !== '종목명' && sName !== '관련주 추적 중' && sName.length >= 2) {
+      dynamicStockSet.add(sName);
+    }
+  });
+
+  // 동적 종목군 리스트 (대장주 우선 정렬)
+  const dynamicStocks = Array.from(dynamicStockSet);
+
+  const stockCounts = {
+    ALL: channelFilteredTimeline.length
+  };
+
+  const matchesStock = (tl, stock) => {
+    if (!stock || stock === 'ALL') return true;
+    const sName = tl.stockName || '';
+    const title = tl.title || tl.news_title || '';
+    const desc = tl.desc || tl.key_point || '';
+    const target = tl.target_name || '';
+    const tags = Array.isArray(tl.tags) ? tl.tags.join(' ') : '';
+    const fullText = `${sName} ${title} ${desc} ${target} ${tags}`;
+
+    if (stock === '켄코아') {
+      return fullText.includes('켄코아') || fullText.includes('274090');
+    }
+    return fullText.includes(stock);
+  };
+
+  dynamicStocks.forEach(stk => {
+    stockCounts[stk] = channelFilteredTimeline.filter(tl => matchesStock(tl, stk)).length;
+  });
+
+  // 트리플 크로스(3채널 검증 완료) 해당 종목 판별
+  const isTripleCrossItem = (tl) => {
+    const sName = tl.stockName || tl.target_name || '';
+    const scoreObj = stockSignalScores[sName];
+    if (scoreObj && scoreObj.count >= 3) return true;
+    // 텍스트 매칭 보조
+    for (const stk of Object.keys(stockSignalScores)) {
+      if (stockSignalScores[stk]?.count >= 3 && matchesStock(tl, stk)) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const tripleCrossCount = channelFilteredTimeline.filter(tl => isTripleCrossItem(tl)).length;
+  stockCounts.TRIPLE_CROSS = tripleCrossCount;
+
+  const finalTimeline = channelFilteredTimeline.filter(tl => {
+    if (!currentStockFilter || currentStockFilter === 'ALL') return true;
+    if (currentStockFilter === 'TRIPLE_CROSS') {
+      return isTripleCrossItem(tl);
+    }
+    return matchesStock(tl, currentStockFilter);
+  });
+
   if (countEl) {
-    countEl.textContent = `${filteredTimeline.length}건`;
+    countEl.textContent = `${finalTimeline.length}건 / 총 ${filteredTimeline.length}건`;
   }
 
   const chk = theme.checklist || {};
@@ -1361,27 +2023,31 @@ window.renderDetectiveCard = function(theme, period = 'all') {
             </div>
           ` : `
             <div style="font-size: 0.7rem; color: #94a3b8;">
-              5일선 돌파 여부: <span style="color: #cbd5e1;">5일선 인근 지지 테스트 진행 중</span>
+              ${maText}
             </div>
           `}
         </div>
+      </div>
+    `;
 
-        <!-- 이평선 배열 & 현재가 -->
-        <div style="font-size: 0.75rem; color: #a5f3fc; font-weight: 700; background: rgba(6, 182, 212, 0.12); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(6, 182, 212, 0.25);">
-          ${maText} (현재가: ${tech.current_price || ''})
+    // 외인/기관 연속 순매수 등 실시간 수급 현황
+    if (tech.supply_analysis) {
+      const sup = tech.supply_analysis;
+      const fDays = sup.foreign_consecutive_days || 0;
+      const oDays = sup.organ_consecutive_days || 0;
+      const bothBuying = sup.is_both_buying;
+      supplyTextHtml = `
+        <div style="margin-top: 6px; font-size: 0.76rem; background: rgba(30, 41, 59, 0.85); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 6px; padding: 6px 8px;">
+          <div style="color: #93c5fd; font-weight: 800; display: flex; align-items: center; justify-content: space-between;">
+            <span>👥 실시간 메이저 수급:</span>
+            <span style="color: ${bothBuying ? '#f87171' : '#60a5fa'}; font-weight: 900;">${bothBuying ? '🔥 외인·기관 양매수 유입' : '수급 유입 진행 중'}</span>
+          </div>
+          <div style="color: #cbd5e1; font-size: 0.72rem; margin-top: 3px;">
+            외인 ${fDays > 0 ? `<b style="color:#f87171;">${fDays}일 연속 순매수</b>` : '관망'} · 기관 ${oDays > 0 ? `<b style="color:#f87171;">${oDays}일 연속 순매수</b>` : '관망'}
+          </div>
         </div>
-      </div>
-    `;
-
-    supplyTextHtml = `
-      <div style="margin-top: 6px; padding: 5px 8px; background: rgba(30, 41, 59, 0.8); border-radius: 4px; font-size: 0.78rem; border-left: 3px solid ${tech.supply?.is_dual_buy ? '#4ade80' : '#38bdf8'};">
-        <span style="color: #94a3b8; font-weight: 700;">📡 실시간 수급 추적:</span>
-        <span style="color: ${tech.supply?.is_dual_buy ? '#4ade80' : '#7dd3fc'}; font-weight: 800; margin-left: 4px;">
-          ${tech.supply?.summary_text || ''}
-        </span>
-        <span style="font-size: 0.72rem; color: #cbd5e1; margin-left: 6px;">(외인 ${tech.supply?.foreign_3d || '-'} / 기관 ${tech.supply?.institution_3d || '-'})</span>
-      </div>
-    `;
+      `;
+    }
   } else {
     techBadgesHtml = `
       <div style="margin-top: 6px; font-size: 0.74rem; color: #64748b;">
@@ -1457,41 +2123,14 @@ window.renderDetectiveCard = function(theme, period = 'all') {
 
         <div style="background:rgba(30,41,59,0.7); border-radius:8px; padding:12px 14px; border-left:4px solid #a855f7; display: flex; flex-direction: column; justify-content: space-between; gap: 8px;">
           <div>
-            <div style="font-size:0.82rem; font-weight:700; color:#c084fc; margin-bottom:6px; display: flex; justify-content: space-between; align-items: center;">
-              <span>2) 관련주 & 대장주 커스텀 분류</span>
-              <span style="font-size: 0.68rem; color: #94a3b8; font-weight: 500;">(× 클릭 시 즉시 제외)</span>
+            <div style="font-size:0.82rem; font-weight:700; color:#c084fc; margin-bottom:4px;">2) 대장주 & 3) 관련성(왜 대장인가)</div>
+            <div style="font-size:0.85rem; color:#e2e8f0; line-height:1.45;">
+              <span style="color:#e9d5ff; font-weight:800;">👑 ${leaders.lead || '-'}</span> 
+              ${leaders.sub ? `<span style="color:#94a3b8; font-size:0.8rem;">(부대장: ${leaders.sub})</span>` : ''}
             </div>
-            <div style="font-size:0.85rem; color:#e2e8f0; line-height:1.5;">
-              <!-- 👑 대장주 태그 목록 -->
-              <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 6px;">
-                <span style="color:#fbbf24; font-weight:800; font-size: 0.78rem;">👑 대장:</span>
-                ${(leaders.lead || '').split(',').map(s => s.trim()).filter(Boolean).map(stock => `
-                  <span class="detective-stock-badge leader" style="display: inline-flex; align-items: center; gap: 4px; background: rgba(245, 158, 11, 0.18); color: #fde047; border: 1px solid rgba(245, 158, 11, 0.45); padding: 2px 8px; border-radius: 6px; font-size: 0.78rem; font-weight: 800; transition: all 0.15s ease;">
-                    <span>${stock}</span>
-                    <button type="button" onclick="removeStockFromActiveTheme('${stock}')" title="이 종목 제외" style="background: transparent; border: none; color: #f87171; font-size: 0.75rem; font-weight: 900; cursor: pointer; padding: 0 2px; line-height: 1; border-radius: 3px;" onmouseover="this.style.background='rgba(239,68,68,0.3)'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='#f87171';">×</button>
-                  </span>
-                `).join('') || '<span style="color:#64748b; font-size:0.75rem;">미지정</span>'}
-              </div>
-
-              <!-- 👥 부대주 태그 목록 -->
-              <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
-                <span style="color:#94a3b8; font-weight:700; font-size: 0.78rem;">👥 부대:</span>
-                ${(leaders.sub || '').split(',').map(s => s.trim()).filter(Boolean).map(stock => `
-                  <span class="detective-stock-badge sub" style="display: inline-flex; align-items: center; gap: 4px; background: rgba(148, 163, 184, 0.12); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.15); padding: 2px 7px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; transition: all 0.15s ease;">
-                    <span>${stock}</span>
-                    <button type="button" onclick="removeStockFromActiveTheme('${stock}')" title="이 종목 제외" style="background: transparent; border: none; color: #f87171; font-size: 0.75rem; font-weight: 900; cursor: pointer; padding: 0 2px; line-height: 1; border-radius: 3px;" onmouseover="this.style.background='rgba(239,68,68,0.3)'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='#f87171';">×</button>
-                  </span>
-                `).join('') || '<span style="color:#64748b; font-size:0.75rem;">없음</span>'}
-              </div>
+            <div style="font-size:0.8rem; color:#cbd5e1; margin-top:5px; line-height:1.4; word-break: break-all;">
+              ${chk.correlation || '-'}
             </div>
-          </div>
-
-          <!-- [+ 종목 직접 추가] 인풋 및 버튼 바 -->
-          <div style="margin-top: 6px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.1); display: flex; gap: 6px; align-items: center;">
-            <input type="text" id="input-add-custom-stock" placeholder="+ 추가할 종목명 (예: 한미반도체, 두산)" onkeydown="if(event.key==='Enter'){ addStockToActiveTheme(); }" style="flex: 1; background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(168, 85, 247, 0.4); color: #fff; padding: 5px 8px; border-radius: 6px; font-size: 0.74rem; outline: none;">
-            <button type="button" onclick="addStockToActiveTheme()" style="background: linear-gradient(135deg, #9333ea, #7c3aed); border: 1px solid #c084fc; color: #fff; padding: 5px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; cursor: pointer; white-space: nowrap; transition: all 0.15s;" onmouseover="this.style.filter='brightness(1.2)';" onmouseout="this.style.filter='none';">
-              추가 ➕
-            </button>
           </div>
         </div>
 
@@ -1542,112 +2181,280 @@ window.renderDetectiveCard = function(theme, period = 'all') {
     </div>
 
     <!-- 사건의 전개 과정 (타임라인) -->
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:10px;">
       <h3 style="font-size:1.1rem; color:#f8fafc; margin:0; display:flex; align-items:center; gap:8px;">
         <span>🕵️‍♂️</span> 사건의 전개 과정 (관련 뉴스, DART 전자공시 & 증권사 리포트)
       </h3>
-      <span style="font-size:0.75rem; color:#94a3b8;">
-        필터: <strong style="color:#38bdf8;">${period === '7d' ? '최근 7일' : (period === '30d' ? '최근 30일' : '전체')}</strong>
-      </span>
+      <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+        <span style="font-size:0.75rem; color:#94a3b8;">
+          기간: <strong style="color:#38bdf8;">${period === '7d' ? '최근 7일' : (period === '30d' ? '최근 30일' : '최근 3개월')}</strong>
+        </span>
+        <!-- 채널 필터 버튼군 [전체 | 📰 뉴스 | 📑 전자공시 | 📊 증권사 리포트 | 🎯 핵심 이벤트] -->
+        <div style="display:flex; gap:4px;" id="timeline-channel-filter-buttons">
+          <button type="button" onclick="window.filterTimelineChannel('ALL', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'ALL' ? 'background:#38bdf8; color:#0f172a; border:1px solid #38bdf8;' : 'background:rgba(255,255,255,0.06); color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);'}">
+            전체 (${channelCounts.ALL})
+          </button>
+          <button type="button" onclick="window.filterTimelineChannel('NEWS', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'NEWS' ? 'background:#38bdf8; color:#0f172a; border:1px solid #38bdf8;' : 'background:rgba(255,255,255,0.06); color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);'}">
+            📰 뉴스 (${channelCounts.NEWS})
+          </button>
+          <button type="button" onclick="window.filterTimelineChannel('DART', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'DART' ? 'background:#c084fc; color:#0f172a; border:1px solid #c084fc;' : 'background:rgba(255,255,255,0.06); color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);'}">
+            📑 전자공시 (${channelCounts.DART})
+          </button>
+          <button type="button" onclick="window.filterTimelineChannel('REPORT', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'REPORT' ? 'background:#34d399; color:#0f172a; border:1px solid #34d399;' : 'background:rgba(255,255,255,0.06); color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);'}">
+            📊 증권사 리포트 (${channelCounts.REPORT})
+          </button>
+          <button type="button" onclick="window.filterTimelineChannel('EVENT', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'EVENT' ? 'background:#f59e0b; color:#0f172a; border:1px solid #f59e0b;' : 'background:rgba(255,255,255,0.06); color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);'}">
+            🎯 핵심 이벤트 (${channelCounts.EVENT})
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- [고도화 2단계 & 4단계] 전 테마 동적 종목 필터 탭 및 트리플 크로스 확정주 칩(Chip) 바 -->
+    <div style="display:flex; align-items:center; gap:8px; overflow-x:auto; flex-wrap:nowrap; padding:4px 2px 14px 2px; margin-bottom:6px; scrollbar-width:thin;" id="timeline-stock-filter-bar">
+      ${(() => {
+        // [전체보기] 및 [👑 팩트 확정주만 보기] 기본 탭
+        const stockFilterList = [
+          { key: 'ALL', label: '전체보기', count: stockCounts.ALL, isSpecial: false },
+          { key: 'TRIPLE_CROSS', label: '👑 팩트 확정주만 보기', count: stockCounts.TRIPLE_CROSS || 0, isSpecial: true }
+        ];
+
+        // 동적으로 추출된 테마별 종목 탭 자동 추가
+        dynamicStocks.forEach(stk => {
+          stockFilterList.push({
+            key: stk,
+            label: stk,
+            count: stockCounts[stk] || 0,
+            isSpecial: false
+          });
+        });
+
+        return stockFilterList.map(stk => {
+          const isActive = (currentStockFilter === stk.key);
+          let activeStyle = '';
+          let badgeBg = '';
+          let badgeColor = '';
+
+          if (stk.isSpecial) {
+            activeStyle = isActive
+              ? 'background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(234, 179, 8, 0.35)); border: 1px solid #eab308; color: #fde047; font-weight: 800; box-shadow: 0 0 12px rgba(234, 179, 8, 0.4);'
+              : 'background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(234, 179, 8, 0.4); color: #fde047; font-weight: 700;';
+            badgeBg = isActive ? 'rgba(234, 179, 8, 0.4)' : 'rgba(245, 158, 11, 0.2)';
+            badgeColor = '#fff';
+          } else {
+            activeStyle = isActive
+              ? 'background: rgba(99, 102, 241, 0.2); border: 1px solid #6366f1; color: #ffffff; font-weight: bold; box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);'
+              : 'background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #94a3b8; font-weight: 500;';
+            badgeBg = isActive ? 'rgba(99, 102, 241, 0.4)' : 'rgba(255, 255, 255, 0.08)';
+            badgeColor = isActive ? '#c7d2fe' : '#94a3b8';
+          }
+
+          return `
+            <button type="button" onclick="window.filterTimelineStock('${stk.key}', this)" style="display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:20px; font-size:0.78rem; cursor:pointer; white-space:nowrap; transition:all 0.2s ease; ${activeStyle}" onmouseover="if(!${isActive}){ this.style.filter='brightness(1.25)'; }" onmouseout="if(!${isActive}){ this.style.filter='none'; }">
+              <span>${stk.label}</span>
+              <span style="font-size:0.7rem; padding:1px 6px; border-radius:10px; background:${badgeBg}; color:${badgeColor}; font-weight:700;">${stk.count}</span>
+            </button>
+          `;
+        }).join('');
+      })()}
     </div>
   `;
 
-  if (filteredTimeline.length === 0) {
+  if (finalTimeline.length === 0) {
+    const isTripleFilter = (currentStockFilter === 'TRIPLE_CROSS');
+    const isStockFiltered = (currentStockFilter && currentStockFilter !== 'ALL');
     html += `
       <div style="text-align: center; padding: 40px 10px; color: #94a3b8; background: rgba(255,255,255,0.02); border-radius: 10px; border: 1px dashed rgba(255,255,255,0.08);">
         <div style="font-size: 1.5rem; margin-bottom: 8px;">📬</div>
-        <div style="font-size: 0.95rem; font-weight: 700; color: #cbd5e1;">선택된 기간(${period === '7d' ? '최근 7일' : (period === '30d' ? '최근 30일' : '전체')}) 내 사건 전개 항목이 없습니다.</div>
-        <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">상단의 [전체] 버튼을 눌러 이전 히스토리를 확인해보세요.</div>
+        <div style="font-size: 0.95rem; font-weight: 700; color: #cbd5e1;">
+          ${isTripleFilter ? '3개 채널(뉴스+공시+리포트) 크로스체크가 모두 완료된 확정주 항목이 없습니다.' : (isStockFiltered ? `'${currentStockFilter}' 해당 종목의 타임라인 기록이 없습니다.` : '선택된 필터 조건 내 사건 전개 항목이 없습니다.')}
+        </div>
+        <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">
+          ${isStockFiltered ? '[전체보기] 칩을 클릭하여 전체 타임라인 모멘텀을 확인해보세요.' : '상단의 [전체] 버튼을 눌러 최근 3개월간 발생한 전체 모멘텀을 확인해보세요.'}
+        </div>
       </div>
     `;
   } else {
-    html += filteredTimeline.map(tl => {
-      const isReport = tl.is_report || (tl.press && tl.press.includes('리포트')) || (tl.news_title && tl.news_title.startsWith('[리포트]'));
-      const isDart = !isReport && (tl.is_dart || (tl.press && tl.press.includes('DART')) || (tl.news_title && tl.news_title.startsWith('[공시]')));
-      const isBlog = !isReport && !isDart && (tl.is_blog || tl.channel === 'BLOG' || (tl.press && tl.press.includes('블로그')) || (tl.news_title && tl.news_title.startsWith('[블로그]')));
-      
-      let pressBadgeStyle = 'background: rgba(56,189,248,0.15); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3);';
-      let pressLabel = tl.press || '언론 종합';
-      let dateColor = '#38bdf8';
-      let cardBorder = '';
-      let actionBtnText = '원문 보기 ↗';
-      let actionBtnBg = 'background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.3); color: #38bdf8;';
+    html += finalTimeline.map(tl => {
+      try {
+        const rawTitle = tl.title || tl.news_title || tl.tit || tl.headline || '종목 최신 재료 뉴스';
+        const displayTitle = String(rawTitle).replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').trim();
+        const rawDesc = tl.desc || tl.key_point || tl.description || tl.summary || '상세 재료 모멘텀 및 팩트 분석';
+        const displayDesc = String(rawDesc).replace(/<[^>]+>/g, '').trim();
 
-      if (isReport) {
-        pressBadgeStyle = 'background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(6, 78, 59, 0.3)); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.5);';
-        pressLabel = `📊 ${tl.press || '증권사 리포트'}`;
-        dateColor = '#34d399';
-        cardBorder = 'border-color: rgba(16, 185, 129, 0.35); background: rgba(6, 40, 32, 0.65);';
-        actionBtnText = '리포트 PDF ↗';
-        actionBtnBg = 'background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(52, 211, 153, 0.4); color: #34d399;';
-      } else if (isDart) {
-        pressBadgeStyle = 'background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(249, 115, 22, 0.25)); color: #f472b6; border: 1px solid rgba(244, 114, 182, 0.5);';
-        pressLabel = '📑 DART 공시';
-        dateColor = '#c084fc';
-        cardBorder = 'border-color: rgba(168, 85, 247, 0.35); background: rgba(24, 18, 43, 0.75);';
-        actionBtnText = '공시 원문 ↗';
-        actionBtnBg = 'background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); color: #d8b4fe;';
-      } else if (isBlog) {
-        pressBadgeStyle = 'background: linear-gradient(135deg, rgba(236, 72, 153, 0.22), rgba(244, 63, 94, 0.22)); color: #fb7185; border: 1px solid rgba(251, 113, 133, 0.45);';
-        pressLabel = '✍️ 블로그 분석';
-        dateColor = '#f472b6';
-        cardBorder = 'border-color: rgba(244, 63, 94, 0.3); background: rgba(38, 12, 24, 0.65);';
-        actionBtnText = '블로그 포스트 ↗';
-        actionBtnBg = 'background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(251, 113, 133, 0.4); color: #fda4af;';
-      }
+        const isReport = tl.is_report || (tl.press && tl.press.includes('리포트')) || (tl.news_title && tl.news_title.startsWith('[리포트]'));
+        const isDart = !isReport && (tl.is_dart || (tl.press && tl.press.includes('DART')) || (tl.news_title && tl.news_title.startsWith('[공시]')));
+        const isBlog = !isReport && !isDart && (tl.is_blog || tl.channel === 'BLOG' || (tl.press && tl.press.includes('블로그')) || (tl.news_title && tl.news_title.startsWith('[블로그]')));
+        const isEvent = tl.is_event || tl.stage === '핵심 일정' || tl.stage === '글로벌 이벤트';
+        
+        let pressBadgeStyle = 'background: rgba(56,189,248,0.15); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3);';
+        let pressLabel = tl.press || '언론 종합';
+        let dateColor = '#38bdf8';
+        let cardBorder = '';
+        let actionBtnText = '원문 보기 ↗';
+        let actionBtnBg = 'background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.3); color: #38bdf8;';
 
-      // 안전한 원문 링크 검증 (http로 시작하지 않거나 비어있는 경우 구글/네이버 검색으로 fallback)
-      let safeUrl = '';
-      if (tl.news_url && (tl.news_url.startsWith('http://') || tl.news_url.startsWith('https://')) && !tl.news_url.includes('javascript:') && !tl.news_url.includes('#')) {
-        safeUrl = tl.news_url;
-      } else if (tl.originallink && (tl.originallink.startsWith('http://') || tl.originallink.startsWith('https://'))) {
-        safeUrl = tl.originallink;
-      } else if (tl.link && (tl.link.startsWith('http://') || tl.link.startsWith('https://'))) {
-        safeUrl = tl.link;
-      } else {
-        const queryTerm = (theme.theme_name || '') + ' ' + (tl.news_title || tl.title || '');
-        safeUrl = isReport 
-          ? `https://www.google.com/search?q=${encodeURIComponent(queryTerm + ' 리포트')}`
-          : `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(queryTerm)}`;
-      }
+        if (isReport) {
+          pressBadgeStyle = 'background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(6, 78, 59, 0.3)); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.5);';
+          pressLabel = `📊 ${tl.press || '증권사 리포트'}`;
+          dateColor = '#34d399';
+          cardBorder = 'border-color: rgba(16, 185, 129, 0.35); background: rgba(6, 40, 32, 0.65);';
+          actionBtnText = '리포트 원문 ↗';
+          actionBtnBg = 'background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(52, 211, 153, 0.4); color: #34d399;';
+        } else if (isDart) {
+          pressBadgeStyle = 'background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(249, 115, 22, 0.25)); color: #f472b6; border: 1px solid rgba(244, 114, 182, 0.5);';
+          pressLabel = '📑 DART 전자공시';
+          dateColor = '#c084fc';
+          cardBorder = 'border-color: rgba(168, 85, 247, 0.35); background: rgba(24, 18, 43, 0.75);';
+          actionBtnText = '공시 원문 ↗';
+          actionBtnBg = 'background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); color: #d8b4fe;';
+        } else if (isEvent) {
+          pressBadgeStyle = 'background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(217, 119, 6, 0.25)); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.5);';
+          pressLabel = '🎯 핵심 이벤트';
+          dateColor = '#fbbf24';
+          cardBorder = 'border-color: rgba(245, 158, 11, 0.35); background: rgba(36, 25, 8, 0.7);';
+          actionBtnText = '일정 팩트 ↗';
+          actionBtnBg = 'background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(251, 191, 36, 0.4); color: #fde047;';
+        } else if (isBlog) {
+          pressBadgeStyle = 'background: linear-gradient(135deg, rgba(236, 72, 153, 0.22), rgba(244, 63, 94, 0.22)); color: #fb7185; border: 1px solid rgba(251, 113, 133, 0.45);';
+          pressLabel = '✍️ 블로그 분석';
+          dateColor = '#f472b6';
+          cardBorder = 'border-color: rgba(244, 63, 94, 0.3); background: rgba(38, 12, 24, 0.65);';
+          actionBtnText = '블로그 원문 ↗';
+          actionBtnBg = 'background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(251, 113, 133, 0.4); color: #fda4af;';
+        }
 
-      return `
-        <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(15,23,42,0.65); border:1px solid rgba(255,255,255,0.08); ${cardBorder} border-radius:8px; padding:14px 18px; margin-bottom:10px; gap:14px; transition: all 0.2s;">
-          <div style="min-width:90px; text-align:center;">
-            <div style="font-size:0.84rem; font-weight:700; color:${dateColor};">${tl.date}</div>
-            <div style="font-size:0.7rem; color:#94a3b8; margin-top:2px;">${tl.stage || (isReport ? '증권사 리서치' : (isDart ? '공식 공시' : '전개'))}</div>
-          </div>
-          <div style="flex:1; min-width:0;">
-            <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px; flex-wrap: wrap;">
-              <span style="font-size:0.72rem; padding:2px 7px; border-radius:4px; font-weight:700; ${pressBadgeStyle}">${pressLabel}</span>
-              ${isReport ? '<span style="font-size:0.7rem; padding:1px 6px; background:rgba(16,185,129,0.18); color:#34d399; border-radius:4px; font-weight:700;">목표주가 단서</span>' : ''}
-              ${isDart ? '<span style="font-size:0.7rem; padding:1px 6px; background:rgba(249,115,22,0.15); color:#fb923c; border-radius:4px; font-weight:700;">금감원 원문</span>' : ''}
-              ${isBlog ? '<span style="font-size:0.7rem; padding:1px 6px; background:rgba(236,72,153,0.18); color:#fb7185; border-radius:4px; font-weight:700;">네이버 블로그 실전 분석</span>' : ''}
+        // 원문 보기 링크(Safe URL Fallback) 채널별 정밀 매핑
+        const safeUrl = getSafeTimelineUrl(tl);
+
+        // 종목 태그 목록 구성 (전 테마 dynamicStocks 및 체크리스트 대장주 기반 범용 추출)
+        const stockTags = (tl.tags && Array.isArray(tl.tags) && tl.tags.length > 0)
+          ? tl.tags
+          : (() => {
+              const tags = [];
+              const textToScan = `${tl.news_title || tl.title || ''} ${tl.key_point || tl.desc || ''}`;
+              const targetStocks = dynamicStocks.length > 0 ? dynamicStocks : ['와이제이링크', '센서뷰', '켄코아', '에이치브이엠', '스피어'];
+              targetStocks.forEach(stk => {
+                if (textToScan.includes(stk) || (tl.stockName && tl.stockName.includes(stk))) {
+                  tags.push(`#${stk.replace('에어로스페이스', '')}`);
+                }
+              });
+              if (tl.stockName && !tags.includes(`#${tl.stockName}`)) {
+                tags.unshift(`#${tl.stockName}`);
+              }
+              return tags.length > 0 ? tags : (theme.checklist?.leaders?.lead ? [`#${theme.checklist.leaders.lead.split(',')[0].trim()}`] : []);
+            })();
+
+        // 직계약 수혜/팩트 여부 강조 뱃지 ([직납 팩트], [단독 협의], [수주 공시], [목표가 상향])
+        let factBadge = tl.fact_badge || '';
+        if (!factBadge && tl.tag) {
+          factBadge = tl.tag.replace(/[^가-힣\s]/g, '').trim();
+        }
+        if (!factBadge) {
+          const textToScan = `${tl.title || tl.news_title || ''} ${tl.desc || tl.key_point || ''}`;
+          if (/(직납|직접 납품|엔진용 특수합금|소재 납품)/.test(textToScan)) factBadge = '직납 팩트';
+          else if (/(단독|단독 협의|독점 협의|본계약)/.test(textToScan)) factBadge = '단독 협의';
+          else if (/(수주|공급계약|체결|계약)/.test(textToScan) || isDart) factBadge = '수주 공시';
+          else if (/(목표가|상향|BUY|신규 매수)/.test(textToScan) || isReport) factBadge = '목표가 상향';
+        }
+
+        let factBadgeHtml = '';
+        if (factBadge === '직납 팩트' || (tl.tag && tl.tag.includes('직납'))) {
+          factBadgeHtml = `<span style="font-size:0.7rem; padding:1px 7px; background:linear-gradient(135deg, rgba(239,68,68,0.3), rgba(220,38,38,0.4)); color:#fca5a5; border:1px solid rgba(239,68,68,0.6); border-radius:4px; font-weight:800;">🔥 직납 팩트</span>`;
+        } else if (factBadge === '단독 협의' || (tl.tag && tl.tag.includes('단독'))) {
+          factBadgeHtml = `<span style="font-size:0.7rem; padding:1px 7px; background:linear-gradient(135deg, rgba(245,158,11,0.25), rgba(217,119,6,0.35)); color:#fde047; border:1px solid rgba(245,158,11,0.5); border-radius:4px; font-weight:800;">⚡ 단독 협의</span>`;
+        } else if (factBadge === '수주 공시' || (tl.tag && tl.tag.includes('공시'))) {
+          factBadgeHtml = `<span style="font-size:0.7rem; padding:1px 7px; background:linear-gradient(135deg, rgba(168,85,247,0.25), rgba(147,51,234,0.35)); color:#d8b4fe; border:1px solid rgba(168,85,247,0.5); border-radius:4px; font-weight:800;">📑 수주 공시</span>`;
+        } else if (factBadge === '목표가 상향' || (tl.tag && tl.tag.includes('리포트'))) {
+          factBadgeHtml = `<span style="font-size:0.7rem; padding:1px 7px; background:linear-gradient(135deg, rgba(16,185,129,0.25), rgba(5,150,105,0.35)); color:#6ee7b7; border:1px solid rgba(16,185,129,0.5); border-radius:4px; font-weight:800;">🎯 ${tl.tag && tl.tag.includes('리포트') ? '리포트' : '목표가 상향'}</span>`;
+        }
+
+        // 라이프사이클 4단계 뱃지 추출
+        const lifecycleKey = getLifecycleStage(tl);
+        const lifecycleCfg = LIFECYCLE_CONFIG[lifecycleKey] || LIFECYCLE_CONFIG.incubation;
+        const lifecycleBadgeHtml = `
+          <span class="timeline-lifecycle-badge" style="display:inline-flex; align-items:center; gap:4px; padding:2px 8px; font-size:11px; font-weight:700; border-radius:4px; color:${lifecycleCfg.color}; background:${lifecycleCfg.bg}; border:1px solid ${lifecycleCfg.border};" title="${lifecycleCfg.tip}">
+            ${lifecycleCfg.label}
+          </span>
+        `;
+
+        // [고도화 4단계] 신뢰도 시그널 배지 (트리플 크로스 / 더블 크로스 / 초기 모멘텀)
+        const tlStock = tl.stockName || tl.target_name || '';
+        let scoreObj = stockSignalScores[tlStock];
+        if (!scoreObj) {
+          // 보조 텍스트 검색
+          for (const stk of Object.keys(stockSignalScores)) {
+            if (matchesStock(tl, stk)) {
+              scoreObj = stockSignalScores[stk];
+              break;
+            }
+          }
+        }
+        const signalBadgeHtml = getStockSignalBadgeHtml(scoreObj);
+
+        return `
+          <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(15,23,42,0.65); border:1px solid rgba(255,255,255,0.08); ${cardBorder} border-radius:8px; padding:14px 18px; margin-bottom:10px; gap:14px; transition: all 0.2s;">
+            <div style="min-width:92px; text-align:center;">
+              <div style="font-size:0.84rem; font-weight:700; color:${dateColor};">${tl.date || ''}</div>
+              <div style="font-size:0.7rem; color:#94a3b8; margin-top:2px;">${tl.stage || (isReport ? '증권사 리서치' : (isDart ? '공식 공시' : '전개'))}</div>
             </div>
-            <div style="font-size:0.95rem; font-weight:700; color:#f8fafc; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
-              <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" style="color:#f8fafc; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='${isReport ? '#34d399' : '#38bdf8'}';" onmouseout="this.style.color='#f8fafc';">
-                ${tl.news_title}
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; align-items:center; gap:6px; margin-bottom:5px; flex-wrap: wrap;">
+                ${lifecycleBadgeHtml}
+                ${signalBadgeHtml}
+                <span style="font-size:0.72rem; padding:2px 7px; border-radius:4px; font-weight:700; ${pressBadgeStyle}">${pressLabel}</span>
+                ${factBadgeHtml}
+                ${stockTags.map(tag => `<span style="font-size:0.7rem; padding:1px 6px; background:rgba(255,255,255,0.07); color:#93c5fd; border:1px solid rgba(147,197,253,0.3); border-radius:4px; font-weight:700;">${tag}</span>`).join('')}
+              </div>
+              <div style="font-size:0.95rem; font-weight:700; color:#f8fafc; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" style="color:#f8fafc; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='${isReport ? '#34d399' : '#38bdf8'}';" onmouseout="this.style.color='#f8fafc';">
+                  ${displayTitle}
+                </a>
+              </div>
+              <div style="font-size:0.82rem; color:#94a3b8; margin-top:4px; line-height:1.45;">
+                <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" style="color:#94a3b8; text-decoration:none; display:inline-block; transition:color 0.2s;" onmouseover="this.style.color='#38bdf8'; this.style.textDecoration='underline';" onmouseout="this.style.color='#94a3b8'; this.style.textDecoration='none';">
+                  👉 ${displayDesc}
+                </a>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:6px; flex-shrink:0;">
+              <button type="button" class="timeline-calendar-btn" onclick="addTimelineToCalendar('${tl.id || tl.date}')" style="background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.4); color: #818cf8; padding: 5px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s; white-space: nowrap;" onmouseover="this.style.background='rgba(99, 102, 241, 0.3)'; this.style.color='#fff';" onmouseout="this.style.background='rgba(99, 102, 241, 0.15)'; this.style.color='#818cf8';">
+                📅 캘린더 등록
+              </button>
+              <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="timeline-link-btn" style="display:inline-flex; align-items:center; padding:6px 12px; ${actionBtnBg} border-radius:6px; font-size:0.8rem; font-weight:600; text-decoration:none; white-space:nowrap;">
+                ${actionBtnText}
               </a>
             </div>
-            <div style="font-size:0.82rem; color:#94a3b8; margin-top:3px;">
-              <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" style="color:#94a3b8; text-decoration:none; display:inline-block; transition:color 0.2s;" onmouseover="this.style.color='#38bdf8'; this.style.textDecoration='underline';" onmouseout="this.style.color='#94a3b8'; this.style.textDecoration='none';">
-                👉 ${tl.key_point}
-              </a>
-            </div>
           </div>
-          <div>
-            <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; padding:6px 12px; ${actionBtnBg} border-radius:6px; font-size:0.8rem; font-weight:600; text-decoration:none;">
-              ${actionBtnText}
-            </a>
-          </div>
-        </div>
-      `;
+        `;
+      } catch (cardErr) {
+        console.warn('Timeline card render error:', cardErr, tl);
+        return '';
+      }
     }).join('');
   }
 
   container.innerHTML = html;
 };
 
+// [범용 타임라인 렌더러 등록]: 테마 드롭다운 및 외부 호출 동기화용
+window.renderUniversalTimeline = function(selectedTheme, period = 'all') {
+  if (typeof selectedTheme === 'string') {
+    const found = (window.detectiveThemes || []).find(t => t.theme_id === selectedTheme || t.theme_name === selectedTheme);
+    if (found) {
+      return window.renderDetectiveCard(found, period);
+    }
+  }
+  return window.renderDetectiveCard(selectedTheme, period);
+};
+
+// [타임라인 상단 채널 필터 전환 핸들러]
+window.filterTimelineChannel = function(channel, btn) {
+  window.activeTimelineChannel = channel;
+  if (window.currentSelectedDetectiveTheme) {
+    window.renderDetectiveCard(window.currentSelectedDetectiveTheme, window.activeTimelinePeriod || 'all');
+  }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(window.initDetectiveDashboard, 300);
@@ -1796,7 +2603,7 @@ window.renderTimelineCards = function(articles, period = 'all') {
 
         <!-- 우측 원문 보기 버튼 (새 탭 이동) -->
         <div style="flex-shrink: 0;">
-          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 4px; padding: 6px 14px; ${actionBtnBg} border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-decoration: none; cursor: pointer; transition: all 0.2s;">
+          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="timeline-link-btn" style="display: inline-flex; align-items: center; gap: 4px; padding: 6px 14px; ${actionBtnBg} border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-decoration: none; cursor: pointer; transition: all 0.2s;">
             <span>${actionBtnText}</span>
           </a>
         </div>
@@ -2741,14 +3548,285 @@ window.renderMarketOverviewRadar = function(data) {
             <span style="font-size: 0.76rem; font-weight: 900; color: #38bdf8;">${scoreVal}점</span>
             <span style="font-size: 0.68rem; color: #64748b;">(${escapeHtml(badgeText)})</span>
           </div>
-          <span style="font-size: 0.7rem; color: #38bdf8; font-weight: 800; display: inline-flex; align-items: center; gap: 2px;">
-            분석 보기 ➔
-          </span>
+          <div style="display: flex; align-items: center;">
+            <button class="btn-pin-theme-card" onclick="event.stopPropagation(); pinThemeToDossier('${escapeHtml(t.theme_name)}', '${escapeHtml(t.leader_stock || '')}', '${escapeHtml(t.sub_leader_stock || '')}', '${escapeHtml(rateStr)}')" style="background: rgba(99, 102, 241, 0.2); border: 1px solid #6366f1; color: #a5b4fc; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 3px; margin-right: 6px;">
+              📌 수첩에 박제
+            </button>
+            <span style="font-size: 0.7rem; color: #38bdf8; font-weight: 800; display: inline-flex; align-items: center; gap: 2px;">
+              분석 보기 ➔
+            </span>
+          </div>
         </div>
 
       </div>
     `;
   }).join('');
+};
+
+// ============================================================================
+// [📌 탐정 사건 수첩 통합 저장 엔진] pinThemeToDossier / renderThemeDossier
+// - pinned_theme_dossiers (localStorage) 관리
+// - 수체에 박제, 키워드 추적기에서 저장, 시각적 콴타 교체 렌더링 갱신
+// ============================================================================
+
+// 피닝된 도시에 저장된 테마 목록 가져오기
+function getPinnedDossiers() {
+  try {
+    const raw = localStorage.getItem('pinned_theme_dossiers');
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+// 피닝된 도시에 테마 목록 저장
+function savePinnedDossiers(list) {
+  try {
+    localStorage.setItem('pinned_theme_dossiers', JSON.stringify(list));
+  } catch (e) {
+    console.warn('[PinnedDossiers] localStorage 저장 실패:', e);
+  }
+}
+
+// [탐정 수첩 박제 함수] TOP5 카드 버튼 / 키워드 추적기에서 호출
+window.pinThemeToDossier = function(name, leadStock, subStock, changeRate, customStocks) {
+  if (!name || !name.trim()) {
+    if (window.showToast) window.showToast('테마명이 비어 있어 저장할 수 없습니다.', '⚠️');
+    return;
+  }
+  const themeName = name.trim();
+  const existing = getPinnedDossiers();
+
+  // 중복 테마명 체크
+  if (existing.some(d => d.name === themeName)) {
+    if (window.showToast) window.showToast(`[📌 ${themeName}]은 이미 수첩에 등록되어 있습니다.`, 'ℹ️');
+    // 수첩 졌션으로 부드럽게 스크롤
+    setTimeout(() => {
+      document.getElementById('theme-dossier-section')?.scrollIntoView({ behavior: 'smooth' });
+    }, 200);
+    return;
+  }
+
+  const todayStr = new Date().toISOString().slice(0, 10);
+  const entry = {
+    id: `dossier_${Date.now()}`,
+    name: themeName,
+    leadStock: leadStock || themeName,
+    subStock: subStock || '관련주 추적 중',
+    changeRate: changeRate || '+0.00%',
+    stocks: customStocks || [],
+    pinnedAt: todayStr,
+    pinnedTs: Date.now(),
+    memo: ''
+  };
+
+  existing.unshift(entry); // 최신순 삽입
+  savePinnedDossiers(existing);
+
+  // 수첩 화면 즉시 갱신
+  renderThemeDossier();
+
+  // 키운트 배지 업데이트
+  const badge = document.getElementById('case-logs-count-badge');
+  if (badge) {
+    const allDossiers = getPinnedDossiers();
+    badge.textContent = `피닝 ${allDossiers.length}건`;
+  }
+
+  if (window.showToast) {
+    window.showToast(`📁 [${themeName}] 테마가 탐정 사건 수첩에 안전하게 등록되었습니다.`, '📌');
+  }
+
+  // 수첩 섹션으로 부드럽게 스크롤
+  setTimeout(() => {
+    document.getElementById('theme-dossier-section')?.scrollIntoView({ behavior: 'smooth' });
+  }, 250);
+};
+
+// [탐정 수첩 렌더링] pinned_theme_dossiers를 읽어 화면에 카드 그리드로 출력
+window.renderThemeDossier = function() {
+  const grid = document.getElementById('detective-case-logs-grid');
+  const badge = document.getElementById('case-logs-count-badge');
+  if (!grid) return;
+
+  const dossiers = getPinnedDossiers();
+  if (badge) badge.textContent = `피닝 ${dossiers.length}건`;
+
+  if (dossiers.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; color: #64748b; background: rgba(168,85,247,0.04); border-radius: 10px; border: 1px dashed rgba(168,85,247,0.2);">
+        <div style="font-size: 2rem; margin-bottom: 10px;">📌</div>
+        <div style="font-size: 0.92rem; font-weight: 800; color: #c084fc; margin-bottom: 6px;">주도 테마 박제 기록이 없습니다</div>
+        <div style="font-size: 0.78rem; color: #94a3b8;">TOP 5 테마 카드의 [📌 수첩에 박제] 버튼을 누르마다.</div>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = dossiers.map((d, idx) => {
+    const isUp = !String(d.changeRate || '').startsWith('-');
+    const rateColor = isUp ? '#ef4444' : '#3b82f6';
+    const timeAgo = (() => {
+      const diff = Date.now() - (d.pinnedTs || Date.now());
+      const mins = Math.floor(diff / 60000);
+      if (mins < 1) return '방금';
+      if (mins < 60) return `${mins}분 전`;
+      const hrs = Math.floor(mins / 60);
+      if (hrs < 24) return `${hrs}시간 전`;
+      return `${Math.floor(hrs / 24)}일 전`;
+    })();
+
+    return `
+      <div style="background: linear-gradient(145deg, rgba(15,23,42,0.95), rgba(30,10,60,0.5)); border: 1.5px solid rgba(168,85,247,0.3); border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; transition: all 0.2s;" onmouseover="this.style.borderColor='rgba(168,85,247,0.65)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='rgba(168,85,247,0.3)'; this.style.transform='none';">
+        <!-- 헤더 -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size: 0.68rem; background: rgba(168,85,247,0.2); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); padding: 1px 6px; border-radius: 4px; font-weight: 800;">📌 박제 #${dossiers.length - idx}</span>
+              <span style="font-size: 0.68rem; color: #64748b;">${escapeHtml(d.pinnedAt || '')} (${timeAgo})</span>
+            </div>
+            <h5 style="margin: 0; font-size: 1rem; font-weight: 900; color: #f8fafc; letter-spacing: -0.3px;">${escapeHtml(d.name)}</h5>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span style="font-size: 0.92rem; font-weight: 900; color: ${rateColor};">${escapeHtml(d.changeRate || '')}</span>
+            <button onclick="removePinnedDossier('${d.id}')" title="수첩에서 제거" style="background: transparent; border: 1px solid rgba(239,68,68,0.3); color: #f87171; width: 22px; height: 22px; border-radius: 5px; font-size: 0.75rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-weight: 900; transition: all 0.15s;" onmouseover="this.style.background='rgba(239,68,68,0.2)';" onmouseout="this.style.background='transparent';">✕</button>
+          </div>
+        </div>
+
+        <!-- 대장주 등 재료 -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span style="font-size: 0.72rem; background: rgba(239,68,68,0.15); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); padding: 2px 8px; border-radius: 5px; font-weight: 800;">👑 대장: ${escapeHtml(d.leadStock || '-')}</span>
+          ${d.subStock ? `<span style="font-size: 0.7rem; background: rgba(56,189,248,0.12); color: #7dd3fc; border: 1px solid rgba(56,189,248,0.25); padding: 2px 7px; border-radius: 5px; font-weight: 700;">부대: ${escapeHtml(d.subStock)}</span>` : ''}
+          ${(d.stocks || []).map(s => `<span style="font-size: 0.68rem; background: rgba(99,102,241,0.12); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.25); padding: 1px 6px; border-radius: 4px; font-weight: 700;">${escapeHtml(s)}</span>`).join('')}
+        </div>
+
+        <!-- 메모 및 액션 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 8px; gap: 8px; flex-wrap: wrap;">
+          <input type="text" value="${escapeHtml(d.memo || '')}" placeholder="나만의 메모 (진입 근거, 전략 등)..." oninput="updateDossierMemo('${d.id}', this.value)" style="flex: 1; min-width: 120px; background: rgba(15,23,42,0.7); border: 1px solid rgba(255,255,255,0.1); color: #cbd5e1; padding: 5px 10px; border-radius: 6px; font-size: 0.72rem; outline: none;" onfocus="this.style.borderColor='rgba(168,85,247,0.5)';" onblur="this.style.borderColor='rgba(255,255,255,0.1)';">
+          <button onclick="event.stopPropagation(); selectThemeFromDossier('${escapeHtml(d.name)}')" style="background: rgba(56,189,248,0.15); border: 1px solid rgba(56,189,248,0.35); color: #38bdf8; padding: 5px 10px; border-radius: 6px; font-size: 0.72rem; font-weight: 800; cursor: pointer; white-space: nowrap; transition: all 0.15s;" onmouseover="this.style.background='rgba(56,189,248,0.3)';" onmouseout="this.style.background='rgba(56,189,248,0.15)';">🔍 타임라인 분석</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+};
+
+// 도시에 메모 업데이트
+window.updateDossierMemo = function(id, memo) {
+  const list = getPinnedDossiers();
+  const found = list.find(d => d.id === id);
+  if (found) {
+    found.memo = memo;
+    savePinnedDossiers(list);
+  }
+};
+
+// 도시에서 제거
+window.removePinnedDossier = function(id) {
+  const list = getPinnedDossiers();
+  const filtered = list.filter(d => d.id !== id);
+  savePinnedDossiers(filtered);
+  renderThemeDossier();
+  if (window.showToast) window.showToast('테마가 수첩에서 제거되었습니다.', '🗑️');
+};
+
+// 도시에서 타임라인 분석으로 연동
+window.selectThemeFromDossier = function(themeName) {
+  const found = (window.detectiveThemes || []).find(t =>
+    t.theme_name === themeName || t.theme_name.includes(themeName) || themeName.includes(t.theme_name)
+  );
+  if (found) {
+    window.currentSelectedDetectiveTheme = found;
+    if (typeof window.enrichThemeWithAllSignals === 'function') {
+      window.enrichThemeWithAllSignals(found, found.checklist?.leaders?.lead?.split(',')[0]?.trim() || themeName);
+    }
+    const viewer = document.getElementById('theme-timeline-viewer-section');
+    if (viewer) viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    // 없으면 DB에서 로드 시도
+    if (typeof window.selectThemeFromDb === 'function') {
+      window.selectThemeFromDb(themeName);
+    }
+  }
+};
+
+// [코드 C] 키워드 추적기 터 [탐정 수첩에 저장] 버튼 핸들러
+// 크롤링 없이 localStorage에 테마+종목만 저장
+window.saveToDossierFromTracker = function() {
+  // 1. 선택된 테마명 파악
+  const selectEl = document.getElementById('custom-theme-select');
+  const directInput = document.getElementById('custom-theme-input');
+  const stockInput = document.getElementById('stock-keyword-input');
+
+  let themeName = '';
+  if (selectEl && selectEl.value === '__custom__') {
+    themeName = (directInput && directInput.value.trim()) || '';
+  } else if (selectEl) {
+    themeName = selectEl.value.trim();
+  }
+
+  if (!themeName) {
+    if (window.showToast) window.showToast('대분류 테마를 선택하거나 직접 입력해주세요.', '⚠️');
+    return;
+  }
+
+  // 2. 종목 목록 파악
+  const rawStocks = stockInput ? stockInput.value : '';
+  const stockList = rawStocks.split(/[,\n，]/).map(s => s.trim()).filter(Boolean);
+
+  // 3. 수첩에 저장
+  const existing = getPinnedDossiers();
+  if (existing.some(d => d.name === themeName)) {
+    if (window.showToast) window.showToast(`[📌 ${themeName}]은 이미 수첩에 등록되어 있습니다.`, 'ℹ️');
+    document.getElementById('theme-dossier-section')?.scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
+
+  const todayStr = new Date().toISOString().slice(0, 10);
+  const entry = {
+    id: `dossier_${Date.now()}`,
+    name: themeName,
+    leadStock: stockList[0] || themeName,
+    subStock: stockList.slice(1).join(', ') || '',
+    changeRate: '',
+    stocks: stockList,
+    pinnedAt: todayStr,
+    pinnedTs: Date.now(),
+    memo: ''
+  };
+
+  existing.unshift(entry);
+  savePinnedDossiers(existing);
+
+  // 4. 화면 갱신
+  renderThemeDossier();
+
+  // 5. 안내 토스트
+  if (window.showToast) {
+    window.showToast(`📁 [${themeName}] 테마와 종목이 탐정 사건 수첩에 안전하게 등록되었습니다.`, '📌');
+  }
+
+  // 6. 입력창 리셋 (localStorage 추적 태그도 갱신)
+  if (stockInput) stockInput.value = '';
+  if (directInput) directInput.value = '';
+
+  // 수첩 섹션 스크롤
+  setTimeout(() => {
+    document.getElementById('theme-dossier-section')?.scrollIntoView({ behavior: 'smooth' });
+  }, 250);
+
+  // 7. localStorage custom_tracked_stocks에도 병행 등록
+  if (stockList.length > 0) {
+    const tracked = getCustomTrackedStocks ? getCustomTrackedStocks() : [];
+    stockList.forEach(stock => {
+      if (!tracked.some(t => t.stock === stock)) {
+        tracked.push({ theme: themeName, stock });
+      }
+    });
+    if (typeof saveCustomTrackedStocks === 'function') {
+      saveCustomTrackedStocks(tracked);
+      if (typeof renderCustomTrackedTags === 'function') renderCustomTrackedTags();
+    }
+  }
 };
 
 // [구역 C 원클릭 탐정 체크리스트 연동 핸들러]
@@ -2967,11 +4045,16 @@ window.navigateToThemeTimeline = function (themeId) {
 // 2번 탭 상단 테마 드롭다운 변경 시 호출 (탐정 뷰어 최우선 연동)
 window.switchTimelineTheme = function (themeId) {
   activeTimelineThemeId = themeId;
+  // 테마 전환 시 종목 필터 초기화
+  currentStockFilter = 'ALL';
   if (Array.isArray(window.detectiveThemes)) {
     const found = window.detectiveThemes.find(t => t.theme_id === themeId);
     if (found) {
       window.currentSelectedDetectiveTheme = found;
-      if (typeof window.renderDetectiveCard === 'function') {
+      if (typeof window.renderUniversalTimeline === 'function') {
+        window.renderUniversalTimeline(found, window.activeTimelinePeriod || 'all');
+        return;
+      } else if (typeof window.renderDetectiveCard === 'function') {
         window.renderDetectiveCard(found, window.activeTimelinePeriod || 'all');
         return;
       }
@@ -3178,7 +4261,8 @@ window.handleCustomThemeSelectChange = function (val) {
   if (!directWrap) return;
   if (val === '__custom__') {
     directWrap.style.display = 'flex';
-    document.getElementById('custom-theme-direct-input')?.focus();
+    const inp = document.getElementById('custom-theme-input') || document.getElementById('custom-theme-direct-input');
+    inp?.focus();
   } else {
     directWrap.style.display = 'none';
   }
