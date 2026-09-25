@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-25T01:43:27.057Z",
+  "updatedAt": "2026-09-25T12:51:17.153Z",
   "kospi": {
     "name": "코스피",
     "closePrice": "7,080.92",
@@ -26,7 +26,7 @@
   },
   "usdKrw": {
     "name": "원/달러 환율",
-    "closePrice": "1,366.70",
-    "fluctuationsRatio": "0.83"
+    "closePrice": "1,356.70",
+    "fluctuationsRatio": "0.09"
   }
 }
