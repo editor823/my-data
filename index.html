@@ -727,16 +727,17 @@
         </div>
       </div>
 
-      <!-- 2. 상단 카테고리 필터 알약 탭 바 (듀얼레인 5대 탭 + 정책/추천/숏폼) -->
+      <!-- 2. 상단 9개 카테고리 필터 알약 탭 바 -->
       <div class="kc-pill-tabs-bar" id="kc-pill-tabs-bar">
         <button class="kc-pill-btn active" data-type="type-1" onclick="switchKcTab('type-1')">✨ 1. 황금키워드</button>
         <button class="kc-pill-btn" data-type="type-2" onclick="switchKcTab('type-2')">🛒 2. 제휴마케팅 키워드</button>
         <button class="kc-pill-btn" data-type="type-3" onclick="switchKcTab('type-3')">💰 3. 애드센스 키워드</button>
-        <button class="kc-pill-btn" data-type="type-4" onclick="switchKcTab('type-4')">🤖 4. 네이버 mate</button>
-        <button class="kc-pill-btn" data-type="type-5" onclick="switchKcTab('type-5')">❓ 6. 지식iN Q&amp;A</button>
-        <button class="kc-pill-btn" data-type="type-6" onclick="switchKcTab('type-6')">📢 정책신호형</button>
-        <button class="kc-pill-btn" data-type="type-7" onclick="switchKcTab('type-7')">👑 이번주 추천</button>
-        <button class="kc-pill-btn" data-type="type-8" onclick="switchKcTab('type-8')">🔥 바이럴 숏폼</button>
+        <button class="kc-pill-btn" data-type="type-4" onclick="switchKcTab('type-4')">🤖 4. 네이버 mate 키워드</button>
+        <button class="kc-pill-btn" data-type="type-5" onclick="switchKcTab('type-5')">📅 5. 월별 시즌성 키워드</button>
+        <button class="kc-pill-btn" data-type="type-6" onclick="switchKcTab('type-6')">❓ 6. 지식iN Q&amp;A</button>
+        <button class="kc-pill-btn" data-type="type-7" onclick="switchKcTab('type-7')">📢 7. 정책신호형 애드센스 키워드</button>
+        <button class="kc-pill-btn" data-type="type-8" onclick="switchKcTab('type-8')">👑 8. 머니대외비 추천 애드센스 키워드</button>
+        <button class="kc-pill-btn" data-type="type-9" onclick="switchKcTab('type-9')">🔥 9. 바이럴숏폼 · 유튜브 실시간</button>
       </div>
 
       <!-- 3. 주제 카테고리별 보기 서브 바 (전체 30개 / 검증 통과 30개) -->
@@ -751,7 +752,7 @@
         </div>
       </div>
 
-      <!-- 4. 메인 2단 대시보드 (좌측: 스크롤 키워드 카드 리스트 / 우측: 실시간 상세 리포트 - 탭 1~6, 8용) -->
+      <!-- 4. 메인 2단 대시보드 (1, 2, 3, 4, 6, 7, 8번 탭용: 좌측 카드 리스트 + 우측 상세 리포트) -->
       <div class="kc-dual-layout" id="kc-dual-layout">
         <!-- [좌측] 키워드 카드 스크롤 리스트 -->
         <div class="kc-list-col" id="kc-cards-container"></div>
@@ -760,11 +761,11 @@
         <div class="kc-detail-card" id="kc-detail-panel"></div>
       </div>
 
-      <!-- 5. 7번 탭 전용 4열 그리드 컨테이너 (스크린샷 1:1 완벽 일치) -->
-      <div class="kc-tab7-container" id="kc-tab7-container" style="display: none;"></div>
+      <!-- 5. 5번 탭 전용 월별 시즌성 키워드 레이아웃 컨테이너 -->
+      <div class="kc-seasonal-container" id="kc-seasonal-container" style="display: none;"></div>
 
-      <!-- 6. 8번 탭 전용 바이럴 숏폼 풀 레이아웃 컨테이너 (50개 영상, 기간/정렬/형태 필터, 검색창) -->
-      <div class="kc-tab8-container" id="kc-tab8-container" style="display: none;"></div>
+      <!-- 6. 9번 탭 전용 바이럴 숏폼 유튜브 영상 그리드 컨테이너 -->
+      <div class="kc-tab9-container" id="kc-tab9-container" style="display: none;"></div>
     </section>
 
     <!-- ===== [모달 1] 내 네이버 API 키 설정 팝업 ===== -->
@@ -3237,7 +3238,7 @@
   <script src="js/trending.js?v=20260926_final_news"></script>
   <script src="js/keyword.js?v=20260926_related_live"></script>
   <script src="js/viral_shorts_data.js?v=20260915_loading"></script>
-  <script src="js/adsense.js?v=20260926_duallane_v1"></script>
+  <script src="js/adsense.js?v=20260926_all9tabs_v1"></script>
   <script src="js/prompt.js?v=20260914_final"></script>
   <script src="js/admin.js?v=20260914_final"></script>
   <script src="js/homepan.js?v=20260914_final"></script>
