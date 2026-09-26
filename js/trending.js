@@ -5,18 +5,30 @@
  * - 오래된 더미 텍스트를 완전히 제거하고 실제 라이브 데이터만을 출력합니다.
  */
 
-// 1. API 엔드포인트 설정 (지정된 allorigins 프록시 URL 우선 호출)
-const TRENDING_API_PRIMARY = 'https://api.allorigins.win/raw?url=https%3A%2F%2Fwww.boutique-info.com%2Fapi%2Fkeyword-center%3Faction%3DgetTrendingKeywords';
-const TRENDING_API_FALLBACKS = [
-  'https://www.boutique-info.com/api/keyword-center?action=getTrendingKeywords',
-  'https://corsproxy.io/?url=' + encodeURIComponent('https://www.boutique-info.com/api/keyword-center?action=getTrendingKeywords')
-];
+// 1. API 엔드포인트 설정 (타임스탬프를 통한 브라우저 캐시 방지 적용)
+function getTrendingUrls() {
+  const ts = Date.now();
+  const rawTarget = `https://www.boutique-info.com/api/keyword-center?action=getTrendingKeywords&_t=${ts}`;
+  return {
+    primary: `https://api.allorigins.win/raw?url=${encodeURIComponent(rawTarget)}`,
+    fallbacks: [
+      rawTarget,
+      `https://corsproxy.io/?url=${encodeURIComponent(rawTarget)}`
+    ]
+  };
+}
 
-const ENT_NEWS_API_PRIMARY = 'https://api.allorigins.win/raw?url=https%3A%2F%2Fwww.boutique-info.com%2Fapi%2Fkeyword-center%3Faction%3DgetEntertainmentNews';
-const ENT_NEWS_API_FALLBACKS = [
-  'https://www.boutique-info.com/api/keyword-center?action=getEntertainmentNews',
-  'https://corsproxy.io/?url=' + encodeURIComponent('https://www.boutique-info.com/api/keyword-center?action=getEntertainmentNews')
-];
+function getEntNewsUrls() {
+  const ts = Date.now();
+  const rawTarget = `https://www.boutique-info.com/api/keyword-center?action=getEntertainmentNews&_t=${ts}`;
+  return {
+    primary: `https://api.allorigins.win/raw?url=${encodeURIComponent(rawTarget)}`,
+    fallbacks: [
+      rawTarget,
+      `https://corsproxy.io/?url=${encodeURIComponent(rawTarget)}`
+    ]
+  };
+}
 
 // 5대 포털 목록
 const PORTALS = ['naver', 'nate', 'zum', 'google', 'daum'];
@@ -154,7 +166,8 @@ async function fetchTrendingKeywords(isManualRefresh = false) {
   showTrendingLoading();
 
   try {
-    const result = await fetchSmartJson(TRENDING_API_PRIMARY, TRENDING_API_FALLBACKS);
+    const urls = getTrendingUrls();
+    const result = await fetchSmartJson(urls.primary, urls.fallbacks);
     renderTrendingData(result.data);
     updateTimestamp();
 
@@ -199,7 +212,8 @@ async function fetchEntertainmentNews() {
   `;
 
   try {
-    const result = await fetchSmartJson(ENT_NEWS_API_PRIMARY, ENT_NEWS_API_FALLBACKS);
+    const urls = getEntNewsUrls();
+    const result = await fetchSmartJson(urls.primary, urls.fallbacks);
     const newsList = result && result.data ? result.data : null;
 
     if (!Array.isArray(newsList) || newsList.length === 0) {
