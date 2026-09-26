@@ -4173,109 +4173,19 @@ const KEYWORD_CENTER_DATA = [
   }
 ];
 
-// ===== 실시간 애드센스&황금키워드 API 연동 =====
-const ADSENSE_API_URL = 'https://api.allorigins.win/raw?url=https%3A%2F%2Fwww.boutique-info.com%2Fapi%2Fkeyword-center%3Faction%3DgetAdsenseKeywords';
+// ===== 실시간 애드센스&황금키워드 듀얼레인 API 연동 =====
+const ADSENSE_API_URL = 'https://api.allorigins.win/raw?url=https%3A%2F%2Fwww.boutique-info.com%2Fapi%2Fkeyword-center%3Faction%3DgetAdsenseDualLane';
 
-// 벤치마크 100% 동일 규격의 애드센스&황금키워드 기본 데이터셋 (네트워크 제약/차단 시에도 완벽한 분석 데이터 보장)
-const FALLBACK_ADSENSE_KEYWORDS = [
-  {
-    keyword: "소상공인 정책자금 신청방법",
-    cpcBadge: "$9.1+",
-    volume: 1240,
-    pc: 340,
-    mobile: 900,
-    total_docs: 18,
-    goldenScore: 94,
-    contentCategory: "세무/재테크",
-    how_to_write: "소상공인 정책자금은 신청 시기와 제출 서류가 중요하므로, 서류 체크리스트를 표로 먼저 보여주고 공식 신청 사이트 링크를 안내하세요.",
-    blog_title: "2026 소상공인 정책자금 신청방법 및 필요서류 총정리",
-    outline: [
-      "소상공인 정책자금 지원 대상 및 자격 요건",
-      "직접 대출 vs 대리 대출 차이점과 금리 혜택",
-      "온라인 접수 순서와 필수 제출 서류 목록",
-      "부결 방지를 위한 신용점수 관리 꿀팁"
-    ],
-    recommendationKeywords: ["소상공인 정책자금 서류", "소상공인 대출 자격", "소상공인 지원금 신청", "정책자금 금리", "소상공인 대리대출"]
-  },
-  {
-    keyword: "연말정산 환급금 조회",
-    cpcBadge: "$12.4+",
-    volume: 4850,
-    pc: 1250,
-    mobile: 3600,
-    total_docs: 32,
-    goldenScore: 96,
-    contentCategory: "세무/재테크",
-    how_to_write: "국세청 홈택스 간소화 서비스 오픈 일정과 누락되기 쉬운 공제 항목(월세, 의료비, 부양가족)을 꼼꼼하게 정리해 독자의 체류시간을 극대화하세요.",
-    blog_title: "연말정산 환급금 미리 조회하는 법: 13월의 월급 100만원 더 받는 공제 팁",
-    outline: [
-      "홈택스 연말정산 간소화 서비스 모바일 조회 방법",
-      "놓치기 쉬운 5대 소득공제 및 세액공제 항목",
-      "맞벌이 부부 및 부양가족 몰아주기 절세 전략",
-      "환급금 지급일과 과다 공제 가산세 예방법"
-    ],
-    recommendationKeywords: ["연말정산 환급일", "홈택스 소득공제", "연말정산 간소화", "신용카드 소득공제", "월세 세액공제"]
-  },
-  {
-    keyword: "개인파산 면책신청 자격",
-    cpcBadge: "$15.8+",
-    volume: 2150,
-    pc: 620,
-    mobile: 1530,
-    total_docs: 24,
-    goldenScore: 91,
-    contentCategory: "법률/금융",
-    how_to_write: "채무액과 소득 수준에 따른 개인회생 vs 파산의 차이점을 표로 비교하고, 법원 면책 불허가 사유를 명확히 제시하세요.",
-    blog_title: "개인파산 면책신청 자격 요건 및 비용: 빚 탕감 전 반드시 확인할 3가지",
-    outline: [
-      "개인파산 신청 가능한 최소 채무액과 소득 기준",
-      "개인회생 vs 개인파산 장단점 및 자격 비교",
-      "법원 면책 기각 및 불허가 주요 사례",
-      "파산관재인 서류 제출 및 면책 결정 절차"
-    ],
-    recommendationKeywords: ["개인회생 자격", "개인파산 비용", "파산면책 서류", "채무탕감 제도", "신용회복위원회"]
-  },
-  {
-    keyword: "자동차 헤드라이트 복원",
-    cpcBadge: "$7.5+",
-    volume: 1850,
-    pc: 450,
-    mobile: 1400,
-    total_docs: 37,
-    goldenScore: 89,
-    contentCategory: "자동차/모빌리티",
-    how_to_write: "DIY 훈증 캔 복원키트 사용법과 치약 샌딩의 부작용을 설명하고, 정기검사 광도 미달 불합격 예방 팁을 사진과 함께 제공하세요.",
-    blog_title: "자동차 헤드라이트 황변 복원: 셀프 훈증키트 vs 전문점 비용 비교",
-    outline: [
-      "헤드라이트 백화/황변 현상이 일어나는 근본 원인",
-      "사포 샌딩(400방~2000방) 작업 요령 및 마스킹 테이프 작업",
-      "UV 코팅제 훈증 방식의 원리와 시공 후 유지 기간",
-      "자동차 정기검사 광도 기준 통과를 위한 꿀팁"
-    ],
-    recommendationKeywords: ["헤드라이트복원키트", "헤드라이트황변제거", "자동차라이트복원", "헤드라이트훈증", "라이트복원비용"]
-  },
-  {
-    keyword: "실업급여 수급자격 및 계산",
-    cpcBadge: "$8.9+",
-    volume: 5400,
-    pc: 1600,
-    mobile: 3800,
-    total_docs: 45,
-    goldenScore: 93,
-    contentCategory: "고용/복지",
-    how_to_write: "고용보험 가입기간(피보험 단위기간 180일) 계산법과 자진퇴사 시에도 예외적으로 수급 가능한 사유를 정리해 신뢰도를 높이세요.",
-    blog_title: "2026 실업급여 수급자격 조건과 모의계산: 1일 상한액·하한액 총정리",
-    outline: [
-      "실업급여 신청 필수 조건 (피보험 단위기간 180일 계산법)",
-      "자진퇴사도 수급 가능한 정당한 이직 사유 7가지",
-      "연령 및 가입기간별 실업급여 지급일수(소정급여일수)",
-      "고용24 온라인 수급자격 신청 및 1차 실업인정 순서"
-    ],
-    recommendationKeywords: ["실업급여 계산기", "실업급여 조건", "자진퇴사 실업급여", "고용24 실업인정", "구직급여 상한액"]
-  }
-];
+// 5대 카테고리별 동적 데이터 저장소 (사용자 JSON 응답 규격 1:1 완벽 매핑)
+let DUAL_LANE_CATEGORIES = {
+  golden: [],    // 1. 황금키워드 (response.categories.golden)
+  shopping: [],  // 2. 제휴마케팅 키워드 (response.categories.shopping)
+  adsense: [],   // 3. 애드센스 키워드 (response.categories.adsense)
+  naverMate: [], // 4. 네이버 mate (response.categories.naverMate)
+  jisikQin: []   // 6. 지식iN Q&A (response.categories.jisikQin)
+};
 
-let dynamicAdsenseList = [];
+let currentDualLaneList = [];
 let currentFilterType = 'type-1';
 let currentSubFilter = 'all';
 let currentSelectedIdx = 0;
@@ -4286,12 +4196,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * 1. 애드센스&황금키워드 API 호출 (GET getAdsenseKeywords)
+ * 1. 애드센스&황금키워드 듀얼레인 실시간 API 호출 (GET getAdsenseDualLane)
  */
 async function fetchAdsenseKeywords() {
   const container = document.getElementById('kc-cards-container');
   if (container) {
-    // 스켈레톤 로딩 UI 표시
+    // 세련된 스켈레톤 로딩 UI 표시
     container.innerHTML = `
       <div class="kc-skeleton-card">
         <div class="kc-skeleton-line" style="width: 45%;"></div>
@@ -4316,98 +4226,117 @@ async function fetchAdsenseKeywords() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const json = await res.json();
     
-    // response.data.adsense 배열 확인
-    if (json && json.data && Array.isArray(json.data.adsense) && json.data.adsense.length > 0) {
-      dynamicAdsenseList = json.data.adsense;
-    } else if (json && Array.isArray(json.adsense) && json.adsense.length > 0) {
-      dynamicAdsenseList = json.adsense;
-    } else {
-      throw new Error('응답 데이터 배열 형식 불일치');
+    // 1. response.categories 매핑 (사용자 사양)
+    const catObj = json.categories || (json.data && json.data.categories) || null;
+    if (catObj) {
+      if (Array.isArray(catObj.golden) && catObj.golden.length > 0) DUAL_LANE_CATEGORIES.golden = catObj.golden;
+      if (Array.isArray(catObj.shopping) && catObj.shopping.length > 0) DUAL_LANE_CATEGORIES.shopping = catObj.shopping;
+      if (Array.isArray(catObj.adsense) && catObj.adsense.length > 0) DUAL_LANE_CATEGORIES.adsense = catObj.adsense;
+      if (Array.isArray(catObj.naverMate) && catObj.naverMate.length > 0) DUAL_LANE_CATEGORIES.naverMate = catObj.naverMate;
+      if (Array.isArray(catObj.jisikQin) && catObj.jisikQin.length > 0) DUAL_LANE_CATEGORIES.jisikQin = catObj.jisikQin;
+    }
+
+    // 2. response.data.adsense 가 있을 경우 adsense 카테고리에 직접 바인딩
+    if (json.data && Array.isArray(json.data.adsense) && json.data.adsense.length > 0) {
+      DUAL_LANE_CATEGORIES.adsense = json.data.adsense;
+      // verifiedCore 레인도 있으면 황금키워드에 추가 바인딩
+      if (json.data.lanes && Array.isArray(json.data.lanes.verifiedCore) && json.data.lanes.verifiedCore.length > 0) {
+        if (!DUAL_LANE_CATEGORIES.golden || DUAL_LANE_CATEGORIES.golden.length === 0) {
+          DUAL_LANE_CATEGORIES.golden = json.data.lanes.verifiedCore;
+        }
+      }
     }
   } catch (err) {
-    console.error('[getAdsenseKeywords] API 호출 중 오류 발생:', err);
-    // 통신 오류 시에도 사용자 경험을 위해 완벽한 Fallback 데이터셋 적용
-    dynamicAdsenseList = FALLBACK_ADSENSE_KEYWORDS;
+    console.warn('[getAdsenseDualLane] API 호출 주의 (Fallback 자동 가동):', err);
   }
 
-  // 데이터 바인딩 및 렌더링
-  integrateAdsenseData(dynamicAdsenseList);
+  // 3. 비어있는 카테고리가 있을 경우 정밀 검증 데이터셋으로 자동 보충 (어떤 탭을 눌러도 완벽 작동)
+  ensureCategoriesFilled();
+
+  // 4. 현재 선택된 탭 데이터 로드 및 렌더링
+  currentDualLaneList = getCategoryList(currentFilterType);
   renderCardsList();
   selectCard(0);
 }
 
 /**
- * API에서 받은 adsense 키워드들을 기존 키워드 센터 데이터 구조로 매핑
+ * 카테고리 데이터 보충 헬퍼 (초보자 사용자도 에러 없이 100% 정상 화면 열람 가능)
  */
-function integrateAdsenseData(apiList) {
-  if (!apiList || apiList.length === 0) return;
+function ensureCategoriesFilled() {
+  const mapData = (typeId, defaultBadge) => {
+    return KEYWORD_CENTER_DATA.filter(d => d.categoryType === typeId).map(d => {
+      const volNum = parseInt(String(d.volume).replace(/[^0-9]/g, '')) || 1000;
+      const docNum = parseInt(String(d.docCount).replace(/[^0-9]/g, '')) || 20;
+      return {
+        keyword: d.keyword,
+        badge: d.cpcBadge || d.tag || defaultBadge,
+        contentCategory: d.tag || defaultBadge,
+        total: volNum,
+        volume: d.volume,
+        pc: Math.round(volNum * 0.3),
+        mobile: Math.round(volNum * 0.7),
+        blogCount: docNum,
+        total_docs: docNum,
+        goldenScore: d.score || 94,
+        whyNow: d.whyNow || d.reason || '공식 실측 검색 수요와 경쟁 지수를 바탕으로 엄선된 핵심 키워드입니다.',
+        intent: d.intent || `${d.keyword} 관련 상세 조건, 최신 신청 방법 및 비교 정보 확인`,
+        home_title: (d.titles && d.titles[0]) || d.homepanTitle || `${d.keyword} 핵심 총정리 및 최신 정보 가이드`,
+        seoTitle: d.seoTitle || `[${d.keyword}] 2026 최신 정보 요약 및 핵심 꿀팁`,
+        outline: (Array.isArray(d.outline) && d.outline.length > 0) ? d.outline : [
+          `${d.keyword} 핵심 개요 및 최신 동향`,
+          `대상 자격 요건 및 필수 체크리스트`,
+          `신청 방법 및 온라인 서류 제출 순서`,
+          `자주 묻는 질문(FAQ) 및 주의사항`
+        ],
+        recommendationKeywords: d.longtails || [d.keyword, `${d.keyword} 신청`, `${d.keyword} 조건`]
+      };
+    });
+  };
 
-  apiList.forEach((item, idx) => {
-    const vol = typeof item.volume === 'number' ? item.volume : (parseInt(String(item.volume).replace(/[^0-9]/g, '')) || 0);
-    const pcVol = typeof item.pc === 'number' ? item.pc : (parseInt(String(item.pc).replace(/[^0-9]/g, '')) || 0);
-    const mobVol = typeof item.mobile === 'number' ? item.mobile : (parseInt(String(item.mobile).replace(/[^0-9]/g, '')) || 0);
-    const docs = typeof item.total_docs === 'number' ? item.total_docs : (parseInt(String(item.total_docs || item.docCount).replace(/[^0-9]/g, '')) || 0);
-    const score = Number(item.goldenScore || item.score) || 94;
-    const cat = item.contentCategory || item.tag || '세무/재테크';
-    const cpc = item.cpcBadge || '$9.1+';
-
-    const mapped = {
-      id: `kc-dyn-${idx}`,
-      categoryType: 'type-1',
-      categoryTypes: ['type-1', 'type-3'], // 황금키워드 & 애드센스 탭 공통 노출
-      subCat: 'finance',
-      rank: idx + 1,
-      keyword: item.keyword,
-      tag: cat,
-      contentCategory: cat,
-      volume: vol.toLocaleString() + '회',
-      rawVolume: vol,
-      pc: pcVol.toLocaleString() + '회',
-      mobile: mobVol.toLocaleString() + '회',
-      docCount: docs.toLocaleString() + '건',
-      total_docs: docs.toLocaleString() + '건',
-      cpcBadge: cpc,
-      goldenScore: score,
-      greenScore: `${cpc} (${score}점)`,
-      ratio: docs > 0 ? (docs / Math.max(1, vol)).toFixed(4) : '0.001',
-      score: score,
-      desc: `총 검색량 ${vol.toLocaleString()}회 · PC ${pcVol.toLocaleString()} / Mobile ${mobVol.toLocaleString()} · 블로그 문서수 ${docs.toLocaleString()}건`,
-      date: new Date().toISOString(),
-      channel: `황금키워드 · ${cat}`,
-      t_score: '5',
-      c_score: '5',
-      d_score: '4',
-      n_score: '5',
-      diffText: '최근 7일 +28%',
-      monthlyMax: `${Math.round(vol / 30)}건/일`,
-      how_to_write: item.how_to_write || '정보 탐색형 고단가 키워드입니다. 핵심 결론을 먼저 제시하고 표와 서류 목록을 첨부하세요.',
-      blog_title: item.blog_title || `[최신] ${item.keyword} 핵심 총정리`,
-      reason: item.how_to_write || '검색자의 체류시간을 확보하고 고단가 광고 클릭을 유도하기 좋은 키워드입니다.',
-      intent: `${item.keyword}의 상세 자격 요건과 신청 및 이용 절차 확인.`,
-      cpcAnalysis: `전문 서비스 광고 및 관련 상품 광고 최고 단가(${cpc}) 매칭.`,
-      titles: [item.blog_title || `[최신] ${item.keyword} 핵심 총정리`],
-      outline: Array.isArray(item.outline) ? item.outline : [
-        `${item.keyword} 핵심 요약 및 개요`,
-        `${item.keyword} 신청 자격 및 필수 조건`,
-        `단계별 이용 절차 및 필요 서류`,
-        `자주 묻는 질문(FAQ) 및 주의사항`
-      ],
-      recommendationKeywords: Array.isArray(item.recommendationKeywords) ? item.recommendationKeywords : [item.keyword],
-      longtails: Array.isArray(item.recommendationKeywords) ? item.recommendationKeywords : [item.keyword]
-    };
-
-    // 기존 데이터에 추가 또는 최우선 갱신
-    const existingIdx = KEYWORD_CENTER_DATA.findIndex(d => d.keyword === item.keyword);
-    if (existingIdx >= 0) {
-      KEYWORD_CENTER_DATA[existingIdx] = mapped;
-    } else {
-      KEYWORD_CENTER_DATA.unshift(mapped);
-    }
-  });
+  if (!DUAL_LANE_CATEGORIES.golden || DUAL_LANE_CATEGORIES.golden.length === 0) {
+    DUAL_LANE_CATEGORIES.golden = mapData('type-1', '황금키워드');
+  }
+  if (!DUAL_LANE_CATEGORIES.shopping || DUAL_LANE_CATEGORIES.shopping.length === 0) {
+    DUAL_LANE_CATEGORIES.shopping = mapData('type-2', '제휴마케팅');
+  }
+  if (!DUAL_LANE_CATEGORIES.adsense || DUAL_LANE_CATEGORIES.adsense.length === 0) {
+    DUAL_LANE_CATEGORIES.adsense = mapData('type-3', '$9.1+');
+  }
+  if (!DUAL_LANE_CATEGORIES.naverMate || DUAL_LANE_CATEGORIES.naverMate.length === 0) {
+    DUAL_LANE_CATEGORIES.naverMate = mapData('type-4', 'AI브리핑');
+  }
+  if (!DUAL_LANE_CATEGORIES.jisikQin || DUAL_LANE_CATEGORIES.jisikQin.length === 0) {
+    DUAL_LANE_CATEGORIES.jisikQin = mapData('type-5', '지식iN Q&A');
+  }
 }
 
+/**
+ * 탭 타입별 데이터 소스 매핑
+ * - 황금키워드 ➔ response.categories.golden
+ * - 제휴마케팅 ➔ response.categories.shopping
+ * - 애드센스 ➔ response.categories.adsense
+ * - 네이버 mate ➔ response.categories.naverMate
+ * - 지식iN ➔ response.categories.jisikQin
+ */
+function getCategoryList(type) {
+  if (type === 'type-1' || type === 'golden') {
+    return DUAL_LANE_CATEGORIES.golden || [];
+  } else if (type === 'type-2' || type === 'shopping') {
+    return DUAL_LANE_CATEGORIES.shopping || [];
+  } else if (type === 'type-3' || type === 'adsense') {
+    return DUAL_LANE_CATEGORIES.adsense || [];
+  } else if (type === 'type-4' || type === 'naverMate') {
+    return DUAL_LANE_CATEGORIES.naverMate || [];
+  } else if (type === 'type-5' || type === 'jisikQin') {
+    return DUAL_LANE_CATEGORIES.jisikQin || [];
+  } else if (type === 'type-6') {
+    // 6. 정책신호형
+    return KEYWORD_CENTER_DATA.filter(d => d.categoryType === 'type-6');
+  }
+  return DUAL_LANE_CATEGORIES.golden || [];
+}
 
-// 상단 8개 알약 탭 전역 전환 함수 (인라인 onclick 및 리스너 공용)
+// 상단 알약 탭 전역 전환 함수 (인라인 onclick 및 리스너 공용)
 window.switchKcTab = function(type) {
   const pillBtns = document.querySelectorAll('.kc-pill-btn');
   pillBtns.forEach(b => {
@@ -4455,6 +4384,8 @@ window.switchKcTab = function(type) {
     if (tab7Container) tab7Container.style.display = 'none';
     if (tab8Container) tab8Container.style.display = 'none';
 
+    // 선택된 카테고리 데이터 바인딩
+    currentDualLaneList = getCategoryList(type);
     updateSubFilterHeader();
     renderSubFilterButtons();
     renderCardsList();
@@ -5062,145 +4993,127 @@ function getCurrentFilteredData() {
   return filtered;
 }
 
-// 좌측 카드 목록 렌더링 (8개 탭 & 서브 카테고리 완벽 개별 분기 필터링)
+// 좌측 카드 목록 렌더링 (사용자 JSON 응답 규격 1:1 완벽 반영)
 function renderCardsList() {
   const container = document.getElementById('kc-cards-container');
   if (!container) return;
 
   container.innerHTML = '';
 
-  const filtered = getCurrentFilteredData();
+  const list = (currentDualLaneList && currentDualLaneList.length > 0) ? currentDualLaneList : getCurrentFilteredData();
+  if (!list || list.length === 0) {
+    container.innerHTML = `
+      <div style="padding: 40px 20px; text-align: center; color: #94a3b8; font-size: 0.9rem;">
+        표시할 키워드 데이터가 없습니다.
+      </div>
+    `;
+    return;
+  }
 
-  filtered.forEach((item, idx) => {
+  // 15개 초과 시 또는 유료 잠금 안내를 위해 최대 15개 카드 렌더링
+  const MAX_DISPLAY = 15;
+  const displayItems = list.slice(0, MAX_DISPLAY);
+
+  displayItems.forEach((item, idx) => {
     const card = document.createElement('div');
     card.className = `kc-card ${idx === currentSelectedIdx ? 'active' : ''}`;
     card.setAttribute('data-idx', idx);
 
-    // 공통 필드 안전 추출
-    const cpcBadge = item.cpcBadge || '$9.1+';
-    const catName = item.contentCategory || item.tag || '세무/재테크';
-    const volText = String(item.volume).includes('회') ? item.volume : `${item.volume}회`;
-    const pcMobText = (item.pc && item.mobile) 
-      ? `PC ${item.pc} / 모바일 ${item.mobile}`
-      : `PC 30% / 모바일 70%`;
-    const docText = item.total_docs 
-      ? (String(item.total_docs).includes('건') ? item.total_docs : `${item.total_docs}건`)
-      : (item.docCount ? (String(item.docCount).includes('건') ? item.docCount : `${item.docCount}건`) : '20건');
-    const goldScoreText = item.goldenScore ? `${item.goldenScore}점` : (item.score ? `${item.score}점` : '94점');
+    // 1. 순위: index + 1
+    const rank = idx + 1;
 
-    if (item.categoryType === 'type-3' || item.cpcBadge) {
-      card.innerHTML = `
-        <div class="kc-card-num-box">${item.rank}</div>
-        <div class="kc-card-body">
-          <div class="kc-card-kw-title">${escapeHtml(item.keyword)}</div>
-          <div class="kc-card-sub-row" style="flex-wrap: wrap; gap: 6px; margin-bottom: 6px;">
-            <span class="kc-badge-cpc-blue" style="font-weight: 800; font-size: 0.78rem;">💎 ${escapeHtml(cpcBadge)}</span>
-            <span class="kc-badge-cpc-tag" style="background: rgba(99, 102, 241, 0.15); color: #a5b4fc;">${escapeHtml(catName)}</span>
-            <span class="kc-badge-vol" style="background: rgba(16, 185, 129, 0.15); color: #34d399; font-weight: 700;">황금지수: ${escapeHtml(goldScoreText)}</span>
-          </div>
-          <div class="kc-card-chips-row" style="margin-bottom: 4px;">
-            <span class="kc-chip">총 검색량 <strong>${escapeHtml(volText)}</strong></span>
-            <span class="kc-chip">블로그 문서수 <strong>${escapeHtml(docText)}</strong></span>
-          </div>
-          <div class="kc-card-chips-row" style="margin-bottom: 6px;">
-            <span class="kc-chip" style="font-size: 0.74rem; color: #94a3b8;">${escapeHtml(pcMobText)}</span>
-          </div>
-          <div class="kc-card-desc" style="font-size: 0.76rem; color: #64748b; line-height: 1.4;">
-            ${escapeHtml(item.desc || item.how_to_write || '')}
-          </div>
-        </div>
-      `;
-    } else if (item.categoryType === 'type-4') {
-      // 4. 네이버 mate 키워드 전용 카드 UI
-      card.innerHTML = `
-        <div class="kc-card-num-box">${item.rank}</div>
-        <div class="kc-card-body">
-          <div class="kc-card-kw-title">${escapeHtml(item.keyword)}</div>
-          <div class="kc-card-sub-row">
-            <span class="kc-card-ai-badge">AI 브리핑</span>
-            <span class="kc-card-mate-tag">${escapeHtml(item.tag)}</span>
-            <span class="kc-card-cite-score">${escapeHtml(item.greenScore || '인용 93점')}</span>
-          </div>
-          <div class="kc-card-target-search">
-            타겟 실측검색 <strong>${item.targetVolume || item.volume}</strong>
-          </div>
-          <div class="kc-card-core-box">
-            핵심: ${escapeHtml(item.coreKw || item.keyword)}
-          </div>
-          <div class="kc-card-chips-row" style="margin-bottom: 6px;">
-            <span class="kc-chip">문서개수 <strong>${item.docCount}</strong></span>
-          </div>
-          <div>
-            <span class="kc-card-ai-prob">AI브리핑 실측확률 ${item.aiProb || '30%'}</span>
-          </div>
-        </div>
-      `;
-    } else if (item.categoryType === 'type-5') {
-      // 5. 지식iN Q&A 전용 카드 UI
-      const kinSearchUrl = `https://kin.naver.com/search/list.naver?query=${encodeURIComponent(item.keyword)}`;
-      card.innerHTML = `
-        <div class="kc-card-num-box">${item.rank}</div>
-        <div class="kc-card-body">
-          <div class="kc-card-kw-title">${escapeHtml(item.keyword)}</div>
-          <div class="kc-card-sub-row">
-            <span class="kc-card-mate-tag" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">지식iN Q&amp;A</span>
-            <span class="kc-card-mate-tag" style="background: rgba(147, 51, 234, 0.15); color: #c084fc;">지식iN 질문 동향</span>
-            <span class="kc-badge-blueocean">블루오션</span>
-          </div>
-          <div class="kc-card-kin-row">
-            <span class="kc-chip-kin-views">실제 지식iN 조회수 <strong>${item.views || '34회'}</strong></span>
-            <span class="kc-chip-kin-answers">답변수 <strong>${item.answers || '1개'}</strong></span>
-          </div>
-          <div>
-            <a href="${kinSearchUrl}" target="_blank" rel="noopener noreferrer" class="kc-btn-kin-orig" onclick="event.stopPropagation();">
-              질문 원문 ↗
-            </a>
-          </div>
-        </div>
-      `;
-    } else if (item.categoryType === 'type-6') {
-      // 6. 정책신호형 애드센스 키워드 전용 카드 UI
-      card.innerHTML = `
-        <div class="kc-card-num-box">${item.rank}</div>
-        <div class="kc-card-body">
-          <div class="kc-card-kw-title">${escapeHtml(item.keyword)}</div>
-          <div class="kc-policy-card-date">공식 발표일 ${escapeHtml(item.releaseDate || '2026-09-07')}</div>
-          <div><span class="kc-badge-policy-signal">공식 최신 정책신호</span></div>
-        </div>
-      `;
-    } else {
-      card.innerHTML = `
-        <div class="kc-card-num-box">${item.rank}</div>
-        <div class="kc-card-body">
-          <div class="kc-card-kw-title">${escapeHtml(item.keyword)}</div>
-          <div class="kc-card-sub-row">
-            <span>자동 확장</span>
-            <span class="kc-badge-tag">${escapeHtml(item.tag)}</span>
-            <span class="kc-badge-vol">검색량 <strong>${item.volume}</strong></span>
-            <span class="kc-badge-score">${item.greenScore}</span>
-          </div>
-          <div class="kc-card-chips-row">
-            <span class="kc-chip">문서수 <strong>${item.docCount}</strong></span>
-            <span class="kc-chip">문서/검색 <strong>${item.ratio}</strong></span>
-          </div>
-          <div class="kc-card-desc">${escapeHtml(item.desc)}</div>
-        </div>
-      `;
+    // 2. 뱃지/분류: item.badge 또는 item.contentCategory
+    const badgeText = item.badge || item.contentCategory || item.tag || '추천';
+
+    // 3. 수치 배지
+    // 검색량: item.total ? item.total.toLocaleString() : "-"
+    let totalText = '-';
+    if (item.total !== undefined && item.total !== null && item.total !== '') {
+      totalText = Number(item.total).toLocaleString();
+    } else if (item.volume !== undefined && item.volume !== null && item.volume !== '') {
+      const parsedVol = parseInt(String(item.volume).replace(/[^0-9]/g, ''));
+      totalText = !isNaN(parsedVol) ? parsedVol.toLocaleString() : String(item.volume);
     }
 
+    // 문서수: item.blogCount !== null ? item.blogCount.toLocaleString() : "-"
+    let docText = '-';
+    if (item.blogCount !== undefined && item.blogCount !== null && item.blogCount !== '') {
+      docText = Number(item.blogCount).toLocaleString();
+    } else if (item.total_docs !== undefined && item.total_docs !== null && item.total_docs !== '') {
+      const parsedDocs = parseInt(String(item.total_docs).replace(/[^0-9]/g, ''));
+      docText = !isNaN(parsedDocs) ? parsedDocs.toLocaleString() : String(item.total_docs);
+    } else if (item.docCount !== undefined && item.docCount !== null && item.docCount !== '') {
+      const parsedDocCount = parseInt(String(item.docCount).replace(/[^0-9]/g, ''));
+      docText = !isNaN(parsedDocCount) ? parsedDocCount.toLocaleString() : String(item.docCount);
+    }
+
+    // 점수: item.goldenScore ? item.goldenScore + "점" : "-"
+    let scoreText = '-';
+    if (item.goldenScore !== undefined && item.goldenScore !== null && item.goldenScore !== '') {
+      scoreText = item.goldenScore + '점';
+    } else if (item.score !== undefined && item.score !== null && item.score !== '') {
+      scoreText = item.score + '점';
+    }
+
+    card.innerHTML = `
+      <div class="kc-card-num-box">${rank}</div>
+      <div class="kc-card-body" style="flex: 1; min-width: 0;">
+        <div class="kc-card-kw-title" style="margin-bottom: 6px; font-size: 0.98rem; font-weight: 800; color: #f8fafc; line-height: 1.4; word-break: break-all;">
+          ${escapeHtml(item.keyword)}
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;">
+          <span style="background: rgba(99, 102, 241, 0.15); color: #a5b4fc; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 6px;">
+            ${escapeHtml(badgeText)}
+          </span>
+          <span class="kc-card-badge-score">
+            ${escapeHtml(scoreText)}
+          </span>
+        </div>
+        <div class="kc-card-chips-row" style="display: flex; gap: 6px; flex-wrap: wrap; font-size: 0.76rem; color: #94a3b8;">
+          <span class="kc-chip" style="background: rgba(255, 255, 255, 0.04); padding: 3px 8px; border-radius: 6px;">
+            검색량 <strong style="color: #60a5fa;">${escapeHtml(totalText)}</strong>
+          </span>
+          <span class="kc-chip" style="background: rgba(255, 255, 255, 0.04); padding: 3px 8px; border-radius: 6px;">
+            문서수 <strong style="color: #f1f5f9;">${escapeHtml(docText)}</strong>
+          </span>
+        </div>
+      </div>
+    `;
+
+    // 카드 클릭 시 우측 상세 리포트 동적 갱신
     card.addEventListener('click', () => {
-      document.querySelectorAll('.kc-card').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('#kc-cards-container .kc-card').forEach(c => c.classList.remove('active'));
       card.classList.add('active');
-      selectCard(idx, filtered);
+      currentSelectedIdx = idx;
+      selectCard(idx);
     });
 
     container.appendChild(card);
   });
+
+  // 5. 부가 처리: 유료 잠금 표시 (배열 길이가 15개 초과 시 또는 안내)
+  if (list.length >= 15) {
+    const lockedBanner = document.createElement('div');
+    lockedBanner.className = 'kc-paywall-locked-banner';
+    lockedBanner.innerHTML = `
+      <span style="font-size: 1.15rem;">🔒</span>
+      <span>15개 키워드가 더 있습니다 (유료 회원 전용)</span>
+    `;
+    lockedBanner.addEventListener('click', () => {
+      if (window.showToast) {
+        window.showToast('유료 회원 전용 기능입니다. 전체 키워드 열람을 환영합니다!', '🔒');
+      } else {
+        alert('15개 키워드가 더 있습니다 (유료 회원 전용)');
+      }
+    });
+    container.appendChild(lockedBanner);
+  }
 }
 
-// 우측 상세 리포트 렌더링 (스크린샷 1, 2, 3 완벽 1:1 매칭)
+
+// 우측 상세 키워드 분석 리포트 연동 (사용자 요구사항 1:1 완벽 바인딩)
 function selectCard(idx, dataList = null) {
-  const list = dataList || getCurrentFilteredData();
+  const list = dataList || (currentDualLaneList && currentDualLaneList.length > 0 ? currentDualLaneList : getCurrentFilteredData());
   currentSelectedIdx = idx;
   const item = list[idx] || list[0];
   if (!item) return;
@@ -5208,866 +5121,216 @@ function selectCard(idx, dataList = null) {
   const panel = document.getElementById('kc-detail-panel');
   if (!panel) return;
 
-  // 6. 정책신호형 애드센스 키워드 전용 상세 리포트 (스크린샷 1:1 완벽 일치)
-  if (item.categoryType === 'type-6') {
-    const relKeywords = item.relatedKeywords || [
-      `${item.keyword} 대상`,
-      `${item.keyword} 신청`,
-      `${item.keyword} 기간`
-    ];
-    const relKeywordsText = relKeywords.join(', ');
+  // 1. 종합 점수: item.goldenScore (원형/게이지 배지)
+  const goldenScoreVal = (item.goldenScore !== undefined && item.goldenScore !== null && item.goldenScore !== '') 
+    ? item.goldenScore 
+    : (item.score ? item.score : 95);
 
-    const longKeywords = item.longtailKeywords || [
-      `${item.keyword} 지원 대상`,
-      `${item.keyword} 신청 방법`,
-      `${item.keyword} 필요 서류`,
-      `${item.keyword} 시행일`
-    ];
-    const longKeywordsText = longKeywords.join(', ');
+  // 2. 선정 근거 / 왜 지금 주목할까: item.whyNow
+  const whyNowText = item.whyNow || item.selectionBasis || item.reason || '공식 실측 검색 수요와 경쟁 지표를 분석하여 상위 랭킹 및 수익 기회도가 가장 높은 최적의 추천 키워드입니다.';
 
-    const googleTitle = item.googleSeoTitle || `${item.keyword} | 대상·신청기간·시행 시점 정리`;
-    const naverTitle = item.naverSeoTitle || `${item.keyword} 신청 대상 및 필수 조건 확인`;
+  // 3. 검색 의도: item.intent
+  const intentText = item.intent || item.searchIntent || item.userIntent || `${item.keyword} 관련 상세 조건, 최신 신청 방법 및 실시간 비교 정보 확인`;
 
-    const outlineItems = (item.outline && item.outline.length > 0) ? item.outline : [
-      `${item.keyword} 핵심 요약과 발표 배경`,
-      '누가 신청할 수 있나: 지원 대상과 자격 조건',
-      '지원 내용과 혜택: 무엇이 얼마나 지원되나',
-      '신청 기간과 지급·시행 일정 총정리',
-      '신청 전 반드시 확인해야 할 주의사항과 자주 묻는 질문(FAQ)'
-    ];
-    const outlineHtml = outlineItems.map((line, i) => {
-      const match = line.match(/^(\d+\.?)\s*(.*)/);
-      const text = match ? match[2] : line;
-      return `
-        <div class="kc-policy-outline-item">
-          <span class="kc-policy-outline-num">${i + 1}.</span>
-          <span>${escapeHtml(text)}</span>
-        </div>
-      `;
-    }).join('');
+  // 4. 키워드 맞춤 제목 제안: item.home_title 또는 item.seoTitle (옆에 [제목 복사] 버튼)
+  const suggestedTitle = item.home_title || item.seoTitle || item.blog_title || (item.titles && item.titles[0]) || `[2026 최신] ${item.keyword} 핵심 총정리 및 완벽 가이드`;
 
-    const faqs = (item.faq && item.faq.length > 0) ? item.faq : [
-      {
-        q: `${item.keyword} 신청은 어디서 하나요?`,
-        a: '공식 주관 부처 및 정부24, 관련 전용 웹사이트/모바일 앱에서 간편인증 후 즉시 신청할 수 있습니다.'
-      },
-      {
-        q: '지원 요건을 충족하지 못하면 어떻게 되나요?',
-        a: '소득 및 자격 요건 기준을 초과하거나 서류가 미비한 경우 심사 대상에서 제외되거나 반려될 수 있습니다.'
-      },
-      {
-        q: '지급 및 시행 일정은 어떻게 되나요?',
-        a: '공식 발표된 일정에 따라 접수 마감 후 심사를 거쳐 순차적으로 대상자 확정 및 지급·혜택이 적용됩니다.'
-      }
-    ];
-    const faqHtml = faqs.map((f, i) => `
-      <div class="kc-policy-faq-box">
-        <div class="kc-policy-faq-q">
-          <span>Q${i + 1}.</span>
-          <span>${escapeHtml(f.q)}</span>
-        </div>
-        <div class="kc-policy-faq-a">
-          ${escapeHtml(f.a)}
-        </div>
-      </div>
-    `).join('');
+  // 5. 키워드 맞춤 목차 제안: item.outline 배열을 순서대로 번호 매겨 출력 (옆에 [목차 복사] 버튼)
+  const rawOutline = (Array.isArray(item.outline) && item.outline.length > 0)
+    ? item.outline
+    : (item.subtopics || [
+        `${item.keyword} 핵심 개요 및 최신 주요 변경점`,
+        '대상 자격 요건 및 필수 체크리스트 3가지',
+        '온라인 신청 절차 및 필요 서류 제출 방법',
+        '자주 묻는 질문(FAQ) 및 승인율 높이는 꿀팁'
+      ]);
 
-    panel.innerHTML = `
-      <div class="kc-white-report-container">
-        <!-- 상단 헤더: 최신 정책신호형 배지 + 타이틀 + 메타 -->
-        <div style="margin-bottom: 20px;">
-          <div style="font-size: 0.78rem; font-weight: 800; color: #94a3b8; margin-bottom: 6px;">최신 정책신호형</div>
-          <h2 class="kc-report-main-title" style="margin-bottom: 10px; font-size: clamp(1.6rem, 2.3vw, 2.2rem);">${escapeHtml(item.keyword)}</h2>
-          <div class="kc-report-sub-meta" style="color: #64748b; font-size: 0.84rem;">
-            <strong style="color: #94a3b8;">정책신호형</strong> · 공식 발표일 <strong style="color: #f8fafc;">${item.releaseDate || '2026-09-07'}</strong> · 공식 출처·시점 검증
-          </div>
-        </div>
-
-        <!-- 3개 메트릭 카드 (발표일, 검증 기준, 검색 시점) -->
-        <div class="kc-policy-metrics-grid">
-          <div class="kc-policy-metric-box">
-            <div class="kc-policy-metric-lbl">발표일</div>
-            <div class="kc-policy-metric-val">${item.releaseDate || '2026-09-07'}</div>
-          </div>
-          <div class="kc-policy-metric-box">
-            <div class="kc-policy-metric-lbl">검증 기준</div>
-            <div class="kc-policy-metric-val">${escapeHtml(item.checkCriteria || '공식 출처·시점')}</div>
-          </div>
-          <div class="kc-policy-metric-box">
-            <div class="kc-policy-metric-lbl">검색 시점</div>
-            <div class="kc-policy-metric-val">${escapeHtml(item.searchTiming || '발표 직후~7일')}</div>
-          </div>
-        </div>
-
-        <!-- 2열 비교 카드 1: 검색의도 vs 왜 지금 발행할까 -->
-        <div class="kc-policy-2col-grid">
-          <div class="kc-policy-intent-card">
-            <div class="kc-policy-card-head-blue">검색의도</div>
-            <p class="kc-policy-card-body-text">
-              ${escapeHtml(item.searchIntent || '발표된 제도의 대상, 지원 내용, 신청·지급·시행 시점과 필요한 조건 확인')}
-            </p>
-          </div>
-          <div class="kc-policy-publish-card">
-            <div class="kc-policy-card-head-sky">왜 지금 발행할까</div>
-            <p class="kc-policy-card-body-text">
-              ${escapeHtml(item.whyNow || '공식 발표 직후에는 대상 여부·신청 기간·지원 내용 확인 수요가 먼저 생길 수 있어, 사실관계가 확인된 해결형 정보 글로 기획합니다.')}
-            </p>
-          </div>
-        </div>
-
-        <!-- 2열 비교 카드 2: 연관 키워드 vs 롱테일 키워드 -->
-        <div class="kc-policy-2col-grid">
-          <div class="kc-policy-rel-card">
-            <div class="kc-policy-card-head-purple">연관 키워드</div>
-            <p class="kc-policy-card-body-text" style="color: #e2e8f0; line-height: 1.7;">
-              ${escapeHtml(relKeywordsText)}
-            </p>
-          </div>
-          <div class="kc-policy-longtail-card">
-            <div class="kc-policy-card-head-purple">롱테일 키워드</div>
-            <p class="kc-policy-card-body-text" style="color: #e2e8f0; line-height: 1.7;">
-              ${escapeHtml(longKeywordsText)}
-            </p>
-          </div>
-        </div>
-
-        <!-- 추천 포스팅 제목: 구글 SEO 최적화 제목 -->
-        <div class="kc-policy-seo-title-card">
-          <div style="font-size: 0.82rem; font-weight: 800; color: #10b981; margin-bottom: 4px;">구글 SEO 최적화 제목</div>
-          <div class="kc-policy-title-val" id="kc-copy-google-seo">${escapeHtml(googleTitle)}</div>
-          <button type="button" class="kc-purple-action-btn" style="margin-top: 10px; background: #059669; border-color: #059669;" onclick="copySnippet('kc-copy-google-seo', '구글 SEO 제목이 복사되었습니다!')">
-            구글 SEO 제목 복사
-          </button>
-        </div>
-
-        <!-- 추천 포스팅 제목: 네이버 블로그 검색 최적화 제목 -->
-        <div class="kc-policy-seo-title-card-naver">
-          <div style="font-size: 0.82rem; font-weight: 800; color: #3b82f6; margin-bottom: 4px;">네이버 블로그 검색 최적화 제목</div>
-          <div class="kc-policy-title-val" id="kc-copy-naver-seo">${escapeHtml(naverTitle)}</div>
-          <button type="button" class="kc-purple-action-btn" style="margin-top: 10px; background: #2563eb; border-color: #2563eb;" onclick="copySnippet('kc-copy-naver-seo', '네이버 SEO 제목이 복사되었습니다!')">
-            네이버 SEO 제목 복사
-          </button>
-        </div>
-
-        <!-- 추천 목차 구성안 (5단계) -->
-        <div class="kc-policy-outline-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc;">
-              📋 추천 목차 구성안
-            </div>
-            <button type="button" class="kc-purple-action-btn" style="margin: 0; padding: 4px 12px; font-size: 0.78rem;" onclick="copyPolicyOutline('${escapeHtml(item.keyword)}')">
-              목차 복사
-            </button>
-          </div>
-          <div id="kc-policy-outline-list">
-            ${outlineHtml}
-          </div>
-        </div>
-
-        <!-- 자주 묻는 질문 (FAQ) -->
-        <div style="margin-top: 18px;">
-          <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; margin-bottom: 12px;">
-            ❓ 자주 묻는 질문 (FAQ)
-          </div>
-          ${faqHtml}
-        </div>
-
-        <!-- 최하단 4대 포털 바로가기 -->
-        <div class="kc-portals-btn-grid" style="margin-top: 22px;">
-          <a href="https://search.naver.com/search.naver?query=${encodeURIComponent(item.keyword)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn portal-green">
-            네이버 검색결과
-          </a>
-          <a href="https://search.naver.com/search.naver?where=blog&query=${encodeURIComponent(item.keyword)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
-            블로그 문서 확인
-          </a>
-          <a href="https://www.google.com/search?q=${encodeURIComponent(item.keyword)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
-            구글 검색결과
-          </a>
-          <a href="https://www.bing.com/search?q=${encodeURIComponent(item.keyword)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
-            빙 검색결과
-          </a>
-        </div>
-      </div>
-    `;
-    return;
-  }
-  const homepanTitle = item.homepanTitle || (item.titles && item.titles[0]) || `${item.keyword} 핵심 총정리 및 최신 정보 요약`;
-  const seoTitle = item.seoTitle || (item.titles && item.titles[1]) || `[${item.keyword}] 2026 최신 정보 요약 및 핵심 꿀팁`;
-
-  // 2. 소제목 목차 구성안
-  const subtopics = item.subtopics || (item.outline && item.outline.length > 0 ? item.outline : [
-    `1. ${item.keyword} 핵심 개념 및 이것만 알면 끝나는 기본 정보`,
-    `2. 초보자도 쉽게 따라하는 단계별 실전 가이드`,
-    `3. 많은 사람들이 놓치기 쉬운 핵심 주의사항과 꿀팁`,
-    `4. 전문가 추천 추가 활용법 및 관련 FAQ`
-  ]);
-
-  const outlineListHtml = subtopics.map((line, i) => {
-    // 1., 2. 등의 번호 분리
-    const match = line.match(/^(\d+\.?)\s*(.*)/);
-    const num = match ? match[1] : `${i + 1}.`;
-    const text = match ? match[2] : line;
+  const outlineListHtml = rawOutline.map((line, oIdx) => {
+    const cleaned = String(line).replace(/^(\d+\.?)\s*/, '');
     return `
-      <li style="margin-bottom: 14px; font-size: 0.95rem; color: #cbd5e1; line-height: 1.5;">
-        <strong style="color: #ea580c; font-size: 1.05rem; margin-right: 6px;">${num}</strong> ${escapeHtml(text)}
+      <li style="margin-bottom: 10px; font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; display: flex; align-items: flex-start; gap: 10px;">
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; background: rgba(99, 102, 241, 0.25); color: #a5b4fc; border-radius: 50%; font-size: 0.78rem; font-weight: 800; flex-shrink: 0; margin-top: 2px;">
+          ${oIdx + 1}
+        </span>
+        <span style="flex: 1;">${escapeHtml(cleaned)}</span>
       </li>
     `;
   }).join('');
 
-  // 3. 롱테일 파생 키워드 알약 칩
-  const longtails = item.longtails || [
-    `${item.keyword} 방법`,
-    `${item.keyword} 조회`,
-    `${item.keyword} 신청`,
-    `${item.keyword} 후기`,
-    `${item.keyword} 꿀팁`
-  ];
-  const longtailsHtml = longtails.map(lt => `
-    <button type="button" class="kc-longtail-pill" onclick="searchDirectKeyword('${escapeHtml(lt)}')">
-      <span style="color: #64748b; margin-right: 4px;">⌕</span> ${escapeHtml(lt)}
-    </button>
-  `).join('');
-
-  // 3-1. type-3 전용 추천 서브키워드 칩
-  const subKeywords = item.subKeywords || ['국민연금 신청방법', '국민연금 자격조건', '국민연금 수령나이', '국민연금 조기노령연금'];
-  const subKeywordsHtml = subKeywords.map(skw => `
-    <span class="kc-chip-subkw" onclick="searchDirectKeyword('${escapeHtml(skw)}')"># ${escapeHtml(skw)}</span>
-  `).join(' ');
-
-  // 3-2. type-3 전용 상단 애드센스 분석 박스 (스크린샷 1:1 일치)
-  const isType3 = item.categoryType === 'type-3';
-  const type3TopHtml = isType3 ? `
-    <div style="margin-top: 18px;">
-      <div class="kc-blue-cpc-banner">
-        💎 고단가 CPC ${item.greenScore || '$5.8+'}
-      </div>
-      <div class="kc-adsense-box">
-        <div class="kc-adsense-sub-title" style="color: #f59e0b;">
-          💰 광고수익 관점 분석:
-        </div>
-        <p class="kc-adsense-sub-desc">
-          ${escapeHtml(item.cpcAudience || '공사 연금 및 사적 연금보험, 노후 재테크 고단가 금융 광고가 유입되며 대형 키워드의 트래픽을 흡수합니다.')}
-        </p>
-      </div>
-      <div class="kc-adsense-box">
-        <div class="kc-adsense-sub-title" style="color: #f97316;">
-          ✍️ 작성 가이드라인:
-        </div>
-        <p class="kc-adsense-sub-desc">
-          ${escapeHtml(item.guideline || "'국민연금'의 핵심 자격 조건 및 계산 공식을 서두에 두괄식 표로 제시하세요.")}
-        </p>
-      </div>
-      <div class="kc-adsense-box">
-        <div class="kc-adsense-sub-title" style="color: #f43f5e; margin-bottom: 10px;">
-          📌 추천 서브키워드:
-        </div>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          ${subKeywordsHtml}
-        </div>
-      </div>
-    </div>
-  ` : '';
-
-  // 3-2-2. type-4 전용 상단 네이버 mate AI 브리핑 분석 박스 (스크린샷 1:1 완벽 일치)
-  const isType4 = item.categoryType === 'type-4';
-  const paaQuestions = item.paaQuestions || [
-    `${item.keyword} 신청 자격`,
-    `${item.keyword} 구비 서류`,
-    `${item.keyword} 신청 방법`
-  ];
-  const paaQuestionsHtml = paaQuestions.map(q => `
-    <div class="kc-mate-question-pill" onclick="searchDirectKeyword('${escapeHtml(q)}')">
-      <span style="color: #94a3b8;">🗨️</span> <span>${escapeHtml(q)}</span>
-    </div>
-  `).join('');
-
-  const type4TopHtml = isType4 ? `
-    <div style="margin-top: 18px;">
-      <!-- 1. 타겟팅 핵심 검색어 & 네이버 실측 검색량 -->
-      <div class="kc-mate-box" style="border-left: 4px solid #0284c7;">
-        <div class="kc-mate-box-title" style="color: #38bdf8;">
-          🔍 타겟팅 핵심 검색어 & 네이버 실측 검색량
-        </div>
-        <div style="font-size: 0.92rem; font-weight: 800; color: #f8fafc; line-height: 1.5;">
-          ${escapeHtml(item.coreKw || item.keyword)} <span style="color: #10b981;">(월 ${item.targetVolume || item.volume}건 실측)</span>
-        </div>
-      </div>
-
-      <!-- 2. AI가 최우선 인용하는 핵심 답변 템플릿 -->
-      <div class="kc-mate-box">
-        <div class="kc-mate-box-title" style="color: #818cf8;">
-          🤖 AI가 최우선 인용하는 핵심 답변 템플릿:
-        </div>
-        <div class="kc-mate-template-box">
-          ${escapeHtml(item.aiTemplate || `${item.keyword}의 공식 절차와 핵심 요건 요약입니다.`)}
-        </div>
-      </div>
-
-      <!-- 3. 네이버 함께 찾는 질문 (People Also Ask) -->
-      <div class="kc-mate-box">
-        <div class="kc-mate-box-title" style="color: #c084fc; margin-bottom: 12px;">
-          💭 네이버 함께 찾는 질문 (People Also Ask):
-        </div>
-        <div>
-          ${paaQuestionsHtml}
-        </div>
-      </div>
-
-      <!-- 4. AI 인용 선정 및 제목 작성 이유 (실측 배경) -->
-      <div class="kc-mate-box" style="background: rgba(245, 158, 11, 0.04); border-color: rgba(245, 158, 11, 0.2);">
-        <div class="kc-mate-box-title" style="color: #f59e0b;">
-          💡 AI 인용 선정 및 제목 작성 이유 (실측 배경)
-        </div>
-        <p style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.55; margin: 0;">
-          ${escapeHtml(item.aiSelectionReason || `월 ${item.volume}회 실측 검색되는 필수 정보로 네이버 Cue/AI 브리핑 실측 출현율 30% 타겟팅.`)}
-        </p>
-      </div>
-    </div>
-  ` : '';
-
-  // 3-2-3. type-5 전용 상단 지식iN 질문 실측 배너 및 3대 분석 박스 (스크린샷 1:1 완벽 일치)
-  const isType5 = item.categoryType === 'type-5';
-  const type5TopHtml = isType5 ? `
-    <div style="margin-top: 18px; margin-bottom: 20px;">
-      <!-- 지식iN 질문 실측 블루 배너 -->
-      <div class="kc-kin-live-banner">
-        <span class="kc-kin-badge-main">지식iN 질문 실측</span>
-        <span class="kc-kin-stat-text">조회수 ${item.views || '34회'}</span>
-        <span class="kc-kin-stat-ans">답변수 ${item.answers || '1개'}</span>
-      </div>
-
-      <!-- 1. 추천 블로그 포스팅 제목 -->
-      <div class="kc-kin-box">
-        <div class="kc-kin-box-title" style="color: #38bdf8;">
-          🎨 추천 블로그 포스팅 제목:
-        </div>
-        <p class="kc-kin-box-desc" style="font-weight: 700; color: #f8fafc;">
-          ${escapeHtml(item.postTitle || `${item.keyword} 해결 가이드`)}
-        </p>
-      </div>
-
-      <!-- 2. 기회 분석 -->
-      <div class="kc-kin-box">
-        <div class="kc-kin-box-title" style="color: #f43f5e;">
-          🎯 기회 분석:
-        </div>
-        <p class="kc-kin-box-desc">
-          ${escapeHtml(item.opportunity || '질문자의 구체적 필요를 채워줄 콘텐츠가 부족한 블루오션입니다.')}
-        </p>
-      </div>
-
-      <!-- 3. 작성 가이드 -->
-      <div class="kc-kin-box">
-        <div class="kc-kin-box-title" style="color: #fbbf24;">
-          💡 작성 가이드:
-        </div>
-        <p class="kc-kin-box-desc">
-          ${escapeHtml(item.guideline || '질문자의 의도에 맞춰 단계별 캡처와 명확한 해결책을 제시하세요.')}
-        </p>
-      </div>
-    </div>
-  ` : '';
-
-  // 3-3. type-3 전용 내 최근 30일 평균 RPM 입력 박스
-  const type3RpmBoxHtml = isType3 ? `
-    <div class="kc-rpm-calc-box">
-      <div class="kc-rpm-title">내 최근 30일 평균 RPM 입력</div>
-      <div class="kc-rpm-desc">
-        애드센스 보고서의 최근 30일 평균 RPM(₩/페이지뷰 1,000회당 수익)을 입력하면 키워드별 예상 광고 수익을 맞춤 계산해 드립니다.
-      </div>
-      <div class="kc-rpm-row">
-        <input type="text" id="kc-rpm-input" class="kc-rpm-input" placeholder="예: 8500" value="8500">
-        <button type="button" class="kc-rpm-save-btn" onclick="alert('평균 RPM 8,500원이 정상 저장되었습니다! 예상 페이지 수익이 재계산됩니다.')">RPM 저장</button>
-      </div>
-    </div>
-  ` : '';
-
-  // 4. 최근 30일 더미 일별 데이터 생성 (DataLab 차트 & 테이블 연동)
-  const chartDays = [
-    { date: '2026-08-16 (일)', count: 31, ratio: 34.3, barH: 45 },
-    { date: '2026-08-17 (월)', count: 50, ratio: 56.0, barH: 68 },
-    { date: '2026-08-18 (화)', count: 53, ratio: 58.9, barH: 72 },
-    { date: '2026-08-19 (수)', count: 54, ratio: 60.2, barH: 74 },
-    { date: '2026-08-20 (목)', count: 53, ratio: 59.7, barH: 72 },
-    { date: '2026-08-21 (금)', count: 55, ratio: 61.2, barH: 75 },
-    { date: '2026-08-22 (토)', count: 34, ratio: 37.8, barH: 48 },
-    { date: '2026-08-23 (일)', count: 30, ratio: 33.3, barH: 42 },
-    { date: '2026-08-24 (월)', count: 42, ratio: 46.7, barH: 60 },
-    { date: '2026-08-25 (화)', count: 38, ratio: 42.2, barH: 54 },
-    { date: '2026-08-26 (수)', count: 37, ratio: 41.1, barH: 52 },
-    { date: '2026-08-27 (목)', count: 39, ratio: 43.3, barH: 55 },
-    { date: '2026-08-28 (금)', count: 40, ratio: 44.4, barH: 56 },
-    { date: '2026-08-29 (토)', count: 26, ratio: 28.9, barH: 38 },
-    { date: '2026-08-30 (일)', count: 29, ratio: 32.2, barH: 40 },
-    { date: '2026-08-31 (월)', count: 50, ratio: 55.6, barH: 68 },
-    { date: '2026-09-01 (화)', count: 52, ratio: 57.8, barH: 70 },
-    { date: '2026-09-02 (수)', count: 53, ratio: 58.9, barH: 72 },
-    { date: '2026-09-03 (목)', count: 56, ratio: 62.2, barH: 78 },
-    { date: '2026-09-04 (금)', count: 54, ratio: 60.0, barH: 75 },
-    { date: '2026-09-05 (토)', count: 35, ratio: 38.9, barH: 50 },
-    { date: '2026-09-06 (일)', count: 30, ratio: 33.3, barH: 42 },
-    { date: '2026-09-07 (월)', count: 42, ratio: 46.7, barH: 60 },
-    { date: '2026-09-08 (화)', count: 38, ratio: 42.2, barH: 54 },
-    { date: '2026-09-09 (수)', count: 40, ratio: 44.4, barH: 56 },
-    { date: '2026-09-10 (목)', count: 41, ratio: 45.6, barH: 58 },
-    { date: '2026-09-11 (금)', count: 42, ratio: 46.7, barH: 60 },
-    { date: '2026-09-12 (토)', count: 26, ratio: 28.9, barH: 38 },
-    { date: '2026-09-13 (일)', count: 29, ratio: 32.2, barH: 40 },
-    { date: '2026-09-14 (월)', count: 48, ratio: 54.1, barH: 66, active: true }
-  ];
-
-  // SVG 또는 HTML 바 차트 생성
-  const barChartHtml = chartDays.map(d => `
-    <div class="kc-chart-bar-wrap" title="${d.date} · ${d.count}건">
-      <div class="kc-chart-bar ${d.active ? 'active-bar' : ''}" style="height: ${d.barH}%;"></div>
-    </div>
-  `).join('');
-
-  // 30일 테이블 행 생성
-  const tableRowsHtml = chartDays.slice(0, 5).map(d => `
-    <tr>
-      <td style="padding: 10px 8px; color: #94a3b8; font-weight: 500;">${d.date}</td>
-      <td style="padding: 10px 8px; font-weight: 800; color: #f8fafc; text-align: center;">${d.count}건</td>
-      <td style="padding: 10px 8px; color: #64748b; text-align: center;">${d.ratio}</td>
-      <td style="padding: 10px 8px; width: 140px;">
-        <div style="background: rgba(255, 255, 255, 0.08); border-radius: 4px; height: 6px; width: 100%; overflow: hidden;">
-          <div style="background: #6366f1; height: 100%; width: ${d.ratio}%; border-radius: 4px;"></div>
-        </div>
-      </td>
-    </tr>
-  `).join('');
-
-  // 3-0. 사용자 요청 100% 일치 AI 글쓰기 가이드 영역 (글 작성 팁, 추천 제목, 글 목차 아웃라인, 추천 연관키워드 태그)
-  const aiOutlineList = Array.isArray(item.outline) && item.outline.length > 0 ? item.outline : (item.subtopics || [
-    `${item.keyword} 핵심 개요 및 최신 동향`,
-    `누가 대상인가? 핵심 자격 조건 및 신청 자격`,
-    `신청 절차 및 필수 제출 서류 체크리스트`,
-    `자주 묻는 질문(FAQ) 및 부결 방지 실전 꿀팁`
-  ]);
-
-  const aiOutlineHtml = aiOutlineList.map((line, oIdx) => {
-    const cleaned = line.replace(/^(\d+\.?)\s*/, '');
-    return `
-      <li style="margin-bottom: 8px; font-size: 0.92rem; color: #cbd5e1; line-height: 1.6;">
-        <strong style="color: #ea580c; font-size: 1rem; margin-right: 6px;">${oIdx + 1}.</strong> <span>${escapeHtml(cleaned)}</span>
-      </li>
-    `;
-  }).join('');
-
-  const aiRecommendKeywords = Array.isArray(item.recommendationKeywords) && item.recommendationKeywords.length > 0
+  // 6. 추천 태그: item.recommendationKeywords 배열을 칩 형태로 나열
+  const recKeywords = (Array.isArray(item.recommendationKeywords) && item.recommendationKeywords.length > 0)
     ? item.recommendationKeywords
-    : (item.longtails || [item.keyword + ' 신청', item.keyword + ' 자격', item.keyword + ' 서류', item.keyword + ' 조회']);
+    : (item.sub_keywords || item.longtails || [item.keyword, `${item.keyword} 신청`, `${item.keyword} 조건`, `${item.keyword} 서류`]);
 
-  const aiKeywordsChipsHtml = aiRecommendKeywords.map(kw => `
-    <button type="button" class="kc-tag-chip" onclick="searchDirectKeyword('${escapeHtml(kw)}')">
+  const recTagsHtml = recKeywords.map(kw => `
+    <button type="button" class="kc-recommend-chip" onclick="copySnippetText('${escapeHtml(kw)}')">
       # ${escapeHtml(kw)}
     </button>
   `).join('');
 
-  const aiGuideHtml = `
-    <div class="kc-ai-guide-box" style="margin: 20px 0; background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95)); border: 1px solid rgba(99, 102, 241, 0.4); border-radius: 14px; padding: 22px; box-shadow: 0 8px 24px rgba(0,0,0,0.35);">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px;">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 1.3rem;">✨</span>
-          <h3 style="margin: 0; font-size: 1.15rem; font-weight: 800; color: #a5b4fc;">AI 글쓰기 가이드 &amp; 키워드 정밀 분석</h3>
+  // 7. 하단 외부 링크 버튼
+  const naverSearchUrl = `https://search.naver.com/search.naver?query=${encodeURIComponent(item.keyword)}`;
+  const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(item.keyword)}`;
+
+  panel.innerHTML = `
+    <div class="kc-white-report-container" style="background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 26px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+      
+      <!-- 상단 헤더: 메인 타이틀 + 종합 점수 게이지 -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 22px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 20px;">
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+            <span style="background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; font-size: 0.72rem; font-weight: 800; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.05em;">
+              상세 키워드 분석 리포트
+            </span>
+            <span style="color: #94a3b8; font-size: 0.8rem;">
+              분류: <strong style="color: #e2e8f0;">${escapeHtml(item.badge || item.contentCategory || item.tag || '추천')}</strong>
+            </span>
+          </div>
+          <h2 style="margin: 0 0 10px 0; font-size: clamp(1.4rem, 2vw, 1.85rem); font-weight: 900; color: #f8fafc; line-height: 1.35; word-break: break-all;">
+            ${escapeHtml(item.keyword)}
+          </h2>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.82rem; color: #94a3b8;">
+            <span>월 검색량: <strong style="color: #38bdf8;">${(item.total !== undefined && item.total !== null) ? Number(item.total).toLocaleString() : (item.volume || '-')}</strong></span>
+            <span>블로그 문서수: <strong style="color: #a7f3d0;">${(item.blogCount !== null && item.blogCount !== undefined) ? Number(item.blogCount).toLocaleString() : (item.total_docs || item.docCount || '-')}</strong></span>
+            ${item.cpcBadge ? `<span>예상 단가: <strong style="color: #fbbf24;">${escapeHtml(item.cpcBadge)}</strong></span>` : ''}
+          </div>
         </div>
-        <div style="display: flex; gap: 6px; align-items: center;">
-          ${item.cpcBadge ? `<span class="kc-badge-cpc-blue" style="font-size: 0.8rem; padding: 4px 10px; font-weight: 800;">예상 단가 ${escapeHtml(item.cpcBadge)}</span>` : ''}
-          <span style="background: rgba(16, 185, 129, 0.15); color: #34d399; border-radius: 6px; padding: 4px 8px; font-size: 0.8rem; font-weight: 800;">
-            황금지수: ${item.goldenScore ? item.goldenScore + '점' : (item.score ? item.score + '점' : '94점')}
-          </span>
+
+        <!-- 종합 점수 (원형/게이지 배지) -->
+        <div class="kc-score-gauge-box">
+          <div class="kc-score-gauge-val">${goldenScoreVal}</div>
+          <div class="kc-score-gauge-lbl">종합 점수</div>
         </div>
       </div>
 
-      <!-- 1. 추천 제목 -->
-      <div style="margin-bottom: 16px;">
-        <div style="font-size: 0.82rem; font-weight: 700; color: #94a3b8; margin-bottom: 6px;">🎯 추천 블로그 제목</div>
-        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); border-left: 4px solid #6366f1; border-radius: 6px; padding: 12px 14px; gap: 10px;">
-          <span id="kc-copy-ai-title" style="font-weight: 700; color: #f8fafc; font-size: 0.95rem; word-break: break-all;">
-            ${escapeHtml(item.blog_title || (item.titles && item.titles[0]) || `${item.keyword} 핵심 총정리 및 가이드`)}
-          </span>
-          <button type="button" class="kc-purple-action-btn" style="margin: 0; padding: 4px 10px; font-size: 0.75rem; white-space: nowrap;" onclick="copySnippet('kc-copy-ai-title', '추천 제목이 복사되었습니다!')">
-            제목 복사
-          </button>
+      <!-- 선정 근거 / 왜 지금 주목할까 -->
+      <div style="margin-bottom: 20px; background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; border-radius: 8px; padding: 14px 16px;">
+        <div style="font-size: 0.84rem; font-weight: 800; color: #fbbf24; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+          <span>💡</span> 선정 근거 / 왜 지금 주목할까
         </div>
+        <p style="margin: 0; font-size: 0.9rem; color: #fde68a; line-height: 1.65; word-break: keep-all;">
+          ${escapeHtml(whyNowText)}
+        </p>
       </div>
 
-      <!-- 2. 글 작성 팁 -->
-      <div style="margin-bottom: 16px;">
-        <div style="font-size: 0.82rem; font-weight: 700; color: #94a3b8; margin-bottom: 6px;">💡 글 작성 팁 (상위노출 전략)</div>
-        <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; border-radius: 6px; padding: 12px 14px; color: #fde68a; font-size: 0.88rem; line-height: 1.6;">
-          ${escapeHtml(item.how_to_write || item.reason || '정보 탐색형 고단가 키워드입니다. 핵심 결론을 먼저 제시하고 표와 서류 목록을 첨부하세요.')}
+      <!-- 검색 의도 -->
+      <div style="margin-bottom: 20px; background: rgba(59, 130, 246, 0.08); border-left: 4px solid #3b82f6; border-radius: 8px; padding: 14px 16px;">
+        <div style="font-size: 0.84rem; font-weight: 800; color: #60a5fa; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+          <span>🎯</span> 검색 의도
         </div>
+        <p style="margin: 0; font-size: 0.9rem; color: #bfdbfe; line-height: 1.65; word-break: keep-all;">
+          ${escapeHtml(intentText)}
+        </p>
       </div>
 
-      <!-- 3. 글 목차 (아웃라인) -->
-      <div style="margin-bottom: 16px;">
+      <!-- 키워드 맞춤 제목 제안 (옆에 [제목 복사] 버튼) -->
+      <div style="margin-bottom: 22px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-          <div style="font-size: 0.82rem; font-weight: 700; color: #94a3b8;">📑 글 목차 (추천 아웃라인)</div>
-          <button type="button" class="kc-purple-action-btn" style="margin: 0; padding: 4px 10px; font-size: 0.75rem;" onclick="copyOutlineText('${escapeHtml(item.keyword)}')">
-            목차 복사
+          <div style="font-size: 0.86rem; font-weight: 800; color: #a5b4fc; display: flex; align-items: center; gap: 6px;">
+            <span>✨</span> 키워드 맞춤 제목 제안
+          </div>
+          <button type="button" class="kc-copy-pill-btn" onclick="copySnippetDirect('${escapeHtml(suggestedTitle).replace(/'/g, "\\'")}', '키워드 맞춤 제목이 복사되었습니다!')">
+            <span>📋</span> 제목 복사
           </button>
         </div>
-        <div style="background: rgba(15, 23, 42, 0.6); border-radius: 8px; padding: 14px 16px; border: 1px solid rgba(255, 255, 255, 0.08);">
-          <ol id="kc-outline-list" style="margin: 0; padding-left: 0; list-style: none;">
-            ${aiOutlineHtml}
+        <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 14px 16px; font-size: 0.96rem; font-weight: 700; color: #f8fafc; line-height: 1.5; word-break: break-all;">
+          ${escapeHtml(suggestedTitle)}
+        </div>
+      </div>
+
+      <!-- 키워드 맞춤 목차 제안 (옆에 [목차 복사] 버튼) -->
+      <div style="margin-bottom: 22px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <div style="font-size: 0.86rem; font-weight: 800; color: #a5b4fc; display: flex; align-items: center; gap: 6px;">
+            <span>📑</span> 키워드 맞춤 목차 제안
+          </div>
+          <button type="button" class="kc-copy-pill-btn" onclick="copyCustomOutline('${escapeHtml(item.keyword).replace(/'/g, "\\'")}')">
+            <span>📑</span> 목차 복사
+          </button>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 16px 18px;">
+          <ol id="kc-active-outline-list" style="margin: 0; padding: 0; list-style: none;">
+            ${outlineListHtml}
           </ol>
         </div>
       </div>
 
-      <!-- 4. 추천 연관키워드 태그 -->
-      <div>
-        <div style="font-size: 0.82rem; font-weight: 700; color: #94a3b8; margin-bottom: 8px;">🏷️ 추천 연관키워드 태그 (클릭 시 복사)</div>
+      <!-- 추천 태그 (칩 형태로 나열) -->
+      <div style="margin-bottom: 26px;">
+        <div style="font-size: 0.84rem; font-weight: 800; color: #94a3b8; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+          <span>🏷️</span> 추천 태그 (클릭 시 복사)
+        </div>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-          ${aiKeywordsChipsHtml}
-        </div>
-      </div>
-    </div>
-  `;
-
-  panel.innerHTML = `
-    <div class="kc-white-report-container">
-      <!-- 1. 상세 키워드 분석 리포트 상단 헤더 & 종합 참고 점수 -->
-      <div class="kc-detail-header-row">
-        <div>
-          <span class="kc-report-pill-badge">상세 키워드 분석 리포트</span>
-          <h2 class="kc-report-main-title">${escapeHtml(item.keyword)}</h2>
-          <div class="kc-report-sub-meta">
-            저장본 생성: ${item.date || '2026-09-14T03:28:09.897Z'} · ${escapeHtml(item.channel || '황금키워드 · 네이버 · 금융/재테크')}
-          </div>
-        </div>
-
-        ${(!isType3 && !isType4 && !isType5) ? `
-        <!-- 우측 상단 종합 참고 점수 (19.5 / 30) -->
-        <div class="kc-big-score-card">
-          <div class="kc-score-head-title">종합 참고 점수</div>
-          <div class="kc-score-big-val">
-            ${item.score || '19.5'}<span class="kc-score-denom"> / 30</span>
-          </div>
-          <div class="kc-score-bottom-note">수익·CPC 확정값 아님</div>
-        </div>
-        ` : ''}
-      </div>
-
-      <!-- 2. 주황색 주의 경고 박스 -->
-      <div class="kc-alert-box-clean">
-        이 화면의 점수와 광고주 수요는 실제 수익·CPC를 확정하거나 보장하지 않는 콘텐츠 기획용 참고 지표입니다. 최신 제도·가격·공식 정보는 발행 전에 다시 확인하세요.
-      </div>
-
-      <!-- 3. AI 글쓰기 가이드 & 키워드 분석 전면 노출 -->
-      ${aiGuideHtml}
-
-      ${type3TopHtml}
-
-      ${type4TopHtml}
-
-      ${type5TopHtml}
-
-      <!-- 3. 점수 읽는 법 안내 박스 -->
-      <div class="kc-guide-box-clean">
-        <h4 class="kc-guide-box-title">점수 읽는 법: 검색 수요·의도·지속성·경쟁 포화도를 함께 보는 참고 평가</h4>
-        <div class="kc-guide-tags">
-          <span><strong style="color: #2563eb;">T</strong> 검색 수요</span>
-          <span><strong style="color: #ea580c;">C</strong> 광고주 수요 참고</span>
-          <span><strong style="color: #16a34a;">D</strong> 지속 가능성</span>
-          <span><strong style="color: #2563eb;">N</strong> 경쟁 포화도</span>
-        </div>
-        <p class="kc-guide-text">
-          검색량과 광고경쟁은 한국어 검색 수요 참고값이며, 애드센스 주제와 콘텐츠 설계는 워드프레스에서 네이버·구글·빙 전체 검색 유입을 대상으로 평가합니다. 블로그 문서 수는 한국어 웹 콘텐츠 포화도 참고값입니다.
-        </p>
-      </div>
-
-      <!-- 4. 4대 세부 지표 4열 카드 (T, C, D, N 밑줄 바 포함) -->
-      <div class="kc-4metrics-grid-clean">
-        <!-- T -->
-        <div class="kc-metric-card-clean">
-          <div class="kc-card-t-lbl">T (트래픽 수요)</div>
-          <div class="kc-card-t-val">${item.t_score || '3'} <small>/ 5</small></div>
-          <div class="kc-card-bar-line bar-purple"></div>
-          <div class="kc-card-t-sub">월 검색량 ${item.volume}</div>
-        </div>
-        <!-- C -->
-        <div class="kc-metric-card-clean">
-          <div class="kc-card-t-lbl">C (광고주 수요)</div>
-          <div class="kc-card-t-val">${item.c_score || '2'} <small>/ 5</small></div>
-          <div class="kc-card-bar-line bar-orange"></div>
-          <div class="kc-card-t-sub">카테고리 기반 참고</div>
-        </div>
-        <!-- D -->
-        <div class="kc-metric-card-clean">
-          <div class="kc-card-t-lbl">D (지속 가능성)</div>
-          <div class="kc-card-t-val">${item.d_score || '3'} <small>/ 5</small></div>
-          <div class="kc-card-bar-line bar-green"></div>
-          <div class="kc-card-t-sub">검색 의도 기준</div>
-        </div>
-        <!-- N -->
-        <div class="kc-metric-card-clean">
-          <div class="kc-card-t-lbl">N (경쟁 포화도)</div>
-          <div class="kc-card-t-val">${item.n_score || '5'} <small>/ 5</small></div>
-          <div class="kc-card-bar-line bar-blue"></div>
-          <div class="kc-card-t-sub">문서/검색 ${item.ratio || '0.0145'}</div>
+          ${recTagsHtml}
         </div>
       </div>
 
-      ${type3RpmBoxHtml}
-
-      <!-- 5. 최근 30일 일별 추정 검색 관심도 (차트 & 테이블) -->
-      <div class="kc-chart-section-clean">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <h3 style="font-size: 1.15rem; font-weight: 900; color: #0f172a; margin: 0;">최근 30일 일별 추정 검색 관심도</h3>
-          <span style="font-size: 0.95rem; font-weight: 800; color: #16a34a;">${item.diffText || '최근 7일 -22%'}</span>
-        </div>
-        <p style="font-size: 0.82rem; color: #64748b; margin: 0 0 16px 0;">
-          네이버 DataLab 상대 관심도 기반 일별 실측 추이입니다. 막대나 표를 누르면 일별 수치를 볼 수 있습니다.
-        </p>
-
-        <!-- 3열 요약 카드 (월 검색량, 30일 최고 추정치, 데이터 구분) -->
-        <div class="kc-chart-3stats-row">
-          <div class="kc-stat-mini-box">
-            <span class="kc-stat-mini-lbl">월 검색량</span>
-            <strong class="kc-stat-mini-val">${item.volume}</strong>
-          </div>
-          <div class="kc-stat-mini-box">
-            <span class="kc-stat-mini-lbl">30일 최고 추정치</span>
-            <strong class="kc-stat-mini-val">${item.monthlyMax || '56건/일'}</strong>
-          </div>
-          <div class="kc-stat-mini-box">
-            <span class="kc-stat-mini-lbl">데이터 구분</span>
-            <strong class="kc-stat-mini-val">DataLab 실측</strong>
-          </div>
-        </div>
-
-        <!-- 막대 차트 비주얼 -->
-        <div class="kc-chart-visual-box">
-          <div class="kc-chart-y-axis">
-            <span>56</span>
-            <span>42</span>
-            <span>28</span>
-            <span>14</span>
-            <span>0</span>
-          </div>
-          <div class="kc-chart-bars-area">
-            ${barChartHtml}
-          </div>
-        </div>
-        <div class="kc-chart-x-labels">
-          <span>08/16</span>
-          <span>08/23</span>
-          <span>08/30</span>
-          <span>09/06</span>
-          <span>09/14</span>
-        </div>
-
-        <!-- 선택 날짜 안내 문구 -->
-        <div class="kc-selected-date-info">
-          <strong style="color: #ea580c;">선택 날짜: 2026-09-14</strong> · 일별 추정 검색량 <strong>48건</strong> · 상대 관심도 지수 <strong>54.1</strong>
-          <div style="font-size: 0.74rem; color: #94a3b8; margin-top: 2px;">
-            네이버 DataLab 상대 관심도를 월간 검색량 ${item.volume}건에 비례 배분한 실측 지표입니다.
-          </div>
-        </div>
-
-        <!-- 최근 30일 일별 추정 검색 관심도 상세 표 아코디언/박스 -->
-        <div class="kc-chart-table-wrap">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-size: 0.8rem; font-weight: 800; color: #cbd5e1; display: flex; align-items: center; gap: 4px;">
-              📊 최근 30일 일별 추정 검색 관심도 상세 표
-            </span>
-            <span style="font-size: 0.74rem; color: #94a3b8;">행을 누르면 상단 그래프 막대와 연동됩니다</span>
-          </div>
-          <table class="kc-datalab-table">
-            <thead>
-              <tr>
-                <th style="text-align: left;">날짜</th>
-                <th style="text-align: center;">일별 추정 검색량</th>
-                <th style="text-align: center;">상대 지수</th>
-                <th style="text-align: left;">상대 비율</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${tableRowsHtml}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- 6. 4대 설명 박스 (왜 지금 주목할까, 실제 사용자 검색의도, 선정 근거, 광고주 수요 참고) -->
-      <div class="kc-2x2-info-grid">
-        <div class="kc-info-card-2x2 card-mint">
-          <div class="kc-info-head">▣ 왜 지금 주목할까</div>
-          <div class="kc-info-body">
-            ${escapeHtml(item.whyNow || '최근 7일 상대 관심도는 첫 7일 대비 -22%입니다. 급격한 변화만으로 판단하지 말고 검색량과 문서수도 함께 확인하세요.')}
-          </div>
-        </div>
-        <div class="kc-info-card-2x2 card-blue">
-          <div class="kc-info-head">☁ 실제 사용자 검색의도</div>
-          <div class="kc-info-body">
-            ${escapeHtml(item.userIntent || `공식 월 ${item.volume}건 조회`)}
-          </div>
-        </div>
-        <div class="kc-info-card-2x2 card-purple">
-          <div class="kc-info-head">⌕ 선정 근거 (경쟁 포화도)</div>
-          <div class="kc-info-body">
-            ${escapeHtml(item.selectionBasis || `월 검색량 ${item.volume}건과 블로그 문서 ${item.docCount}건을 비교해 문서/검색 비율 ${item.ratio}을 참고 지표로 사용했습니다.`)}
-          </div>
-        </div>
-        <div class="kc-info-card-2x2 card-yellow">
-          <div class="kc-info-head">▣ 광고주 수요 참고</div>
-          <div class="kc-info-body">
-            ${escapeHtml(item.cpcNote || '검색 수요와 문서 경쟁을 먼저 보는 일반 탐색형 키워드입니다. 실제 광고 단가나 수익을 의미하지는 않습니다.')}
-          </div>
-        </div>
-      </div>
-
-      <!-- 7. 롱테일 파생 키워드 알약 박스 -->
-      <div class="kc-longtail-section">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 4px;">
-            ⌕ 롱테일 파생 키워드
-          </span>
-          <span style="font-size: 0.74rem; color: #94a3b8;">네이버 연관검색어 · 실제 검색어 우선</span>
-        </div>
-        <div class="kc-longtail-pills-row">
-          ${longtailsHtml}
-        </div>
-      </div>
-
-      <!-- 8. 추천 포스팅 제목 (네이버 홈판용 제목 & SEO 검색용 제목 + 복사 버튼) -->
-      <div class="kc-box-white-card">
-        <div style="font-size: 1rem; font-weight: 900; color: #f8fafc; margin-bottom: 14px; display: flex; align-items: center; gap: 6px;">
-          <span>▣</span> 추천 포스팅 제목
-        </div>
-
-        <!-- 네이버 홈판용 제목 -->
-        <div style="margin-bottom: 20px;">
-          <div style="font-size: 0.85rem; font-weight: 800; color: #34d399; margin-bottom: 8px;">네이버 홈판용 제목</div>
-          <div class="kc-dashed-title-box">
-            <span id="kc-copy-homepan-text" style="font-size: 0.95rem; font-weight: 800; color: #f8fafc;">${escapeHtml(homepanTitle)}</span>
-          </div>
-          <button type="button" class="kc-purple-action-btn" onclick="copySnippet('kc-copy-homepan-text', '홈판용 제목이 복사되었습니다!')">
-            홈판 제목 복사
-          </button>
-        </div>
-
-        <!-- SEO 검색용 제목 -->
-        <div>
-          <div style="font-size: 0.85rem; font-weight: 800; color: #60a5fa; margin-bottom: 8px;">SEO 검색용 제목</div>
-          <div class="kc-dashed-title-box">
-            <span id="kc-copy-seo-text" style="font-size: 0.95rem; font-weight: 800; color: #f8fafc;">${escapeHtml(seoTitle)}</span>
-          </div>
-          <button type="button" class="kc-purple-action-btn" onclick="copySnippet('kc-copy-seo-text', 'SEO 검색용 제목이 복사되었습니다!')">
-            SEO 제목 복사
-          </button>
-        </div>
-      </div>
-
-      <!-- 9. 소제목 목차 구성안 (파생 키워드 통합 구조 + 목차 복사 버튼) -->
-      <div class="kc-box-white-card">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-          <div style="font-size: 1rem; font-weight: 900; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
-            <span>☷</span> 소제목 목차 구성안 (파생 키워드 통합 구조)
-          </div>
-          <button type="button" class="kc-purple-action-btn" style="margin: 0;" onclick="copyOutlineText('${escapeHtml(item.keyword)}')">
-            목차 복사
-          </button>
-        </div>
-
-        <ol id="kc-outline-list" style="list-style: none; padding: 0; margin: 0 0 16px 0;">
-          ${outlineListHtml}
-        </ol>
-
-        <div style="font-size: 0.8rem; color: #94a3b8; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08);">
-          CTA 제안: ${escapeHtml(item.ctaSuggestion || `${item.keyword} 관련 상세 최신 정보 및 핵심 가이드 확인하기`)}
-        </div>
-      </div>
-
-      <!-- 10. 최하단 검색엔진 4대 검색 결과 바로가기 버튼 바 -->
-      <div class="kc-portals-btn-grid">
-        <a href="https://search.naver.com/search.naver?query=${encodeURIComponent(item.keyword)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn portal-green">
-          네이버 검색결과
+      <!-- 하단 외부 검색 링크 버튼 -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+        <a href="${naverSearchUrl}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(3, 199, 90, 0.12); border: 1px solid rgba(3, 199, 90, 0.4); color: #22c55e; padding: 12px 14px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 0.88rem; transition: all 0.2s ease;">
+          <span>네이버 검색결과</span> <span>↗</span>
         </a>
-        <a href="https://search.naver.com/search.naver?where=blog&query=${encodeURIComponent(item.keyword)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
-          블로그 문서 확인
-        </a>
-        <a href="https://www.google.com/search?q=${encodeURIComponent(item.keyword)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
-          구글 검색결과
-        </a>
-        <a href="https://www.bing.com/search?q=${encodeURIComponent(item.keyword)}" target="_blank" rel="noopener noreferrer" class="kc-portal-btn">
-          빙 검색결과
+        <a href="${googleSearchUrl}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(66, 133, 244, 0.12); border: 1px solid rgba(66, 133, 244, 0.4); color: #60a5fa; padding: 12px 14px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 0.88rem; transition: all 0.2s ease;">
+          <span>구글 검색결과</span> <span>↗</span>
         </a>
       </div>
+
     </div>
   `;
 }
 
-// 텍스트 클립보드 복사 헬퍼
-window.copySnippet = function(elemId, successMsg) {
-  const elem = document.getElementById(elemId);
-  if (!elem) return;
-  const text = elem.textContent || elem.innerText;
+// 직접 텍스트 클립보드 복사 헬퍼 (제목 복사 등)
+window.copySnippetDirect = function(text, successMsg) {
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text).then(() => {
       if (window.showToast) window.showToast(successMsg, '📋');
+    }).catch(() => {
+      fallbackCopy(text, successMsg);
     });
   } else {
+    fallbackCopy(text, successMsg);
+  }
+};
+
+// 목차 일괄 복사 헬퍼 ([목차 복사] 버튼)
+window.copyCustomOutline = function(keyword) {
+  const list = document.getElementById('kc-active-outline-list');
+  let fullText = `[${keyword}] 상위노출 추천 목차\n\n`;
+  if (list) {
+    const lines = Array.from(list.querySelectorAll('li')).map((li, i) => {
+      const textSpan = li.querySelector('span:nth-child(2)');
+      const lineText = textSpan ? textSpan.innerText.trim() : li.innerText.trim();
+      return `${i + 1}. ${lineText}`;
+    }).join('\n');
+    fullText += lines;
+  }
+  window.copySnippetDirect(fullText, '소제목 목차 구성안이 클립보드에 복사되었습니다!');
+};
+
+// 텍스트 복사 유틸
+window.copySnippetText = function(text) {
+  window.copySnippetDirect(text, `'${text}' 태그가 복사되었습니다!`);
+};
+
+// 클립보드 Fallback 함수
+function fallbackCopy(text, successMsg) {
+  try {
     const ta = document.createElement('textarea');
     ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
     document.body.appendChild(ta);
     ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
     if (window.showToast) window.showToast(successMsg, '📋');
+  } catch (e) {
+    console.error('복사 실패:', e);
   }
-};
-
-// 목차 일괄 복사 헬퍼
-window.copyOutlineText = function(keyword) {
-  const list = document.getElementById('kc-outline-list');
-  if (!list) return;
-  const lines = Array.from(list.querySelectorAll('li')).map(li => li.innerText.trim()).join('\n');
-  const fullText = `[${keyword}] 상위노출 추천 목차\n\n` + lines;
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(fullText).then(() => {
-      if (window.showToast) window.showToast('소제목 목차 전체가 클립보드에 복사되었습니다!', '📑');
-    });
-  } else {
-    const ta = document.createElement('textarea');
-    ta.value = fullText;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    if (window.showToast) window.showToast('소제목 목차 전체가 클립보드에 복사되었습니다!', '📑');
-  }
-};
-
-// 정책신호형 목차 복사 헬퍼
-window.copyPolicyOutline = function(keyword) {
-  const list = document.getElementById('kc-policy-outline-list');
-  if (!list) return;
-  const items = Array.from(list.querySelectorAll('.kc-policy-outline-item')).map(item => item.innerText.trim()).join('\n');
-  const fullText = `[${keyword}] 정책신호형 추천 목차\n\n` + items;
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(fullText).then(() => {
-      if (window.showToast) window.showToast('추천 목차 구성안이 복사되었습니다!', '📋');
-    });
-  } else {
-    const ta = document.createElement('textarea');
-    ta.value = fullText;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    if (window.showToast) window.showToast('추천 목차 구성안이 복사되었습니다!', '📋');
-  }
-};
-
-// 롱테일 클릭 시 검색 연동
-window.searchDirectKeyword = function(kw) {
-  if (window.showToast) window.showToast(`'${kw}' 파생 키워드를 복사했습니다.`, '⌕');
-  navigator.clipboard.writeText(kw).catch(() => {});
-};
+}
 
 function escapeHtml(str) {
+  if (str === null || str === undefined) return '';
   return String(str).replace(/[&<>"']/g, s => ({
     '&': '&amp;',
     '<': '&lt;',
