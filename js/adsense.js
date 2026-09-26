@@ -461,9 +461,12 @@ function renderDetailReport(item) {
 
   // 추천 제목 HTML
   const titlesHtml = titles.map((title, i) => `
-    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 12px 14px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
-      <span style="font-size: 0.92rem; color: #f1f5f9; font-weight: 700; line-height: 1.4;">${i + 1}. ${escapeHtml(title)}</span>
-      <button type="button" onclick="copySnippetDirect('${escapeHtml(title)}', '제목이 복사되었습니다!')" style="background: rgba(37, 99, 235, 0.2); border: 1px solid #3b82f6; color: #60a5fa; border-radius: 6px; padding: 5px 10px; font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;">
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+      <div style="display: flex; align-items: center; gap: 10px; flex: 1;">
+        <span style="background: #e0f2fe; color: #0369a1; font-weight: 700; border-radius: 6px; padding: 3px 8px; font-size: 0.8rem; flex-shrink: 0;">${i + 1}</span>
+        <span style="font-size: 15px; color: #1e293b !important; font-weight: 600; line-height: 1.4;">${escapeHtml(title)}</span>
+      </div>
+      <button type="button" onclick="copySnippetDirect('${escapeHtml(title)}', '제목이 복사되었습니다!')" style="background: #eff6ff; border: 1px solid #bfdbfe; color: #1d4ed8; border-radius: 6px; padding: 6px 12px; font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.2s;">
         📋 제목 복사
       </button>
     </div>
@@ -471,15 +474,15 @@ function renderDetailReport(item) {
 
   // 소제목 목차 HTML
   const outlineHtml = outline.map((sec, i) => `
-    <li style="margin-bottom: 8px; color: #cbd5e1; font-size: 0.9rem; display: flex; align-items: flex-start; gap: 8px;">
-      <span style="color: #10b981; font-weight: 800;">${i + 1}.</span>
-      <span>${escapeHtml(sec)}</span>
+    <li style="margin-bottom: 10px; color: #1f2937 !important; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 10px;">
+      <span style="background: #e0f2fe; color: #0369a1; font-weight: 700; border-radius: 6px; padding: 2px 7px; font-size: 0.78rem; flex-shrink: 0;">${i + 1}</span>
+      <span style="color: #1f2937 !important; font-weight: 500;">${escapeHtml(sec)}</span>
     </li>
   `).join('');
 
   // 연관 키워드 태그 HTML
   const tagsHtml = related.map(tag => `
-    <span class="kc-longtail-pill" onclick="copySnippetText('${escapeHtml(tag)}')" style="cursor: pointer; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); color: #cbd5e1; border-radius: 16px; padding: 6px 12px; font-size: 0.8rem; font-weight: 600; transition: all 0.2s;">
+    <span class="kc-longtail-pill" onclick="copySnippetText('${escapeHtml(tag)}')" style="cursor: pointer; background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155 !important; border-radius: 16px; padding: 6px 12px; font-size: 0.8rem; font-weight: 600; transition: all 0.2s;">
       #${escapeHtml(tag)}
     </span>
   `).join('');
@@ -488,45 +491,45 @@ function renderDetailReport(item) {
   const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(kw)}`;
 
   panel.innerHTML = `
-    <div class="kc-detail-scroll-wrap" style="padding: 24px; color: var(--text-main);">
+    <div class="kc-detail-scroll-wrap" style="padding: 24px; color: #1f2937;">
       <!-- 1. 헤더 영역 -->
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid #e2e8f0; padding-bottom: 16px;">
         <div>
-          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-            <span style="background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 3px 8px; font-size: 0.78rem; font-weight: 800;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+            <span style="background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; border-radius: 6px; padding: 3px 8px; font-size: 0.78rem; font-weight: 800;">
               ${escapeHtml(cat)}
             </span>
-            <span style="color: var(--text-muted); font-size: 0.82rem;">실측 검색 ${totalVol.toLocaleString()}회 · 문서 ${blogDocs.toLocaleString()}건</span>
+            <span style="color: #64748b !important; font-size: 0.82rem; font-weight: 500;">실측 검색 ${totalVol.toLocaleString()}회 · 문서 ${blogDocs.toLocaleString()}건</span>
           </div>
-          <h2 style="font-size: 1.45rem; font-weight: 900; color: #ffffff; margin: 0; line-height: 1.3;">
+          <h2 style="font-size: 24px; font-weight: 700; color: #111827 !important; margin: 0; line-height: 1.3;">
             ${escapeHtml(kw)}
           </h2>
         </div>
         <div style="text-align: right;">
-          <div style="font-size: 1.1rem; font-weight: 900; color: #fbbf24;">${escapeHtml(badgeText)}</div>
-          <div style="font-size: 0.8rem; color: #22c55e; font-weight: 800;">황금점수 ${gScore}점</div>
+          <div style="font-size: 1.05rem; font-weight: 800; color: #d97706;">${escapeHtml(badgeText)}</div>
+          <div style="font-size: 0.82rem; color: #15803d; font-weight: 800; margin-top: 2px;">황금점수 ${gScore}점</div>
         </div>
       </div>
 
       <!-- 2. 지표 요약 카드 -->
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px;">
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 10px 14px;">
-          <div style="font-size: 0.78rem; color: var(--text-muted);">총 실측 검색량</div>
-          <div style="font-size: 0.95rem; font-weight: 800; color: #38bdf8; margin-top: 2px;">${totalVol.toLocaleString()}회/월</div>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px;">
+          <div style="font-size: 0.78rem; color: #64748b !important; font-weight: 600;">총 실측 검색량</div>
+          <div style="font-size: 1.05rem; font-weight: 700; color: #0284c7 !important; margin-top: 3px;">${totalVol.toLocaleString()}회/월</div>
         </div>
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 10px 14px;">
-          <div style="font-size: 0.78rem; color: var(--text-muted);">블로그 전체 문서수</div>
-          <div style="font-size: 0.95rem; font-weight: 800; color: #a78bfa; margin-top: 2px;">${blogDocs.toLocaleString()}건 (초희소)</div>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px;">
+          <div style="font-size: 0.78rem; color: #64748b !important; font-weight: 600;">블로그 전체 문서수</div>
+          <div style="font-size: 1.05rem; font-weight: 700; color: #0d9488 !important; margin-top: 3px;">${blogDocs.toLocaleString()}건 (초희소)</div>
         </div>
       </div>
 
       <!-- 3. 상위노출 추천 제목 초안 (item.home_title) -->
       <div style="margin-bottom: 24px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <h3 style="font-size: 1rem; font-weight: 800; color: #f8fafc; margin: 0; display: flex; align-items: center; gap: 6px;">
+          <h3 style="font-size: 16px; font-weight: 600; color: #1f2937 !important; margin: 0; display: flex; align-items: center; gap: 6px;">
             <span>✍️</span> 상위노출 추천 제목 초안
           </h3>
-          <span style="font-size: 0.76rem; color: var(--text-muted);">클릭 시 즉시 복사</span>
+          <span style="font-size: 0.76rem; color: #64748b !important;">클릭 시 즉시 복사</span>
         </div>
         ${titlesHtml}
       </div>
@@ -534,41 +537,41 @@ function renderDetailReport(item) {
       <!-- 4. 소제목 목차 제안 (item.outline) -->
       <div style="margin-bottom: 24px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <h3 style="font-size: 1rem; font-weight: 800; color: #f8fafc; margin: 0; display: flex; align-items: center; gap: 6px;">
+          <h3 style="font-size: 16px; font-weight: 600; color: #1f2937 !important; margin: 0; display: flex; align-items: center; gap: 6px;">
             <span>📑</span> 소제목 목차 제안 (H2/H3 권장)
           </h3>
-          <button type="button" onclick="copyCustomOutline('${escapeHtml(kw)}')" style="background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #34d399; border-radius: 6px; padding: 4px 10px; font-size: 0.78rem; font-weight: 700; cursor: pointer;">
+          <button type="button" onclick="copyCustomOutline('${escapeHtml(kw)}')" style="background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; border-radius: 6px; padding: 4px 10px; font-size: 0.78rem; font-weight: 700; cursor: pointer; transition: all 0.2s;">
             전체 목차 복사
           </button>
         </div>
-        <ul id="kc-active-outline-list" style="background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 14px 18px 6px 18px; list-style: none; margin: 0;">
+        <ul id="kc-active-outline-list" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px 4px 18px; list-style: none; margin: 0;">
           ${outlineHtml}
         </ul>
       </div>
 
       <!-- 5. 선정 근거 (item.whyNow) -->
       <div style="margin-bottom: 20px;">
-        <h3 style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+        <h3 style="font-size: 16px; font-weight: 600; color: #1f2937 !important; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
           <span>💡</span> 왜 지금 주목해야 할까? (선정 근거)
         </h3>
-        <div style="background: rgba(59, 130, 246, 0.08); border-left: 3px solid #3b82f6; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.88rem; color: #cbd5e1; line-height: 1.55;">
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #3b82f6; border-radius: 0 8px 8px 0; padding: 14px 16px; font-size: 0.92rem; color: #374151 !important; line-height: 1.6;">
           ${escapeHtml(whyNowText)}
         </div>
       </div>
 
       <!-- 6. 검색 의도 (item.intent) -->
       <div style="margin-bottom: 20px;">
-        <h3 style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+        <h3 style="font-size: 16px; font-weight: 600; color: #1f2937 !important; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
           <span>🎯</span> 검색자의 핵심 의도 (Search Intent)
         </h3>
-        <div style="background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.88rem; color: #cbd5e1; line-height: 1.55;">
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #10b981; border-radius: 0 8px 8px 0; padding: 14px 16px; font-size: 0.92rem; color: #374151 !important; line-height: 1.6;">
           ${escapeHtml(intentText)}
         </div>
       </div>
 
       <!-- 7. 연관/추천 키워드 -->
       <div style="margin-bottom: 24px;">
-        <h3 style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; margin: 0 0 10px 0; display: flex; align-items: center; gap: 6px;">
+        <h3 style="font-size: 16px; font-weight: 600; color: #1f2937 !important; margin: 0 0 10px 0; display: flex; align-items: center; gap: 6px;">
           <span>🔗</span> 연관 추천 키워드 (클릭 시 복사)
         </h3>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
@@ -577,11 +580,11 @@ function renderDetailReport(item) {
       </div>
 
       <!-- 8. 포털 바로가기 링크 -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
-        <a href="${naverSearchUrl}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(3, 199, 90, 0.12); border: 1px solid rgba(3, 199, 90, 0.4); color: #22c55e; padding: 12px 14px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 0.88rem; transition: all 0.2s ease;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 18px; border-top: 1px solid #e2e8f0;">
+        <a href="${naverSearchUrl}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #f0fdf4; border: 1px solid #86efac; color: #15803d; padding: 12px 14px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 0.88rem; transition: all 0.2s ease;">
           <span>네이버 검색결과</span> <span>↗</span>
         </a>
-        <a href="${googleSearchUrl}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(66, 133, 244, 0.12); border: 1px solid rgba(66, 133, 244, 0.4); color: #60a5fa; padding: 12px 14px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 0.88rem; transition: all 0.2s ease;">
+        <a href="${googleSearchUrl}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #eff6ff; border: 1px solid #93c5fd; color: #1d4ed8; padding: 12px 14px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 0.88rem; transition: all 0.2s ease;">
           <span>구글 검색결과</span> <span>↗</span>
         </a>
       </div>
@@ -609,7 +612,7 @@ function renderSeasonalTab() {
   container.innerHTML = `
     <div class="kc-seasonal-header-bar" style="margin-bottom: 20px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <h3 style="font-size: 1.15rem; font-weight: 800; color: #f8fafc; margin: 0; display: flex; align-items: center; gap: 8px;">
+        <h3 style="font-size: 1.15rem; font-weight: 800; color: #1f2937; margin: 0; display: flex; align-items: center; gap: 8px;">
           <span>📅</span> 월별 시즌성 키워드 캘린더
         </h3>
         <span style="font-size: 0.82rem; color: var(--text-muted);">
@@ -747,10 +750,10 @@ function renderYoutubeGrid() {
   const summaryBarHtml = `
     <div class="kc-yt-summary-bar">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <span style="font-size: 1.1rem; font-weight: 900; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
+        <span style="font-size: 1.1rem; font-weight: 900; color: #1f2937; display: flex; align-items: center; gap: 6px;">
           <span>🔥</span> 바이럴숏폼 · 유튜브 실시간 큐레이션
         </span>
-        <span style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 6px; padding: 2px 8px; font-size: 0.76rem; font-weight: 800;">
+        <span style="background: rgba(239, 68, 68, 0.15); color: #dc2626; border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 6px; padding: 2px 8px; font-size: 0.76rem; font-weight: 800;">
           전체 실시간 종합
         </span>
       </div>
