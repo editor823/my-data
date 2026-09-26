@@ -511,24 +511,24 @@ window.openManageThemeStocksModal = async function() {
   };
 
   modalWrap.innerHTML = `
-    <div style="background: #0f172a; border: 1.5px solid rgba(168, 85, 247, 0.5); border-radius: 14px; width: 100%; max-width: 540px; box-shadow: 0 20px 40px rgba(0,0,0,0.85); overflow: hidden; display: flex; flex-direction: column;">
+    <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; width: 100%; max-width: 540px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); overflow: hidden; display: flex; flex-direction: column;">
       <!-- 헤더 -->
-      <div style="padding: 16px 20px; background: rgba(30, 41, 59, 0.7); border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;">
+      <div style="padding: 16px 20px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 1.1rem;">⚙️</span>
           <div>
-            <h4 style="margin: 0; font-size: 0.96rem; font-weight: 800; color: #f8fafc;">[${escapeHtml(themeName)}] 테마 종목 관리</h4>
-            <div style="font-size: 0.72rem; color: #c084fc; margin-top: 2px;">종목 추가/삭제 시 stock_dictionary.json 및 타임라인에 즉시 영구 반영됩니다.</div>
+            <h4 style="margin: 0; font-size: 0.96rem; font-weight: 800; color: #1e293b;">[${escapeHtml(themeName)}] 테마 종목 관리</h4>
+            <div style="font-size: 0.72rem; color: #9333ea; margin-top: 2px;">종목 추가/삭제 시 stock_dictionary.json 및 타임라인에 즉시 영구 반영됩니다.</div>
           </div>
         </div>
-        <button type="button" onclick="document.getElementById('manage-theme-stocks-modal-wrap')?.remove()" style="background: transparent; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer; padding: 0 4px;">✕</button>
+        <button type="button" onclick="document.getElementById('manage-theme-stocks-modal-wrap')?.remove()" style="background: transparent; border: none; color: #64748b; font-size: 1.2rem; cursor: pointer; padding: 0 4px;">✕</button>
       </div>
 
       <!-- 본문: 소속 종목 뱃지 영역 -->
       <div style="padding: 18px 20px; max-height: 280px; overflow-y: auto;">
-        <div style="font-size: 0.78rem; font-weight: 700; color: #cbd5e1; margin-bottom: 10px; display: flex; justify-content: space-between;">
+        <div style="font-size: 0.78rem; font-weight: 700; color: #334155; margin-bottom: 10px; display: flex; justify-content: space-between;">
           <span>현재 소속 종목 목록 (× 클릭 시 영구 삭제)</span>
-          <span id="modal-stocks-count-badge" style="color: #38bdf8; font-weight: 800;">총 ${stocksList.length}개</span>
+          <span id="modal-stocks-count-badge" style="color: #0284c7; font-weight: 800;">총 ${stocksList.length}개</span>
         </div>
         <div id="modal-stock-badges-container" style="display: flex; flex-wrap: wrap; gap: 8px;">
           ${renderStockBadges()}
@@ -536,10 +536,10 @@ window.openManageThemeStocksModal = async function() {
       </div>
 
       <!-- 하단: 신규 종목 추가 바 -->
-      <div style="padding: 16px 20px; background: rgba(30, 41, 59, 0.5); border-top: 1px solid rgba(255,255,255,0.08);">
-        <div style="font-size: 0.76rem; color: #94a3b8; margin-bottom: 6px; font-weight: 600;">➕ 새 종목 직접 추가</div>
+      <div style="padding: 16px 20px; background: #f8fafc; border-top: 1px solid #e2e8f0;">
+        <div style="font-size: 0.76rem; color: #64748b; margin-bottom: 6px; font-weight: 600;">➕ 새 종목 직접 추가</div>
         <div style="display: flex; gap: 8px;">
-          <input type="text" id="modal-add-stock-input" placeholder="종목명 입력 (예: 한미반도체)" onkeydown="if(event.key==='Enter'){ handleModalAddStock(); }" style="flex: 1; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(168, 85, 247, 0.4); color: #fff; padding: 8px 12px; border-radius: 8px; font-size: 0.82rem; outline: none;">
+          <input type="text" id="modal-add-stock-input" placeholder="종목명 입력 (예: 한미반도체)" onkeydown="if(event.key==='Enter'){ handleModalAddStock(); }" style="flex: 1; background: #ffffff; border: 1px solid #cbd5e1; color: #1e293b; padding: 8px 12px; border-radius: 8px; font-size: 0.82rem; outline: none;">
           <button type="button" onclick="handleModalAddStock()" style="background: linear-gradient(135deg, #9333ea, #7c3aed); border: 1px solid #c084fc; color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 0.82rem; font-weight: 800; cursor: pointer; transition: all 0.15s; white-space: nowrap;">
             추가 및 영구 등록
           </button>
@@ -1053,35 +1053,35 @@ window.openSaveCaseModal = function() {
 
   const modalHtml = `
     <div id="save-case-modal-wrap" style="position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); z-index: 99999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); padding: 16px;">
-      <div style="background: #0f172a; border: 1.5px solid rgba(52, 211, 153, 0.5); border-radius: 14px; width: 100%; max-width: 520px; box-shadow: 0 16px 40px rgba(0,0,0,0.8); overflow: hidden; animation: fadeIn 0.2s ease;">
-        <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 78, 59, 0.4)); padding: 16px 20px; border-bottom: 1px solid rgba(52, 211, 153, 0.3); display: flex; justify-content: space-between; align-items: center;">
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; width: 100%; max-width: 520px; box-shadow: 0 16px 40px rgba(0,0,0,0.15); overflow: hidden; animation: fadeIn 0.2s ease;">
+        <div style="background: #f0fdf4; padding: 16px 20px; border-bottom: 1px solid #bbf7d0; display: flex; justify-content: space-between; align-items: center;">
           <div style="display: flex; align-items: center; gap: 8px;">
             <span style="font-size: 1.3rem;">💾</span>
-            <h4 style="margin: 0; color: #f8fafc; font-size: 1.05rem; font-weight: 900;">탐정 사건 일지 기록</h4>
+            <h4 style="margin: 0; color: #065f46; font-size: 1.05rem; font-weight: 900;">탐정 사건 일지 기록</h4>
           </div>
-          <button type="button" onclick="document.getElementById('save-case-modal-wrap').remove()" style="background: transparent; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer; line-height: 1;">✕</button>
+          <button type="button" onclick="document.getElementById('save-case-modal-wrap').remove()" style="background: transparent; border: none; color: #64748b; font-size: 1.2rem; cursor: pointer; line-height: 1;">✕</button>
         </div>
 
         <div style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
-          <div style="background: rgba(30, 41, 59, 0.6); padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
-            <div style="font-size: 0.75rem; color: #94a3b8; font-weight: 700;">분석 대상 테마 및 대장주</div>
-            <div style="font-size: 1rem; font-weight: 900; color: #38bdf8; margin-top: 2px;">
+          <div style="background: #f8fafc; padding: 12px 14px; border-radius: 8px; border: 1px solid #e2e8f0;">
+            <div style="font-size: 0.75rem; color: #64748b; font-weight: 700;">분석 대상 테마 및 대장주</div>
+            <div style="font-size: 1rem; font-weight: 900; color: #0284c7; margin-top: 2px;">
               [${currentTheme.theme_name}] · ${leadStock}
             </div>
-            <div style="font-size: 0.8rem; color: #4ade80; margin-top: 4px; font-weight: 700;">
+            <div style="font-size: 0.8rem; color: #059669; margin-top: 4px; font-weight: 700;">
               진입 기준가: <span id="modal-case-base-price">${currPrice}</span> · ${new Date().toISOString().slice(0, 10)}
             </div>
             <div style="display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap;">
-              <span style="font-size: 0.7rem; background: rgba(56,189,248,0.15); color: #7dd3fc; padding: 2px 6px; border-radius: 4px;">${shootBadge}</span>
-              <span style="font-size: 0.7rem; background: rgba(239,68,68,0.15); color: #fca5a5; padding: 2px 6px; border-radius: 4px;">${contBadge}</span>
+              <span style="font-size: 0.7rem; background: #eff6ff; color: #0284c7; padding: 2px 6px; border-radius: 4px; border: 1px solid #bfdbfe;">${shootBadge}</span>
+              <span style="font-size: 0.7rem; background: #fef2f2; color: #dc2626; padding: 2px 6px; border-radius: 4px; border: 1px solid #fecaca;">${contBadge}</span>
             </div>
           </div>
 
           <div>
-            <label style="font-size: 0.8rem; font-weight: 800; color: #cbd5e1; display: block; margin-bottom: 6px;">
+            <label style="font-size: 0.8rem; font-weight: 800; color: #1e293b; display: block; margin-bottom: 6px;">
               탐정 진입 메모 (투자 가설 및 목표 시점)
             </label>
-            <textarea id="modal-case-user-memo" placeholder="예: 건보 급여화 1파 상한가 후 5일선 눌림목 첫 공략, 1주일 내 후속 공청회 보도 모멘텀 기대" rows="3" style="width: 100%; background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #fff; padding: 10px 12px; font-size: 0.84rem; outline: none; resize: none; box-sizing: border-box;"></textarea>
+            <textarea id="modal-case-user-memo" placeholder="예: 건보 급여화 1파 상한가 후 5일선 눌림목 첫 공략, 1주일 내 후속 공청회 보도 모멘텀 기대" rows="3" style="width: 100%; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; color: #1e293b; padding: 10px 12px; font-size: 0.84rem; outline: none; resize: none; box-sizing: border-box;"></textarea>
           </div>
 
           <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 6px;">
@@ -5216,42 +5216,42 @@ function selectStockTheme(idx, dataList = STOCK_THEMES_DATA) {
   const relatedNewsUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(relatedNewsKeyword)}`;
 
   panel.innerHTML = `
-    <div class="kc-white-report-container" style="background: #0f172a; border-color: rgba(255,255,255,0.08);">
+    <div class="kc-white-report-container" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
       <!-- 1. 헤더 -->
       <div class="kc-detail-header-row">
         <div>
-          <span class="kc-report-pill-badge" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35); color: #38bdf8;">
+          <span class="kc-report-pill-badge" style="background: #eff6ff; border-color: #bfdbfe; color: #0284c7;">
             실시간 테마 분석 리포트
           </span>
-          <h2 class="kc-report-main-title" style="color: #f8fafc;">${escapeHtml(item.name)}</h2>
-          <div class="kc-report-sub-meta" style="color: #94a3b8;">
-            당일 등락률: <strong style="color: #ef4444;">${item.rate}</strong> · 당일 총 거래대금: <strong style="color: #f8fafc;">${item.tradeAmount}</strong>
+          <h2 class="kc-report-main-title" style="color: #1e293b;">${escapeHtml(item.name)}</h2>
+          <div class="kc-report-sub-meta" style="color: #64748b;">
+            당일 등락률: <strong style="color: #dc2626;">${item.rate}</strong> · 당일 총 거래대금: <strong style="color: #1e293b;">${item.tradeAmount}</strong>
           </div>
         </div>
         
-        <div class="kc-big-score-card" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.35);">
-          <div class="kc-score-head-title" style="color: #38bdf8;">테마 강도 점수</div>
-          <div class="kc-score-big-val" style="color: #38bdf8;">${item.score || 85}<span class="kc-score-denom" style="color: #94a3b8;"> / 100</span></div>
-          <div class="kc-score-bottom-note" style="color: #38bdf8;">${escapeHtml(item.scoreNote || `시장 ${item.rank}위 섹터`)}</div>
+        <div class="kc-big-score-card" style="background: #eff6ff; border-color: #bfdbfe;">
+          <div class="kc-score-head-title" style="color: #0284c7;">테마 강도 점수</div>
+          <div class="kc-score-big-val" style="color: #0284c7;">${item.score || 85}<span class="kc-score-denom" style="color: #64748b;"> / 100</span></div>
+          <div class="kc-score-bottom-note" style="color: #0284c7;">${escapeHtml(item.scoreNote || `시장 ${item.rank}위 섹터`)}</div>
         </div>
       </div>
 
       <!-- 2. 핵심 대장주 및 부대장주 -->
-      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
-        <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; margin-bottom: 8px;">
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+        <div style="font-size: 0.85rem; font-weight: 800; color: #0284c7; margin-bottom: 8px;">
           👑 대장주 및 핵심 수혜 종목 리스트
         </div>
-        <div style="font-size: 1.05rem; font-weight: 900; color: #f8fafc;">
+        <div style="font-size: 1.05rem; font-weight: 900; color: #1e293b;">
           ${escapeHtml(item.leader)}
         </div>
       </div>
 
       <!-- 3. 재료(호재 뉴스) 분석 및 선정 이유 -->
       <div style="margin-bottom: 20px;">
-        <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+        <div style="font-size: 0.95rem; font-weight: 800; color: #1e293b; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
           <span>📋</span> 왜 오늘 이 테마가 올랐을까? (재료 분석)
         </div>
-        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 10px; padding: 14px 16px; font-size: 0.88rem; color: #cbd5e1; line-height: 1.65;">
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 14px 16px; font-size: 0.88rem; color: #166534; line-height: 1.65;">
           ${escapeHtml(item.reason)}
         </div>
       </div>
@@ -5259,11 +5259,11 @@ function selectStockTheme(idx, dataList = STOCK_THEMES_DATA) {
       <!-- 4. 실시간 관련 뉴스 모아보기 -->
       <div style="margin-bottom: 20px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
-          <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
+          <div style="font-size: 0.95rem; font-weight: 800; color: #1e293b; display: flex; align-items: center; gap: 6px;">
             <span>📰</span> 실시간 특징주 뉴스
           </div>
           <!-- 4번 탭 -> 2번 탭 즉시 전환 버튼 -->
-          <button type="button" onclick="navigateToThemeTimeline('${item.id}')" style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.2)); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); padding: 4px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s ease;">
+          <button type="button" onclick="navigateToThemeTimeline('${item.id}')" style="background: #f8fafc; color: #0284c7; border: 1px solid #e2e8f0; padding: 4px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s ease;">
             <span>📊 재료 타임라인 전체보기</span>
             <span style="font-size: 0.9rem;">→</span>
           </button>
@@ -5274,8 +5274,8 @@ function selectStockTheme(idx, dataList = STOCK_THEMES_DATA) {
       <!-- 5. 📊 대장주 실시간 캔들 차트 (네이버 금융 공식 실시간 일봉/주봉/분봉 차트) -->
       <div style="margin-bottom: 24px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
-          <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
-            <span>📊</span> 대장주 실시간 캔들 차트 (<span style="color: #38bdf8;">${escapeHtml(item.leader.split(',')[0])}</span> · ${item.symbol || '000660'})
+          <div style="font-size: 0.95rem; font-weight: 800; color: #1e293b; display: flex; align-items: center; gap: 6px;">
+            <span>📊</span> 대장주 실시간 캔들 차트 (<span style="color: #0284c7;">${escapeHtml(item.leader.split(',')[0])}</span> · ${item.symbol || '000660'})
           </div>
           <div style="display: flex; gap: 6px;">
             <button type="button" class="imggen-style-chip active" style="padding: 3px 10px; font-size: 0.74rem;" onclick="switchStockChartTime('${item.symbol || '000660'}', 'day', this)">일봉 (캔들/이평선)</button>
@@ -5284,20 +5284,20 @@ function selectStockTheme(idx, dataList = STOCK_THEMES_DATA) {
             <button type="button" class="imggen-style-chip" style="padding: 3px 10px; font-size: 0.74rem;" onclick="switchStockChartTime('${item.symbol || '000660'}', '1', this)">실시간 분봉</button>
           </div>
         </div>
-        <div style="height: 380px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #0b0f19; display: flex; justify-content: center; align-items: center; position: relative;">
+        <div style="height: 380px; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; background: #ffffff; display: flex; justify-content: center; align-items: center; position: relative;">
           <img id="stock-main-chart-img" 
                src="https://ssl.pstatic.net/imgfinance/chart/item/candle/day/${item.symbol || '000660'}.png?sidcode=${Date.now()}" 
                alt="${escapeHtml(item.leader.split(',')[0])} 실시간 캔들 차트" 
-               style="width: 100%; height: 100%; object-fit: contain; filter: invert(0.9) hue-rotate(180deg) contrast(1.1); background: #0b0f19;">
+               style="width: 100%; height: 100%; object-fit: contain; background: #ffffff;">
         </div>
       </div>
 
       <!-- 6. 수석 트레이더의 실전 매매 대응 전략 -->
-      <div style="background: rgba(234, 88, 12, 0.08); border: 1px solid rgba(234, 88, 12, 0.25); border-radius: 12px; padding: 16px 18px; margin-bottom: 20px;">
-        <div style="font-size: 0.88rem; font-weight: 800; color: #fb923c; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+      <div style="background: #fff7ed; border: 1px solid #ffedd5; border-radius: 12px; padding: 16px 18px; margin-bottom: 20px;">
+        <div style="font-size: 0.88rem; font-weight: 800; color: #c2410c; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
           <span>💡</span> 실전 투자 전략 가이드
         </div>
-        <div style="font-size: 0.85rem; color: #fed7aa; line-height: 1.6;">
+        <div style="font-size: 0.85rem; color: #7c2d12; line-height: 1.6;">
           ${escapeHtml(item.strategy)}
         </div>
       </div>
@@ -7171,31 +7171,31 @@ window.selectStockDeepItem = function (idx) {
   `).join('');
 
   detailPanel.innerHTML = `
-    <div class="kc-white-report-container" style="background: #0f172a; border-color: rgba(255,255,255,0.08);">
+    <div class="kc-white-report-container" style="background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
       <!-- A. 최상단 종목 프로필 헤더 -->
       <div class="kc-detail-header-row" style="margin-bottom: 20px;">
         <div>
           <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-            <span class="kc-report-pill-badge" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35); color: #38bdf8;">
+            <span class="kc-report-pill-badge" style="background: #eff6ff; border-color: #bfdbfe; color: #0284c7;">
               ${escapeHtml(item.market)}
             </span>
-            <span style="font-size: 0.76rem; color: #94a3b8; font-weight: 700;">종목코드: ${item.symbol}</span>
+            <span style="font-size: 0.76rem; color: #64748b; font-weight: 700;">종목코드: ${item.symbol}</span>
           </div>
-          <h2 class="kc-report-main-title" style="color: #f8fafc; margin-bottom: 6px;">
-            ${escapeHtml(item.name)} <span style="font-size: 1.1rem; color: #ef4444; font-weight: 900;">${item.currentPrice} (${item.changeRate})</span>
+          <h2 class="kc-report-main-title" style="color: #1e293b; margin-bottom: 6px;">
+            ${escapeHtml(item.name)} <span style="font-size: 1.1rem; color: #dc2626; font-weight: 900;">${item.currentPrice} (${item.changeRate})</span>
           </h2>
-          <div class="kc-report-sub-meta" style="color: #94a3b8;">
-            시가총액: <strong style="color: #f8fafc;">${item.marketCap}</strong> · 외국인 지분율: <strong style="color: #38bdf8;">${item.foreignRate}</strong>
+          <div class="kc-report-sub-meta" style="color: #64748b;">
+            시가총액: <strong style="color: #1e293b;">${item.marketCap}</strong> · 외국인 지분율: <strong style="color: #0284c7;">${item.foreignRate}</strong>
           </div>
           <div style="font-size: 0.8rem; color: #64748b; margin-top: 4px;">
             밸류에이션: ${item.perPbr}
           </div>
         </div>
 
-        <div class="kc-big-score-card" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.35); text-align: center;">
-          <div class="kc-score-head-title" style="color: #38bdf8;">미래 지속성 점수</div>
-          <div class="kc-score-big-val" style="color: #38bdf8;">${item.futureOutlook.targetScore}<span class="kc-score-denom" style="color: #94a3b8;"> / 100</span></div>
-          <div class="kc-score-bottom-note" style="color: #34d399; font-weight: 800;">${escapeHtml(item.futureOutlook.rating)}</div>
+        <div class="kc-big-score-card" style="background: #eff6ff; border-color: #bfdbfe; text-align: center;">
+          <div class="kc-score-head-title" style="color: #0284c7;">미래 지속성 점수</div>
+          <div class="kc-score-big-val" style="color: #0284c7;">${item.futureOutlook.targetScore}<span class="kc-score-denom" style="color: #64748b;"> / 100</span></div>
+          <div class="kc-score-bottom-note" style="color: #059669; font-weight: 800;">${escapeHtml(item.futureOutlook.rating)}</div>
         </div>
       </div>
 
@@ -10021,8 +10021,8 @@ async function renderYoutubeBriefingFeed() {
     const directUrl = video.url || video.link || (video.id ? `https://www.youtube.com/watch?v=${video.id}` : 'https://www.youtube.com');
     const thumbUrl = video.thumbnail || 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80';
     return `
-          <div class="stock-technique-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; padding: 0;">
-            <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000; overflow: hidden;">
+          <div class="stock-technique-card" style="display: flex; flex-direction: column; justify-content: space-between; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; padding: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+            <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #f1f5f9; overflow: hidden;">
               <img src="${escapeHtml(thumbUrl)}" alt="${escapeHtml(video.title)}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80'">
               <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.75); color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 6px; border-radius: 4px;">
                 ${video.isShorts ? '⚡ SHORTS' : '📺 HD'}
@@ -10030,18 +10030,18 @@ async function renderYoutubeBriefingFeed() {
             </div>
             <div style="padding: 14px; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
               <div>
-                <div style="font-size: 0.74rem; color: #ef4444; font-weight: 800; margin-bottom: 4px;">
+                <div style="font-size: 0.74rem; color: #dc2626; font-weight: 800; margin-bottom: 4px;">
                   ${escapeHtml(video.channel || '증시 전문 채널')}
                 </div>
-                <div style="font-size: 0.88rem; font-weight: 800; color: #f8fafc; line-height: 1.4; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                <div style="font-size: 0.88rem; font-weight: 800; color: #1e293b; line-height: 1.4; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
                   ${escapeHtml(video.title)}
                 </div>
               </div>
-              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; margin-top: 8px;">
-                <span style="font-size: 0.72rem; color: #94a3b8;">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 10px; margin-top: 8px;">
+                <span style="font-size: 0.72rem; color: #64748b;">
                   ${escapeHtml(video.views || video.published || '실시간')}
                 </span>
-                <a href="${directUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.35); padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; text-decoration: none; font-weight: 800; white-space: nowrap;">
+                <a href="${directUrl}" target="_blank" rel="noopener noreferrer" style="background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; padding: 4px 10px; border-radius: 6px; font-size: 0.74rem; text-decoration: none; font-weight: 800; white-space: nowrap;">
                   영상 보기 ↗
                 </a>
               </div>

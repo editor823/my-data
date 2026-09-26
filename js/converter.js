@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isDone = Boolean(conv);
 
       card.innerHTML = `
-        <div class="conv-thumb-box" style="width: 50px; height: 50px; border-radius: 6px; background: #0f172a; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
+        <div class="conv-thumb-box" style="width: 50px; height: 50px; border-radius: 6px; background: #f1f5f9; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
           <span style="font-size: 1.5rem;">${isDone ? '🖼️' : '⏳'}</span>
         </div>
         <div class="conv-file-info">
