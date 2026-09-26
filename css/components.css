@@ -621,9 +621,76 @@
   border-color: #c084fc;
 }
 
+/* ===== 키워드 분석 체급 칩 및 배지 스타일 ===== */
+.kw-tier-chip {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-sub);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.kw-tier-chip:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.kw-tier-chip.active {
+  background: rgba(99, 102, 241, 0.25);
+  border-color: #6366f1;
+  color: #a5b4fc;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
 
-
-
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border-radius: 14px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.tier-legend {
+  background: linear-gradient(135deg, #ef4444, #f59e0b);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+}
+.tier-challenger {
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.35);
+}
+.tier-master {
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.45);
+  color: #a5b4fc;
+}
+.tier-expert {
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  color: #60a5fa;
+}
+.tier-advanced {
+  background: rgba(20, 184, 166, 0.2);
+  border: 1px solid rgba(20, 184, 166, 0.45);
+  color: #2dd4bf;
+}
+.tier-intermediate {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  color: #34d399;
+}
+.tier-beginner {
+  background: rgba(148, 163, 184, 0.15);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #cbd5e1;
+}
 
 /* ===== 맞춤형 챗봇 3x3 카드 그리드 스타일 ===== */
 .custom-bots-grid {

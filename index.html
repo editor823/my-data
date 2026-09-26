@@ -481,8 +481,9 @@
               <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0;">
                 총 검색량, 블로그 문서수, 기회지수 및 네이버 데이터랩 30일 검색 추이를 실시간 분석합니다.
               </p>
+              <div id="kwUsageNotice" style="font-size: 0.82rem; color: #10b981; font-weight: 700; margin-top: 4px; display: none;"></div>
             </div>
-            <button id="keyword-export-btn" class="btn btn-secondary btn-sm">
+            <button id="keyword-export-btn" class="btn btn-secondary btn-sm" onclick="exportRelatedKeywordsToCsv()">
               📥 엑셀(CSV) 다운로드
             </button>
           </div>
@@ -525,19 +526,41 @@
             </div>
           </div>
 
+          <!-- 3. 체급별 필터링 칩 버튼 & 4. 기회지수 50점 이상 필터 체크박스 바 -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; padding: 14px 18px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px;">
+            <!-- 체급 칩 버튼 그룹 -->
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center;">
+              <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); margin-right: 4px;">체급 필터:</span>
+              <button type="button" class="kw-tier-chip active" data-tier="all" onclick="filterRelatedKeywordsByTier('all')">전체</button>
+              <button type="button" class="kw-tier-chip" data-tier="legend" onclick="filterRelatedKeywordsByTier('legend')">레전드 (50만↑)</button>
+              <button type="button" class="kw-tier-chip" data-tier="challenger" onclick="filterRelatedKeywordsByTier('challenger')">챌린저 (10만~50만)</button>
+              <button type="button" class="kw-tier-chip" data-tier="master" onclick="filterRelatedKeywordsByTier('master')">마스터 (5만~10만)</button>
+              <button type="button" class="kw-tier-chip" data-tier="expert" onclick="filterRelatedKeywordsByTier('expert')">전문가 (1만~5만)</button>
+              <button type="button" class="kw-tier-chip" data-tier="advanced" onclick="filterRelatedKeywordsByTier('advanced')">고급자 (2천~1만)</button>
+              <button type="button" class="kw-tier-chip" data-tier="intermediate" onclick="filterRelatedKeywordsByTier('intermediate')">중급자 (500~2천)</button>
+              <button type="button" class="kw-tier-chip" data-tier="beginner" onclick="filterRelatedKeywordsByTier('beginner')">초보자 (100~500)</button>
+            </div>
+
+            <!-- 기회지수 50점 이상 필터 체크박스 -->
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: #f59e0b; cursor: pointer; user-select: none;">
+                <input type="checkbox" id="filterOpportunityCheckbox" onchange="toggleOpportunityFilter()" style="width: 16px; height: 16px; accent-color: #f59e0b; cursor: pointer;">
+                <span>⭐ 기회지수 50점 이상만 보기</span>
+              </label>
+            </div>
+          </div>
+
           <!-- 상세 테이블 -->
           <div class="table-container">
             <table class="data-table">
               <thead>
                 <tr>
-                  <th style="width: 50px;">No</th>
-                  <th>키워드</th>
+                  <th style="width: 50px; text-align: center;">순위</th>
+                  <th>키워드 (클릭 시 네이버 검색 ↗)</th>
                   <th style="text-align: right;">총 검색량</th>
-                  <th style="text-align: right;">PC 검색량</th>
-                  <th style="text-align: right;">모바일 검색량</th>
-                  <th style="text-align: right;">블로그 문서수</th>
+                  <th style="text-align: right;">전체 블로그 문서</th>
                   <th style="text-align: right; color: #f59e0b;">기회지수</th>
-                  <th style="text-align: center;">체급</th>
+                  <th style="text-align: center; width: 100px;">체급</th>
                 </tr>
               </thead>
               <tbody id="keyword-table-body"></tbody>
@@ -3212,7 +3235,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <script src="js/app.js?v=20260915_fix1"></script>
   <script src="js/trending.js?v=20260926_final_news"></script>
-  <script src="js/keyword.js?v=20260926_trend_chart"></script>
+  <script src="js/keyword.js?v=20260926_related_live"></script>
   <script src="js/viral_shorts_data.js?v=20260915_loading"></script>
   <script src="js/adsense.js?v=20260926_adsense_live"></script>
   <script src="js/prompt.js?v=20260914_final"></script>
