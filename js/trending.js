@@ -1,95 +1,205 @@
 /**
  * 실시간 급상승어 모듈 (trending.js)
- * - 5대 포털: 네이버, 네이트, 줌(Zum), 구글, 다음
- * - 실시간 갱신 버튼 및 마지막 갱신 시각 표시
- * - 급상승 키워드 클릭 시 해당 포털의 실제 검색/뉴스 페이지로 새 탭 이동
+ * - 5대 포털(네이버, 네이트, 줌, 구글, 다음)의 실시간 급상승 키워드를 API에서 받아와 화면에 표시합니다.
+ * - API 엔드포인트: https://www.boutique-info.com/api/keyword-center?action=getTrendingKeywords
+ * - 로딩 상태 및 CORS/네트워크 에러 예외 처리 지원
  */
 
-// 포털별 실시간 인기 검색어 데이터 세트 (총 검색량 500회 이상, 블로그 문서 100개 미만 황금 키워드 & 포털 실시간 TOP 10)
-const TRENDING_POOLS = {
-  naver: [
-    ['김성수 대법관 후보자', '이기인, 개혁신당 비대위원장 임명', '서울시 버스 파업 대책', '존박 단독 콘서트 브레이크 성료', '은마 종합 상가', '금감원 임직원 주식투자', '발언하는 장동혁 대표', '에어로케이', 'GTX-C 노선 착공', '출근하는 조희대 대법원장'],
-    ['청년도약계좌 기습 발표', '취사병 일과 및 휴가', '카시오 엑슬림 z400', '초보 캠핑 텐트 추천', '차박 캠핑 준비물', '가을 단풍 여행지 10선', '직장인 부업 세금 환급', '노트북 배터리 수명 늘리기', '퇴직연금 DC형 운용 전략', '소상공인 정책자금 신청']
+// 실시간 급상승어 CORS 우회 프록시 URL (file:// 로컬 환경 및 브라우저 CORS 차단 해결)
+const proxyUrl = 'https://api.allorigins.win/raw?url=https%3A%2F%2Fwww.boutique-info.com%2Fapi%2Fkeyword-center%3Faction%3DgetTrendingKeywords';
+
+// 로컬 file:// 환경 또는 네트워크 차단 시 화면에 보여줄 기본 데이터 (Fallback Data)
+const fallbackData = {
+  "naver": [
+    { "rank": 1, "keyword": "장상원 1인승 은메달" },
+    { "rank": 2, "keyword": "강도범 무고 혐의 추" },
+    { "rank": 3, "keyword": "추석에 어머니 잃은" },
+    { "rank": 4, "keyword": "신유빈 탁구 여자단" },
+    { "rank": 5, "keyword": "트럼프 이란 7일 계" },
+    { "rank": 6, "keyword": "맨시티 재정 규정 위" },
+    { "rank": 7, "keyword": "진양곤" },
+    { "rank": 8, "keyword": "아시안게임 3x3 농구" },
+    { "rank": 9, "keyword": "윤호중 장관의 외교" },
+    { "rank": 10, "keyword": "죽음" }
   ],
-  nate: [
-    ['발언하는 신장식 대표 new', '졸란 결승골 인정 new', '사랑이 온다 상승 1', '유부녀 킬러 정준원 new', '김승윤 하락 3', '추석 명절 선물세트', '소비자물가 동향', '축구대표팀 명단 발표', '신규 아파트 청약 접수', '지하철 파업 예고'],
-    ['신작 웹툰 결말', '판결 앞둔 주요 공판', '환율 1330원대 유지', '넷플릭스 신작 1위', '전국 비 소식 일기예보', '전기차 화재 예방책', '추석 성수품 할인행사', '야구 순위 싸움 치열', '연말정산 미리보기', '수도권 광역급행철도']
+  "nate": [
+    { "rank": 1, "keyword": "아시안게임 동일" },
+    { "rank": 2, "keyword": "추석 연휴 정체 상승" },
+    { "rank": 3, "keyword": "김준호 아들 바보" },
+    { "rank": 4, "keyword": "최수종 상승 1" },
+    { "rank": 5, "keyword": "안세영 AG 2연패 상승" }
   ],
-  zum: [
-    ['서울시 버스 파업 대책', '감사원 YTN 지분매각 개입', '금감원 임직원 주식투자', 'LH 입찰 비리', 'AI 표준기구 설립 논의', '지역화폐 인센티브 확대', '가을 단풍 시기 예측', '대학병원 응급실 현황', '청년 창업지원 정책', '교통안전 종합대책'],
-    ['9월 수출 역대 최대치', '미국 8월 소비자물가', '오산시 시설 개선 교육', '가평읍 따뜻한 기탁', '무안읍 화재예방 활동', '한국 무역수지 15개월 흑자', '뉴욕증시 혼조세 마감', '지자체 복지혜택 신청', '독감 예방접종 무료 지원', '부동산 대출 규제 강화']
+  "zum": [
+    { "rank": 1, "keyword": "서울시 버스 파업 대책" },
+    { "rank": 2, "keyword": "감사원 YTN 지분매각" },
+    { "rank": 3, "keyword": "금감원 임직원 주식투자" },
+    { "rank": 4, "keyword": "AI 표준기구 설립 논의" },
+    { "rank": 5, "keyword": "가을 단풍 시기 예측" }
   ],
-  google: [
-    ['휴대 전화', '브룩스 레일리', '은마 종합 상가', '에어로케이', 'skt', '소득세', '에어부산', '진준우', '차태현', '생계'],
-    ['엔비디아 주가', '손흥민', '오픈AI o1 모델', '두산 대 삼성', '애플 이벤트', '추석 기차표', '챔피언스리그', '토트넘 경기 일정', 'LG 트윈스', '환율']
+  "google": [
+    { "rank": 1, "keyword": "엔비디아 주가" },
+    { "rank": 2, "keyword": "손흥민" },
+    { "rank": 3, "keyword": "오픈AI o1 모델" },
+    { "rank": 4, "keyword": "애플 이벤트" },
+    { "rank": 5, "keyword": "추석 기차표" }
   ],
-  daum: [
-    ['MBC 이성주 사장 내정', '서울 버스 파업', '강성연 재혼 가족', 'MBC 추모 공간', '이 대통령 지지율 하락', '김형동 국회의원', '김승윤 시어머니 도시락', 'LG 전문가 AI', '오뚜기 함태호 추모식', '지역의사제 11대 1'],
-    ['1241회 로또 당첨 번호', '사발렌카 US오픈 우승', '김민석 진보세력 연대', '쥬얼리 서인영 재결합', '한지은 배우 인터뷰', '너 말고 다른 연애', '북부 대공원 축제', '박보검 프로필', '마운자로 국내 출시', '런닝맨 출연진']
+  "daum": [
+    { "rank": 1, "keyword": "MBC 이성주 사장 내정" },
+    { "rank": 2, "keyword": "서울 버스 파업" },
+    { "rank": 3, "keyword": "1241회 로또 당첨 번호" },
+    { "rank": 4, "keyword": "사발렌카 US오픈 우승" },
+    { "rank": 5, "keyword": "마운자로 국내 출시" }
   ]
 };
 
-// 포털별 바로가기 URL 빌더 (키워드 클릭 시 해당 포털 검색 결과로 연결)
+// 포털별 검색 결과 연결 주소 생성 함수
 const SEARCH_URL_BUILDERS = {
-  naver: (kw) => `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(kw)}`,
-  nate: (kw) => `https://news.nate.com/search?q=${encodeURIComponent(kw)}`,
+  naver: (kw) => `https://search.naver.com/search.naver?query=${encodeURIComponent(kw)}`,
+  nate: (kw) => `https://search.daum.net/nate?q=${encodeURIComponent(kw)}`,
   zum: (kw) => `https://search.zum.com/search.zum?query=${encodeURIComponent(kw)}`,
-  google: (kw) => `https://www.google.com/search?q=${encodeURIComponent(kw)}&tbm=nws`,
-  daum: (kw) => `https://search.daum.net/search?w=news&q=${encodeURIComponent(kw)}`
+  google: (kw) => `https://www.google.com/search?q=${encodeURIComponent(kw)}`,
+  daum: (kw) => `https://search.daum.net/search?q=${encodeURIComponent(kw)}`
 };
 
-// 메인 포털 홈 바로가기 링크
-const PORTAL_HOME_LINKS = {
-  naver: 'https://www.naver.com',
-  nate: 'https://news.nate.com',
-  zum: 'https://zum.com',
-  google: 'https://trends.google.co.kr/trending',
-  daum: 'https://www.daum.net'
-};
+// 5대 포털 목록
+const PORTALS = ['naver', 'nate', 'zum', 'google', 'daum'];
 
-let currentTrendIndex = 0;
-
+// 페이지 로드 시 실시간 급상승어 조회 시작
 document.addEventListener('DOMContentLoaded', () => {
-  renderAllTrending();
+  fetchTrendingKeywords();
 
+  // '실시간 갱신' 버튼 클릭 시 다시 API 호출
   const refreshBtn = document.getElementById('refresh-trending-btn');
   if (refreshBtn) {
     refreshBtn.addEventListener('click', () => {
-      // 갱신 시 인덱스 토글
-      currentTrendIndex = (currentTrendIndex + 1) % 2;
-      renderAllTrending();
-      updateTimestamp();
-
-      if (typeof window.showToast === 'function') {
-        window.showToast('5대 포털 실시간 급상승어가 최신으로 갱신되었습니다! 🔄');
-      }
+      fetchTrendingKeywords(true);
     });
   }
-
-  updateTimestamp();
 });
 
-// 5개 포털 목록 렌더링
-function renderAllTrending() {
-  const portals = ['naver', 'nate', 'zum', 'google', 'daum'];
+/**
+ * 실시간 급상승어 API를 호출(fetch)하는 함수
+ * 로컬 file:// 환경이나 네트워크 차단 시 fallback 기본 데이터를 렌더링합니다.
+ * @param {boolean} isManualRefresh 사용자가 직접 갱신 버튼을 눌렀는지 여부
+ */
+async function fetchTrendingKeywords(isManualRefresh = false) {
+  // 1. 데이터를 가져오는 동안 "불러오는 중..." 로딩 UI 표시
+  showLoadingState();
 
-  portals.forEach(portal => {
+  try {
+    const response = await fetch(proxyUrl);
+
+    if (!response.ok) {
+      throw new Error(`서버 응답 오류 (상태 코드: ${response.status})`);
+    }
+
+    // 프록시 응답 본문을 안전하게 텍스트로 읽은 후 JSON 파싱
+    const textData = await response.text();
+    let result;
+    try {
+      result = typeof textData === 'string' ? JSON.parse(textData) : textData;
+    } catch (parseError) {
+      throw new Error('응답 데이터를 JSON 형식으로 변환할 수 없습니다.');
+    }
+
+    // 응답 데이터 검증
+    if (!result || !result.success || !result.data) {
+      throw new Error('API 응답 결과가 올바르지 않습니다.');
+    }
+
+    // 2. 응답받은 데이터로 화면에 키워드 렌더링 (naver, nate 등)
+    renderTrendingData(result.data);
+    updateTimestamp();
+
+    if (isManualRefresh && typeof window.showToast === 'function') {
+      window.showToast('5대 포털 실시간 급상승어가 최신으로 갱신되었습니다! 🔄');
+    }
+  } catch (error) {
+    // 3. 로컬 file:// 환경 또는 CORS/네트워크 차단 시 콘솔에 안내를 남기고 fallbackData 렌더링
+    console.warn('[trending.js] 로컬 file:// 프로토콜 환경 또는 네트워크 제약으로 인해 Fallback(기본) 데이터로 렌더링합니다:', error);
+    renderTrendingData(fallbackData);
+    updateTimestamp();
+
+    if (isManualRefresh && typeof window.showToast === 'function') {
+      window.showToast('로컬 기본 급상승어 데이터로 갱신되었습니다. 🔄');
+    }
+  }
+}
+
+/**
+ * 데이터 로딩 중 상태를 카드에 표시하는 함수
+ */
+function showLoadingState() {
+  PORTALS.forEach(portal => {
+    const listEl = document.getElementById(`trend-list-${portal}`);
+    if (!listEl) return;
+
+    listEl.innerHTML = `
+      <li class="trending-loading">
+        <span class="loading-spinner-mini">⏳</span>
+        <span>실시간 데이터 불러오는 중...</span>
+      </li>
+    `;
+  });
+}
+
+/**
+ * 에러 발생 시 화면에 친절한 오류 안내 문구를 띄우는 함수
+ * @param {Error} error 발생한 에러 객체
+ */
+function showErrorState(error) {
+  const isCorsOrNetwork = error.name === 'TypeError' || String(error.message).includes('Failed to fetch');
+  const errorText = isCorsOrNetwork
+    ? '데이터를 불러오지 못했습니다. (네트워크 또는 보안/CORS 연결 문제)'
+    : '데이터를 불러오는 중 문제가 발생했습니다.';
+
+  PORTALS.forEach(portal => {
+    const listEl = document.getElementById(`trend-list-${portal}`);
+    if (!listEl) return;
+
+    listEl.innerHTML = `
+      <li class="trending-error">
+        <span>⚠️ ${escapeHtml(errorText)}</span>
+      </li>
+    `;
+  });
+}
+
+/**
+ * API에서 받은 포털별 키워드 배열을 순회하여 화면에 렌더링하는 함수
+ * @param {Object} data API response.data 객체 (naver, nate, zum, google, daum 배열 포함)
+ */
+function renderTrendingData(data) {
+  PORTALS.forEach(portal => {
     const listEl = document.getElementById(`trend-list-${portal}`);
     if (!listEl) return;
 
     listEl.innerHTML = '';
-    const keywords = TRENDING_POOLS[portal][currentTrendIndex];
+    const items = data[portal];
 
-    keywords.forEach((kw, idx) => {
+    // 해당 포털의 키워드 배열이 없거나 비어있는 경우 처리
+    if (!items || !Array.isArray(items) || items.length === 0) {
+      listEl.innerHTML = '<li class="trending-empty">실시간 급상승어 데이터가 없습니다.</li>';
+      return;
+    }
+
+    // 배열 순회하며 순위, 키워드, 검색 링크 생성
+    items.forEach((item, idx) => {
+      const rank = item.rank || (idx + 1);
+      const keyword = typeof item === 'object' && item.keyword ? item.keyword : String(item);
+
+      if (!keyword) return;
+
       const li = document.createElement('li');
       li.className = 'trending-item';
-      
-      const searchUrl = SEARCH_URL_BUILDERS[portal](kw);
+
+      const searchUrlBuilder = SEARCH_URL_BUILDERS[portal] || SEARCH_URL_BUILDERS.naver;
+      const searchUrl = searchUrlBuilder(keyword);
 
       li.innerHTML = `
-        <span class="trend-rank">${idx + 1}</span>
-        <a href="${searchUrl}" target="_blank" rel="noopener noreferrer" class="trend-link" title="'${escapeHtml(kw)}' 관련 기사 보기">
-          ${escapeHtml(kw)}
+        <span class="trend-rank">${rank}</span>
+        <a href="${searchUrl}" target="_blank" rel="noopener noreferrer" class="trend-link" title="'${escapeHtml(keyword)}' 검색하기">
+          ${escapeHtml(keyword)}
         </a>
       `;
 
@@ -98,7 +208,9 @@ function renderAllTrending() {
   });
 }
 
-// 갱신 시각 업데이트
+/**
+ * 마지막 갱신 시각 업데이트 함수
+ */
 function updateTimestamp() {
   const timeEl = document.getElementById('trending-update-time');
   if (!timeEl) return;
@@ -111,6 +223,9 @@ function updateTimestamp() {
   timeEl.textContent = `마지막 갱신 ${hours}:${minutes}:${seconds}`;
 }
 
+/**
+ * XSS(악성 스크립트 삽입) 방지를 위한 텍스트 이스케이프 함수
+ */
 function escapeHtml(str) {
   return String(str).replace(/[&<>"']/g, s => ({
     '&': '&amp;',

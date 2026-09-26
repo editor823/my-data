@@ -479,6 +479,40 @@
   color: var(--text-muted);
 }
 
+.trending-loading,
+.trending-error,
+.trending-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 8px;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.4;
+  min-height: 140px;
+}
+
+.trending-error {
+  color: #ef4444;
+  font-size: 0.8rem;
+  background: rgba(239, 68, 68, 0.05);
+  border-radius: var(--radius-sm);
+  padding: 16px 10px;
+}
+
+.loading-spinner-mini {
+  display: inline-block;
+  animation: spin-slow 2s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
 /* ===== 맞춤형 챗봇 3x3 카드 그리드 스타일 ===== */
 .custom-bots-grid {
   display: grid;
