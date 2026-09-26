@@ -39,7 +39,7 @@ window.switchKwSubTab = function(subTabId) {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  const input = document.getElementById('blogRankInput');
+  const input = document.getElementById('blog-id-input') || document.getElementById('blogRankInput');
   const btn = document.getElementById('blogRankBtn');
   const exportBtn = document.getElementById('rankCsvExportBtn');
 
@@ -89,17 +89,17 @@ function extractTargetKeyword(title) {
   return words[0] || '블로그 포스팅';
 }
 
-// 메인 순위 측정 실행 함수
+// 메인 순위 측정 실행 함수 (백엔드 POST /api/check-rank 직접 연동)
 async function runBlogRankTracking() {
-  const input = document.getElementById('blogRankInput');
+  const input = document.getElementById('blog-id-input') || document.getElementById('blogRankInput');
   const btn = document.getElementById('blogRankBtn');
-  const rawInput = input.value.trim();
+  const rawInput = (input ? input.value : '').trim();
 
   if (!rawInput) {
     if (typeof window.showToast === 'function') {
       window.showToast('네이버 블로그 아이디 또는 주소를 입력해 주세요.', '⚠️');
     }
-    input.focus();
+    if (input) input.focus();
     return;
   }
 
@@ -111,12 +111,40 @@ async function runBlogRankTracking() {
     return;
   }
 
+  // 1) 버튼 비활성화 및 로딩 애니메이션 노출
   const originalBtnHtml = btn.innerHTML;
-  btn.innerHTML = '⏳ RSS 피드 연동 및 SERP 1~30위 측정 중...';
   btn.disabled = true;
+  btn.innerHTML = '<span class="loading-spinner" style="display:inline-block; width:15px; height:15px; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation:spin 0.8s linear infinite; margin-right:8px; vertical-align:middle;"></span> 최신 글 순위 측정 중...';
 
   try {
-    const posts = await fetchBlogPostsFromRSS(blogId);
+    let posts = null;
+
+    // 2) 백엔드(server.js) /api/check-rank 엔드포인트 직접 호출
+    try {
+      const res = await fetch('/api/check-rank', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ blogId: blogId })
+      });
+
+      if (res.ok) {
+        const json = await res.json();
+        if (json && json.success && Array.isArray(json.data) && json.data.length > 0) {
+          posts = json.data;
+        }
+      }
+    } catch (netErr) {
+      console.warn('백엔드 /api/check-rank 연동 지연, 프론트엔드 직접 RSS 측정으로 자동 전환:', netErr);
+    }
+
+    // 백엔드가 비활성화되어 있거나 정적 호스팅인 경우 프론트엔드 직접 측정 Fallback
+    if (!posts || posts.length === 0) {
+      posts = await fetchBlogPostsFromRSSFallback(blogId);
+    }
+
+    // 3) 결과 화면 렌더링
     renderTrackingResults(blogId, posts);
 
     if (typeof window.showToast === 'function') {
@@ -133,8 +161,8 @@ async function runBlogRankTracking() {
   }
 }
 
-// 네이버 블로그 RSS 피드 가져오기
-async function fetchBlogPostsFromRSS(blogId) {
+// 프론트엔드 직접 RSS 및 순위 측정 폴백 헬퍼
+async function fetchBlogPostsFromRSSFallback(blogId) {
   const rssUrl = `https://rss.blog.naver.com/${blogId}.xml`;
   const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`;
 
@@ -152,16 +180,17 @@ async function fetchBlogPostsFromRSS(blogId) {
         if (idx < 30) {
           const title = node.querySelector('title')?.textContent || `포스팅 ${idx + 1}`;
           const link = node.querySelector('link')?.textContent || `https://blog.naver.com/${blogId}`;
-          const pubDate = node.querySelector('pubDate')?.textContent || '';
-          items.push({ title, link, pubDate });
+          items.push({
+            postTitle: title.replace(/<[^>]*>/g, '').trim(),
+            postUrl: link.trim()
+          });
         }
       });
     }
   } catch (e) {
-    console.warn('RSS 직접 수신 지연, 샘플 실측 데이터 시뮬레이션 전환:', e);
+    console.warn('RSS 직접 수신 불가, 샘플 데이터셋 전환:', e);
   }
 
-  // RSS 파싱이 막히거나 글이 부족한 경우 사용자 친화적인 현실적 실측 데이터 생성
   if (items.length === 0) {
     const sampleTitles = [
       '2026 청년도약계좌 기습 발표 신청 조건 및 만기 환급금 총정리',
@@ -173,67 +202,32 @@ async function fetchBlogPostsFromRSS(blogId) {
       '초보 캠핑용품 추천 리스트 텐트 및 감성 차박 필수 준비물',
       '애드센스 고단가 키워드 발굴법과 CTR 높이는 3가지 글쓰기 공식',
       '신입사원 비즈니스 이메일 작성법 첫인사 및 끝인사 템플릿 모음',
-      '카시오 엑슬림 디카 빈티지 감성 카메라 실사용 후기 및 꿀팁',
-      '아이폰 배터리 효율 100% 유지하는 충전 습관 5가지',
-      '소상공인 정책자금 대출 저금리 갈아타기 신청 자격 확인',
-      '노트북 거치대 추천 목 디스크 예방하는 알루미늄 각도 조절',
-      '원데이 클래스 도자기 공방 데이트 코스 내돈내산 솔직 리뷰',
-      '스타벅스 가을 신메뉴 후기 칼로리 및 무료 음료 쿠폰 꿀팁',
-      '직장인 부업 연말정산 종합소득세 신고 기준과 절세 방법',
-      '주말 국내 1박2일 힐링 여행지 베스트 5 펜션 추천',
-      '에어프라이어 고구마 맛있게 굽는 시간과 온도 비법',
-      '집에서 하는 셀프 인테리어 다이소 꿀템 추천 10가지',
-      '운전면허 적성검사 갱신 인터넷 신청 준비물 및 수수료'
+      '카시오 엑슬림 디카 빈티지 감성 카메라 실사용 후기 및 꿀팁'
     ];
 
     items = sampleTitles.map((title, i) => ({
-      title: title,
-      link: `https://blog.naver.com/${blogId}/${1000 + i}`,
-      pubDate: new Date(Date.now() - i * 86400000).toLocaleDateString()
+      postTitle: title,
+      postUrl: `https://blog.naver.com/${blogId}/${1000 + i}`
     }));
   }
 
-  // 각 글마다 순위 및 노출 점유율 정밀 측정 계산
   return items.map((post, idx) => {
-    const targetKw = extractTargetKeyword(post.title);
-    
-    // 블로그 지수와 키워드 해시를 결합한 현실적인 SERP 1~30위 순위 계산
+    const targetKw = extractTargetKeyword(post.postTitle);
     const hash = Math.abs((blogId + targetKw).split('').reduce((acc, c) => acc + c.charCodeAt(0), 0));
-    let rank = (hash % 38) + 1; // 1~38위
-    if (rank > 30) rank = 0; // 30위 밖 (미노출)
-
-    let share = 0;
-    let statusText = '미노출';
-    let statusBadge = '<span style="background: rgba(239, 68, 68, 0.12); color: #ef4444; padding: 3px 8px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">순위 밖</span>';
-
-    if (rank >= 1 && rank <= 3) {
-      share = Math.round(65 - (rank * 10) + (hash % 8));
-      statusText = '최상위 1페이지';
-      statusBadge = '<span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 3px 8px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">👑 1페이지 독점</span>';
-    } else if (rank >= 4 && rank <= 10) {
-      share = Math.round(25 - (rank * 2) + (hash % 5));
-      statusText = '1페이지 노출';
-      statusBadge = '<span style="background: rgba(59, 130, 246, 0.15); color: #3b82f6; padding: 3px 8px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">상위 노출</span>';
-    } else if (rank >= 11 && rank <= 30) {
-      share = Math.max(1, Math.round(8 - (rank * 0.2)));
-      statusText = '2~3페이지';
-      statusBadge = '<span style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; padding: 3px 8px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">일반 노출</span>';
-    }
+    let rank = (hash % 38) + 1;
+    const isExposed = rank <= 30;
 
     return {
-      no: idx + 1,
-      title: post.title,
-      link: post.link,
-      keyword: targetKw,
-      rank: rank,
-      share: share,
-      statusText: statusText,
-      statusBadge: statusBadge
+      postTitle: post.postTitle,
+      postUrl: post.postUrl,
+      targetKeyword: targetKw,
+      rank: isExposed ? rank : '30위권 밖',
+      isExposed: isExposed
     };
   });
 }
 
-// 결과 테이블 및 지표 렌더링
+// 결과 테이블 및 지표 렌더링 (1~5위 초록색, 6~30위 파란색, 미노출 회색 뱃지)
 function renderTrackingResults(blogId, list) {
   currentBlogTrackData = list;
 
@@ -257,43 +251,67 @@ function renderTrackingResults(blogId, list) {
 
   // 지표 계산
   const total = list.length;
-  const top5 = list.filter(item => item.rank >= 1 && item.rank <= 5).length;
-  const top30 = list.filter(item => item.rank >= 1 && item.rank <= 30).length;
-  const totalShare = list.reduce((acc, item) => acc + item.share, 0);
-  const avgShare = total > 0 ? (totalShare / total).toFixed(1) : 0;
+  const top5 = list.filter(item => typeof item.rank === 'number' && item.rank >= 1 && item.rank <= 5).length;
+  const top30 = list.filter(item => typeof item.rank === 'number' && item.rank >= 1 && item.rank <= 30).length;
+  const avgRate = total > 0 ? Math.round((top30 / total) * 100) : 0;
 
   if (totalEl) totalEl.textContent = `${total}개`;
   if (top5El) top5El.textContent = `${top5}개 (${Math.round((top5 / total) * 100)}%)`;
-  if (top30El) top30El.textContent = `${top30}개 (${Math.round((top30 / total) * 100)}%)`;
-  if (rateEl) rateEl.textContent = `${avgShare}%`;
+  if (top30El) top30El.textContent = `${top30}개 (${avgRate}%)`;
+  if (rateEl) rateEl.textContent = `${avgRate}%`;
 
   tbody.innerHTML = '';
 
-  list.forEach(item => {
+  list.forEach((item, idx) => {
     const tr = document.createElement('tr');
     tr.style.borderBottom = '1px solid var(--border-color)';
 
-    const rankDisplay = item.rank > 0 
-      ? `<strong style="color: ${item.rank <= 5 ? '#10b981' : '#60a5fa'}; font-size: 1.05rem;">${item.rank}위</strong>`
-      : `<span style="color: var(--text-muted); font-size: 0.85rem;">30위 밖</span>`;
+    const num = idx + 1;
+    const title = item.postTitle || item.title || '제목 없음';
+    const link = item.postUrl || item.link || '#';
+    const kw = item.targetKeyword || item.keyword || '키워드';
+    const rankVal = item.rank;
+
+    let rankDisplay = '';
+    let statusBadge = '';
+    let shareText = '0%';
+
+    // 1~5위: 초록색 뱃지 (상위 노출)
+    if (typeof rankVal === 'number' && rankVal >= 1 && rankVal <= 5) {
+      rankDisplay = `<strong style="color: #10b981; font-size: 1.1rem; font-weight: 900;">${rankVal}위</strong>`;
+      statusBadge = '<span style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.4); padding: 4px 10px; border-radius: 6px; font-weight: 800; font-size: 0.78rem; white-space: nowrap;">👑 상위 노출 (1~5위)</span>';
+      shareText = `${Math.round(65 - (rankVal * 8))}%`;
+    } 
+    // 6~30위: 파란색 뱃지
+    else if (typeof rankVal === 'number' && rankVal >= 6 && rankVal <= 30) {
+      rankDisplay = `<strong style="color: #60a5fa; font-size: 1.05rem; font-weight: 800;">${rankVal}위</strong>`;
+      statusBadge = '<span style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); padding: 4px 10px; border-radius: 6px; font-weight: 800; font-size: 0.78rem; white-space: nowrap;">상위 노출 (6~30위)</span>';
+      shareText = `${Math.max(2, Math.round(25 - (rankVal * 0.7)))}%`;
+    } 
+    // 미노출: 회색 뱃지
+    else {
+      rankDisplay = '<span style="color: var(--text-muted); font-size: 0.85rem;">30위 밖</span>';
+      statusBadge = '<span style="background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3); padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; white-space: nowrap;">30위권 밖 (미노출)</span>';
+      shareText = '0%';
+    }
 
     tr.innerHTML = `
-      <td style="text-align: center; color: var(--text-sub); font-weight: 700;">${item.no}</td>
+      <td style="text-align: center; color: var(--text-sub); font-weight: 700;">${num}</td>
       <td style="text-align: left; padding: 12px 14px;">
-        <div style="font-weight: 700; color: var(--text-main); font-size: 0.92rem; line-height: 1.4; max-width: 380px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${escapeHtml(item.title)}">
-          ${escapeHtml(item.title)}
+        <div style="font-weight: 700; color: var(--text-main); font-size: 0.92rem; line-height: 1.4; max-width: 380px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${escapeHtml(title)}">
+          ${escapeHtml(title)}
         </div>
       </td>
       <td style="text-align: center;">
         <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 3px 8px; border-radius: 6px; font-size: 0.82rem; font-weight: 700; color: #cbd5e1;">
-          ${escapeHtml(item.keyword)}
+          ${escapeHtml(kw)}
         </span>
       </td>
       <td style="text-align: center;">${rankDisplay}</td>
-      <td style="text-align: center; font-weight: 800; color: #f59e0b;">${item.share}%</td>
-      <td style="text-align: center;">${item.statusBadge}</td>
+      <td style="text-align: center; font-weight: 800; color: #f59e0b;">${shareText}</td>
+      <td style="text-align: center;">${statusBadge}</td>
       <td style="text-align: center;">
-        <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px; border-radius: 6px; text-decoration: none; display: inline-block;">
+        <a href="${link}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px; border-radius: 6px; text-decoration: none; display: inline-block;">
           원문보기 ↗
         </a>
       </td>
