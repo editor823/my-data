@@ -557,6 +557,19 @@
   color: var(--primary);
 }
 
+/* ===== 단건 분석 요약 스탯 카드 반응형 ===== */
+@media (max-width: 992px) {
+  .kw-stat-cards {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media (max-width: 600px) {
+  .kw-stat-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+
 
 
 /* ===== 맞춤형 챗봇 3x3 카드 그리드 스타일 ===== */

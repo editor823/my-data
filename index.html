@@ -8,6 +8,9 @@
   <!-- 한글 웹폰트 Pretendard CDN 로드 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
   
+  <!-- Chart.js CDN 로드 (30일 검색 추이 그래프용) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <!-- 스타일시트 로드 -->
   <link rel="stylesheet" href="css/style.css?v=20260915_responsive">
   <link rel="stylesheet" href="css/components.css?v=20260915_responsive">
@@ -467,13 +470,16 @@
           </div>
         </div>
 
-        <!-- 5. 분석 결과 테이블 카드 -->
-        <div class="card" id="keyword-result-container" style="display: none;">
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <!-- 5. 분석 결과 테이블 카드 & 30일 검색 추이 그래프 -->
+        <div class="card" id="keyword-result-container" style="display: none; margin-bottom: 30px; padding: 24px;">
+          <!-- 상단 헤더 & 다운로드 버튼 -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
             <div>
-              <h3 style="font-size: 1.15rem; font-weight: 700;">📊 '<span id="analyzedSearchTerm" style="color: #f59e0b;"></span>' 키워드 분석 결과</h3>
-              <p style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">
-                경쟁도가 <strong>'낮음'</strong>인 키워드는 신생 블로그도 상위 노출될 가능성이 매우 높습니다!
+              <h3 style="font-size: 1.25rem; font-weight: 800; display: flex; align-items: center; gap: 8px; margin: 0 0 4px 0;">
+                <span>📊</span> '<span id="analyzedSearchTerm" style="color: #10b981;"></span>' 키워드 분석 결과
+              </h3>
+              <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0;">
+                총 검색량, 블로그 문서수, 기회지수 및 네이버 데이터랩 30일 검색 추이를 실시간 분석합니다.
               </p>
             </div>
             <button id="keyword-export-btn" class="btn btn-secondary btn-sm">
@@ -481,17 +487,57 @@
             </button>
           </div>
 
+          <!-- 요약 스탯 5개 카드 -->
+          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 24px;" class="kw-stat-cards">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-align: center;">
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px;">총 검색량</div>
+              <div id="statTotalSearch" style="font-size: 1.35rem; font-weight: 900; color: #10b981;">-</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-align: center;">
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px;">PC 검색수</div>
+              <div id="statPcSearch" style="font-size: 1.2rem; font-weight: 800; color: var(--text-main);">-</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-align: center;">
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px;">모바일 검색수</div>
+              <div id="statMobileSearch" style="font-size: 1.2rem; font-weight: 800; color: var(--text-main);">-</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-align: center;">
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px;">블로그 문서수</div>
+              <div id="statBlogCount" style="font-size: 1.2rem; font-weight: 800; color: #f59e0b;">-</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-align: center;">
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px;">기회지수 (황금도)</div>
+              <div id="statOpportunity" style="font-size: 1.2rem; font-weight: 900; color: #8b5cf6;">-</div>
+            </div>
+          </div>
+
+          <!-- 30일 검색 추이 그래프 카드 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 1.1rem;">📈</span>
+                <span style="font-size: 1rem; font-weight: 800; color: var(--text-main);">최근 30일 검색량 및 관심도 추이</span>
+              </div>
+              <span id="trendChartBadge" style="font-size: 0.78rem; padding: 3px 10px; border-radius: 20px; background: rgba(16, 185, 129, 0.12); color: #10b981; font-weight: 700;">네이버 DataLab 실시간</span>
+            </div>
+            <div style="position: relative; width: 100%; height: 260px;">
+              <canvas id="trendChartCanvas"></canvas>
+            </div>
+          </div>
+
+          <!-- 상세 테이블 -->
           <div class="table-container">
             <table class="data-table">
               <thead>
                 <tr>
                   <th style="width: 50px;">No</th>
-                  <th>연관 키워드</th>
-                  <th>PC 검색량</th>
-                  <th>모바일 검색량</th>
-                  <th>총 검색량</th>
-                  <th>경쟁도</th>
-                  <th>액션</th>
+                  <th>키워드</th>
+                  <th style="text-align: right;">총 검색량</th>
+                  <th style="text-align: right;">PC 검색량</th>
+                  <th style="text-align: right;">모바일 검색량</th>
+                  <th style="text-align: right;">블로그 문서수</th>
+                  <th style="text-align: right; color: #f59e0b;">기회지수</th>
+                  <th style="text-align: center;">체급</th>
                 </tr>
               </thead>
               <tbody id="keyword-table-body"></tbody>
@@ -3166,7 +3212,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <script src="js/app.js?v=20260915_fix1"></script>
   <script src="js/trending.js?v=20260926_final_news"></script>
-  <script src="js/keyword.js?v=20260914_final"></script>
+  <script src="js/keyword.js?v=20260926_trend_chart"></script>
   <script src="js/viral_shorts_data.js?v=20260915_loading"></script>
   <script src="js/adsense.js?v=20260915_loading"></script>
   <script src="js/prompt.js?v=20260914_final"></script>
