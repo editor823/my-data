@@ -2297,52 +2297,58 @@ function renderCustomBots() {
 
   container.innerHTML = '';
 
-  CUSTOM_BOT_PROMPTS.forEach(bot => {
+  CUSTOM_BOT_PROMPTS.forEach((bot, idx) => {
     const card = document.createElement('div');
     card.className = 'custom-bot-card';
 
-    const pointsHtml = bot.points.map(p => `<li>${escapeHtml(p)}</li>`).join('');
-    const tagsHtml = bot.tags.map(t => `<span class="bot-tag">${escapeHtml(t)}</span>`).join('');
+    const numStr = String(idx + 1).padStart(2, '0');
+    const pointsHtml = bot.points.map(p => `<li style="margin-bottom: 4px;">${escapeHtml(p)}</li>`).join('');
+    const tagsHtml = bot.tags.map(t => `<span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#${escapeHtml(t)}</span>`).join('');
 
     card.innerHTML = `
-      <div style="flex: 1;">
-        <!-- 상단 뱃지 행 -->
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-          <span style="background: ${bot.badgeColor}; color: #fff; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 6px;">
-            ${bot.badge}
-          </span>
-          <span style="color: var(--text-muted); font-size: 0.78rem; font-weight: 600;">
-            ${bot.platform}
-          </span>
+      <div style="flex: 1; display: flex; flex-direction: column;">
+        <!-- 상단 넘버(01, 02...) 및 타겟 라벨 -->
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+          <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+            ${numStr}
+          </div>
+          <div style="display: flex; gap: 6px; align-items: center;">
+            <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+              ${escapeHtml(bot.badge)}
+            </span>
+            <span style="font-size: 13px; color: #64748b;">
+              ${escapeHtml(bot.platform)}
+            </span>
+          </div>
         </div>
 
-        <!-- 봇 타이틀 및 설명 -->
-        <h3 style="font-size: 1.25rem; font-weight: 900; color: var(--text-main); margin: 0 0 8px 0; line-height: 1.3;">
+        <!-- 카드 제목 -->
+        <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
           ${escapeHtml(bot.title)}
         </h3>
-        <p style="font-size: 0.85rem; font-weight: 700; color: ${bot.badgeColor}; margin: 0 0 14px 0; line-height: 1.4;">
+        <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
           ${escapeHtml(bot.subTitle)}
         </p>
 
-        <!-- 불릿 포인트 목록 -->
-        <ul style="margin: 0 0 16px 0; padding-left: 18px; color: var(--text-sub); font-size: 0.82rem; line-height: 1.6;">
+        <!-- 불릿 리스트 본문 -->
+        <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
           ${pointsHtml}
         </ul>
       </div>
 
-      <!-- 하단 태그 및 버튼 영역 -->
-      <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-color);">
+      <!-- 하단 태그 및 액션 버튼 -->
+      <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
         <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
           ${tagsHtml}
         </div>
 
-        <div style="display: flex; gap: 8px;">
-          <button class="btn btn-sm" onclick="copyBotPrompt('${bot.id}')" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border-color); color: var(--text-main); font-weight: 700;" title="프롬프트 복사">
-            📋 프롬프트 복사
-          </button>
-          <a href="${bot.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="flex: 1; background: ${bot.btnColor}; color: #fff; font-weight: 800; text-align: center; text-decoration: none;">
-            ${escapeHtml(bot.btnText)}${bot.btnText.includes('↗') ? '' : ' ↗'}
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <a href="${bot.link}" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+            챗봇 사용하기 (Click) ↗
           </a>
+          <button type="button" onclick="copyBotPrompt('${bot.id}')" style="background: #ffffff; border: 1px solid #cbd5e1; color: #475569; font-size: 12px; font-weight: 600; width: 100%; border-radius: 6px; padding: 6px 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px; transition: all 0.2s;" onmouseover="this.style.borderColor='#94a3b8'; this.style.color='#0f172a'" onmouseout="this.style.borderColor='#cbd5e1'; this.style.color='#475569'">
+            📋 프롬프트 텍스트 복사
+          </button>
         </div>
       </div>
     `;

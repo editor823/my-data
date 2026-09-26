@@ -5472,7 +5472,495 @@ p, li {
   color: #64748b;
   margin-top: auto;
   padding-top: 8px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ==========================================================================
+   ===== 웜 라이트 & 아이보리/베이지 에디토리얼 테마 전면 시스템 (EDITORIAL LIGHT) =====
+   ========================================================================== */
+
+/* 1. 글쓰기 프롬프트 페이지 (01~08 카드) 4열 반응형 그리드 */
+.custom-bots-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+@media (max-width: 1200px) {
+  .custom-bots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .custom-bots-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.custom-bot-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1.5px solid #cbd5e1;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.custom-bot-card:hover {
+  border-color: #94a3b8;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* 2. 폼 인풋 및 셀렉트 웜 라이트 스타일 */
+input.form-input,
+textarea.form-textarea,
+select.form-select,
+.analyzer-search-input,
+.single-fast-input,
+.ext-input,
+.ext-textarea {
+  background-color: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  border-radius: 8px !important;
+}
+
+input.form-input:focus,
+textarea.form-textarea:focus,
+select.form-select:focus,
+.analyzer-search-input:focus,
+.single-fast-input:focus,
+.ext-input:focus,
+.ext-textarea:focus {
+  border-color: #1e4d44 !important;
+  box-shadow: 0 0 0 3px rgba(30, 77, 68, 0.15) !important;
+  outline: none !important;
+}
+
+/* 3. 주요 버튼 및 포인트 (딥 포레스트 그린 #1e4d44) */
+.btn-primary,
+.analyzer-search-btn,
+.single-fast-btn,
+.kc-btn-analyze-go,
+button.btn-forest {
+  background: #1e4d44 !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-weight: 700 !important;
+  transition: background 0.2s ease, transform 0.15s ease !important;
+}
+
+.btn-primary:hover,
+.analyzer-search-btn:hover,
+.single-fast-btn:hover,
+.kc-btn-analyze-go:hover,
+button.btn-forest:hover {
+  background: #163b34 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 4. 애드센스&황금키워드 탭 (kc-*) 웜 라이트 일원화 */
+.kc-header-box {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  padding: 24px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+  margin-bottom: 20px !important;
+}
+
+.kc-main-title {
+  color: #0f172a !important;
+}
+
+.kc-badge-daily {
+  background: #eef1ea !important;
+  color: #1e4d44 !important;
+  border: 1px solid #dce3db !important;
+  font-weight: 800 !important;
+}
+
+.kc-update-info-card {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 10px !important;
+}
+
+.kc-update-info-title {
+  color: #1f2937 !important;
+}
+
+.kc-cycle-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+}
+
+.kc-cycle-name {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+.kc-cycle-sub {
+  color: #4b5563 !important;
+}
+
+/* 알약 탭 바 */
+.kc-pill-tabs-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 6px 2px 14px;
+  margin-bottom: 12px;
+}
+
+.kc-pill-btn {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #4b5563 !important;
+  font-weight: 700 !important;
+  border-radius: 20px !important;
+  padding: 8px 16px !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03) !important;
+}
+
+.kc-pill-btn:hover {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #94a3b8 !important;
+}
+
+.kc-pill-btn.active {
+  background: #1e4d44 !important;
+  border-color: #1e4d44 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(30, 77, 68, 0.25) !important;
+}
+
+/* 서브 바 */
+.kc-sub-filter-bar {
+  background: #eef1ea !important;
+  border: 1px solid #dce3db !important;
+  border-radius: 10px !important;
+  padding: 12px 18px !important;
+  margin-bottom: 20px !important;
+}
+
+.kc-sub-btn {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #4b5563 !important;
+  border-radius: 6px !important;
+}
+
+.kc-sub-btn.active {
+  background: #1e4d44 !important;
+  border-color: #1e4d44 !important;
+  color: #ffffff !important;
+}
+
+/* 2단 레이아웃 좌측 카드 */
+.kc-item-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+.kc-item-card:hover {
+  border-color: #94a3b8 !important;
+  background: #fafbf9 !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06) !important;
+}
+
+.kc-item-card.selected {
+  border: 2px solid #1e4d44 !important;
+  background: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(30, 77, 68, 0.12) !important;
+}
+
+.kc-kw-title {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+.kc-rank-badge {
+  background: #e8f0fe !important;
+  color: #1a56db !important;
+  border: 1px solid #bcd0f7 !important;
+}
+
+.kc-cpc-badge {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+  border: 1px solid #fde68a !important;
+}
+
+.kc-cat-tag {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.kc-card-stats-grid {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+}
+
+.kc-unit-label {
+  color: #64748b !important;
+}
+
+.kc-unit-val {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+.kc-unit-sub {
+  color: #94a3b8 !important;
+}
+
+/* 2단 레이아웃 우측 상세 패널 */
+.kc-detail-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+
+/* 5번 탭 월별 시즌성 컨테이너 */
+.kc-seasonal-group-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+.kc-seasonal-header-bar {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  padding: 16px 20px !important;
+}
+
+.kc-month-pill-btn {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+
+.kc-month-pill-btn.active {
+  background: #1e4d44 !important;
+  border-color: #1e4d44 !important;
+  color: #ffffff !important;
+}
+
+.kc-seasonal-main-kw {
+  color: #0f172a !important;
+}
+
+.kc-seasonal-badge-count {
+  background: #eef1ea !important;
+  color: #1e4d44 !important;
+  border: 1px solid #dce3db !important;
+}
+
+.kc-seasonal-reason-box {
+  background: #f8fafc !important;
+  border-left: 3px solid #1e4d44 !important;
+  color: #334155 !important;
+}
+
+.kc-seasonal-timing-box {
+  background: #f8fafc !important;
+  border-left: 3px solid #f59e0b !important;
+  color: #334155 !important;
+}
+
+.kc-related-row-item {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.kc-related-row-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.kc-rel-kw-name {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+/* 9번 탭 유튜브 비디오 그리드 */
+.kc-yt-summary-bar {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+}
+
+.kc-yt-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+
+.kc-yt-card:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08) !important;
+}
+
+.kc-yt-card-title {
+  color: #0f172a !important;
+}
+
+.kc-yt-card-channel {
+  color: #4b5563 !important;
+}
+
+.kc-yt-card-meta {
+  color: #64748b !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+/* 5. 실시간 급상승어 & 최신 연예뉴스 웜 라이트 */
+.portal-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+.portal-header {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.portal-title {
+  color: #0f172a !important;
+}
+
+.ranking-item {
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+
+.ranking-item:hover {
+  background: #f8fafc !important;
+}
+
+.ranking-num {
+  color: #2563eb !important;
+  font-weight: 800 !important;
+}
+
+.ranking-keyword {
+  color: #1f2937 !important;
+}
+
+.ent-news-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04) !important;
+}
+
+.ent-news-card:hover {
+  border-color: #cbd5e1 !important;
+  background: #f8fafc !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06) !important;
+}
+
+.ent-news-title {
+  color: #0f172a !important;
+}
+
+.ent-news-media {
+  color: #64748b !important;
+}
+
+.ent-news-time {
+  color: #9ca3af !important;
+}
+
+/* 6. 키워드 분석 도구 핵심 스탯 박스 & 테이블 */
+.stat-card-item {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+.stat-card-title {
+  color: #64748b !important;
+}
+
+.stat-card-value {
+  color: #0f172a !important;
+}
+
+.chart-container-box {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+.result-table-box table {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.result-table-box th {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+}
+
+.result-table-box td {
+  background: #ffffff !important;
+  color: #1f2937 !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+
+.result-table-box tr:hover td {
+  background: #f8fafc !important;
+}
+
+/* 체급 필터 칩 */
+.tier-filter-chip {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+.tier-filter-chip.active {
+  background: #1e4d44 !important;
+  border-color: #1e4d44 !important;
+  color: #ffffff !important;
+}
+
+/* 7. 모달 창 웜 라이트 */
+.modal-box {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.25) !important;
+}
+
+.modal-box h3,
+.modal-box h4 {
+  color: #0f172a !important;
+}
+
+.modal-box p {
+  color: #475569 !important;
 }
 
 

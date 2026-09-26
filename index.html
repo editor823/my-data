@@ -12,8 +12,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- 스타일시트 로드 -->
-  <link rel="stylesheet" href="css/style.css?v=20260915_responsive">
-  <link rel="stylesheet" href="css/components.css?v=20260915_responsive">
+  <link rel="stylesheet" href="css/style.css?v=20260926_editorial_light">
+  <link rel="stylesheet" href="css/components.css?v=20260926_editorial_light">
   <link rel="stylesheet" href="css/stock.css?v=20260917_v4">
 </head>
 <body>
@@ -770,73 +770,73 @@
 
     <!-- ===== [모달 1] 내 네이버 API 키 설정 팝업 ===== -->
     <div id="apiUserModal" class="modal-backdrop" style="display: none;">
-      <div class="modal-box" style="max-width: 500px; background: #131a29; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
+      <div class="modal-box" style="max-width: 500px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px; box-shadow: 0 20px 40px rgba(0,0,0,0.12);">
         <!-- 상단 헤더 -->
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-          <h3 style="font-size: 1.35rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 8px; margin: 0;">
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #0f172a; display: flex; align-items: center; gap: 8px; margin: 0;">
             <span style="font-size: 1.4rem;">⚙️</span> 내 API 키 설정
           </h3>
-          <button onclick="closeApiModal('user')" style="background: none; border: none; color: #94a3b8; font-size: 1.5rem; cursor: pointer; padding: 0; line-height: 1;">✕</button>
+          <button onclick="closeApiModal('user')" style="background: none; border: none; color: #64748b; font-size: 1.5rem; cursor: pointer; padding: 0; line-height: 1;">✕</button>
         </div>
-        <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 22px; line-height: 1.5;">
+        <p style="font-size: 0.85rem; color: #475569; margin-bottom: 22px; line-height: 1.5;">
           본인의 네이버 API 키를 입력하면 한도 초과 없이 안정적으로 사용할 수 있습니다.
         </p>
 
         <!-- 1. 네이버 검색·트렌드 API 섹션 박스 -->
-        <div style="background: transparent; border: 1.5px solid rgba(16, 185, 129, 0.5); border-radius: 12px; padding: 18px 20px; margin-bottom: 18px;">
-          <h4 style="color: #10b981; font-size: 0.95rem; font-weight: 800; margin-bottom: 14px; margin-top: 0;">1. 네이버 검색·트렌드 API</h4>
+        <div style="background: #fafbf9; border: 1.5px solid #dce3db; border-radius: 12px; padding: 18px 20px; margin-bottom: 18px;">
+          <h4 style="color: #1e4d44; font-size: 0.95rem; font-weight: 800; margin-bottom: 14px; margin-top: 0;">1. 네이버 검색·트렌드 API</h4>
           
           <div class="form-group" style="margin-bottom: 14px;">
-            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; display: block;">인증 방식</label>
-            <select id="naverAuthType" class="form-select" onchange="onNaverAuthTypeChange()" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.15); color: #f8fafc; border-radius: 8px; padding: 10px 12px; font-size: 0.9rem; outline: none;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 6px; display: block;">인증 방식</label>
+            <select id="naverAuthType" class="form-select" onchange="onNaverAuthTypeChange()" style="width: 100%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; border-radius: 8px; padding: 10px 12px; font-size: 0.9rem; outline: none;">
               <option value="hub">NAVER API HUB (통합형 · 권장)</option>
               <option value="dev">기존 네이버 개발자센터 키</option>
             </select>
           </div>
 
           <div class="form-group" style="margin-bottom: 14px;">
-            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; display: block;">Client ID</label>
-            <input type="text" id="naverClientId" class="form-input" placeholder="X-NCP-APIGW-API-KEY-ID" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 6px; display: block;">Client ID</label>
+            <input type="text" id="naverClientId" class="form-input" placeholder="X-NCP-APIGW-API-KEY-ID" style="width: 100%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
           </div>
 
           <div class="form-group" style="margin-bottom: 12px;">
-            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; display: block;">Client Secret</label>
-            <input type="password" id="naverClientSecret" class="form-input" placeholder="X-NCP-APIGW-API-KEY" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 6px; display: block;">Client Secret</label>
+            <input type="password" id="naverClientSecret" class="form-input" placeholder="X-NCP-APIGW-API-KEY" style="width: 100%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
           </div>
 
-          <p id="naverAuthDesc" style="font-size: 0.78rem; color: #94a3b8; line-height: 1.5; margin: 0;">
+          <p id="naverAuthDesc" style="font-size: 0.78rem; color: #64748b; line-height: 1.5; margin: 0;">
             통합형은 X-NCP-APIGW-API-KEY-ID / X-NCP-APIGW-API-KEY 인증을 사용합니다. 검색광고 키는 별도로 계속 필요합니다.
           </p>
         </div>
 
         <!-- 2. 네이버 검색광고 API 섹션 박스 -->
-        <div style="background: transparent; border: 1.5px solid rgba(245, 158, 11, 0.5); border-radius: 12px; padding: 18px 20px; margin-bottom: 24px;">
-          <h4 style="color: #f59e0b; font-size: 0.95rem; font-weight: 800; margin-bottom: 14px; margin-top: 0;">2. 네이버 검색광고 API</h4>
+        <div style="background: #fafbf9; border: 1.5px solid #dce3db; border-radius: 12px; padding: 18px 20px; margin-bottom: 24px;">
+          <h4 style="color: #b45309; font-size: 0.95rem; font-weight: 800; margin-bottom: 14px; margin-top: 0;">2. 네이버 검색광고 API</h4>
           
           <div class="form-group" style="margin-bottom: 14px;">
-            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; display: block;">CUSTOMER ID</label>
-            <input type="text" id="adCustomerId" class="form-input" placeholder="고객확인번호" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 6px; display: block;">CUSTOMER ID</label>
+            <input type="text" id="adCustomerId" class="form-input" placeholder="고객확인번호" style="width: 100%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
           </div>
 
           <div class="form-group" style="margin-bottom: 14px;">
-            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; display: block;">ACCESS LICENSE</label>
-            <input type="text" id="adLicenseKey" class="form-input" placeholder="액세스 라이선스 키" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 6px; display: block;">ACCESS LICENSE</label>
+            <input type="text" id="adLicenseKey" class="form-input" placeholder="액세스 라이선스 키" style="width: 100%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
           </div>
 
           <div class="form-group" style="margin-bottom: 4px;">
-            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; display: block;">SECRET KEY</label>
-            <input type="password" id="adSecretKey" class="form-input" placeholder="비밀키" style="width: 100%; background: #0b111e; border: 1px solid rgba(255,255,255,0.12); color: #f8fafc; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 6px; display: block;">SECRET KEY</label>
+            <input type="password" id="adSecretKey" class="form-input" placeholder="비밀키" style="width: 100%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
           </div>
         </div>
 
         <!-- 하단 액션 버튼 -->
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-          <button type="button" onclick="loadAdminMasterKeys()" style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24; padding: 7px 14px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;">
+          <button type="button" onclick="loadAdminMasterKeys()" style="background: #fef3c7; border: 1px solid #fde68a; color: #92400e; padding: 7px 14px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;">
             <span>👑</span> 관리자 키 자동 채우기
           </button>
           <div style="display: flex; gap: 8px;">
-            <button type="button" onclick="clearUserApiKeys()" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #e2e8f0; padding: 8px 18px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: 0.2s;">초기화</button>
-            <button type="button" onclick="saveUserApiKeys()" style="background: #10b981; border: none; color: #ffffff; padding: 8px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">저장 및 적용하기</button>
+            <button type="button" onclick="clearUserApiKeys()" style="background: #ffffff; border: 1px solid #cbd5e1; color: #475569; padding: 8px 18px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: 0.2s;">초기화</button>
+            <button type="button" onclick="saveUserApiKeys()" style="background: #1e4d44; border: none; color: #ffffff; padding: 8px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: 0.2s; box-shadow: 0 2px 6px rgba(30, 77, 68, 0.25);">저장 및 적용하기</button>
           </div>
         </div>
       </div>
@@ -955,49 +955,49 @@
       <!-- 3x3 맞춤형 챗봇 카드 그리드 컨테이너 -->
       <div class="custom-bots-grid" id="custom-bots-grid"></div>
 
-      <!-- SAFE USE 안전 사용 가이드 박스 (스크린샷 100% 동일 구현) -->
-      <div style="margin-top: 45px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-color); border-radius: 18px; padding: 36px 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
+      <!-- SAFE USE 안전 사용 가이드 박스 (에디토리얼 웜 라이트 테마) -->
+      <div style="margin-top: 45px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 36px 30px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
         <!-- SAFE USE 배지 -->
         <div style="display: inline-block; background: #fef08a; color: #854d0e; font-size: 0.75rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; margin-bottom: 14px;">
           SAFE USE
         </div>
 
         <!-- 중앙 메인 헤딩 및 안내문 -->
-        <h3 style="font-size: 1.5rem; font-weight: 900; color: var(--text-main); margin-bottom: 10px; letter-spacing: -0.5px;">
+        <h3 style="font-size: 1.45rem; font-weight: 800; color: #0f172a; margin-bottom: 10px; letter-spacing: -0.5px;">
           답변은 그대로 쓰기보다 한 번 더 다듬어주세요
         </h3>
-        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 30px;">
+        <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 30px;">
           GPTs는 글쓰기 보조 도구입니다. 승인, 노출, 수익을 보장하지 않으며 최종 판단과 수정은 사용자에게 있습니다.
         </p>
 
         <!-- 3개 세부 안내 카드 그리드 -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; text-align: left;">
           <!-- 1. 좋은 사용법 -->
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px;">
-            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-bottom: 10px;">
+          <div style="background: #fafbf9; border: 1px solid #e2e8f0; border-radius: 10px; padding: 22px;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #0f172a; margin-bottom: 10px;">
               좋은 사용법
             </h4>
-            <p style="font-size: 0.82rem; color: var(--text-sub); line-height: 1.65; margin: 0;">
+            <p style="font-size: 0.82rem; color: #475569; line-height: 1.65; margin: 0;">
               키워드, 대상 독자, 글 목적, 원하는 톤을 함께 넣고 마지막에 "100% 지침대로 해줘"를 붙여주세요. 그리고 생성된 글에 본인만의 경험을 약간 덧붙여 발행하시면 최상급 글이 됩니다.
             </p>
           </div>
 
           <!-- 2. 주의할 점 -->
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px;">
-            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-bottom: 10px;">
+          <div style="background: #fafbf9; border: 1px solid #e2e8f0; border-radius: 10px; padding: 22px;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #0f172a; margin-bottom: 10px;">
               주의할 점
             </h4>
-            <p style="font-size: 0.82rem; color: var(--text-sub); line-height: 1.65; margin: 0;">
+            <p style="font-size: 0.82rem; color: #475569; line-height: 1.65; margin: 0;">
               외부 채널이나 지식인 답변에는 과도한 홍보를 피하고, 질문자에게 실질적으로 도움이 되는 내용 중심으로 사용해주세요. 무지성 복사 붙여넣기는 계정 정지의 원인이 됩니다.
             </p>
           </div>
 
           <!-- 3. 문의 위치 -->
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px;">
-            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-bottom: 10px;">
+          <div style="background: #fafbf9; border: 1px solid #e2e8f0; border-radius: 10px; padding: 22px;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #0f172a; margin-bottom: 10px;">
               문의 위치
             </h4>
-            <p style="font-size: 0.82rem; color: var(--text-sub); line-height: 1.65; margin: 0;">
+            <p style="font-size: 0.82rem; color: #475569; line-height: 1.65; margin: 0;">
               문제가 생기면 구매자 단톡방 또는 1:1 문의가 가장 빠릅니다. 사이트 하단 고객문의는 확인이 늦을 수 있으니 양해 부탁드립니다.
             </p>
           </div>
@@ -3239,7 +3239,7 @@
   <script src="js/keyword.js?v=20260926_related_live"></script>
   <script src="js/viral_shorts_data.js?v=20260915_loading"></script>
   <script src="js/adsense.js?v=20260926_live_api_v1"></script>
-  <script src="js/prompt.js?v=20260914_final"></script>
+  <script src="js/prompt.js?v=20260926_editorial_light"></script>
   <script src="js/admin.js?v=20260914_final"></script>
   <script src="js/homepan.js?v=20260914_final"></script>
   <script src="js/external.js?v=20260914_final"></script>
