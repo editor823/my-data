@@ -4,8 +4,10 @@
 .env.*.local
 *.log
 node_modules/
+.next/
 .DS_Store
 
 # graft's local graph cache — regenerable, not committed (run `graft build`).
 /graft/
 scratch/
+stock-intelligence/
