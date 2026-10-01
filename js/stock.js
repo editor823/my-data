@@ -65,19 +65,19 @@ window.handleThemeDbSearchInput = function(query) {
               ? `<span style="font-size: 0.68rem; background: rgba(56,189,248,0.15); color: #7dd3fc; padding: 1px 5px; border-radius: 4px;">매칭: ${escapeHtml(t.matched_stock_names.join(', '))}</span>`
               : '';
             return `
-              <div onmousedown="selectThemeFromDb('${escapeHtml(t.name)}')" style="padding: 8px 10px; border-radius: 6px; background: rgba(30, 41, 59, 0.7); cursor: pointer; transition: all 0.15s ease; border: 1px solid transparent; display: flex; justify-content: space-between; align-items: center;" onmouseover="this.style.background='rgba(56,189,248,0.15)'; this.style.borderColor='rgba(56,189,248,0.4)';" onmouseout="this.style.background='rgba(30, 41, 59, 0.7)'; this.style.borderColor='transparent';">
+              <div onmousedown="selectThemeFromDb('${escapeHtml(t.name)}')" style="padding: 8px 10px; border-radius: 6px; background: #f8fafc; cursor: pointer; transition: all 0.15s ease; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;" onmouseover="this.style.background='#eff6ff'; this.style.borderColor='#93c5fd';" onmouseout="this.style.background='#f8fafc'; this.style.borderColor='#e2e8f0';">
                 <div>
                   <div style="display: flex; align-items: center; gap: 6px;">
-                    <span style="font-size: 0.84rem; font-weight: 800; color: #f8fafc;">${escapeHtml(t.name)}</span>
-                    <span style="font-size: 0.68rem; color: #38bdf8; background: rgba(56,189,248,0.1); padding: 1px 6px; border-radius: 4px; border: 1px solid rgba(56,189,248,0.25);">${escapeHtml(t.category || '테마')}</span>
+                    <span style="font-size: 0.84rem; font-weight: 800; color: #0f172a;">${escapeHtml(t.name)}</span>
+                    <span style="font-size: 0.68rem; color: #0284c7; background: #e0f2fe; padding: 1px 6px; border-radius: 4px; border: 1px solid #bae6fd;">${escapeHtml(t.category || '테마')}</span>
                   </div>
-                  <div style="font-size: 0.72rem; color: #94a3b8; margin-top: 3px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
-                    <span>👑 대장: <strong style="color: #cbd5e1;">${escapeHtml(t.lead_stocks || '-')}</strong></span>
+                  <div style="font-size: 0.72rem; color: #64748b; margin-top: 3px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                    <span>👑 대장: <strong style="color: #334155;">${escapeHtml(t.lead_stocks || '-')}</strong></span>
                     ${matchedTags}
                   </div>
                 </div>
                 <div style="text-align: right;">
-                  <span style="font-size: 0.7rem; color: #4ade80; font-weight: 700; background: rgba(34, 197, 94, 0.12); padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(34, 197, 94, 0.3);">
+                  <span style="font-size: 0.7rem; color: #166534; font-weight: 700; background: #dcfce7; padding: 2px 7px; border-radius: 4px; border: 1px solid #bbf7d0;">
                     ${t.stocks_count || 0}종목
                   </span>
                 </div>
@@ -501,10 +501,10 @@ window.openManageThemeStocksModal = async function() {
     return allKnown.map(s => {
       const isLead = currentLeadArr.some(l => l.startsWith(s.name) || s.name.startsWith(l));
       return `
-        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; background: ${isLead ? 'rgba(245, 158, 11, 0.2)' : 'rgba(30, 41, 59, 0.9)'}; color: ${isLead ? '#fde047' : '#e2e8f0'}; border: 1px solid ${isLead ? 'rgba(245, 158, 11, 0.5)' : 'rgba(255, 255, 255, 0.15)'};">
+        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; background: ${isLead ? '#fef3c7' : '#f1f5f9'}; color: ${isLead ? '#b45309' : '#1e293b'}; border: 1px solid ${isLead ? '#fde68a' : '#cbd5e1'};">
           <span>${isLead ? '👑 ' : ''}${escapeHtml(s.name)}</span>
-          <span style="font-size: 0.68rem; color: #94a3b8;">(${s.code !== '000000' ? s.code : '코드미정'})</span>
-          <button type="button" onclick="handleModalRemoveStock('${escapeHtml(s.name)}')" title="영구 삭제" style="background: transparent; border: none; color: #f87171; font-weight: 900; cursor: pointer; padding: 0 2px; font-size: 0.85rem;" onmouseover="this.style.color='#ef4444';" onmouseout="this.style.color='#f87171';">×</button>
+          <span style="font-size: 0.68rem; color: #64748b;">(${s.code !== '000000' ? s.code : '코드미정'})</span>
+          <button type="button" onclick="handleModalRemoveStock('${escapeHtml(s.name)}')" title="영구 삭제" style="background: transparent; border: none; color: #dc2626; font-weight: 900; cursor: pointer; padding: 0 2px; font-size: 0.85rem;" onmouseover="this.style.color='#991b1b';" onmouseout="this.style.color='#dc2626';">×</button>
         </span>
       `;
     }).join('');
@@ -976,7 +976,7 @@ window.loadTodayHkReportsWidget = async function() {
       }
 
       return `
-        <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid ${isStrong ? 'rgba(16, 185, 129, 0.4)' : 'rgba(255,255,255,0.08)'}; border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; transition: all 0.2s ease;" onmouseover="this.style.borderColor='#10b981'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='${isStrong ? 'rgba(16, 185, 129, 0.4)' : 'rgba(255,255,255,0.08)'}'; this.style.transform='none';">
+        <div style="background: #ffffff; border: 1px solid ${isStrong ? '#a7f3d0' : '#e2e8f0'}; border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='#059669'; this.style.transform='translateY(-1px)';" onmouseout="this.style.borderColor='${isStrong ? '#a7f3d0' : '#e2e8f0'}'; this.style.transform='none';">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
               <span style="font-size: 0.72rem; padding: 2px 7px; background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 4px; font-weight: 800;">
@@ -987,16 +987,16 @@ window.loadTodayHkReportsWidget = async function() {
               </span>
             </div>
             <div style="font-size: 0.88rem; font-weight: 800; color: #f8fafc; line-height: 1.4; margin-bottom: 4px;">
-              <a href="${escapeHtml(safeReportUrl)}" target="_blank" rel="noopener noreferrer" style="color: #f8fafc; text-decoration: none; transition: color 0.15s;" onmouseover="this.style.color='#34d399';" onmouseout="this.style.color='#f8fafc';">
+              <a href="${escapeHtml(safeReportUrl)}" target="_blank" rel="noopener noreferrer" style="color: #f8fafc; text-decoration: none; transition: color 0.15s;" onmouseover="this.style.color='#34d399';" onmouseout="this.style.color='#0f172a';">
                 ${targetCorp ? `<span style="color: #38bdf8;">[${escapeHtml(targetCorp)}]</span> ` : ''}${escapeHtml(reportTitle)}
               </a>
             </div>
           </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed rgba(255,255,255,0.08); margin-top: 4px; padding-top: 6px;">
-            <div style="font-size: 0.74rem; color: #cbd5e1;">
-              <span style="color: #fbbf24; font-weight: 700;">${escapeHtml(item.opinion || '매수')}</span> · 목표가: <strong style="color: #4ade80;">${escapeHtml(item.target_price || '미제시')}</strong>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; margin-top: 4px; padding-top: 6px;">
+            <div style="font-size: 0.74rem; color: #475569;">
+              <span style="color: #b45309; font-weight: 700;">${escapeHtml(item.opinion || '매수')}</span> · 목표가: <strong style="color: #059669;">${escapeHtml(item.target_price || '미제시')}</strong>
             </div>
-            <a href="${escapeHtml(safeReportUrl)}" target="_blank" rel="noopener noreferrer" title="원문 리포트 확인" style="display: inline-flex; align-items: center; gap: 3px; font-size: 0.72rem; color: #34d399; text-decoration: none; font-weight: 700; background: rgba(16,185,129,0.12); padding: 3px 9px; border-radius: 4px; border: 1px solid rgba(16,185,129,0.3); transition: all 0.15s;" onmouseover="this.style.background='rgba(16,185,129,0.25)';" onmouseout="this.style.background='rgba(16,185,129,0.12)';">
+            <a href="${escapeHtml(safeReportUrl)}" target="_blank" rel="noopener noreferrer" title="원문 리포트 확인" style="display: inline-flex; align-items: center; gap: 3px; font-size: 0.72rem; color: #34d399; text-decoration: none; font-weight: 700; background: #ecfdf5; padding: 3px 9px; border-radius: 4px; border: 1px solid #a7f3d0; color: #047857; transition: all 0.15s;" onmouseover="this.style.background='rgba(16,185,129,0.25)';" onmouseout="this.style.background='rgba(16,185,129,0.12)';">
               <span>원문</span> <span>↗</span>
             </a>
           </div>
@@ -1230,17 +1230,17 @@ window.loadDetectiveCaseLogs = async function() {
     let statusBadge = '';
     let statusCardBorder = 'border-color: rgba(255, 255, 255, 0.08);';
     if (c.status === 'SUCCESS_SHOOTING') {
-      statusBadge = '<span style="font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; background: rgba(16, 185, 129, 0.25); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.4);">🚀 슈팅 성공 (+수익)</span>';
-      statusCardBorder = 'border-color: rgba(16, 185, 129, 0.4); background: rgba(6, 40, 32, 0.75);';
+      statusBadge = '<span style="font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0;">🚀 슈팅 성공 (+수익)</span>';
+      statusCardBorder = 'border-left: 4px solid #10b981; background: #ffffff;';
     } else if (c.status === 'EXPIRED_FAIL') {
-      statusBadge = '<span style="font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4);">❌ 재료 소멸</span>';
-      statusCardBorder = 'border-color: rgba(239, 68, 68, 0.35); background: rgba(40, 10, 15, 0.7);';
+      statusBadge = '<span style="font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; background: rgba(239, 68, 68, 0.2); color: #b91c1c; border: 1px solid rgba(239, 68, 68, 0.4);">❌ 재료 소멸</span>';
+      statusCardBorder = 'border-left: 4px solid #ef4444; background: #ffffff;';
     } else {
-      statusBadge = '<span style="font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">⏳ 재료 대기중</span>';
+      statusBadge = '<span style="font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; background: #eff6ff; color: #0284c7; border: 1px solid #bfdbfe;">⏳ 재료 대기중</span>';
     }
 
     return `
-      <div style="background: rgba(15, 23, 42, 0.85); border: 1.5px solid rgba(255,255,255,0.08); ${statusCardBorder} border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; transition: all 0.2s;">
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; ${statusCardBorder} border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
         <div>
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
             <span style="font-size: 0.74rem; color: #94a3b8; font-weight: 700;">
@@ -1253,7 +1253,7 @@ window.loadDetectiveCaseLogs = async function() {
           </div>
 
           <!-- 테마 및 대장주 타이틀 (클릭 시 당시 테마 화면 원문 복원) -->
-          <div style="font-size: 1.05rem; font-weight: 900; color: #f8fafc; margin-bottom: 6px; cursor: pointer;" onclick="restoreCaseTheme('${c.theme_id}', '${escapeHtml(c.theme_name)}')" title="클릭 시 이 테마의 7대 체크리스트와 타임라인을 다시 엽니다.">
+          <div style="font-size: 1.05rem; font-weight: 900; color: #0f172a; margin-bottom: 6px; cursor: pointer;" onclick="restoreCaseTheme('${c.theme_id}', '${escapeHtml(c.theme_name)}')" title="클릭 시 이 테마의 7대 체크리스트와 타임라인을 다시 엽니다.">
             <span style="color: #38bdf8; text-decoration: underline;">[${c.theme_name}]</span> ${c.lead_stock}
           </div>
 
@@ -1263,7 +1263,7 @@ window.loadDetectiveCaseLogs = async function() {
           </div>
 
           <!-- 사용자 메모 -->
-          <div style="background: rgba(0, 0, 0, 0.3); border-radius: 6px; padding: 8px 10px; font-size: 0.8rem; color: #cbd5e1; border-left: 3px solid #38bdf8; line-height: 1.4;">
+          <div style="background: #f8fafc; border-radius: 6px; padding: 8px 10px; font-size: 0.8rem; color: #334155; border: 1px solid #e2e8f0; border-left: 3px solid #0284c7; line-height: 1.45;">
             💬 <b>가설:</b> ${escapeHtml(c.user_memo || '메모 없음')}
           </div>
         </div>
@@ -1272,13 +1272,13 @@ window.loadDetectiveCaseLogs = async function() {
         <div style="border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
           <span style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;">결과 복기 변경:</span>
           <div style="display: flex; gap: 4px;">
-            <button type="button" onclick="updateCaseStatus('${c.id}', 'SUCCESS_SHOOTING')" style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(52, 211, 153, 0.35); color: #34d399; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; cursor: pointer;" onmouseover="this.style.background='rgba(16,185,129,0.3)';" onmouseout="this.style.background='rgba(16,185,129,0.15)';">
+            <button type="button" onclick="updateCaseStatus('${c.id}', 'SUCCESS_SHOOTING')" style="background: #ecfdf5; border: 1px solid #a7f3d0; color: #047857; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; cursor: pointer;" onmouseover="this.style.background='rgba(16,185,129,0.3)';" onmouseout="this.style.background='rgba(16,185,129,0.15)';">
               🚀 성공
             </button>
-            <button type="button" onclick="updateCaseStatus('${c.id}', 'WAITING')" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; cursor: pointer;" onmouseover="this.style.background='rgba(56,189,248,0.3)';" onmouseout="this.style.background='rgba(56,189,248,0.15)';">
+            <button type="button" onclick="updateCaseStatus('${c.id}', 'WAITING')" style="background: #eff6ff; border: 1px solid #bfdbfe; color: #0284c7; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; cursor: pointer;" onmouseover="this.style.background='rgba(56,189,248,0.3)';" onmouseout="this.style.background='rgba(56,189,248,0.15)';">
               ⏳ 대기
             </button>
-            <button type="button" onclick="updateCaseStatus('${c.id}', 'EXPIRED_FAIL')" style="background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.35); color: #f87171; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; cursor: pointer;" onmouseover="this.style.background='rgba(239,68,68,0.3)';" onmouseout="this.style.background='rgba(239,68,68,0.15)';">
+            <button type="button" onclick="updateCaseStatus('${c.id}', 'EXPIRED_FAIL')" style="background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.35); color: #b91c1c; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; cursor: pointer;" onmouseover="this.style.background='rgba(239,68,68,0.3)';" onmouseout="this.style.background='rgba(239,68,68,0.15)';">
               ❌ 소멸
             </button>
           </div>
@@ -2012,13 +2012,13 @@ window.renderDetectiveCard = function(theme, period = 'all') {
         </div>
 
         <!-- 기준봉 고가 대비 눌림률 및 5일선 돌파 타점 배지 (실전 의사결정) -->
-        <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(236, 72, 153, 0.35); border-radius: 6px; padding: 6px 8px; display: flex; flex-direction: column; gap: 4px;">
-          <div style="font-size: 0.74rem; color: #f472b6; font-weight: 800; display: flex; justify-content: space-between; align-items: center;">
+        <div style="background: #fff1f2; border: 1px solid #fecdd3; border-radius: 6px; padding: 6px 8px; display: flex; flex-direction: column; gap: 4px;">
+          <div style="font-size: 0.74rem; color: #be123c; font-weight: 800; display: flex; justify-content: space-between; align-items: center;">
             <span>📉 기준봉 대비 눌림률:</span>
-            <span style="color: #fbcfe8; font-weight: 900;">${pullbackText || '눌림목 단계 산출 중'}</span>
+            <span style="color: #9f1239; font-weight: 900;">${pullbackText || '눌림목 단계 산출 중'}</span>
           </div>
           ${breakoutBadge ? `
-            <div style="font-size: 0.74rem; font-weight: 900; background: linear-gradient(135deg, rgba(236, 72, 153, 0.25), rgba(244, 63, 94, 0.35)); color: #fecdd3; border: 1px solid #f43f5e; padding: 3px 8px; border-radius: 5px; text-align: center; animation: pulse 2s infinite;">
+            <div style="font-size: 0.74rem; font-weight: 900; background: linear-gradient(135deg, rgba(236, 72, 153, 0.25), rgba(244, 63, 94, 0.35)); color: #fecdd3; border: 1px solid #dc2626; padding: 3px 8px; border-radius: 5px; text-align: center; animation: pulse 2s infinite;">
               ${breakoutBadge}
             </div>
           ` : `
@@ -2037,12 +2037,12 @@ window.renderDetectiveCard = function(theme, period = 'all') {
       const oDays = sup.organ_consecutive_days || 0;
       const bothBuying = sup.is_both_buying;
       supplyTextHtml = `
-        <div style="margin-top: 6px; font-size: 0.76rem; background: rgba(30, 41, 59, 0.85); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 6px; padding: 6px 8px;">
-          <div style="color: #93c5fd; font-weight: 800; display: flex; align-items: center; justify-content: space-between;">
+        <div style="margin-top: 6px; font-size: 0.76rem; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 6px 8px;">
+          <div style="color: #1d4ed8; font-weight: 800; display: flex; align-items: center; justify-content: space-between;">
             <span>👥 실시간 메이저 수급:</span>
             <span style="color: ${bothBuying ? '#f87171' : '#60a5fa'}; font-weight: 900;">${bothBuying ? '🔥 외인·기관 양매수 유입' : '수급 유입 진행 중'}</span>
           </div>
-          <div style="color: #cbd5e1; font-size: 0.72rem; margin-top: 3px;">
+          <div style="color: #334155; font-size: 0.74rem; margin-top: 3px;">
             외인 ${fDays > 0 ? `<b style="color:#f87171;">${fDays}일 연속 순매수</b>` : '관망'} · 기관 ${oDays > 0 ? `<b style="color:#f87171;">${oDays}일 연속 순매수</b>` : '관망'}
           </div>
         </div>
@@ -2061,15 +2061,15 @@ window.renderDetectiveCard = function(theme, period = 'all') {
   let bearishMultiHtml = '';
   if (bearishDetails && typeof bearishDetails === 'object') {
     bearishMultiHtml = `
-      <div style="margin-top: 6px; display: flex; flex-direction: column; gap: 4px; font-size: 0.76rem; background: rgba(225, 29, 72, 0.08); border: 1px solid rgba(225, 29, 72, 0.25); border-radius: 6px; padding: 6px 8px;">
-        <div style="color: #fca5a5; line-height: 1.35;">
-          <strong style="color: #f87171;">① 일정 연기/무산:</strong> ${bearishDetails.risk_delay ? bearishDetails.risk_delay.replace(/\[.*?\]\s*/, '') : '법안·인허가·공청회 지연 시 실망 매물'}
+      <div style="margin-top: 6px; display: flex; flex-direction: column; gap: 4px; font-size: 0.76rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 6px 8px;">
+        <div style="color: #7f1d1d; line-height: 1.35;">
+          <strong style="color: #b91c1c;">① 일정 연기/무산:</strong> ${bearishDetails.risk_delay ? bearishDetails.risk_delay.replace(/\[.*?\]\s*/, '') : '법안·인허가·공청회 지연 시 실망 매물'}
         </div>
-        <div style="color: #fca5a5; line-height: 1.35;">
-          <strong style="color: #f87171;">② 재료 팩트 소멸:</strong> ${bearishDetails.risk_cancellation ? bearishDetails.risk_cancellation.replace(/\[.*?\]\s*/, '') : '계약 해지, 개발 중단 공시 시 급락'}
+        <div style="color: #7f1d1d; line-height: 1.35;">
+          <strong style="color: #b91c1c;">② 재료 팩트 소멸:</strong> ${bearishDetails.risk_cancellation ? bearishDetails.risk_cancellation.replace(/\[.*?\]\s*/, '') : '계약 해지, 개발 중단 공시 시 급락'}
         </div>
-        <div style="color: #fca5a5; line-height: 1.35;">
-          <strong style="color: #f87171;">③ 매크로 리스크:</strong> ${bearishDetails.risk_macro ? bearishDetails.risk_macro.replace(/\[.*?\]\s*/, '') : '지정학 긴장 및 지수 투매에 따른 동반 하락'}
+        <div style="color: #7f1d1d; line-height: 1.35;">
+          <strong style="color: #b91c1c;">③ 매크로 리스크:</strong> ${bearishDetails.risk_macro ? bearishDetails.risk_macro.replace(/\[.*?\]\s*/, '') : '지정학 긴장 및 지수 투매에 따른 동반 하락'}
         </div>
       </div>
     `;
@@ -2083,9 +2083,9 @@ window.renderDetectiveCard = function(theme, period = 'all') {
 
   let html = `
     <!-- 7대 재료 체크리스트 카드 (상단 고정 유지) -->
-    <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 18px 20px; margin-bottom: 22px; box-shadow: 0 4px 16px rgba(0,0,0,0.3);">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px dashed rgba(255,255,255,0.12); padding-bottom:10px; flex-wrap:wrap; gap:8px;">
-        <div style="font-size:1rem; font-weight:800; color:#38bdf8; display:flex; align-items:center; gap:8px;">
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 22px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid #e2e8f0; padding-bottom:12px; flex-wrap:wrap; gap:8px;">
+        <div style="font-size:1.05rem; font-weight:900; color:#0f172a; display:flex; align-items:center; gap:8px;">
           <span>📋</span> 데일리 주도주 탐정 7대 재료 체크리스트
         </div>
         <div style="display:flex; align-items:center; gap:10px;">
@@ -2093,22 +2093,23 @@ window.renderDetectiveCard = function(theme, period = 'all') {
             <span>💾</span>
             <span>현재 종목 사건 수첩에 박제</span>
           </button>
-          <span style="font-size:0.75rem; color:#94a3b8; background:rgba(255,255,255,0.05); padding:4px 9px; border-radius:6px;">
+          <span style="font-size:0.75rem; color:#475569; background:#f8fafc; border:1px solid #e2e8f0; padding:4px 9px; border-radius:6px; font-weight:600;">
             분석 기준일: ${theme.analysis_date || '최근'}
           </span>
         </div>
       </div>
 
       <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
-        <div style="background:rgba(30,41,59,0.7); border-radius:8px; padding:12px 14px; border-left:4px solid #38bdf8;">
-          <div style="font-size:0.82rem; font-weight:700; color:#7dd3fc; margin-bottom:4px;">1) 재료의 내용 & 핵심 스토리</div>
-          <div style="font-size:0.86rem; color:#e2e8f0; line-height:1.45; word-break: break-all;">
+        <!-- 1) 재료의 내용 & 핵심 스토리 -->
+        <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:14px 16px; border-left:4px solid #0284c7; box-shadow:0 1px 3px rgba(0,0,0,0.03);">
+          <div style="font-size:0.83rem; font-weight:800; color:#0369a1; margin-bottom:6px; display:flex; align-items:center; gap:6px;">
+            <span style="background:#e0f2fe; color:#0369a1; padding:2px 7px; border-radius:4px;">1) 재료의 내용 & 핵심 스토리</span>
+          </div>
+          <div style="font-size:0.86rem; color:#1e293b; font-weight:600; line-height:1.5; word-break: break-all;">
             ${escapeHtml((() => {
-              // 1. 체크리스트 자체 material이 [헤드라인] (언론사) 포맷인 경우 우선
               if (chk.material && chk.material.length > 5 && !chk.material.includes('메이저 거래대금 쏠림 분출')) {
                 return chk.material;
               }
-              // 2. 테마 내 최신 실제 기사 (headline + press) 추출
               const firstNews = (theme.timeline || []).find(t => t.news_title && !t.news_title.includes('[주도 섹터 TOP 5]'));
               if (firstNews && firstNews.news_title) {
                 return `${firstNews.news_title} (${firstNews.press || '언론 종합'})`;
@@ -2121,59 +2122,66 @@ window.renderDetectiveCard = function(theme, period = 'all') {
           </div>
         </div>
 
-        <div style="background:rgba(30,41,59,0.7); border-radius:8px; padding:12px 14px; border-left:4px solid #a855f7; display: flex; flex-direction: column; justify-content: space-between; gap: 8px;">
+        <!-- 2) 대장주 & 3) 관련성 -->
+        <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:14px 16px; border-left:4px solid #7c3aed; box-shadow:0 1px 3px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; gap: 8px;">
           <div>
-            <div style="font-size:0.82rem; font-weight:700; color:#c084fc; margin-bottom:4px;">2) 대장주 & 3) 관련성(왜 대장인가)</div>
-            <div style="font-size:0.85rem; color:#e2e8f0; line-height:1.45;">
-              <span style="color:#e9d5ff; font-weight:800;">👑 ${leaders.lead || '-'}</span> 
-              ${leaders.sub ? `<span style="color:#94a3b8; font-size:0.8rem;">(부대장: ${leaders.sub})</span>` : ''}
+            <div style="font-size:0.83rem; font-weight:800; color:#6d28d9; margin-bottom:6px; display:flex; align-items:center; gap:6px;">
+              <span style="background:#ede9fe; color:#6d28d9; padding:2px 7px; border-radius:4px;">2) 대장주 & 3) 관련성</span>
             </div>
-            <div style="font-size:0.8rem; color:#cbd5e1; margin-top:5px; line-height:1.4; word-break: break-all;">
+            <div style="font-size:0.86rem; color:#1e293b; line-height:1.45;">
+              <span style="color:#6d28d9; font-weight:900;">👑 ${leaders.lead || '-'}</span> 
+              ${leaders.sub ? `<span style="color:#64748b; font-size:0.8rem; font-weight:600;">(부대장: ${leaders.sub})</span>` : ''}
+            </div>
+            <div style="font-size:0.82rem; color:#475569; margin-top:6px; line-height:1.45; word-break: break-all;">
               ${chk.correlation || '-'}
             </div>
           </div>
         </div>
 
         <!-- 3) 재료와 종목의 연관성 (사업 스토리 팩트 매핑) -->
-        <div style="background:rgba(30,41,59,0.7); border-radius:8px; padding:12px 14px; border-left:4px solid #f59e0b;">
-          <div style="font-size:0.82rem; font-weight:700; color:#fbbf24; margin-bottom:4px; display: flex; align-items: center; justify-content: space-between;">
-            <span>3) 재료와 종목의 연관성 (사업 스토리 팩트 매핑)</span>
-            <span style="font-size: 0.68rem; background: rgba(245, 158, 11, 0.2); color: #fde047; padding: 1px 6px; border-radius: 4px; font-weight: 800;">공시·사업보고서 밸류체인 직결</span>
+        <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:14px 16px; border-left:4px solid #d97706; box-shadow:0 1px 3px rgba(0,0,0,0.03);">
+          <div style="font-size:0.83rem; font-weight:800; color:#b45309; margin-bottom:6px; display: flex; align-items: center; justify-content: space-between;">
+            <span style="background:#fef3c7; color:#b45309; padding:2px 7px; border-radius:4px;">3) 재료와 종목의 연관성</span>
+            <span style="font-size: 0.68rem; background: #fffbeb; color: #b45309; border:1px solid #fde68a; padding: 1px 6px; border-radius: 4px; font-weight: 800;">밸류체인 직결</span>
           </div>
-          <div style="font-size:0.85rem; color:#e2e8f0; line-height:1.5;">${chk.correlation || '-'}</div>
+          <div style="font-size:0.85rem; color:#1e293b; line-height:1.5;">${chk.correlation || '-'}</div>
         </div>
 
-        <!-- 4) 앞으로의 기대감 & 5) 유통기한 (텍스트 기반 유통기한 유추 & 근거 문장 명시) -->
-        <div style="background:rgba(30,41,59,0.7); border-radius:8px; padding:12px 14px; border-left:4px solid #10b981;">
-          <div style="font-size:0.82rem; font-weight:700; color:#34d399; margin-bottom:4px;">4) 앞으로의 기대감 & 5) 구체적 유통기한</div>
-          <div style="font-size:0.85rem; color:#e2e8f0; line-height:1.45;">${chk.future_expectation || '-'}</div>
+        <!-- 4) 앞으로의 기대감 & 5) 유통기한 -->
+        <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:14px 16px; border-left:4px solid #059669; box-shadow:0 1px 3px rgba(0,0,0,0.03);">
+          <div style="font-size:0.83rem; font-weight:800; color:#047857; margin-bottom:6px; display:flex; align-items:center; gap:6px;">
+            <span style="background:#d1fae5; color:#047857; padding:2px 7px; border-radius:4px;">4) 앞으로의 기대감 & 5) 유통기한</span>
+          </div>
+          <div style="font-size:0.85rem; color:#1e293b; line-height:1.5;">${chk.future_expectation || '-'}</div>
           
-          <div style="margin-top: 8px; padding: 6px 10px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px;">
-            <div style="font-size:0.82rem; color:#6ee7b7; font-weight:800; display: flex; align-items: center; gap: 4px;">
-              <span>⏳ 유통기한:</span> <span style="color: #a7f3d0;">${chk.expiration_date || '일정 추적 중'}</span>
+          <div style="margin-top: 8px; padding: 8px 10px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px;">
+            <div style="font-size:0.82rem; color:#065f46; font-weight:800; display: flex; align-items: center; gap: 4px;">
+              <span>⏳ 유통기한:</span> <span style="color: #047857; font-weight:900;">${chk.expiration_date || '일정 추적 중'}</span>
             </div>
             ${chk.expiration_evidence ? `
-              <div style="font-size: 0.74rem; color: #94a3b8; margin-top: 4px; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 4px; line-height: 1.35; font-style: italic;">
+              <div style="font-size: 0.74rem; color: #047857; margin-top: 4px; border-top: 1px dashed #a7f3d0; padding-top: 4px; line-height: 1.35; font-style: italic;">
                 ${chk.expiration_evidence}
               </div>
             ` : ''}
           </div>
         </div>
 
-        <!-- 6) 국면 (기준봉 대비 눌림률 & 5일선 상향 돌파 포착) -->
-        <div style="background:rgba(30,41,59,0.7); border-radius:8px; padding:12px 14px; border-left:4px solid #ec4899;">
-          <div style="font-size:0.82rem; font-weight:700; color:#f472b6; margin-bottom:4px; display: flex; align-items: center; justify-content: space-between;">
-            <span>6) 국면 (차트 위치 & 기준봉 눌림률 타점)</span>
-            <span style="font-size: 0.68rem; background: rgba(236, 72, 153, 0.2); color: #fbcfe8; padding: 1px 6px; border-radius: 4px; font-weight: 800;">타점 정밀 판별</span>
+        <!-- 6) 국면 (차트 위치 & 기준봉 눌림률 타점) -->
+        <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:14px 16px; border-left:4px solid #db2777; box-shadow:0 1px 3px rgba(0,0,0,0.03);">
+          <div style="font-size:0.83rem; font-weight:800; color:#be185d; margin-bottom:6px; display: flex; align-items: center; justify-content: space-between;">
+            <span style="background:#fce7f3; color:#be185d; padding:2px 7px; border-radius:4px;">6) 국면 (차트 위치 & 타점)</span>
+            <span style="font-size: 0.68rem; background: #fdf2f8; color: #be185d; border:1px solid #fbcfe8; padding: 1px 6px; border-radius: 4px; font-weight: 800;">타점 정밀 판별</span>
           </div>
-          <div style="font-size:0.85rem; color:#e2e8f0; line-height:1.45;">${chk.chart_phase || '-'}</div>
+          <div style="font-size:0.85rem; color:#1e293b; line-height:1.5;">${chk.chart_phase || '-'}</div>
           ${techBadgesHtml}
         </div>
 
-        <!-- 7) 주가 상승 / 하락 조건 & 복합 하락 시나리오 탑재 -->
-        <div style="background:rgba(30,41,59,0.7); border-radius:8px; padding:12px 14px; border-left:4px solid #e11d48;">
-          <div style="font-size:0.82rem; font-weight:700; color:#fb7185; margin-bottom:4px;">7) 주가 상승 트리거 vs 다각화 하락 시나리오</div>
-          <div style="font-size:0.83rem; color:#86efac; line-height:1.4;"><b>▲ 상승 조건:</b> ${conditions.bullish || '-'}</div>
+        <!-- 7) 주가 상승 / 하락 조건 -->
+        <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:14px 16px; border-left:4px solid #dc2626; box-shadow:0 1px 3px rgba(0,0,0,0.03);">
+          <div style="font-size:0.83rem; font-weight:800; color:#b91c1c; margin-bottom:6px; display:flex; align-items:center; gap:6px;">
+            <span style="background:#fee2e2; color:#b91c1c; padding:2px 7px; border-radius:4px;">7) 주가 상승 트리거 vs 하락 시나리오</span>
+          </div>
+          <div style="font-size:0.83rem; color:#15803d; line-height:1.45; font-weight:600; margin-bottom:4px;"><b>▲ 상승 조건:</b> ${conditions.bullish || '-'}</div>
           ${bearishMultiHtml}
           ${supplyTextHtml}
         </div>
@@ -2182,28 +2190,28 @@ window.renderDetectiveCard = function(theme, period = 'all') {
 
     <!-- 사건의 전개 과정 (타임라인) -->
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:10px;">
-      <h3 style="font-size:1.1rem; color:#f8fafc; margin:0; display:flex; align-items:center; gap:8px;">
+      <h3 style="font-size:1.1rem; color:#0f172a; margin:0; display:flex; align-items:center; gap:8px;">
         <span>🕵️‍♂️</span> 사건의 전개 과정 (관련 뉴스, DART 전자공시 & 증권사 리포트)
       </h3>
       <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-        <span style="font-size:0.75rem; color:#94a3b8;">
-          기간: <strong style="color:#38bdf8;">${period === '7d' ? '최근 7일' : (period === '30d' ? '최근 30일' : '최근 3개월')}</strong>
+        <span style="font-size:0.75rem; color:#64748b;">
+          기간: <strong style="color:#0284c7;">${period === '7d' ? '최근 7일' : (period === '30d' ? '최근 30일' : '최근 3개월')}</strong>
         </span>
         <!-- 채널 필터 버튼군 [전체 | 📰 뉴스 | 📑 전자공시 | 📊 증권사 리포트 | 🎯 핵심 이벤트] -->
         <div style="display:flex; gap:4px;" id="timeline-channel-filter-buttons">
-          <button type="button" onclick="window.filterTimelineChannel('ALL', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'ALL' ? 'background:#38bdf8; color:#0f172a; border:1px solid #38bdf8;' : 'background:rgba(255,255,255,0.06); color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);'}">
+          <button type="button" onclick="window.filterTimelineChannel('ALL', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'ALL' ? 'background:#0284c7; color:#ffffff; border:1px solid #0284c7;' : 'background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;'}">
             전체 (${channelCounts.ALL})
           </button>
-          <button type="button" onclick="window.filterTimelineChannel('NEWS', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'NEWS' ? 'background:#38bdf8; color:#0f172a; border:1px solid #38bdf8;' : 'background:rgba(255,255,255,0.06); color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);'}">
+          <button type="button" onclick="window.filterTimelineChannel('NEWS', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'NEWS' ? 'background:#0284c7; color:#ffffff; border:1px solid #0284c7;' : 'background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;'}">
             📰 뉴스 (${channelCounts.NEWS})
           </button>
-          <button type="button" onclick="window.filterTimelineChannel('DART', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'DART' ? 'background:#c084fc; color:#0f172a; border:1px solid #c084fc;' : 'background:rgba(255,255,255,0.06); color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);'}">
+          <button type="button" onclick="window.filterTimelineChannel('DART', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'DART' ? 'background:#7c3aed; color:#ffffff; border:1px solid #7c3aed;' : 'background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;'}">
             📑 전자공시 (${channelCounts.DART})
           </button>
-          <button type="button" onclick="window.filterTimelineChannel('REPORT', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'REPORT' ? 'background:#34d399; color:#0f172a; border:1px solid #34d399;' : 'background:rgba(255,255,255,0.06); color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);'}">
+          <button type="button" onclick="window.filterTimelineChannel('REPORT', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'REPORT' ? 'background:#059669; color:#ffffff; border:1px solid #059669;' : 'background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;'}">
             📊 증권사 리포트 (${channelCounts.REPORT})
           </button>
-          <button type="button" onclick="window.filterTimelineChannel('EVENT', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'EVENT' ? 'background:#f59e0b; color:#0f172a; border:1px solid #f59e0b;' : 'background:rgba(255,255,255,0.06); color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);'}">
+          <button type="button" onclick="window.filterTimelineChannel('EVENT', this)" style="padding:4px 9px; font-size:0.72rem; font-weight:800; border-radius:6px; cursor:pointer; transition:all 0.15s; ${activeChannel === 'EVENT' ? 'background:#d97706; color:#ffffff; border:1px solid #d97706;' : 'background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;'}">
             🎯 핵심 이벤트 (${channelCounts.EVENT})
           </button>
         </div>
@@ -2287,7 +2295,7 @@ window.renderDetectiveCard = function(theme, period = 'all') {
         const isBlog = !isReport && !isDart && (tl.is_blog || tl.channel === 'BLOG' || (tl.press && tl.press.includes('블로그')) || (tl.news_title && tl.news_title.startsWith('[블로그]')));
         const isEvent = tl.is_event || tl.stage === '핵심 일정' || tl.stage === '글로벌 이벤트';
         
-        let pressBadgeStyle = 'background: rgba(56,189,248,0.15); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3);';
+        let pressBadgeStyle = 'background: #eff6ff; color: #0284c7; border: 1px solid #bfdbfe;';
         let pressLabel = tl.press || '언론 종합';
         let dateColor = '#38bdf8';
         let cardBorder = '';
@@ -2295,31 +2303,31 @@ window.renderDetectiveCard = function(theme, period = 'all') {
         let actionBtnBg = 'background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.3); color: #38bdf8;';
 
         if (isReport) {
-          pressBadgeStyle = 'background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(6, 78, 59, 0.3)); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.5);';
+          pressBadgeStyle = 'background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0;';
           pressLabel = `📊 ${tl.press || '증권사 리포트'}`;
           dateColor = '#34d399';
-          cardBorder = 'border-color: rgba(16, 185, 129, 0.35); background: rgba(6, 40, 32, 0.65);';
+          cardBorder = 'border-left: 4px solid #10b981; background: #ffffff; border-color: #e2e8f0;';
           actionBtnText = '리포트 원문 ↗';
           actionBtnBg = 'background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(52, 211, 153, 0.4); color: #34d399;';
         } else if (isDart) {
-          pressBadgeStyle = 'background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(249, 115, 22, 0.25)); color: #f472b6; border: 1px solid rgba(244, 114, 182, 0.5);';
+          pressBadgeStyle = 'background: #faf5ff; color: #7c3aed; border: 1px solid #e9d5ff;';
           pressLabel = '📑 DART 전자공시';
           dateColor = '#c084fc';
-          cardBorder = 'border-color: rgba(168, 85, 247, 0.35); background: rgba(24, 18, 43, 0.75);';
+          cardBorder = 'border-left: 4px solid #8b5cf6; background: #ffffff; border-color: #e2e8f0;';
           actionBtnText = '공시 원문 ↗';
           actionBtnBg = 'background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); color: #d8b4fe;';
         } else if (isEvent) {
-          pressBadgeStyle = 'background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(217, 119, 6, 0.25)); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.5);';
+          pressBadgeStyle = 'background: #fffbeb; color: #b45309; border: 1px solid #fde68a;';
           pressLabel = '🎯 핵심 이벤트';
           dateColor = '#fbbf24';
-          cardBorder = 'border-color: rgba(245, 158, 11, 0.35); background: rgba(36, 25, 8, 0.7);';
+          cardBorder = 'border-left: 4px solid #f59e0b; background: #ffffff; border-color: #e2e8f0;';
           actionBtnText = '일정 팩트 ↗';
           actionBtnBg = 'background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(251, 191, 36, 0.4); color: #fde047;';
         } else if (isBlog) {
-          pressBadgeStyle = 'background: linear-gradient(135deg, rgba(236, 72, 153, 0.22), rgba(244, 63, 94, 0.22)); color: #fb7185; border: 1px solid rgba(251, 113, 133, 0.45);';
+          pressBadgeStyle = 'background: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8;';
           pressLabel = '✍️ 블로그 분석';
           dateColor = '#f472b6';
-          cardBorder = 'border-color: rgba(244, 63, 94, 0.3); background: rgba(38, 12, 24, 0.65);';
+          cardBorder = 'border-left: 4px solid #ec4899; background: #ffffff; border-color: #e2e8f0;';
           actionBtnText = '블로그 원문 ↗';
           actionBtnBg = 'background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(251, 113, 133, 0.4); color: #fda4af;';
         }
@@ -2360,13 +2368,13 @@ window.renderDetectiveCard = function(theme, period = 'all') {
 
         let factBadgeHtml = '';
         if (factBadge === '직납 팩트' || (tl.tag && tl.tag.includes('직납'))) {
-          factBadgeHtml = `<span style="font-size:0.7rem; padding:1px 7px; background:linear-gradient(135deg, rgba(239,68,68,0.3), rgba(220,38,38,0.4)); color:#fca5a5; border:1px solid rgba(239,68,68,0.6); border-radius:4px; font-weight:800;">🔥 직납 팩트</span>`;
+          factBadgeHtml = `<span style="font-size:0.7rem; padding:1px 7px; background:#fff1f2; color:#be123c; border:1px solid #fecdd3; border-radius:4px; font-weight:800;">🔥 직납 팩트</span>`;
         } else if (factBadge === '단독 협의' || (tl.tag && tl.tag.includes('단독'))) {
-          factBadgeHtml = `<span style="font-size:0.7rem; padding:1px 7px; background:linear-gradient(135deg, rgba(245,158,11,0.25), rgba(217,119,6,0.35)); color:#fde047; border:1px solid rgba(245,158,11,0.5); border-radius:4px; font-weight:800;">⚡ 단독 협의</span>`;
+          factBadgeHtml = `<span style="font-size:0.7rem; padding:1px 7px; background:#fffbeb; color:#b45309; border:1px solid #fde68a; border-radius:4px; font-weight:800;">⚡ 단독 협의</span>`;
         } else if (factBadge === '수주 공시' || (tl.tag && tl.tag.includes('공시'))) {
-          factBadgeHtml = `<span style="font-size:0.7rem; padding:1px 7px; background:linear-gradient(135deg, rgba(168,85,247,0.25), rgba(147,51,234,0.35)); color:#d8b4fe; border:1px solid rgba(168,85,247,0.5); border-radius:4px; font-weight:800;">📑 수주 공시</span>`;
+          factBadgeHtml = `<span style="font-size:0.7rem; padding:1px 7px; background:#faf5ff; color:#7c3aed; border:1px solid #e9d5ff; border-radius:4px; font-weight:800;">📑 수주 공시</span>`;
         } else if (factBadge === '목표가 상향' || (tl.tag && tl.tag.includes('리포트'))) {
-          factBadgeHtml = `<span style="font-size:0.7rem; padding:1px 7px; background:linear-gradient(135deg, rgba(16,185,129,0.25), rgba(5,150,105,0.35)); color:#6ee7b7; border:1px solid rgba(16,185,129,0.5); border-radius:4px; font-weight:800;">🎯 ${tl.tag && tl.tag.includes('리포트') ? '리포트' : '목표가 상향'}</span>`;
+          factBadgeHtml = `<span style="font-size:0.7rem; padding:1px 7px; background:#ecfdf5; color:#047857; border:1px solid #a7f3d0; border-radius:4px; font-weight:800;">🎯 ${tl.tag && tl.tag.includes('리포트') ? '리포트' : '목표가 상향'}</span>`;
         }
 
         // 라이프사이클 4단계 뱃지 추출
@@ -2393,7 +2401,7 @@ window.renderDetectiveCard = function(theme, period = 'all') {
         const signalBadgeHtml = getStockSignalBadgeHtml(scoreObj);
 
         return `
-          <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(15,23,42,0.65); border:1px solid rgba(255,255,255,0.08); ${cardBorder} border-radius:8px; padding:14px 18px; margin-bottom:10px; gap:14px; transition: all 0.2s;">
+          <div style="display:flex; align-items:center; justify-content:space-between; background:#ffffff; border:1px solid #e2e8f0; ${cardBorder} border-radius:10px; padding:14px 18px; margin-bottom:10px; gap:14px; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
             <div style="min-width:92px; text-align:center;">
               <div style="font-size:0.84rem; font-weight:700; color:${dateColor};">${tl.date || ''}</div>
               <div style="font-size:0.7rem; color:#94a3b8; margin-top:2px;">${tl.stage || (isReport ? '증권사 리서치' : (isDart ? '공식 공시' : '전개'))}</div>
@@ -2404,15 +2412,15 @@ window.renderDetectiveCard = function(theme, period = 'all') {
                 ${signalBadgeHtml}
                 <span style="font-size:0.72rem; padding:2px 7px; border-radius:4px; font-weight:700; ${pressBadgeStyle}">${pressLabel}</span>
                 ${factBadgeHtml}
-                ${stockTags.map(tag => `<span style="font-size:0.7rem; padding:1px 6px; background:rgba(255,255,255,0.07); color:#93c5fd; border:1px solid rgba(147,197,253,0.3); border-radius:4px; font-weight:700;">${tag}</span>`).join('')}
+                ${stockTags.map(tag => `<span style="font-size:0.7rem; padding:1px 6px; background:#f1f5f9; color:#0369a1; border:1px solid #cbd5e1; border-radius:4px; font-weight:700;">${tag}</span>`).join('')}
               </div>
-              <div style="font-size:0.95rem; font-weight:700; color:#f8fafc; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
-                <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" style="color:#f8fafc; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='${isReport ? '#34d399' : '#38bdf8'}';" onmouseout="this.style.color='#f8fafc';">
+              <div style="font-size:0.95rem; font-weight:800; color:#0f172a; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" style="color:#0f172a; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='${isReport ? '#34d399' : '#38bdf8'}';" onmouseout="this.style.color='#0f172a';">
                   ${displayTitle}
                 </a>
               </div>
-              <div style="font-size:0.82rem; color:#94a3b8; margin-top:4px; line-height:1.45;">
-                <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" style="color:#94a3b8; text-decoration:none; display:inline-block; transition:color 0.2s;" onmouseover="this.style.color='#38bdf8'; this.style.textDecoration='underline';" onmouseout="this.style.color='#94a3b8'; this.style.textDecoration='none';">
+              <div style="font-size:0.82rem; color:#475569; margin-top:4px; line-height:1.45;">
+                <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" style="color:#475569; text-decoration:none; display:inline-block; transition:color 0.2s;" onmouseover="this.style.color='#38bdf8'; this.style.textDecoration='underline';" onmouseout="this.style.color='#94a3b8'; this.style.textDecoration='none';">
                   👉 ${displayDesc}
                 </a>
               </div>
@@ -2546,55 +2554,55 @@ window.renderTimelineCards = function(articles, period = 'all') {
     const themeLabel = item.theme || '추적 테마';
     const stockLabel = item.stock || item.target_stock || '';
 
-    let pressBadgeStyle = 'background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3);';
-    let cardBg = 'background: rgba(15, 23, 42, 0.7); border-color: rgba(255,255,255,0.08);';
-    let dateColor = '#38bdf8';
+    let pressBadgeStyle = 'background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd;';
+    let cardBg = 'background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; box-shadow: 0 1px 3px rgba(0,0,0,0.03);';
+    let dateColor = '#0284c7';
     let actionBtnText = '원문 보기 ↗';
-    let actionBtnBg = 'background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8;';
+    let actionBtnBg = 'background: #f1f5f9; border: 1px solid #cbd5e1; color: #1e293b;';
 
     if (isReport) {
-      pressBadgeStyle = 'background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(6, 78, 59, 0.3)); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.5);';
-      cardBg = 'background: rgba(6, 40, 32, 0.65); border-color: rgba(16, 185, 129, 0.35);';
-      dateColor = '#34d399';
+      pressBadgeStyle = 'background: #d1fae5; color: #047857; border: 1px solid #a7f3d0;';
+      cardBg = 'background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #059669; box-shadow: 0 1px 3px rgba(0,0,0,0.03);';
+      dateColor = '#059669';
       actionBtnText = '리포트 PDF ↗';
-      actionBtnBg = 'background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(52, 211, 153, 0.4); color: #34d399;';
+      actionBtnBg = 'background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46;';
     } else if (isDart) {
-      pressBadgeStyle = 'background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(249, 115, 22, 0.25)); color: #f472b6; border: 1px solid rgba(244, 114, 182, 0.5);';
-      cardBg = 'background: rgba(24, 18, 43, 0.75); border-color: rgba(168, 85, 247, 0.35);';
-      dateColor = '#c084fc';
+      pressBadgeStyle = 'background: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe;';
+      cardBg = 'background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #7c3aed; box-shadow: 0 1px 3px rgba(0,0,0,0.03);';
+      dateColor = '#7c3aed';
       actionBtnText = '공시 원문 ↗';
-      actionBtnBg = 'background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); color: #d8b4fe;';
+      actionBtnBg = 'background: #f5f3ff; border: 1px solid #ddd6fe; color: #5b21b6;';
     }
 
     return `
       <div style="display: flex; justify-content: space-between; align-items: center; ${cardBg} border-radius: 10px; padding: 14px 18px; margin-bottom: 10px; gap: 14px; transition: all 0.2s ease;">
         <!-- 좌측 발행일자 -->
-        <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 6px 12px; text-align: center; min-width: 86px; flex-shrink: 0;">
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 12px; text-align: center; min-width: 86px; flex-shrink: 0;">
           <div style="font-size: 0.76rem; font-weight: 800; color: ${dateColor};">${dateStr}</div>
-          <div style="font-size: 0.68rem; color: #94a3b8; margin-top: 2px;">${isReport ? '리서치발행' : (isDart ? '접수일자' : '발행일자')}</div>
+          <div style="font-size: 0.68rem; color: #64748b; margin-top: 2px;">${isReport ? '리서치발행' : (isDart ? '접수일자' : '발행일자')}</div>
         </div>
 
         <!-- 본문 기사 정보 -->
         <div style="flex: 1; min-width: 0;">
           <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px; flex-wrap: wrap;">
             ${stockLabel ? `
-              <span style="font-size: 0.73rem; background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(168, 85, 247, 0.2)); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.4); padding: 2px 8px; border-radius: 5px; font-weight: 800;">
+              <span style="font-size: 0.73rem; background: #f1f5f9; color: #1e293b; border: 1px solid #cbd5e1; padding: 2px 8px; border-radius: 5px; font-weight: 800;">
                 🏷️ ${themeLabel} | ${stockLabel}
               </span>
             ` : ''}
             <span style="font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; font-weight: 700; ${pressBadgeStyle}">
               ${press}
             </span>
-            ${isReport ? '<span style="font-size:0.7rem; padding:1px 6px; background:rgba(16,185,129,0.18); color:#34d399; border-radius:4px; font-weight:700;">목표주가 단서</span>' : (isDart ? '<span style="font-size:0.7rem; padding:1px 6px; background:rgba(249,115,22,0.15); color:#fb923c; border-radius:4px; font-weight:700;">금감원 원문</span>' : '<span style="font-size: 0.72rem; padding: 2px 7px; background: rgba(34, 197, 94, 0.15); color: #4ade80; border-radius: 4px; font-weight: 600;">상승 모멘텀</span>')}
+            ${isReport ? '<span style="font-size:0.7rem; padding:1px 6px; background:#dcfce7; color:#15803d; border-radius:4px; font-weight:700;">목표주가 단서</span>' : (isDart ? '<span style="font-size:0.7rem; padding:1px 6px; background:#ffedd5; color:#c2410c; border-radius:4px; font-weight:700;">금감원 원문</span>' : '<span style="font-size: 0.72rem; padding: 2px 7px; background: #fef2f2; color: #b91c1c; border-radius: 4px; font-weight: 600;">상승 모멘텀</span>')}
           </div>
-          <div style="font-size: 0.92rem; font-weight: 700; color: #f8fafc; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-            <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" style="color: #f8fafc; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='${isReport ? '#34d399' : '#38bdf8'}';" onmouseout="this.style.color='#f8fafc';">
+          <div style="font-size: 0.92rem; font-weight: 700; color: #0f172a; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" style="color: #0f172a; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#0284c7';" onmouseout="this.style.color='#0f172a';">
               ${cleanTitle}
             </a>
           </div>
           ${item.key_point ? `
-            <div style="font-size: 0.82rem; color: #94a3b8; margin-top: 3px;">
-              <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; text-decoration: none; display: inline-block; transition: color 0.2s;" onmouseover="this.style.color='${isReport ? '#34d399' : '#38bdf8'}'; this.style.textDecoration='underline';" onmouseout="this.style.color='#94a3b8'; this.style.textDecoration='none';">
+            <div style="font-size: 0.82rem; color: #475569; margin-top: 3px;">
+              <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" style="color: #475569; text-decoration: none; display: inline-block; transition: color 0.2s;" onmouseover="this.style.color='#0284c7'; this.style.textDecoration='underline';" onmouseout="this.style.color='#475569'; this.style.textDecoration='none';">
                 👉 ${item.key_point}
               </a>
             </div>
@@ -3505,16 +3513,16 @@ window.renderMarketOverviewRadar = function(data) {
     const jsonStr = encodeURIComponent(JSON.stringify(t));
 
     return `
-      <div onclick="selectThemeFromRadar('${jsonStr}')" style="background: rgba(15, 23, 42, 0.85); border: 1.5px solid ${rankNum === 1 ? 'rgba(245, 158, 11, 0.6)' : 'rgba(56, 189, 248, 0.25)'}; border-radius: 12px; padding: 14px 16px; cursor: pointer; transition: all 0.2s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 14px rgba(0,0,0,0.3);" onmouseover="this.style.borderColor='#38bdf8'; this.style.transform='translateY(-2px)'; this.style.background='rgba(30, 41, 59, 0.95)';" onmouseout="this.style.borderColor='${rankNum === 1 ? 'rgba(245, 158, 11, 0.6)' : 'rgba(56, 189, 248, 0.25)'}'; this.style.transform='none'; this.style.background='rgba(15, 23, 42, 0.85)';">
+      <div onclick="selectThemeFromRadar('${jsonStr}')" style="background: #ffffff; border: 1.5px solid ${rankNum === 1 ? '#f59e0b' : '#e2e8f0'}; border-radius: 12px; padding: 14px 16px; cursor: pointer; transition: all 0.2s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 1px 3px rgba(0,0,0,0.04);" onmouseover="this.style.borderColor='#0284c7'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='${rankNum === 1 ? '#f59e0b' : '#e2e8f0'}'; this.style.transform='none';">
         
         <!-- 상단 헤더: 순위 & 테마명 & 등락률 -->
         <div>
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
             <div style="display: flex; align-items: center; gap: 6px;">
-              <span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 6px; background: ${rankColor}; color: #000; font-weight: 900; font-size: 0.76rem;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 6px; background: ${rankColor}; color: #ffffff; font-weight: 900; font-size: 0.76rem;">
                 ${rankNum}
               </span>
-              <h5 style="margin: 0; font-size: 0.98rem; font-weight: 900; color: #f8fafc; letter-spacing: -0.3px;">
+              <h5 style="margin: 0; font-size: 0.98rem; font-weight: 900; color: #0f172a; letter-spacing: -0.3px;">
                 ${escapeHtml(t.theme_name)}
               </h5>
             </div>
@@ -3525,34 +3533,34 @@ window.renderMarketOverviewRadar = function(data) {
 
           <!-- 대장주 & 부대장주 뱃지 -->
           <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 10px;">
-            <span style="font-size: 0.7rem; background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); padding: 1px 6px; border-radius: 4px; font-weight: 800;">
+            <span style="font-size: 0.7rem; background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; padding: 1px 6px; border-radius: 4px; font-weight: 800;">
               👑 대장: ${escapeHtml(t.leader_stock || '대장주')}
             </span>
             ${t.sub_leader_stock ? `
-              <span style="font-size: 0.68rem; background: rgba(56, 189, 248, 0.12); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.25); padding: 1px 5px; border-radius: 4px; font-weight: 700;">
+              <span style="font-size: 0.68rem; background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
                 부대: ${escapeHtml(t.sub_leader_stock)}
               </span>
             ` : ''}
           </div>
 
           <!-- 상승 트리거 / 특징주 사유 요약 -->
-          <div style="font-size: 0.74rem; color: #cbd5e1; line-height: 1.45; background: rgba(0, 0, 0, 0.25); border-radius: 6px; padding: 8px 10px; margin-bottom: 10px; border-left: 3px solid ${rankColor}; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" title="${escapeHtml(triggerText)}">
+          <div style="font-size: 0.74rem; color: #334155; line-height: 1.45; background: #f8fafc; border-radius: 6px; padding: 8px 10px; margin-bottom: 10px; border: 1px solid #e2e8f0; border-left: 3px solid ${rankColor}; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" title="${escapeHtml(triggerText)}">
             💡 ${escapeHtml(triggerText)}
           </div>
         </div>
 
         <!-- 하단 바: 복합 주도 스코어 & 원클릭 연동 뱃지 -->
-        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 8px; margin-top: 4px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 8px; margin-top: 4px;">
           <div style="display: flex; align-items: center; gap: 4px;">
-            <span style="font-size: 0.68rem; color: #94a3b8;">주도점수</span>
-            <span style="font-size: 0.76rem; font-weight: 900; color: #38bdf8;">${scoreVal}점</span>
+            <span style="font-size: 0.68rem; color: #64748b;">주도점수</span>
+            <span style="font-size: 0.76rem; font-weight: 900; color: #0284c7;">${scoreVal}점</span>
             <span style="font-size: 0.68rem; color: #64748b;">(${escapeHtml(badgeText)})</span>
           </div>
           <div style="display: flex; align-items: center;">
-            <button class="btn-pin-theme-card" onclick="event.stopPropagation(); pinThemeToDossier('${escapeHtml(t.theme_name)}', '${escapeHtml(t.leader_stock || '')}', '${escapeHtml(t.sub_leader_stock || '')}', '${escapeHtml(rateStr)}')" style="background: rgba(99, 102, 241, 0.2); border: 1px solid #6366f1; color: #a5b4fc; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 3px; margin-right: 6px;">
+            <button class="btn-pin-theme-card" onclick="event.stopPropagation(); pinThemeToDossier('${escapeHtml(t.theme_name)}', '${escapeHtml(t.leader_stock || '')}', '${escapeHtml(t.sub_leader_stock || '')}', '${escapeHtml(rateStr)}')" style="background: #eef2ff; border: 1px solid #c7d2fe; color: #4338ca; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 3px; margin-right: 6px;">
               📌 수첩에 박제
             </button>
-            <span style="font-size: 0.7rem; color: #38bdf8; font-weight: 800; display: inline-flex; align-items: center; gap: 2px;">
+            <span style="font-size: 0.7rem; color: #0284c7; font-weight: 800; display: inline-flex; align-items: center; gap: 2px;">
               분석 보기 ➔
             </span>
           </div>
@@ -3677,33 +3685,33 @@ window.renderThemeDossier = function() {
     })();
 
     return `
-      <div style="background: linear-gradient(145deg, rgba(15,23,42,0.95), rgba(30,10,60,0.5)); border: 1.5px solid rgba(168,85,247,0.3); border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; transition: all 0.2s;" onmouseover="this.style.borderColor='rgba(168,85,247,0.65)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='rgba(168,85,247,0.3)'; this.style.transform='none';">
+      <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='#7c3aed'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='none';">
         <!-- 헤더 -->
         <div style="display: flex; justify-content: space-between; align-items: flex-start;">
           <div style="display: flex; flex-direction: column; gap: 4px;">
             <div style="display: flex; align-items: center; gap: 6px;">
-              <span style="font-size: 0.68rem; background: rgba(168,85,247,0.2); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); padding: 1px 6px; border-radius: 4px; font-weight: 800;">📌 박제 #${dossiers.length - idx}</span>
+              <span style="font-size: 0.68rem; background: #f3e8ff; color: #7e22ce; border: 1px solid #d8b4fe; padding: 1px 6px; border-radius: 4px; font-weight: 800;">📌 박제 #${dossiers.length - idx}</span>
               <span style="font-size: 0.68rem; color: #64748b;">${escapeHtml(d.pinnedAt || '')} (${timeAgo})</span>
             </div>
-            <h5 style="margin: 0; font-size: 1rem; font-weight: 900; color: #f8fafc; letter-spacing: -0.3px;">${escapeHtml(d.name)}</h5>
+            <h5 style="margin: 0; font-size: 1rem; font-weight: 900; color: #0f172a; letter-spacing: -0.3px;">${escapeHtml(d.name)}</h5>
           </div>
           <div style="display: flex; align-items: center; gap: 6px;">
             <span style="font-size: 0.92rem; font-weight: 900; color: ${rateColor};">${escapeHtml(d.changeRate || '')}</span>
-            <button onclick="removePinnedDossier('${d.id}')" title="수첩에서 제거" style="background: transparent; border: 1px solid rgba(239,68,68,0.3); color: #f87171; width: 22px; height: 22px; border-radius: 5px; font-size: 0.75rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-weight: 900; transition: all 0.15s;" onmouseover="this.style.background='rgba(239,68,68,0.2)';" onmouseout="this.style.background='transparent';">✕</button>
+            <button onclick="removePinnedDossier('${d.id}')" title="수첩에서 제거" style="background: #fee2e2; border: 1px solid #fecaca; color: #dc2626; width: 22px; height: 22px; border-radius: 5px; font-size: 0.75rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-weight: 900; transition: all 0.15s;" onmouseover="this.style.background='#fca5a5';" onmouseout="this.style.background='#fee2e2';">✕</button>
           </div>
         </div>
 
         <!-- 대장주 등 재료 -->
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <span style="font-size: 0.72rem; background: rgba(239,68,68,0.15); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); padding: 2px 8px; border-radius: 5px; font-weight: 800;">👑 대장: ${escapeHtml(d.leadStock || '-')}</span>
-          ${d.subStock ? `<span style="font-size: 0.7rem; background: rgba(56,189,248,0.12); color: #7dd3fc; border: 1px solid rgba(56,189,248,0.25); padding: 2px 7px; border-radius: 5px; font-weight: 700;">부대: ${escapeHtml(d.subStock)}</span>` : ''}
-          ${(d.stocks || []).map(s => `<span style="font-size: 0.68rem; background: rgba(99,102,241,0.12); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.25); padding: 1px 6px; border-radius: 4px; font-weight: 700;">${escapeHtml(s)}</span>`).join('')}
+          <span style="font-size: 0.72rem; background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; padding: 2px 8px; border-radius: 5px; font-weight: 800;">👑 대장: ${escapeHtml(d.leadStock || '-')}</span>
+          ${d.subStock ? `<span style="font-size: 0.7rem; background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 2px 7px; border-radius: 5px; font-weight: 700;">부대: ${escapeHtml(d.subStock)}</span>` : ''}
+          ${(d.stocks || []).map(s => `<span style="font-size: 0.68rem; background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; padding: 1px 6px; border-radius: 4px; font-weight: 700;">${escapeHtml(s)}</span>`).join('')}
         </div>
 
         <!-- 메모 및 액션 -->
-        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 8px; gap: 8px; flex-wrap: wrap;">
-          <input type="text" value="${escapeHtml(d.memo || '')}" placeholder="나만의 메모 (진입 근거, 전략 등)..." oninput="updateDossierMemo('${d.id}', this.value)" style="flex: 1; min-width: 120px; background: rgba(15,23,42,0.7); border: 1px solid rgba(255,255,255,0.1); color: #cbd5e1; padding: 5px 10px; border-radius: 6px; font-size: 0.72rem; outline: none;" onfocus="this.style.borderColor='rgba(168,85,247,0.5)';" onblur="this.style.borderColor='rgba(255,255,255,0.1)';">
-          <button onclick="event.stopPropagation(); selectThemeFromDossier('${escapeHtml(d.name)}')" style="background: rgba(56,189,248,0.15); border: 1px solid rgba(56,189,248,0.35); color: #38bdf8; padding: 5px 10px; border-radius: 6px; font-size: 0.72rem; font-weight: 800; cursor: pointer; white-space: nowrap; transition: all 0.15s;" onmouseover="this.style.background='rgba(56,189,248,0.3)';" onmouseout="this.style.background='rgba(56,189,248,0.15)';">🔍 타임라인 분석</button>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 8px; gap: 8px; flex-wrap: wrap;">
+          <input type="text" value="${escapeHtml(d.memo || '')}" placeholder="나만의 메모 (진입 근거, 전략 등)..." oninput="updateDossierMemo('${d.id}', this.value)" style="flex: 1; min-width: 120px; background: #ffffff; border: 1px solid #cbd5e1; color: #1e293b; padding: 5px 10px; border-radius: 6px; font-size: 0.72rem; outline: none;" onfocus="this.style.borderColor='#7c3aed';" onblur="this.style.borderColor='#cbd5e1';">
+          <button onclick="event.stopPropagation(); selectThemeFromDossier('${escapeHtml(d.name)}')" style="background: #e0f2fe; border: 1px solid #bae6fd; color: #0284c7; padding: 5px 10px; border-radius: 6px; font-size: 0.72rem; font-weight: 800; cursor: pointer; white-space: nowrap; transition: all 0.15s;" onmouseover="this.style.background='#bae6fd';" onmouseout="this.style.background='#e0f2fe';">🔍 타임라인 분석</button>
         </div>
       </div>
     `;
@@ -4492,12 +4500,12 @@ function renderThemeTimelineView(themeId = 'hbm_glass', period = 'all') {
     const hierarchyBadgeText = `${themeLabel} | ${stockLabel}`;
 
     return `
-      <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 12px 18px; gap: 14px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(56,189,248,0.3)';" onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.06)';">
+      <div style="display: flex; justify-content: space-between; align-items: center; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 18px; gap: 14px; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.02);" onmouseover="this.style.borderColor='#93c5fd';" onmouseout="this.style.borderColor='#e2e8f0';">
         <!-- 좌측 날짜 및 제목 메타 -->
         <div style="display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0;">
           <!-- 날짜 박스 -->
-          <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 6px 10px; text-align: center; min-width: 86px; flex-shrink: 0;">
-            <div style="font-size: 0.76rem; font-weight: 800; color: #38bdf8;">${escapeHtml(dateStr)}</div>
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; text-align: center; min-width: 86px; flex-shrink: 0;">
+            <div style="font-size: 0.76rem; font-weight: 800; color: #0284c7;">${escapeHtml(dateStr)}</div>
             <div style="font-size: 0.68rem; color: #64748b;">발행일자</div>
           </div>
 
@@ -4505,17 +4513,17 @@ function renderThemeTimelineView(themeId = 'hbm_glass', period = 'all') {
           <div style="flex: 1; min-width: 0;">
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; flex-wrap: wrap;">
               <!-- 계층형 태그 뱃지 [상위 테마 | 개별 종목] -->
-              <span style="font-size: 0.73rem; background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(168, 85, 247, 0.2)); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.4); padding: 2px 8px; border-radius: 5px; font-weight: 900; letter-spacing: -0.2px;">
+              <span style="font-size: 0.73rem; background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 5px; font-weight: 900; letter-spacing: -0.2px;">
                 🏷️ [${escapeHtml(hierarchyBadgeText)}]
               </span>
-              <span style="font-size: 0.72rem; color: #94a3b8; font-weight: 700; background: rgba(255,255,255,0.06); padding: 1px 6px; border-radius: 4px;">
+              <span style="font-size: 0.72rem; color: #64748b; font-weight: 700; background: #f1f5f9; padding: 1px 6px; border-radius: 4px; border: 1px solid #e2e8f0;">
                 ${escapeHtml(pressName)}
               </span>
               <span style="font-size: 0.7rem; background: ${impactBg}; color: ${impactColor}; border: 1px solid ${impactBorder}; padding: 1px 6px; border-radius: 4px; font-weight: 800;">
                 ${escapeHtml(item.impact || '모멘텀')}
               </span>
             </div>
-            <div style="font-size: 0.92rem; font-weight: 700; color: #f8fafc; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            <div style="font-size: 0.92rem; font-weight: 700; color: #0f172a; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
               ${escapeHtml(item.news_title || item.title)}
             </div>
           </div>
@@ -4523,7 +4531,7 @@ function renderThemeTimelineView(themeId = 'hbm_glass', period = 'all') {
 
         <!-- 우측 실제 원문 이동 버튼 (target="_blank" 및 원문 URL 직접 바인딩) -->
         <div style="flex-shrink: 0;">
-          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 4px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); padding: 7px 14px; border-radius: 6px; font-size: 0.78rem; text-decoration: none; font-weight: 800; white-space: nowrap; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(56,189,248,0.25)';" onmouseout="this.style.background='rgba(56,189,248,0.15)';">
+          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 4px; background: #f1f5f9; color: #1e293b; border: 1px solid #cbd5e1; padding: 7px 14px; border-radius: 6px; font-size: 0.78rem; text-decoration: none; font-weight: 800; white-space: nowrap; transition: all 0.2s ease;" onmouseover="this.style.background='#e2e8f0';" onmouseout="this.style.background='#f1f5f9';">
             <span>원문 보기</span>
             <span style="font-size: 0.85rem;">↗</span>
           </a>
@@ -5419,7 +5427,7 @@ function renderStockCompareTable(period = 'week') {
           <td style="padding: 14px 10px; font-weight: 800; color: #f8fafc; vertical-align: top;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 6px;">
               <span style="color: #38bdf8; font-size: 0.88rem;">⚡ ${row.theme}</span>
-              <button type="button" onclick="deleteStockTheme('${escapeHtml(row.theme)}')" title="테마 삭제" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); padding: 1px 6px; border-radius: 4px; font-size: 0.68rem; cursor: pointer; font-weight: 800; white-space: nowrap;" onmouseover="this.style.background='rgba(239,68,68,0.3)'; this.style.color='#fff';" onmouseout="this.style.background='rgba(239,68,68,0.15)'; this.style.color='#f87171';">
+              <button type="button" onclick="deleteStockTheme('${escapeHtml(row.theme)}')" title="테마 삭제" style="background: rgba(239, 68, 68, 0.15); color: #b91c1c; border: 1px solid rgba(239, 68, 68, 0.35); padding: 1px 6px; border-radius: 4px; font-size: 0.68rem; cursor: pointer; font-weight: 800; white-space: nowrap;" onmouseover="this.style.background='rgba(239,68,68,0.3)'; this.style.color='#fff';" onmouseout="this.style.background='rgba(239,68,68,0.15)'; this.style.color='#f87171';">
                 삭제 ✕
               </button>
             </div>
@@ -5444,11 +5452,11 @@ function renderStockCompareTable(period = 'week') {
             </span>
           </td>
           <td style="padding: 14px 14px; vertical-align: top;">
-            <div style="font-size: 0.85rem; font-weight: 700; color: #38bdf8; margin-bottom: 8px; line-height: 1.4;">
+            <div style="font-size: 0.85rem; font-weight: 700; color: #0284c7; margin-bottom: 8px; line-height: 1.4;">
               📢 ${escapeHtml(row.weekNewsHeadline || '')}
             </div>
-            <div style="background: rgba(0,0,0,0.25); border-radius: 6px; padding: 6px 10px; border: 1px solid rgba(255,255,255,0.05);">
-              ${articlesHtml || '<div style="font-size:0.75rem;color:#94a3b8;padding:4px;">관련 기사를 실시간 수집 중입니다...</div>'}
+            <div style="background: #f8fafc; border-radius: 6px; padding: 6px 10px; border: 1px solid #e2e8f0;">
+              ${articlesHtml || '<div style="font-size:0.75rem;color:#64748b;padding:4px;">관련 기사를 실시간 수집 중입니다...</div>'}
             </div>
           </td>
         </tr>
@@ -5501,7 +5509,7 @@ function renderStockCompareTable(period = 'week') {
           <td style="padding: 14px 10px; font-weight: 800; color: #f8fafc; vertical-align: top;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 6px;">
               <span>${row.theme}</span>
-              <button type="button" onclick="deleteStockTheme('${escapeHtml(row.theme)}')" title="테마 삭제" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); padding: 1px 6px; border-radius: 4px; font-size: 0.68rem; cursor: pointer; font-weight: 800; white-space: nowrap;" onmouseover="this.style.background='rgba(239,68,68,0.3)'; this.style.color='#fff';" onmouseout="this.style.background='rgba(239,68,68,0.15)'; this.style.color='#f87171';">
+              <button type="button" onclick="deleteStockTheme('${escapeHtml(row.theme)}')" title="테마 삭제" style="background: rgba(239, 68, 68, 0.15); color: #b91c1c; border: 1px solid rgba(239, 68, 68, 0.35); padding: 1px 6px; border-radius: 4px; font-size: 0.68rem; cursor: pointer; font-weight: 800; white-space: nowrap;" onmouseover="this.style.background='rgba(239,68,68,0.3)'; this.style.color='#fff';" onmouseout="this.style.background='rgba(239,68,68,0.15)'; this.style.color='#f87171';">
                 삭제 ✕
               </button>
             </div>
@@ -5533,17 +5541,17 @@ function renderStockCompareTable(period = 'week') {
           </td>
           <td style="padding: 14px 14px; vertical-align: top;">
             <!-- 1달 미래 지속성 분석 리포트 -->
-            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 8px; padding: 10px 12px; margin-bottom: 10px;">
-              <div style="font-size: 0.78rem; font-weight: 800; color: #38bdf8; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
+            <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 10px 12px; margin-bottom: 10px;">
+              <div style="font-size: 0.78rem; font-weight: 800; color: #0284c7; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
                 <span>🔭</span> 향후 미래 지속성 및 수석 연구원 총평:
               </div>
-              <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.55;">
+              <div style="font-size: 0.82rem; color: #334155; line-height: 1.55;">
                 ${escapeHtml(row.futureAnalysis || row.strategy)}
               </div>
             </div>
             <!-- 1개월 주요 기사 목록 나열 -->
-            <div style="background: rgba(0,0,0,0.25); border-radius: 6px; padding: 6px 10px; border: 1px solid rgba(255,255,255,0.05);">
-              <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700; margin-bottom: 4px;">1달간 핵심 주요 기사 히스토리:</div>
+            <div style="background: #f8fafc; border-radius: 6px; padding: 6px 10px; border: 1px solid #e2e8f0;">
+              <div style="font-size: 0.72rem; color: #64748b; font-weight: 700; margin-bottom: 4px;">1달간 핵심 주요 기사 히스토리:</div>
               ${articlesHtml}
             </div>
           </td>
@@ -5958,29 +5966,29 @@ function renderPendingEventsUI() {
   }
 
   listEl.innerHTML = safePending.map((item, idx) => `
-    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(168,85,247,0.3); border-radius: 10px; padding: 12px 16px; gap: 12px; transition: all 0.2s ease; flex-wrap: wrap;" onmouseover="this.style.background='rgba(255,255,255,0.06)';" onmouseout="this.style.background='rgba(255,255,255,0.03)';">
+    <div style="display: flex; justify-content: space-between; align-items: center; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 16px; gap: 12px; transition: all 0.2s ease; flex-wrap: wrap; box-shadow: 0 1px 3px rgba(0,0,0,0.02);" onmouseover="this.style.borderColor='#cbd5e1';" onmouseout="this.style.borderColor='#e2e8f0';">
       <!-- 좌측 메타 및 내용 -->
       <div style="display: flex; align-items: center; gap: 14px; flex: 1; min-width: 260px;">
         <!-- 날짜 박스 -->
-        <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 8px; padding: 6px 10px; text-align: center; min-width: 90px; flex-shrink: 0;">
-          <div style="font-size: 0.78rem; font-weight: 800; color: #c084fc;">${escapeHtml(item.dateDisplay || item.date)}</div>
-          <div style="font-size: 0.68rem; color: #a855f7;">AI 감지 일정</div>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; text-align: center; min-width: 90px; flex-shrink: 0;">
+          <div style="font-size: 0.78rem; font-weight: 800; color: #7c3aed;">${escapeHtml(item.dateDisplay || item.date)}</div>
+          <div style="font-size: 0.68rem; color: #64748b;">AI 감지 일정</div>
         </div>
 
         <div style="flex: 1; min-width: 0;">
           <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
-            <span style="font-size: 0.7rem; background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); padding: 1px 7px; border-radius: 4px; font-weight: 800;">
+            <span style="font-size: 0.7rem; background: #f3e8ff; color: #7e22ce; border: 1px solid #d8b4fe; padding: 1px 7px; border-radius: 4px; font-weight: 800;">
               ${escapeHtml(item.tag || '일정')}
             </span>
-            <span style="font-size: 0.7rem; color: #94a3b8;">
+            <span style="font-size: 0.7rem; color: #64748b;">
               출처: ${escapeHtml(item.press || '언론사')}
             </span>
           </div>
-          <div style="font-size: 0.92rem; font-weight: 800; color: #f8fafc; margin-bottom: 2px;">
+          <div style="font-size: 0.92rem; font-weight: 800; color: #0f172a; margin-bottom: 2px;">
             ${escapeHtml(item.title)}
           </div>
-          <div style="font-size: 0.76rem; color: #94a3b8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-            <a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: 700;">
+          <div style="font-size: 0.76rem; color: #64748b; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            <a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener noreferrer" style="color: #0284c7; text-decoration: none; font-weight: 700;">
               📰 원문: ${escapeHtml(item.sourceTitle || item.title)} ↗
             </a>
           </div>
@@ -5989,10 +5997,10 @@ function renderPendingEventsUI() {
 
       <!-- 우측 승인 / 거절 액션 버튼 -->
       <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
-        <button type="button" onclick="approvePendingEvent(${idx})" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); padding: 6px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s;" onmouseover="this.style.background='#059669'; this.style.color='#fff';" onmouseout="this.style.background='rgba(16, 185, 129, 0.2)'; this.style.color='#34d399';">
+        <button type="button" onclick="approvePendingEvent(${idx})" style="background: #dcfce7; color: #15803d; border: 1px solid #86efac; padding: 6px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s;" onmouseover="this.style.background='#15803d'; this.style.color='#fff';" onmouseout="this.style.background='#dcfce7'; this.style.color='#15803d';">
           <span>✔</span> 승인
         </button>
-        <button type="button" onclick="rejectPendingEvent(${idx})" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); padding: 6px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s;" onmouseover="this.style.background='#dc2626'; this.style.color='#fff';" onmouseout="this.style.background='rgba(239, 68, 68, 0.15)'; this.style.color='#f87171';">
+        <button type="button" onclick="rejectPendingEvent(${idx})" style="background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; padding: 6px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s;" onmouseover="this.style.background='#dc2626'; this.style.color='#fff';" onmouseout="this.style.background='#fee2e2'; this.style.color='#dc2626';">
           <span>✖</span> 거절
         </button>
       </div>
@@ -6166,7 +6174,7 @@ function renderApprovedCalendarUI() {
     const newsLink = getSafeNewsUrl(e.sourceUrl || e.news_url, e.title);
 
     return `
-      <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" onmouseover="this.style.background='rgba(30, 41, 59, 0.75)'; this.style.borderColor='rgba(56, 189, 248, 0.3)';" onmouseout="this.style.background='rgba(30, 41, 59, 0.5)'; this.style.borderColor='rgba(255,255,255,0.08)';">
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='#93c5fd';" onmouseout="this.style.borderColor='#e2e8f0';">
         <div style="flex: 1; min-width: 0;">
           <!-- 1. 날짜 + D-Day + 카테고리 뱃지 -->
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
@@ -6182,18 +6190,18 @@ function renderApprovedCalendarUI() {
           </div>
 
           <!-- 2. 이벤트명 -->
-          <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; margin-bottom: 6px; line-height: 1.45;">
+          <div style="font-size: 0.95rem; font-weight: 800; color: #0f172a; margin-bottom: 6px; line-height: 1.45;">
             ${escapeHtml(e.title)}
           </div>
 
           <!-- 3. 재료 출처 및 요약 발췌 -->
-          <div style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.55; margin-bottom: 8px; background: rgba(15, 23, 42, 0.6); padding: 8px 10px; border-radius: 6px; border-left: 3px solid ${catBadgeColor};">
+          <div style="font-size: 0.78rem; color: #334155; line-height: 1.55; margin-bottom: 8px; background: #f8fafc; border: 1px solid #e2e8f0; padding: 8px 10px; border-radius: 6px; border-left: 3px solid ${catBadgeColor};">
             ${escapeHtml(descText)}
           </div>
 
           <!-- 4. 기사 원문 직결 링크 -->
           <div style="font-size: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <a href="${escapeHtml(newsLink)}" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px; transition: color 0.15s;" onmouseover="this.style.color='#7dd3fc';" onmouseout="this.style.color='#38bdf8';">
+            <a href="${escapeHtml(newsLink)}" target="_blank" rel="noopener noreferrer" style="color: #0284c7; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px; transition: color 0.15s;" onmouseover="this.style.color='#0369a1';" onmouseout="this.style.color='#0284c7';">
               <span>📰 기사 원문 확인</span> <span>↗</span>
             </a>
             <span style="font-size: 0.7rem; color: #64748b;">${escapeHtml(e.press || '언론 종합')}</span>
@@ -6346,8 +6354,8 @@ function renderPortfolioThemeChipsUI() {
       <button type="button" onclick="togglePortfolioThemeChoice('${escapeHtml(theme)}')" 
         style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; font-size: 0.74rem; font-weight: 800; cursor: pointer; transition: all 0.2s; ${
           isChecked 
-            ? 'background: linear-gradient(135deg, #0284c7, #2563eb); color: #ffffff; border: 1.5px solid #38bdf8; box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);' 
-            : 'background: rgba(30, 41, 59, 0.8); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.12);'
+            ? 'background: #2563eb; color: #ffffff; border: 1px solid #2563eb; font-weight: 800; box-shadow: 0 1px 3px rgba(37, 99, 235, 0.3);' 
+            : 'background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0;'
         }">
         <span>${isChecked ? '⭐' : '☆'}</span>
         <span>${escapeHtml(theme)}</span>
@@ -6475,7 +6483,7 @@ window.refreshThemePortfolioStreaming = async function() {
         }
 
         return `
-          <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255, 255, 255, 0.08); border-left: 3px solid ${accentColor}; border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; transition: all 0.15s ease;" onmouseover="this.style.background='rgba(30,41,59,0.95)';" onmouseout="this.style.background='rgba(15, 23, 42, 0.9)';">
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid ${accentColor}; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 6px; transition: all 0.15s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.02);" onmouseover="this.style.borderColor='#cbd5e1';" onmouseout="this.style.borderColor='#e2e8f0';">
             <div style="display: flex; justify-content: space-between; align-items: center; gap: 4px; font-size: 0.7rem;">
               <div style="display: flex; align-items: center; gap: 5px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                 <span style="font-weight: 800; color: ${accentColor}; background: ${accentColor}18; padding: 1px 5px; border-radius: 4px; border: 1px solid ${accentColor}33; white-space: nowrap;">
@@ -6490,12 +6498,12 @@ window.refreshThemePortfolioStreaming = async function() {
               </span>
             </div>
 
-            <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" style="font-size: 0.82rem; font-weight: 800; color: #f8fafc; text-decoration: none; line-height: 1.38; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-break: break-word;" onmouseover="this.style.color='${accentColor}';" onmouseout="this.style.color='#f8fafc';">
+            <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" style="font-size: 0.84rem; font-weight: 800; color: #0f172a; text-decoration: none; line-height: 1.38; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-break: break-word;" onmouseover="this.style.color='${accentColor}';" onmouseout="this.style.color='#0f172a';">
               ${escapeHtml(itemTitle || '상세 소식 확인하기')}
             </a>
 
             ${itemDesc ? `
-              <div style="font-size: 0.72rem; color: #94a3b8; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-break: break-word;">
+              <div style="font-size: 0.74rem; color: #475569; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-break: break-word;">
                 ${escapeHtml(itemDesc)}
               </div>
             ` : ''}
@@ -6519,7 +6527,7 @@ window.refreshThemePortfolioStreaming = async function() {
   } catch (err) {
     console.error('[Theme Portfolio Error]', err);
     const errHtml = `
-      <div style="text-align: center; padding: 20px 8px; color: #f87171; font-size: 0.75rem;">
+      <div style="text-align: center; padding: 20px 8px; color: #b91c1c; font-size: 0.75rem;">
         데이터 수집 오류 발생
       </div>
     `;
@@ -7211,60 +7219,60 @@ window.selectStockDeepItem = function (idx) {
 
       <!-- C. 영역 1: 비즈니스 모델 (어떻게 돈을 벌고 있는가? 수주/제조업 구분) -->
       <div class="deep-section-block" id="deep-sec-bm" style="margin-bottom: 24px;">
-        <div style="font-size: 0.98rem; font-weight: 800; color: #f8fafc; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+        <div style="font-size: 0.98rem; font-weight: 800; color: #1e293b; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
           <span>💰</span> 1. 비즈니스 모델 분석 (현재 어떻게 돈을 버는가?)
         </div>
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 18px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
-            <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); padding: 12px; border-radius: 8px;">
-              <div style="font-size: 0.76rem; color: #38bdf8; font-weight: 800; margin-bottom: 4px;">산업 유형 분류</div>
-              <div style="font-size: 0.92rem; font-weight: 900; color: #f8fafc;">${escapeHtml(item.bm.type)}</div>
+            <div style="background: #f0f9ff; border: 1px solid #bae6fd; padding: 12px; border-radius: 8px;">
+              <div style="font-size: 0.76rem; color: #0284c7; font-weight: 800; margin-bottom: 4px;">산업 유형 분류</div>
+              <div style="font-size: 0.92rem; font-weight: 900; color: #0f172a;">${escapeHtml(item.bm.type)}</div>
             </div>
-            <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); padding: 12px; border-radius: 8px;">
-              <div style="font-size: 0.76rem; color: #34d399; font-weight: 800; margin-bottom: 4px;">매출 포트폴리오 비중</div>
-              <div style="font-size: 0.92rem; font-weight: 800; color: #f8fafc;">${escapeHtml(item.bm.structure)}</div>
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 12px; border-radius: 8px;">
+              <div style="font-size: 0.76rem; color: #16a34a; font-weight: 800; margin-bottom: 4px;">매출 포트폴리오 비중</div>
+              <div style="font-size: 0.92rem; font-weight: 800; color: #0f172a;">${escapeHtml(item.bm.structure)}</div>
             </div>
           </div>
           <div style="margin-bottom: 12px;">
-            <div style="font-size: 0.84rem; font-weight: 800; color: #fb923c; margin-bottom: 4px;">💵 핵심 캐시카우 (수익 창출 엔진):</div>
-            <div style="font-size: 0.86rem; color: #cbd5e1; line-height: 1.6;">${escapeHtml(item.bm.cashCow)}</div>
+            <div style="font-size: 0.84rem; font-weight: 800; color: #c2410c; margin-bottom: 4px;">💵 핵심 캐시카우 (수익 창출 엔진):</div>
+            <div style="font-size: 0.86rem; color: #334155; line-height: 1.6;">${escapeHtml(item.bm.cashCow)}</div>
           </div>
           <div>
-            <div style="font-size: 0.84rem; font-weight: 800; color: #94a3b8; margin-bottom: 4px;">⚙️ 원가 구조 및 마진 레버리지:</div>
-            <div style="font-size: 0.86rem; color: #94a3b8; line-height: 1.6;">${escapeHtml(item.bm.costStructure)}</div>
+            <div style="font-size: 0.84rem; font-weight: 800; color: #475569; margin-bottom: 4px;">⚙️ 원가 구조 및 마진 레버리지:</div>
+            <div style="font-size: 0.86rem; color: #475569; line-height: 1.6;">${escapeHtml(item.bm.costStructure)}</div>
           </div>
         </div>
       </div>
 
       <!-- D. 영역 2: 실적 & 공시 히스토리 -->
       <div class="deep-section-block" id="deep-sec-finance" style="margin-bottom: 24px;">
-        <div style="font-size: 0.98rem; font-weight: 800; color: #f8fafc; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+        <div style="font-size: 0.98rem; font-weight: 800; color: #1e293b; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
           <span>📊</span> 2. 분기별 실적 추이 & DART 핵심 공시
         </div>
         <!-- 분기 실적 3단 카드 -->
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px;">
-          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; text-align: center;">
-            <div style="font-size: 0.74rem; color: #94a3b8; font-weight: 700;">2024년 1분기</div>
-            <div style="font-size: 0.92rem; font-weight: 900; color: #f8fafc; margin: 2px 0;">매출 ${item.financials.q24_1.sales}</div>
-            <div style="font-size: 0.78rem; color: #ef4444; font-weight: 800;">영업익 ${item.financials.q24_1.profit} (${item.financials.q24_1.margin})</div>
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+            <div style="font-size: 0.74rem; color: #64748b; font-weight: 700;">2024년 1분기</div>
+            <div style="font-size: 0.92rem; font-weight: 900; color: #0f172a; margin: 2px 0;">매출 ${item.financials.q24_1.sales}</div>
+            <div style="font-size: 0.78rem; color: #dc2626; font-weight: 800;">영업익 ${item.financials.q24_1.profit} (${item.financials.q24_1.margin})</div>
           </div>
-          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; text-align: center;">
-            <div style="font-size: 0.74rem; color: #94a3b8; font-weight: 700;">2024년 2분기</div>
-            <div style="font-size: 0.92rem; font-weight: 900; color: #f8fafc; margin: 2px 0;">매출 ${item.financials.q24_2.sales}</div>
-            <div style="font-size: 0.78rem; color: #ef4444; font-weight: 800;">영업익 ${item.financials.q24_2.profit} (${item.financials.q24_2.margin})</div>
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+            <div style="font-size: 0.74rem; color: #64748b; font-weight: 700;">2024년 2분기</div>
+            <div style="font-size: 0.92rem; font-weight: 900; color: #0f172a; margin: 2px 0;">매출 ${item.financials.q24_2.sales}</div>
+            <div style="font-size: 0.78rem; color: #dc2626; font-weight: 800;">영업익 ${item.financials.q24_2.profit} (${item.financials.q24_2.margin})</div>
           </div>
-          <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.3); padding: 12px; border-radius: 8px; text-align: center;">
-            <div style="font-size: 0.74rem; color: #38bdf8; font-weight: 700;">2024년 3분기 (컨센서스)</div>
-            <div style="font-size: 0.92rem; font-weight: 900; color: #f8fafc; margin: 2px 0;">매출 ${item.financials.q24_3E.sales}</div>
-            <div style="font-size: 0.78rem; color: #ef4444; font-weight: 800;">영업익 ${item.financials.q24_3E.profit} (${item.financials.q24_3E.margin})</div>
+          <div style="background: #eff6ff; border: 1px solid #93c5fd; padding: 12px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 0.74rem; color: #2563eb; font-weight: 800;">2024년 3분기 (컨센서스)</div>
+            <div style="font-size: 0.92rem; font-weight: 900; color: #0f172a; margin: 2px 0;">매출 ${item.financials.q24_3E.sales}</div>
+            <div style="font-size: 0.78rem; color: #dc2626; font-weight: 800;">영업익 ${item.financials.q24_3E.profit} (${item.financials.q24_3E.margin})</div>
           </div>
         </div>
-        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 10px 14px; font-size: 0.84rem; color: #cbd5e1; margin-bottom: 14px;">
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 10px 14px; font-size: 0.84rem; color: #166534; margin-bottom: 14px;">
           📈 <strong>실적 종합 총평:</strong> ${escapeHtml(item.financials.annual2024E)} · ${escapeHtml(item.financials.point)}
         </div>
         <!-- 공시 목록 -->
-        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 12px 14px;">
-          <div style="font-size: 0.82rem; font-weight: 800; color: #38bdf8; margin-bottom: 8px;">📑 최근 DART 전자공시 주요 내역:</div>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px;">
+          <div style="font-size: 0.82rem; font-weight: 800; color: #0284c7; margin-bottom: 8px;">📑 최근 DART 전자공시 주요 내역:</div>
           ${disclosuresHtml}
         </div>
       </div>
@@ -7272,10 +7280,10 @@ window.selectStockDeepItem = function (idx) {
       <!-- E. 영역 3: 그 종목에 관련된 모든 기사 모음 -->
       <div class="deep-section-block" id="deep-sec-news" style="margin-bottom: 24px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <div style="font-size: 0.98rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 8px;">
+          <div style="font-size: 0.98rem; font-weight: 800; color: #1e293b; display: flex; align-items: center; gap: 8px;">
             <span>📰</span> 3. 이 종목 관련 모든 기사 모아보기
           </div>
-          <a href="https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(item.name + ' 주가 실적')}" target="_blank" rel="noopener noreferrer" style="font-size: 0.74rem; color: #38bdf8; text-decoration: none; font-weight: 700;">
+          <a href="https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(item.name + ' 주가 실적')}" target="_blank" rel="noopener noreferrer" style="font-size: 0.74rem; color: #0284c7; text-decoration: none; font-weight: 700;">
             네이버 실시간 뉴스 전체 ↗
           </a>
         </div>
@@ -7286,7 +7294,7 @@ window.selectStockDeepItem = function (idx) {
 
       <!-- F. 영역 4: 엮여있는 테마 및 관련 종목군 맵 -->
       <div class="deep-section-block" id="deep-sec-theme" style="margin-bottom: 24px;">
-        <div style="font-size: 0.98rem; font-weight: 800; color: #f8fafc; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+        <div style="font-size: 0.98rem; font-weight: 800; color: #1e293b; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
           <span>🌐</span> 4. 엮여있는 테마 및 관련주 에코시스템
         </div>
         <div>
@@ -7296,7 +7304,7 @@ window.selectStockDeepItem = function (idx) {
 
       <!-- G. 영역 5: 증시 캘린더 D-Day 일정 -->
       <div class="deep-section-block" id="deep-sec-events" style="margin-bottom: 24px;">
-        <div style="font-size: 0.98rem; font-weight: 800; color: #f8fafc; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+        <div style="font-size: 0.98rem; font-weight: 800; color: #1e293b; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
           <span>📅</span> 5. 향후 주요 일정 및 D-Day 카운트다운
         </div>
         <div>
@@ -7305,20 +7313,20 @@ window.selectStockDeepItem = function (idx) {
       </div>
 
       <!-- H. 영역 6: 이 종목의 미래 종집합소 (미래 지속성 & 투자 전략) -->
-      <div class="deep-section-block" id="deep-sec-future" style="background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-        <div style="font-size: 1.05rem; font-weight: 900; color: #38bdf8; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+      <div class="deep-section-block" id="deep-sec-future" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div style="font-size: 1.05rem; font-weight: 900; color: #0284c7; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
           <span>🔮</span> 6. 미래 종집합소 (Future Synthesis Report)
         </div>
-        <div style="font-size: 0.95rem; font-weight: 800; color: #f8fafc; margin-bottom: 8px; line-height: 1.4;">
+        <div style="font-size: 0.95rem; font-weight: 800; color: #0f172a; margin-bottom: 8px; line-height: 1.5;">
           ${escapeHtml(item.futureOutlook.summary)}
         </div>
         <div style="margin-bottom: 10px;">
-          <div style="font-size: 0.82rem; font-weight: 800; color: #34d399; margin-bottom: 3px;">🚀 미래 핵심 성장 동력 (Catalyst):</div>
-          <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">${escapeHtml(item.futureOutlook.catalyst)}</div>
+          <div style="font-size: 0.82rem; font-weight: 800; color: #059669; margin-bottom: 3px;">🚀 미래 핵심 성장 동력 (Catalyst):</div>
+          <div style="font-size: 0.85rem; color: #334155; line-height: 1.6;">${escapeHtml(item.futureOutlook.catalyst)}</div>
         </div>
         <div>
-          <div style="font-size: 0.82rem; font-weight: 800; color: #ef4444; margin-bottom: 3px;">⚠️ 주의해야 할 리스크 (Risk Factor):</div>
-          <div style="font-size: 0.85rem; color: #94a3b8; line-height: 1.6;">${escapeHtml(item.futureOutlook.riskCheck)}</div>
+          <div style="font-size: 0.82rem; font-weight: 800; color: #dc2626; margin-bottom: 3px;">⚠️ 주의해야 할 리스크 (Risk Factor):</div>
+          <div style="font-size: 0.85rem; color: #475569; line-height: 1.6;">${escapeHtml(item.futureOutlook.riskCheck)}</div>
         </div>
       </div>
 
@@ -7784,7 +7792,7 @@ async function renderUSSectorBriefing() {
       gainersHtml = gainers.map((sec, idx) => {
         const stocksStr = (sec.stocks || []).map(s => {
           const ratioNum = typeof s.ratio === 'number' ? s.ratio : parseFloat(s.ratio || 0);
-          const color = ratioNum >= 0 ? '#f43f5e' : '#38bdf8';
+          const color = ratioNum >= 0 ? '#dc2626' : '#2563eb';
           const rStr = s.ratio_str || (ratioNum >= 0 ? `+${ratioNum.toFixed(2)}%` : `${ratioNum.toFixed(2)}%`);
           return `${s.name}(${s.ticker}) <span style="color: ${color}; font-weight: 700;">${rStr}</span>`;
         }).join(', ');
@@ -7793,22 +7801,22 @@ async function renderUSSectorBriefing() {
         const secRatioStr = sec.ratio_str || (secRatio >= 0 ? `+${secRatio.toFixed(2)}% ▲` : `${secRatio.toFixed(2)}% ▼`);
 
         return `
-          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 12px 14px; margin-bottom: 12px;">
+          <div style="background: #ffffff; border: 1px solid #fee2e2; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-              <div style="font-size: 0.92rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
-                <span style="color: #f43f5e; font-weight: 900;">${idx + 1}위</span>
+              <div style="font-size: 0.92rem; font-weight: 800; color: #0f172a; display: flex; align-items: center; gap: 6px;">
+                <span style="color: #dc2626; font-weight: 900;">${idx + 1}위</span>
                 <span>${sec.name} (${sec.ticker})</span>
               </div>
-              <span style="font-size: 0.95rem; font-weight: 900; color: #f43f5e;">${secRatioStr}</span>
+              <span style="font-size: 0.95rem; font-weight: 900; color: #dc2626;">${secRatioStr}</span>
             </div>
             ${sec.reason ? `
-              <div style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.55; margin-bottom: 6px;">
+              <div style="font-size: 0.8rem; color: #475569; line-height: 1.55; margin-bottom: 6px;">
                 • <strong>상승 사유:</strong> ${sec.reason}
               </div>
             ` : ''}
             ${stocksStr ? `
-              <div style="font-size: 0.77rem; color: #94a3b8; background: rgba(0,0,0,0.25); padding: 6px 10px; border-radius: 6px; line-height: 1.5;">
-                <strong style="color: #fca5a5;">관련 종목:</strong> ${stocksStr}
+              <div style="font-size: 0.77rem; color: #334155; background: #f8fafc; border: 1px solid #e2e8f0; padding: 7px 12px; border-radius: 6px; line-height: 1.5;">
+                <strong style="color: #991b1b; font-weight: 800;">관련 종목:</strong> ${stocksStr}
               </div>
             ` : ''}
           </div>
@@ -7819,16 +7827,16 @@ async function renderUSSectorBriefing() {
     // 매크로 원자재 & 변동성 참고 박스
     const macro = data.macro || {};
     const macroBoxHtml = `
-      <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(244, 63, 94, 0.35); border-radius: 10px; padding: 12px 14px; margin-top: 6px;">
-        <div style="font-size: 0.8rem; font-weight: 800; color: #fb7185; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+      <div style="background: #ffffff; border: 1px solid #fca5a5; box-shadow: 0 1px 3px rgba(0,0,0,0.02); border-radius: 10px; padding: 12px 14px; margin-top: 6px;">
+        <div style="font-size: 0.8rem; font-weight: 800; color: #b91c1c; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
           <span>📌</span> [핵심 참고] 원자재 & 야간 변동성 지표
         </div>
-        <ul style="font-size: 0.77rem; color: #cbd5e1; line-height: 1.65; margin: 0; padding-left: 16px;">
-          ${macro.diesel_alert ? `<li>${macro.diesel_alert.replace('6달러 사상 최고', '<strong style="color: #f43f5e;">6달러 사상 최고</strong>')}</li>` : ''}
+        <ul style="font-size: 0.77rem; color: #475569; line-height: 1.65; margin: 0; padding-left: 16px;">
+          ${macro.diesel_alert ? `<li>${macro.diesel_alert.replace('6달러 사상 최고', '<strong style="color: #dc2626;">6달러 사상 최고</strong>')}</li>` : ''}
           <li>
-            ${macro.brent ? `브렌트유 <strong style="color: #f43f5e;">${macro.brent.ratio || ''}(${macro.brent.price || ''})</strong>` : ''}
-            ${macro.gold ? ` / 금 <strong style="color: #38bdf8;">${macro.gold.ratio || ''}(${macro.gold.price || ''})</strong>` : ''}
-            ${macro.vix ? ` / VIX <strong style="color: #f43f5e;">${macro.vix.ratio || ''}(${macro.vix.price || ''})</strong>` : ''}
+            ${macro.brent ? `브렌트유 <strong style="color: #dc2626;">${macro.brent.ratio || ''}(${macro.brent.price || ''})</strong>` : ''}
+            ${macro.gold ? ` / 금 <strong style="color: #0284c7;">${macro.gold.ratio || ''}(${macro.gold.price || ''})</strong>` : ''}
+            ${macro.vix ? ` / VIX <strong style="color: #dc2626;">${macro.vix.ratio || ''}(${macro.vix.price || ''})</strong>` : ''}
           </li>
           ${macro.night_range ? `<li>${macro.night_range}</li>` : ''}
         </ul>
@@ -7840,7 +7848,7 @@ async function renderUSSectorBriefing() {
     let losersHtml = '';
     if (losers.length === 0) {
       losersHtml = `
-        <div style="background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 10px; padding: 14px; text-align: center; color: #94a3b8; font-size: 0.85rem;">
+        <div style="background: #ffffff; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 14px; text-align: center; color: #64748b; font-size: 0.85rem;">
           전일 하락 마감한 섹터가 없습니다. (전 섹터 상승장)
         </div>
       `;
@@ -7848,7 +7856,7 @@ async function renderUSSectorBriefing() {
       losersHtml = losers.map((sec, idx) => {
         const stocksStr = (sec.stocks || []).map(s => {
           const ratioNum = typeof s.ratio === 'number' ? s.ratio : parseFloat(s.ratio || 0);
-          const color = ratioNum >= 0 ? '#f43f5e' : '#38bdf8';
+          const color = ratioNum >= 0 ? '#dc2626' : '#2563eb';
           const rStr = s.ratio_str || (ratioNum >= 0 ? `+${ratioNum.toFixed(2)}%` : `${ratioNum.toFixed(2)}%`);
           return `${s.name} <strong style="color: ${color};">${rStr}</strong>`;
         }).join(', ');
@@ -7857,16 +7865,16 @@ async function renderUSSectorBriefing() {
         const secRatioStr = sec.ratio_str || (secRatio >= 0 ? `+${secRatio.toFixed(2)}% ▲` : `${secRatio.toFixed(2)}% ▼`);
 
         return `
-          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 10px 12px;">
+          <div style="background: #ffffff; border: 1px solid #bae6fd; border-radius: 8px; padding: 10px 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-              <div style="font-size: 0.88rem; font-weight: 800; color: #f8fafc;">
-                <span style="color: #38bdf8; font-weight: 900;">${idx + 1}위</span> ${sec.name} (${sec.ticker})
+              <div style="font-size: 0.88rem; font-weight: 800; color: #0f172a;">
+                <span style="color: #0284c7; font-weight: 900;">${idx + 1}위</span> ${sec.name} (${sec.ticker})
               </div>
-              <span style="font-size: 0.88rem; font-weight: 900; color: #38bdf8;">${secRatioStr}</span>
+              <span style="font-size: 0.88rem; font-weight: 900; color: #0284c7;">${secRatioStr}</span>
             </div>
-            <div style="font-size: 0.77rem; color: #94a3b8; line-height: 1.5;">
+            <div style="font-size: 0.77rem; color: #475569; line-height: 1.5;">
               ${sec.reason || '거시경제 및 업황 우려 차익실현'}<br>
-              ${stocksStr ? `<span style="color: #cbd5e1;">(${stocksStr})</span>` : ''}
+              ${stocksStr ? `<span style="color: #64748b;">(${stocksStr})</span>` : ''}
             </div>
           </div>
         `;
@@ -7876,15 +7884,15 @@ async function renderUSSectorBriefing() {
     // 4. 최종 2단 그리드 컨테이너 렌더링
     container.innerHTML = `
       <!-- [좌측 열: 강세 업종] -->
-      <div style="background: rgba(244, 63, 94, 0.04); border: 1px solid rgba(244, 63, 94, 0.25); border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; justify-content: space-between;">
+      <div style="background: #fff5f5; border: 1px solid #fecaca; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; justify-content: space-between;">
         <div>
           <!-- 섹션 타이틀 -->
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px dashed rgba(244, 63, 94, 0.25); padding-bottom: 10px;">
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="font-size: 1.15rem;">🔥</span>
-              <span style="font-size: 1rem; font-weight: 900; color: #f8fafc;">강세 업종 (11개 섹터 중 상승 섹터)</span>
+              <span style="font-size: 1rem; font-weight: 900; color: #991b1b;">강세 업종 (11개 섹터 중 상승 섹터)</span>
             </div>
-            <span style="font-size: 0.72rem; background: rgba(244, 63, 94, 0.2); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.4); padding: 2px 8px; border-radius: 6px; font-weight: 800;">
+            <span style="font-size: 0.72rem; background: rgba(244, 63, 94, 0.2); color: #dc2626; border: 1px solid rgba(244, 63, 94, 0.4); padding: 2px 8px; border-radius: 6px; font-weight: 800;">
               상승 주도 (${gainers.length}개)
             </span>
           </div>
@@ -7894,12 +7902,12 @@ async function renderUSSectorBriefing() {
       </div>
 
       <!-- [우측 열: 약세 업종 TOP 5] -->
-      <div style="background: rgba(56, 189, 248, 0.04); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 18px 20px;">
+      <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 12px; padding: 18px 20px;">
         <!-- 섹션 타이틀 -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px dashed rgba(56, 189, 248, 0.25); padding-bottom: 10px;">
           <div style="display: flex; align-items: center; gap: 8px;">
             <span style="font-size: 1.15rem;">📉</span>
-            <span style="font-size: 1rem; font-weight: 900; color: #f8fafc;">약세 업종 TOP 5</span>
+            <span style="font-size: 1rem; font-weight: 900; color: #0369a1;">약세 업종 TOP 5</span>
           </div>
           <span style="font-size: 0.72rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); padding: 2px 8px; border-radius: 6px; font-weight: 800;">
             하락 상위
@@ -8283,19 +8291,19 @@ function renderDomesticNewsTimeline(filterCategory = 'all') {
       return `
         <div class="news-item-compact-card">
           <div>
-            <div style="font-size: 0.82rem; font-weight: 700; color: #f8fafc; line-height: 1.42; margin-bottom: 5px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" title="${escapeHtml(item.title)}">
+            <div style="font-size: 0.84rem; font-weight: 700; color: #0f172a; line-height: 1.42; margin-bottom: 5px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" title="${escapeHtml(item.title)}">
               ${symbolPrefix}${escapeHtml(item.title)}
             </div>
-            <div style="font-size: 0.72rem; color: #94a3b8; line-height: 1.35; margin-bottom: 6px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+            <div style="font-size: 0.74rem; color: #475569; line-height: 1.4; margin-bottom: 6px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
               ${escapeHtml(item.summary || '')}
             </div>
           </div>
 
-          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6px; font-size: 0.7rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 6px; font-size: 0.72rem;">
             <div style="color: #64748b; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 140px;">
-              <span style="color: #cbd5e1; font-weight: 600;">${escapeHtml(mediaDisplay)}</span> · ${escapeHtml(timeDisplay)}
+              <span style="color: #475569; font-weight: 700;">${escapeHtml(mediaDisplay)}</span> · ${escapeHtml(timeDisplay)}
             </div>
-            <a href="${directUrl}" target="_blank" rel="noopener noreferrer" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 3px 8px; border-radius: 5px; font-size: 0.7rem; text-decoration: none; font-weight: 800; white-space: nowrap; transition: all 0.15s ease;">
+            <a href="${directUrl}" target="_blank" rel="noopener noreferrer" style="background: #eff6ff; color: #0284c7; border: 1px solid #bfdbfe; padding: 3px 8px; border-radius: 5px; font-size: 0.72rem; text-decoration: none; font-weight: 800; white-space: nowrap; transition: all 0.15s ease;">
               기사보기 ↗
             </a>
           </div>
@@ -8429,56 +8437,56 @@ function renderTodayLeadingThemes(themes) {
     const rawThemeJson = encodeURIComponent(JSON.stringify(item));
 
     return `
-      <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 12px; padding: 16px; position: relative; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
+      <div style="background: #ffffff; border: 1px solid #fee2e2; border-radius: 12px; padding: 16px; position: relative; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
         <div>
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
             <div>
-              <h5 style="font-size: 1.1rem; font-weight: 900; color: #f8fafc; margin: 2px 0 0 0; letter-spacing: -0.2px;">
+              <h5 style="font-size: 1.1rem; font-weight: 900; color: #0f172a; margin: 2px 0 0 0; letter-spacing: -0.2px;">
                 ${escapeHtml(item.theme_name)}
               </h5>
             </div>
             <div style="text-align: right;">
-              <span style="font-size: 1.05rem; font-weight: 900; color: #f43f5e;">
+              <span style="font-size: 1.05rem; font-weight: 900; color: #dc2626;">
                 ${escapeHtml(item.change_rate || '+0.00%')}
               </span>
-              <div style="font-size: 0.7rem; color: #94a3b8; margin-top: 2px;">
+              <div style="font-size: 0.7rem; color: #64748b; margin-top: 2px;">
                 복합강도 ${item.composite_score || 95}점
               </div>
             </div>
           </div>
 
           <!-- 대장주 및 거래대금 메트릭 바 -->
-          <div style="background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 8px 10px; margin-bottom: 8px; font-size: 0.78rem; display: flex; justify-content: space-between; align-items: center;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; margin-bottom: 8px; font-size: 0.78rem; display: flex; justify-content: space-between; align-items: center;">
             <div>
-              <span style="color: #94a3b8;">대장주:</span>
-              <strong style="color: #38bdf8; font-weight: 800; margin-left: 4px;">${escapeHtml(item.leader_stock)}</strong>
-              <span style="color: #f43f5e; font-weight: 800; margin-left: 4px;">(${leaderRateStr})</span>
+              <span style="color: #64748b;">대장주:</span>
+              <strong style="color: #0284c7; font-weight: 800; margin-left: 4px;">${escapeHtml(item.leader_stock)}</strong>
+              <span style="color: #dc2626; font-weight: 800; margin-left: 4px;">(${leaderRateStr})</span>
             </div>
             <div>
-              <span style="color: #94a3b8;">거래대금:</span>
-              <strong style="color: #fbbf24; font-weight: 800; margin-left: 4px;">${tradeEokStr}</strong>
+              <span style="color: #64748b;">거래대금:</span>
+              <strong style="color: #b45309; font-weight: 800; margin-left: 4px;">${tradeEokStr}</strong>
             </div>
           </div>
 
           <!-- 핵심 관련주 3개 뱃지 바 -->
           <div style="margin-bottom: 10px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap;">
-            <span style="font-size: 0.7rem; color: #94a3b8; font-weight: 700;">핵심 관련주:</span>
+            <span style="font-size: 0.7rem; color: #64748b; font-weight: 700;">핵심 관련주:</span>
             ${relatedBadgesHtml}
           </div>
 
           <!-- 상승 재료 및 구체적 팩트 (2~3줄 명시) -->
-          <div style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.5; margin-bottom: 12px; background: rgba(0, 0, 0, 0.2); border-left: 3px solid #f87171; padding: 6px 10px; border-radius: 0 6px 6px 0;">
-            <strong style="color: #fca5a5; font-size: 0.73rem; display: block; margin-bottom: 2px;">📌 당일 급등 이유 & 핵심 재료 팩트:</strong>
+          <div style="font-size: 0.78rem; color: #1e293b; line-height: 1.5; margin-bottom: 12px; background: #fef2f2; border: 1px solid #fecaca; border-left: 3px solid #ef4444; padding: 8px 10px; border-radius: 6px;">
+            <strong style="color: #b91c1c; font-size: 0.73rem; display: block; margin-bottom: 2px;">📌 당일 급등 이유 & 핵심 재료 팩트:</strong>
             ${escapeHtml(detailedTriggerFact)}
           </div>
         </div>
 
         <!-- 하단 액션 버튼들 -->
-        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 10px;">
           <span style="font-size: 0.72rem; color: #64748b;">
             부대장: ${escapeHtml(item.sub_leader_stock || '관련주')}
           </span>
-          <button type="button" class="imggen-style-chip" onclick="registerPullbackFromToday('${rawThemeJson}')" style="padding: 5px 12px; font-size: 0.74rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); font-weight: 800; cursor: pointer; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; transition: all 0.15s ease;" onmouseover="this.style.background='rgba(56,189,248,0.25)';" onmouseout="this.style.background='rgba(56,189,248,0.15)';">
+          <button type="button" class="imggen-style-chip" onclick="registerPullbackFromToday('${rawThemeJson}')" style="padding: 5px 12px; font-size: 0.74rem; background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd; font-weight: 800; cursor: pointer; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; transition: all 0.15s ease;" onmouseover="this.style.background='#bae6fd';" onmouseout="this.style.background='#e0f2fe';">
             ✓ 눌림목 추적 등록
           </button>
         </div>
@@ -8551,12 +8559,12 @@ function renderTodayLeadingEmptyState() {
   if (!container) return;
 
   container.innerHTML = `
-    <div style="grid-column: 1 / -1; padding: 32px 20px; text-align: center; background: rgba(15, 23, 42, 0.6); border: 1px dashed rgba(244, 63, 94, 0.35); border-radius: 12px;">
+    <div style="grid-column: 1 / -1; padding: 32px 20px; text-align: center; background: #fff5f5; border: 1px dashed #fca5a5; border-radius: 12px;">
       <div style="font-size: 2rem; margin-bottom: 8px;">🛡️</div>
-      <div style="font-size: 1.05rem; font-weight: 800; color: #fca5a5; margin-bottom: 6px;">
+      <div style="font-size: 1.05rem; font-weight: 800; color: #991b1b; margin-bottom: 6px;">
         현재 주도 테마 없음 — 뇌동매매 주의 및 현금 보유 구간
       </div>
-      <div style="font-size: 0.8rem; color: #94a3b8; max-width: 580px; margin: 0 auto; line-height: 1.5;">
+      <div style="font-size: 0.8rem; color: #475569; max-width: 580px; margin: 0 auto; line-height: 1.5;">
         거래대금 1,000억 이상 유입 및 대장주 +10% 이상 급등 조건을 동시에 만족하는 진짜 주도 섹터가 없습니다.<br>
         개별 잡주 난립장 또는 지수 침체기에는 억지 진입을 피하고 현금을 보존하는 것이 정석 전략입니다.
       </div>
@@ -8730,8 +8738,8 @@ async function renderPastPullbackThemes(currentTopThemes = []) {
 
   if (validList.length === 0) {
     container.innerHTML = `
-      <div style="padding: 24px; text-align: center; color: #94a3b8; background: rgba(0,0,0,0.2); border: 1px dashed rgba(255,255,255,0.08); border-radius: 10px;">
-        <div style="font-size: 0.95rem; font-weight: 700; color: #cbd5e1; margin-bottom: 4px;">눌림 공략 대상 테마가 없습니다.</div>
+      <div style="padding: 24px; text-align: center; color: #64748b; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px;">
+        <div style="font-size: 0.95rem; font-weight: 700; color: #334155; margin-bottom: 4px;">눌림 공략 대상 테마가 없습니다.</div>
         <div style="font-size: 0.76rem; color: #64748b;">소멸 삭제되었거나 새로운 주도 테마가 출현하면 자동으로 이관됩니다. (우측 상단 ↺ 초기화로 복원 가능)</div>
       </div>
     `;
@@ -8742,10 +8750,10 @@ async function renderPastPullbackThemes(currentTopThemes = []) {
     const themeId = item.theme_id || item.theme_name;
     const isMa5 = item.ma5_recovered === true;
     const ma5Badge = isMa5
-      ? `<span style="font-size: 0.72rem; background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); padding: 2px 7px; border-radius: 4px; font-weight: 800;">5일선 재돌파 ✓</span>`
-      : `<span style="font-size: 0.72rem; background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); padding: 2px 7px; border-radius: 4px; font-weight: 700;">5일선 지지 테스트 중</span>`;
+      ? `<span style="font-size: 0.72rem; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; padding: 2px 7px; border-radius: 4px; font-weight: 800;">5일선 재돌파 ✓</span>`
+      : `<span style="font-size: 0.72rem; background: #fffbeb; color: #b45309; border: 1px solid #fde68a; padding: 2px 7px; border-radius: 4px; font-weight: 700;">5일선 지지 테스트 중</span>`;
 
-    const fibColor = item.pullback_rate === '-50.0%' ? '#f43f5e' : (item.pullback_rate === '-38.2%' ? '#38bdf8' : '#a78bfa');
+    const fibColor = item.pullback_rate === '-50.0%' ? '#dc2626' : (item.pullback_rate === '-38.2%' ? '#0284c7' : '#7c3aed');
 
     // [📌 최초 상승 이유 (실제 재료 팩트)] 및 [🚀 향후 반등 모멘텀 (실체적 기대감)]
     const pastTrigger = item.past_trigger_reason || `${item.leader_stock}, ${item.theme_name} 핵심 수주 및 기술 검증 완료 발표`;
@@ -8754,43 +8762,43 @@ async function renderPastPullbackThemes(currentTopThemes = []) {
     const encodedThemeData = encodeURIComponent(JSON.stringify(item));
 
     return `
-      <div id="pullback-item-${escapeHtml(themeId)}" style="display: flex; flex-direction: column; justify-content: space-between; padding: 14px 16px; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; gap: 10px; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+      <div id="pullback-item-${escapeHtml(themeId)}" style="display: flex; flex-direction: column; justify-content: space-between; padding: 16px 18px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; gap: 12px; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap;">
           <div>
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="font-size: 1.1rem;">🎯</span>
-              <strong style="font-size: 1rem; color: #f8fafc; font-weight: 900;">${escapeHtml(item.theme_name)}</strong>
+              <strong style="font-size: 1.02rem; color: #0f172a; font-weight: 900;">${escapeHtml(item.theme_name)}</strong>
               ${ma5Badge}
-              <span style="font-size: 0.7rem; color: #94a3b8; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px;">
+              <span style="font-size: 0.72rem; color: #475569; background: #f1f5f9; border: 1px solid #e2e8f0; padding: 2px 7px; border-radius: 4px; font-weight: 600;">
                 ${escapeHtml(item.period_range || '최근 1~3개월 눌림')}
               </span>
             </div>
-            <div style="font-size: 0.76rem; color: #94a3b8; margin-top: 5px; display: flex; align-items: center; gap: 12px;">
-              <span>대장주: <strong style="color: #38bdf8; font-weight: 800;">${escapeHtml(item.leader_stock)}</strong></span>
+            <div style="font-size: 0.78rem; color: #64748b; margin-top: 6px; display: flex; align-items: center; gap: 14px;">
+              <span>대장주: <strong style="color: #0284c7; font-weight: 800;">${escapeHtml(item.leader_stock)}</strong></span>
               <span>기준봉 대비 눌림폭: <strong style="color: ${fibColor}; font-weight: 800;">${escapeHtml(item.pullback_rate || '-38.2%')}</strong></span>
             </div>
           </div>
 
           <!-- 트레이더 컨트롤 버튼 탑재 [✓ 추적 승인] & [✕ 소멸 삭제] -->
           <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
-            <button type="button" onclick="approvePullbackTheme('${escapeHtml(item.theme_name)}', '${escapeHtml(item.leader_stock)}', '${encodedThemeData}')" class="imggen-style-chip" style="padding: 6px 14px; font-size: 0.76rem; background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.45); font-weight: 800; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; border-radius: 6px; transition: all 0.15s ease;" title="2번 탭 탐정 7대 체크리스트로 즉시 이동">
+            <button type="button" onclick="approvePullbackTheme('${escapeHtml(item.theme_name)}', '${escapeHtml(item.leader_stock)}', '${encodedThemeData}')" class="imggen-style-chip" style="padding: 6px 14px; font-size: 0.76rem; background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; font-weight: 800; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; border-radius: 6px; transition: all 0.15s ease;" title="2번 탭 탐정 7대 체크리스트로 즉시 이동">
               ✓ 추적 승인 (2번 탭 정밀 분석)
             </button>
-            <button type="button" onclick="deletePullbackTheme('${escapeHtml(themeId)}', '${escapeHtml(item.theme_name)}')" class="imggen-style-chip" style="padding: 6px 10px; font-size: 0.74rem; background: rgba(239, 68, 68, 0.12); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); font-weight: 800; display: inline-flex; align-items: center; gap: 4px; cursor: pointer; border-radius: 6px;" title="재료 소멸 테마 영구 제거">
+            <button type="button" onclick="deletePullbackTheme('${escapeHtml(themeId)}', '${escapeHtml(item.theme_name)}')" class="imggen-style-chip" style="padding: 6px 10px; font-size: 0.74rem; background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; font-weight: 800; display: inline-flex; align-items: center; gap: 4px; cursor: pointer; border-radius: 6px;" title="재료 소멸 테마 영구 제거">
               ✕ 소멸 삭제
             </button>
           </div>
         </div>
 
         <!-- 2줄 핵심 데이터 카드: 최초 상승 이유(실제 재료 팩트) & 향후 반등 모멘텀(실체적 기대감) -->
-        <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 8px 12px; font-size: 0.76rem; line-height: 1.45; display: flex; flex-direction: column; gap: 4px;">
-          <div style="color: #cbd5e1;">
-            <span style="color: #fbbf24; font-weight: 800;">[📌 최초 상승 이유 (실제 재료 팩트)]:</span>
-            ${escapeHtml(pastTrigger)}
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; font-size: 0.78rem; line-height: 1.55; display: flex; flex-direction: column; gap: 6px;">
+          <div style="color: #334155; display: flex; align-items: flex-start; gap: 6px;">
+            <span style="color: #be123c; font-weight: 700; background: #fff1f2; border: 1px solid #fecdd3; padding: 1px 6px; border-radius: 4px; white-space: nowrap; flex-shrink: 0;">[📌 최초 상승 이유]</span>
+            <span style="color: #334155;">${escapeHtml(pastTrigger)}</span>
           </div>
-          <div style="color: #a7f3d0;">
-            <span style="color: #34d399; font-weight: 800;">[🚀 향후 반등 모멘텀 (실체적 기대감)]:</span>
-            ${escapeHtml(futureMomentum)}
+          <div style="color: #334155; display: flex; align-items: flex-start; gap: 6px;">
+            <span style="color: #0369a1; font-weight: 700; background: #f0f9ff; border: 1px solid #bae6fd; padding: 1px 6px; border-radius: 4px; white-space: nowrap; flex-shrink: 0;">[🚀 향후 반등 모멘텀]</span>
+            <span style="color: #334155;">${escapeHtml(futureMomentum)}</span>
           </div>
         </div>
       </div>
@@ -10210,13 +10218,13 @@ function renderWeeklyAndMonthlyReview(historyData) {
     `).join('<br>');
 
     weeklyRetroEl.innerHTML = `
-      <div style="padding: 10px 12px; background: rgba(0,0,0,0.25); border-left: 3px solid #fbbf24; border-radius: 0 6px 6px 0;">
-        <strong style="color: #fde047;">🔥 누적 일일 마감 팩트 (${briefings.length}일치 집계):</strong><br>
-        ${themesHtml || '당일 주도주 특징주 및 공시 팩트 추적 중'}
+      <div style="padding: 12px 14px; background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #f59e0b; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); margin-bottom: 8px; color: #1e293b; line-height: 1.6;">
+        <strong style="color: #b45309; font-size: 0.86rem;">🔥 누적 일일 마감 팩트 (${briefings.length}일치 집계)</strong><br>
+        <span style="font-size: 0.82rem; color: #334155;">${themesHtml || '당일 주도주 특징주 및 공시 팩트 추적 중'}</span>
       </div>
-      <div style="padding: 10px 12px; background: rgba(0,0,0,0.25); border-left: 3px solid #38bdf8; border-radius: 0 6px 6px 0;">
-        <strong style="color: #7dd3fc;">📡 주간 수급 총합:</strong><br>
-        외국인·기관의 반도체 소부장과 원자력·우주항공 중심 '확정 수주잔고 보유 섹터' 양매수 우위 지속.
+      <div style="padding: 12px 14px; background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); color: #1e293b; line-height: 1.6;">
+        <strong style="color: #0369a1; font-size: 0.86rem;">📡 주간 수급 총합</strong><br>
+        <span style="font-size: 0.82rem; color: #334155;">외국인·기관의 반도체 소부장과 원자력·우주항공 중심 '확정 수주잔고 보유 섹터' 양매수 우위 지속.</span>
       </div>
     `;
   }
@@ -10237,23 +10245,23 @@ function renderYearHistoryCalendarGrid(yearList) {
     const isSelected = (m === selectedHistoryMonth);
 
     let badgeText = isCurrent ? '🔥 현재 진행' : (isPast ? '✓ 복기 완료' : '🔭 전망 대기');
-    let badgeColor = isCurrent ? '#f43f5e' : (isPast ? '#34d399' : '#a855f7');
-    let borderColor = isSelected ? '#38bdf8' : (isCurrent ? 'rgba(244, 63, 94, 0.45)' : 'rgba(255,255,255,0.08)');
+    let badgeColor = isCurrent ? '#dc2626' : (isPast ? '#059669' : '#7c3aed');
+    let borderColor = isSelected ? '#0284c7' : (isCurrent ? '#fca5a5' : '#e2e8f0');
     let bgStyle = isSelected
-      ? 'background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(15, 23, 42, 0.9));'
-      : (isCurrent ? 'background: rgba(244, 63, 94, 0.1);' : 'background: rgba(15, 23, 42, 0.6);');
+      ? 'background: #eff6ff;'
+      : (isCurrent ? 'background: #fff5f5;' : 'background: #ffffff;');
 
     const shortTitle = mData ? mData.theme_title.split('&')[0].trim() : `${m}월 증시`;
 
     html += `
-      <div onclick="selectHistoryMonth(${m})" style="${bgStyle} border: 1.5px solid ${borderColor}; border-radius: 10px; padding: 10px; cursor: pointer; transition: all 0.15s ease; display: flex; flex-direction: column; justify-content: space-between; min-height: 86px;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+      <div onclick="selectHistoryMonth(${m})" style="${bgStyle} border: 1.5px solid ${borderColor}; border-radius: 10px; padding: 10px; cursor: pointer; transition: all 0.15s ease; display: flex; flex-direction: column; justify-content: space-between; min-height: 86px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-          <strong style="font-size: 0.95rem; color: #f8fafc; font-weight: 900;">${m}월</strong>
-          <span style="font-size: 0.65rem; color: ${badgeColor}; font-weight: 800; background: rgba(0,0,0,0.3); padding: 1px 5px; border-radius: 4px;">
+          <strong style="font-size: 0.95rem; color: #0f172a; font-weight: 900;">${m}월</strong>
+          <span style="font-size: 0.65rem; color: ${badgeColor}; font-weight: 800; background: #f1f5f9; padding: 1px 5px; border-radius: 4px; border: 1px solid #e2e8f0;">
             ${badgeText}
           </span>
         </div>
-        <div style="font-size: 0.73rem; color: #cbd5e1; line-height: 1.35; font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+        <div style="font-size: 0.73rem; color: #475569; line-height: 1.35; font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
           ${escapeHtml(shortTitle)}
         </div>
       </div>
@@ -10287,7 +10295,7 @@ function renderMonthDetailCard(monthNum) {
   }
 
   const isCurrent = (monthNum === 9);
-  const tagColor = isCurrent ? '#f43f5e' : (monthNum < 9 ? '#34d399' : '#a855f7');
+  const tagColor = isCurrent ? '#dc2626' : (monthNum < 9 ? '#34d399' : '#a855f7');
   const statusLabel = isCurrent ? '🔥 현재 실시간 진행 중인 9월 증시' : (monthNum < 9 ? `📌 2026년 ${monthNum}월 팩트 복기` : `🔭 2026년 ${monthNum}월 차월 매크로 전망`);
 
   cardEl.innerHTML = `
@@ -10314,27 +10322,27 @@ function renderMonthDetailCard(monthNum) {
     <!-- 4개 핵심 그리드: 핵심 사건, 주도 테마, 대표 대장주, 시장의 교훈 -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
       <!-- 1. 핵심 사건 -->
-      <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px; border-left: 3px solid #38bdf8;">
-        <strong style="color: #7dd3fc; font-size: 0.82rem; display: block; margin-bottom: 4px;">⚡ 그달의 핵심 사건 & 재료:</strong>
-        <div style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">${escapeHtml(mData.key_event)}</div>
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; border-left: 3px solid #0284c7; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+        <strong style="color: #0369a1; font-size: 0.82rem; display: block; margin-bottom: 4px;">⚡ 그달의 핵심 사건 & 재료:</strong>
+        <div style="font-size: 0.8rem; color: #334155; line-height: 1.5;">${escapeHtml(mData.key_event)}</div>
       </div>
 
       <!-- 2. 주도 테마 -->
-      <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px; border-left: 3px solid #f59e0b;">
-        <strong style="color: #fbbf24; font-size: 0.82rem; display: block; margin-bottom: 4px;">👑 시장을 지배한 주도 테마:</strong>
-        <div style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">${escapeHtml(mData.leading_themes)}</div>
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; border-left: 3px solid #f59e0b; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+        <strong style="color: #b45309; font-size: 0.82rem; display: block; margin-bottom: 4px;">👑 시장을 지배한 주도 테마:</strong>
+        <div style="font-size: 0.8rem; color: #334155; line-height: 1.5;">${escapeHtml(mData.leading_themes)}</div>
       </div>
 
       <!-- 3. 대표 대장주 -->
-      <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px; border-left: 3px solid #ec4899;">
-        <strong style="color: #f472b6; font-size: 0.82rem; display: block; margin-bottom: 4px;">🚀 대표 대장주 & 상승률:</strong>
-        <div style="font-size: 0.8rem; color: #fbcfe8; line-height: 1.5; font-weight: 700;">${escapeHtml(mData.leader_stocks)}</div>
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; border-left: 3px solid #db2777; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+        <strong style="color: #be185d; font-size: 0.82rem; display: block; margin-bottom: 4px;">🚀 대표 대장주 & 상승률:</strong>
+        <div style="font-size: 0.8rem; color: #9d174d; line-height: 1.5; font-weight: 700;">${escapeHtml(mData.leader_stocks)}</div>
       </div>
 
       <!-- 4. 실전 트레이딩 교훈 -->
-      <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px; border-left: 3px solid #10b981;">
-        <strong style="color: #34d399; font-size: 0.82rem; display: block; margin-bottom: 4px;">💡 실전 투자의 핵심 교훈:</strong>
-        <div style="font-size: 0.8rem; color: #a7f3d0; line-height: 1.5;">${escapeHtml(mData.lesson)}</div>
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; border-left: 3px solid #059669; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+        <strong style="color: #047857; font-size: 0.82rem; display: block; margin-bottom: 4px;">💡 실전 투자의 핵심 교훈:</strong>
+        <div style="font-size: 0.8rem; color: #065f46; line-height: 1.5;">${escapeHtml(mData.lesson)}</div>
       </div>
     </div>
   `;
@@ -10389,12 +10397,12 @@ window.executeStockQa = async function() {
   }
 
   resultBox.innerHTML = `
-    <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 24px 20px; text-align: center;">
+    <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 12px; padding: 24px 20px; text-align: center;">
       <div style="font-size: 1.8rem; margin-bottom: 10px; animation: pulse 1.5s infinite;">🔍</div>
-      <div style="font-size: 0.95rem; font-weight: 800; color: #38bdf8; margin-bottom: 6px;">
+      <div style="font-size: 0.95rem; font-weight: 800; color: #0284c7; margin-bottom: 6px;">
         실시간 뉴스 및 공시 데이터를 수집·분석하고 있습니다...
       </div>
-      <div style="font-size: 0.78rem; color: #94a3b8;">
+      <div style="font-size: 0.78rem; color: #64748b;">
         '${escapeHtml(query)}' 관련 핵심 기사, 특징주 트리거, 수급 팩트를 탐정처럼 추적 중입니다.
       </div>
     </div>
@@ -10427,11 +10435,11 @@ window.executeStockQa = async function() {
     }
 
     resultBox.innerHTML = `
-      <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 12px; padding: 18px 20px;">
-        <div style="display: flex; align-items: center; gap: 8px; color: #f87171; font-weight: 800; font-size: 0.92rem; margin-bottom: 6px;">
+      <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 18px 20px;">
+        <div style="display: flex; align-items: center; gap: 8px; color: #dc2626; font-weight: 800; font-size: 0.92rem; margin-bottom: 6px;">
           <span>⚠️</span> 분석 결과를 가져오지 못했습니다
         </div>
-        <div style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">${escapeHtml(errorMsg)}</div>
+        <div style="font-size: 0.8rem; color: #475569; line-height: 1.5;">${escapeHtml(errorMsg)}</div>
       </div>
     `;
   } finally {
@@ -10460,25 +10468,25 @@ function renderStockQaResult(data, originalQuery) {
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-top: 10px;">
       ${relatedStocks.map(stock => {
         const isLeader = (stock.role || '').includes('대장');
-        const cardBg = isLeader ? 'rgba(239, 68, 68, 0.12)' : 'rgba(30, 41, 59, 0.7)';
-        const cardBorder = isLeader ? 'rgba(239, 68, 68, 0.35)' : 'rgba(255, 255, 255, 0.08)';
-        const badgeColor = isLeader ? '#fca5a5' : '#7dd3fc';
-        const badgeBg = isLeader ? 'rgba(239, 68, 68, 0.25)' : 'rgba(56, 189, 248, 0.15)';
+        const cardBg = isLeader ? '#fef2f2' : '#ffffff';
+        const cardBorder = isLeader ? '#fca5a5' : '#e2e8f0';
+        const badgeColor = isLeader ? '#b91c1c' : '#0284c7';
+        const badgeBg = isLeader ? '#fee2e2' : '#e0f2fe';
 
         return `
-          <div style="background: ${cardBg}; border: 1px solid ${cardBorder}; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="background: ${cardBg}; border: 1px solid ${cardBorder}; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <span style="font-size: 0.9rem; font-weight: 800; color: #f8fafc;">${escapeHtml(stock.name || '')}</span>
+                <span style="font-size: 0.9rem; font-weight: 800; color: #0f172a;">${escapeHtml(stock.name || '')}</span>
                 <span style="font-size: 0.68rem; font-weight: 800; color: ${badgeColor}; background: ${badgeBg}; padding: 2px 6px; border-radius: 4px;">
                   ${escapeHtml(stock.role || '소속/수혜주')}
                 </span>
               </div>
-              <div style="font-size: 0.75rem; color: #94a3b8; line-height: 1.4; margin-bottom: 6px;">
+              <div style="font-size: 0.75rem; color: #475569; line-height: 1.4; margin-bottom: 6px;">
                 ${escapeHtml(stock.reason_detail || '수혜 모멘텀 지속')}
               </div>
             </div>
-            <div style="font-size: 0.76rem; font-weight: 800; color: #4ade80; text-align: right; border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 6px; margin-top: 4px;">
+            <div style="font-size: 0.76rem; font-weight: 800; color: #16a34a; text-align: right; border-top: 1px dashed #e2e8f0; padding-top: 6px; margin-top: 4px;">
               ${escapeHtml(stock.change_rate || '상승세')}
             </div>
           </div>
@@ -10494,50 +10502,50 @@ function renderStockQaResult(data, originalQuery) {
     <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 10px;">
       ${catalystNews.map((item, idx) => `
         <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" 
-           style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.06); padding: 8px 12px; border-radius: 8px; text-decoration: none; transition: background 0.15s;"
-           onmouseover="this.style.background='rgba(56, 189, 248, 0.12)'; this.style.borderColor='rgba(56, 189, 248, 0.3)';"
-           onmouseout="this.style.background='rgba(30, 41, 59, 0.6)'; this.style.borderColor='rgba(255, 255, 255, 0.06)';">
+           style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; background: #ffffff; border: 1px solid #e2e8f0; padding: 8px 12px; border-radius: 8px; text-decoration: none; transition: background 0.15s; box-shadow: 0 1px 2px rgba(0,0,0,0.02);"
+           onmouseover="this.style.background='#f0f9ff'; this.style.borderColor='#bae6fd';"
+           onmouseout="this.style.background='#ffffff'; this.style.borderColor='#e2e8f0';">
           <div style="display: flex; align-items: flex-start; gap: 8px; flex: 1;">
-            <span style="font-size: 0.75rem; color: #38bdf8; font-weight: 800; margin-top: 1px;">[기사 ${idx + 1}]</span>
-            <span style="font-size: 0.82rem; font-weight: 600; color: #f1f5f9; line-height: 1.4;">
+            <span style="font-size: 0.75rem; color: #0284c7; font-weight: 800; margin-top: 1px;">[기사 ${idx + 1}]</span>
+            <span style="font-size: 0.82rem; font-weight: 600; color: #0f172a; line-height: 1.4;">
               ${escapeHtml(item.title || '')}
             </span>
           </div>
-          <span style="font-size: 0.68rem; color: #94a3b8; white-space: nowrap; margin-top: 2px;">
+          <span style="font-size: 0.68rem; color: #64748b; white-space: nowrap; margin-top: 2px;">
             ${escapeHtml(item.press || '')} ↗
           </span>
         </a>
       `).join('')}
     </div>
   ` : `
-    <div style="font-size: 0.8rem; color: #94a3b8; padding: 6px 0;">수집된 근거 기사가 없습니다.</div>
+    <div style="font-size: 0.8rem; color: #64748b; padding: 6px 0;">수집된 근거 기사가 없습니다.</div>
   `;
 
   // 최종 브리핑 카드 마크업 조립
   resultBox.innerHTML = `
-    <div style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.96)); border: 1.5px solid rgba(56, 189, 248, 0.45); border-radius: 14px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    <div style="background: #ffffff; border: 1.5px solid #0284c7; border-radius: 14px; padding: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
       
       <!-- 상단 질문 및 분석 타이틀 -->
-      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 1.15rem;">🎯</span>
-          <span style="font-size: 0.95rem; font-weight: 900; color: #f8fafc;">
-            탐정 분석 보고서: <span style="color: #38bdf8;">'${escapeHtml(keyword)}'</span>
+          <span style="font-size: 0.95rem; font-weight: 900; color: #0f172a;">
+            탐정 분석 보고서: <span style="color: #0284c7;">'${escapeHtml(keyword)}'</span>
           </span>
         </div>
         <button type="button" onclick="document.getElementById('stock-qa-result-box').style.display='none';" 
-                style="background: transparent; border: none; color: #94a3b8; font-size: 0.8rem; cursor: pointer; padding: 2px 6px;">
+                style="background: transparent; border: none; color: #64748b; font-size: 0.8rem; cursor: pointer; padding: 2px 6px;">
           닫기 ✕
         </button>
       </div>
 
       <!-- 1. 📌 핵심 상승/하락 원인 요약 -->
-      <div style="background: rgba(56, 189, 248, 0.08); border-left: 4px solid #38bdf8; border-radius: 8px; padding: 14px 16px; margin-bottom: 18px;">
+      <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-left: 4px solid #0284c7; border-radius: 8px; padding: 14px 16px; margin-bottom: 18px;">
         <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
           <span style="font-size: 0.9rem;">📌</span>
-          <strong style="font-size: 0.88rem; color: #7dd3fc;">핵심 원인 브리핑</strong>
+          <strong style="font-size: 0.88rem; color: #0369a1;">핵심 원인 브리핑</strong>
         </div>
-        <div style="font-size: 0.88rem; color: #f1f5f9; line-height: 1.6; font-weight: 500;">
+        <div style="font-size: 0.88rem; color: #1e293b; line-height: 1.6; font-weight: 500;">
           ${escapeHtml(mainReason)}
         </div>
       </div>
@@ -10546,7 +10554,7 @@ function renderStockQaResult(data, originalQuery) {
       <div style="margin-bottom: 18px;">
         <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
           <span style="font-size: 0.9rem;">🏢</span>
-          <strong style="font-size: 0.85rem; color: #f8fafc;">관련 계열사 및 종목별 개별 수혜 팩트</strong>
+          <strong style="font-size: 0.85rem; color: #0f172a;">관련 계열사 및 종목별 개별 수혜 팩트</strong>
         </div>
         ${stocksHtml}
       </div>
@@ -10556,7 +10564,7 @@ function renderStockQaResult(data, originalQuery) {
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
           <div style="display: flex; align-items: center; gap: 6px;">
             <span style="font-size: 0.9rem;">📰</span>
-            <strong style="font-size: 0.85rem; color: #f8fafc;">실시간 근거 기사 원문 (네이버 뉴스 직결)</strong>
+            <strong style="font-size: 0.85rem; color: #0f172a;">실시간 근거 기사 원문 (네이버 뉴스 직결)</strong>
           </div>
           <span style="font-size: 0.7rem; color: #64748b;">클릭 시 새 창에서 원문 확인</span>
         </div>
