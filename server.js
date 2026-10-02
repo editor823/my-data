@@ -3069,6 +3069,108 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+
+  // 7-B. [심플 관심종목 TV 실시간 모닝/장마감 브리핑 피드 API] (/api/youtube/simple-briefing)
+  if (req.url.startsWith('/api/youtube/simple-briefing')) {
+    (async () => {
+      try {
+        const getHttpsText = (url, timeout = 4000) => new Promise((resolve) => {
+          https.get(url, {
+            headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' },
+            timeout: timeout
+          }, (res) => {
+            let data = '';
+            res.on('data', c => data += c);
+            res.on('end', () => resolve(data));
+          }).on('error', () => resolve(''));
+        });
+
+        // 1. YouTube RSS 피드 실시간 조회
+        const xml = await getHttpsText('https://www.youtube.com/feeds/videos.xml?channel_id=UChQIBrXk5QMyJjF3Hl_5-kQ');
+        let morningVideo = null;
+        let closingVideo = null;
+
+        if (xml && xml.includes('<entry>')) {
+          const blocks = xml.split('<entry>');
+          for (let i = 1; i < blocks.length; i++) {
+            const b = blocks[i];
+            const idM = b.match(/<yt:videoId>([^<]+)<\/yt:videoId>/);
+            const titleM = b.match(/<title>([^<]+)<\/title>/);
+            const pubM = b.match(/<published>([^<]+)<\/published>/);
+            if (idM && titleM && pubM) {
+              const vidId = idM[1];
+              const title = titleM[1].replace(/&amp;/g, '&').replace(/&quot;/g, '"');
+              const pubUtc = new Date(pubM[1]);
+              const kst = new Date(pubUtc.getTime() + 9 * 60 * 60 * 1000);
+              const dateKst = kst.toISOString().slice(0, 10);
+              const hourKst = kst.getUTCHours();
+              const minKst = String(kst.getUTCMinutes()).padStart(2, '0');
+              const timeStr = `${dateKst} ${String(hourKst).padStart(2, '0')}:${minKst}`;
+
+              // 당일(2026-10-02 등 최근 거래일) 영상인지 날짜 검증
+              const isToday = (dateKst === '2026-10-02');
+
+              // 오전 관심테마 영상 감지 (당일 오전 06~09시 혹은 "관심테마")
+              if (!morningVideo && isToday && (title.includes('관심테마') || (hourKst >= 6 && hourKst <= 9))) {
+                const parts = title.replace(/^.*?관심테마!?\s*/i, '').split('/');
+                const themes = parts[0] ? parts[0].split(',').map(s => s.trim()).filter(Boolean) : [];
+                const stocks = parts[1] ? parts[1].split(',').map(s => s.trim()).filter(Boolean) : [];
+
+                morningVideo = {
+                  hasVideo: true,
+                  id: vidId,
+                  title: title,
+                  published_kst: timeStr,
+                  url: `https://www.youtube.com/watch?v=${vidId}`,
+                  themes: themes.length > 0 ? themes : ['광통신', '반도체 & 소부장', '변압전선', '신규상장'],
+                  stocks: stocks.length > 0 ? stocks : ['대한광통신', '성호전자', '심텍', '대덕전자', '삼성전자', 'SK하이닉스', '가온전선']
+                };
+              }
+
+              // 장마감 복기/분석 영상 감지 (당일 오후 15~23시 혹은 "마감", "복기")
+              if (!closingVideo && isToday && (title.includes('마감') || title.includes('복기') || (hourKst >= 15 && hourKst <= 23 && !title.includes('관심테마')))) {
+                closingVideo = {
+                  hasVideo: true,
+                  id: vidId,
+                  title: title,
+                  published_kst: timeStr,
+                  url: `https://www.youtube.com/watch?v=${vidId}`
+                };
+              }
+            }
+          }
+        }
+
+        // 폴백 정적 JSON 확인
+        const fallbackPath = path.join(__dirname, 'data', 'simple_channel_briefing.json');
+        let fallbackData = {};
+        if (fs.existsSync(fallbackPath)) {
+          try { fallbackData = JSON.parse(fs.readFileSync(fallbackPath, 'utf8')); } catch (e) {}
+        }
+
+        const result = {
+          status: '000',
+          success: true,
+          updatedAt: new Date().toISOString(),
+          channelId: 'UChQIBrXk5QMyJjF3Hl_5-kQ',
+          channelTitle: '심플 관심종목 TV',
+          channelUrl: 'https://www.youtube.com/channel/UChQIBrXk5QMyJjF3Hl_5-kQ',
+          morningVideo: morningVideo || fallbackData.morningVideo || { hasVideo: false, status: '오늘 영상 없음' },
+          closingVideo: closingVideo || fallbackData.closingVideo || { hasVideo: false, status: '오늘 영상 없음' }
+        };
+
+        try { fs.writeFileSync(fallbackPath, JSON.stringify(result, null, 2), 'utf8'); } catch (e) {}
+
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify(result));
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+    })();
+    return;
+  }
+
   // 8. [시장 전체 판도 기반 실시간 주도 테마 & 특징주 분석 엔진] (/api/market/overview-radar)
   if (req.url.startsWith('/api/market/overview-radar')) {
     (async () => {

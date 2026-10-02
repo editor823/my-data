@@ -1,0 +1,42 @@
+{
+  "status": "000",
+  "success": true,
+  "updatedAt": "2026-10-02T16:01:29.689Z",
+  "channelId": "UChQIBrXk5QMyJjF3Hl_5-kQ",
+  "channelTitle": "심플 관심종목 TV",
+  "channelUrl": "https://www.youtube.com/channel/UChQIBrXk5QMyJjF3Hl_5-kQ",
+  "morningVideo": {
+    "hasVideo": true,
+    "id": "R7Lm7CrtL4c",
+    "title": "당일 관심테마! 반도체,소부장,광통신,변압전선,신규상장/삼성전자,SK하이닉스,제주반도체,디아이,삼성전기,한미반도체,HPSP,성호전자,심텍,대덕전자,대한광통신,주성엔지니어링,가온전선",
+    "published_kst": "2026-10-02 06:56",
+    "url": "https://www.youtube.com/watch?v=R7Lm7CrtL4c",
+    "themes": [
+      "반도체",
+      "소부장",
+      "광통신",
+      "변압전선",
+      "신규상장"
+    ],
+    "stocks": [
+      "삼성전자",
+      "SK하이닉스",
+      "제주반도체",
+      "디아이",
+      "삼성전기",
+      "한미반도체",
+      "HPSP",
+      "성호전자",
+      "심텍",
+      "대덕전자",
+      "대한광통신",
+      "주성엔지니어링",
+      "가온전선"
+    ]
+  },
+  "closingVideo": {
+    "hasVideo": false,
+    "status": "오늘 영상 없음",
+    "reason": "10월 2일(금) 장마감 분석 영상 미업로드 (장마감 후 업로드 영상 없음)"
+  }
+}
