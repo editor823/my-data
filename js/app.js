@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let pageParam = urlParams.get('page') || savedPage || 'home';
   if (pageParam === 'keywordcenter') pageParam = 'adsense';
+  if (pageParam === 'homepan') pageParam = 'home';
   
   // 최초 진입 히스토리 상태 설정
   const initialUrl = new URL(window.location);

@@ -5,7 +5,7 @@
   justify-content: center;
   gap: 8px;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 15px;
   font-weight: 700;
   padding: 12px 24px;
   border-radius: var(--radius-md);
@@ -44,7 +44,7 @@
 
 .btn-sm {
   padding: 8px 14px;
-  font-size: 0.85rem;
+  font-size: 14px; /* text-sm */
   border-radius: var(--radius-sm);
 }
 
@@ -55,9 +55,9 @@
 
 .form-label {
   display: block;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-sub);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #334155;
   margin-bottom: 8px;
 }
 
@@ -69,9 +69,10 @@
   background: #ffffff;
   border: 1px solid #d1d5db;
   border-radius: var(--radius-md);
-  color: #111827;
+  color: #0f172a;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 15.5px; /* 입력 폰트 가독성 상향 */
+  line-height: 1.5;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -235,12 +236,12 @@
 }
 
 .data-table th {
-  background: rgba(10, 14, 23, 0.7);
-  color: var(--text-sub);
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  background: #f1f5f9;
+  color: #334155;
+  font-weight: 800;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid #cbd5e1;
 }
 
 .data-table tbody tr {
@@ -259,9 +260,9 @@
 /* 경쟁도 뱃지 */
 .badge-comp {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: var(--radius-sm);
-  font-size: 0.8rem;
+  font-size: 0.9rem; /* 약 14.5px */
   font-weight: 700;
 }
 
@@ -430,7 +431,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   padding: 0;
   margin: 0;
 }
@@ -438,24 +439,28 @@
 .trending-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.88rem;
+  gap: 12px;
+  padding: 2px 0;
 }
 
 .trend-rank {
-  font-weight: 800;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  width: 16px;
-  text-align: center;
+  font-weight: 700;
+  font-size: 14.5px;
+  color: #1e293b; /* font-bold text-slate-800 */
+  width: 22px;
+  text-align: left;
   flex-shrink: 0;
 }
 
 .trending-item:nth-child(-n+3) .trend-rank {
   color: var(--primary);
+  font-weight: 800;
 }
 
 .trend-link {
+  font-size: 14.5px;
+  font-weight: 500; /* font-medium */
+  line-height: 1.55;
   color: var(--text-main);
   text-decoration: none;
   white-space: nowrap;
@@ -514,26 +519,28 @@
 
 /* ===== 최신 연예뉴스 카드 스타일 ===== */
 .ent-news-item {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 14px 16px;
+  border-radius: 12px;
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-  min-height: 90px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  min-height: 96px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .ent-news-item:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(30, 77, 68, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .ent-news-meta {
-  font-size: 0.76rem;
-  color: var(--text-muted);
+  font-size: 12px; /* text-xs */
+  color: #64748b; /* text-slate-500 */
+  font-weight: 400; /* font-normal */
   margin-bottom: 8px;
   display: flex;
   align-items: center;
@@ -541,11 +548,11 @@
 }
 
 .ent-news-link {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--text-main);
+  font-size: 15px; /* font-size: 15px */
+  font-weight: 600; /* font-semibold */
+  color: #1e293b; /* text-slate-800 */
   text-decoration: none;
-  line-height: 1.45;
+  line-height: 1.5;
   transition: color 0.15s ease;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -2770,11 +2777,11 @@
 }
 
 .kc-datalab-table th {
-  background: rgba(255, 255, 255, 0.04);
-  color: #94a3b8;
+  background: #f1f5f9;
+  color: #334155;
   padding: 8px;
   font-weight: 700;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid #cbd5e1;
 }
 
 .kc-datalab-table td {
@@ -5532,6 +5539,8 @@ select.form-select,
   border: 1.5px solid #cbd5e1 !important;
   color: #0f172a !important;
   border-radius: 8px !important;
+  font-size: 15.5px !important;
+  line-height: 1.5 !important;
 }
 
 input.form-input:focus,
@@ -5555,6 +5564,7 @@ button.btn-forest {
   background: #1e4d44 !important;
   color: #ffffff !important;
   border: none !important;
+  font-size: 15px !important;
   font-weight: 700 !important;
   transition: background 0.2s ease, transform 0.15s ease !important;
 }
@@ -5921,10 +5931,15 @@ button.btn-forest:hover {
   border: 1px solid #e2e8f0 !important;
 }
 
-.result-table-box th {
+.result-table-box th,
+.data-table th,
+.table-container th,
+table.data-table th {
   background: #f1f5f9 !important;
-  color: #475569 !important;
-  border-bottom: 1px solid #cbd5e1 !important;
+  color: #1e293b !important;
+  font-weight: 800 !important;
+  font-size: 0.92rem !important;
+  border-bottom: 2px solid #cbd5e1 !important;
 }
 
 .result-table-box td {
@@ -6078,3 +6093,39 @@ button.btn-forest:hover {
 
 
 
+
+
+/* ==========================================================================
+   [상단 탭 네비게이션 가독성 상향 (14px font-semibold)]
+   ========================================================================== */
+.stock-sub-tab {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #334155 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  padding: 10px 18px !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+}
+
+.stock-sub-tab:hover {
+  background: #f1f5f9 !important;
+  color: #1e293b !important;
+  border-color: #94a3b8 !important;
+  transform: translateY(-1px) !important;
+}
+
+.stock-sub-tab.active {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #1d4ed8 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.35) !important;
+}

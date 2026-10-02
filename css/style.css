@@ -14,11 +14,11 @@
   --border-active: #1e4d44;
   --border-tag: #e5e7eb;
 
-  /* 3. 텍스트 색상 */
-  --text-main: #1f2937;        /* 기본 텍스트 (본문: 다크 차콜) */
-  --text-heading: #0f172a;     /* 제목 텍스트 */
-  --text-sub: #4b5563;         /* 보조 텍스트 (설명/날짜: 미디엄 그레이) */
-  --text-muted: #9ca3af;       /* 연한 텍스트 (뱃지/메타) */
+  /* 3. 텍스트 색상 (선명하고 가독성 높은 슬레이트 계열) */
+  --text-main: #0f172a;        /* 기본 텍스트 (다크 슬레이트 900) */
+  --text-heading: #020617;     /* 제목 텍스트 */
+  --text-sub: #475569;         /* 보조 텍스트 (설명글/날짜: text-slate-600) */
+  --text-muted: #64748b;       /* 뱃지/메타 텍스트 (text-slate-500) */
 
   /* 4. 주요 포인트 버튼 및 강조색 */
   --primary: #1e4d44;          /* 딥 포레스트 그린 (단건/연관 분석 버튼, 탭 활성화 등) */
@@ -43,7 +43,12 @@
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05);
   --shadow-hover: 0 4px 14px rgba(0, 0, 0, 0.08);
 
-  --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Noto Sans KR', system-ui, sans-serif;
+  --font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
 * {
@@ -52,10 +57,15 @@
   box-sizing: border-box;
 }
 
+body, button, input, select, textarea {
+  font-family: var(--font-family);
+}
+
 body {
   background-color: var(--bg-main);
   color: var(--text-main);
   font-family: var(--font-family);
+  font-size: 1rem; /* 16px 기준 */
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
@@ -319,3 +329,30 @@ body {
     display: block;
   }
 }
+
+/* ===== 6. 글로벌 가독성 및 폰트 크기 상향 최적화 ===== */
+.sub-text, .section-desc, .form-hint, .text-muted, .text-sub,
+p.desc, span.desc, .meta-text {
+  color: #475569 !important; /* slate-600 */
+  font-size: 0.9rem !important; /* 약 14.4px */
+  line-height: 1.6 !important;
+}
+
+/* 테이블 본문 및 헤더 가독성 (검은색 바 방지 및 라이트 테마 일원화) */
+.data-table td,
+table td {
+  font-size: 0.95rem; /* 약 15.2px */
+}
+
+table thead th,
+.data-table thead th,
+.data-table th,
+.table-container th {
+  background: #f1f5f9 !important;
+  color: #1e293b !important;
+  font-size: 0.92rem !important; /* 약 14.7px */
+  font-weight: 800 !important;
+  border-bottom: 2px solid #cbd5e1 !important;
+  padding: 14px 18px !important;
+}
+

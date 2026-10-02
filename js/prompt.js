@@ -2284,24 +2284,40 @@ A. [간결한 실행 팁과 기준 제시]
   }
 ];
 
+// data/prompts.js가 로드되어 있으면 각 챗봇 객체의 promptText를 최신 원문으로 자동 동기화
+if (typeof PROMPTS_DATA !== 'undefined' && PROMPTS_DATA) {
+  CUSTOM_BOT_PROMPTS.forEach((bot, idx) => {
+    const numStr = String(idx + 1).padStart(2, '0');
+    if (PROMPTS_DATA[numStr]) {
+      bot.promptText = PROMPTS_DATA[numStr];
+    }
+  });
+}
+
 window.CUSTOM_BOT_PROMPTS = CUSTOM_BOT_PROMPTS;
 
 document.addEventListener('DOMContentLoaded', () => {
   renderCustomBots();
 });
 
-// 9개 맞춤형 챗봇 카드 렌더링
+// 19개 맞춤형 챗봇 카드 렌더링 및 이벤트 초기화
 function renderCustomBots() {
   const container = document.getElementById('custom-bots-grid');
   if (!container) return;
 
+  // index.html에 이미 19개 카드가 마크업되어 있는 경우 그대로 유지
+  if (container.children.length > 0) {
+    return;
+  }
+
   container.innerHTML = '';
 
   CUSTOM_BOT_PROMPTS.forEach((bot, idx) => {
+    const numStr = String(idx + 1).padStart(2, '0');
     const card = document.createElement('div');
     card.className = 'custom-bot-card';
+    card.setAttribute('data-prompt-id', numStr);
 
-    const numStr = String(idx + 1).padStart(2, '0');
     const pointsHtml = bot.points.map(p => `<li style="margin-bottom: 4px;">${escapeHtml(p)}</li>`).join('');
     const tagsHtml = bot.tags.map(t => `<span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#${escapeHtml(t)}</span>`).join('');
 
@@ -2346,9 +2362,6 @@ function renderCustomBots() {
           <a href="${bot.link}" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
             챗봇 사용하기 (Click) ↗
           </a>
-          <button type="button" onclick="copyBotPrompt('${bot.id}')" style="background: #ffffff; border: 1px solid #cbd5e1; color: #475569; font-size: 12px; font-weight: 600; width: 100%; border-radius: 6px; padding: 6px 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px; transition: all 0.2s;" onmouseover="this.style.borderColor='#94a3b8'; this.style.color='#0f172a'" onmouseout="this.style.borderColor='#cbd5e1'; this.style.color='#475569'">
-            📋 프롬프트 텍스트 복사
-          </button>
         </div>
       </div>
     `;
@@ -2357,32 +2370,99 @@ function renderCustomBots() {
   });
 }
 
-// 프롬프트 클립보드 복사 함수
-window.copyBotPrompt = function(botId) {
-  const bot = CUSTOM_BOT_PROMPTS.find(b => b.id === botId);
-  if (!bot) return;
+// 프롬프트 클립보드 복사 함수 (고유 식별자 "01"~"19" 매핑 및 Fallback 지원)
+window.copyPromptById = async function(promptId, btn) {
+  const idStr = String(promptId).replace('bot-', '').padStart(2, '0');
 
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(bot.promptText).then(() => {
-      window.showToast(`[${bot.title}] 프롬프트가 복사되었습니다! 제미나이나 ChatGPT에 붙여넣으세요.`);
-    });
-  } else {
-    const ta = document.createElement('textarea');
-    ta.value = bot.promptText;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    window.showToast(`[${bot.title}] 프롬프트가 복사되었습니다!`);
+  // 1. 프롬프트 원문 탐색 (data/prompts.js -> CUSTOM_BOT_PROMPTS 순)
+  let text = '';
+  if (typeof window.PROMPTS_DATA !== 'undefined' && window.PROMPTS_DATA && window.PROMPTS_DATA[idStr]) {
+    text = window.PROMPTS_DATA[idStr];
+  } else if (Array.isArray(window.CUSTOM_BOT_PROMPTS)) {
+    const found = window.CUSTOM_BOT_PROMPTS.find(b => b.id === `bot-${idStr}` || b.id === idStr);
+    if (found) text = found.promptText;
   }
+
+  if (!text) {
+    if (typeof window.showToast === 'function') {
+      window.showToast(`${idStr}번 프롬프트 데이터를 찾을 수 없습니다.`, '⚠️');
+    }
+    return;
+  }
+
+  let success = false;
+
+  // 2. 최신 Clipboard API 시도
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(text);
+      success = true;
+    } catch (err) {
+      console.warn('navigator.clipboard 제한, fallback 방식으로 전환:', err);
+    }
+  }
+
+  // 3. 레거시 및 비보안 환경 Fallback (textarea + execCommand)
+  if (!success) {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      ta.style.top = '-9999px';
+      ta.setAttribute('readonly', '');
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, 99999);
+      success = document.execCommand('copy');
+      document.body.removeChild(ta);
+    } catch (fallbackErr) {
+      console.error('Fallback 복사 실패:', fallbackErr);
+      success = false;
+    }
+  }
+
+  // 4. 복사 성공 시 사용자 피드백 (버튼 문구 '✅ 복사 완료!' 일시 변경 및 토스트 알림)
+  if (success) {
+    if (btn) {
+      const origHtml = btn.innerHTML;
+      btn.innerHTML = '✅ 복사 완료!';
+      btn.style.borderColor = '#10b981';
+      btn.style.color = '#059669';
+      btn.style.backgroundColor = '#ecfdf5';
+      setTimeout(() => {
+        btn.innerHTML = origHtml;
+        btn.style.borderColor = '';
+        btn.style.color = '';
+        btn.style.backgroundColor = '';
+      }, 2000);
+    }
+    const botTitle = window.CUSTOM_BOT_PROMPTS?.find(b => b.id === `bot-${idStr}`)?.title || `${idStr}번 프롬프트`;
+    if (typeof window.showToast === 'function') {
+      window.showToast(`[${idStr}. ${botTitle}] 복사 완료! 제미나이나 ChatGPT에 붙여넣으세요.`, '📋');
+    }
+  } else {
+    if (typeof window.showToast === 'function') {
+      window.showToast('클립보드 접근이 제한되었습니다. 브라우저 복사 권한을 확인해 주세요.', '❌');
+    }
+  }
+};
+
+// 기존 함수명 호환성 유지
+window.copyBotPrompt = function(botId, btn) {
+  window.copyPromptById(botId, btn);
 };
 
 // 외부에서 새 프롬프트 주입/업데이트용 헬퍼 함수
 window.updateCustomBotPrompt = function(botId, newPromptText, newLink = null) {
-  const target = CUSTOM_BOT_PROMPTS.find(b => b.id === botId);
+  const idStr = String(botId).replace('bot-', '').padStart(2, '0');
+  const target = CUSTOM_BOT_PROMPTS.find(b => b.id === `bot-${idStr}` || b.id === botId);
   if (target) {
     target.promptText = newPromptText;
     if (newLink) target.link = newLink;
+    if (typeof window.PROMPTS_DATA !== 'undefined') {
+      window.PROMPTS_DATA[idStr] = newPromptText;
+    }
     window.showToast(`[${target.title}] 프롬프트가 최신으로 업데이트되었습니다! ✅`);
   }
 };
@@ -2396,3 +2476,4 @@ function escapeHtml(str) {
     "'": '&#39;'
   }[s]));
 }
+

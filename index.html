@@ -6,14 +6,14 @@
   <title>블로그 자동화 허브 (Blog Automation Hub)</title>
   
   <!-- 한글 웹폰트 Pretendard CDN 로드 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   
   <!-- Chart.js CDN 로드 (30일 검색 추이 그래프용) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- 스타일시트 로드 -->
-  <link rel="stylesheet" href="css/style.css?v=20260926_soft_warm_light">
-  <link rel="stylesheet" href="css/components.css?v=20260926_soft_warm_light">
+  <link rel="stylesheet" href="css/style.css?v=20261002_fix_table_light">
+  <link rel="stylesheet" href="css/components.css?v=20261002_fix_table_light">
 </head>
 <body>
 
@@ -27,7 +27,6 @@
 
       <ul class="nav-menu" id="nav-menu">
         <li><button class="nav-btn active" data-tab="home">HOME</button></li>
-        <li><button class="nav-btn" data-tab="homepan">🔥 홈판형 글쓰기</button></li>
         <li><button class="nav-btn" data-tab="keyword">키워드분석기</button></li>
         <li><button class="nav-btn" data-tab="adsense">애드센스&황금키워드</button></li>
         <li><button class="nav-btn" data-tab="prompt">글쓰기프롬프트</button></li>
@@ -210,157 +209,6 @@
           <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0 0 8px 0;">애드센스&황금키워드</h3>
           <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0; line-height: 1.5;">황금·쇼핑·애드센스 키워드를 하루 고정 데이터로 한눈에 확인.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- [TAB NEW] 네이버 모바일 홈판형 글쓰기 전용 반자동 작업대 -->
-    <section id="tab-homepan" class="tab-section">
-      <!-- 1. 헤더 안내 배너 -->
-      <div class="hp-hero-box">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
-          <div>
-            <span class="hp-badge">NAVER HOME FEED PRO · 반자동 전용 작업대</span>
-            <h1 class="hp-main-title">🔥 네이버 홈판형 글쓰기 작업대</h1>
-            <p class="hp-main-desc">
-              이슈 키워드나 뉴스 기사를 넣으면 네이버 모바일 메인 홈피드(MY피드)에 노출되는 <strong>[초강력 후킹 제목 + 3줄 호흡 본문 + 썸네일 문구 + 태그]</strong>를 즉시 생성하고 1초 만에 스마트에디터로 복사합니다.
-            </p>
-          </div>
-          <span style="background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #10b981; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 800; white-space: nowrap;">
-            ⚡ C-Rank & D.I.A.+ 통과 보장 구조
-          </span>
-        </div>
-      </div>
-
-      <!-- 2. 입력 폼 영역 (2열 레이아웃) -->
-      <div class="hp-form-card">
-        <div class="hp-form-grid">
-          <!-- 왼쪽: 키워드 & 핵심 각도 -->
-          <div style="display: flex; flex-direction: column; gap: 14px;">
-            <div class="form-group" style="margin-bottom: 0;">
-              <label class="form-label" style="font-weight: 800; color: var(--text-main); display: flex; justify-content: space-between;">
-                <span>🎯 메인 키워드 (또는 뉴스 주제)</span>
-                <span style="font-size: 0.78rem; color: #60a5fa; cursor: pointer;" onclick="document.getElementById('hp-keyword-input').value='2026 청년도약계좌 기습 발표'">예시 채우기</span>
-              </label>
-              <input type="text" id="hp-keyword-input" class="form-input" placeholder="예: 카시오 엑슬림 z400, 2026 청년도약계좌, 전기차 보조금 축소">
-            </div>
-
-            <div class="form-group" style="margin-bottom: 0;">
-              <label class="form-label" style="font-weight: 800; color: var(--text-main);">
-                💡 독자가 클릭할 핵심 이유 (앵글 / 타깃)
-              </label>
-              <input type="text" id="hp-angle-input" class="form-input" placeholder="예: 30대 직장인이 놓치면 안 되는 세제 혜택과 신청 마감일">
-            </div>
-
-            <div class="form-group" style="margin-bottom: 0;">
-              <label class="form-label" style="font-weight: 800; color: var(--text-main);">
-                🎭 글 작성 톤앤매너
-              </label>
-              <select id="hp-tone-select" class="form-select">
-                <option value="curious" selected>흥미 유발형 · "알고 계셨나요? 충격 반전" (홈판 클릭률 1위)</option>
-                <option value="warm">친절한 블로거형 · "~해요, ~합니다" (이웃 소통 및 체류시간 극대화)</option>
-                <option value="expert">전문 분석가형 · 객관적 팩트 체크 및 표 분석 (전문성 C-Rank)</option>
-                <option value="story">스토리텔링형 · 현장감 넘치는 에피소드식 전개</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- 오른쪽: 원문 기사나 메모 붙여넣기 (선택) -->
-          <div style="display: flex; flex-direction: column;">
-            <div class="form-group" style="margin-bottom: 0; flex: 1; display: flex; flex-direction: column;">
-              <label class="form-label" style="font-weight: 800; color: var(--text-main);">
-                📝 참고 뉴스 기사 원문 또는 핵심 메모 (선택 사항)
-              </label>
-              <textarea id="hp-raw-content" class="form-textarea" style="flex: 1; min-height: 160px; font-size: 0.88rem;" placeholder="뉴스 기사나 메모를 붙여넣으시면 팩트를 온전히 분석하여 홈판형 서사로 완벽히 재구성합니다. 비워두셔도 키워드로 바로 작성됩니다."></textarea>
-            </div>
-          </div>
-        </div>
-
-        <!-- 하단 액션 버튼 -->
-        <div style="margin-top: 20px; display: flex; gap: 12px;">
-          <button type="button" id="hp-generate-btn" class="hp-btn-submit">
-            ⚡ 네이버 홈판형 완성 원고 1초 생성
-          </button>
-        </div>
-      </div>
-
-      <!-- 3. 원고 생성 결과 작업대 (생성 후 등장) -->
-      <div id="hp-result-workspace" style="display: none; margin-top: 30px;">
-        
-        <!-- 상단 반자동 복사 컨트롤 바 -->
-        <div class="hp-action-bar">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span style="font-size: 1.2rem;">✨</span>
-            <span style="font-size: 1.05rem; font-weight: 900; color: var(--text-main);">네이버 스마트에디터 원터치 복사 작업대</span>
-          </div>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <button type="button" class="btn btn-secondary btn-sm" id="hp-copy-title-btn">
-              📋 제목만 복사
-            </button>
-            <button type="button" class="btn btn-secondary btn-sm" id="hp-copy-body-btn">
-              📋 본문 전체 복사
-            </button>
-            <button type="button" class="btn btn-secondary btn-sm" id="hp-copy-tags-btn">
-              🏷️ 해시태그 복사
-            </button>
-            <a href="https://blog.naver.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="background: #03c75a;">
-              네이버 블로그 글쓰기 열기 ↗
-            </a>
-          </div>
-        </div>
-
-        <!-- 3개 블록 분할 표시 영역 -->
-        <div class="hp-result-grid">
-          
-          <!-- [블록 1] 홈판형 추천 제목 8선 (클릭하면 복사) -->
-          <div class="hp-result-card">
-            <div class="hp-card-header">
-              <span class="hp-header-title">🔥 홈판 추천 제목 (클릭 시 자동 선택 & 복사)</span>
-              <span style="font-size: 0.78rem; color: #10b981;">클릭률(CTR) 극대화</span>
-            </div>
-            <div id="hp-titles-list" class="hp-titles-list"></div>
-          </div>
-
-          <!-- [블록 2] 썸네일 카피 문구 & 이미지 프롬프트 -->
-          <div class="hp-result-card">
-            <div class="hp-card-header">
-              <span class="hp-header-title">🖼️ 썸네일 2줄 카피 문구 (8~15자)</span>
-              <span style="font-size: 0.78rem; color: var(--text-muted);">미리캔버스/캔바 삽입용</span>
-            </div>
-            <div id="hp-thumbnail-copys" style="display: flex; flex-direction: column; gap: 8px;"></div>
-
-            <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border-color);">
-              <span style="font-size: 0.8rem; font-weight: 700; color: #a78bfa; display: block; margin-bottom: 6px;">
-                🎨 AI 이미지 생성 프롬프트 (미드저니/챗GPT용)
-              </span>
-              <textarea id="hp-image-prompt-text" class="form-textarea" style="min-height: 80px; font-size: 0.8rem;" readonly></textarea>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- [블록 3] 완성형 본문 원고 (모바일 가독성 3줄 호흡 + 소제목 4개) -->
-        <div class="hp-result-card" style="margin-top: 20px;">
-          <div class="hp-card-header">
-            <div>
-              <span class="hp-header-title">📄 완성형 본문 원고 (스마트에디터 붙여넣기용)</span>
-              <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 10px;">모바일 2~3줄 줄바꿈 · 두괄식 서사 구조</span>
-            </div>
-            <span id="hp-word-count-badge" style="font-size: 0.8rem; font-weight: 700; color: #3b82f6;">약 2,200자</span>
-          </div>
-
-          <!-- 실제 렌더링 박스 -->
-          <div id="hp-article-body" class="hp-article-body"></div>
-        </div>
-
-        <!-- [블록 4] 하단 해시태그 -->
-        <div class="hp-result-card" style="margin-top: 20px;">
-          <div class="hp-card-header">
-            <span class="hp-header-title">🏷️ 네이버 스마트블록 공략 해시태그 (복사해서 맨 아래 붙여넣기)</span>
-            <button type="button" class="btn btn-secondary btn-sm" onclick="copyHpTags()">태그 한번에 복사</button>
-          </div>
-          <div id="hp-tags-wrap" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
-        </div>
-
       </div>
     </section>
 
@@ -558,7 +406,7 @@
                   <th>키워드 (클릭 시 네이버 검색 ↗)</th>
                   <th style="text-align: right;">총 검색량</th>
                   <th style="text-align: right;">전체 블로그 문서</th>
-                  <th style="text-align: right; color: #f59e0b;">기회지수</th>
+                  <th style="text-align: right; color: #d97706; font-weight: 800;">기회지수</th>
                   <th style="text-align: center; width: 100px;">체급</th>
                 </tr>
               </thead>
@@ -891,7 +739,895 @@
       </div>
 
       <!-- 3x3 맞춤형 챗봇 카드 그리드 컨테이너 -->
-      <div class="custom-bots-grid" id="custom-bots-grid"></div>
+      <div class="custom-bots-grid" id="custom-bots-grid">
+        <!-- 카드 01: 구글 상위 SEO 생성기 -->
+        <div class="custom-bot-card" data-prompt-id="01">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(01) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                01
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  구글 SEO
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini Gem
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              구글 상위 SEO 생성기
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              구글 SEO에 맞는 글쓰기 진행
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">티스토리, 블로그스팟, 워드프레스 모두 사용가능</li>
+          <li style="margin-bottom: 4px;">E-E-A-T 준수 &amp; 3,000자 이상 완성형 롱폼 HTML 자동 생성</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#구글</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#SEO에</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#맞는</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/bcfcfefcd207" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 02: 네이버 검색 상위 SEO 생성기 -->
+        <div class="custom-bot-card" data-prompt-id="02">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(02) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                02
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  네이버 SEO
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini Gem
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              네이버 검색 상위 SEO 생성기
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              네이버 검색 SEO에 맞는 글쓰기 진행
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">키워드와 부연설명 입력필요 (전 주제 전부 생성가능)</li>
+          <li style="margin-bottom: 4px;">스마트블록 및 뷰탭 노출을 위한 자연스러운 문체 적용</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#네이버</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#검색</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#SEO에</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/994bc083c976" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 03: 네이버 MATE 글 생성기 -->
+        <div class="custom-bot-card" data-prompt-id="03">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(03) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                03
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  메이트 전용
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 GPTs
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              네이버 MATE 글 생성기
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              메이트 전용 글 생성기
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">경제 및 금융, 복지 및 정책 전문 생성기</li>
+          <li style="margin-bottom: 4px;">그 외 네이버 상위 SEO 생성기 활용</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#메이트</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#전용</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/59faf707eba9" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 04: 네이버홈판모드 -->
+        <div class="custom-bot-card" data-prompt-id="04">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(04) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                04
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  홈판 노출
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 GPTs
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              네이버홈판모드
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              네이버 홈판 생성기
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">기사 전체 원문 입력 또는 &#039;키워드 입력&#039;</li>
+          <li style="margin-bottom: 4px;">네이버 모바일 메인 홈판 피드 노출에 최적화</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#네이버</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#홈판</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#생성기</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/83a6821cd6bd" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 05: 홈판 검수용 프롬프트 -->
+        <div class="custom-bot-card" data-prompt-id="05">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(05) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                05
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  홈판 검수
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 GPTs
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              홈판 검수용 프롬프트
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              AI 느낌 제거 + 홈판 피드 점수 체크
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">완성 글 입력 → AI 표현 자동 검수 및 수정</li>
+          <li style="margin-bottom: 4px;">네이버 홈판 피드 노출 점수 분석</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#홈판</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#검수</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#피드점수</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/93035d2c2f79" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 06: 유튜브로 글쓰기 -->
+        <div class="custom-bot-card" data-prompt-id="06">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(06) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                06
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  유튜브 글쓰기
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              유튜브로 글쓰기
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              스크립트 분석 최적화 글 완성
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">머니대외비 나침반 데이터 입력 시 스크립트를 분석하여 최적의 블로그 글 완성</li>
+          <li style="margin-bottom: 4px;">가능 주제: 연예·경제·금융·보험·스포츠·자동차·건강·부동산</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#유튜브</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#스크립트</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#블로그</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/a6a99d268197" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 07: 이미지프롬프트 ver -2 -->
+        <div class="custom-bot-card" data-prompt-id="07">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(07) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                07
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  이미지 봇
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 GPTs
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              이미지프롬프트 ver -2
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              블로그 본문 입력 시 소제목별 프롬프트 생성
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">ver-1보다 향상된 이미지 생성</li>
+          <li style="margin-bottom: 4px;">간혹 영문 출력시 &#039;에이전트&#039;활성화 및 &#039;한글요청&#039; 필요</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#블로그</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#본문</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#입력</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/11c59193830d" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 08: 이미지프롬프트 ver-3 -->
+        <div class="custom-bot-card" data-prompt-id="08">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(08) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                08
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  이미지 봇
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 GPTs
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              이미지프롬프트 ver-3
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              FLUX.1 Schnell 전용 텍스트 없는 인물 전용 이미지 프롬프트
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">FLUX.1 Schnell 모델 전용 최적화</li>
+          <li style="margin-bottom: 4px;">텍스트 없이 인물 전용 이미지 생성에 특화</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#FLUX.1</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#인물전용</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#Schnell</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/15CLIJX317z5SLYwYm1AAE0gmD1uv9MVK?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 09: 블로그썸네일생성기 -->
+        <div class="custom-bot-card" data-prompt-id="09">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(09) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                09
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  이미지 봇
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 GPTs
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              블로그썸네일생성기
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              블로그 포스팅 맞춤 썸네일 자동 디자인
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">포스팅 주제를 입력하여 썸네일 생성</li>
+          <li style="margin-bottom: 4px;">시선을 끄는 텍스트 배치 및 배경 구도 제안</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#블로그</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#썸네일</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#디자인</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/1jTNW8bSi9IRtr-4LRmuQGVAuo9m6_aTZ?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 10: 인스타 카드뉴스 이미지 생성기 -->
+        <div class="custom-bot-card" data-prompt-id="10">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(10) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                10
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  이미지 봇
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini Gem
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              인스타 카드뉴스 이미지 생성기
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              인스타그램 최적화 카드뉴스 제작
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">텍스트를 입력하여 깔끔한 카드뉴스 이미지 디자인</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#인스타</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#카드뉴스</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#디자인</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/31b219bec2a8" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 11: 쓰레드 요약본 (반말투 출력) -->
+        <div class="custom-bot-card" data-prompt-id="11">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(11) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                11
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  SNS 봇
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini Gem
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              쓰레드 요약본 (반말투 출력)
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              쓰레드 맞춤형 게시글 재생성
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">글 전체 원문을 넣으면 쓰레드 감성의 반말투로 자동 요약됩니다.</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#쓰레드</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#요약</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#반말투</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/44c3d70299e5" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 12: 네이버 프리미엄 콘텐츠 외부유입 -->
+        <div class="custom-bot-card" data-prompt-id="12">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(12) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                12
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  프리미엄
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini Gem
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              네이버 프리미엄 콘텐츠 외부유입
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              원문글(애드센스) 입력 시 네이버 프리미엄콘텐츠용으로 글 변환
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">외부링크 작업 30%만 진행 (계정 정지 위험 방지)</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#원문글(애드센스)</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#입력</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/bdd57b5814a6" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 13: 네이버쇼핑커넥트 생성기 -->
+        <div class="custom-bot-card" data-prompt-id="13">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(13) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                13
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  쇼핑 제휴
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini Gem
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              네이버쇼핑커넥트 생성기
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              상품URL 또는 상품명 입력 시 글 생성
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">상품URL 또는 상품명만 넣으면 구매욕을 자극하는 리뷰형 블로그 글 자동 완성</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#상품URL</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#또는</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#상품명</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/61419e21df88" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 14: 네이버 지식인 답변 봇 -->
+        <div class="custom-bot-card" data-prompt-id="14">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(14) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                14
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  지식인
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini Gem
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              네이버 지식인 답변 봇
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              외부유입 용도의 맞춤형 답변 작성
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">사용자 질문 + 내 글 입력</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#외부유입</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#용도의</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#맞춤형</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/8ebb01ac2c47" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 15: 외부유입전략 -->
+        <div class="custom-bot-card" data-prompt-id="15">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(15) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                15
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  외부유입
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini Gem
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              외부유입전략
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              다양한 채널용 외부유입글 통합 생성
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">프콘 2개 + 블로그 3개 + 네이버카페 1개 + 다음카페 1개 + 구글 SEO 10개 + X + 쓰레드 + 브런치 1개</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#다양한</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#채널용</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#외부유입글</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/c2b8ac4c7d55" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 16: 네이버 외부유입 전용 프롬프트 -->
+        <div class="custom-bot-card" data-prompt-id="16">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(16) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                16
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  외부유입
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini Gem
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              네이버 외부유입 전용 프롬프트
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              프리미엄·블로그·카페 글 동시 생성
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">메인키워드 1개 + 연관키워드 6개 + 글 본문 입력</li>
+          <li style="margin-bottom: 4px;">프리미엄콘텐츠 2개, 블로그 2개, 카페 2개 자동 생성</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#외부유입</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#SEO최적화</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#멀티포맷</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/b5b713a17c4d" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 17: 메인키워드+연관키워드 추출기 -->
+        <div class="custom-bot-card" data-prompt-id="17">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(17) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                17
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  키워드 추출
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini Gem
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              메인키워드+연관키워드 추출기
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              글 본문에서 핵심 검색어를 빠르게 정리
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">본문 전체 입력 시 메인키워드 1개 추출</li>
+          <li style="margin-bottom: 4px;">함께 활용할 연관키워드를 여러 개 제안</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#메인키워드</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#연관키워드</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#본문 분석</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/06457e3f5c74" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 18: 커뮤니티 외부유입 생성기 -->
+        <div class="custom-bot-card" data-prompt-id="18">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(18) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                18
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  외부유입
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini Gem
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              커뮤니티 외부유입 생성기
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              블로그 본문 하나로 커뮤니티 외부유입 글 10개 생성
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">메인키워드 + 연관키워드 + 본문 글 전부입력</li>
+          <li style="margin-bottom: 4px;">검색형 제목과 자연스러운 커뮤니티 글 자동 생성</li>
+          <li style="margin-bottom: 4px;">URL 링크는 댓글에 작업 (본문 삽입X)</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#커뮤니티</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#외부유입</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#댓글링크</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/e63e35e79bfb" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 19: 드라마 프로필 블로그 생성기 -->
+        <div class="custom-bot-card" data-prompt-id="19">
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <!-- 상단 넘버(19) 및 라벨 -->
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <div style="font-size: 28px; font-weight: 700; color: #1e3a8a; line-height: 1;">
+                19
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 13px; font-weight: 700; color: #1e4d44; background: #eef1ea; padding: 2px 8px; border-radius: 4px;">
+                  엔터/방송
+                </span>
+                <span style="font-size: 13px; color: #64748b;">
+                  무료 Gemini Gem
+                </span>
+              </div>
+            </div>
+
+            <!-- 카드 제목 및 부제목 -->
+            <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; line-height: 1.35;">
+              드라마 프로필 블로그 생성기
+            </h3>
+            <p style="font-size: 13px; font-weight: 600; color: #1e4d44; margin: 0 0 12px 0; line-height: 1.4;">
+              드라마 줄거리, OTT채널, 출연인물 등 조회수 종합 글 생성
+            </p>
+
+            <!-- 불릿 리스트 본문 -->
+            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 14px; color: #475569; line-height: 1.6; flex: 1;">
+          <li style="margin-bottom: 4px;">최신 드라마 방송 선점 중요!</li>
+            </ul>
+          </div>
+
+          <!-- 하단 태그 및 액션 버튼 -->
+          <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #e2e8f0;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+              <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#드라마</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#줄거리</span> <span class="bot-tag" style="background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; color: #475569; border-radius: 6px; padding: 3px 8px;">#OTT채널</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="https://gemini.google.com/gem/77f8097386ab" target="_blank" rel="noopener noreferrer" class="btn-bot-action" style="background: #e8f0fe; border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 600; width: 100%; border-radius: 8px; padding: 10px 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#e8f0fe'">
+                챗봇 사용하기 (Click) ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
       <!-- SAFE USE 안전 사용 가이드 박스 (에디토리얼 웜 라이트 테마) -->
       <div style="margin-top: 45px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 36px 30px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
@@ -1748,13 +2484,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <script src="js/app.js?v=20260915_fix1"></script>
-  <script src="js/trending.js?v=20260926_refactor_v2"></script>
-  <script src="js/keyword.js?v=20260926_related_live"></script>
+  <script src="js/trending.js?v=20261002_live_refresh"></script>
+  <script src="js/keyword.js?v=20261002_fix_analysis"></script>
   <script src="js/viral_shorts_data.js?v=20260915_loading"></script>
   <script src="js/adsense.js?v=20260926_detail_font_fix"></script>
-  <script src="js/prompt.js?v=20260926_editorial_light"></script>
+  <script src="data/prompts.js?v=20261002_prompts_v1"></script>
+  <script src="js/prompt.js?v=20261002_clean_single_btn"></script>
   <script src="js/admin.js?v=20260914_final"></script>
-  <script src="js/homepan.js?v=20260914_final"></script>
   <script src="js/external.js?v=20260914_final"></script>
   <script src="js/converter.js?v=20260926_soft_warm_light"></script>
   <script src="js/imggen.js?v=20260915_imagen3_v2_fallback"></script>
