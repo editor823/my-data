@@ -5411,7 +5411,7 @@ p, li {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #f1f5f9;
+  background: #1f1714;
   overflow: hidden;
 }
 
@@ -5517,7 +5517,7 @@ p, li {
 }
 
 .custom-bot-card {
-  background: #ffffff;
+  background: #241c18;
   border-radius: 12px;
   border: 1.5px solid #cbd5e1;
   padding: 24px;
