@@ -1168,6 +1168,45 @@ const server = http.createServer((req, res) => {
   // ========================================================
   // [실시간 급상승어 & 최신 연예뉴스 백엔드 프록시 및 수집기]
   // ========================================================
+    // [키워드센터 원본 실시간 프록시 엔드포인트]
+  if (req.url.startsWith('/api/keyword-center')) {
+    const parsedUrl = new URL(req.url, `http://localhost:${PORT}`);
+    const action = parsedUrl.searchParams.get('action') || 'getTrendingKeywords';
+    const ts = Date.now();
+    const boutiqueUrl = `https://www.boutique-info.com/api/keyword-center?action=${encodeURIComponent(action)}&_t=${ts}`;
+    
+    https.get(boutiqueUrl, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
+      timeout: 5000
+    }, (proxyRes) => {
+      let data = '';
+      proxyRes.on('data', chunk => data += chunk);
+      proxyRes.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          if (parsed && parsed.success) {
+            res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+            return res.end(data);
+          }
+          throw new Error('Invalid format');
+        } catch (e) {
+          if (action === 'getEntertainmentNews') {
+            fallbackEntertainmentNews(res);
+          } else {
+            fallbackTrendingKeywords(res);
+          }
+        }
+      });
+    }).on('error', () => {
+      if (action === 'getEntertainmentNews') {
+        fallbackEntertainmentNews(res);
+      } else {
+        fallbackTrendingKeywords(res);
+      }
+    });
+    return;
+  }
+
   if (req.url.startsWith('/api/trending-keywords')) {
     const ts = Date.now();
     const boutiqueUrl = `https://www.boutique-info.com/api/keyword-center?action=getTrendingKeywords&_t=${ts}`;
