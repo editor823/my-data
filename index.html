@@ -13,7 +13,7 @@
 
   <!-- 스타일시트 로드 -->
   <link rel="stylesheet" href="css/style.css?v=20261002_fix_table_light">
-  <link rel="stylesheet" href="css/components.css?v=20261004_restore_light_card">
+  <link rel="stylesheet" href="css/components.css?v=20261004_blog_light_guide">
 </head>
 <body>
 
@@ -180,76 +180,84 @@
         </div>
       </div>
 
-      <!-- 3-1. 최근 콘텐츠 가이드 섹션 -->
-      <section class="editorial-help card bg-[#2a201c] border border-[#4a3b34] rounded-2xl p-6 sm:p-8 mb-10 shadow-sm" style="background: #2a201c; border: 1px solid #4a3b34; border-radius: 16px; padding: 28px; margin-bottom: 40px; box-shadow: none;">
+      <!-- 3-1. 최근 콘텐츠 가이드 섹션 (블로그 화이트 테마) -->
+      <div class="card" style="margin-bottom: 40px; padding: 26px 28px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);">
         <div style="margin-bottom: 20px;">
-          <span class="eyebrow inline-block text-xs font-bold uppercase tracking-wider text-[#d4a373] bg-[#352924] border border-[#4a3b34] px-2.5 py-1 rounded-full mb-3" style="display: inline-block; font-size: 0.72rem; font-weight: 800; color: #d4a373; background: #352924; border: 1px solid #4a3b34; padding: 3px 10px; border-radius: 9999px; letter-spacing: 0.06em; margin-bottom: 10px;">CONTENT GUIDE</span>
-          <h2 class="text-xl sm:text-2xl font-extrabold text-[#f5ebe0] tracking-tight mb-2 flex items-center gap-2" style="font-size: 1.35rem; font-weight: 800; color: #f5ebe0; margin: 0 0 8px 0; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px;">
+          <span class="eyebrow" style="display: inline-block; font-size: 0.72rem; font-weight: 800; color: #047857; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 3px 10px; border-radius: 9999px; letter-spacing: 0.05em; margin-bottom: 10px;">
+            CONTENT GUIDE
+          </span>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 6px 0; display: flex; align-items: center; gap: 8px;">
             <span>📚</span> 최근 콘텐츠 가이드
-          </h2>
-          <p class="text-sm text-[#d7ccc8] leading-relaxed m-0" style="font-size: 0.9rem; color: #d7ccc8; margin: 0; line-height: 1.55;">
+          </h3>
+          <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.5;">
             키워드 선택부터 글 검토·이미지 활용까지, 작업에 바로 적용할 수 있는 안내입니다.
           </p>
         </div>
 
-        <div class="help-grid grid grid-cols-1 md:grid-cols-3 gap-4 mb-6" id="latestGuideCards" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px;">
-          <article class="group flex flex-col justify-between p-5 bg-[#352924] border border-[#4a3b34] rounded-xl hover:border-[#d4a373] hover:bg-[#3e312b] transition-all duration-200" style="background: #352924; border: 1px solid #4a3b34; border-radius: 12px; padding: 22px 20px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease;">
-            <div style="margin-bottom: 12px;">
-              <h3 class="text-base font-bold text-[#f5ebe0] mb-2 leading-snug" style="font-size: 1.02rem; font-weight: 700; margin: 0 0 10px 0; line-height: 1.45;">
-                <a href="/posts/recent-30-day-blog-documents.html" class="text-[#f5ebe0] hover:text-[#d4a373] transition-colors" style="color: #f5ebe0; text-decoration: none; transition: color 0.2s ease;">
+        <div class="help-grid" id="latestGuideCards" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px;">
+          <article class="guide-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease;">
+            <div style="margin-bottom: 14px;">
+              <h4 style="font-size: 0.98rem; font-weight: 700; margin: 0 0 8px 0; line-height: 1.45;">
+                <a href="/posts/recent-30-day-blog-documents.html" class="guide-link" style="color: #0f172a; text-decoration: none; transition: color 0.2s ease;">
                   최근 30일 발행 문서수: 997건 이상이라는 표시를 읽는 방법
                 </a>
-              </h3>
-              <p class="text-xs sm:text-sm text-[#a89f91] leading-relaxed m-0" style="font-size: 0.85rem; color: #a89f91; margin: 0; line-height: 1.6;">
+              </h4>
+              <p style="font-size: 0.84rem; color: #64748b; margin: 0; line-height: 1.55;">
                 실제 조회 사례로 전체 문서수와 최근 발행 문서수, 최대 1,000개 검색 결과에서 확인한 하한값의 차이를 설명합니다.
               </p>
             </div>
-            <div style="padding-top: 10px; border-top: 1px dashed rgba(74, 59, 52, 0.6);">
-              <a href="/posts/recent-30-day-blog-documents.html" style="font-size: 0.78rem; font-weight: 700; color: #d4a373; text-decoration: none;">자세히 읽기 →</a>
+            <div style="padding-top: 12px; border-top: 1px dashed #e2e8f0;">
+              <a href="/posts/recent-30-day-blog-documents.html" style="font-size: 0.8rem; font-weight: 700; color: #0284c7; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                자세히 읽기 →
+              </a>
             </div>
           </article>
 
-          <article class="group flex flex-col justify-between p-5 bg-[#352924] border border-[#4a3b34] rounded-xl hover:border-[#d4a373] hover:bg-[#3e312b] transition-all duration-200" style="background: #352924; border: 1px solid #4a3b34; border-radius: 12px; padding: 22px 20px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease;">
-            <div style="margin-bottom: 12px;">
-              <h3 class="text-base font-bold text-[#f5ebe0] mb-2 leading-snug" style="font-size: 1.02rem; font-weight: 700; margin: 0 0 10px 0; line-height: 1.45;">
-                <a href="/posts/read-datalab-relative-interest.html" class="text-[#f5ebe0] hover:text-[#d4a373] transition-colors" style="color: #f5ebe0; text-decoration: none; transition: color 0.2s ease;">
+          <article class="guide-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease;">
+            <div style="margin-bottom: 14px;">
+              <h4 style="font-size: 0.98rem; font-weight: 700; margin: 0 0 8px 0; line-height: 1.45;">
+                <a href="/posts/read-datalab-relative-interest.html" class="guide-link" style="color: #0f172a; text-decoration: none; transition: color 0.2s ease;">
                   검색 관심도 100은 100회가 아닙니다: 30일 그래프 읽기
                 </a>
-              </h3>
-              <p class="text-xs sm:text-sm text-[#a89f91] leading-relaxed m-0" style="font-size: 0.85rem; color: #a89f91; margin: 0; line-height: 1.6;">
+              </h4>
+              <p style="font-size: 0.84rem; color: #64748b; margin: 0; line-height: 1.55;">
                 노트북리퍼샵 조회 사례를 통해 DataLab 상대지수와 월 검색량을 구분하고, 빠진 날짜와 비교 조건을 확인하는 방법입니다.
               </p>
             </div>
-            <div style="padding-top: 10px; border-top: 1px dashed rgba(74, 59, 52, 0.6);">
-              <a href="/posts/read-datalab-relative-interest.html" style="font-size: 0.78rem; font-weight: 700; color: #d4a373; text-decoration: none;">자세히 읽기 →</a>
+            <div style="padding-top: 12px; border-top: 1px dashed #e2e8f0;">
+              <a href="/posts/read-datalab-relative-interest.html" style="font-size: 0.8rem; font-weight: 700; color: #0284c7; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                자세히 읽기 →
+              </a>
             </div>
           </article>
 
-          <article class="group flex flex-col justify-between p-5 bg-[#352924] border border-[#4a3b34] rounded-xl hover:border-[#d4a373] hover:bg-[#3e312b] transition-all duration-200" style="background: #352924; border: 1px solid #4a3b34; border-radius: 12px; padding: 22px 20px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease;">
-            <div style="margin-bottom: 12px;">
-              <h3 class="text-base font-bold text-[#f5ebe0] mb-2 leading-snug" style="font-size: 1.02rem; font-weight: 700; margin: 0 0 10px 0; line-height: 1.45;">
-                <a href="/posts/naver-api-error-checklist.html" class="text-[#f5ebe0] hover:text-[#d4a373] transition-colors" style="color: #f5ebe0; text-decoration: none; transition: color 0.2s ease;">
+          <article class="guide-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease;">
+            <div style="margin-bottom: 14px;">
+              <h4 style="font-size: 0.98rem; font-weight: 700; margin: 0 0 8px 0; line-height: 1.45;">
+                <a href="/posts/naver-api-error-checklist.html" class="guide-link" style="color: #0f172a; text-decoration: none; transition: color 0.2s ease;">
                   검색량은 나오는데 문서수는 조회 실패? API 오류 확인 순서
                 </a>
-              </h3>
-              <p class="text-xs sm:text-sm text-[#a89f91] leading-relaxed m-0" style="font-size: 0.85rem; color: #a89f91; margin: 0; line-height: 1.6;">
+              </h4>
+              <p style="font-size: 0.84rem; color: #64748b; margin: 0; line-height: 1.55;">
                 실제 401·429 표시 사례를 바탕으로 검색광고와 블로그 검색 인증을 구분하고, 재시도 전 확인할 항목을 정리합니다.
               </p>
             </div>
-            <div style="padding-top: 10px; border-top: 1px dashed rgba(74, 59, 52, 0.6);">
-              <a href="/posts/naver-api-error-checklist.html" style="font-size: 0.78rem; font-weight: 700; color: #d4a373; text-decoration: none;">자세히 읽기 →</a>
+            <div style="padding-top: 12px; border-top: 1px dashed #e2e8f0;">
+              <a href="/posts/naver-api-error-checklist.html" style="font-size: 0.8rem; font-weight: 700; color: #0284c7; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                자세히 읽기 →
+              </a>
             </div>
           </article>
         </div>
 
-        <div class="pt-4 border-t border-[#4a3b34] flex justify-end" style="padding-top: 16px; border-top: 1px solid #4a3b34; display: flex; justify-content: flex-end;">
-          <p class="m-0" style="margin: 0;">
-            <a href="/guides.html" class="inline-flex items-center gap-1.5 text-sm font-bold text-[#d4a373] hover:text-[#f5ebe0] transition-colors" style="color: #d4a373; font-size: 0.9rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s ease;">
+        <div style="padding-top: 16px; border-top: 1px solid #f1f5f9; display: flex; justify-content: flex-end;">
+          <p style="margin: 0;">
+            <a href="/guides.html" style="color: #0284c7; font-size: 0.9rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s ease;">
               콘텐츠 가이드 전체 보기 →
             </a>
           </p>
         </div>
-      </section>
+      </div>
 
       <!-- 4. 하단 4개 핵심 카드 (이미지와 100% 동일) -->
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 30px;" class="home-feature-cards">
