@@ -39,3 +39,20 @@ re-read whole files.
 After big code changes, refresh the graph with `graft build` (deterministic,
 no API key, $0).
 <!-- graft:end -->
+
+
+# 블로그 UI vs 주식센터 테마 분리 절대 규칙
+
+## 1. 블로그 사이트 (Blog UI) - 절대 화이트/라이트 테마
+- 적용 대상: 메인 홈(index.html), 상세 글/가이드(posts/*.html), 키워드센터, 프롬프트센터 등 블로그 관련 모든 화면.
+- 색상 가이드:
+  - 배경: 밝은 화이트/아이보리 (#ffffff, #f8fafc)
+  - 카드/컨테이너: 깨끗한 순백색 (#ffffff)
+  - 테두리: 깔끔한 연회색 (#e2e8f0, #cbd5e1)
+  - 텍스트: 선명한 짙은 슬레이트/차콜 (#0f172a, #1e293b, #475569)
+  - 포인트: 세련된 블루 (#0284c7) 및 에메랄드 (#059669)
+- ❌ **절대 금지**: 고동색, 딥브라운, 웜베이지(#1a1412, #2a201c, #352924, #3e312b, #4a3b34, #d4a373 등)는 **블로그 화면에 절대로 적용하지 않는다.**
+
+## 2. 주식센터 (Stock UI)
+- 적용 대상: 오직 stock-intelligence, public/stock.html, css/stock.css 등 주식분석센터 화면.
+- 고동색 & 베이지 다크 테마는 **오직 주식센터에만** 한정 적용한다.

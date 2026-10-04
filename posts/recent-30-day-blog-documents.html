@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>최근 30일 발행 문서수: 997건 이상이라는 표시를 읽는 방법 - 머니대외비 콘텐츠 가이드</title>
+  <title>최근 30일 발행 문서수: 997건 이상이라는 표시를 읽는 방법 - 블로그 콘텐츠 가이드</title>
   
   <!-- 한글 폰트 Pretendard CDN -->
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -14,16 +14,16 @@
   <style>
     body {
       font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-      background-color: #1a1412;
-      color: #d7ccc8;
+      background-color: #f8fafc;
+      color: #334155;
       min-height: 100vh;
-      line-height: 1.75;
-      letter-spacing: -0.01em;
+      line-height: 1.8;
+      letter-spacing: -0.015em;
     }
 
     ::selection {
-      background: rgba(212, 163, 115, 0.4);
-      color: #ffffff;
+      background: rgba(2, 132, 199, 0.2);
+      color: #0f172a;
     }
 
     /* 표 스타일 */
@@ -31,8 +31,9 @@
       width: 100%;
       overflow-x: auto;
       margin: 24px 0;
-      border: 1px solid #4a3b34;
+      border: 1px solid #e2e8f0;
       border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
     }
     table {
       width: 100%;
@@ -40,20 +41,20 @@
       text-align: left;
     }
     th {
-      background-color: #352924;
-      color: #f5ebe0;
+      background-color: #f1f5f9;
+      color: #0f172a;
       font-weight: 700;
       padding: 14px 16px;
       font-size: 0.92rem;
-      border-bottom: 2px solid #4a3b34;
+      border-bottom: 2px solid #cbd5e1;
       white-space: nowrap;
     }
     td {
       padding: 14px 16px;
-      border-bottom: 1px solid #3e312b;
+      border-bottom: 1px solid #e2e8f0;
       font-size: 0.92rem;
-      color: #d7ccc8;
-      background-color: #2a201c;
+      color: #334155;
+      background-color: #ffffff;
     }
     tr:last-child td {
       border-bottom: none;
@@ -61,13 +62,15 @@
 
     /* 인용구 */
     blockquote {
-      background: #352924;
-      border-left: 4px solid #d4a373;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #0284c7;
       padding: 16px 20px;
       border-radius: 0 10px 10px 0;
       margin: 24px 0;
-      color: #f5ebe0;
-      font-weight: 500;
+      color: #1e293b;
+      font-weight: 600;
+      font-size: 0.95rem;
     }
 
     /* 숫자 리스트 */
@@ -79,26 +82,27 @@
     }
     ol.custom-step-list li {
       counter-increment: step-counter;
-      background: #352924;
-      border: 1px solid #3e312b;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
       border-radius: 10px;
-      padding: 14px 18px 14px 50px;
+      padding: 14px 18px 14px 52px;
       margin-bottom: 12px;
       position: relative;
-      color: #d7ccc8;
+      color: #334155;
       font-size: 0.95rem;
+      line-height: 1.6;
     }
     ol.custom-step-list li::before {
       content: counter(step-counter);
       position: absolute;
       left: 16px;
       top: 14px;
-      background: #d4a373;
-      color: #1a1412;
+      background: #0284c7;
+      color: #ffffff;
       font-weight: 800;
       font-size: 0.8rem;
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -107,25 +111,26 @@
 
     /* 본문 소제목 */
     .post-body h2 {
-      color: #f5ebe0;
+      color: #0f172a;
       font-size: 1.35rem;
       font-weight: 800;
-      margin-top: 40px;
+      margin-top: 42px;
       margin-bottom: 16px;
       padding-left: 14px;
-      border-left: 4px solid #d4a373;
+      border-left: 4px solid #0284c7;
       letter-spacing: -0.02em;
     }
 
     /* 링크 */
     .post-body a {
-      color: #d4a373;
+      color: #0284c7;
       text-decoration: underline;
       text-underline-offset: 4px;
+      font-weight: 600;
       transition: color 0.2s;
     }
     .post-body a:hover {
-      color: #f5ebe0;
+      color: #0369a1;
     }
   </style>
 </head>
@@ -134,49 +139,49 @@
   <div class="max-w-4xl mx-auto">
     
     <!-- 상단 내비게이션 바 -->
-    <nav class="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-[#4a3b34]">
+    <nav class="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-[#e2e8f0]">
       <div class="flex items-center gap-3">
-        <button type="button" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href='/'; }" class="inline-flex items-center gap-2 bg-[#352924] hover:bg-[#3e312b] text-[#f5ebe0] text-sm font-semibold px-4 py-2 rounded-lg border border-[#4a3b34] transition-colors cursor-pointer">
+        <button type="button" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href='/'; }" class="inline-flex items-center gap-2 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#334155] text-sm font-bold px-4 py-2 rounded-lg border border-[#cbd5e1] shadow-sm transition-colors cursor-pointer">
           ← 뒤로가기
         </button>
-        <a href="/" class="inline-flex items-center gap-1.5 bg-[#352924] hover:bg-[#3e312b] text-[#d4a373] text-sm font-semibold px-4 py-2 rounded-lg border border-[#4a3b34] transition-colors">
+        <a href="/" class="inline-flex items-center gap-1.5 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#0284c7] text-sm font-bold px-4 py-2 rounded-lg border border-[#cbd5e1] shadow-sm transition-colors">
           ⌂ 홈
         </a>
       </div>
-      <a href="/guides.html" class="text-sm font-medium text-[#a89f91] hover:text-[#f5ebe0] transition-colors">
+      <a href="/guides.html" class="text-sm font-semibold text-[#64748b] hover:text-[#0f172a] transition-colors">
         ← 콘텐츠 가이드 목록
       </a>
     </nav>
 
-    <!-- 메인 아티클 카드 -->
-    <main class="bg-[#2a201c] border border-[#4a3b34] rounded-2xl p-6 sm:p-12 shadow-xl">
+    <!-- 메인 아티클 카드 (깨끗한 화이트 블로그 테마) -->
+    <main class="bg-[#ffffff] border border-[#e2e8f0] rounded-2xl p-6 sm:p-12 shadow-sm">
       
       <!-- 날짜 및 작성자 -->
-      <div class="flex items-center gap-2 text-xs sm:text-sm text-[#a89f91] mb-3">
-        <span class="inline-block w-2 h-2 rounded-full bg-[#d4a373]"></span>
+      <div class="flex items-center gap-2 text-xs sm:text-sm text-[#64748b] mb-3">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-[#10b981]"></span>
         <time datetime="2026-09-21">2026-09-21</time>
         <span>·</span>
         <span>머니대외비</span>
       </div>
 
       <!-- 아티클 대제목 -->
-      <h1 class="text-2xl sm:text-3.5xl font-extrabold text-[#f5ebe0] tracking-tight leading-snug mb-6">
+      <h1 class="text-2xl sm:text-3.5xl font-extrabold text-[#0f172a] tracking-tight leading-snug mb-6">
         최근 30일 발행 문서수: 997건 이상이라는 표시를 읽는 방법
       </h1>
 
       <!-- 카테고리 라벨 태그 -->
-      <div class="flex flex-wrap gap-2 mb-8 pb-6 border-b border-[#3e312b]">
-        <a href="/archive.html?label=%EC%BD%98%ED%85%90%EC%B8%A0%20%EA%B0%80%EC%9D%B4%EB%93%9C" class="text-xs font-bold text-[#d4a373] bg-[#352924] hover:bg-[#3e312b] border border-[#4a3b34] px-3 py-1.5 rounded-full transition-colors">
+      <div class="flex flex-wrap gap-2 mb-8 pb-6 border-b border-[#f1f5f9]">
+        <a href="/archive.html?label=%EC%BD%98%ED%85%90%EC%B8%A0%20%EA%B0%80%EC%9D%B4%EB%93%9C" class="text-xs font-bold text-[#047857] bg-[#ecfdf5] hover:bg-[#d1fae5] border border-[#a7f3d0] px-3.5 py-1.5 rounded-full transition-colors">
           🏷️ 콘텐츠 가이드
         </a>
-        <a href="/archive.html?label=%ED%82%A4%EC%9B%8C%EB%93%9C%20%EC%A1%B0%EC%82%AC" class="text-xs font-bold text-[#d4a373] bg-[#352924] hover:bg-[#3e312b] border border-[#4a3b34] px-3 py-1.5 rounded-full transition-colors">
+        <a href="/archive.html?label=%ED%82%A4%EC%9B%8C%EB%93%9C%20%EC%A1%B0%EC%82%AC" class="text-xs font-bold text-[#1d4ed8] bg-[#eff6ff] hover:bg-[#dbeafe] border border-[#bfdbfe] px-3.5 py-1.5 rounded-full transition-colors">
           🔍 키워드 조사
         </a>
       </div>
 
       <!-- 본문 내용 -->
       <article class="post-body">
-        <p class="text-base sm:text-lg leading-relaxed text-[#d7ccc8] mb-6">
+        <p class="text-base sm:text-lg leading-relaxed text-[#334155] mb-6">
           전체 블로그 문서수가 적어 보여도 최근에 글이 집중적으로 올라왔을 수 있습니다. 반대로 전체 문서수가 많아도 대부분 오래된 글일 수 있습니다. 최근 30일 문서수는 이런 차이를 살피는 보조 자료입니다. 다만 이 도구가 인터넷의 모든 글을 직접 세는 것은 아닙니다.
         </p>
 
@@ -190,7 +195,7 @@
 
         <h2>실제 사례 A: 큰 키워드는 ‘이상’이 중요합니다</h2>
         <p class="mb-4">
-          <strong class="text-[#f5ebe0]">사례 확인일: 2026년 9월 20일.</strong> 아래 조회값은 당시 화면에서 확인한 기록입니다. 검색 결과와 도구 화면은 이후 달라질 수 있습니다.
+          <strong class="text-[#0f172a]">사례 확인일: 2026년 9월 20일.</strong> 아래 조회값은 당시 화면에서 확인한 기록입니다. 검색 결과와 도구 화면은 이후 달라질 수 있습니다.
         </p>
 
         <!-- 사례 A 표 -->
@@ -206,9 +211,9 @@
             </thead>
             <tbody>
               <tr>
-                <td class="font-bold text-[#f5ebe0]">청년미래적금</td>
+                <td class="font-bold text-[#0f172a]">청년미래적금</td>
                 <td>134,049</td>
-                <td class="text-[#d4a373] font-bold">997건 이상</td>
+                <td class="text-[#0284c7] font-extrabold">997건 이상</td>
                 <td>최근 결과 1,000개 조사에서 중복을 제외해 확인한 최소 수</td>
               </tr>
             </tbody>
@@ -216,7 +221,7 @@
         </div>
 
         <p class="mb-4">
-          997÷134,049×100은 약 0.74%입니다. 조사 상한에 도달했으므로 ‘최근 글 비중이 정확히 0.74%’라고 말할 수 없습니다. 화면의 뜻은 <strong class="text-[#f5ebe0]">확인된 최소 비중이 약 0.74%</strong>라는 것입니다. 그 뒤에 더 많은 최근 글이 있을 수 있습니다.
+          997÷134,049×100은 약 0.74%입니다. 조사 상한에 도달했으므로 ‘최근 글 비중이 정확히 0.74%’라고 말할 수 없습니다. 화면의 뜻은 <strong class="text-[#0f172a]">확인된 최소 비중이 약 0.74%</strong>라는 것입니다. 그 뒤에 더 많은 최근 글이 있을 수 있습니다.
         </p>
         <p class="mb-6">
           이런 결과를 ‘새 글이 거의 없어서 경쟁이 약하다’는 근거로 삼으면 판단이 뒤집힐 수 있습니다. 오히려 조회 범위가 최근 글로 채워졌다는 점을 보고, 최신 결과의 실제 내용과 발행 날짜를 따로 살펴야 합니다.
@@ -245,30 +250,30 @@
         </p>
 
         <!-- 도구 바로가기 박스 -->
-        <div class="my-8 p-4 bg-[#352924] border border-[#4a3b34] rounded-xl flex flex-wrap items-center justify-between gap-3">
-          <span class="text-sm font-semibold text-[#f5ebe0]">💡 키워드 직접 분석해보기:</span>
+        <div class="my-8 p-5 bg-[#eff6ff] border border-[#bfdbfe] rounded-xl flex flex-wrap items-center justify-between gap-3">
+          <span class="text-sm font-bold text-[#1e3a8a]">💡 키워드 직접 분석해보기:</span>
           <div class="flex gap-4 text-sm font-bold">
-            <a href="/?page=tool" class="hover:underline">키워드분석기에서 조회하기 →</a>
-            <a href="/posts/keyword-volume-and-document-count.html" class="hover:underline">월 검색량과 전체 문서수 함께 읽기 →</a>
+            <a href="/?page=tool" class="text-[#0284c7] hover:underline">키워드분석기에서 조회하기 →</a>
+            <a href="/posts/keyword-volume-and-document-count.html" class="text-[#0284c7] hover:underline">월 검색량과 전체 문서수 함께 읽기 →</a>
           </div>
         </div>
 
         <h2>확인 근거</h2>
-        <p class="mb-6 text-sm text-[#a89f91]">
+        <p class="mb-6 text-sm text-[#64748b]">
           <a href="https://developers.naver.com/docs/serviceapi/search/blog/blog.md" target="_blank" rel="noopener noreferrer">네이버 블로그 검색 API: 최신순 정렬·게시일·조회 범위</a>. 실제 사례는 2026년 9월 20일 사이트 점검 기록이며 현재 값과 다를 수 있습니다.
         </p>
 
         <h2>작성·정정 안내</h2>
-        <p class="mb-8 text-sm text-[#a89f91] leading-relaxed">
+        <p class="mb-8 text-sm text-[#64748b] leading-relaxed">
           머니대외비 콘텐츠 가이드입니다. 초안 작성에 AI를 활용했으며, 실제 사이트 점검 기록과 설명용 예시를 구분해 작성했습니다. 현재 조회값은 사례의 값과 다를 수 있습니다. 오류나 변경 사항은 <a href="/p/blog-page_462.html" rel="noopener noreferrer">문의 페이지</a>로 알려주세요.
         </p>
 
         <!-- 하단 목록으로 돌아가기 버튼 -->
-        <div class="pt-8 border-t border-[#3e312b] flex justify-between items-center">
-          <button type="button" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href='/'; }" class="inline-flex items-center gap-2 bg-[#352924] hover:bg-[#3e312b] text-[#f5ebe0] text-sm font-semibold px-5 py-2.5 rounded-lg border border-[#4a3b34] transition-colors cursor-pointer">
+        <div class="pt-8 border-t border-[#f1f5f9] flex justify-between items-center">
+          <button type="button" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href='/'; }" class="inline-flex items-center gap-2 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#334155] text-sm font-bold px-5 py-2.5 rounded-lg border border-[#cbd5e1] shadow-sm transition-colors cursor-pointer">
             ← 이전 화면으로
           </button>
-          <a href="/?page=guide" class="text-sm font-bold text-[#d4a373] hover:text-[#f5ebe0] transition-colors">
+          <a href="/?page=guide" class="text-sm font-bold text-[#0284c7] hover:text-[#0369a1] transition-colors">
             콘텐츠 가이드로 돌아가기 →
           </a>
         </div>
@@ -278,7 +283,7 @@
     </main>
 
     <!-- 푸터 -->
-    <footer class="mt-12 text-center text-xs text-[#a89f91] pb-12">
+    <footer class="mt-12 text-center text-xs text-[#94a3b8] pb-12">
       <p>© 2026 머니대외비 (Blog Automation Hub). All rights reserved.</p>
     </footer>
 
