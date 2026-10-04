@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>검색량은 나오는데 문서수는 조회 실패? API 오류 확인 순서 - 블로그 콘텐츠 가이드</title>
+  
+  <!-- 한글 폰트 Pretendard CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+      min-height: 100vh;
+      line-height: 1.8;
+      letter-spacing: -0.015em;
+    }
+
+    ::selection {
+      background: rgba(2, 132, 199, 0.2);
+      color: #0f172a;
+    }
+
+    /* 표 스타일 */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 24px 0;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 14px 16px;
+      font-size: 0.92rem;
+      border-bottom: 2px solid #cbd5e1;
+      white-space: nowrap;
+    }
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 0.92rem;
+      color: #334155;
+      background-color: #ffffff;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* 인용구 */
+    blockquote {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #0284c7;
+      padding: 16px 20px;
+      border-radius: 0 10px 10px 0;
+      margin: 24px 0;
+      color: #1e293b;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* 숫자 리스트 */
+    ol.custom-step-list, .post-body ol {
+      list-style: none;
+      counter-reset: step-counter;
+      padding-left: 0;
+      margin: 20px 0;
+    }
+    ol.custom-step-list li, .post-body ol li {
+      counter-increment: step-counter;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px 18px 14px 52px;
+      margin-bottom: 12px;
+      position: relative;
+      color: #334155;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    ol.custom-step-list li::before, .post-body ol li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      background: #0284c7;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.8rem;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 불릿 리스트 */
+    .post-body ul {
+      list-style: disc;
+      padding-left: 24px;
+      margin: 20px 0;
+    }
+    .post-body ul li {
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    /* 본문 소제목 */
+    .post-body h2 {
+      color: #0f172a;
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-top: 42px;
+      margin-bottom: 16px;
+      padding-left: 14px;
+      border-left: 4px solid #0284c7;
+      letter-spacing: -0.02em;
+    }
+    .post-body h3 {
+      color: #1e293b;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    /* 링크 */
+    .post-body a {
+      color: #0284c7;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .post-body a:hover {
+      color: #0369a1;
+    }
+
+    figure {
+      margin: 24px 0;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 0 auto 12px auto;
+    }
+    figcaption {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body class="p-4 sm:p-8">
+
+  <div class="max-w-4xl mx-auto">
+    
+    <!-- 상단 내비게이션 바 -->
+    <nav class="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-[#e2e8f0]">
+      <div class="flex items-center gap-3">
+        <button type="button" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href='/guides.html'; }" class="inline-flex items-center gap-2 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#334155] text-sm font-bold px-4 py-2 rounded-lg border border-[#cbd5e1] shadow-sm transition-colors cursor-pointer">
+          ← 뒤로가기
+        </button>
+        <a href="/" class="inline-flex items-center gap-1.5 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#0284c7] text-sm font-bold px-4 py-2 rounded-lg border border-[#cbd5e1] shadow-sm transition-colors">
+          ⌂ 홈
+        </a>
+      </div>
+      <a href="/guides.html" class="text-sm font-semibold text-[#64748b] hover:text-[#0f172a] transition-colors">
+        ← 콘텐츠 가이드 목록
+      </a>
+    </nav>
+
+    <!-- 메인 아티클 카드 (깨끗한 화이트 블로그 테마) -->
+    <main class="bg-[#ffffff] border border-[#e2e8f0] rounded-2xl p-6 sm:p-12 shadow-sm">
+      
+      <!-- 날짜 및 작성자 -->
+      <div class="flex items-center gap-2 text-xs sm:text-sm text-[#64748b] mb-3">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-[#10b981]"></span>
+        <time datetime="2026-09-21">2026-09-21</time>
+        <span>·</span>
+        <span>머니대외비</span>
+      </div>
+
+      <!-- 아티클 대제목 -->
+      <h1 class="text-2xl sm:text-3.5xl font-extrabold text-[#0f172a] tracking-tight leading-snug mb-6">
+        검색량은 나오는데 문서수는 조회 실패? API 오류 확인 순서
+      </h1>
+
+      <!-- 카테고리 라벨 태그 -->
+      <div class="flex flex-wrap gap-2 mb-8 pb-6 border-b border-[#f1f5f9]">
+        <a href="/archive.html?label=%EC%BD%98%ED%85%90%EC%B8%A0%20%EA%B0%80%EC%9D%B4%EB%93%9C" class="text-xs font-bold text-[#047857] bg-[#ecfdf5] hover:bg-[#d1fae5] border border-[#a7f3d0] px-3.5 py-1.5 rounded-full transition-colors">🏷️ 콘텐츠 가이드</a>
+        <a href="/archive.html?label=%ED%82%A4%EC%9B%8C%EB%93%9C%20%EC%A1%B0%EC%82%AC" class="text-xs font-bold text-[#1d4ed8] bg-[#eff6ff] hover:bg-[#dbeafe] border border-[#bfdbfe] px-3.5 py-1.5 rounded-full transition-colors">🔍 키워드 조사</a>
+      </div>
+
+      <!-- 본문 내용 -->
+      <article class="post-body">
+        
+<p>검색량이 보이는데 블로그 문서수가 ‘조회 실패’라면 문서가 0개라는 뜻이 아닙니다. 서로 다른 데이터 요청 중 일부가 실패했을 가능성을 먼저 확인해야 합니다. 모든 API 키를 무작정 다시 발급하기 전에 어떤 항목에서 오류가 났는지 나누어 보세요.</p>
+<h2>실제 오류 화면에서 출발하기</h2>
+<p>2026년 9월 20일 점검 당시 한 화면에 ‘블로그 문서수 API HTTP 401 / Authentication Failed’와 ‘검색광고 API HTTP 429’가 함께 표시된 사례가 있었습니다. 전자는 인증 확인이 필요한 응답이고, 후자는 요청 제한을 확인해야 하는 응답입니다. 두 오류가 동시에 나타났다고 원인이 하나라고 단정하지 않았습니다.</p>
+
+<div class="table-container"><table><thead><tr><th>화면의 증상</th><th>먼저 확인할 것</th><th>하지 말아야 할 해석</th></tr></thead><tbody><tr><td>검색량은 표시, 문서수는 실패</td><td>블로그 검색용 인증정보와 이용 API 설정</td><td>문서수 0개로 계산</td></tr><tr><td>401 Authentication Failed</td><td>Client ID·Secret의 짝, 누락·공백, 발급받은 서비스</td><td>도메인 이전 때문에 무조건 키가 무효라고 단정</td></tr><tr><td>429 요청 제한</td><td>어느 제공처의 응답인지, 사용량·반복 요청 상황</td><td>계속 새로고침하면 해결된다고 판단</td></tr><tr><td>관심도만 비어 있음</td><td>DataLab 이용 설정과 해당 검색어의 응답 유무</td><td>검색 수요가 없다고 확정</td></tr></tbody></table></div>
+
+<h2>검색광고 키와 검색 API 키는 역할이 다릅니다</h2>
+<p>사이트의 월 검색량 조회와 블로그 문서 검색은 같은 숫자를 가져오는 요청이 아닙니다. 설정 화면에서 각 입력란의 이름을 확인하고, 검색광고용 값을 검색 API의 Client ID·Secret 입력란에 넣지 않았는지 살펴보세요. 발급 화면에서 복사할 때 값 앞뒤의 공백이나 일부 누락도 확인합니다. 키 원문을 문의 게시판이나 채팅에 붙여넣지는 마세요.</p>
+
+<h2>다섯 단계로 범위를 좁혀 보세요</h2>
+<ol class="custom-step-list">
+  <li><strong>오류가 난 항목을 기록합니다.</strong> 검색어, 발생 시각, 검색량·문서수·관심도 중 실패한 항목을 메모합니다.</li>
+  <li><strong>‘내 API 키 설정’을 확인합니다.</strong> 본인의 발급 화면과 입력란 종류가 맞는지 직접 대조합니다.</li>
+  <li><strong>서비스 이용 설정을 확인합니다.</strong> 블로그 검색은 검색 API, 관심도는 DataLab 관련 설정을 확인합니다. 실제 발급 관리 화면의 명칭이 바뀌면 해당 공식 안내를 따릅니다.</li>
+  <li><strong>한 검색어로 확인합니다.</strong> 설정을 바로잡은 뒤 단건 조회를 먼저 합니다. 여러 탭에서 대량 요청을 동시에 반복하지 않습니다.</li>
+  <li><strong>429라면 반복 호출을 멈춥니다.</strong> 제공처의 사용량·제한 안내를 확인하고 안내된 조건에 따라 재시도합니다. 모든 제공처가 한국시간 오전 9시에 초기화되는 것은 아닙니다.</li>
+</ol>
+
+<h2>정상 조회를 확인한 범위</h2>
+<p>이후 유효한 개인 키가 저장된 브라우저의 점검에서는 ‘청년미래적금’ 단건 조회와 연관 키워드 10개 조회에서 검색량·블로그 문서수가 반환됐고, 당시 두 오류 안내는 나타나지 않았습니다. 이것은 해당 시점의 동작 확인이며 모든 사용자 환경의 인증 문제나 향후 요청 제한이 사라졌다는 보장은 아닙니다.</p>
+
+<h2>문의할 때 필요한 정보와 빼야 할 정보</h2>
+<blockquote>조회한 메뉴 / 검색어 / 발생 시각 / 오류 상태 코드 / 실패한 항목 / 단건 조회에서도 같은지 / 키를 가린 화면</blockquote>
+<p>API Secret, 검색광고 비밀키, 관리자 비밀번호, 인증 헤더가 담긴 로그는 보내지 마세요. 화면을 캡처할 때도 설정 창의 키 값이 포함되지 않도록 확인합니다.</p>
+<p><a href="/?page=tool">키워드분석기로 이동</a> · <a href="/posts/recent-30-day-blog-documents.html">최근 문서수의 하한값과 조회 실패 구분</a></p>
+
+<h2>참고</h2>
+<p><a href="https://developers.naver.com/docs/serviceapi/search/blog/blog.md" target="_blank" rel="noopener noreferrer">네이버 블로그 검색 API 안내</a> · <a href="https://developers.naver.com/docs/serviceapi/datalab/search/search.md" target="_blank" rel="noopener noreferrer">네이버 DataLab API 안내</a>. 서비스별 오류와 이용 조건은 각 제공처의 최신 안내를 기준으로 확인하세요.</p>
+
+<h2>작성·정정 안내</h2>
+<p class="text-sm text-[#64748b]">머니대외비 콘텐츠 가이드입니다. 초안 작성에 AI를 활용했으며, 실제 사이트 점검 기록과 설명용 예시를 구분해 작성했습니다. 현재 조회값은 사례의 값과 다를 수 있습니다. 오류나 변경 사항은 <a href="/p/blog-page_462.html">문의 페이지</a>로 알려주세요.</p>
+<p><a href="/guides.html">콘텐츠 가이드로 돌아가기 →</a></p>
+
+
+        <!-- 하단 목록으로 돌아가기 버튼 -->
+        <div class="pt-8 border-t border-[#f1f5f9] flex justify-between items-center mt-12">
+          <button type="button" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href='/guides.html'; }" class="inline-flex items-center gap-2 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#334155] text-sm font-bold px-5 py-2.5 rounded-lg border border-[#cbd5e1] shadow-sm transition-colors cursor-pointer">
+            ← 이전 화면으로
+          </button>
+          <a href="/guides.html" class="text-sm font-bold text-[#0284c7] hover:text-[#0369a1] transition-colors">
+            콘텐츠 가이드로 돌아가기 →
+          </a>
+        </div>
+
+      </article>
+
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="mt-12 text-center text-xs text-[#94a3b8] pb-12">
+      <p>© 2026 머니대외비 (Blog Automation Hub). All rights reserved.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

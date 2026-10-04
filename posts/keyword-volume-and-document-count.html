@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>검색량과 문서수를 함께 읽고 글감을 고르는 방법 - 블로그 콘텐츠 가이드</title>
+  
+  <!-- 한글 폰트 Pretendard CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+      min-height: 100vh;
+      line-height: 1.8;
+      letter-spacing: -0.015em;
+    }
+
+    ::selection {
+      background: rgba(2, 132, 199, 0.2);
+      color: #0f172a;
+    }
+
+    /* 표 스타일 */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 24px 0;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 14px 16px;
+      font-size: 0.92rem;
+      border-bottom: 2px solid #cbd5e1;
+      white-space: nowrap;
+    }
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 0.92rem;
+      color: #334155;
+      background-color: #ffffff;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* 인용구 */
+    blockquote {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #0284c7;
+      padding: 16px 20px;
+      border-radius: 0 10px 10px 0;
+      margin: 24px 0;
+      color: #1e293b;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* 숫자 리스트 */
+    ol.custom-step-list, .post-body ol {
+      list-style: none;
+      counter-reset: step-counter;
+      padding-left: 0;
+      margin: 20px 0;
+    }
+    ol.custom-step-list li, .post-body ol li {
+      counter-increment: step-counter;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px 18px 14px 52px;
+      margin-bottom: 12px;
+      position: relative;
+      color: #334155;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    ol.custom-step-list li::before, .post-body ol li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      background: #0284c7;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.8rem;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 불릿 리스트 */
+    .post-body ul {
+      list-style: disc;
+      padding-left: 24px;
+      margin: 20px 0;
+    }
+    .post-body ul li {
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    /* 본문 소제목 */
+    .post-body h2 {
+      color: #0f172a;
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-top: 42px;
+      margin-bottom: 16px;
+      padding-left: 14px;
+      border-left: 4px solid #0284c7;
+      letter-spacing: -0.02em;
+    }
+    .post-body h3 {
+      color: #1e293b;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    /* 링크 */
+    .post-body a {
+      color: #0284c7;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .post-body a:hover {
+      color: #0369a1;
+    }
+
+    figure {
+      margin: 24px 0;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 0 auto 12px auto;
+    }
+    figcaption {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body class="p-4 sm:p-8">
+
+  <div class="max-w-4xl mx-auto">
+    
+    <!-- 상단 내비게이션 바 -->
+    <nav class="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-[#e2e8f0]">
+      <div class="flex items-center gap-3">
+        <button type="button" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href='/guides.html'; }" class="inline-flex items-center gap-2 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#334155] text-sm font-bold px-4 py-2 rounded-lg border border-[#cbd5e1] shadow-sm transition-colors cursor-pointer">
+          ← 뒤로가기
+        </button>
+        <a href="/" class="inline-flex items-center gap-1.5 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#0284c7] text-sm font-bold px-4 py-2 rounded-lg border border-[#cbd5e1] shadow-sm transition-colors">
+          ⌂ 홈
+        </a>
+      </div>
+      <a href="/guides.html" class="text-sm font-semibold text-[#64748b] hover:text-[#0f172a] transition-colors">
+        ← 콘텐츠 가이드 목록
+      </a>
+    </nav>
+
+    <!-- 메인 아티클 카드 (깨끗한 화이트 블로그 테마) -->
+    <main class="bg-[#ffffff] border border-[#e2e8f0] rounded-2xl p-6 sm:p-12 shadow-sm">
+      
+      <!-- 날짜 및 작성자 -->
+      <div class="flex items-center gap-2 text-xs sm:text-sm text-[#64748b] mb-3">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-[#10b981]"></span>
+        <time datetime="2026-09-19">2026-09-19</time>
+        <span>·</span>
+        <span>머니대외비</span>
+      </div>
+
+      <!-- 아티클 대제목 -->
+      <h1 class="text-2xl sm:text-3.5xl font-extrabold text-[#0f172a] tracking-tight leading-snug mb-6">
+        검색량과 문서수를 함께 읽고 글감을 고르는 방법
+      </h1>
+
+      <!-- 카테고리 라벨 태그 -->
+      <div class="flex flex-wrap gap-2 mb-8 pb-6 border-b border-[#f1f5f9]">
+        <a href="/archive.html?label=%EC%BD%98%ED%85%90%EC%B8%A0%20%EA%B0%80%EC%9D%B4%EB%93%9C" class="text-xs font-bold text-[#047857] bg-[#ecfdf5] hover:bg-[#d1fae5] border border-[#a7f3d0] px-3.5 py-1.5 rounded-full transition-colors">🏷️ 콘텐츠 가이드</a>
+        <a href="/archive.html?label=%ED%82%A4%EC%9B%8C%EB%93%9C%20%EC%A1%B0%EC%82%AC" class="text-xs font-bold text-[#1d4ed8] bg-[#eff6ff] hover:bg-[#dbeafe] border border-[#bfdbfe] px-3.5 py-1.5 rounded-full transition-colors">🔍 키워드 조사</a>
+      </div>
+
+      <!-- 본문 내용 -->
+      <article class="post-body">
+        
+<p>키워드분석기에서 숫자가 큰 검색어를 찾았다고 바로 글을 쓰기 시작하면 주제가 너무 넓거나 독자의 질문을 놓치기 쉽습니다. 이 글에서는 캠핑을 주제로 후보를 좁히는 과정을 설명합니다. 아래 숫자는 계산을 보여 주기 위한 <strong>가상 예시이며 실제 조회 결과가 아닙니다.</strong></p>
+
+<h2>1. 서로 다른 숫자라는 점부터 확인하세요</h2>
+<p>이 사이트의 총 검색량은 서버가 제공한 월간 PC·모바일 검색량의 합계입니다. 블로그 문서수는 조회 시점의 검색 결과 수입니다. 한 달의 수요와 같은 기간의 신규 글 수를 비교하는 것이 아니므로, 두 값을 나눈 비율을 경쟁률이나 상위 노출 확률로 읽으면 안 됩니다. 조회일, 검색어 표기, 데이터 제공 여부를 함께 기록하세요. 값이 없거나 ‘-’이면 0으로 바꾸지 않습니다.</p>
+
+<h2>2. 후보 세 개를 같은 기준으로 비교하세요</h2>
+<div class="table-container"><table><thead><tr><th>가상 후보</th><th>월 검색량</th><th>문서수</th><th>추가 확인할 질문</th></tr></thead><tbody><tr><td>캠핑</td><td>50,000</td><td>900,000</td><td>장소·장비·예약 중 무엇을 찾는가?</td></tr><tr><td>첫 가족 캠핑 준비물</td><td>2,000</td><td>8,000</td><td>인원·계절·숙박 방식에 따라 준비물이 달라지는가?</td></tr><tr><td>비 오는 날 캠핑 철수 순서</td><td>300</td><td>1,200</td><td>안전하게 철수하는 순서를 구체적으로 설명할 수 있는가?</td></tr></tbody></table></div>
+
+<p>두 번째와 세 번째 예시의 문서수÷검색량은 모두 4입니다. 같은 비율이어도 독자의 상황과 필요한 답변은 다릅니다. 검색량이 더 큰 두 번째가 무조건 좋거나, 문서수가 작은 세 번째가 무조건 쉬운 것은 아닙니다.</p>
+
+<h2>3. 숫자 다음에는 검색 결과를 직접 읽으세요</h2>
+<ol class="custom-step-list">
+  <li>동일한 검색어로 실제 검색 결과를 엽니다. 광고, 쇼핑, 공식 안내와 일반 글의 구성을 구분합니다.</li>
+  <li>눈에 보이는 상위 결과 여러 개에서 반복되는 질문과 충분히 설명되지 않은 부분을 메모합니다. 제목만 보고 내용이 없다고 판단하지 않습니다.</li>
+  <li>내가 추가할 수 있는 사진·비교표·절차·확인 자료가 있는지 적습니다. 기존 글의 문장을 바꾸는 수준이라면 후보를 더 좁힙니다.</li>
+  <li>발행 뒤에도 안내를 유지할 수 있는지 확인합니다. 시점에 따라 달라지는 정보에는 확인일과 출처가 필요합니다.</li>
+</ol>
+
+<h2>4. 한 문장짜리 기획으로 마무리하세요</h2>
+<p>‘초보 가족 캠핑 준비물’이라는 제목 후보만 남기지 말고, ‘여름철 1박을 준비하는 가족이 대여품과 직접 챙길 물품을 구분하도록 돕는다’처럼 독자와 해결할 문제를 정합니다. 실제 경험이 없다면 사용 후기라고 쓰지 말고, 공개된 준비 지침을 비교한 안내임을 밝히세요.</p>
+<blockquote>기획 메모: 검색어 / 조회일 / 총 검색량 / 문서수 / 독자의 질문 / 기존 결과의 빈틈 / 내가 추가할 자료 / 재확인할 사항</blockquote>
+
+<h2>발행 전 확인</h2>
+<ul>
+  <li>가상 예시와 실제 조회값을 구분했는가?</li>
+  <li>누락된 값을 0건으로 해석하지 않았는가?</li>
+  <li>문서수만으로 경쟁 난이도를 확정하지 않았는가?</li>
+  <li>검색한 사람이 실제로 다음 행동을 할 수 있는가?</li>
+</ul>
+<p><a href="/#tab-keyword">키워드분석기에서 내 후보 비교하기 →</a></p>
+
+<h2>실제 조회 사례: 청년미래적금에서 숫자보다 먼저 확인한 것</h2>
+<p><strong>사례 확인일: 2026년 9월 20일.</strong> 아래 조회값은 당시 화면에서 확인한 기록입니다. 검색 결과와 도구 화면은 이후 달라질 수 있습니다.</p>
+<p>머니대외비 키워드분석기에서 ‘청년미래적금’을 단건 조회하고 연관 분석으로 다시 확인했습니다. 단건 조회에서 기록한 값은 다음과 같습니다. 이 사례는 검색 데이터를 읽는 방법이며, 금융상품의 가입 가능 여부나 혜택을 안내하는 글이 아닙니다.</p>
+
+<div class="table-container"><table><thead><tr><th>측정 항목</th><th>확인값</th><th>해석할 때 주의할 점</th></tr></thead><tbody><tr><td>월 검색량 합계</td><td>381,200</td><td>일별 검색 횟수나 사람 수가 아님</td></tr><tr><td>PC / 모바일</td><td>67,900 / 313,300</td><td>동일 조회 결과의 기기별 값</td></tr><tr><td>블로그 문서수</td><td>134,049</td><td>조회 시점에 API가 반환한 전체 검색 결과 수</td></tr><tr><td>최근 30일 확인 문서</td><td class="font-bold text-[#0284c7]">997건 이상</td><td>최신 결과 최대 1,000개를 확인한 하한값</td></tr></tbody></table></div>
+
+<p>문서수÷월 검색량은 약 0.352입니다. 이 값이 1보다 작다고 상위 노출이 쉽다고 결론 내리지는 않았습니다. 하나는 누적 검색 결과 수이고 다른 하나는 월간 검색량이어서 집계 기간이 다르기 때문입니다. ‘경쟁자가 0.352명’이라는 의미도 아닙니다.</p>
+
+<h3>이 결과로 실제 기획을 좁히는 과정</h3>
+<ol class="custom-step-list">
+  <li>독자가 상품 소개, 신청 일정, 조건 중 무엇을 확인하려는지 먼저 나눕니다.</li>
+  <li>신청 방법 글을 쓰려면 공식 운영기관의 당해 연도 안내와 접수 상태를 별도로 확인합니다. 검색 결과에 제목이 있다고 신청이 시작됐다고 판단하지 않습니다.</li>
+  <li>공고를 확인하지 못했다면 금액·대상 안내의 발행을 보류합니다. 대신 공식 안내에서 비교할 항목을 정리하는 기획으로 바꿀 수 있습니다.</li>
+  <li>발행 후보에는 ‘공식 자료에서 확인한 내용’과 ‘아직 확인해야 할 질문’을 따로 적습니다.</li>
+</ol>
+<p>이 사례에서 확인한 것은 관심 규모와 검색 결과의 양입니다. 실제 경쟁 글의 품질이나 내 글의 유입 성과까지 측정한 것은 아닙니다. <a href="/posts/recent-30-day-blog-documents.html">최근 30일 997건 이상을 해석하는 방법</a>도 함께 확인하세요.</p>
+
+<h2>참고와 정정 안내</h2>
+<p><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=ko" target="_blank" rel="noopener noreferrer">유용하고 신뢰할 수 있는 콘텐츠에 대한 Google 안내</a></p>
+<p class="text-sm text-[#64748b]">이 글은 머니대외비 도구의 활용 안내입니다. 초안 작성에 AI를 활용했으며 예시와 실제 측정값을 구분했습니다. 내용에 오류가 있거나 화면이 달라졌다면 <a href="/p/blog-page_462.html">문의 페이지</a>로 알려주세요.</p>
+<p><a href="/guides.html">다른 콘텐츠 가이드 읽기 →</a></p>
+
+
+        <!-- 하단 목록으로 돌아가기 버튼 -->
+        <div class="pt-8 border-t border-[#f1f5f9] flex justify-between items-center mt-12">
+          <button type="button" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href='/guides.html'; }" class="inline-flex items-center gap-2 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#334155] text-sm font-bold px-5 py-2.5 rounded-lg border border-[#cbd5e1] shadow-sm transition-colors cursor-pointer">
+            ← 이전 화면으로
+          </button>
+          <a href="/guides.html" class="text-sm font-bold text-[#0284c7] hover:text-[#0369a1] transition-colors">
+            콘텐츠 가이드로 돌아가기 →
+          </a>
+        </div>
+
+      </article>
+
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="mt-12 text-center text-xs text-[#94a3b8] pb-12">
+      <p>© 2026 머니대외비 (Blog Automation Hub). All rights reserved.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

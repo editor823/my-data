@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>발행 버튼을 누르기 전: 본문·링크·모바일 화면 점검표 - 블로그 콘텐츠 가이드</title>
+  
+  <!-- 한글 폰트 Pretendard CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+      min-height: 100vh;
+      line-height: 1.8;
+      letter-spacing: -0.015em;
+    }
+
+    ::selection {
+      background: rgba(2, 132, 199, 0.2);
+      color: #0f172a;
+    }
+
+    /* 표 스타일 */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 24px 0;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 14px 16px;
+      font-size: 0.92rem;
+      border-bottom: 2px solid #cbd5e1;
+      white-space: nowrap;
+    }
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 0.92rem;
+      color: #334155;
+      background-color: #ffffff;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* 인용구 */
+    blockquote {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #0284c7;
+      padding: 16px 20px;
+      border-radius: 0 10px 10px 0;
+      margin: 24px 0;
+      color: #1e293b;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* 숫자 리스트 */
+    ol.custom-step-list, .post-body ol {
+      list-style: none;
+      counter-reset: step-counter;
+      padding-left: 0;
+      margin: 20px 0;
+    }
+    ol.custom-step-list li, .post-body ol li {
+      counter-increment: step-counter;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px 18px 14px 52px;
+      margin-bottom: 12px;
+      position: relative;
+      color: #334155;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    ol.custom-step-list li::before, .post-body ol li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      background: #0284c7;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.8rem;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 불릿 리스트 */
+    .post-body ul {
+      list-style: disc;
+      padding-left: 24px;
+      margin: 20px 0;
+    }
+    .post-body ul li {
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    /* 본문 소제목 */
+    .post-body h2 {
+      color: #0f172a;
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-top: 42px;
+      margin-bottom: 16px;
+      padding-left: 14px;
+      border-left: 4px solid #0284c7;
+      letter-spacing: -0.02em;
+    }
+    .post-body h3 {
+      color: #1e293b;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    /* 링크 */
+    .post-body a {
+      color: #0284c7;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .post-body a:hover {
+      color: #0369a1;
+    }
+
+    figure {
+      margin: 24px 0;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 0 auto 12px auto;
+    }
+    figcaption {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body class="p-4 sm:p-8">
+
+  <div class="max-w-4xl mx-auto">
+    
+    <!-- 상단 내비게이션 바 -->
+    <nav class="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-[#e2e8f0]">
+      <div class="flex items-center gap-3">
+        <button type="button" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href='/guides.html'; }" class="inline-flex items-center gap-2 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#334155] text-sm font-bold px-4 py-2 rounded-lg border border-[#cbd5e1] shadow-sm transition-colors cursor-pointer">
+          ← 뒤로가기
+        </button>
+        <a href="/" class="inline-flex items-center gap-1.5 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#0284c7] text-sm font-bold px-4 py-2 rounded-lg border border-[#cbd5e1] shadow-sm transition-colors">
+          ⌂ 홈
+        </a>
+      </div>
+      <a href="/guides.html" class="text-sm font-semibold text-[#64748b] hover:text-[#0f172a] transition-colors">
+        ← 콘텐츠 가이드 목록
+      </a>
+    </nav>
+
+    <!-- 메인 아티클 카드 (깨끗한 화이트 블로그 테마) -->
+    <main class="bg-[#ffffff] border border-[#e2e8f0] rounded-2xl p-6 sm:p-12 shadow-sm">
+      
+      <!-- 날짜 및 작성자 -->
+      <div class="flex items-center gap-2 text-xs sm:text-sm text-[#64748b] mb-3">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-[#10b981]"></span>
+        <time datetime="2026-09-21">2026-09-21</time>
+        <span>·</span>
+        <span>머니대외비</span>
+      </div>
+
+      <!-- 아티클 대제목 -->
+      <h1 class="text-2xl sm:text-3.5xl font-extrabold text-[#0f172a] tracking-tight leading-snug mb-6">
+        발행 버튼을 누르기 전: 본문·링크·모바일 화면 점검표
+      </h1>
+
+      <!-- 카테고리 라벨 태그 -->
+      <div class="flex flex-wrap gap-2 mb-8 pb-6 border-b border-[#f1f5f9]">
+        <a href="/archive.html?label=%EC%BD%98%ED%85%90%EC%B8%A0%20%EA%B0%80%EC%9D%B4%EB%93%9C" class="text-xs font-bold text-[#047857] bg-[#ecfdf5] hover:bg-[#d1fae5] border border-[#a7f3d0] px-3.5 py-1.5 rounded-full transition-colors">🏷️ 콘텐츠 가이드</a>
+        <a href="/archive.html?label=AI%20%EA%B8%80%EC%93%B0%EA%B8%B0" class="text-xs font-bold text-[#1d4ed8] bg-[#eff6ff] hover:bg-[#dbeafe] border border-[#bfdbfe] px-3.5 py-1.5 rounded-full transition-colors">🔍 AI 글쓰기</a>
+      </div>
+
+      <!-- 본문 내용 -->
+      <article class="post-body">
+        
+<p>맞춤법을 고쳤다고 글이 완성되지는 않습니다. 수치가 맞아도 표 제목이 틀리면 오해를 만들고, 자료가 좋아도 모바일에서 표가 잘리면 읽기 어렵습니다. 초안을 완성한 뒤 내용 확인과 공개 화면 확인을 나눠 점검하세요.</p>
+<h2>1. 핵심 주장과 근거가 같은 범위인지 확인합니다</h2>
+<p>먼저 글에서 가장 중요한 문장을 한 줄로 적습니다. 그 문장을 뒷받침하는 자료가 실제로 무엇을 측정했는지 비교하세요. ‘확인된 최근 글이 997건 이상’이라는 자료를 ‘한 달에 발행된 글은 997개’로 바꾸면 조사 범위의 한계가 사라집니다.</p>
+
+<div class="table-container"><table><thead><tr><th>자료</th><th>발행 전 수정할 표현</th><th>범위를 지킨 표현</th></tr></thead><tbody><tr><td>최신 결과 조사에서 최근 글 997건 이상</td><td>최근 한 달 발행량은 997개</td><td>조회 범위에서 최근 글 최소 997건 확인</td></tr><tr><td>그림 한 장의 WebP 용량 감소</td><td>WebP는 항상 더 작고 선명함</td><td>이 시험 이미지에서는 WebP 파일이 더 작았음</td></tr><tr><td>상대 관심도 최고값 100</td><td>하루 검색량 100회</td><td>같은 조회 조건에서 가장 높은 상대 관심도 100</td></tr></tbody></table></div>
+
+<p>이 표의 자료는 2026년 9월 20일 사이트 점검 사례입니다. 수정할 표현은 오류를 설명하기 위한 문장 예시이며 모든 문장이 실제 게시됐었다는 뜻은 아닙니다.</p>
+
+<h2>2. 링크를 독자의 입장에서 엽니다</h2>
+<ul>
+  <li>‘공식 안내’ 링크가 기관 첫 화면이 아니라 해당 주장과 관련된 문서로 연결되는지 확인합니다.</li>
+  <li>로그인해야만 볼 수 있는 운영자 화면을 일반 독자용 근거로 넣지 않습니다.</li>
+  <li>같이 읽을 글의 제목과 링크 목적지가 일치하는지 확인합니다.</li>
+  <li>이전 사이트의 주소를 붙였다면 실제 새 글 또는 유지된 원문으로 연결되는지 엽니다.</li>
+</ul>
+<p>링크가 열리는 것과 근거가 맞는 것은 별개입니다. 자료의 적용 연도와 본문 문장을 대조하고, 관련 내용이 없으면 다른 근거를 찾거나 주장을 줄입니다.</p>
+
+<h2>3. 모바일에서는 표와 버튼부터 확인합니다</h2>
+<p>휴대폰 너비에서 제목, 본문, 표, 이미지, 다음 글 링크를 차례로 확인합니다. 표가 넓다면 가로로 움직일 수 있어야 하며 첫 열과 마지막 열의 내용을 읽을 수 있어야 합니다. 표 전체가 좁아져 글씨를 알아보기 어려우면 열 수를 줄이거나 항목을 나눕니다.</p>
+<p>이미지에 적힌 중요한 수치는 본문 표에도 남깁니다. 사진을 못 보거나 확대가 어려운 독자도 결과를 알 수 있습니다. 대체 텍스트에는 이미지의 역할을 설명하고 키워드를 반복해서 채우지 않습니다.</p>
+
+<h2>4. 공개 상태와 날짜를 마지막에 확인합니다</h2>
+<ol class="custom-step-list">
+  <li>제목·요약·분류가 글 내용과 맞는지 확인합니다.</li>
+  <li>발행일과 실제 측정일을 구분합니다. 이전 측정값을 오늘의 값처럼 소개하지 않습니다.</li>
+  <li>미리보기뿐 아니라 공개 주소를 열어 본문이 보이는지 확인합니다.</li>
+  <li>콘텐츠 가이드 목록에서 새 글을 찾을 수 있는지 확인합니다.</li>
+  <li>큰 내용을 수정했다면 무엇을 고쳤는지 짧게 남깁니다.</li>
+</ol>
+<p>공개 주소가 정상적으로 열려도 검색엔진 색인과 광고 승인은 별도 심사입니다. 글을 몇 편 채웠다는 이유만으로 결과를 보장할 수 없습니다.</p>
+
+<h2>저장해 쓰는 최종 확인표</h2>
+<blockquote>□ 확인하지 않은 경험이나 숫자가 없다<br>□ 사례와 실측값의 날짜·범위가 적혀 있다<br>□ 제목이 본문에서 답하는 질문과 같다<br>□ 출처 링크를 직접 열어 확인했다<br>□ 표·이미지의 핵심 내용을 모바일에서도 읽을 수 있다<br>□ 내부 링크가 올바른 글로 이어진다<br>□ 공개 주소와 목록에서 글이 보인다<br>□ 수정할 때 확인할 자료와 날짜를 기록했다</blockquote>
+<p><a href="/posts/keyword-prompt-worksheet.html">기획 단계의 6칸 작업표</a>와 이어서 사용하면 자료 준비 → 초안 → 검토 → 공개 확인을 한 흐름으로 관리할 수 있습니다.</p>
+
+<h2>참고</h2>
+<p><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=ko" target="_blank" rel="noopener noreferrer">Google의 사용자 중심 콘텐츠 안내</a> · <a href="https://developers.google.com/search/docs/appearance/google-images?hl=ko" target="_blank" rel="noopener noreferrer">Google 이미지 권장사항</a>. 이 점검표는 실제 편집 작업을 돕기 위한 운영 양식이며 검색 노출 또는 애드센스 승인을 보장하는 기준표가 아닙니다.</p>
+
+<h2>작성·정정 안내</h2>
+<p class="text-sm text-[#64748b]">머니대외비 콘텐츠 가이드입니다. 초안 작성에 AI를 활용했으며, 실제 사이트 점검 기록과 설명용 예시를 구분해 작성했습니다. 현재 조회값은 사례의 값과 다를 수 있습니다. 오류나 변경 사항은 <a href="/p/blog-page_462.html">문의 페이지</a>로 알려주세요.</p>
+<p><a href="/guides.html">콘텐츠 가이드로 돌아가기 →</a></p>
+
+
+        <!-- 하단 목록으로 돌아가기 버튼 -->
+        <div class="pt-8 border-t border-[#f1f5f9] flex justify-between items-center mt-12">
+          <button type="button" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href='/guides.html'; }" class="inline-flex items-center gap-2 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#334155] text-sm font-bold px-5 py-2.5 rounded-lg border border-[#cbd5e1] shadow-sm transition-colors cursor-pointer">
+            ← 이전 화면으로
+          </button>
+          <a href="/guides.html" class="text-sm font-bold text-[#0284c7] hover:text-[#0369a1] transition-colors">
+            콘텐츠 가이드로 돌아가기 →
+          </a>
+        </div>
+
+      </article>
+
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="mt-12 text-center text-xs text-[#94a3b8] pb-12">
+      <p>© 2026 머니대외비 (Blog Automation Hub). All rights reserved.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
