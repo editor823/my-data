@@ -13,7 +13,7 @@
 
   <!-- 스타일시트 로드 -->
   <link rel="stylesheet" href="css/style.css?v=20261002_fix_table_light">
-  <link rel="stylesheet" href="css/components.css?v=dark_beige_v17">
+  <link rel="stylesheet" href="css/components.css?v=20261004_restore_light_card">
 </head>
 <body>
 
@@ -33,7 +33,7 @@
         <li><button class="nav-btn" data-tab="external">외부유입글생성</button></li>
         <li><button class="nav-btn" data-tab="converter">이미지변환기</button></li>
         <li><button class="nav-btn" data-tab="imggen">🎨 AI 이미지 생성기</button></li>
-        <li><a href="https://my-data-stock.pages.dev" target="_blank" rel="noopener noreferrer" class="nav-btn" style="color: #d4a373; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center;">📈 주식분석센터 ↗</a></li>
+        <li><a href="https://my-data-stock.pages.dev" target="_blank" rel="noopener noreferrer" class="nav-btn" style="color: #0284c7; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center;">📈 주식분석센터 ↗</a></li>
         <li><button class="nav-btn" data-tab="guide">글나침반 안내</button></li>
       </ul>
 
@@ -61,7 +61,7 @@
           총 검색량 500회 이상, 블로그 문서 100개 미만 황금키워드 TOP 10 확인!
         </p>
         <div>
-          <button onclick="switchTab('keyword')" class="btn btn-primary" style="background: #3e312b; font-size: 1.05rem; font-weight: 800; padding: 14px 32px; border-radius: 12px; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35); border: none; cursor: pointer;">
+          <button onclick="switchTab('keyword')" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981, #059669); font-size: 1.05rem; font-weight: 800; padding: 14px 32px; border-radius: 12px; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35); border: none; cursor: pointer;">
             첫 키워드 분석하기 ➔
           </button>
         </div>
@@ -298,7 +298,7 @@
           </h3>
           <div style="display: flex; gap: 10px; flex-wrap: wrap;">
             <input type="text" id="singleFastInput" class="form-input" style="flex: 1; min-width: 260px;" placeholder="키워드 1개 입력 (예: 취사병)">
-            <button id="singleFastBtn" class="btn btn-primary" style="background: #3e312b; min-width: 140px;">
+            <button id="singleFastBtn" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981, #059669); min-width: 140px;">
               단건 빠른 분석
             </button>
           </div>
@@ -694,14 +694,14 @@
       <div class="modal-box" style="max-width: 480px; background: #ffffff; color: #1e293b; border-radius: 16px; padding: 28px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45); border: none;">
         <!-- 상단 헤더 -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <h3 style="font-size: 1.25rem; font-weight: 800; color: #f5ebe0; margin: 0; display: flex; align-items: center; gap: 8px;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0; display: flex; align-items: center; gap: 8px;">
             <span>🔑</span> 유료 발급키 설정
           </h3>
           <button type="button" onclick="closeApiModal('paid')" style="background: none; border: none; color: #64748b; font-size: 1.5rem; cursor: pointer; padding: 0; line-height: 1;">✕</button>
         </div>
 
         <p style="font-size: 0.85rem; color: #475569; margin: 0 0 20px 0; line-height: 1.6;">
-          유료 발급키 하나로 <strong style="color: #d4a373;">단건·연관 키워드 분석</strong>과 <strong style="color: #dc2626;">엑셀 대량 분석</strong>을 함께 이용할 수 있습니다. 브라우저에만 저장되며 언제든 변경·삭제할 수 있습니다.
+          유료 발급키 하나로 <strong style="color: #0284c7;">단건·연관 키워드 분석</strong>과 <strong style="color: #dc2626;">엑셀 대량 분석</strong>을 함께 이용할 수 있습니다. 브라우저에만 저장되며 언제든 변경·삭제할 수 있습니다.
         </p>
 
         <!-- 16자리 공통 유료 발급키 입력창 -->
@@ -720,7 +720,7 @@
           <button type="button" onclick="clearPaidKey()" style="background: #ffffff; border: 1px solid #cbd5e1; color: #334155; padding: 8px 18px; border-radius: 6px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: 0.2s;">
             삭제
           </button>
-          <button type="button" onclick="savePaidKey()" style="background: #1a1412; border: 1px solid #4a3b34; color: #f5ebe0; padding: 8px 20px; border-radius: 6px; font-size: 0.9rem; font-weight: 800; cursor: pointer; transition: 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+          <button type="button" onclick="savePaidKey()" style="background: #ffffff; border: 1px solid #cbd5e1; color: #0f172a; padding: 8px 20px; border-radius: 6px; font-size: 0.9rem; font-weight: 800; cursor: pointer; transition: 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
             저장하기
           </button>
         </div>
@@ -1974,7 +1974,7 @@
                   <tbody>
                     <tr style="border-bottom: 1px solid #e2e8f0;">
                       <td style="padding: 8px 6px; font-weight: 700; color: #2563eb;">3.8 Flash</td>
-                      <td style="padding: 8px 6px; color: #d4a373; font-weight: 700;">무료 지원*</td>
+                      <td style="padding: 8px 6px; color: #059669; font-weight: 700;">무료 지원*</td>
                       <td style="padding: 8px 6px; color: #334155;">$0.15 / $0.60</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #e2e8f0;">
@@ -1989,17 +1989,17 @@
                     </tr>
                     <tr style="border-bottom: 1px solid #e2e8f0;">
                       <td style="padding: 8px 6px; font-weight: 700; color: #1e293b;">3.5 Flash</td>
-                      <td style="padding: 8px 6px; color: #d4a373; font-weight: 700;">가능*</td>
+                      <td style="padding: 8px 6px; color: #059669; font-weight: 700;">가능*</td>
                       <td style="padding: 8px 6px; color: #334155;">$1.50 / $9.00</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #e2e8f0;">
                       <td style="padding: 8px 6px; font-weight: 700; color: #1e293b;">3.5 Flash-Lite</td>
-                      <td style="padding: 8px 6px; color: #d4a373; font-weight: 700;">가능*</td>
+                      <td style="padding: 8px 6px; color: #059669; font-weight: 700;">가능*</td>
                       <td style="padding: 8px 6px; color: #334155;">$0.30 / $2.50</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #e2e8f0;">
                       <td style="padding: 8px 6px; font-weight: 700; color: #1e293b;">3.1 Flash-Lite</td>
-                      <td style="padding: 8px 6px; color: #d4a373; font-weight: 700;">가능*</td>
+                      <td style="padding: 8px 6px; color: #059669; font-weight: 700;">가능*</td>
                       <td style="padding: 8px 6px; color: #475569;">AI Studio 확인</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #e2e8f0;">

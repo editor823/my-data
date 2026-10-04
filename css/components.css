@@ -1,4 +1,4 @@
-/* ===== 버튼 (Buttons) ===== */
+﻿/* ===== 踰꾪듉 (Buttons) ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -48,7 +48,7 @@
   border-radius: var(--radius-sm);
 }
 
-/* ===== 입력 폼 (Inputs & Textareas) ===== */
+/* ===== ?낅젰 ??(Inputs & Textareas) ===== */
 .form-group {
   margin-bottom: 20px;
 }
@@ -71,7 +71,7 @@
   border-radius: var(--radius-md);
   color: #0f172a;
   font-family: inherit;
-  font-size: 15.5px; /* 입력 폰트 가독성 상향 */
+  font-size: 15.5px; /* ?낅젰 ?고듃 媛?낆꽦 ?곹뼢 */
   line-height: 1.5;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -89,7 +89,7 @@
   resize: vertical;
 }
 
-/* ===== 팝업 모달 (Modals) ===== */
+/* ===== ?앹뾽 紐⑤떖 (Modals) ===== */
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -122,7 +122,7 @@
   to { opacity: 1; transform: scale(1); }
 }
 
-/* ===== 프롬프트 카드 전용 스타일 ===== */
+/* ===== ?꾨＼?꾪듃 移대뱶 ?꾩슜 ?ㅽ???===== */
 .prompt-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -159,7 +159,7 @@
   margin-bottom: 16px;
 }
 
-/* ===== 이미지 업로더 / 변환기 영역 ===== */
+/* ===== ?대?吏 ?낅줈??/ 蹂?섍린 ?곸뿭 ===== */
 .dropzone {
   border: 2px dashed rgba(16, 185, 129, 0.4);
   background: rgba(16, 185, 129, 0.03);
@@ -214,7 +214,7 @@
   justify-content: space-between;
 }
 
-/* ===== 키워드 분석기 데이터 테이블 (Data Table) ===== */
+/* ===== ?ㅼ썙??遺꾩꽍湲??곗씠???뚯씠釉?(Data Table) ===== */
 .table-container {
   overflow-x: auto;
   border-radius: var(--radius-md);
@@ -257,12 +257,12 @@
   border-bottom: none;
 }
 
-/* 경쟁도 뱃지 */
+/* 寃쎌웳??諭껋? */
 .badge-comp {
   display: inline-block;
   padding: 5px 12px;
   border-radius: var(--radius-sm);
-  font-size: 0.9rem; /* 약 14.5px */
+  font-size: 0.9rem; /* ??14.5px */
   font-weight: 700;
 }
 
@@ -284,7 +284,7 @@
   border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
-/* 실시간 트렌드 태그 칩 */
+/* ?ㅼ떆媛??몃젋???쒓렇 移?*/
 .trend-chips {
   display: flex;
   flex-wrap: wrap;
@@ -319,7 +319,7 @@
   font-size: 0.85rem;
 }
 
-/* ===== 5대 포털 실시간 급상승어 섹션 스타일 ===== */
+/* ===== 5? ?ы꽭 ?ㅼ떆媛?湲됱긽?뱀뼱 ?뱀뀡 ?ㅽ???===== */
 .trending-section {
   margin-top: 48px;
 }
@@ -517,7 +517,7 @@
   to { transform: rotate(360deg); }
 }
 
-/* ===== 최신 연예뉴스 카드 스타일 ===== */
+/* ===== 理쒖떊 ?곗삁?댁뒪 移대뱶 ?ㅽ???===== */
 .ent-news-item {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -564,7 +564,7 @@
   color: var(--primary);
 }
 
-/* ===== 단건 분석 요약 스탯 카드 반응형 ===== */
+/* ===== ?④굔 遺꾩꽍 ?붿빟 ?ㅽ꺈 移대뱶 諛섏쓳??===== */
 @media (max-width: 992px) {
   .kw-stat-cards {
     grid-template-columns: repeat(3, 1fr) !important;
@@ -576,7 +576,7 @@
   }
 }
 
-/* ===== 애드센스&황금키워드 스켈레톤 로딩 및 AI 가이드 스타일 ===== */
+/* ===== ?좊뱶?쇱뒪&?⑷툑?ㅼ썙???ㅼ펷?덊넠 濡쒕뵫 諛?AI 媛?대뱶 ?ㅽ???===== */
 .kc-skeleton-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-color);
@@ -628,7 +628,7 @@
   border-color: #c084fc;
 }
 
-/* ===== 키워드 분석 체급 칩 및 배지 스타일 ===== */
+/* ===== ?ㅼ썙??遺꾩꽍 泥닿툒 移?諛?諛곗? ?ㅽ???===== */
 .kw-tier-chip {
   padding: 5px 12px;
   border-radius: 20px;
@@ -699,7 +699,7 @@
   color: #cbd5e1;
 }
 
-/* ===== 맞춤형 챗봇 3x3 카드 그리드 스타일 ===== */
+/* ===== 留욎땄??梨쀫큸 3x3 移대뱶 洹몃━???ㅽ???===== */
 .custom-bots-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -748,7 +748,7 @@
   border-radius: 6px;
 }
 
-/* ===== 애드센스 고단가 키워드 2단 레이아웃 ===== */
+/* ===== ?좊뱶?쇱뒪 怨좊떒媛 ?ㅼ썙??2???덉씠?꾩썐 ===== */
 .adsense-dual-grid {
   display: grid;
   grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
@@ -846,7 +846,7 @@
   border-color: var(--primary);
 }
 
-/* 토스트 알림창 (클릭 시 복사되었습니다 안내 메시지) */
+/* ?좎뒪???뚮┝李?(?대┃ ??蹂듭궗?섏뿀?듬땲???덈궡 硫붿떆吏) */
 
 .toast {
   position: fixed;
@@ -875,10 +875,10 @@
 }
 
 /* ==========================================================================
-   외부 유입글 생성기 (머니대외비 1:1 전용 스타일)
+   ?몃? ?좎엯湲 ?앹꽦湲?(癒몃땲??몃퉬 1:1 ?꾩슜 ?ㅽ???
    ========================================================================== */
 
-/* 1. 상단 BYOK 헤더 박스 */
+/* 1. ?곷떒 BYOK ?ㅻ뜑 諛뺤뒪 */
 .ext-hero-box {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-color);
@@ -916,7 +916,7 @@
   margin: 0;
 }
 
-/* 2. 본문 2컬럼 레이아웃 (좌우 최적 균형 1.2fr / 1fr) */
+/* 2. 蹂몃Ц 2而щ읆 ?덉씠?꾩썐 (醫뚯슦 理쒖쟻 洹좏삎 1.2fr / 1fr) */
 .ext-two-columns {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -930,7 +930,7 @@
   }
 }
 
-/* 개별 카드 */
+/* 媛쒕퀎 移대뱶 */
 .ext-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -961,7 +961,7 @@
   margin: 0;
 }
 
-/* 상단 상태 알약 (0개 채널 · 0건 생성) */
+/* ?곷떒 ?곹깭 ?뚯빟 (0媛?梨꾨꼸 쨌 0嫄??앹꽦) */
 .ext-status-pill {
   background: rgba(99, 102, 241, 0.12);
   border: 1px solid rgba(99, 102, 241, 0.3);
@@ -973,7 +973,7 @@
   white-space: nowrap;
 }
 
-/* 2열 나란한 폼 */
+/* 2???섎?????*/
 .ext-form-row-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1052,7 +1052,7 @@
   margin-top: 6px;
 }
 
-/* 채널 선택 그리드 칩 */
+/* 梨꾨꼸 ?좏깮 洹몃━??移?*/
 .ext-channel-select-section {
   margin-top: 18px;
   padding-top: 16px;
@@ -1096,13 +1096,13 @@
   }
 }
 
-/* 8개 박스 동일 사이즈 & 소프트 웜 라이트 스타일 */
+/* 8媛?諛뺤뒪 ?숈씪 ?ъ씠利?& ?뚰봽?????쇱씠???ㅽ???*/
 .ext-channel-card {
   background: #ffffff;
   border: 1.5px solid #cbd5e1;
   border-radius: 12px;
   padding: 14px;
-  min-height: 104px; /* 8개 모두 정확히 동일한 높이 유지 */
+  min-height: 104px; /* 8媛?紐⑤몢 ?뺥솗???숈씪???믪씠 ?좎? */
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -1119,7 +1119,7 @@
 
 .ext-channel-card.selected {
   border-color: #3b82f6;
-  background: #eff6ff; /* 선택 시 소프트 블루 틴트 화이트 */
+  background: #eff6ff; /* ?좏깮 ???뚰봽??釉붾（ ?댄듃 ?붿씠??*/
   box-shadow: 0 0 0 1px #3b82f6, 0 2px 8px rgba(59, 130, 246, 0.15);
 }
 
@@ -1137,7 +1137,7 @@
   gap: 8px;
   cursor: pointer;
   flex: 1;
-  min-width: 0; /* flex 자식 줄바꿈 방지 및 overflow 보호 */
+  min-width: 0; /* flex ?먯떇 以꾨컮轅?諛⑹? 諛?overflow 蹂댄샇 */
 }
 
 .ext-channel-checkbox {
@@ -1149,7 +1149,7 @@
   flex-shrink: 0;
 }
 
-/* 채널별 아이콘 스타일 */
+/* 梨꾨꼸蹂??꾩씠肄??ㅽ???*/
 .ext-ch-icon {
   display: inline-flex;
   align-items: center;
@@ -1190,9 +1190,9 @@
 .ext-ch-name {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #1e293b; /* 짙은 차콜 텍스트 */
+  color: #1e293b; /* 吏숈? 李⑥퐳 ?띿뒪??*/
   line-height: 1.2;
-  white-space: nowrap; /* 글자가 세로로 깨지지 않고 가로 정렬 유지 */
+  white-space: nowrap; /* 湲?먭? ?몃줈濡?源⑥?吏 ?딄퀬 媛濡??뺣젹 ?좎? */
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -1236,7 +1236,7 @@
   white-space: nowrap;
 }
 
-/* 오른쪽 컬럼 요소들 */
+/* ?ㅻⅨ履?而щ읆 ?붿냼??*/
 .ext-btn-api-guide {
   background: rgba(59, 130, 246, 0.12);
   border: 1px solid rgba(59, 130, 246, 0.4);
@@ -1320,7 +1320,7 @@
   line-height: 1.4;
 }
 
-/* 아코디언 */
+/* ?꾩퐫?붿뼵 */
 .ext-details-box {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-color);
@@ -1350,7 +1350,7 @@
   border-top: 1px solid var(--border-color);
 }
 
-/* 안내 박스 2종 (경고/정보) */
+/* ?덈궡 諛뺤뒪 2醫?(寃쎄퀬/?뺣낫) */
 .ext-warning-box {
   background: rgba(245, 158, 11, 0.08);
   border: 1px solid rgba(245, 158, 11, 0.35);
@@ -1393,7 +1393,7 @@
   line-height: 1.55;
 }
 
-/* 메인 원고 생성 버튼 (화면 하단 시선 강탈 파란색) */
+/* 硫붿씤 ?먭퀬 ?앹꽦 踰꾪듉 (?붾㈃ ?섎떒 ?쒖꽑 媛뺥깉 ?뚮??? */
 .ext-btn-generate {
   width: 100%;
   padding: 16px 20px;
@@ -1421,7 +1421,7 @@
   transform: none;
 }
 
-/* 3. 생성 결과 뷰어 스타일 */
+/* 3. ?앹꽦 寃곌낵 酉곗뼱 ?ㅽ???*/
 .ext-results-container {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -1503,7 +1503,7 @@
 }
 
 /* ==========================================================================
-   이미지 일괄 변환기 (머니대외비 1:1 전용 스타일)
+   ?대?吏 ?쇨큵 蹂?섍린 (癒몃땲??몃퉬 1:1 ?꾩슜 ?ㅽ???
    ========================================================================== */
 
 .conv-container-card {
@@ -1516,7 +1516,7 @@
   box-shadow: var(--shadow-card);
 }
 
-/* 1. 헤더 */
+/* 1. ?ㅻ뜑 */
 .conv-header-area {
   text-align: center;
   margin-bottom: 24px;
@@ -1542,7 +1542,7 @@
   margin: 0;
 }
 
-/* 2. 드롭존 점선 박스 */
+/* 2. ?쒕∼議??먯꽑 諛뺤뒪 */
 .conv-dropzone {
   border: 2px dashed rgba(99, 102, 241, 0.4);
   border-radius: 14px;
@@ -1578,7 +1578,7 @@
   color: var(--text-sub);
 }
 
-/* 3. 옵션 4열 그리드 */
+/* 3. ?듭뀡 4??洹몃━??*/
 .conv-options-row {
   display: grid;
   grid-template-columns: 1.2fr 1.6fr 1fr 1fr;
@@ -1656,7 +1656,7 @@
   height: 6px;
 }
 
-/* 4. 메타데이터 제거 배너 (초록색 띠) */
+/* 4. 硫뷀??곗씠???쒓굅 諛곕꼫 (珥덈줉???? */
 .conv-meta-strip {
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.25);
@@ -1698,7 +1698,7 @@
   color: #34d399;
 }
 
-/* 5. EXIF 가상 삽입 박스 (하늘색 박스) */
+/* 5. EXIF 媛???쎌엯 諛뺤뒪 (?섎뒛??諛뺤뒪) */
 .conv-exif-box {
   background: rgba(59, 130, 246, 0.05);
   border: 1px solid rgba(59, 130, 246, 0.2);
@@ -1737,7 +1737,7 @@
   cursor: pointer;
 }
 
-/* 6. 하단 버튼 바 */
+/* 6. ?섎떒 踰꾪듉 諛?*/
 .conv-btn-row {
   display: flex;
   gap: 10px;
@@ -1779,7 +1779,7 @@
   cursor: not-allowed;
 }
 
-/* 7. 파일 목록 */
+/* 7. ?뚯씪 紐⑸줉 */
 .conv-file-list-wrap {
   border-top: 1px solid var(--border-color);
   padding-top: 16px;
@@ -1854,10 +1854,10 @@
 }
 
 /* ==========================================================================
-   키워드 센터 (머니대외비 ?page=keywordcenter 1:1 전용 스타일)
+   ?ㅼ썙???쇳꽣 (癒몃땲??몃퉬 ?page=keywordcenter 1:1 ?꾩슜 ?ㅽ???
    ========================================================================== */
 
-/* 1. 상단 메인 헤더 박스 */
+/* 1. ?곷떒 硫붿씤 ?ㅻ뜑 諛뺤뒪 */
 .kc-header-box {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-color);
@@ -1924,7 +1924,7 @@
   transform: translateY(-1px);
 }
 
-/* 업데이트 주기 안내 박스 (보라색 원) */
+/* ?낅뜲?댄듃 二쇨린 ?덈궡 諛뺤뒪 (蹂대씪???? */
 .kc-update-info-card {
   background: rgba(99, 102, 241, 0.05);
   border: 1px solid rgba(99, 102, 241, 0.2);
@@ -1972,7 +1972,7 @@
   line-height: 1.4;
 }
 
-/* 2. 상단 8개 카테고리 알약 탭 바 (스크롤바 없이 깔끔한 2줄 배치) */
+/* 2. ?곷떒 8媛?移댄뀒怨좊━ ?뚯빟 ??諛?(?ㅽ겕濡ㅻ컮 ?놁씠 源붾걫??2以?諛곗튂) */
 .kc-pill-tabs-bar {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2024,7 +2024,7 @@
   box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
 }
 
-/* 3. 주제 카테고리별 보기 서브 바 */
+/* 3. 二쇱젣 移댄뀒怨좊━蹂?蹂닿린 ?쒕툕 諛?*/
 .kc-sub-filter-bar {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-color);
@@ -2065,7 +2065,7 @@
   border-color: #2563eb;
 }
 
-/* 4. 메인 2단 대시보드 레이아웃 (좌측 380px 고정 / 우측 1fr) */
+/* 4. 硫붿씤 2????쒕낫???덉씠?꾩썐 (醫뚯륫 380px 怨좎젙 / ?곗륫 1fr) */
 .kc-dual-layout {
   display: grid;
   grid-template-columns: 370px 1fr;
@@ -2079,7 +2079,7 @@
   }
 }
 
-/* 좌측 키워드 카드 리스트 */
+/* 醫뚯륫 ?ㅼ썙??移대뱶 由ъ뒪??*/
 .kc-list-col {
   display: flex;
   flex-direction: column;
@@ -2192,7 +2192,7 @@
   color: var(--text-muted);
 }
 
-/* 우측 상세 리포트 패널 */
+/* ?곗륫 ?곸꽭 由ы룷???⑤꼸 */
 .kc-detail-card {
   background: transparent;
   border: none;
@@ -2266,7 +2266,7 @@
   color: var(--text-sub);
 }
 
-/* 경고 및 점수 읽는 법 안내 박스 */
+/* 寃쎄퀬 諛??먯닔 ?쎈뒗 踰??덈궡 諛뺤뒪 */
 .kc-alert-banner {
   background: rgba(245, 158, 11, 0.08);
   border: 1px solid rgba(245, 158, 11, 0.25);
@@ -2312,7 +2312,7 @@
   margin: 0;
 }
 
-/* 4대 점수 지표 4열 박스 (T, C, D, N) */
+/* 4? ?먯닔 吏??4??諛뺤뒪 (T, C, D, N) */
 .kc-4-metrics-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2351,10 +2351,10 @@
 }
 
 /* ==========================================================================
-   상세 키워드 분석 리포트 (소프트 웜 라이트 테마)
+   ?곸꽭 ?ㅼ썙??遺꾩꽍 由ы룷??(?뚰봽?????쇱씠???뚮쭏)
    ========================================================================== */
 
-/* 좌측 카드 스타일 (화이트 카드 + 모던 보더 + 블루 포커스) */
+/* 醫뚯륫 移대뱶 ?ㅽ???(?붿씠??移대뱶 + 紐⑤뜕 蹂대뜑 + 釉붾（ ?ъ빱?? */
 .kc-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -2469,7 +2469,7 @@
   color: #64748b;
 }
 
-/* 우측 상세 리포트 메인 컨테이너 (화이트 카드) */
+/* ?곗륫 ?곸꽭 由ы룷??硫붿씤 而⑦뀒?대꼫 (?붿씠??移대뱶) */
 .kc-white-report-container {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -2478,7 +2478,7 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* 1. 상단 타이틀 & 종합 참고 점수 */
+/* 1. ?곷떒 ??댄? & 醫낇빀 李멸퀬 ?먯닔 */
 .kc-detail-header-row {
   display: flex;
   justify-content: space-between;
@@ -2514,7 +2514,7 @@
   line-height: 1.4;
 }
 
-/* 우측 상단 종합 참고 점수 카드 */
+/* ?곗륫 ?곷떒 醫낇빀 李멸퀬 ?먯닔 移대뱶 */
 .kc-big-score-card {
   min-width: 140px;
   padding: 14px 18px;
@@ -2551,7 +2551,7 @@
   color: #fef08a;
 }
 
-/* 2. 주의 경고 안내 박스 */
+/* 2. 二쇱쓽 寃쎄퀬 ?덈궡 諛뺤뒪 */
 .kc-alert-box-clean {
   background: rgba(245, 158, 11, 0.08);
   border: 1px solid rgba(245, 158, 11, 0.25);
@@ -2563,7 +2563,7 @@
   margin-bottom: 18px;
 }
 
-/* 3. 점수 읽는 법 안내 박스 */
+/* 3. ?먯닔 ?쎈뒗 踰??덈궡 諛뺤뒪 */
 .kc-guide-box-clean {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -2595,7 +2595,7 @@
   margin: 0;
 }
 
-/* 4. 4대 세부 지표 카드 (T, C, D, N) */
+/* 4. 4? ?몃? 吏??移대뱶 (T, C, D, N) */
 .kc-4metrics-grid-clean {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2654,7 +2654,7 @@
   color: #94a3b8;
 }
 
-/* 5. 최근 30일 일별 추정 검색 관심도 섹션 */
+/* 5. 理쒓렐 30???쇰퀎 異붿젙 寃??愿?щ룄 ?뱀뀡 */
 .kc-chart-section-clean {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -2690,7 +2690,7 @@
   color: #f8fafc;
 }
 
-/* 막대 차트 영역 */
+/* 留됰? 李⑦듃 ?곸뿭 */
 .kc-chart-visual-box {
   display: flex;
   gap: 12px;
@@ -2788,7 +2788,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-/* 6. 4대 설명 박스 (2x2) */
+/* 6. 4? ?ㅻ챸 諛뺤뒪 (2x2) */
 .kc-2x2-info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2847,7 +2847,7 @@
   font-weight: 500;
 }
 
-/* 7. 롱테일 파생 키워드 섹션 */
+/* 7. 濡깊뀒???뚯깮 ?ㅼ썙???뱀뀡 */
 .kc-longtail-section {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -2882,7 +2882,7 @@
   color: #ffffff;
 }
 
-/* 8 & 9. 추천 포스팅 제목 & 목차 구성안 공통 다크 카드 */
+/* 8 & 9. 異붿쿇 ?ъ뒪???쒕ぉ & 紐⑹감 援ъ꽦??怨듯넻 ?ㅽ겕 移대뱶 */
 .kc-box-white-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -2919,7 +2919,7 @@
   transform: translateY(-1px);
 }
 
-/* 10. 최하단 4대 검색엔진 버튼 바 */
+/* 10. 理쒗븯??4? 寃?됱뿏吏?踰꾪듉 諛?*/
 .kc-portals-btn-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2964,7 +2964,7 @@
 }
 
 /* ==========================================================================
-   네이버 홈판형 글쓰기 작업대 (Homepan Pro Styles)
+   ?ㅼ씠踰??덊뙋??湲?곌린 ?묒뾽? (Homepan Pro Styles)
    ========================================================================== */
 
 .hp-hero-box {
@@ -3174,7 +3174,7 @@
   color: #fff;
 }
 
-/* AI 이미지 생성기 스타일 칩 */
+/* AI ?대?吏 ?앹꽦湲??ㅽ???移?*/
 .imggen-style-chip {
   background: #ffffff !important;
   border: 1px solid #cbd5e1 !important;
@@ -3202,7 +3202,7 @@
   font-weight: 800 !important;
 }
 
-/* 주식 분석센터 서브 탭 및 필터 칩 */
+/* 二쇱떇 遺꾩꽍?쇳꽣 ?쒕툕 ??諛??꾪꽣 移?*/
 .stock-sub-tab {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-color);
@@ -3291,7 +3291,7 @@
   font-weight: 800;
 }
 
-/* 홈 탭 반응형 스타일 */
+/* ????諛섏쓳???ㅽ???*/
 @media (max-width: 1024px) {
   .ent-news-grid {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -3314,7 +3314,7 @@
 }
 
 /* ==========================================================================
-   3번 애드센스 키워드 전용 1:1 완벽 매칭 스타일 (카드 뱃지 & 우측 리포트)
+   3踰??좊뱶?쇱뒪 ?ㅼ썙???꾩슜 1:1 ?꾨꼍 留ㅼ묶 ?ㅽ???(移대뱶 諭껋? & ?곗륫 由ы룷??
    ========================================================================== */
 .kc-badge-cpc-purple {
   color: #a855f7;
@@ -3345,7 +3345,7 @@
   font-size: 0.8rem;
 }
 
-/* 우측 상단 고단가 CPC 박스 */
+/* ?곗륫 ?곷떒 怨좊떒媛 CPC 諛뺤뒪 */
 .kc-blue-cpc-banner {
   background: #2563eb;
   color: #ffffff;
@@ -3404,7 +3404,7 @@
   border-color: #2563eb;
 }
 
-/* RPM 계산기 상자 */
+/* RPM 怨꾩궛湲??곸옄 */
 .kc-rpm-calc-box {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -3467,7 +3467,7 @@
 }
 
 /* ==========================================================================
-   4번 네이버 mate 키워드 전용 1:1 완벽 매칭 스타일 (AI 브리핑 카드 & 리포트)
+   4踰??ㅼ씠踰?mate ?ㅼ썙???꾩슜 1:1 ?꾨꼍 留ㅼ묶 ?ㅽ???(AI 釉뚮━??移대뱶 & 由ы룷??
    ========================================================================== */
 .kc-card-ai-badge {
   color: #3b82f6;
@@ -3526,7 +3526,7 @@
   font-size: 0.76rem;
 }
 
-/* 4번 리포트 섹션 스타일 */
+/* 4踰?由ы룷???뱀뀡 ?ㅽ???*/
 .kc-mate-box {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -3581,7 +3581,7 @@
 
 
 /* ==========================================================================
-   5번 지식iN Q&A 전용 1:1 완벽 매칭 스타일 (조회수/답변수 칩 & 질문원문 버튼)
+   5踰?吏?쓎N Q&A ?꾩슜 1:1 ?꾨꼍 留ㅼ묶 ?ㅽ???(議고쉶???듬???移?& 吏덈Ц?먮Ц 踰꾪듉)
    ========================================================================== */
 .kc-card-kin-row {
   display: flex;
@@ -3647,7 +3647,7 @@
   font-weight: 800;
 }
 
-/* 5번 우측 리포트 지식iN 실측 배너 및 3대 박스 */
+/* 5踰??곗륫 由ы룷??吏?쓎N ?ㅼ륫 諛곕꼫 諛?3? 諛뺤뒪 */
 .kc-kin-live-banner {
   display: flex;
   align-items: center;
@@ -3708,10 +3708,10 @@
 
 
 /* ==========================================================================
-   6번 정책신호형 애드센스 키워드 전용 1:1 완벽 매칭 스타일
+   6踰??뺤콉?좏샇???좊뱶?쇱뒪 ?ㅼ썙???꾩슜 1:1 ?꾨꼍 留ㅼ묶 ?ㅽ???
    ========================================================================== */
 
-/* 상단 정책신호형 전용 핑크/오렌지 공지 배너 */
+/* ?곷떒 ?뺤콉?좏샇???꾩슜 ?묓겕/?ㅻ젋吏 怨듭? 諛곕꼫 */
 .kc-policy-banner {
   background: rgba(244, 63, 94, 0.08);
   border: 1px solid rgba(244, 63, 94, 0.25);
@@ -3734,7 +3734,7 @@
   line-height: 1.5;
 }
 
-/* 좌측 카드: 공식 발표일 & 공식 최신 정책신호 배지 */
+/* 醫뚯륫 移대뱶: 怨듭떇 諛쒗몴??& 怨듭떇 理쒖떊 ?뺤콉?좏샇 諛곗? */
 .kc-policy-card-date {
   font-size: 0.76rem;
   color: #94a3b8;
@@ -3753,7 +3753,7 @@
   display: inline-block;
 }
 
-/* 우측 상세 리포트 정책신호형 상단 3개 메트릭 카드 */
+/* ?곗륫 ?곸꽭 由ы룷???뺤콉?좏샇???곷떒 3媛?硫뷀듃由?移대뱶 */
 .kc-policy-metrics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3782,7 +3782,7 @@
   color: #f8fafc;
 }
 
-/* 우측 2열 비교 박스 (검색의도 & 왜 지금 발행할까) */
+/* ?곗륫 2??鍮꾧탳 諛뺤뒪 (寃?됱쓽??& ??吏湲?諛쒗뻾?좉퉴) */
 .kc-policy-2col-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3831,7 +3831,7 @@
   margin: 0;
 }
 
-/* 2열 키워드 박스 (연관 키워드 & 롱테일 키워드) */
+/* 2???ㅼ썙??諛뺤뒪 (?곌? ?ㅼ썙??& 濡깊뀒???ㅼ썙?? */
 .kc-policy-rel-card {
   background: rgba(168, 85, 247, 0.04);
   border: 1px solid rgba(168, 85, 247, 0.25);
@@ -3853,7 +3853,7 @@
   margin-bottom: 8px;
 }
 
-/* 제목 추천 박스 (구글 SEO / 네이버 블로그 SEO) */
+/* ?쒕ぉ 異붿쿇 諛뺤뒪 (援ш? SEO / ?ㅼ씠踰?釉붾줈洹?SEO) */
 .kc-policy-seo-title-card {
   background: rgba(16, 185, 129, 0.04);
   border-left: 4px solid #10b981;
@@ -3884,7 +3884,7 @@
   line-height: 1.5;
 }
 
-/* 정책신호형 목차 카드 */
+/* ?뺤콉?좏샇??紐⑹감 移대뱶 */
 .kc-policy-outline-card {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-color);
@@ -3912,7 +3912,7 @@
   font-weight: 900;
 }
 
-/* FAQ 아코디언/카드 */
+/* FAQ ?꾩퐫?붿뼵/移대뱶 */
 .kc-policy-faq-box {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-color);
@@ -3938,7 +3938,7 @@
   margin: 0;
 }
 
-/* 정책신호형 전용 상단 헤더 박스 */
+/* ?뺤콉?좏샇???꾩슜 ?곷떒 ?ㅻ뜑 諛뺤뒪 */
 .kc-policy-header-badge {
   display: inline-block;
   background: rgba(59, 130, 246, 0.12);
@@ -3974,14 +3974,14 @@
 }
 
 /* ==========================================================================
-   7. 이번주 추천 애드센스 키워드 전용 4열 카드 그리드 레이아웃 (스크린샷 1:1)
+   7. ?대쾲二?異붿쿇 ?좊뱶?쇱뒪 ?ㅼ썙???꾩슜 4??移대뱶 洹몃━???덉씠?꾩썐 (?ㅽ겕由곗꺑 1:1)
    ========================================================================== */
 .kc-tab7-container {
   width: 100%;
   margin-top: 10px;
 }
 
-/* 7번 헤더 배너 */
+/* 7踰??ㅻ뜑 諛곕꼫 */
 .kc-tab7-header-box {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-color);
@@ -4018,7 +4018,7 @@
   font-weight: 500;
 }
 
-/* 4열 그리드 */
+/* 4??洹몃━??*/
 .kc-tab7-grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -4038,7 +4038,7 @@
   }
 }
 
-/* 4개 개별 추천 카드 */
+/* 4媛?媛쒕퀎 異붿쿇 移대뱶 */
 .kc-tab7-card {
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid var(--border-color);
@@ -4088,7 +4088,7 @@
   word-break: keep-all;
 }
 
-/* 연관 키워드 태그 알약 */
+/* ?곌? ?ㅼ썙???쒓렇 ?뚯빟 */
 .kc-tab7-tags-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -4114,7 +4114,7 @@
   color: #a5b4fc;
 }
 
-/* 최하단 CTA 전략 박스 (연한 녹색/민트 틴트) */
+/* 理쒗븯??CTA ?꾨왂 諛뺤뒪 (?고븳 ?뱀깋/誘쇳듃 ?댄듃) */
 .kc-tab7-cta-box {
   margin-top: auto;
   background: rgba(16, 185, 129, 0.08);
@@ -4139,14 +4139,14 @@
 }
 
 /* ==========================================================================
-   8. 바이럴숏폼 (유튜브 인기 영상 & 숏폼 실시간 검색) 전용 풀 레이아웃 (스크린샷 1:1)
+   8. 諛붿씠?댁닆??(?좏뒠釉??멸린 ?곸긽 & ?륂뤌 ?ㅼ떆媛?寃?? ?꾩슜 ? ?덉씠?꾩썐 (?ㅽ겕由곗꺑 1:1)
    ========================================================================== */
 .kc-tab8-container {
   width: 100%;
   margin-top: 10px;
 }
 
-/* 8번 헤더 배너 */
+/* 8踰??ㅻ뜑 諛곕꼫 */
 .kc-tab8-header-box {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-color);
@@ -4201,7 +4201,7 @@
   white-space: nowrap;
 }
 
-/* 검색 & 필터 메인 카드 박스 */
+/* 寃??& ?꾪꽣 硫붿씤 移대뱶 諛뺤뒪 */
 .kc-tab8-filter-card {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-color);
@@ -4210,7 +4210,7 @@
   margin-bottom: 24px;
 }
 
-/* 검색창 인풋 바 */
+/* 寃?됱갹 ?명뭼 諛?*/
 .kc-tab8-search-row {
   display: flex;
   gap: 12px;
@@ -4265,7 +4265,7 @@
   transform: translateY(-1px);
 }
 
-/* 빠른 선택 해시태그 바 */
+/* 鍮좊Ⅸ ?좏깮 ?댁떆?쒓렇 諛?*/
 .kc-tab8-quick-row {
   display: flex;
   align-items: center;
@@ -4302,7 +4302,7 @@
   color: #ea580c;
 }
 
-/* 필터 제어 행 (검색 기간 / 정렬 기준 / 영상 형태) */
+/* ?꾪꽣 ?쒖뼱 ??(寃??湲곌컙 / ?뺣젹 湲곗? / ?곸긽 ?뺥깭) */
 .kc-tab8-controls-row {
   display: flex;
   align-items: center;
@@ -4355,7 +4355,7 @@
   color: #ffffff;
 }
 
-/* 검색 결과 상태 서브 바 */
+/* 寃??寃곌낵 ?곹깭 ?쒕툕 諛?*/
 .kc-tab8-status-bar {
   display: flex;
   justify-content: space-between;
@@ -4380,7 +4380,7 @@
   border-radius: 9999px;
 }
 
-/* 4열 비디오 카드 그리드 */
+/* 4??鍮꾨뵒??移대뱶 洹몃━??*/
 .kc-tab8-grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -4405,7 +4405,7 @@
   }
 }
 
-/* 개별 영상 카드 */
+/* 媛쒕퀎 ?곸긽 移대뱶 */
 .kc-tab8-card {
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid var(--border-color);
@@ -4422,7 +4422,7 @@
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
 }
 
-/* 썸네일 박스 */
+/* ?몃꽕??諛뺤뒪 */
 .kc-tab8-thumb-box {
   position: relative;
   width: 100%;
@@ -4442,7 +4442,7 @@
   display: block;
 }
 
-/* 썸네일 위 뱃지들 */
+/* ?몃꽕????諭껋???*/
 .kc-tab8-type-badge {
   position: absolute;
   top: 10px;
@@ -4493,7 +4493,7 @@
   backdrop-filter: blur(4px);
 }
 
-/* 카드 본문 */
+/* 移대뱶 蹂몃Ц */
 .kc-tab8-card-body {
   padding: 14px 14px 12px 14px;
   display: flex;
@@ -4531,7 +4531,7 @@
   white-space: nowrap;
 }
 
-/* 유튜브 시청하기 버튼 (빨간색) */
+/* ?좏뒠釉??쒖껌?섍린 踰꾪듉 (鍮④컙?? */
 .kc-tab8-watch-btn {
   display: flex;
   align-items: center;
@@ -4553,7 +4553,7 @@
   background: #c2410c;
 }
 
-/* 하단 버튼 2개: 제목 복사 / 글감 복사 */
+/* ?섎떒 踰꾪듉 2媛? ?쒕ぉ 蹂듭궗 / 湲媛?蹂듭궗 */
 .kc-tab8-btn-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -4582,7 +4582,7 @@
   color: #ffffff;
 }
 
-/* 8번 모래시계 로딩 & 빈 결과 상태 */
+/* 8踰?紐⑤옒?쒓퀎 濡쒕뵫 & 鍮?寃곌낵 ?곹깭 */
 .kc-viral-empty {
   grid-column: 1 / -1;
   display: flex;
@@ -4885,7 +4885,7 @@ p, li {
   }
 }
 
-/* ===== [6번 탭] 유튜브 시황 요약 반응형 스타일 ===== */
+/* ===== [6踰??? ?좏뒠釉??쒗솴 ?붿빟 諛섏쓳???ㅽ???===== */
 #tab-6 {
   width: 100%;
   animation: fadeIn 0.25s ease-in-out;
@@ -4998,7 +4998,7 @@ p, li {
 }
 
 /* ==========================================================================
-   [0번 탭 긴급 개편] 당일 실시간 뉴스 5대 핵심 카테고리 멀티컬럼 뷰 (5-Column CSS Grid)
+   [0踰???湲닿툒 媛쒗렪] ?뱀씪 ?ㅼ떆媛??댁뒪 5? ?듭떖 移댄뀒怨좊━ 硫?곗뺄??酉?(5-Column CSS Grid)
    ========================================================================== */
 .domestic-news-5col-grid {
   display: grid;
@@ -5047,7 +5047,7 @@ p, li {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #4a3b34;
-  background: #241c18;
+  background: #ffffff;
 }
 
 .news-col-title-wrap {
@@ -5098,7 +5098,7 @@ p, li {
   transform: translateY(-2px);
 }
 
-/* ===== 애드센스 & 황금키워드 듀얼레인 신규 스타일 ===== */
+/* ===== ?좊뱶?쇱뒪 & ?⑷툑?ㅼ썙????쇰젅???좉퇋 ?ㅽ???===== */
 .kc-paywall-locked-banner {
   background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
   border: 1px dashed rgba(245, 158, 11, 0.6);
@@ -5197,7 +5197,7 @@ p, li {
   transform: translateY(-1px);
 }
 
-/* ===== 5번 월별 시즌성 키워드 전용 스타일 ===== */
+/* ===== 5踰??붾퀎 ?쒖쫵???ㅼ썙???꾩슜 ?ㅽ???===== */
 .kc-seasonal-container {
   display: flex;
   flex-direction: column;
@@ -5364,7 +5364,7 @@ p, li {
   transform: translateY(-1px);
 }
 
-/* ===== 9번 바이럴 숏폼 유튜브 영상 그리드 전용 스타일 ===== */
+/* ===== 9踰?諛붿씠???륂뤌 ?좏뒠釉??곸긽 洹몃━???꾩슜 ?ㅽ???===== */
 .kc-tab9-container {
   display: flex;
   flex-direction: column;
@@ -5411,7 +5411,7 @@ p, li {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #1f1714;
+  background: #f1f5f9;
   overflow: hidden;
 }
 
@@ -5493,10 +5493,10 @@ p, li {
 }
 
 /* ==========================================================================
-   ===== 웜 라이트 & 아이보리/베이지 에디토리얼 테마 전면 시스템 (EDITORIAL LIGHT) =====
+   ===== ???쇱씠??& ?꾩씠蹂대━/踰좎씠吏 ?먮뵒?좊━???뚮쭏 ?꾨㈃ ?쒖뒪??(EDITORIAL LIGHT) =====
    ========================================================================== */
 
-/* 1. 글쓰기 프롬프트 페이지 (01~08 카드) 4열 반응형 그리드 */
+/* 1. 湲?곌린 ?꾨＼?꾪듃 ?섏씠吏 (01~08 移대뱶) 4??諛섏쓳??洹몃━??*/
 .custom-bots-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -5517,7 +5517,7 @@ p, li {
 }
 
 .custom-bot-card {
-  background: #241c18;
+  background: #ffffff;
   border-radius: 12px;
   border: 1.5px solid #cbd5e1;
   padding: 24px;
@@ -5534,7 +5534,7 @@ p, li {
   transform: translateY(-2px);
 }
 
-/* 2. 폼 인풋 및 셀렉트 웜 라이트 스타일 */
+/* 2. ???명뭼 諛???됲듃 ???쇱씠???ㅽ???*/
 input.form-input,
 textarea.form-textarea,
 select.form-select,
@@ -5562,7 +5562,7 @@ select.form-select:focus,
   outline: none !important;
 }
 
-/* 3. 주요 버튼 및 포인트 (딥 포레스트 그린 #1e4d44) */
+/* 3. 二쇱슂 踰꾪듉 諛??ъ씤??(???щ젅?ㅽ듃 洹몃┛ #1e4d44) */
 .btn-primary,
 .analyzer-search-btn,
 .single-fast-btn,
@@ -5585,7 +5585,7 @@ button.btn-forest:hover {
   transform: translateY(-1px) !important;
 }
 
-/* 4. 애드센스&황금키워드 탭 (kc-*) 웜 라이트 일원화 */
+/* 4. ?좊뱶?쇱뒪&?⑷툑?ㅼ썙????(kc-*) ???쇱씠???쇱썝??*/
 .kc-header-box {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
@@ -5631,7 +5631,7 @@ button.btn-forest:hover {
   color: #4b5563 !important;
 }
 
-/* 알약 탭 바 */
+/* ?뚯빟 ??諛?*/
 .kc-pill-tabs-bar {
   display: flex;
   gap: 8px;
@@ -5663,7 +5663,7 @@ button.btn-forest:hover {
   box-shadow: 0 2px 6px rgba(30, 77, 68, 0.25) !important;
 }
 
-/* 서브 바 */
+/* ?쒕툕 諛?*/
 .kc-sub-filter-bar {
   background: #eef1ea !important;
   border: 1px solid #dce3db !important;
@@ -5685,7 +5685,7 @@ button.btn-forest:hover {
   color: #ffffff !important;
 }
 
-/* 2단 레이아웃 좌측 카드 */
+/* 2???덉씠?꾩썐 醫뚯륫 移대뱶 */
 .kc-item-card {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
@@ -5747,7 +5747,7 @@ button.btn-forest:hover {
   color: #94a3b8 !important;
 }
 
-/* 2단 레이아웃 우측 상세 패널 */
+/* 2???덉씠?꾩썐 ?곗륫 ?곸꽭 ?⑤꼸 */
 .kc-detail-card {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
@@ -5755,7 +5755,7 @@ button.btn-forest:hover {
   box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
 }
 
-/* 5번 탭 월별 시즌성 컨테이너 */
+/* 5踰????붾퀎 ?쒖쫵??而⑦뀒?대꼫 */
 .kc-seasonal-group-card {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
@@ -5820,7 +5820,7 @@ button.btn-forest:hover {
   font-weight: 600 !important;
 }
 
-/* 9번 탭 유튜브 비디오 그리드 */
+/* 9踰????좏뒠釉?鍮꾨뵒??洹몃━??*/
 .kc-yt-summary-bar {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
@@ -5852,7 +5852,7 @@ button.btn-forest:hover {
   border-top: 1px solid #e2e8f0 !important;
 }
 
-/* 5. 실시간 급상승어 & 최신 연예뉴스 웜 라이트 */
+/* 5. ?ㅼ떆媛?湲됱긽?뱀뼱 & 理쒖떊 ?곗삁?댁뒪 ???쇱씠??*/
 .portal-card {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
@@ -5910,7 +5910,7 @@ button.btn-forest:hover {
   color: #9ca3af !important;
 }
 
-/* 6. 키워드 분석 도구 핵심 스탯 박스 & 테이블 */
+/* 6. ?ㅼ썙??遺꾩꽍 ?꾧뎄 ?듭떖 ?ㅽ꺈 諛뺤뒪 & ?뚯씠釉?*/
 .stat-card-item {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
@@ -5959,7 +5959,7 @@ table.data-table th {
   background: #f8fafc !important;
 }
 
-/* 체급 필터 칩 */
+/* 泥닿툒 ?꾪꽣 移?*/
 .tier-filter-chip {
   background: #ffffff !important;
   border: 1px solid #cbd5e1 !important;
@@ -5972,7 +5972,7 @@ table.data-table th {
   color: #ffffff !important;
 }
 
-/* 7. 모달 창 웜 라이트 */
+/* 7. 紐⑤떖 李????쇱씠??*/
 .modal-box {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
@@ -5989,7 +5989,7 @@ table.data-table th {
 }
 
 /* =========================================================
-   우측 "상세 키워드 분석 리포트" 영역 폰트 컬러 & 서브박스 스타일 전면 강제 적용
+   ?곗륫 "?곸꽭 ?ㅼ썙??遺꾩꽍 由ы룷?? ?곸뿭 ?고듃 而щ윭 & ?쒕툕諛뺤뒪 ?ㅽ????꾨㈃ 媛뺤젣 ?곸슜
    ========================================================= */
 .kc-detail-card,
 #kc-detail-panel,
@@ -5998,7 +5998,7 @@ table.data-table th {
   color: #1f2937 !important;
 }
 
-/* 1. 메인 타이틀 (키워드명): font-size: 24px; font-weight: 700; color: #111827 !important; */
+/* 1. 硫붿씤 ??댄? (?ㅼ썙?쒕챸): font-size: 24px; font-weight: 700; color: #111827 !important; */
 .kc-detail-card h2,
 #kc-detail-panel h2,
 .detail-report h2,
@@ -6009,7 +6009,7 @@ table.data-table th {
   line-height: 1.3 !important;
 }
 
-/* 2. 소제목 및 섹션 타이틀 (점수, 선정 근거, 검색 의도, 맞춤 제목, 목차 등): color: #1f2937 !important; font-weight: 600; */
+/* 2. ?뚯젣紐?諛??뱀뀡 ??댄? (?먯닔, ?좎젙 洹쇨굅, 寃???섎룄, 留욎땄 ?쒕ぉ, 紐⑹감 ??: color: #1f2937 !important; font-weight: 600; */
 .kc-detail-card h3,
 #kc-detail-panel h3,
 .detail-report h3,
@@ -6022,7 +6022,7 @@ table.data-table th {
   font-size: 16px !important;
 }
 
-/* 3. 본문 텍스트 (왜 지금 주목할까, 검색의도 설명 내용 등): color: #374151 !important; line-height: 1.6; */
+/* 3. 蹂몃Ц ?띿뒪??(??吏湲?二쇰ぉ?좉퉴, 寃?됱쓽???ㅻ챸 ?댁슜 ??: color: #374151 !important; line-height: 1.6; */
 .kc-detail-card p,
 #kc-detail-panel p,
 .detail-report p,
@@ -6033,7 +6033,7 @@ table.data-table th {
   line-height: 1.6 !important;
 }
 
-/* 4. 목차 리스트 (1, 2, 3, 4, 5... 항목 내용): color: #1f2937 !important; font-weight: 500; */
+/* 4. 紐⑹감 由ъ뒪??(1, 2, 3, 4, 5... ??ぉ ?댁슜): color: #1f2937 !important; font-weight: 500; */
 .kc-detail-card ul li,
 #kc-detail-panel ul li,
 .detail-report ul li,
@@ -6044,7 +6044,7 @@ table.data-table th {
   line-height: 1.5 !important;
 }
 
-/* 5. 추천 제목 초안 텍스트: color: #1e293b !important; font-weight: 600; */
+/* 5. 異붿쿇 ?쒕ぉ 珥덉븞 ?띿뒪?? color: #1e293b !important; font-weight: 600; */
 .kc-title-draft-text,
 .kc-detail-card .kc-draft-text,
 #kc-detail-panel .kc-draft-text {
@@ -6054,7 +6054,7 @@ table.data-table th {
   line-height: 1.4 !important;
 }
 
-/* 6. 카드 내부 서브 박스 배경 및 테두리 정돈: 배경색: #f8fafc; 테두리: 1px solid #e2e8f0; 내부 글자색: #0f172a !important; */
+/* 6. 移대뱶 ?대? ?쒕툕 諛뺤뒪 諛곌꼍 諛??뚮몢由??뺣룉: 諛곌꼍?? #f8fafc; ?뚮몢由? 1px solid #e2e8f0; ?대? 湲?먯깋: #0f172a !important; */
 .kc-title-draft-box,
 #kc-active-outline-list,
 .kc-detail-subbox,
@@ -6065,7 +6065,7 @@ table.data-table th {
   color: #0f172a !important;
 }
 
-/* 7. 숫자 넘버링 배지 (1, 2, 3...): 배경: #e0f2fe; 글자색: #0369a1; font-weight: 700; */
+/* 7. ?レ옄 ?섎쾭留?諛곗? (1, 2, 3...): 諛곌꼍: #e0f2fe; 湲?먯깋: #0369a1; font-weight: 700; */
 .kc-num-badge,
 .kc-detail-card .badge-num,
 #kc-detail-panel .badge-num {
@@ -6075,7 +6075,7 @@ table.data-table th {
   border-radius: 6px !important;
 }
 
-/* 8. 수치 정보 텍스트 가독성 강화 */
+/* 8. ?섏튂 ?뺣낫 ?띿뒪??媛?낆꽦 媛뺥솕 */
 .kc-detail-card .stat-label,
 #kc-detail-panel .stat-label,
 .kc-stat-unit .kc-unit-label,
@@ -6103,7 +6103,7 @@ table.data-table th {
 
 
 /* ==========================================================================
-   [상단 탭 네비게이션 가독성 상향 (14px font-semibold)]
+   [?곷떒 ???ㅻ퉬寃뚯씠??媛?낆꽦 ?곹뼢 (14px font-semibold)]
    ========================================================================== */
 .stock-sub-tab {
   background: #ffffff !important;
@@ -6136,3 +6136,4 @@ table.data-table th {
   font-weight: 800 !important;
   box-shadow: 0 3px 10px rgba(37, 99, 235, 0.35) !important;
 }
+
