@@ -3945,6 +3945,7 @@ const server = http.createServer((req, res) => {
   // 4. 정적 HTML, JS, CSS 서빙
   let safePath = path.normalize(decodeURI(req.url.split('?')[0]));
   if (safePath === '/' || safePath === '\\') safePath = '/index.html';
+  if (safePath === '/guide' || safePath === '/guides' || safePath === '/guide.html') safePath = '/guides.html';
   if (safePath === '/guide/post-count' || safePath === '/guide/post-count.html') safePath = '/posts/recent-30-day-blog-documents.html';
   const fullPath = path.join(__dirname, safePath);
 

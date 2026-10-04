@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>콘텐츠 가이드 - 블로그 자동화 허브 (THE BOUTIQUE JOURNAL)</title>
+  
+  <!-- 한글 폰트 Pretendard CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background-color: #f8f9fa;
+      color: #1a1a1a;
+      min-height: 100vh;
+      line-height: 1.65;
+      letter-spacing: -0.015em;
+    }
+
+    ::selection {
+      background: rgba(27, 59, 54, 0.15);
+      color: #1b3b36;
+    }
+
+    .article-card {
+      background: #ffffff;
+      border: 1px solid #eef0f2;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .article-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
+      transform: translateY(-3px);
+    }
+
+    .article-card:hover .article-title {
+      color: #1b3b36;
+    }
+
+    .filter-btn {
+      padding: 8px 16px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .filter-btn.active {
+      background-color: #1b3b36;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(27, 59, 54, 0.25);
+    }
+
+    .filter-btn:not(.active) {
+      background-color: #ffffff;
+      color: #4b5563;
+      border: 1px solid #e5e7eb;
+    }
+
+    .filter-btn:not(.active):hover {
+      background-color: #f3f4f6;
+      color: #1b3b36;
+    }
+  </style>
+</head>
+<body class="py-8 px-4 sm:px-6 lg:px-8">
+
+  <div class="max-w-5xl mx-auto">
+    
+    <!-- 1. 상단 내비게이션 바 -->
+    <nav class="flex items-center justify-between gap-3 mb-8">
+      <div class="flex items-center gap-3">
+        <button type="button" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href='/'; }" class="inline-flex items-center gap-2 bg-[#ffffff] hover:bg-[#f3f4f6] text-[#374151] text-sm font-bold px-4 py-2 rounded-full border border-[#e5e7eb] shadow-sm transition-colors cursor-pointer">
+          ← 뒤로가기
+        </button>
+        <a href="/" class="inline-flex items-center gap-1.5 bg-[#ffffff] hover:bg-[#f3f4f6] text-[#1b3b36] text-sm font-bold px-4 py-2 rounded-full border border-[#e5e7eb] shadow-sm transition-colors">
+          ⌂ 홈
+        </a>
+      </div>
+      <div class="text-xs text-[#9ca3af] font-medium tracking-wide">
+        블로그 자동화 허브
+      </div>
+    </nav>
+
+    <!-- 2. 헤더 타이틀 영역 -->
+    <header class="mb-10 text-center sm:text-left">
+      <div class="text-xs font-bold uppercase tracking-widest text-[#6b7280] mb-2 font-mono">
+        THE BOUTIQUE JOURNAL
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#1b3b36] tracking-tight mb-3">
+        콘텐츠 가이드
+      </h1>
+      <p class="text-sm sm:text-base text-[#4b5563] max-w-3xl leading-relaxed mb-4">
+        키워드를 고르고, 근거를 확인하고, 읽기 좋은 글로 완성하는 실용 안내입니다. 예시 수치와 실제 측정을 구분해 설명합니다.
+      </p>
+      <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-xs sm:text-sm font-bold text-[#1b3b36]">
+        <a href="/#tab-keyword" class="hover:underline flex items-center gap-1">
+          도구별 빠른 사용방법 →
+        </a>
+        <span class="text-[#d1d5db]">·</span>
+        <a href="/posts/before-publish-checklist.html" class="hover:underline flex items-center gap-1">
+          운영 공지 →
+        </a>
+      </div>
+    </header>
+
+    <!-- 3. 검색 및 필터 컨트롤 바 -->
+    <section class="bg-[#ffffff] border border-[#eef0f2] rounded-2xl p-5 sm:p-6 mb-8 shadow-sm">
+      <!-- 검색창 -->
+      <div class="flex flex-col sm:flex-row gap-3 mb-6">
+        <div class="relative flex-1">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="궁금한 주제를 검색하세요 (예: 문서수, 키워드, AI)" 
+            class="w-full bg-[#f9fafb] border border-[#e5e7eb] rounded-xl px-4 py-3 text-sm text-[#1f2937] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#1b3b36] focus:border-transparent transition-all"
+          />
+        </div>
+        <button 
+          type="button" 
+          onclick="filterArticles()" 
+          class="bg-[#1b3b36] hover:bg-[#254d46] text-[#ffffff] font-bold text-sm px-6 py-3 rounded-xl transition-colors shadow-sm flex items-center justify-center gap-2"
+        >
+          <span>🔍</span> 검색
+        </button>
+      </div>
+
+      <!-- 카테고리 필터 뱃지 & 카운트 -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-[#f3f4f6]">
+        <div class="flex flex-wrap gap-2" id="filterButtons">
+          <button type="button" class="filter-btn active" data-category="all">전체</button>
+          <button type="button" class="filter-btn" data-category="키워드 조사">키워드 조사</button>
+          <button type="button" class="filter-btn" data-category="AI 글쓰기">AI 글쓰기</button>
+          <button type="button" class="filter-btn" data-category="시즌 글 기획">시즌 글 기획</button>
+          <button type="button" class="filter-btn" data-category="이미지 활용">이미지 활용</button>
+        </div>
+
+        <div class="text-xs sm:text-sm font-semibold text-[#6b7280]">
+          총 <span id="articleCount" class="font-extrabold text-[#1b3b36]">10</span>개의 글
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 아티클 카드 그리드 (반응형 2열) -->
+    <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+      <!-- 동적으로 아티클 카드가 렌더링됩니다 -->
+    </div>
+
+    <!-- 5. 하단 페이지네이션 -->
+    <div class="text-center text-xs font-semibold text-[#9ca3af] py-6 border-t border-[#e5e7eb]">
+      1 / 1
+    </div>
+
+  </div>
+
+  <!-- JavaScript: 데이터 및 실시간 필터링/검색 로직 -->
+  <script>
+    const articlesData = [
+      {
+        id: 1,
+        date: "2026-09-21",
+        category: "키워드 조사",
+        title: "최근 30일 발행 문서수: 997건 이상이라는 표시를 읽는 방법",
+        summary: "실제 조회 사례로 전체 문서수와 최근 발행 문서수, 최대 1,000개 검색 결과에서 확인한 하한값의 차이를 설명합니다.",
+        link: "/posts/recent-30-day-blog-documents.html"
+      },
+      {
+        id: 2,
+        date: "2026-09-21",
+        category: "키워드 조사",
+        title: "검색 관심도 100은 100회가 아닙니다: 30일 그래프 읽기",
+        summary: "노트북리퍼샵 조회 사례를 통해 DataLab 상대지수와 월 검색량을 구분하고, 빠진 날짜와 비교 조건을 확인하는 방법입니다.",
+        link: "/posts/read-datalab-relative-interest.html"
+      },
+      {
+        id: 3,
+        date: "2026-09-21",
+        category: "키워드 조사",
+        title: "검색량은 나오는데 문서수는 조회 실패? API 오류 확인 순서",
+        summary: "실제 401·429 표시 사례를 바탕으로 검색광고와 블로그 검색 인증을 구분하고, 재시도 전 확인할 항목을 정리합니다.",
+        link: "/posts/naver-api-error-checklist.html"
+      },
+      {
+        id: 4,
+        date: "2026-09-21",
+        category: "AI 글쓰기",
+        title: "키워드 하나를 글쓰기 요청서로 바꾸는 6칸 작업표",
+        summary: "독자·질문·근거·범위·목차·완료 기준을 먼저 정해, 키워드만 넣었을 때 생기는 반복적인 AI 초안을 줄이는 방법입니다.",
+        link: "/posts/keyword-prompt-worksheet.html"
+      },
+      {
+        id: 5,
+        date: "2026-09-21",
+        category: "AI 글쓰기",
+        title: "발행 버튼을 누르기 전: 본문·링크·모바일 화면 점검표",
+        summary: "실제 문서수와 이미지 비교 글을 기준으로, 근거·링크·대체 텍스트·모바일 표·공개 상태를 점검하는 발행 절차입니다.",
+        link: "/posts/before-publish-checklist.html"
+      },
+      {
+        id: 6,
+        date: "2026-09-19",
+        category: "키워드 조사",
+        title: "검색량과 문서수를 함께 읽고 글감을 고르는 방법",
+        summary: "청년미래적금의 실제 조회값과 가상 비교표를 구분해 검색량·문서수를 읽고, 근거를 확인해 글감을 좁히는 방법입니다.",
+        link: "/posts/keyword-volume-and-document-count.html"
+      },
+      {
+        id: 7,
+        date: "2026-09-19",
+        category: "시즌 글 기획",
+        title: "월별 시즌 키워드를 글 기획과 발행 일정으로 바꾸기",
+        summary: "시즌 주제를 대상·질문·시점으로 나누고, 신청 전후에 필요한 내용을 한 글의 목차와 업데이트 계획으로 정리하는 방법입니다.",
+        link: "/posts/seasonal-keyword-planning.html"
+      },
+      {
+        id: 8,
+        date: "2026-09-19",
+        category: "키워드 조사",
+        title: "검색량이 많아도 바로 쓰지 말아야 할 키워드",
+        summary: "검색 의도 불일치, 일시적 급등, 확인하기 어려운 정보 등 키워드를 보류해야 하는 상황과 대안을 설명합니다.",
+        link: "/posts/keywords-to-avoid.html"
+      },
+      {
+        id: 9,
+        date: "2026-09-19",
+        category: "AI 글쓰기",
+        title: "AI 글쓰기 초안의 오류를 확인하고 고치는 순서",
+        summary: "AI 초안의 주장·숫자·날짜·출처를 분리하고 원문과 대조해 수정하는 검토표와 발행 전 확인 절차입니다.",
+        link: "/posts/ai-draft-verification-workflow.html"
+      },
+      {
+        id: 10,
+        date: "2026-09-19",
+        category: "이미지 활용",
+        title: "이미지 변환 전후 용량과 품질을 비교하는 방법",
+        summary: "동일한 시험 이미지의 PNG·WebP·JPG 실제 용량을 비교하고, 원본과 결과 파일로 직접 재현하는 이미지 변환 안내입니다.",
+        link: "/posts/image-conversion-comparison.html"
+      }
+    ];
+
+    let currentCategory = 'all';
+
+    function renderArticles(list) {
+      const container = document.getElementById('articlesGrid');
+      const countEl = document.getElementById('articleCount');
+      if (!container) return;
+
+      countEl.textContent = list.length;
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-16 text-center bg-[#ffffff] border border-[#eef0f2] rounded-2xl">
+            <span class="text-3xl block mb-2">🔍</span>
+            <p class="text-sm font-bold text-[#4b5563]">검색 결과가 없습니다.</p>
+            <p class="text-xs text-[#9ca3af] mt-1">다른 검색어를 입력하시거나 카테고리 필터를 변경해 보세요.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list.map(item => `
+        <article class="article-card" onclick="window.location.href='${item.link}'">
+          <div>
+            <!-- 상단 메타: 날짜 & 카테고리 뱃지 -->
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-semibold text-[#9ca3af] tracking-wide">${item.date}</span>
+              <span class="text-xs font-bold text-[#1b3b36] bg-[#eef5f3] border border-[#d2e4df] px-2.5 py-0.5 rounded-full">
+                ${item.category}
+              </span>
+            </div>
+
+            <!-- 제목 -->
+            <h2 class="article-title text-base sm:text-lg font-bold text-[#1f2937] leading-snug mb-2.5 transition-colors">
+              <a href="${item.link}" onclick="event.stopPropagation();" class="hover:underline">
+                ${item.title}
+              </a>
+            </h2>
+
+            <!-- 본문 요약 -->
+            <p class="text-xs sm:text-sm text-[#6b7280] leading-relaxed mb-4">
+              ${item.summary}
+            </p>
+          </div>
+
+          <!-- 하단 링크 -->
+          <div class="pt-3 border-t border-[#f3f4f6] flex items-center justify-end">
+            <a href="${item.link}" onclick="event.stopPropagation();" class="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-[#1b3b36] hover:text-[#254d46] transition-colors">
+              읽어보기 ↗
+            </a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function filterArticles() {
+      const keyword = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+      
+      const filtered = articlesData.filter(item => {
+        const matchCategory = currentCategory === 'all' || item.category === currentCategory;
+        const matchKeyword = !keyword || 
+          item.title.toLowerCase().includes(keyword) || 
+          item.summary.toLowerCase().includes(keyword) ||
+          item.category.toLowerCase().includes(keyword);
+        return matchCategory && matchKeyword;
+      });
+
+      renderArticles(filtered);
+    }
+
+    // 필터 버튼 클릭 이벤트 바인딩
+    document.querySelectorAll('#filterButtons .filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#filterButtons .filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.getAttribute('data-category');
+        filterArticles();
+      });
+    });
+
+    // 검색창 엔터키 이벤트 바인딩
+    document.getElementById('searchInput').addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        filterArticles();
+      }
+    });
+
+    // 검색어 입력 시 즉시 실시간 필터링
+    document.getElementById('searchInput').addEventListener('input', () => {
+      filterArticles();
+    });
+
+    // 초기 렌더링
+    renderArticles(articlesData);
+  </script>
+
+</body>
+</html>
