@@ -6137,3 +6137,17 @@ table.data-table th {
   box-shadow: 0 3px 10px rgba(37, 99, 235, 0.35) !important;
 }
 
+
+/* ==========================================================================
+   콘텐츠 가이드 (.editorial-help) 반응형 그리드 스타일
+   ========================================================================== */
+.editorial-help article:hover {
+  transform: translateY(-2px);
+  border-color: #d4a373 !important;
+}
+
+@media (max-width: 900px) {
+  .editorial-help .help-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
