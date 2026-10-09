@@ -1,12 +1,12 @@
 {
   "success": true,
-  "updatedAt": "2026-10-09T14:18:30.751Z",
-  "updatedAtKst": "2026. 10. 9. 오후 11:18:30",
+  "updatedAt": "2026-10-09T14:23:47.818Z",
+  "updatedAtKst": "2026. 10. 9. PM 11:23:47",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "보복 운전 김영광이었다"
+        "keyword": "나주 부부 살해 사건"
       },
       {
         "rank": 2,
@@ -14,31 +14,31 @@
       },
       {
         "rank": 3,
-        "keyword": "나주 부부 살해犯 구속"
+        "keyword": "최태원, 호남 반도체 빨리 진입!"
       },
       {
         "rank": 4,
-        "keyword": "변요한, 송민호 응원"
+        "keyword": "정우성, 이사직 중도 사임"
       },
       {
         "rank": 5,
-        "keyword": "나띠"
+        "keyword": "패션"
       },
       {
         "rank": 6,
-        "keyword": "최태원 호남 반도체 조기 추진"
-      },
-      {
-        "rank": 7,
         "keyword": "삼성전자 3분기 실적"
       },
       {
+        "rank": 7,
+        "keyword": "주차"
+      },
+      {
         "rank": 8,
-        "keyword": "정우성 이사직 사임"
+        "keyword": "여에스더 홍혜걸 회사 매각 고민"
       },
       {
         "rank": 9,
-        "keyword": "김시아"
+        "keyword": "양향자"
       },
       {
         "rank": 10,
@@ -48,23 +48,23 @@
     "nate": [
       {
         "rank": 1,
-        "keyword": "운전 김영광이었다 죄송 new"
+        "keyword": "여에스더 홍혜걸 회사 동일"
       },
       {
         "rank": 2,
-        "keyword": "이태성 new"
+        "keyword": "변요한 병역법 송민호에 new"
       },
       {
         "rank": 3,
-        "keyword": "변요한 위반 응원 new"
+        "keyword": "이태성 상승 1"
       },
       {
         "rank": 4,
-        "keyword": "유승호와 결별 임세주 new"
+        "keyword": "김여정 쓰레기들 지원 new"
       },
       {
         "rank": 5,
-        "keyword": "아시안게임 여서정 4관왕 new"
+        "keyword": "조경태 노무현 참배 상승 5"
       }
     ],
     "zum": [
@@ -92,43 +92,43 @@
     "google": [
       {
         "rank": 1,
-        "keyword": "패션"
+        "keyword": "부유세"
       },
       {
         "rank": 2,
-        "keyword": "주차"
+        "keyword": "sl vs pak"
       },
       {
         "rank": 3,
-        "keyword": "양향자"
+        "keyword": "sbs"
       },
       {
         "rank": 4,
-        "keyword": "김가영"
+        "keyword": "패션"
       },
       {
         "rank": 5,
-        "keyword": "지스타"
+        "keyword": "주차"
       },
       {
         "rank": 6,
-        "keyword": "pak vs sl"
+        "keyword": "양향자"
       },
       {
         "rank": 7,
-        "keyword": "김시아"
+        "keyword": "김가영"
       },
       {
         "rank": 8,
-        "keyword": "필즈상"
+        "keyword": "지스타"
       },
       {
         "rank": 9,
-        "keyword": "발로란트 챔피언스"
+        "keyword": "김시아"
       },
       {
         "rank": 10,
-        "keyword": "환자 안전"
+        "keyword": "필즈상"
       }
     ],
     "daum": [
@@ -138,126 +138,41 @@
       },
       {
         "rank": 2,
-        "keyword": "노벨평화상 필라이"
-      },
-      {
-        "rank": 3,
         "keyword": "뭔데뭔데 이게 무슨 난리고"
       },
       {
+        "rank": 3,
+        "keyword": "곽진언 슈퍼스타K6 자랑"
+      },
+      {
         "rank": 4,
-        "keyword": "이태성 아들 근황"
+        "keyword": "노벨평화상 필라이"
       },
       {
         "rank": 5,
-        "keyword": "전현무 계획 4 울산"
-      },
-      {
-        "rank": 6,
         "keyword": "나를 충전해줘"
       },
       {
+        "rank": 6,
+        "keyword": "사기꾼들"
+      },
+      {
         "rank": 7,
-        "keyword": "김요한 오연희 연애"
-      },
-      {
-        "rank": 8,
-        "keyword": "성시경의 고막남친"
-      },
-      {
-        "rank": 9,
         "keyword": "조경태 노무현 묘역 참배"
       },
       {
+        "rank": 8,
+        "keyword": "이태성 아들 근황"
+      },
+      {
+        "rank": 9,
+        "keyword": "나 혼자 산다"
+      },
+      {
         "rank": 10,
-        "keyword": "해피 투게더 - 혼자가 아니어서 좋아"
+        "keyword": "김영광 보복운전 사과"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "‘재혼 황후’ 신민아 “황후役 처음…드레스 쉽지 않았다” [31st BIFF]",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261009/134816776/1",
-      "publishedAt": "수집 10. 09. 23:00 KST",
-      "publishedOrder": 1791554408845
-    },
-    {
-      "title": "조수원 감독 “‘재혼 황후’ 어색하고 오글거릴 수도…이겨내며 봐달라” [31st BIFF]",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261009/134816765/1",
-      "publishedAt": "수집 10. 09. 23:00 KST",
-      "publishedOrder": 1791554408845
-    },
-    {
-      "title": "SSG 지명 ‘탈삼진 머신’ 뜬다… 불꽃 파이터즈, 군산상일고 돌풍 잠재울까",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261009/134815847/1",
-      "publishedAt": "수집 10. 09. 23:00 KST",
-      "publishedOrder": 1791554408845
-    },
-    {
-      "title": "주지훈 “‘하렘의 남자들’ 덕분에 낯섦 줄어들어…여심 잘 모르겠다” [31st BIFF]",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261009/134814985/1",
-      "publishedAt": "수집 10. 09. 23:00 KST",
-      "publishedOrder": 1791554408845
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 09. 23:00 KST",
-      "publishedOrder": 1791554408023
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 09. 23:00 KST",
-      "publishedOrder": 1791554408023
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 09. 23:00 KST",
-      "publishedOrder": 1791554408023
-    },
-    {
-      "title": "'이혼 발표' 김인석, 홍진경 앞 '2번 오열' 재조명..\"아이들 흔적 청소하다 울어\" [스타이슈]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/09/2026100911215679674",
-      "publishedAt": "수집 10. 09. 23:00 KST",
-      "publishedOrder": 1791554408023
-    },
-    {
-      "title": "[포토] 주지훈, 강조하는 왼쪽 네번째 손가락 반지",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFAyQUN1ZVVuNHYwajFHdl90LXVSZWRzUVVqTWRMUXdhRFVpNTNTMWp6a2JxRTh5UldCbm10SmktdDdjTFBTQTlQZ0tSaVBHZTJwVnRxcTM2REQzMmhQWkllclVpY0RCOE04anNJNXVFaUhnUTRT?oc=5",
-      "publishedAt": "10. 09. 22:50 KST",
-      "publishedOrder": 1791553828000
-    },
-    {
-      "title": "전현무, 예능 출연진 제안-이준 ‘끈적하지 않은 관계’",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9ZNGFJNXlKNzRKakxoWk5CX0NkZndxdmZUbG52QjhkVk53Q2I1VTYxc3FFRnhGTFBvNWk0YWRvU2N6V1BUZ2lxNUJiaFFjQXBRUjAyd1RvdVh2WENwTXk5em83R01GMExvTndNeWln?oc=5",
-      "publishedAt": "10. 09. 14:02 KST",
-      "publishedOrder": 1791522125000
-    },
-    {
-      "title": "[문화연예 플러스] '신인감독 김연경2', 11일 첫 방송",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB6Q25pYThLdWpsYVNsaXlEUnlPTUhrUkE0aVg3bUFYZHE3R01DRWRGY0t1VTVtY0FKc3NMbDROX1gtUFN6eHdXeHY1SXZaTVlzdEc5c1dFeVJvcmdFQWlFdGozQ3p5XzBjb1lQQ3BtUTdVZW0waFZuQnF30gF6QVVfeXFMTzRNQVRhWjY1U1plUWJEYUtEdjAxenNhTVRYc3NjZ3V4eGZsbjEtZ1JpdkRXTmVQcm1fUXQ0LUJIMEcyQkhpSDJpMHNFQWcwTFN5V1FXWmMzVGp6UWJTNmRyaXBGYjdlVjdTNVVFUGFMR3pKdXlJS3BKbWc?oc=5",
-      "publishedAt": "10. 09. 06:57 KST",
-      "publishedOrder": 1791496621000
-    },
-    {
-      "title": "[문화연예 플러스] '호프' 나홍진, '호러 임팩트 리포트' 선정",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1DQllTUk5sLXRTMG9wRlN4S3JMRmRCcGw1UmdtUVZ4SUpGMUpZRWloNGFIUm5SOXZSRUxrSjA0M0QwajJNUWtHYWh4QmFBSUNCQUozNFgwWjZwRkt6ZExOcGRHWHZpS0FLMDYxYWtuZ2J6Q0J0bGlrMl9R0gF6QVVfeXFMTzhfdHQ4dzQzMUEwbS1YY3kxTW45Vk02QTltbEQ2MTlIcExZdkxBWkNTS0x5cmhMQ21FLU9mcFhnSWdUYl8yTnRvLWdxazRhdlJqR1FjS09JOUZuNGdtNXJDel9wREE3eHo1VHkxZWJIbWowWVZMa2U2aVE?oc=5",
-      "publishedAt": "10. 09. 06:56 KST",
-      "publishedOrder": 1791496571000
-    }
-  ]
+  "entertainment": []
 }
