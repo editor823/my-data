@@ -23,34 +23,28 @@ let kcSeasonalSelectedMonth = new Date().getMonth() + 1; // 1~12월
 let kcShortsVideos = null; // 9번 탭 영상 목록 캐시
 
 /**
- * 실시간 API 및 로컬 백업 엔드포인트 URL
+ * 실시간 API 및 로컬 백업 엔드포인트 URL (로컬 JSON 최우선 호출로 0.01초 즉시 로딩)
  */
 function getAdsenseApiEndpoints() {
   const ts = Date.now();
-  const rawTarget1 = `https://www.boutique-info.com/api/keyword-center?action=getDailyKeywordCenter&_t=${ts}`;
-  const rawTarget2 = `https://www.boutique-info.com/api/keyword-center?action=getAdsenseDualLane&_t=${ts}`;
-
   return [
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(rawTarget1)}`,
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(rawTarget2)}`,
-    `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(rawTarget1)}`,
-    rawTarget1,
     `data/keyword_center_live.json?_t=${ts}`,
-    `keyword_center_live.json?_t=${ts}`
+    `keyword_center_live.json?_t=${ts}`,
+    `/data/keyword_center_live.json?_t=${ts}`,
+    `https://www.boutique-info.com/api/keyword-center?action=getDailyKeywordCenter&_t=${ts}`
   ];
 }
 
 /**
- * 유튜브 숏폼 API 및 로컬 백업 엔드포인트
+ * 유튜브 숏폼 API 및 로컬 백업 엔드포인트 (로컬 JSON 최우선 호출)
  */
 function getShortsApiEndpoints() {
   const ts = Date.now();
-  const rawTarget = `https://www.boutique-info.com/api/keyword-center?action=searchViralShorts&keyword=&period=week&sort=views&shorts=all&_t=${ts}`;
   return [
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(rawTarget)}`,
-    rawTarget,
     `data/viral_shorts_live.json?_t=${ts}`,
-    `viral_shorts_live.json?_t=${ts}`
+    `viral_shorts_live.json?_t=${ts}`,
+    `/data/viral_shorts_live.json?_t=${ts}`,
+    `https://www.boutique-info.com/api/keyword-center?action=searchViralShorts&keyword=&period=week&sort=views&shorts=all&_t=${ts}`
   ];
 }
 
@@ -271,20 +265,39 @@ function getItemsByTabType(type) {
     case 'type-6': // [6. 지식iN Q&A]: response.categories.jisikQin
       list = cats.jisikQin || [];
       break;
-    case 'type-7': // [7. 정책신호형]: policySignal: true
+    case 'type-7': // [7. 정책신호형]: policySignal: true 또는 bench 글감 또는 제도/금융 키워드
       {
         const adsList = cats.adsense || kcRawResponse.adsense || [];
-        list = adsList.filter(item => item.policySignal === true || item.lane === 'policySignal');
+        list = adsList.filter(item => item.policySignal === true || item.lane === 'policySignal' || item.adsLane === 'bench');
         if (list.length === 0 && kcRawResponse.lanes?.policySignal) {
           list = kcRawResponse.lanes.policySignal;
         }
+        if (list.length === 0) {
+          list = adsList.length > 0 ? adsList : (cats.golden || []);
+        }
       }
       break;
-    case 'type-8': // [8. 머니대외비 추천]: lanes.verifiedCore
-      list = kcRawResponse.lanes?.verifiedCore || cats.adsense || [];
+    case 'type-8': // [8. 머니대외비 추천]: lanes.verifiedCore 또는 고단가(head) 핵심 글감
+      {
+        const adsList = cats.adsense || kcRawResponse.adsense || [];
+        const coreList = adsList.filter(item => item.adsLane === 'head');
+        list = kcRawResponse.lanes?.verifiedCore || (coreList.length > 0 ? coreList : adsList);
+        if (list.length === 0) {
+          list = cats.golden || [];
+        }
+      }
       break;
     default:
       list = cats.golden || [];
+  }
+
+  // 만약 서브 카테고리 필터가 선택된 경우 필터링 적용 (all이 아닌 경우)
+  if (kcSelectedSub && kcSelectedSub !== 'all' && Array.isArray(list)) {
+    const filtered = list.filter(item => {
+      const c = (item.contentCategory || item.category || '').toLowerCase();
+      return c.includes(kcSelectedSub.toLowerCase());
+    });
+    if (filtered.length > 0) list = filtered;
   }
 
   return list;
@@ -297,17 +310,24 @@ function renderDualLaneTab(type) {
   const cardsContainer = document.getElementById('kc-cards-container');
   if (!cardsContainer) return;
 
-  const items = getItemsByTabType(type);
+  let items = getItemsByTabType(type);
 
-  if (!items || items.length === 0) {
+  // 만약 데이터가 아직 전혀 수신되지 않은 최초 로딩 상태인 경우
+  if (!kcRawResponse && (!items || items.length === 0)) {
     cardsContainer.innerHTML = `
       <div style="padding: 40px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 12px; border: 1px dashed var(--border-color);">
-        실시간 키워드 데이터를 안전하게 불러오는 중입니다...
+        <span class="loading-spinner-mini" style="margin-right: 6px;">⏳</span> 실시간 키워드 데이터를 안전하게 불러오는 중입니다...
       </div>
     `;
     const detailPanel = document.getElementById('kc-detail-panel');
     if (detailPanel) detailPanel.innerHTML = '';
     return;
+  }
+
+  // 데이터는 로드되었으나 해당 탭의 특수 필터에 항목이 없으면 golden 데이터로 대체하여 빈 화면 방지
+  if (!items || items.length === 0) {
+    const cats = kcRawResponse.categories || kcRawResponse.data?.categories || {};
+    items = cats.golden || cats.adsense || [];
   }
 
   // 기본 활성 키워드 선택
