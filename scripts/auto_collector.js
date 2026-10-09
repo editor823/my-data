@@ -83,36 +83,134 @@ async function fetchNaverAutoComplete(keyword) {
   return [];
 }
 
-// 2. 일일 수집 실행 메인 함수
-async function runDailyCollector() {
+// 2. 외부 JSON 요청 헬퍼
+function fetchJson(url, timeoutMs = 8000) {
+  return new Promise((resolve, reject) => {
+    const req = https.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      },
+      timeout: timeoutMs
+    }, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          resolve(JSON.parse(data));
+        } catch (e) {
+          reject(new Error(`JSON 파싱 실패 (${url}): ${e.message}`));
+        }
+      });
+    });
+    req.on('error', reject);
+    req.on('timeout', () => {
+      req.destroy();
+      reject(new Error(`요청 타임아웃 (${url})`));
+    });
+  });
+}
+
+// 3. 실시간 급상승어 & 최신 연예뉴스 자동 수집 및 파일 저장
+async function collectTrendingAndNews() {
+  console.log('📡 [1/3] 5대 포털 실시간 급상승어 및 최신 연예뉴스 수집 시작...');
+  const ts = Date.now();
+  const trendUrl = `https://www.boutique-info.com/api/keyword-center?action=getTrendingKeywords&_t=${ts}`;
+  const newsUrl = `https://www.boutique-info.com/api/keyword-center?action=getEntertainmentNews&_t=${ts}`;
+
+  let trendingData = null;
+  let newsData = null;
+
   try {
-    console.log(`[${new Date().toISOString()}] 🚀 1번 황금키워드 & 2번 제휴마케팅 일일 자동 수집 가동 시작...`);
+    const trendRes = await fetchJson(trendUrl);
+    if (trendRes && trendRes.success && trendRes.data) {
+      trendingData = trendRes.data;
+      console.log('  ✅ 5대 포털 급상승어 수집 완료 (네이버, 네이트, 줌, 구글, 다음)');
+    }
+  } catch (e) {
+    console.warn('  ⚠️ 실시간 급상승어 원본 수집 실패:', e.message);
+  }
 
-    // 현재 날짜 기준 타임스탬프
-    const todayDateStr = new Date().toISOString();
+  try {
+    const newsRes = await fetchJson(newsUrl);
+    if (newsRes && newsRes.success && Array.isArray(newsRes.data)) {
+      newsData = newsRes.data;
+      console.log(`  ✅ 최신 연예뉴스 수집 완료 (총 ${newsData.length}건)`);
+    }
+  } catch (e) {
+    console.warn('  ⚠️ 최신 연예뉴스 원본 수집 실패:', e.message);
+  }
 
-    // (1) 제휴마케팅 8대 카테고리 씨앗 상품 리스트 (매일 로테이션 및 최신 트렌드 반영)
-    const affiliateSeeds = [
-      { cat: 'tablet', name: '갤럭시탭 S9 FE 플러스', tag: '태블릿' },
-      { cat: 'kitchen', name: '네스프레소 버츄오 팝', tag: '주방가전' },
-      { cat: 'digital', name: '닌텐도 스위치 OLED', tag: '디지털/게임' },
-      { cat: 'beauty', name: '다이슨 에어랩 컴플리트', tag: '미용가전' },
-      { cat: 'kitchen', name: '쿠첸 121 마스터플러스', tag: '주방가전' },
-      { cat: 'living', name: '로보락 S8 Pro Ultra', tag: '생활가전' },
-      { cat: 'living', name: 'LG 퓨리케어 에어로타워', tag: '생활가전' },
-      { cat: 'baby', name: '브라운 체온계 6520', tag: '육아가전' },
-      { cat: 'audio', name: '보스 QC 울트라 헤드폰', tag: '음향기기' },
-      { cat: 'kitchen', name: '쿠쿠 마스터셰프 사일런스', tag: '주방가전' }
+  if (trendingData || newsData) {
+    const output = {
+      success: true,
+      updatedAt: new Date().toISOString(),
+      updatedAtKst: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
+      trending: trendingData || {},
+      entertainment: newsData || []
+    };
+
+    const targetPaths = [
+      path.join(__dirname, '..', 'data', 'trending_live.json'),
+      path.join(__dirname, '..', 'trending_live.json')
     ];
 
-    console.log(`✅ [1/2] 네이버 쇼핑 및 광고 API 기반 제휴마케팅 10대 키워드 자동 검증 완료`);
-    console.log(`✅ [2/2] 네이버 블로그 검색 기반 황금키워드(문서/검색비율 0.01 이하) 15대 키워드 자동 검증 완료`);
+    for (const p of targetPaths) {
+      const dir = path.dirname(p);
+      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(p, JSON.stringify(output, null, 2), 'utf8');
+      console.log(`  💾 저장 완료: ${path.relative(path.join(__dirname, '..'), p)}`);
+    }
+  }
+}
 
-    console.log(`[${new Date().toISOString()}] 🎉 일일 자동 갱신 완료! (다음 실행: 매일 아침 06:00 KST)`);
+// 4. 키워드 센터 및 숏폼 데이터 자동 갱신
+async function collectKeywordCenterData() {
+  console.log('📡 [2/3] 키워드 센터 및 바이럴 숏폼 데이터 수집 시작...');
+  const ts = Date.now();
+  const kcUrl = `https://www.boutique-info.com/api/keyword-center?action=getDailyKeywordCenter&_t=${ts}`;
+  const shortsUrl = `https://www.boutique-info.com/api/keyword-center?action=searchViralShorts&keyword=&period=week&sort=views&shorts=all&_t=${ts}`;
+
+  try {
+    const kcRes = await fetchJson(kcUrl, 12000);
+    if (kcRes && (kcRes.categories || kcRes.success)) {
+      const p1 = path.join(__dirname, '..', 'data', 'keyword_center_live.json');
+      const p2 = path.join(__dirname, '..', 'keyword_center_live.json');
+      fs.writeFileSync(p1, JSON.stringify(kcRes, null, 2), 'utf8');
+      fs.writeFileSync(p2, JSON.stringify(kcRes, null, 2), 'utf8');
+      console.log('  ✅ 키워드 센터 live 데이터 동기화 완료');
+    }
+  } catch (e) {
+    console.warn('  ⚠️ 키워드 센터 원본 갱신 실패:', e.message);
+  }
+
+  try {
+    const shortsRes = await fetchJson(shortsUrl, 12000);
+    if (shortsRes && (shortsRes.videos || shortsRes.success)) {
+      const p1 = path.join(__dirname, '..', 'data', 'viral_shorts_live.json');
+      const p2 = path.join(__dirname, '..', 'viral_shorts_live.json');
+      fs.writeFileSync(p1, JSON.stringify(shortsRes, null, 2), 'utf8');
+      fs.writeFileSync(p2, JSON.stringify(shortsRes, null, 2), 'utf8');
+      console.log('  ✅ 바이럴 숏폼 live 데이터 동기화 완료');
+    }
+  } catch (e) {
+    console.warn('  ⚠️ 바이럴 숏폼 원본 갱신 실패:', e.message);
+  }
+}
+
+// 5. 일일 수집 실행 메인 함수
+async function runDailyCollector() {
+  try {
+    console.log(`[${new Date().toISOString()}] 🚀 일일 자동 수집 가동 시작...`);
+
+    // (1) 실시간 급상승어 & 최신 연예뉴스 수집
+    await collectTrendingAndNews();
+
+    // (2) 키워드 센터 & 바이럴 숏폼 최신화
+    await collectKeywordCenterData();
+
+    console.log(`[${new Date().toISOString()}] 🎉 일일 자동 갱신 완료!`);
   } catch (error) {
-    // 외부 크롤링이나 API 요청 실패 시 워크플로우 전체가 crash(비정상 실패)되지 않고
-    // 에러 원인을 로그에 상세히 남긴 후 부드럽게 종료되도록 보호합니다.
-    console.error(`⚠️ [Auto-Collector] 자동 수집 중 예외 발생 (안전하게 종료):`, error && error.message ? error.message : error);
+    console.error(`⚠️ [Auto-Collector] 자동 수집 중 예외 발생:`, error && error.message ? error.message : error);
   }
 }
 
@@ -120,3 +218,4 @@ async function runDailyCollector() {
 runDailyCollector().catch((err) => {
   console.error(`⚠️ [Auto-Collector] 최상위 실행 오류:`, err && err.message ? err.message : err);
 });
+

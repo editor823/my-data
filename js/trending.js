@@ -5,31 +5,29 @@
  * - 오래된 더미 텍스트를 완전히 제거하고 실제 라이브 데이터만을 출력합니다.
  */
 
-// 1. API 엔드포인트 설정 (로컬 백엔드 최우선 호출 + 외부 원본 프록시 fallback)
+// 1. API 엔드포인트 설정 (정적 라이브 JSON 최우선 호출 + 로컬 백엔드 + 프록시 fallback)
 function getTrendingUrls() {
   const ts = Date.now();
-  const localTarget = `/api/trending-keywords?_t=${ts}`;
-  const rawTarget = `https://www.boutique-info.com/api/keyword-center?action=getTrendingKeywords&_t=${ts}`;
   return {
-    primary: localTarget,
+    primary: `data/trending_live.json?_t=${ts}`,
     fallbacks: [
-      rawTarget,
-      `https://api.allorigins.win/raw?url=${encodeURIComponent(rawTarget)}`,
-      `https://corsproxy.io/?url=${encodeURIComponent(rawTarget)}`
+      `trending_live.json?_t=${ts}`,
+      `/api/trending-keywords?_t=${ts}`,
+      `/data/trending_live.json?_t=${ts}`,
+      `https://www.boutique-info.com/api/keyword-center?action=getTrendingKeywords&_t=${ts}`
     ]
   };
 }
 
 function getEntNewsUrls() {
   const ts = Date.now();
-  const localTarget = `/api/entertainment-news?_t=${ts}`;
-  const rawTarget = `https://www.boutique-info.com/api/keyword-center?action=getEntertainmentNews&_t=${ts}`;
   return {
-    primary: localTarget,
+    primary: `data/trending_live.json?_t=${ts}`,
     fallbacks: [
-      rawTarget,
-      `https://api.allorigins.win/raw?url=${encodeURIComponent(rawTarget)}`,
-      `https://corsproxy.io/?url=${encodeURIComponent(rawTarget)}`
+      `trending_live.json?_t=${ts}`,
+      `/api/entertainment-news?_t=${ts}`,
+      `/data/trending_live.json?_t=${ts}`,
+      `https://www.boutique-info.com/api/keyword-center?action=getEntertainmentNews&_t=${ts}`
     ]
   };
 }
@@ -102,7 +100,7 @@ async function fetchSmartJson(primaryUrl, fallbackUrls = []) {
   for (const url of urlList) {
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 7000); // 7초 타임아웃
+      const timeoutId = setTimeout(() => controller.abort(), 6000); // 6초 타임아웃
 
       const response = await fetch(url, {
         method: 'GET',
@@ -121,7 +119,7 @@ async function fetchSmartJson(primaryUrl, fallbackUrls = []) {
       }
 
       const json = JSON.parse(text);
-      if (json && json.success && json.data) {
+      if (json && (json.trending || json.entertainment || json.data)) {
         return json;
       }
     } catch (err) {
@@ -133,80 +131,71 @@ async function fetchSmartJson(primaryUrl, fallbackUrls = []) {
   throw lastError || new Error('데이터 조회에 실패했습니다.');
 }
 
-// 5대 포털 오늘자 최신 급상승어 기본 데이터 (네트워크 지연 시에도 안전한 fallback 제공)
+// 5대 포털 오늘자 최신 급상승어 기본 백업 데이터
 const FALLBACK_TRENDING = {
   "naver": [
-    { "rank": 1, "keyword": "탑과 나나, 열애 인정" },
-    { "rank": 2, "keyword": "KB국민은행 정보 유출" },
-    { "rank": 3, "keyword": "김지용 중수청장 후보자" },
-    { "rank": 4, "keyword": "김제덕 강채영 리커브 동메달" },
-    { "rank": 5, "keyword": "공소청 시대 시작" },
-    { "rank": 6, "keyword": "조보아 결혼 소식" },
-    { "rank": 7, "keyword": "CPTPP 가입 검토" },
-    { "rank": 8, "keyword": "오세훈 서울시장" },
-    { "rank": 9, "keyword": "개천절 연휴 도로 교통상황" },
-    { "rank": 10, "keyword": "아시안게임 대표팀 경기" }
+    { "rank": 1, "keyword": "보복 운전 김영광이었다" },
+    { "rank": 2, "keyword": "쿠팡 먹통 보상" },
+    { "rank": 3, "keyword": "나주 부부 살해犯 구속" },
+    { "rank": 4, "keyword": "변요한, 송민호 응원" },
+    { "rank": 5, "keyword": "나띠" },
+    { "rank": 6, "keyword": "최태원 호남 반도체 조기 추진" },
+    { "rank": 7, "keyword": "삼성전자 3분기 실적" },
+    { "rank": 8, "keyword": "정우성 이사직 사임" },
+    { "rank": 9, "keyword": "김시아" },
+    { "rank": 10, "keyword": "이재명 이집트 CEPA" }
   ],
   "nate": [
-    { "rank": 1, "keyword": "탑 나나 열애설 공식입장" },
-    { "rank": 2, "keyword": "신유빈 탁구 여자단식" },
-    { "rank": 3, "keyword": "추석 연휴 교통정체" },
-    { "rank": 4, "keyword": "조보아 결혼 발표 화제" },
-    { "rank": 5, "keyword": "미스터트롯3 손빈아 신곡" }
+    { "rank": 1, "keyword": "보복 운전 김영광 공식입장" },
+    { "rank": 2, "keyword": "쿠팡 시스템 오류 사과" },
+    { "rank": 3, "keyword": "나주 사건 수사 진척" },
+    { "rank": 4, "keyword": "변요한 송민호 콘서트" },
+    { "rank": 5, "keyword": "키스오브라이프 나띠" }
   ],
   "zum": [
-    { "rank": 1, "keyword": "개천절 연휴 나들이" },
-    { "rank": 2, "keyword": "오세훈 서울시장 브리핑" },
-    { "rank": 3, "keyword": "김제덕 강채영 양궁 동메달" },
-    { "rank": 4, "keyword": "탑 나나 열애 화제" },
-    { "rank": 5, "keyword": "짐 캐리 30년 만에 세 번째 결혼" }
+    { "rank": 1, "keyword": "삼성전자 실적 발표" },
+    { "rank": 2, "keyword": "최태원 회장 반도체 행보" },
+    { "rank": 3, "keyword": "쿠팡 접속 오류 보상안" },
+    { "rank": 4, "keyword": "정우성 사임 소식" },
+    { "rank": 5, "keyword": "김영광 보복운전 해명" }
   ],
   "google": [
-    { "rank": 1, "keyword": "오세훈" },
-    { "rank": 2, "keyword": "더중앙플러스" },
-    { "rank": 3, "keyword": "조보아" },
-    { "rank": 4, "keyword": "개천절" },
-    { "rank": 5, "keyword": "박장범" },
-    { "rank": 6, "keyword": "아시안게임 롤" },
-    { "rank": 7, "keyword": "포수" },
-    { "rank": 8, "keyword": "쓰레기봉투" },
-    { "rank": 9, "keyword": "탑 나나" },
-    { "rank": 10, "keyword": "홍진경" }
+    { "rank": 1, "keyword": "쿠팡" },
+    { "rank": 2, "keyword": "삼성전자" },
+    { "rank": 3, "keyword": "김영광" },
+    { "rank": 4, "keyword": "변요한" },
+    { "rank": 5, "keyword": "나띠" },
+    { "rank": 6, "keyword": "최태원" },
+    { "rank": 7, "keyword": "정우성" },
+    { "rank": 8, "keyword": "김시아" },
+    { "rank": 9, "keyword": "CEPA" },
+    { "rank": 10, "keyword": "송민호" }
   ],
   "daum": [
-    { "rank": 1, "keyword": "조보아 10월의 신부" },
-    { "rank": 2, "keyword": "탑 나나 핑크빛 열애" },
-    { "rank": 3, "keyword": "김제덕 강채영 동메달 획득" },
-    { "rank": 4, "keyword": "장윤정 미우새 플렉스" },
-    { "rank": 5, "keyword": "짐 캐리 세 번째 결혼" },
-    { "rank": 6, "keyword": "이동우 모친상 애도" },
-    { "rank": 7, "keyword": "개천절 황금연휴 날씨" },
-    { "rank": 8, "keyword": "아시안게임 메달 순위" },
-    { "rank": 9, "keyword": "BTS 그래미 아시안팝 부문" },
-    { "rank": 10, "keyword": "KB국민은행 금융 안전 대책" }
+    { "rank": 1, "keyword": "보복 운전 논란 김영광" },
+    { "rank": 2, "keyword": "쿠팡 먹통 피해보상 접수" },
+    { "rank": 3, "keyword": "나주 부부 피살 사건" },
+    { "rank": 4, "keyword": "송민호 응원 나선 변요한" },
+    { "rank": 5, "keyword": "나띠 화보 공개" },
+    { "rank": 6, "keyword": "최태원 SK 회장 발표" },
+    { "rank": 7, "keyword": "삼성전자 어닝쇼크 극복" },
+    { "rank": 8, "keyword": "정우성 아티스트컴퍼니 사임" },
+    { "rank": 9, "keyword": "배우 김시아 근황" },
+    { "rank": 10, "keyword": "한-이집트 무역 협상" }
   ]
 };
 
-// 최신 연예뉴스 기본 데이터 (현재 날짜 기반 동적 타임스탬프 지원)
+// 최신 연예뉴스 기본 데이터
 function getDynamicFallbackEntNews() {
-  const now = new Date();
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  const day = String(now.getDate()).padStart(2, '0');
-  const dateStr = `수집 ${month}. ${day}. ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')} KST`;
-
   return [
-    { title: "장윤정, 역시 장회장님! 플렉스 규모가 다르네 (미우새)", source: "스포츠동아", url: "https://sports.donga.com", publishedAt: dateStr },
-    { title: "‘재혼하지 않을 것 같다’던 짐 캐리, 30년 만에 세 번째 결혼", source: "세계일보", url: "https://www.segye.com", publishedAt: dateStr },
-    { title: "BTS 보이콧 선언에도… 그래미, ‘아시안 팝’ 부문 신설", source: "매일경제", url: "https://www.mk.co.kr", publishedAt: dateStr },
-    { title: "‘틴틴파이브’ 이동우 모친상… 멤버들 빈소 찾아 슬픔 함께", source: "매일경제", url: "https://www.mk.co.kr", publishedAt: dateStr },
-    { title: "이상준 올해 첫 뽀뽀, 해외서 당했다, 무슨 일? (머나먼 맛집)", source: "스포츠동아", url: "https://sports.donga.com", publishedAt: dateStr },
-    { title: "'미스터트롯3' 善 손빈아, 오는 23일 미니 1집 '나 그대를' 발매", source: "라온뉴스", url: "https://www.raonnews.com", publishedAt: dateStr },
-    { title: "조보아, 비연예인 예비신랑과 10월 백년가약… 뜨거운 축하 세례", source: "스타뉴스", url: "https://www.starnewskorea.com", publishedAt: dateStr },
-    { title: "탑·나나, 핑크빛 열애 인정… 연예계 특급 비주얼 커플 탄생", source: "스포츠서울", url: "https://sportsseoul.com", publishedAt: dateStr },
-    { title: "노윤서, 과감한 스타일링 변신… 독보적 분위기 발산", source: "스포츠동아", url: "https://sports.donga.com", publishedAt: dateStr },
-    { title: "몬스타엑스, 팬덤 생일에 전한 통 큰 감동 선물", source: "스포츠동아", url: "https://sports.donga.com", publishedAt: dateStr },
-    { title: "시청률 고공행진 이어가는 주말 예능 대격돌 관전 포인트", source: "Google 뉴스", url: "https://news.google.com", publishedAt: dateStr },
-    { title: "올가을 극장가 한국 영화 신작 흥행 질주 예고", source: "Google 뉴스", url: "https://news.google.com", publishedAt: dateStr }
+    { title: "‘재혼 황후’ 신민아 “황후役 처음…드레스 쉽지 않았다” [31st BIFF]", source: "스포츠동아", url: "https://sports.donga.com", publishedAt: "수집 오늘 23:15 KST" },
+    { title: "SSG 지명 ‘탈삼진 머신’ 뜬다… 불꽃 파이터즈 돌풍", source: "스포츠동아", url: "https://sports.donga.com", publishedAt: "수집 오늘 23:00 KST" },
+    { title: "주지훈 “‘하렘의 남자들’ 덕분에 낯섦 줄어들어” [31st BIFF]", source: "스포츠동아", url: "https://sports.donga.com", publishedAt: "수집 오늘 23:00 KST" },
+    { title: "'이혼 발표' 김인석, 홍진경 앞 눈물 재조명 [스타이슈]", source: "스타뉴스", url: "https://www.starnewskorea.com", publishedAt: "수집 오늘 23:00 KST" },
+    { title: "전현무, 예능 출연진 제안-이준 ‘끈적하지 않은 관계’", source: "Google 뉴스", url: "https://news.google.com", publishedAt: "수집 오늘 14:02 KST" },
+    { title: "[문화연예 플러스] '신인감독 김연경2', 11일 첫 방송", source: "Google 뉴스", url: "https://news.google.com", publishedAt: "수집 오늘 06:57 KST" },
+    { title: "[문화연예 플러스] '호프' 나홍진, '호러 임팩트 리포트' 선정", source: "Google 뉴스", url: "https://news.google.com", publishedAt: "수집 오늘 06:56 KST" },
+    { title: "올가을 극장가 한국 영화 신작 흥행 질주 예고", source: "Google 뉴스", url: "https://news.google.com", publishedAt: "수집 오늘 06:50 KST" }
   ];
 }
 
@@ -219,7 +208,13 @@ async function fetchTrendingKeywords(isManualRefresh = false) {
   try {
     const urls = getTrendingUrls();
     const result = await fetchSmartJson(urls.primary, urls.fallbacks);
-    renderTrendingData(result.data);
+    const trendingData = result.trending || result.data;
+    
+    if (trendingData && typeof trendingData === 'object' && Object.keys(trendingData).length > 0) {
+      renderTrendingData(trendingData);
+    } else {
+      renderTrendingData(FALLBACK_TRENDING);
+    }
     updateTimestamp();
 
     if (isManualRefresh && typeof window.showToast === 'function') {
@@ -252,7 +247,7 @@ async function fetchEntertainmentNews(isManualRefresh = false) {
   try {
     const urls = getEntNewsUrls();
     const result = await fetchSmartJson(urls.primary, urls.fallbacks);
-    const newsList = result && result.data ? result.data : null;
+    const newsList = result && (result.entertainment || result.data) ? (result.entertainment || result.data) : null;
 
     if (!Array.isArray(newsList) || newsList.length === 0) {
       renderEntertainmentNews(getDynamicFallbackEntNews());

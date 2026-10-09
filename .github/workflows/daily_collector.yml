@@ -1,4 +1,4 @@
-name: Daily Keyword Auto Collector (매일 아침 06:00 자동 키워드 갱신)
+name: Daily Keyword & Trending Auto Collector (실시간 급상승어·연예뉴스·키워드 자동 갱신)
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
       - 'scripts/auto_collector.js'
       - '.github/workflows/daily_collector.yml'
   schedule:
-    # 매일 한국시간 오전 6시 (UTC 21:00) 자동 실행
-    - cron: '0 21 * * *'
+    # 매일 한국시간 06:00, 12:00, 18:00, 24:00 (UTC 21:00, 03:00, 09:00, 15:00) 하루 4회 자동 실행
+    - cron: '0 21,3,9,15 * * *'
   workflow_dispatch: # 관리자가 깃허브에서 수동으로 '지금 실행' 버튼을 누를 수도 있음
 
 jobs:
@@ -25,16 +25,17 @@ jobs:
         with:
           node-version: '20'
 
-      - name: 1번 황금키워드 & 2번 제휴마케팅 일일 자동 수집 실행
+      - name: 실시간 급상승어 & 연예뉴스 & 키워드센터 자동 수집 실행
         run: node scripts/auto_collector.js
         env:
           NAVER_AD_CUSTOMER_ID: ${{ secrets.NAVER_AD_CUSTOMER_ID }}
           NAVER_AD_ACCESS_LICENSE: ${{ secrets.NAVER_AD_ACCESS_LICENSE }}
           NAVER_AD_SECRET_KEY: ${{ secrets.NAVER_AD_SECRET_KEY }}
 
-      - name: 변경된 키워드 데이터 자동 커밋 및 배포
+      - name: 변경된 키워드 및 트렌드 데이터 자동 커밋 및 배포
         run: |
           git config --global user.name 'KeywordBot'
           git config --global user.email 'bot@auto-collector.local'
-          git add js/adsense.js
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(auto): daily keyword update for tab 1 and tab 2 [skip ci]" && git push)
+          git add js/adsense.js data/trending_live.json trending_live.json data/keyword_center_live.json keyword_center_live.json data/viral_shorts_live.json viral_shorts_live.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(auto): live trending keywords & daily content update [skip ci]" && git push)
+
