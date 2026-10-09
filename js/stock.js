@@ -8440,17 +8440,6 @@ window.loadLeadingThemeDualRadar = async function (force = false) {
     return;
   }
 
-
-  const session = getMarketSessionInfo();
-
-  // 휴장일(공휴일/주말)이거나 평일 장 시작 전(09:00 이전)인 경우:
-  // 마지막 장 열린 날(10/08 수요일) 확정 주도 테마 데이터로 안전하게 멈춤!
-  if (session.isHoliday || !session.isMarketOpen) {
-    renderTodayLeadingThemes(DEFAULT_STOCK_THEMES);
-    await renderPastPullbackThemes(DEFAULT_STOCK_THEMES);
-    return;
-  }
-
   try {
     let data = leadingDualRadarCache;
     if (!data || force) {
@@ -8516,7 +8505,6 @@ function renderTodayLeadingThemes(themes) {
       statusBadge.style.background = 'rgba(212, 163, 115, 0.2)';
       statusBadge.style.color = '#d4a373';
     }
-  }
   }
 
   // [필수 예외 처리]: 조건 충족 테마가 없을 경우 억지 추천 없이 경고 안내 표출
