@@ -1,4 +1,4 @@
-﻿name: Daily Stock Data Auto Update
+name: Daily Stock Data Auto Update
 
 on:
   schedule:
@@ -26,10 +26,12 @@ jobs:
       - name: 최신 주식 및 환율 데이터 수집
         run: node scratch/fetch_boutique.js
 
+      - name: 최신 증시 뉴스 100건 수집 및 시드 갱신
+        run: node scripts/update_live_domestic_news.js
+
       - name: 변경된 데이터 자동 커밋 및 푸시
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add scratch/api_result.json
-          git commit -m "Auto update: 5 core market indicators [skip ci]" || exit 0
-          git push
+          git add scratch/api_result.json js/live_domestic_news_seed.js data/live_domestic_news.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update: stock indicators & live news [skip ci]" && git push)
