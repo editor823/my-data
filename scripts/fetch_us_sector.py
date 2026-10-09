@@ -279,12 +279,21 @@ def main():
     }
 
     # 디렉토리 확인 및 저장
-    os.makedirs('data', exist_ok=True)
-    out_path = os.path.join('data', 'us_sector_briefing.json')
-    with open(out_path, 'w', encoding='utf-8') as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
+    target_paths = [
+        os.path.join('data', 'us_sector_briefing.json'),
+        os.path.join('public', 'data', 'us_sector_briefing.json'),
+        os.path.join('stock-intelligence', 'public', 'data', 'us_sector_briefing.json'),
+        os.path.join('stock-intelligence', 'data', 'us_sector_briefing.json')
+    ]
+    for p in target_paths:
+        try:
+            os.makedirs(os.path.dirname(p), exist_ok=True)
+            with open(p, 'w', encoding='utf-8') as f:
+                json.dump(output, f, ensure_ascii=False, indent=2)
+            print(f'✅ 성공적으로 저장되었습니다: {p}')
+        except Exception as e:
+            pass
 
-    print(f'✅ 성공적으로 저장되었습니다: {out_path} ({len(gainers)} 강세 / {len(losers)} 약세)')
 
 if __name__ == '__main__':
     main()
