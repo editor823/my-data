@@ -11,3 +11,5 @@ node_modules/
 /graft/
 scratch/
 stock-intelligence/
+data/telegram_config.json
+telegram_config.json

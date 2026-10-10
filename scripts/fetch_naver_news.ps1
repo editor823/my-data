@@ -1,5 +1,5 @@
-$clientId = 'u8xuqbb564'
-$clientSecret = 'z4Ijlccm7b1SRXfuY2RpEfBcyOAwX1fyw10RRA6C'
+$clientId = 'YOUR_NAVER_CLIENT_ID'
+$clientSecret = 'YOUR_NAVER_CLIENT_SECRET'
 
 $keywords = @(
     @{ stock = '와이제이링크'; query = '와이제이링크 스페이스X'; tag = '🔥 직납 팩트' },

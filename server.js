@@ -6,6 +6,27 @@ const crypto = require('crypto');
 
 const PORT = process.env.PORT || 3000;
 
+// .env.local 및 .env 환경변수 자동 로드 (보안 키 안전 관리)
+(function loadLocalEnv() {
+  const envFiles = [path.join(__dirname, '.env.local'), path.join(__dirname, '.env')];
+  envFiles.forEach(file => {
+    if (fs.existsSync(file)) {
+      const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/);
+      lines.forEach(line => {
+        const trimmed = line.trim();
+        if (trimmed && !trimmed.startsWith('#')) {
+          const eqIdx = trimmed.indexOf('=');
+          if (eqIdx !== -1) {
+            const k = trimmed.substring(0, eqIdx).trim();
+            const v = trimmed.substring(eqIdx + 1).trim().replace(/^["']|["']$/g, '');
+            if (!process.env[k]) process.env[k] = v;
+          }
+        }
+      });
+    }
+  });
+})();
+
 // ========================================================
 // [백엔드 데이터 정화] calendar_events.json 및 캐시 파일 공모주/IPO 강제 퍼지
 // ========================================================
@@ -213,9 +234,13 @@ function fallbackEntertainmentNews(res) {
 // 5) 네이버 공식 검색광고 API 호출 (키워드 실측 검색량 및 연관어)
 function fetchNaverSearchAdBackend(keyword) {
   return new Promise((resolve) => {
-    const customerId = '2324578';
-    const licenseKey = '0100000000208dc5957c1a2add2acad1a4e8cbe174ebb98cbc03a1ce716e59acebca9095e4';
-    const secretKey = 'AQAAAAAgjcWVfBoq3SrK0aToy+F0BabsvQJiXpBqHK3KfiQiNg==';
+    const customerId = process.env.NAVER_AD_CUSTOMER_ID || '';
+    const licenseKey = process.env.NAVER_AD_ACCESS_LICENSE || '';
+    const secretKey = process.env.NAVER_AD_SECRET_KEY || '';
+    if (!customerId || !licenseKey || !secretKey) {
+      console.warn('[SearchAd] NAVER_AD_* 환경변수가 .env.local에 설정되지 않아 조회를 건너뜁니다.');
+      return resolve(null);
+    }
 
     const timestamp = String(Date.now());
     const method = 'GET';

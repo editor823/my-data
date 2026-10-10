@@ -290,45 +290,74 @@ function checkBlogTheme() {
   if (!results.some((r) => r.group === G)) add(G, 'OK', '블로그 화면에 고동색/베이지(주식센터 전용) 색 없음');
 }
 
-// ---------------------------------------------------------------- 8. 비밀키 노출
+// ---------------------------------------------------------------- 8. 보안(비밀키 및 토큰 노출 정밀 검사)
 function checkSecrets() {
   const G = '8. 보안(키 노출)';
-  const publicFiles = ['index.html', 'guides.html', ...listFiles('posts', '.html'),
-    ...listFiles('js', '.js'), ...listFiles('css', '.css'),
-    'trending_live.json', 'keyword_center_live.json', 'viral_shorts_live.json'].filter(exists);
+  // 프론트엔드 공개 파일뿐만 아니라 서버, 자동화 스크립트 등 git에 올라가는 모든 파일 검사
+  const auditFiles = [
+    'index.html', 'guides.html', 'server.js',
+    ...listFiles('posts', '.html'),
+    ...listFiles('js', '.js'),
+    ...listFiles('css', '.css'),
+    ...listFiles('scripts', '.js'),
+    ...listFiles('scripts', '.ps1'),
+    'trending_live.json', 'keyword_center_live.json', 'viral_shorts_live.json'
+  ].filter(exists);
 
   const patterns = [
     { name: 'Google API 키 형태(AIza…)', re: /AIza[0-9A-Za-z_\-]{35}/ },
+    { name: 'Gemini API 키 형태(AQ.…)', re: /AQ\.[A-Za-z0-9_\-]{30,}/ },
     { name: 'OpenAI/Anthropic 키 형태(sk-…)', re: /\bsk-[A-Za-z0-9_\-]{32,}/ },
     { name: '텔레그램 봇 토큰 형태', re: /\b\d{8,10}:[A-Za-z0-9_-]{35}\b/ }
   ];
 
-  // .env.local 값이 공개 파일에 그대로 들어있는지 (값은 절대 출력하지 않음)
-  const secretValues = [];
+  // .env.local 의 원문 및 Base64 인코딩 값까지 감지
+  const secretEntries = [];
   if (exists('.env.local')) {
     for (const line of read('.env.local').split(/\r?\n/)) {
       const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.+?)\s*$/);
       if (m) {
         const v = m[2].replace(/^["']|["']$/g, '');
-        if (v.length >= 12) secretValues.push({ key: m[1], value: v });
+        if (v.length >= 8) {
+          secretEntries.push({ key: m[1], raw: v, b64: Buffer.from(v).toString('base64') });
+        }
       }
     }
   }
 
   const found = [];
-  for (const f of publicFiles) {
+  for (const f of auditFiles) {
     const text = read(f);
-    for (const p of patterns) if (p.re.test(text)) found.push(`${f}: ${p.name}`);
-    for (const s of secretValues) if (text.includes(s.value)) found.push(`${f}: .env.local 의 ${s.key} 값이 그대로 노출`);
+    for (const p of patterns) {
+      if (p.re.test(text)) found.push(`${f}: ${p.name}`);
+    }
+    for (const s of secretEntries) {
+      if (text.includes(s.raw)) {
+        found.push(`${f}: .env.local의 ${s.key} 평문 노출`);
+      } else if (text.includes(s.b64)) {
+        found.push(`${f}: .env.local의 ${s.key} Base64 변환값 노출`);
+      }
+    }
   }
-  if (found.length) add(G, 'FAIL', `비밀키로 보이는 문자열 ${found.length}건`, found.join('\n'));
-  else add(G, 'OK', `공개 파일 ${publicFiles.length}개에서 비밀키 노출 없음`);
 
-  // .env.local 이 git에 올라가지 않도록 막혀 있는지
+  if (found.length) {
+    add(G, 'FAIL', `비밀키 또는 토큰 노출 ${found.length}건 감지`, found.join('\n'));
+  } else {
+    add(G, 'OK', `소스 및 공개 파일 ${auditFiles.length}개에서 비밀키(평문/Base64) 노출 없음`);
+  }
+
+  // .gitignore 파일 보안 규칙 검증
   if (exists('.gitignore')) {
     const ig = read('.gitignore');
-    if (!/\.env/.test(ig)) add(G, 'FAIL', '.gitignore 에 .env 가 없음', '.env.local 이 GitHub에 올라갈 수 있습니다.');
-    else add(G, 'OK', '.env.local 이 git 업로드에서 제외됨');
+    const missingRules = [];
+    if (!/\.env/.test(ig)) missingRules.push('.env / .env.local');
+    if (!/telegram_config/.test(ig)) missingRules.push('telegram_config.json');
+
+    if (missingRules.length > 0) {
+      add(G, 'FAIL', `.gitignore 누락 항목: ${missingRules.join(', ')}`, '중요 설정 파일이 GitHub에 업로드될 위험이 있습니다.');
+    } else {
+      add(G, 'OK', '.env.local 및 telegram_config.json 모두 git 업로드 제외됨');
+    }
   }
 }
 

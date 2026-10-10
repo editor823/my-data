@@ -7,7 +7,7 @@
  */
 
 const ADMIN_PASSWORD_KEY = 'admin_secret_password';
-const DEFAULT_ADMIN_PASSWORD = '!ekrnfl8259';
+const DEFAULT_ADMIN_PASSWORD = 'admin'; // 최초 1회 로그인 후 관리자 화면에서 반드시 변경하세요.
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. 단축키 바인딩 (Ctrl + Shift + A)
@@ -179,60 +179,28 @@ window.loadAdminMasterKeys = function() {
   }
 
   if (allow) {
-    // Base64 안전 복호화 (GitHub Push Protection 보호)
-    const _d = s => decodeURIComponent(escape(atob(s)));
+    // 보안 강화: 코드 내 하드코딩 키를 전면 제거하였습니다.
+    // 키는 브라우저 localStorage에 개별 보관하거나 아래 프롬프트를 통해 안전하게 입력받습니다.
+    let currentHubId = localStorage.getItem('naver_client_id') || '';
+    let currentHubSec = localStorage.getItem('naver_client_secret') || '';
+    let currentGeminiKey = localStorage.getItem('user_gemini_api_key') || '';
 
-    // 1. 네이버 API HUB & 검색광고 키 자동 주입
-    const hubId = _d('dTh4dXFiYjU2NA==');
-    const hubSec = _d('ejRJamxjY203YjFTUlhmdVkyUnBFZkJjeU9Bd1gxZnl3MTBSUkE2Qw==');
-    const adId = _d('MjMyNDU3OA==');
-    const adLic = _d('MDEwMDAwMDAwMDIwOGRjNTk1N2MxYTJhZGQyYWNhZDFhNGU4Y2JlMTc0ZWJiOThjYmMwM2ExY2U3MTZlNTlhY2ViY2E5MDk1ZTQ=');
-    const adSec = _d('QVFBQUFBQWdqY1dWZkJvcTNTckswYVRveStGMEJhYnN2UVppWHBCcUhLM0tmaVFpTmc9PQ==');
+    // 모달 및 각 화면 내 인풋창 상태 갱신
+    if (document.getElementById('naverClientId') && currentHubId) document.getElementById('naverClientId').value = currentHubId;
+    if (document.getElementById('naverClientSecret') && currentHubSec) document.getElementById('naverClientSecret').value = currentHubSec;
+    if (document.getElementById('ext-gemini-key-input') && currentGeminiKey) document.getElementById('ext-gemini-key-input').value = currentGeminiKey;
 
-    // 2. 구글 Gemini AI 키 (외부 유입글 생성용)
-    const geminiKey = _d('QVEuQWI4Uk42SmVMQUtrMTZCXzlmQi01ZFZXQzBBNVFSbnladUVtdkpoMEtpTUs3OVVSZw==');
-
-    // 3. 공공데이터 & 애드센스 & Pexels 키
-    const publicDataKey = _d('OTcyMDExYzQzYTUxZjdkMTJkOGEyZmZlZTkwMjBkMjA4MDllM2ZmOGI4NDYwMDEzNTJiYWU5NmRiMDFiOGI5ZQ==');
-    const adsenseId = _d('Y2EtcHViLTU3NjcwMzk5MTI1Njk2OTc=');
-    const pexelsKey = _d('RDlhNzU5N2liekV2cUVFS1ZhN1dXOXRpMHBrSHhLVEhZS1I5Rnl2a1VDMjVWeGhCUVVCUjIyTQ==');
-
-    // 브라우저 영구 보존(localStorage) 동기화
-    localStorage.setItem('naver_auth_type', 'hub');
-    localStorage.setItem('naver_client_id', hubId);
-    localStorage.setItem('naver_client_secret', hubSec);
-    localStorage.setItem('stock_naver_client_id', hubId);
-    localStorage.setItem('stock_naver_client_secret', hubSec);
-    localStorage.setItem('ad_customer_id', adId);
-    localStorage.setItem('ad_license_key', adLic);
-    localStorage.setItem('ad_secret_key', adSec);
-    localStorage.setItem('user_gemini_api_key', geminiKey);
-    localStorage.setItem('public_data_api_key', publicDataKey);
-    localStorage.setItem('adsense_id', adsenseId);
-    localStorage.setItem('pexels_api_key', pexelsKey);
-
-    // 모달 및 각 화면 내 인풋창 즉시 동기화
-    if (document.getElementById('naverClientId')) document.getElementById('naverClientId').value = hubId;
-    if (document.getElementById('naverClientSecret')) document.getElementById('naverClientSecret').value = hubSec;
-    if (document.getElementById('stockNaverClientId')) document.getElementById('stockNaverClientId').value = hubId;
-    if (document.getElementById('stockNaverClientSecret')) document.getElementById('stockNaverClientSecret').value = hubSec;
-    if (document.getElementById('adCustomerId')) document.getElementById('adCustomerId').value = adId;
-    if (document.getElementById('adLicenseKey')) document.getElementById('adLicenseKey').value = adLic;
-    if (document.getElementById('adSecretKey')) document.getElementById('adSecretKey').value = adSec;
-    if (document.getElementById('ext-gemini-key-input')) document.getElementById('ext-gemini-key-input').value = geminiKey;
-
-    // 배지 및 상태 갱신
     if (typeof updateStockApiBadge === 'function') updateStockApiBadge();
     if (typeof initApiStatusBadge === 'function') initApiStatusBadge();
 
     const statusMsg = document.getElementById('admin-api-sync-status');
     if (statusMsg) {
-      statusMsg.innerHTML = '✅ <strong>전체 API 동기화 완료!</strong> (네이버 허브, 검색광고, Gemini AI, Pexels 연동 완료)';
-      statusMsg.style.color = '#34d399';
+      statusMsg.innerHTML = '💡 <strong>보안 안전 모드:</strong> 소스코드 내 비밀키가 안전하게 제거되었습니다. 키 관리는 브라우저 설정 또는 로컬 .env.local 파일에서 안전하게 관리됩니다.';
+      statusMsg.style.color = '#38bdf8';
     }
 
     if (window.showToast) {
-      window.showToast('웹사이트 전체 API(네이버+광고+Gemini+Pexels)가 완벽히 자동 세팅되었습니다! 👑⚡');
+      window.showToast('보안 설정이 활성화되었습니다. (하드코딩 키 원천 차단) 🛡️');
     }
   }
 };

@@ -31,9 +31,9 @@ function loadEnv() {
 }
 
 const env = loadEnv();
-const NAVER_CUSTOMER_ID = env.NAVER_AD_CUSTOMER_ID || '2324578';
-const NAVER_LICENSE_KEY = env.NAVER_AD_ACCESS_LICENSE || '0100000000208dc5957c1a2add2acad1a4e8cbe174ebb98cbc03a1ce716e59acebca9095e4';
-const NAVER_SECRET_KEY = env.NAVER_AD_SECRET_KEY || 'AQAAAAAgjcWVfBoq3SrK0aToy+F0BabsvQJiXpBqHK3KfiQiNg==';
+const NAVER_CUSTOMER_ID = env.NAVER_AD_CUSTOMER_ID || '';
+const NAVER_LICENSE_KEY = env.NAVER_AD_ACCESS_LICENSE || '';
+const NAVER_SECRET_KEY = env.NAVER_AD_SECRET_KEY || '';
 
 // 네이버 검색광고 API 서명 생성
 function generateSignature(timestamp, method, path, secretKey) {

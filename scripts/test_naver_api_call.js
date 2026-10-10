@@ -1,7 +1,7 @@
 const https = require('https');
 
-const CLIENT_ID = 'u8xuqbb564';
-const CLIENT_SECRET = 'z4Ijlccm7b1SRXfuY2RpEfBcyOAwX1fyw10RRA6C';
+const CLIENT_ID = 'YOUR_NAVER_CLIENT_ID';
+const CLIENT_SECRET = 'YOUR_NAVER_CLIENT_SECRET';
 
 const query = '와이제이링크 스페이스X';
 const url = `https://openapi.naver.com/v1/search/news.json?query=${encodeURIComponent(query)}&display=3&sort=sim`;

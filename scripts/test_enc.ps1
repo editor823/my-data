@@ -2,8 +2,8 @@
 $OutputEncoding = [System.Text.Encoding]::UTF8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-$clientId = "u8xuqbb564"
-$clientSecret = "z4Ijlccm7b1SRXfuY2RpEfBcyOAwX1fyw10RRA6C"
+$clientId = "YOUR_NAVER_CLIENT_ID"
+$clientSecret = "YOUR_NAVER_CLIENT_SECRET"
 
 $keywords = @(
     @{ stock = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("7JmA7J207KCc7J2066OB")); query = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("7JmA7J207KCc7J2066OBIOyKpO2OmOydtOyKpFg=")); tag = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("8J+UkCDsp4Hrganngb3tirg=")) },
