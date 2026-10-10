@@ -3687,10 +3687,13 @@ const server = http.createServer((req, res) => {
   // 9. [실시간 증시 캘린더 & AI 뉴스 일정 감지 엔진] (/api/calendar/schedules)
   // 9. [실시간 증시 캘린더 & AI 뉴스 일정 감지 엔진] (/api/calendar/schedules)
   if (req.url.startsWith('/api/calendar/schedules')) {
-    (async () => {
-      try {
-        const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36';
-
+    try {
+      const calFilePath = path.join(__dirname, 'data', 'calendar_schedules.json');
+      let calData = null;
+      if (fs.existsSync(calFilePath)) {
+        calData = JSON.parse(fs.readFileSync(calFilePath, 'utf8'));
+      }
+      if (calData && Array.isArray(calData.approved_events)) {
         const calculateDDay = (targetDateStr) => {
           if (!targetDateStr) return { d_day: 'D-Day', diffDays: 0 };
           const target = new Date(targetDateStr);
@@ -3705,241 +3708,31 @@ const server = http.createServer((req, res) => {
           return { d_day: `D+${Math.abs(diffDays)} 종료`, diffDays };
         };
 
-        const getHttpsJson = (url, timeout = 4000) => new Promise((resolve) => {
-          https.get(url, {
-            headers: {
-              'User-Agent': BROWSER_UA,
-              'Referer': 'https://m.stock.naver.com/'
-            },
-            timeout: timeout
-          }, (res) => {
-            let data = '';
-            res.on('data', c => data += c);
-            res.on('end', () => {
-              try { resolve(JSON.parse(data)); } catch (e) { resolve(null); }
-            });
-          }).on('error', () => resolve(null));
+        calData.approved_events.forEach(e => {
+          const dday = calculateDDay(e.date);
+          e.d_day = dday.d_day;
+          e.diff_days = dday.diffDays;
         });
-
-        const fetchNewsHtml = (query) => new Promise((resolve) => {
-          const searchUrl = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(query)}&sm=tab_opt&sort=1`;
-          https.get(searchUrl, {
-            headers: {
-              'User-Agent': BROWSER_UA,
-              'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7'
-            },
-            timeout: 4000
-          }, (res) => {
-            let html = '';
-            res.setEncoding('utf8');
-            res.on('data', c => html += c);
-            res.on('end', () => {
-              const posts = [];
-              const seenUrls = new Set();
-              const urlMatches = html.matchAll(/data-url="(https?:\/\/[^"]+)"/g);
-              for (const m of urlMatches) {
-                const postUrl = m[1];
-                if (seenUrls.has(postUrl)) continue;
-                seenUrls.add(postUrl);
-
-                const pos = m.index;
-                const beforeSnippet = html.slice(Math.max(0, pos - 800), pos);
-                const afterSnippet = html.slice(pos, pos + 2500);
-
-                const authorMatch = beforeSnippet.match(/data-heatmap-target="\.prof"[^>]*>([\s\S]*?)<\/a>/i) ||
-                                  beforeSnippet.match(/class="[^"]*prof[^"]*"[^>]*>([\s\S]*?)<\/a>/i);
-                const media = authorMatch ? authorMatch[1].replace(/<[^>]+>/g, '').trim() : '언론 종합';
-
-                const dateMatch = beforeSnippet.match(/profile-info-subtext"[^>]*>([\s\S]*?)<\/div>/i) ||
-                                  beforeSnippet.match(/profile-info-subtext">([0-9\.\s]+|.+?전|어제|오늘)<\/span>/i) ||
-                                  beforeSnippet.match(/sds-comps-text-type-body2[^>]*>([0-9\.\s]+|.+?전|어제|오늘)<\/span>/i);
-                const dateStr = dateMatch ? dateMatch[1].replace(/<[^>]+>/g, '').trim() : '오늘';
-
-                const titleMatch = afterSnippet.match(/sds-comps-text-type-headline1[^>]*>([\s\S]*?)<\/span>/i) ||
-                                  afterSnippet.match(/class="[^"]*news_tit[^"]*"[^>]*title="([^"]+)"/i) ||
-                                  afterSnippet.match(/<a[^>]*data-heatmap-target="\.tit"[^>]*>([\s\S]*?)<\/a>/i);
-                const title = titleMatch ? (titleMatch[1] || titleMatch[2] || '').replace(/<[^>]+>/g, '').trim() : '';
-
-                const descMatch = afterSnippet.match(/sds-comps-text-type-body1[^>]*>([\s\S]*?)<\/span>/i) ||
-                                  afterSnippet.match(/class="[^"]*news_dsc[^"]*"[^>]*>([\s\S]*?)<\/div>/i) ||
-                                  afterSnippet.match(/<a[^>]*data-heatmap-target="\.body"[^>]*>([\s\S]*?)<\/a>/i);
-                const desc = descMatch ? descMatch[1].replace(/<[^>]+>/g, '').trim() : '';
-
-                if (title && postUrl) {
-                  posts.push({
-                    title: title.replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>'),
-                    desc: desc.replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>'),
-                    url: postUrl,
-                    press: media.replace(/새 창 열림/g, '').trim(),
-                    date: dateStr
-                  });
-                }
-                if (posts.length >= 10) break;
-              }
-              resolve(posts);
-            });
-          }).on('error', () => resolve([]));
-        });
-
-        const todayObj = new Date();
-        const curYear = todayObj.getFullYear();
-        const curMonth = todayObj.getMonth() + 1;
-        const curDay = todayObj.getDate();
-        const todayStr = `${curYear}-${String(curMonth).padStart(2, '0')}-${String(curDay).padStart(2, '0')}`;
-
-        // 1) [공식 미래 모멘텀 캘린더 수집]: 공모주(IPO) 크롤링 영구 삭제 및 5대 핵심 미래 모멘텀 병렬 수집
-        const [newsListPolicy, newsListAero, newsListBio, newsListContract, newsListGlobal] = await Promise.all([
-          fetchNewsHtml('정책 발표 로드맵 법안 상정'),
-          fetchNewsHtml('발사 예정 시험 비행 착공 준공식'),
-          fetchNewsHtml('FDA 승인 임상 결과 발표 학회'),
-          fetchNewsHtml('본계약 체결 수주 확정 양산 개시'),
-          fetchNewsHtml('글로벌 정상회담 통화정책 회의 발표')
-        ]);
-
-        const approvedOfficialEvents = [];
-        const pendingAiEvents = [];
-        const seenIds = new Set();
-        const seenTitles = new Set();
-
-        // 2) [미래 재료/사건/정책 모멘텀 자동 추출기]: 뉴스 기사 본문 및 제목에서 미래 시점 감지
-        const combinedArticles = [
-          ...newsListPolicy,
-          ...newsListAero,
-          ...newsListBio,
-          ...newsListContract,
-          ...newsListGlobal
-        ];
-
-        // 미래 날짜 파싱 정규식
-        // A) 2026-10-15 or 2026.10.15 or 2026년 10월 15일
-        const regexFullDate = /(202[6-9])[.\-/년]\s*(\d{1,2})[.\-/월]\s*(\d{1,2})일?/;
-        // B) 10월 15일, 11월 3일, 오는 10월 20일
-        const regexMonthDay = /(?:오는\s*)?(\d{1,2})월\s*(\d{1,2})일/;
-        // C) 10월 초/중순/말, 2026년 4분기/하반기
-        const regexApproxPeriod = /(?:오는\s*)?(\d{1,2})월\s*(초순|중순|하순|말)/;
-        const regexQuarter = /(202[6-9])년?\s*(1분기|2분기|3분기|4분기|상반기|하반기)/;
-
-        // 핵심 트리거 키워드 필터 (공모주/청약/신규상장 관련 키워드는 완전 배제)
-        const isIpoNoise = /(공모가|청약|공모주|상장\s*주관사|신규\s*상장|상장·공모|비례배정|균등배정|공모|의무보유\s*해제|보호예수)/i;
-
-        combinedArticles.forEach((art, idx) => {
-          const text = `${art.title} ${art.desc}`;
-
-          // 공모주 및 청약 관련 단순 일정은 전면 영구 차단
-          if (isIpoNoise.test(text)) return;
-
-          let targetDate = '';
-          let dateDisplay = '';
-
-          const matchFull = text.match(regexFullDate);
-          const matchMD = text.match(regexMonthDay);
-          const matchApprox = text.match(regexApproxPeriod);
-          const matchQ = text.match(regexQuarter);
-
-          if (matchFull) {
-            targetDate = `${matchFull[1]}-${String(matchFull[2]).padStart(2, '0')}-${String(matchFull[3]).padStart(2, '0')}`;
-            dateDisplay = targetDate;
-          } else if (matchMD) {
-            let m = parseInt(matchMD[1], 10);
-            let d = parseInt(matchMD[2], 10);
-            let y = curYear;
-            // 과거 달이면 내년으로 보정
-            if (m < curMonth && (curMonth - m > 4)) y = curYear + 1;
-            targetDate = `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-            dateDisplay = `${targetDate}`;
-          } else if (matchApprox) {
-            let m = parseInt(matchApprox[1], 10);
-            let period = matchApprox[2];
-            let d = (period === '초순' || period === '초') ? 5 : ((period === '중순') ? 15 : 28);
-            let y = curYear;
-            if (m < curMonth && (curMonth - m > 4)) y = curYear + 1;
-            targetDate = `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-            dateDisplay = `${targetDate} (${m}월 ${period})`;
-          } else if (matchQ) {
-            let y = parseInt(matchQ[1], 10);
-            let q = matchQ[2];
-            let m = (q === '1분기' || q === '상반기') ? '03' : ((q === '2분기') ? '06' : ((q === '3분기') ? '09' : '11'));
-            targetDate = `${y}-${m}-15`;
-            dateDisplay = `${targetDate} (${q})`;
-          }
-
-          // 날짜를 파싱하지 못했으면 이벤트 등록 제외
-          if (!targetDate) return;
-
-          // 카테고리 5종 자동 분류
-          let category = '글로벌 이벤트';
-          if (/정책|법안|발의|본회의|상정|시행령|로드맵|국책|정부/.test(text)) {
-            category = '정부정책';
-          } else if (/발사|스타십|우주|항공|위성|시험 비행|착공|준공式|양산|로켓/.test(text)) {
-            category = '항공/우주';
-          } else if (/FDA|임상|바이오|신약|학회|승인|결과 발표|허가/.test(text)) {
-            category = '바이오/임상';
-          } else if (/본계약|수주|체결|턴키|공급 계약|확정/.test(text)) {
-            category = '본계약/수주';
-          }
-
-          const cleanTitle = art.title.replace(/\[.*?\]/g, '').replace(/<[^>]+>/g, '').trim();
-          const cleanKey = cleanTitle.replace(/[\s\W]+/g, '').slice(0, 25);
-          if (!cleanTitle || seenTitles.has(cleanKey)) return;
-          seenTitles.add(cleanKey);
-
-          const { d_day, diffDays } = calculateDDay(targetDate);
-
-          // 과거 60일 이상 지난 데이터는 제외
-          if (diffDays < -60) return;
-
-          const eventId = `future_evt_${targetDate}_${idx}`;
-          if (seenIds.has(eventId)) return;
-          seenIds.add(eventId);
-
-          const itemUrl = art.url || `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(cleanTitle)}`;
-          const snippetText = art.desc ? art.desc.slice(0, 140) : `${cleanTitle} 관련 미래 주요 모멘텀 일정입니다.`;
-
-          const eventItem = {
-            id: eventId,
-            title: cleanTitle,
-            date: targetDate,
-            dateDisplay: dateDisplay || targetDate,
-            d_day: d_day,
-            diff_days: diffDays,
-            category: category,
-            tag: category,
-            key_point: `[기사 본문 발췌] ${snippetText}`,
-            desc: `[기사 본문 발췌] ${snippetText}`,
-            press: art.press || '언론 종합',
-            sourceTitle: cleanTitle,
-            sourceUrl: itemUrl,
-            news_url: itemUrl,
-            status: 'approved' // 모든 정제된 모멘텀은 즉시 승인 리스트에 반영
-          };
-
-          approvedOfficialEvents.push(eventItem);
-        });
-
-        // 3) 미래 날짜(가까운 미래 순서) 정렬 (오늘 이후 우선)
-        const dateSorter = (a, b) => {
-          const diffA = a.diff_days >= 0 ? a.diff_days : a.diff_days + 10000;
-          const diffB = b.diff_days >= 0 ? b.diff_days : b.diff_days + 10000;
-          return diffA - diffB;
-        };
-
-        approvedOfficialEvents.sort(dateSorter);
+        if (Array.isArray(calData.pending_events)) {
+          calData.pending_events.forEach(e => {
+            const dday = calculateDDay(e.date);
+            e.d_day = dday.d_day;
+            e.diff_days = dday.diffDays;
+          });
+        }
 
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-        res.end(JSON.stringify({
-          status: '000',
-          updated_at: new Date().toISOString(),
-          approved_events: approvedOfficialEvents,
-          pending_events: pendingAiEvents,
-          total_approved: approvedOfficialEvents.length,
-          total_pending: pendingAiEvents.length
-        }));
-      } catch (err) {
-        res.writeHead(500, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: err.message, status: '999' }));
+        res.end(JSON.stringify(calData));
+        return;
       }
-    })();
-    return;
+      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ status: '000', approved_events: [], pending_events: [] }));
+      return;
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: err.message, status: '999' }));
+      return;
+    }
   }
 
   // 4. 정적 HTML, JS, CSS 서빙
