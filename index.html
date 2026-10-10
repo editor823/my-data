@@ -728,7 +728,10 @@
 
           <div class="form-group" style="margin-bottom: 12px;">
             <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 6px; display: block;">Client Secret</label>
-            <input type="password" id="naverClientSecret" class="form-input" placeholder="X-NCP-APIGW-API-KEY" style="width: 100%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+            <div style="position: relative; display: flex; align-items: center;">
+              <input type="password" id="naverClientSecret" class="form-input" placeholder="X-NCP-APIGW-API-KEY" style="width: 100%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; border-radius: 8px; padding: 10px 40px 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+              <button type="button" onclick="toggleAdminPasswordVisibility('naverClientSecret', this)" style="position: absolute; right: 10px; background: none; border: none; cursor: pointer; font-size: 1.15rem; color: #64748b; padding: 4px; display: flex; align-items: center; justify-content: center;" title="비밀번호 보기/숨기기" aria-label="비밀번호 표시 토글">👁️</button>
+            </div>
           </div>
 
           <p id="naverAuthDesc" style="font-size: 0.78rem; color: #64748b; line-height: 1.5; margin: 0;">
@@ -752,7 +755,10 @@
 
           <div class="form-group" style="margin-bottom: 4px;">
             <label class="form-label" style="font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 6px; display: block;">SECRET KEY</label>
-            <input type="password" id="adSecretKey" class="form-input" placeholder="비밀키" style="width: 100%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; border-radius: 8px; padding: 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+            <div style="position: relative; display: flex; align-items: center;">
+              <input type="password" id="adSecretKey" class="form-input" placeholder="비밀키" style="width: 100%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; border-radius: 8px; padding: 10px 40px 10px 14px; font-size: 0.9rem; box-sizing: border-box;">
+              <button type="button" onclick="toggleAdminPasswordVisibility('adSecretKey', this)" style="position: absolute; right: 10px; background: none; border: none; cursor: pointer; font-size: 1.15rem; color: #64748b; padding: 4px; display: flex; align-items: center; justify-content: center;" title="비밀번호 보기/숨기기" aria-label="비밀번호 표시 토글">👁️</button>
+            </div>
           </div>
         </div>
 
@@ -2448,8 +2454,9 @@
       <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">관리자 시크릿 로그인</h3>
       <p style="font-size: 0.82rem; color: var(--text-sub); margin-bottom: 20px;">운영자 전용 프롬프트 및 시스템 관리 콘솔</p>
       
-      <div class="form-group" style="margin-bottom: 18px;">
-        <input type="password" id="adminPasswordInput" class="form-input" placeholder="관리자 비밀번호 입력" onkeydown="if(event.key==='Enter') checkAdminLogin()">
+      <div class="form-group" style="margin-bottom: 18px; position: relative; display: flex; align-items: center;">
+        <input type="password" id="adminPasswordInput" class="form-input" placeholder="관리자 비밀번호 입력" style="padding-right: 42px; width: 100%;" onkeydown="if(event.key==='Enter') checkAdminLogin()">
+        <button type="button" onclick="toggleAdminPasswordVisibility('adminPasswordInput', this)" style="position: absolute; right: 12px; background: none; border: none; cursor: pointer; font-size: 1.15rem; color: #64748b; padding: 4px; display: flex; align-items: center; justify-content: center; transition: 0.15s;" title="비밀번호 보기/숨기기" aria-label="비밀번호 표시 토글">👁️</button>
       </div>
 
       <div style="display: flex; gap: 8px;">

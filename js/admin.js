@@ -80,6 +80,18 @@ window.closeAdminLogin = function() {
   document.getElementById('adminLoginModal').style.display = 'none';
 };
 
+window.toggleAdminPasswordVisibility = function(inputId, btn) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  if (input.type === 'password') {
+    input.type = 'text';
+    if (btn) btn.textContent = '🙈';
+  } else {
+    input.type = 'password';
+    if (btn) btn.textContent = '👁️';
+  }
+};
+
 // 관리자 대시보드 열기
 function openAdminDashboard() {
   const modal = document.getElementById('adminDashboardModal');
@@ -169,18 +181,20 @@ restoreSavedBotData();
  * - 일반 방문자에게는 기본 빈칸 유지 (유출 방지)
  * - 관리자 비밀번호 입력 시에만 브라우저에 안전하게 키 일괄 주입
  */
-window.loadAdminMasterKeys = function() {
+window.loadAdminMasterKeys = async function() {
   const isAuthed = sessionStorage.getItem('is_admin_authenticated') === 'true';
-  const realPassword = localStorage.getItem(ADMIN_PASSWORD_KEY) || DEFAULT_ADMIN_PASSWORD;
 
   let allow = isAuthed;
   if (!allow) {
-    const inputPw = prompt('👑 관리자 비밀번호를 입력하세요:');
-    if (inputPw === realPassword) {
+    if (typeof window.requireInspectorAdmin === 'function') {
+      allow = await window.requireInspectorAdmin();
+    } else {
+      tryOpenAdminModal();
+      return;
+    }
+    if (allow) {
       sessionStorage.setItem('is_admin_authenticated', 'true');
-      allow = true;
-    } else if (inputPw !== null) {
-      alert('비밀번호가 일치하지 않습니다.');
+    } else {
       return;
     }
   }
