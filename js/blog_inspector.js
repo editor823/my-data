@@ -172,7 +172,7 @@ window.runBlogInspectorBot = async function() {
   // =========================================================================
   try {
     const botCards = document.querySelectorAll('#custom-bots-grid .custom-bot-card');
-    const hasCopyFn = typeof window.copyPromptText === 'function';
+    const hasCopyFn = typeof window.copyPromptById === 'function' && typeof window.copyBotPrompt === 'function';
     const isOk = botCards.length >= 8 && hasCopyFn;
 
     results.push({
