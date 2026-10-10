@@ -1,178 +1,235 @@
 {
   "success": true,
-  "updatedAt": "2026-10-10T11:05:16.869Z",
-  "updatedAtKst": "2026. 10. 10. PM 8:05:16",
+  "updatedAt": "2026-10-10T19:08:00.779Z",
+  "updatedAtKst": "2026. 10. 11. AM 4:08:00",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "이범호 감독 강한 메시지"
+        "keyword": "충장축제 퍼레이드 펼친 주민들"
       },
       {
         "rank": 2,
-        "keyword": "신민아 재혼황후"
+        "keyword": "청주공항 보조배터리 화재"
       },
       {
         "rank": 3,
-        "keyword": "美 AI 사고 신고 의무화"
+        "keyword": "김지원, 의사 가운 입고 귀여운 모습"
       },
       {
         "rank": 4,
-        "keyword": "디오 AX 전략 발표"
+        "keyword": "1245회 로또 당첨"
       },
       {
         "rank": 5,
-        "keyword": "탑 소속사, 소통 개선 약속"
+        "keyword": "김호영 법적 대응"
       },
       {
         "rank": 6,
-        "keyword": "국가유공자"
+        "keyword": "KIA 3위 매직넘버 1!"
       },
       {
         "rank": 7,
-        "keyword": "KIA 김도영 역전포"
+        "keyword": "스포츠 중계"
       },
       {
         "rank": 8,
-        "keyword": "이창용"
+        "keyword": "신민아 재혼황후"
       },
       {
         "rank": 9,
-        "keyword": "사우디 후티 공습"
+        "keyword": "美 AI 사고 신고 의무화"
       },
       {
         "rank": 10,
-        "keyword": "유재석, 35년 만 녹화 취소"
+        "keyword": "논술"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "놀면 뭐하니 상승 6"
+        "keyword": "��터X 동일"
       },
       {
         "rank": 2,
-        "keyword": "한화 김경문 감독 상승 8"
+        "keyword": "충장축제 오리지널 퍼레이드 동일"
       },
       {
         "rank": 3,
-        "keyword": "DIO AX 대표 new"
+        "keyword": "KIA 매직넘버 1 동일"
       },
       {
         "rank": 4,
-        "keyword": "신민아 처음엔 이게 뭐지 new"
+        "keyword": "김호영 법적 대응 동일"
       },
       {
         "rank": 5,
-        "keyword": "전미도 상승 1"
+        "keyword": "사랑이 온다 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "美 AI 사고 신고 의무화"
+        "keyword": "청주공항 보조배터리 화재"
       },
       {
         "rank": 2,
-        "keyword": "신민아 재혼황후"
+        "keyword": "1245회 로또 당첨"
       },
       {
         "rank": 3,
-        "keyword": "사우디 후티 공습"
+        "keyword": "신민아 재혼황후"
       },
       {
         "rank": 4,
-        "keyword": "중국 EU 하이브리드 희토류"
+        "keyword": "美 AI 사고 신고 의무화"
       },
       {
         "rank": 5,
-        "keyword": "아르텍스 공개 중단"
+        "keyword": "중국 EU 하이브리드 희토류"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "동구동락"
+        "keyword": "스포츠 중계"
       },
       {
         "rank": 2,
-        "keyword": "psim vs persija jakarta"
+        "keyword": "แมนยู พบ สเปอร์ส"
       },
       {
         "rank": 3,
-        "keyword": "페이커 우표"
+        "keyword": "man utd đấu với tottenham"
       },
       {
         "rank": 4,
-        "keyword": "south korea"
+        "keyword": "논술"
       },
       {
         "rank": 5,
-        "keyword": "국가유공자"
+        "keyword": "la liga"
       },
       {
         "rank": 6,
-        "keyword": "천안시티 대 경남"
+        "keyword": "man utd vs spurs"
       },
       {
         "rank": 7,
-        "keyword": "이창용"
+        "keyword": "브라이튼"
       },
       {
         "rank": 8,
-        "keyword": "중앙일보"
+        "keyword": "바르셀로나 대 헤타페"
       },
       {
         "rank": 9,
-        "keyword": "하원미"
+        "keyword": "barcelona vs getafe"
       },
       {
         "rank": 10,
-        "keyword": "lg그룹"
+        "keyword": "맨유 대 토트넘"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "가수 보라"
+        "keyword": "정청래 비자 지연"
       },
       {
         "rank": 2,
-        "keyword": "한화 손혁 단장 퇴진"
+        "keyword": "시미즈 한강뷰 집"
       },
       {
         "rank": 3,
-        "keyword": "박정아 동안 미모 비결"
-      },
-      {
-        "rank": 4,
-        "keyword": "박근태 작곡가"
-      },
-      {
-        "rank": 5,
-        "keyword": "닥터x"
-      },
-      {
-        "rank": 6,
-        "keyword": "유재환 강제추행 벌금"
-      },
-      {
-        "rank": 7,
-        "keyword": "icc"
-      },
-      {
-        "rank": 8,
         "keyword": "놀면 뭐하니"
       },
       {
+        "rank": 4,
+        "keyword": "신민아 부산영화제"
+      },
+      {
+        "rank": 5,
+        "keyword": "아틀레티코 마드리드"
+      },
+      {
+        "rank": 6,
+        "keyword": "황재균 부모"
+      },
+      {
+        "rank": 7,
+        "keyword": "정보석 화장품 CEO"
+      },
+      {
+        "rank": 8,
+        "keyword": "이우석 결혼 아들"
+      },
+      {
         "rank": 9,
-        "keyword": "청와대 병역특례 손질"
+        "keyword": "kt 위즈"
       },
       {
         "rank": 10,
-        "keyword": "경남 배성재 감독"
+        "keyword": "100일의 거짓말"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "남창희, ♥윤영경 임신 23주 차에 쌀 포대 번쩍…예비 아빠의 일상",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261010/134818017/1",
+      "publishedAt": "수집 10. 11. 04:07 KST",
+      "publishedOrder": 1791659276375
+    },
+    {
+      "title": "‘37kg 감량’ 신동, 살 얼마나 빠졌으면 AI 해명…“진짜 사진 들고 옴” [SD셀픽]",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261010/134818006/1",
+      "publishedAt": "수집 10. 11. 04:07 KST",
+      "publishedOrder": 1791659276375
+    },
+    {
+      "title": "김호영, 국악소녀들 악플 피해에 결국 영상 삭제…“법적 대응”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261010/134818001/1",
+      "publishedAt": "수집 10. 11. 04:07 KST",
+      "publishedOrder": 1791659276375
+    },
+    {
+      "title": "야노시호, 31살 어린 NCT WISH 사쿠야·료에 100만원 쇼핑 “내 아들 같아”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261010/134817817/1",
+      "publishedAt": "수집 10. 11. 04:07 KST",
+      "publishedOrder": 1791659276375
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 10. 11. 04:07 KST",
+      "publishedOrder": 1791659275439
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 10. 11. 04:07 KST",
+      "publishedOrder": 1791659275439
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 10. 11. 04:07 KST",
+      "publishedOrder": 1791659275439
+    },
+    {
+      "title": "단독 '한강 아이유' 윤영경 임신 23주차..♥남창희, 내년 2월 아빠 된다",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/10/10/2026101001075858333",
+      "publishedAt": "수집 10. 11. 04:07 KST",
+      "publishedOrder": 1791659275439
+    }
+  ]
 }
