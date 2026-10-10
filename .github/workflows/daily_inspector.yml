@@ -1,0 +1,31 @@
+name: Daily Blog Inspector (블로그 자동화 허브 매일 검수봇)
+
+on:
+  schedule:
+    # 매일 한국시간 오전 9시 (UTC 00:00)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 깃허브 Actions 탭에서 '지금 실행' 버튼으로 수동 실행 가능
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃 (최근 기록까지 가져와야 '데이터 갱신 날짜'를 알 수 있음)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Node.js 환경 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 검수봇 실행 (❌ 문제가 있으면 이 단계가 실패 → 깃허브가 메일로 알려줍니다)
+        run: node scripts/blog_inspector_bot.js
+
+      - name: 검수 보고서 보관 (실패해도 항상 저장)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: blog-inspector-report
+          path: data/blog_inspector_report.md

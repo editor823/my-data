@@ -76,7 +76,8 @@ if (typeof module !== 'undefined' && module.exports) {
   const jsonContent = JSON.stringify(uniqueItems, null, 2);
   const jsonTargets = [
     path.join(__dirname, '..', 'stock-intelligence', 'public', 'data', 'live_domestic_news.json'),
-    path.join(__dirname, '..', 'data', 'live_domestic_news.json')
+    path.join(__dirname, '..', 'data', 'live_domestic_news.json'),
+    path.join(__dirname, '..', 'js', 'live_domestic_news_seed.json')
   ];
   for (const f of jsonTargets) {
     const dir = path.dirname(f);

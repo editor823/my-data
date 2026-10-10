@@ -32,10 +32,13 @@ jobs:
           NAVER_AD_ACCESS_LICENSE: ${{ secrets.NAVER_AD_ACCESS_LICENSE }}
           NAVER_AD_SECRET_KEY: ${{ secrets.NAVER_AD_SECRET_KEY }}
 
+      - name: 증시 뉴스 시드 최신화 (js/live_domestic_news_seed.json 포함, 매일 갱신)
+        run: node scripts/update_live_domestic_news.js
+
       - name: 변경된 키워드 및 트렌드 데이터 자동 커밋 및 배포
         run: |
           git config --global user.name 'KeywordBot'
           git config --global user.email 'bot@auto-collector.local'
-          git add js/adsense.js data/trending_live.json trending_live.json data/keyword_center_live.json keyword_center_live.json data/viral_shorts_live.json viral_shorts_live.json
+          git add js/adsense.js data/trending_live.json trending_live.json data/keyword_center_live.json keyword_center_live.json data/viral_shorts_live.json viral_shorts_live.json js/live_domestic_news_seed.js js/live_domestic_news_seed.json data/live_domestic_news.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore(auto): live trending keywords & daily content update [skip ci]" && git push)
 

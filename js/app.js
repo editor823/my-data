@@ -139,3 +139,32 @@ function showToast(message, icon = '✅') {
 }
 
 window.showToast = showToast;
+
+/**
+ * 8번 바이럴숏폼 유튜브 영상 팝업 열기/닫기
+ * - 닫을 때 영상 주소를 비워서 소리가 계속 나는 것을 막습니다.
+ */
+function openTab8VideoModal(videoId, title, channel) {
+  const modal = document.getElementById('tab8VideoModal');
+  if (!modal) return;
+  const iframe = document.getElementById('tab8ModalIframe');
+  if (iframe) iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1`;
+  const t = document.getElementById('tab8ModalTitle');
+  if (t && title) t.textContent = title;
+  const c = document.getElementById('tab8ModalChannel');
+  if (c) c.textContent = channel || '';
+  const link = document.getElementById('tab8ModalDirectLink');
+  if (link) link.href = `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
+  modal.style.display = 'flex';
+}
+
+function closeTab8VideoModal() {
+  const modal = document.getElementById('tab8VideoModal');
+  if (modal) modal.style.display = 'none';
+  const iframe = document.getElementById('tab8ModalIframe');
+  if (iframe) iframe.src = '';
+}
+
+window.openTab8VideoModal = openTab8VideoModal;
+window.closeTab8VideoModal = closeTab8VideoModal;
+

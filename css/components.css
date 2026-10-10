@@ -1,4 +1,4 @@
-﻿/* ===== 踰꾪듉 (Buttons) ===== */
+/* ===== 踰꾪듉 (Buttons) ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -5026,18 +5026,18 @@ p, li {
 }
 
 .news-col-card {
-  background: #2a201c;
-  border: 1.5px solid #d4a373;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .news-col-card:hover {
-  border-color: #f5ebe0;
+  border-color: #0284c7;
   transform: translateY(-2px);
 }
 
@@ -5046,7 +5046,7 @@ p, li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #4a3b34;
+  border-bottom: 1px solid #e2e8f0;
   background: #ffffff;
 }
 
@@ -5069,19 +5069,19 @@ p, li {
   width: 5px;
 }
 .news-col-body::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
+  background: #f1f5f9;
 }
 .news-col-body::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: #cbd5e1;
   border-radius: 3px;
 }
 .news-col-body::-webkit-scrollbar-thumb:hover {
-  background: rgba(56, 189, 248, 0.4);
+  background: #0284c7;
 }
 
 .news-item-compact-card {
-  background: #2a201c;
-  border: 1px solid #d4a373;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 9px;
   padding: 13px 15px;
   display: flex;
@@ -5093,8 +5093,8 @@ p, li {
 }
 
 .news-item-compact-card:hover {
-  background: #352924;
-  border-color: #f5ebe0;
+  background: #f8fafc;
+  border-color: #0284c7;
   transform: translateY(-2px);
 }
 
