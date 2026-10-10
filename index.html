@@ -35,7 +35,7 @@
         <li><button class="nav-btn" data-tab="imggen">🎨 AI 이미지 생성기</button></li>
         <li><a href="https://my-data-stock.pages.dev" target="_blank" rel="noopener noreferrer" class="nav-btn" style="color: #0284c7; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center;">📈 주식분석센터 ↗</a></li>
         <li><button class="nav-btn" data-tab="guide">글나침반 안내</button></li>
-        <li><button type="button" id="btn-run-blog-inspector" onclick="openBlogInspectorBot()" class="btn btn-emerald btn-sm" style="background: linear-gradient(135deg, #059669, #10b981); color: #ffffff; font-weight: 800; border-radius: 8px; border: none; padding: 7px 14px; font-size: 0.83rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25); transition: all 0.2s;"><span>🤖</span> 블로그 검수봇</button></li>
+        <li data-admin-only style="display: none;"><button type="button" id="btn-run-blog-inspector" onclick="openBlogInspectorBot()" class="btn btn-emerald btn-sm" style="background: linear-gradient(135deg, #059669, #10b981); color: #ffffff; font-weight: 800; border-radius: 8px; border: none; padding: 7px 14px; font-size: 0.83rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25); transition: all 0.2s;"><span>🤖</span> 블로그 검수봇</button></li>
       </ul>
 
       <button class="nav-mobile-toggle" aria-label="메뉴 열기">☰</button>
@@ -2637,5 +2637,6 @@
   <script src="js/imggen.js?v=20260915_imagen3_v2_fallback"></script>
   <script src="js/ranktracker.js?v=20260926_rank_live"></script>
   <script src="js/blog_inspector.js?v=20261010_copyfix"></script>
+  <script src="js/inspector_admin_gate.js?v=20261010_gate"></script>
 </body>
 </html>
