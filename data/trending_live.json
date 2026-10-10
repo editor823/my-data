@@ -1,70 +1,70 @@
 {
   "success": true,
-  "updatedAt": "2026-10-10T09:26:17.733Z",
-  "updatedAtKst": "2026. 10. 10. PM 6:26:17",
+  "updatedAt": "2026-10-10T10:44:21.011Z",
+  "updatedAtKst": "2026. 10. 10. PM 7:44:21",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "대구 천장 붕괴 사고 수사팀 구성"
+        "keyword": "이범호 감독 강한 메시지"
       },
       {
         "rank": 2,
-        "keyword": "김경문 감독 한화 떠난다"
-      },
-      {
-        "rank": 3,
-        "keyword": "탑 소속사 소통 개선"
-      },
-      {
-        "rank": 4,
-        "keyword": "재정신청"
-      },
-      {
-        "rank": 5,
         "keyword": "신민아 재혼황후"
       },
       {
+        "rank": 3,
+        "keyword": "美 AI 사고 신고 의무화"
+      },
+      {
+        "rank": 4,
+        "keyword": "디오 AX 전략 발표"
+      },
+      {
+        "rank": 5,
+        "keyword": "탑 소속사, 소통 개선 약속"
+      },
+      {
         "rank": 6,
-        "keyword": "날아라 종이비행기"
+        "keyword": "국가유공자"
       },
       {
         "rank": 7,
-        "keyword": "테일러 프리츠"
+        "keyword": "KIA 김도영 역전포"
       },
       {
         "rank": 8,
-        "keyword": "아르텍스 공개 중단"
+        "keyword": "이창용"
       },
       {
         "rank": 9,
-        "keyword": "첫 홀 버디 성공"
+        "keyword": "사우디 후티 공습"
       },
       {
         "rank": 10,
-        "keyword": "구준엽"
+        "keyword": "유재석, 35년 만 녹화 취소"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "레이예스 단독 등극 new"
+        "keyword": "놀면 뭐하니 상승 6"
       },
       {
         "rank": 2,
-        "keyword": "임성재 공동 12위 new"
+        "keyword": "한화 김경문 감독 상승 8"
       },
       {
         "rank": 3,
-        "keyword": "유재석 35년 만 new"
+        "keyword": "DIO AX 대표 new"
       },
       {
         "rank": 4,
-        "keyword": "코엑스에서 열린 한일 축제한마당 new"
+        "keyword": "신민아 처음엔 이게 뭐지 new"
       },
       {
         "rank": 5,
-        "keyword": "서울 제주 우승 new"
+        "keyword": "전미도 상승 1"
       }
     ],
     "zum": [
@@ -74,15 +74,15 @@
       },
       {
         "rank": 2,
-        "keyword": "중국 EU 하이브리드 희토류"
-      },
-      {
-        "rank": 3,
         "keyword": "신민아 재혼황후"
       },
       {
-        "rank": 4,
+        "rank": 3,
         "keyword": "사우디 후티 공습"
+      },
+      {
+        "rank": 4,
+        "keyword": "중국 EU 하이브리드 희토류"
       },
       {
         "rank": 5,
@@ -92,85 +92,85 @@
     "google": [
       {
         "rank": 1,
-        "keyword": "중앙일보"
+        "keyword": "동구동락"
       },
       {
         "rank": 2,
-        "keyword": "하원미"
+        "keyword": "psim vs persija jakarta"
       },
       {
         "rank": 3,
-        "keyword": "lg그룹"
+        "keyword": "페이커 우표"
       },
       {
         "rank": 4,
-        "keyword": "외야수"
+        "keyword": "south korea"
       },
       {
         "rank": 5,
-        "keyword": "레이예스"
+        "keyword": "국가유공자"
       },
       {
         "rank": 6,
-        "keyword": "재정신청"
+        "keyword": "천안시티 대 경남"
       },
       {
         "rank": 7,
-        "keyword": "테일러 프리츠"
+        "keyword": "이창용"
       },
       {
         "rank": 8,
-        "keyword": "구준엽"
+        "keyword": "중앙일보"
       },
       {
         "rank": 9,
-        "keyword": "ssg 대 kia"
+        "keyword": "하원미"
       },
       {
         "rank": 10,
-        "keyword": "nc 대 한화"
+        "keyword": "lg그룹"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "천우희 이주승 집들이"
+        "keyword": "가수 보라"
       },
       {
         "rank": 2,
-        "keyword": "닥터x"
+        "keyword": "한화 손혁 단장 퇴진"
       },
       {
         "rank": 3,
-        "keyword": "김경문 한화 퇴진"
+        "keyword": "박정아 동안 미모 비결"
       },
       {
         "rank": 4,
-        "keyword": "나경원 감사서한"
+        "keyword": "박근태 작곡가"
       },
       {
         "rank": 5,
-        "keyword": "우리 동네 전성시대"
+        "keyword": "닥터x"
       },
       {
         "rank": 6,
-        "keyword": "김신영 나혼산"
+        "keyword": "유재환 강제추행 벌금"
       },
       {
         "rank": 7,
-        "keyword": "놀면 뭐하니"
+        "keyword": "icc"
       },
       {
         "rank": 8,
-        "keyword": "나를 충전해줘"
+        "keyword": "놀면 뭐하니"
       },
       {
         "rank": 9,
-        "keyword": "불후의 명곡"
+        "keyword": "청와대 병역특례 손질"
       },
       {
         "rank": 10,
-        "keyword": "icc"
+        "keyword": "경남 배성재 감독"
       }
     ]
   },
