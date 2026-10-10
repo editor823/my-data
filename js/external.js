@@ -292,9 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 실제 Gemini REST API 호출 함수
   async function callGeminiApi(apiKey, model, chKey, chMeta, mainKw, subKw, ctaLink, rawContent) {
-    // 모델명 안전 매핑 (구글 정식 API 엔드포인트 호환)
-    let apiModel = model;
-    if (apiModel === 'gemini-3.8-flash') apiModel = 'gemini-2.5-flash'; // 엔드포인트 안정성 폴백 지원
+    const apiModel = model || 'gemini-3.8-flash';
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${apiModel}:generateContent?key=${apiKey}`;
 
     const systemPrompt = `당신은 대한민국 최고의 검색엔진 최적화(SEO) 및 외부유입 콘텐츠 작성 전문가입니다.
