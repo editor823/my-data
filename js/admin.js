@@ -6,8 +6,15 @@
  * - 9개 챗봇의 제목, 설명, 링크, 프롬프트 원문을 웹 화면에서 직접 수정 및 실시간 반영
  */
 
-const ADMIN_PASSWORD_KEY = 'admin_secret_password';
-const DEFAULT_ADMIN_PASSWORD = 'admin'; // 최초 1회 로그인 후 관리자 화면에서 반드시 변경하세요.
+const ADMIN_PASSWORD_HASH = '1d913a35e66ff2c6bc4d6c7c4eec8d7f744138d5ed917531162b1e854be8e291'; // SHA-256 암호화 보호
+
+async function sha256Hex(text) {
+  if (window.crypto && window.crypto.subtle) {
+    const buf = await window.crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+  return null;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. 단축키 바인딩 (Ctrl + Shift + A)
@@ -54,17 +61,17 @@ function tryOpenAdminModal() {
   }
 }
 
-window.checkAdminLogin = function() {
+window.checkAdminLogin = async function() {
   const input = document.getElementById('adminPasswordInput').value.trim();
-  const realPassword = localStorage.getItem(ADMIN_PASSWORD_KEY) || DEFAULT_ADMIN_PASSWORD;
+  const inputHash = await sha256Hex(input);
 
-  if (input === realPassword) {
+  if (inputHash === ADMIN_PASSWORD_HASH) {
     sessionStorage.setItem('is_admin_authenticated', 'true');
     document.getElementById('adminLoginModal').style.display = 'none';
     openAdminDashboard();
     window.showToast('관리자 인증에 성공했습니다! 👑');
   } else {
-    alert('비밀번호가 일치하지 않습니다. (초기 비밀번호: admin)');
+    alert('비밀번호가 일치하지 않습니다.');
     document.getElementById('adminPasswordInput').focus();
   }
 };
