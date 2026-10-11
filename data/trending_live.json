@@ -1,235 +1,178 @@
 {
   "success": true,
-  "updatedAt": "2026-10-11T00:05:54.921Z",
-  "updatedAtKst": "2026. 10. 11. AM 9:05:54",
+  "updatedAt": "2026-10-11T09:41:31.560Z",
+  "updatedAtKst": "2026. 10. 11. PM 6:41:31",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "닥터X : 하얀 마피아의 시대"
+        "keyword": "유현조 HJ중공업 동부건설"
       },
       {
         "rank": 2,
-        "keyword": "북, 당 창건 81주년 경축"
+        "keyword": "북한 당 창건 81주년 공연"
       },
       {
         "rank": 3,
-        "keyword": "청주공항 보조배터리 화재"
+        "keyword": "닥터X 시청률 논란"
       },
       {
         "rank": 4,
-        "keyword": "사랑이 온다"
+        "keyword": "가계대출 변동금리"
       },
       {
         "rank": 5,
-        "keyword": "사관학교"
+        "keyword": "김용빈 미스터트롯3 우승상금 행방"
       },
       {
         "rank": 6,
-        "keyword": "함소원 진화 다신 안 보려"
+        "keyword": "한국경제"
       },
       {
         "rank": 7,
-        "keyword": "이승윤의 아내 공개"
+        "keyword": "국세 체납 116조"
       },
       {
         "rank": 8,
-        "keyword": "美 AI 사고 신고 의무화"
+        "keyword": "KT 고영표 활약"
       },
       {
         "rank": 9,
-        "keyword": "중국 EU 하이브리드 희토류"
+        "keyword": "신진 서"
       },
       {
         "rank": 10,
-        "keyword": "머슬마니아 3위 제빵소 사장"
+        "keyword": "손흥민 LAFC 무승부"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "설영우 선발 2-2 new"
+        "keyword": "유현조 HJ중���업 우승 new"
       },
       {
         "rank": 2,
-        "keyword": "마지막 날 소나기 new"
+        "keyword": "닥터X 동일"
       },
       {
         "rank": 3,
-        "keyword": "김지원 닥터X 14.9% new"
+        "keyword": "창건 81주년 경축공연 동일"
       },
       {
         "rank": 4,
-        "keyword": "사랑이 온다 하락 6"
+        "keyword": "김용빈 동일"
       },
       {
         "rank": 5,
-        "keyword": "강석우 하락 3"
+        "keyword": "이승기 31개월 딸 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "청주공항 보조배터리 화재"
+        "keyword": "가계대출 변동금리"
       },
       {
         "rank": 2,
-        "keyword": "1245회 로또 당첨"
+        "keyword": "국세 체납 116조"
       },
       {
         "rank": 3,
-        "keyword": "美 AI 사고 신고 의무화"
+        "keyword": "손흥민 LAFC 무승부"
       },
       {
         "rank": 4,
-        "keyword": "중국 EU 하이브리드 희토류"
+        "keyword": "이은해 유족연금 환수 0원"
       },
       {
         "rank": 5,
-        "keyword": "쿠팡 먹통 보상"
+        "keyword": "오디세이 외화 매출 1위"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "월스트리트 저널"
+        "keyword": "기금"
       },
       {
         "rank": 2,
-        "keyword": "원자력"
+        "keyword": "한국경제"
       },
       {
         "rank": 3,
-        "keyword": "사관학교"
+        "keyword": "신진 서"
       },
       {
         "rank": 4,
-        "keyword": "mls"
+        "keyword": "중간 선거"
       },
       {
         "rank": 5,
-        "keyword": "fc barcelona vs getafe cf standings"
+        "keyword": "월드컵"
       },
       {
         "rank": 6,
-        "keyword": "hd현대"
+        "keyword": "삼성 갤럭시 z 폴드 8"
       },
       {
         "rank": 7,
-        "keyword": "김사랑"
+        "keyword": "심휘윤"
       },
       {
         "rank": 8,
-        "keyword": "lafc"
+        "keyword": "기아타이거즈"
       },
       {
         "rank": 9,
-        "keyword": "real madrid vs villarreal cf standings"
+        "keyword": "박지원"
       },
       {
         "rank": 10,
-        "keyword": "박유나"
+        "keyword": "광주fc"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "정보석 아들 머슬마니아"
+        "keyword": "사우디 공항 피격"
       },
       {
         "rank": 2,
-        "keyword": "1,245회 로또 당첨 번호"
+        "keyword": "쿠팡이츠 시스템 장애"
       },
       {
         "rank": 3,
-        "keyword": "트럼프 새 대통령"
+        "keyword": "김민재 백두장사"
       },
       {
         "rank": 4,
-        "keyword": "강석우 동국대 석좌교수"
+        "keyword": "러시아 연구원 사망"
       },
       {
         "rank": 5,
-        "keyword": "닥터x"
+        "keyword": "대구 붕괴사고"
       },
       {
         "rank": 6,
-        "keyword": "놀면 뭐하니"
+        "keyword": "윤호중 감찰 지시"
       },
       {
         "rank": 7,
-        "keyword": "이진숙 묘소 방문"
+        "keyword": "놀페스티벌"
       },
       {
         "rank": 8,
-        "keyword": "정청래 비자"
+        "keyword": "1,245회 로또 당첨 번호"
       },
       {
         "rank": 9,
-        "keyword": "100일의 거짓말 시청률"
+        "keyword": "김연자 김용빈 금 조언"
       },
       {
         "rank": 10,
-        "keyword": "��장훈의 이웃집 백만장자"
+        "keyword": "BTS 페루 첫 공연"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "공포 웹툰 영화화 ‘봉천동귀신’, 오마이걸 아린·윤찬영 캐스팅…5일 크랭크인",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261011/134818405/1",
-      "publishedAt": "수집 10. 11. 09:05 KST",
-      "publishedOrder": 1791677150591
-    },
-    {
-      "title": "유재석, ‘놀뭐’ 참가자 정체에 깜짝…“이 분이 진짜 나오셨다고?”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261011/134818386/1",
-      "publishedAt": "수집 10. 11. 09:05 KST",
-      "publishedOrder": 1791677150591
-    },
-    {
-      "title": "마스크 뒤의 당당함…아이브, ‘걸 히어로’로 확장한 주체적 서사",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261011/134818375/1",
-      "publishedAt": "수집 10. 11. 09:05 KST",
-      "publishedOrder": 1791677150591
-    },
-    {
-      "title": "윤택, 하루 매출 3000만 원 사장님이었는데…“부모님 집 경매로 날아가”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261011/134818359/1",
-      "publishedAt": "수집 10. 11. 09:05 KST",
-      "publishedOrder": 1791677150591
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 11. 09:05 KST",
-      "publishedOrder": 1791677150153
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 11. 09:05 KST",
-      "publishedOrder": 1791677150153
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 11. 09:05 KST",
-      "publishedOrder": 1791677150153
-    },
-    {
-      "title": "\"별안간 시누이? 기괴해\"..박위 父, 왜 박진희·윤소희 '수양딸'로 거뒀나? [스타이슈]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/10/2026101010532988962",
-      "publishedAt": "수집 10. 11. 09:05 KST",
-      "publishedOrder": 1791677150153
-    }
-  ]
+  "entertainment": []
 }
