@@ -305,7 +305,18 @@ async function run() {
       `📊 <b>기술적 위치:</b> 박스권 내 수급 공방 국면\n\n`;
   }
 
-  // 3. 증시 핵심 속보 & 특징 뉴스 (진짜 네이버 뉴스 원문 링크 연동)
+  // 3. 매크로 흔들릴 때 주목: EPS 지속 성장 핵심 섹터 & 주도주 (신규 추가)
+  const epsSection = `💎 <b>[3. 매크로 흔들릴 때 볼 EPS 지속성 탑픽 섹터]</b>\n` +
+    `⚡ <b>AI 전력망/변압기:</b> <code>HD현대일렉트릭, 효성중공업</code>\n` +
+    `   ↳ <i>EPS 지속성: AI 데이터센터 전력 쇼티지 & 4~5년치 일감 완판, 20%대 고마진 유지</i>\n` +
+    `💾 <b>AI 반도체 HBM:</b> <code>SK하이닉스, 한미반도체</code>\n` +
+    `   ↳ <i>EPS 지속성: 엔비디아향 HBM3E/HBM4 독점 완판, 분기 영업익 7조원대 실적 폭발</i>\n` +
+    `🚢 <b>K-조선/친환경선:</b> <code>HD한국조선해양, 삼성중공업</code>\n` +
+    `   ↳ <i>EPS 지속성: 3년치 고선가 도크 풀가동, 헐값 물량 해소 후 분기별 순이익 급증</i>\n` +
+    `🧬 <b>K-바이오 CDMO:</b> <code>삼성바이오로직스, 알테오젠</code>\n` +
+    `   ↳ <i>EPS 지속성: 美 생물보안법 수혜 + 비만치료제 위탁생산 폭증, 30~40% 마진 지속</i>\n\n`;
+
+  // 4. 증시 핵심 속보 & 특징 뉴스 (진짜 네이버 뉴스 원문 링크 연동)
   const newsList = getCuratedMarketNews();
   let newsSection = '';
   if (newsList.length > 0) {
@@ -320,18 +331,18 @@ async function run() {
       return `<b>${i + 1}.</b> ${tag}${press}<a href="${newsUrl}"><b>${title}</b></a>${sub}\n   🔗 <a href="${newsUrl}">👉 [기사 원문 바로가기]</a>`;
     }).join('\n\n');
 
-    newsSection = `📰 <b>[3. 증시 핵심 속보 & 시황 헤드라인 (클릭시 기사 원문)]</b>\n${newsLines}\n\n`;
+    newsSection = `📰 <b>[4. 증시 핵심 속보 & 시황 헤드라인 (클릭시 기사 원문)]</b>\n${newsLines}\n\n`;
   }
 
-  // 4. 실전 투자 대응 전략 (장세에 맞춘 맞춤 전략)
+  // 5. 실전 투자 대응 전략 (장세에 맞춘 맞춤 전략)
   let strategySection = '';
   if (isMarketCrash) {
-    strategySection = `💡 <b>[4. 실전 투자 대응 전략 (급락장 긴급 가이드)]</b>\n` +
+    strategySection = `💡 <b>[5. 실전 투자 대응 전략 (급락장 긴급 가이드)]</b>\n` +
       `• <b>무리한 물타기·추격 매수 절대 금지:</b> 지지선 안착 확인 전까지 현금 비중 유지\n` +
       `• <b>실망 매물 진정 확인:</b> 반도체 등 핵심 대형주 외국인 매도세 둔화 시점 주시\n` +
       `• <b>손절 기준 엄수:</b> 지지선 이탈 종목 리스크 관리 및 방어적 포트폴리오 운용\n\n`;
   } else {
-    strategySection = `💡 <b>[4. 실전 투자 대응 전략]</b>\n` +
+    strategySection = `💡 <b>[5. 실전 투자 대응 전략]</b>\n` +
       `• 주도 테마 대장주 위주의 <b>눌림목 분할 접근</b> 원칙 준수\n` +
       `• 급등 추격 매수 지양 및 거래대금 실린 종목 선별 대응\n` +
       `• 장 초반 외인·기관 실시간 수급 방향 확인 필수\n\n`;
@@ -343,6 +354,7 @@ async function run() {
     `📅 <b>기준일시:</b> ${dateStr} ${timeStr}\n\n` +
     marketSection +
     diagnosisSection +
+    epsSection +
     newsSection +
     strategySection +
     footer;
