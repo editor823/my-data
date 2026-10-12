@@ -1,138 +1,157 @@
 {
   "success": true,
-  "updatedAt": "2026-10-12T00:14:26.684Z",
-  "updatedAtKst": "2026. 10. 12. AM 9:14:26",
+  "updatedAt": "2026-10-12T10:15:46.146Z",
+  "updatedAtKst": "2026. 10. 12. PM 7:15:46",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "트럼프 러-우 에너지 휴전"
+        "keyword": "인권위, 윤 방어권 사과"
       },
       {
         "rank": 2,
-        "keyword": "9월 전세사기 피해"
+        "keyword": "이진숙 국감 제척안 처리"
       },
       {
         "rank": 3,
-        "keyword": "혼전임신 차경은, 결혼 후 활동 중단"
+        "keyword": "故 김현이 추모 자막"
       },
       {
         "rank": 4,
-        "keyword": "100일의 거짓말 드라마"
+        "keyword": "상어"
       },
       {
         "rank": 5,
-        "keyword": "셀트리온 3분기 최대실적"
+        "keyword": "A2O 라이트 첫 데뷔"
       },
       {
         "rank": 6,
-        "keyword": "양민혁 벨기에 데뷔골"
+        "keyword": "장모 살해 20대 구속"
       },
       {
         "rank": 7,
-        "keyword": "국제선"
+        "keyword": "니콜 키드먼"
       },
       {
         "rank": 8,
-        "keyword": "이수만"
+        "keyword": "한성숙 총리, 생명지킴 현장 행보"
       },
       {
         "rank": 9,
-        "keyword": "네팔"
+        "keyword": "축제"
       },
       {
         "rank": 10,
-        "keyword": "재정 규정 위반"
+        "keyword": "잠실구장 마지막 경기"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "100일의 거짓말 드라마 하락 2"
+        "keyword": "과방위 이진숙 국감 상승 1"
       },
       {
         "rank": 2,
-        "keyword": "셀트리온 3분기 영업익 new"
+        "keyword": "한성숙 총리 생명지킴 상승 3"
       },
       {
         "rank": 3,
-        "keyword": "살해 20대 조사 new"
+        "keyword": "인권위 방어권 사과 하락 2"
       },
       {
         "rank": 4,
-        "keyword": "딸 스펙 배우자만 상승 1"
+        "keyword": "A2O 라이트 데뷔 동일"
       },
       {
         "rank": 5,
-        "keyword": "김용지 김고은 축하 new"
+        "keyword": "김현이 하락 2"
       }
     ],
-    "zum": [
+    "zum": [],
+    "google": [
       {
         "rank": 1,
-        "keyword": "서울대 해킹 피해"
+        "keyword": "자기주식"
       },
       {
         "rank": 2,
-        "keyword": "9월 전세사기 피해"
+        "keyword": "상어"
       },
       {
         "rank": 3,
-        "keyword": "셀트리온 3분기 실적"
+        "keyword": "니콜 키드먼"
       },
       {
         "rank": 4,
-        "keyword": "HLB 간암 신약 재신청"
+        "keyword": "축제"
       },
       {
         "rank": 5,
-        "keyword": "SK AI 인재 아이젠"
-      }
-    ],
-    "google": [],
-    "daum": [
-      {
-        "rank": 1,
-        "keyword": "김용지 깜짝 결혼"
-      },
-      {
-        "rank": 2,
-        "keyword": "이재명 지지율 하락"
-      },
-      {
-        "rank": 3,
-        "keyword": "임은정 중수청 감찰"
-      },
-      {
-        "rank": 4,
-        "keyword": "사우디·이란 첫 접촉"
-      },
-      {
-        "rank": 5,
-        "keyword": "100일의 거짓말 드라마"
+        "keyword": "lg 대 kia"
       },
       {
         "rank": 6,
-        "keyword": "최원준 야구선수"
+        "keyword": "롯데 대 두산"
       },
       {
         "rank": 7,
-        "keyword": "정수빈 LPBA 우승"
+        "keyword": "국가보안기술연구소"
       },
       {
         "rank": 8,
-        "keyword": "양민혁 데뷔골"
+        "keyword": "영화"
       },
       {
         "rank": 9,
-        "keyword": "이재명 골프"
+        "keyword": "서울 지하철 2호선"
       },
       {
         "rank": 10,
-        "keyword": "신인감독 김연경 시즌2"
+        "keyword": "제척"
       }
     ],
-    "googleError": "google trends HTTP 429"
+    "daum": [
+      {
+        "rank": 1,
+        "keyword": "LH 사장 집값 급락"
+      },
+      {
+        "rank": 2,
+        "keyword": "과방위 이진숙 제척"
+      },
+      {
+        "rank": 3,
+        "keyword": "박세미 결혼 발표"
+      },
+      {
+        "rank": 4,
+        "keyword": "김인식 감독"
+      },
+      {
+        "rank": 5,
+        "keyword": "네팔 한국인 체포"
+      },
+      {
+        "rank": 6,
+        "keyword": "경찰청 재수사"
+      },
+      {
+        "rank": 7,
+        "keyword": "홍소영 병무청장 병역특례"
+      },
+      {
+        "rank": 8,
+        "keyword": "홈플러스 M&A 필요"
+      },
+      {
+        "rank": 9,
+        "keyword": "김현이 액션배우"
+      },
+      {
+        "rank": 10,
+        "keyword": "조희대 탄핵론"
+      }
+    ]
   },
   "entertainment": []
 }
