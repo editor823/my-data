@@ -1,152 +1,111 @@
 {
   "success": true,
-  "updatedAt": "2026-10-11T19:20:49.032Z",
-  "updatedAtKst": "2026. 10. 12. AM 4:20:49",
+  "updatedAt": "2026-10-12T00:14:26.684Z",
+  "updatedAtKst": "2026. 10. 12. AM 9:14:26",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "트럼프 에너지 휴전 합의"
+        "keyword": "트럼프 러-우 에너지 휴전"
       },
       {
         "rank": 2,
-        "keyword": "서울대, 6년간 해킹으로 개인정보 유출"
+        "keyword": "9월 전세사기 피해"
       },
       {
         "rank": 3,
-        "keyword": "김용지 깜짝 결혼 소식"
+        "keyword": "혼전임신 차경은, 결혼 후 활동 중단"
       },
       {
         "rank": 4,
-        "keyword": "국세 체납 116조"
+        "keyword": "100일의 거짓말 드라마"
       },
       {
         "rank": 5,
-        "keyword": "찰리 푸스 내한!"
+        "keyword": "셀트리온 3분기 최대실적"
       },
       {
         "rank": 6,
-        "keyword": "황희찬"
+        "keyword": "양민혁 벨기에 데뷔골"
       },
       {
         "rank": 7,
-        "keyword": "손흥민 LAFC 무승부"
+        "keyword": "국제선"
       },
       {
         "rank": 8,
-        "keyword": "장모 살해와 아내 납치"
+        "keyword": "이수만"
       },
       {
         "rank": 9,
-        "keyword": "이은해 유족연금 환수 0원"
+        "keyword": "네팔"
       },
       {
         "rank": 10,
-        "keyword": "51세 송종호 고깃집 운영 중"
+        "keyword": "재정 규정 위반"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "김혜성 NLCS 로스터 new"
+        "keyword": "100일의 거짓말 드라마 하락 2"
       },
       {
         "rank": 2,
-        "keyword": "경찰 국정원 압수수색 상승 1"
+        "keyword": "셀트리온 3분기 영업익 new"
       },
       {
         "rank": 3,
-        "keyword": "소이현 셋째 인교진 상승 1"
+        "keyword": "살해 20대 조사 new"
       },
       {
         "rank": 4,
-        "keyword": "장모 살해 아내 하락 3"
+        "keyword": "딸 스펙 배우자만 상승 1"
       },
       {
         "rank": 5,
-        "keyword": "사우디 공항 동일"
+        "keyword": "김용지 김고은 축하 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "국세 체납 116조"
-      },
-      {
-        "rank": 2,
         "keyword": "서울대 해킹 피해"
       },
       {
-        "rank": 3,
-        "keyword": "가계대출 변동금리"
-      },
-      {
-        "rank": 4,
-        "keyword": "손흥민 LAFC 무승부"
-      },
-      {
-        "rank": 5,
-        "keyword": "이은해 유족연금 환수 0원"
-      }
-    ],
-    "google": [
-      {
-        "rank": 1,
-        "keyword": "황희찬"
-      },
-      {
         "rank": 2,
-        "keyword": "ลิเวอร์พูล พบ แมนซิตี"
+        "keyword": "9월 전세사기 피해"
       },
       {
         "rank": 3,
-        "keyword": "liverpool đấu với man city"
+        "keyword": "셀트리온 3분기 실적"
       },
       {
         "rank": 4,
-        "keyword": "fotmob"
+        "keyword": "HLB 간암 신약 재신청"
       },
       {
         "rank": 5,
-        "keyword": "맨시티"
-      },
-      {
-        "rank": 6,
-        "keyword": "김성한"
-      },
-      {
-        "rank": 7,
-        "keyword": "liverpool vs man city"
-      },
-      {
-        "rank": 8,
-        "keyword": "청년"
-      },
-      {
-        "rank": 9,
-        "keyword": "레알 소시에다드 대 데포르티보"
-      },
-      {
-        "rank": 10,
-        "keyword": "india vs west indies"
+        "keyword": "SK AI 인재 아이젠"
       }
     ],
+    "google": [],
     "daum": [
       {
         "rank": 1,
-        "keyword": "정일영 교수"
+        "keyword": "김용지 깜짝 결혼"
       },
       {
         "rank": 2,
-        "keyword": "놀면 뭐하니 서울가요제 참가자"
+        "keyword": "이재명 지지율 하락"
       },
       {
         "rank": 3,
-        "keyword": "트럼프 에너지 휴전"
+        "keyword": "임은정 중수청 감찰"
       },
       {
         "rank": 4,
-        "keyword": "정수빈 LPBA 우승"
+        "keyword": "사우디·이란 첫 접촉"
       },
       {
         "rank": 5,
@@ -154,25 +113,26 @@
       },
       {
         "rank": 6,
-        "keyword": "KT 최원준 배트 내동댕이"
+        "keyword": "최원준 야구선수"
       },
       {
         "rank": 7,
-        "keyword": "김현주 배우"
+        "keyword": "정수빈 LPBA 우승"
       },
       {
         "rank": 8,
-        "keyword": "김용지 배우"
+        "keyword": "양민혁 데뷔골"
       },
       {
         "rank": 9,
-        "keyword": "이재명 sns"
+        "keyword": "이재명 골프"
       },
       {
         "rank": 10,
-        "keyword": "신인감독 김연경"
+        "keyword": "신인감독 김연경 시즌2"
       }
-    ]
+    ],
+    "googleError": "google trends HTTP 429"
   },
   "entertainment": []
 }
