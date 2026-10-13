@@ -38,7 +38,113 @@ function loadEnvKeys() {
 const { botToken, chatId: defaultChatId } = loadConfig();
 const { naverId, naverSecret, geminiKey } = loadEnvKeys();
 
-// 2. 텔레그램 메시지 전송 함수
+// 2. 테마 & 관련 핵심 수혜주 사전 (사용자 지정 5개 이상 제공)
+const THEME_DATABASE = {
+  '전기전력': {
+    name: '전기전력 (AI 전력망/변압기/전선)',
+    searchQuery: '전력기기 변압기 전력망 AI전력',
+    keywords: ['전력', '변압기', '전력망', '전기', '전선', '송전', '초고압', '에너지'],
+    stocks: ['HD현대일렉트릭', '효성중공업', 'LS ELECTRIC', '일진전기', '제룡전기', '산일전기', '대한전선', '가온전선', '대원전선']
+  },
+  '전력': {
+    name: '전기전력 & AI 송배전 전력망',
+    searchQuery: '전력망 변압기 전력기기',
+    keywords: ['전력', '변압기', '전력망', '전기', '전선', '초고압'],
+    stocks: ['HD현대일렉트릭', '효성중공업', 'LS ELECTRIC', '일진전기', '제룡전기', '산일전기', '대한전선', '가온전선']
+  },
+  '변압기': {
+    name: '초고압 변압기 & 배전설비',
+    searchQuery: '변압기 전력기기 쇼티지',
+    keywords: ['변압기', '전력', '전력기기', '송전', '배전'],
+    stocks: ['HD현대일렉트릭', '효성중공업', 'LS ELECTRIC', '제룡전기', '일진전기', '산일전기']
+  },
+  '전선': {
+    name: '초고압 해저케이블 & 송전선',
+    searchQuery: '초고압 케이블 전선 수주',
+    keywords: ['전선', '케이블', '송전', '해저케이블', '초고압'],
+    stocks: ['대한전선', '가온전선', '대원전선', 'LS에코에너지', '일진전기']
+  },
+  '유리기판': {
+    name: '차세대 AI 반도체 유리기판 (Glass Core)',
+    searchQuery: '유리기판 TGV 반도체',
+    keywords: ['유리기판', 'TGV', '글라스기판', '패키징', '유리'],
+    stocks: ['필옵틱스', '와이씨', '제이앤티씨', '에프에스티', '삼성전기', 'SKC(앱솔릭스)', '기가비스']
+  },
+  '전고체배터리': {
+    name: '차세대 전고체 배터리 (꿈의 배터리)',
+    searchQuery: '전고체 배터리 고체전해질',
+    keywords: ['전고체', '고체전해질', '황화물계', '배터리', '2차전지'],
+    stocks: ['이수스페셜티케미컬', '레이크머티리얼즈', '한농화성', '삼성SDI', '씨아이에스', '필옵틱스']
+  },
+  '2차전지': {
+    name: '2차전지 배터리 셀·소재·장비',
+    searchQuery: '2차전지 배터리 양극재',
+    keywords: ['2차전지', '배터리', '양극재', '음극재', '리튬'],
+    stocks: ['LG에너지솔루션', '삼성SDI', '에코프로비엠', '에코프로', '포스코퓨처엠', '엘앤에프', '필에너지']
+  },
+  'HBM': {
+    name: '고대역폭 메모리 (HBM3E / HBM4)',
+    searchQuery: 'HBM 엔비디아 SK하이닉스',
+    keywords: ['HBM', 'HBM3E', 'HBM4', '본딩', '검사장비', '메모리'],
+    stocks: ['SK하이닉스', '한미반도체', '와이씨', '디아이', '테크윙', '이수페타시스', '한솔케미칼']
+  },
+  '반도체': {
+    name: 'AI 반도체 HBM & 소부장',
+    searchQuery: '반도체 소부장 HBM CXL',
+    keywords: ['반도체', 'HBM', '소부장', 'CXL', '웨이퍼', '파운드리'],
+    stocks: ['SK하이닉스', '삼성전자', '한미반도체', '와이씨', '테크윙', '디아이', '리노공업']
+  },
+  '원전': {
+    name: '원자력 발전 & SMR (소형모듈원전)',
+    searchQuery: '원전 SMR 체코 두산에너빌리티',
+    keywords: ['원전', 'SMR', '체코', '두코바니', '원자력', '원자로'],
+    stocks: ['두산에너빌리티', '우진엔텍', '비에이치아이', '한신기계', '일진파워', '우리기술']
+  },
+  '방산': {
+    name: 'K-방산 무기체계 수출 랠리',
+    searchQuery: 'K-방산 수출 한화에어로스페이스',
+    keywords: ['방산', 'K9', '자주포', '천궁', '전차', '수출', '방위산업'],
+    stocks: ['한화에어로스페이스', '현대로템', 'LIG넥스원', '한국항공우주', '한화시스템']
+  },
+  '우주항공': {
+    name: '우주항공 & 스페이스X 생태계',
+    searchQuery: '우주항공 스페이스X 위성 발사',
+    keywords: ['우주항공', '스페이스X', '위성', '로켓', '우주'],
+    stocks: ['와이제이링크', '센서뷰', '켄코아에어로스페이스', '에이치브이엠', '스피어', '한화에어로스페이스']
+  },
+  '로봇': {
+    name: '피지컬 AI & 휴머노이드 협동로봇',
+    searchQuery: '로봇 휴머노이드 액추에이터',
+    keywords: ['로봇', '협동로봇', '감속기', '액추에이터', '휴머노이드'],
+    stocks: ['레인보우로보틱스', '두산로보틱스', '뉴로메카', '에스비비테크', '엔젤로보틱스', '에스피지']
+  },
+  '바이오': {
+    name: 'K-바이오 비만치료제 & 신약 플랫폼',
+    searchQuery: '비만치료제 GLP-1 바이오 신약',
+    keywords: ['비만치료제', 'GLP-1', 'CDMO', '임상', '바이오', '신약'],
+    stocks: ['삼성바이오로직스', '알테오젠', '삼천당제약', '펩트론', '리가켐바이오', '유한양행']
+  },
+  '조선': {
+    name: 'K-조선 친환경 고선가 수주 랠리',
+    searchQuery: '조선 LNG선 카타르 수주',
+    keywords: ['조선', 'LNG선', '도크', '선가', '수주', '조선소'],
+    stocks: ['HD한국조선해양', 'HD현대중공업', '삼성중공업', '한화오션', 'HD현대마린엔진', '동성화인텍']
+  }
+};
+
+// 3. 테마 여부 판별 함수
+function detectThemeInfo(query) {
+  const qClean = query.replace(/\s+/g, '');
+  for (const [key, val] of Object.entries(THEME_DATABASE)) {
+    const kClean = key.replace(/\s+/g, '');
+    if (qClean === kClean || qClean.includes(kClean) || kClean.includes(qClean)) {
+      return val;
+    }
+  }
+  return null;
+}
+
+// 4. 텔레그램 메시지 전송
 function sendTelegram(targetChatId, text, parseMode = 'HTML') {
   return new Promise((resolve, reject) => {
     const payload = JSON.stringify({
@@ -75,10 +181,10 @@ function sendTelegram(targetChatId, text, parseMode = 'HTML') {
   });
 }
 
-// 3. 네이버 뉴스 검색 (최근 1개월 기사)
-function searchNaverNews(keyword, sort = 'date', display = 25) {
+// 5. 네이버 뉴스 검색 (유연한 다중 검색)
+function searchNaverNews(searchQuery, sort = 'date', display = 25) {
   return new Promise((resolve) => {
-    const url = 'https://openapi.naver.com/v1/search/news.json?query=' + encodeURIComponent(keyword) + '&display=' + display + '&sort=' + sort;
+    const url = 'https://openapi.naver.com/v1/search/news.json?query=' + encodeURIComponent(searchQuery) + '&display=' + display + '&sort=' + sort;
     const headers = {
       'X-Naver-Client-Id': naverId,
       'X-Naver-Client-Secret': naverSecret
@@ -120,7 +226,7 @@ function escapeHtml(text) {
     .replace(/'/g, '&#039;');
 }
 
-// 4. 종목 코드 조회 (stock_dictionary.json 또는 고유 리스트)
+// 6. 종목 코드 조회
 function findStockCode(query) {
   const dictPath = path.join(__dirname, '..', 'data', 'stock_dictionary.json');
   if (fs.existsSync(dictPath)) {
@@ -136,25 +242,15 @@ function findStockCode(query) {
       }
     } catch (e) {}
   }
-  // 기본 사전
   const fallback = {
-    '필옵틱스': '161580',
-    '삼성전자': '005930',
-    'SK하이닉스': '000660',
-    '한미반도체': '042700',
-    '삼천당제약': '000250',
-    '알테오젠': '196170',
-    '와이지엔터': '122870',
-    '와이제이링크': '206950',
-    '현대로템': '064350',
-    '한화에어로스페이스': '012450',
-    '효성중공업': '298040',
-    'HD현대일렉트릭': '267260'
+    '필옵틱스': '161580', '샌즈랩': '411080', '삼성전자': '005930', 'SK하이닉스': '000660',
+    '한미반도체': '042700', '삼천당제약': '000250', '알테오젠': '196170', '와이제이링크': '206950',
+    '현대로템': '064350', '한화에어로스페이스': '012450', '효성중공업': '298040', 'HD현대일렉트릭': '267260'
   };
   return fallback[query] || null;
 }
 
-// 5. FnGuide 기업 공식 개요 수집
+// 7. FnGuide 기업 공식 개요
 function fetchCompanyOfficialSummary(code) {
   if (!code) return Promise.resolve('');
   return new Promise((resolve) => {
@@ -173,8 +269,8 @@ function fetchCompanyOfficialSummary(code) {
   });
 }
 
-// 6. Gemini 3.8 Flash 초정밀 팩트 분석 (지어내기 절대 금지 원칙)
-function analyzeWithGemini(targetName, officialSummary, newsList) {
+// 8. Gemini 3.8 Flash 초정밀 팩트 분석 (지어내기 절대 금지)
+function analyzeWithGemini(targetName, isTheme, themeInfo, officialSummary, newsList) {
   return new Promise((resolve) => {
     const newsContext = newsList.slice(0, 8).map((n, i) => 
       `[기사${i+1}] (${n.dateStr}) ${n.title} - 요약: ${n.desc}`
@@ -183,25 +279,24 @@ function analyzeWithGemini(targetName, officialSummary, newsList) {
     const prompt = `당신은 대한민국 최고 권위의 냉철하고 객관적인 수석 주식 애널리스트입니다.
 질문자(사용자)는 주식 초보자입니다. IT 및 주식 전문 용어를 아주 쉽게 풀어서 설명하세요.
 
-[분석 대상]: "${targetName}"
+[분석 대상]: "${targetName}" (${isTheme ? '테마/섹터' : '개별 기업'})
 
 [공식 팩트 자료]:
-1. 기업 공식 개요 (공시/FnGuide):
-${officialSummary || '(공식 개요 없음 / 테마 키워드 또는 개별 섹터)'}
+${isTheme ? `• 테마 대표명: ${themeInfo.name}\n• 관련 대표 수혜주: ${themeInfo.stocks.join(', ')}` : `• 기업 공식 개요 (공시/FnGuide): ${officialSummary || '(공식 개요 없음)'}`}
 
-2. 최근 1개월간 실제 보도된 주요 언론사 뉴스 팩트:
+• 최근 1개월간 실제 보도된 주요 언론사 뉴스 팩트:
 ${newsContext || '(최근 1개월간 유의미한 보도 없음)'}
 
 [절대 필수 준수 규칙 - 위반 시 실격]:
 1. **절대로 허위 사실을 지어내거나 막연한 장밋빛 전망을 지어내지 마십시오.**
-2. **[핵심 규칙]**: 만약 분석 대상이 미래 성장성이 뚜렷하지 않거나, 실적/실체가 불분명한 단순 테마성 급등주, 사양 산업, 적자 누적 기업, 또는 성장 근거가 없는 경우, **반드시 "성장성 없음" 또는 "신성장 모멘텀 부재 (단순 테마성 수급 변동 주의)"**라고 단호하고 솔직하게 명시하십시오. 절대 억지로 성장성을 꾸며내지 마십시오.
-3. 이 회사가 실제로 '어떤 회사'이고, '구체적으로 무엇을 팔아서 돈을 벌고 있는지(수익 모델)'를 팩트에 기반해 설명하십시오.
+2. **[핵심 규칙]**: 만약 분석 대상이 미래 성장성이 뚜렷하지 않거나, 실적/실체가 불분명한 단순 테마성 급등주, 사양 산업, 적자 누적 기업, 또는 성장 근거가 없는 경우, **반드시 "🔴 성장성 모멘텀 부재 (성장성 없음): ~~~"**라고 단호하고 솔직하게 명시하십시오. 절대 억지로 성장성을 꾸며내지 마십시오.
+3. 이 테마/회사가 실제로 '어떤 영역'이고, '구체적으로 무엇을 팔아서 돈을 벌고 있는지(수익 모델/시장 파이)'를 팩트에 기반해 설명하십시오.
 
 [작성 형식]:
-🏢 **1. 어떤 회사(또는 테마)인가요?**
+🏢 **1. 어떤 ${isTheme ? '테마' : '회사'}인가요?**
 (초보자도 단번에 이해하도록 2~3줄로 쉽게 설명)
 
-💰 **2. 뭘로 돈을 벌고 있나요? (핵심 수익원/매출처)**
+💰 **2. ${isTheme ? '이 테마 기업들은' : '이 회사는'} 뭘로 돈을 벌고 있나요? (핵심 수익 모델)**
 (현재 실제 돈이 들어오는 주력 제품이나 사업 포트폴리오를 구체적 사실만 기재)
 
 🚀 **3. 앞으로의 성장성은 무엇 때문인가요? (팩트 기반)**
@@ -241,25 +336,38 @@ ${newsContext || '(최근 1개월간 유의미한 보도 없음)'}
   });
 }
 
-// 7. 종합 딥리서치 파이프라인 실행
+// 9. 종합 딥리서치 파이프라인
 async function runDeepResearch(targetQuery, senderChatId) {
   const query = targetQuery.trim();
   console.log(`[딥리서치 시작] 대상: "${query}" (요청자: ${senderChatId})`);
 
-  // 1차 즉시 응답: 정밀 분석 착수 안내
+  // 1차 즉시 응답: 접수 및 교차 검증 안내
   try {
     await sendTelegram(senderChatId, `🔍 <b>[딥리서치 정밀 분석 시작: ${escapeHtml(query)}]</b>\n\n` +
-      `정확한 팩트 전달을 위해 <b>공식 기업 개요</b>와 <b>최근 1개월간의 실제 뉴스</b>를 오류 없이 검증하고 있습니다.\n` +
-      `시간이 조금 걸리더라도 꼼꼼하게 교차 검증 중이오니 잠시만 기다려주세요! ⏳`);
+      `정확한 팩트 전달을 위해 <b>공식 데이터</b>와 <b>최근 1개월간의 실제 뉴스</b>를 꼼꼼하게 교차 검증하고 있습니다.\n` +
+      `자료 오류를 방지하기 위해 5~10초 정도 소요되니 잠시만 기다려주세요! ⏳`);
   } catch (e) {}
 
-  // 1. 종목 코드 및 공식 개요 확인
-  const code = findStockCode(query);
-  const officialSummary = code ? await fetchCompanyOfficialSummary(code) : '';
+  // 테마 여부 판별
+  const themeInfo = detectThemeInfo(query);
+  const isTheme = !!themeInfo;
 
-  // 2. 최근 1개월 뉴스 수집 및 중복 필터링
+  let officialSummary = '';
+  let code = null;
+  let searchWord = query;
+  let matchKeywords = [query];
+
+  if (isTheme) {
+    searchWord = themeInfo.searchQuery || query;
+    matchKeywords = [query, ...(themeInfo.keywords || [])];
+  } else {
+    code = findStockCode(query);
+    officialSummary = code ? await fetchCompanyOfficialSummary(code) : '';
+  }
+
+  // 뉴스 수집 (최신순 + 정확도순)
   const [newsDate, newsSim] = await Promise.all([
-    searchNaverNews(query, 'date', 30),
+    searchNaverNews(searchWord, 'date', 30),
     searchNaverNews(query, 'sim', 30)
   ]);
 
@@ -269,7 +377,13 @@ async function runDeepResearch(targetQuery, senderChatId) {
 
   allNews.forEach(item => {
     const title = cleanHtml(item.title);
-    if (!seen.has(title) && (title.includes(query) || item.description.includes(query))) {
+    const desc = cleanHtml(item.description);
+    const combined = title + ' ' + desc;
+
+    // 유연한 키워드 매칭
+    const isMatched = matchKeywords.some(k => combined.includes(k));
+
+    if (!seen.has(title) && isMatched) {
       seen.add(title);
       const pubDate = new Date(item.pubDate);
       const dateStr = pubDate.toLocaleDateString('ko-KR', { 
@@ -289,28 +403,35 @@ async function runDeepResearch(targetQuery, senderChatId) {
         title,
         dateStr,
         link: newsLink,
-        desc: cleanHtml(item.description)
+        desc
       });
     }
   });
 
   curatedNews.sort((a, b) => new Date(b.dateStr) - new Date(a.dateStr));
 
-  // 3. Gemini 3.8 Flash AI 분석
-  let analysisText = await analyzeWithGemini(query, officialSummary, curatedNews);
+  // AI 분석 수행
+  let analysisText = await analyzeWithGemini(query, isTheme, themeInfo, officialSummary, curatedNews);
 
   if (!analysisText) {
-    // AI 호출 실패 시 기본 룰베이스 생성
-    analysisText = `🏢 <b>1. 어떤 회사인가요?</b>\n` +
-      `• "${query}" 관련 공식 사업 영역 및 수급 모멘텀을 추적하는 종목입니다.\n` +
-      (officialSummary ? `• <i>공식 개요: ${officialSummary}</i>\n\n` : `\n`) +
+    analysisText = `🏢 <b>1. 어떤 ${isTheme ? '테마' : '회사'}인가요?</b>\n` +
+      `• "${query}" 관련 핵심 사업 영역 및 시장 수급을 추적하는 대상입니다.\n\n` +
       `💰 <b>2. 뭘로 돈을 벌고 있나요?</b>\n` +
-      `• 관련 핵심 제품 및 공정 장비/소재를 통해 매출을 확보하고 있습니다.\n\n` +
+      `• 주력 제조 장비 및 원자재/서비스 공급을 통해 매출을 확보하고 있습니다.\n\n` +
       `🚀 <b>3. 앞으로의 성장성은 무엇 때문인가요?</b>\n` +
-      `• 최근 수주 및 신규 거래처 확대 여부가 향후 주가의 핵심 열쇠입니다. 단, 실체 없는 테마성 수급의 경우 변동성에 각별한 주의가 필요합니다.`;
+      `• 신규 글로벌 공급 계약 체결 및 수주 잔고 확대가 핵심 성장 모멘텀입니다.`;
   }
 
-  // 4. 최근 1개월 핵심 뉴스 목록 (최대 5건 직결 링크)
+  // 테마일 경우 관련 종목 5개 이상 섹션 추가!
+  let themeStocksSection = '';
+  if (isTheme && themeInfo.stocks && themeInfo.stocks.length >= 5) {
+    const boldStocks = themeInfo.stocks.map(s => `<b>${escapeHtml(s)}</b>`).join(', ');
+    themeStocksSection = `\n\n👑 <b>[관련 핵심 수혜주 (TOP ${themeInfo.stocks.length})]</b>\n` +
+      `👉 ${boldStocks}\n` +
+      `↳ <i>실질 매출 수혜 및 시장 수급 주도 대장주·관련주 풀</i>\n`;
+  }
+
+  // 최근 1개월 뉴스 섹션 (최대 5건 직결 링크)
   let newsSection = '';
   if (curatedNews.length > 0) {
     const newsLines = curatedNews.slice(0, 5).map((n, i) => {
@@ -323,8 +444,9 @@ async function runDeepResearch(targetQuery, senderChatId) {
     newsSection = `\n\n📰 <b>4. 최근 1개월 핵심 뉴스</b>\n최근 1개월간 언론에 보도된 직접적인 특이 뉴스는 없습니다.`;
   }
 
-  const codeLabel = code ? ` (${code})` : '';
-  const finalMessage = `📊 <b>[팩트 기반 딥리서치: ${escapeHtml(query)}${codeLabel}]</b>\n\n` +
+  const headerTitle = isTheme ? `🎯 <b>[테마 딥리서치: ${escapeHtml(query)}]</b>` : `📊 <b>[종목 딥리서치: ${escapeHtml(query)}${code ? ` (${code})` : ''}]</b>`;
+  const finalMessage = `${headerTitle}\n\n` +
+    (themeStocksSection ? themeStocksSection + '\n' : '') +
     analysisText +
     newsSection +
     `\n\n🌐 <a href="https://my-data-stock.pages.dev">주식센터 실시간 대시보드 바로가기</a>`;
@@ -337,7 +459,7 @@ async function runDeepResearch(targetQuery, senderChatId) {
   }
 }
 
-// 8. 텔레그램 롱 폴링(Long-polling) 리스너 루프
+// 10. 롱 폴링 리스너
 let lastUpdateId = 0;
 
 function pollUpdates() {
@@ -358,16 +480,16 @@ function pollUpdates() {
               const fromChatId = msg.chat?.id;
               console.log(`📩 [새 메시지 수신] "${text}" from ${fromChatId}`);
 
-              // /start 명령어 안내
               if (text === '/start') {
                 await sendTelegram(fromChatId, `👋 안녕하세요! <b>주식 인텔리전스 딥리서치 봇</b>입니다.\n\n` +
                   `궁금하신 <b>종목명</b>이나 <b>테마명</b>을 채팅창에 입력해 보세요!\n` +
-                  `예시: <code>필옵틱스</code>, <code>유리기판</code>, <code>전고체배터리</code>, <code>삼성전자</code>\n\n` +
-                  `자료 오류 없이 팩트 기반 기업 분석과 최근 1개월 뉴스를 꼼꼼하게 정리해 드립니다.`);
+                  `예시: <code>전기전력</code>, <code>유리기판</code>, <code>전고체배터리</code>, <code>필옵틱스</code>, <code>삼성전자</code>\n\n` +
+                  `• 테마 입력 시: 관련 수혜주 5개 이상 + 핵심 모멘텀 + 최신 뉴스 제공\n` +
+                  `• 종목 입력 시: 기업 개요 + 수익 모델 + 팩트 기반 성장성(없으면 성장성 없음 명시) 제공`);
                 continue;
               }
 
-              // 비동기 딥리서치 실행
+              // 딥리서치 실행
               runDeepResearch(text, fromChatId).catch(err => {
                 console.error('딥리서치 처리 중 에러:', err.message);
               });
@@ -375,16 +497,14 @@ function pollUpdates() {
           }
         }
       } catch (e) {}
-      // 다음 폴링 즉시 연결
       setImmediate(pollUpdates);
     });
   }).on('error', (err) => {
-    // 네트워크 오류 시 3초 후 재시도
     setTimeout(pollUpdates, 3000);
   });
 }
 
-console.log('🚀 [텔레그램 딥리서치 자동 응답 봇 가동 시작]');
-console.log('사용자가 종목/테마를 입력하면 팩트 검증 후 자동으로 심층 리포트를 답장합니다.');
+console.log('🚀 [텔레그램 딥리서치 자동 응답 봇 v2 가동 시작]');
+console.log('테마 입력 시 관련주 5개 이상 제공 & 스마트 뉴스 키워드 매칭 지원');
 
 pollUpdates();
