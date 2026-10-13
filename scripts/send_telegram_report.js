@@ -17,8 +17,15 @@ function loadConfig() {
     return { botToken: envToken, chatId: envChatId };
   }
 
-  if (fs.existsSync(CONFIG_PATH)) {
-    return JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf-8'));
+  const candidatePaths = [
+    path.join(__dirname, '..', 'data', 'telegram_config.json'),
+    path.join(__dirname, '..', '..', 'data', 'telegram_config.json'),
+    path.join(__dirname, '..', 'stock-intelligence', 'data', 'telegram_config.json')
+  ];
+  for (const cp of candidatePaths) {
+    if (fs.existsSync(cp)) {
+      return JSON.parse(fs.readFileSync(cp, 'utf-8'));
+    }
   }
   throw new Error('Telegram bot credentials not found in env or config file.');
 }
@@ -214,14 +221,25 @@ async function getTodayTopTheme() {
 
 // 4. 오늘의 상한가 및 20% 이상 급등 개별주 & 근거 분석
 function getTodaySurgeStocks() {
-  const newsPath = path.join(__dirname, '..', 'data', 'live_domestic_news.json');
-  if (!fs.existsSync(newsPath)) return [];
+  const candidatePaths = [
+    path.join(__dirname, '..', 'public', 'data', 'live_domestic_news.json'),
+    path.join(__dirname, '..', 'data', 'live_domestic_news.json'),
+    path.join(__dirname, '..', 'stock-intelligence', 'public', 'data', 'live_domestic_news.json'),
+    path.join(__dirname, '..', '..', 'data', 'live_domestic_news.json')
+  ];
   let rawList = [];
-  try {
-    rawList = JSON.parse(fs.readFileSync(newsPath, 'utf8'));
-  } catch (e) {
-    return [];
+  for (const p of candidatePaths) {
+    if (fs.existsSync(p)) {
+      try {
+        const d = JSON.parse(fs.readFileSync(p, 'utf8'));
+        if (Array.isArray(d) && d.length > 0) {
+          rawList = d;
+          break;
+        }
+      } catch (e) {}
+    }
   }
+  if (rawList.length === 0) return [];
 
   const surgeKeywords = ['상한가', '24%', '20%', '25%', '28%', '29%', '30%', '급등'];
   const candidates = rawList.filter(item => {
@@ -345,26 +363,33 @@ function getCuratedMarketNews(isMorning = false) {
 
 // 6. 심플 관심종목 TV 당일 아침 브리핑 데이터 추출 (장전 모닝 브리핑용)
 function getMorningBriefingData() {
-  const p = path.join(__dirname, '..', 'data', 'simple_channel_briefing.json');
-  if (!fs.existsSync(p)) return null;
-  try {
-    const data = JSON.parse(fs.readFileSync(p, 'utf8'));
-    const morning = data.timeline?.find(t => t.categoryCode === 'morning') || data.timeline?.[0];
-    if (!morning) return null;
+  const candidatePaths = [
+    path.join(__dirname, '..', 'data', 'simple_channel_briefing.json'),
+    path.join(__dirname, '..', 'public', 'data', 'simple_channel_briefing.json'),
+    path.join(__dirname, '..', 'stock-intelligence', 'data', 'simple_channel_briefing.json'),
+    path.join(__dirname, '..', '..', 'data', 'simple_channel_briefing.json')
+  ];
+  for (const p of candidatePaths) {
+    if (fs.existsSync(p)) {
+      try {
+        const data = JSON.parse(fs.readFileSync(p, 'utf8'));
+        const morning = data.timeline?.find(t => t.categoryCode === 'morning') || data.timeline?.[0];
+        if (!morning) continue;
 
-    const themeNames = morning.themes ? morning.themes.map(t => t.name).slice(0, 4) : [];
-    const stockNames = morning.targetStocks ? morning.targetStocks.map(s => s.name).slice(0, 5) : [];
+        const themeNames = morning.themes ? morning.themes.map(t => t.name).slice(0, 4) : [];
+        const stockNames = morning.targetStocks ? morning.targetStocks.map(s => s.name).slice(0, 5) : [];
 
-    return {
-      title: morning.title || '',
-      summary: morning.executiveSummary || '',
-      themes: themeNames,
-      stocks: stockNames,
-      url: morning.url || ''
-    };
-  } catch (e) {
-    return null;
+        return {
+          title: morning.title || '',
+          summary: morning.executiveSummary || '',
+          themes: themeNames,
+          stocks: stockNames,
+          url: morning.url || ''
+        };
+      } catch (e) {}
+    }
   }
+  return null;
 }
 
 // 7. 매크로 흔들릴 때 볼 EPS 지속성 탑픽 섹터 공통 템플릿
