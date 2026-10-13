@@ -1,100 +1,100 @@
 {
   "success": true,
-  "updatedAt": "2026-10-13T10:07:21.950Z",
-  "updatedAtKst": "2026. 10. 13. PM 7:07:21",
+  "updatedAt": "2026-10-13T20:30:43.157Z",
+  "updatedAtKst": "2026. 10. 14. AM 5:30:43",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "인천 흉기 난동 재점검 필요"
+        "keyword": "김홍근 경기남부경찰청장 직무대리"
       },
       {
         "rank": 2,
-        "keyword": "홍라희, 이재용 삼성전자 지분 증여"
+        "keyword": "인천경찰청 흉기 난동 보고"
       },
       {
         "rank": 3,
-        "keyword": "새마을금고 400명 정보 유출"
+        "keyword": "김지영 출산 후 일상"
       },
       {
         "rank": 4,
-        "keyword": "송영길"
+        "keyword": "김소현의 설렘 가득 매력"
       },
       {
         "rank": 5,
-        "keyword": "이자벨 위페르 부산 방문"
+        "keyword": "옥문아 윤남노 6년째 솔로생활"
       },
       {
         "rank": 6,
-        "keyword": "김영훈"
+        "keyword": "정성숙 감독, 계체 실격 논란 사퇴"
       },
       {
         "rank": 7,
-        "keyword": "APBC 대표팀 명단"
+        "keyword": "풍자 성형 비용"
       },
       {
         "rank": 8,
-        "keyword": "자동차"
+        "keyword": "이찬원"
       },
       {
         "rank": 9,
-        "keyword": "와타나베 마사코 별세 97세"
+        "keyword": "킨델란 39점 흥국생명"
       },
       {
         "rank": 10,
-        "keyword": "보험"
+        "keyword": "한병도"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "종휘 정관장 SOOP new"
+        "keyword": "연애박사 동일"
       },
       {
         "rank": 2,
-        "keyword": "장모 20대 구속 new"
+        "keyword": "계체 실격 정성숙 상승 3"
       },
       {
         "rank": 3,
-        "keyword": "SK가스 자사주 소각 동일"
+        "keyword": "해킹 새마을금고 정보 new"
       },
       {
         "rank": 4,
-        "keyword": "지진해일 대비 동일"
+        "keyword": "이형일 경제 상승 2"
       },
       {
         "rank": 5,
-        "keyword": "성 마사코 별세 new"
+        "keyword": "마라톤 앞두고 숨진 대학원생 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "OK저축은행 정보 유출"
-      },
-      {
-        "rank": 2,
-        "keyword": "검찰총장 후보추천위 구성"
-      },
-      {
-        "rank": 3,
         "keyword": "이재용 홍라희 주식 증여"
       },
       {
-        "rank": 4,
-        "keyword": "장애인 가족 활동지원 연장"
+        "rank": 2,
+        "keyword": "OK저축은행 정보 유출"
       },
       {
-        "rank": 5,
+        "rank": 3,
+        "keyword": "IMF 한국 성장률 상향"
+      },
+      {
+        "rank": 4,
         "keyword": "경찰서장 향피제 인사"
       },
       {
+        "rank": 5,
+        "keyword": "코스피 6천선 급락"
+      },
+      {
         "rank": 6,
-        "keyword": "금융권 해킹 경고문자"
+        "keyword": "인천 흉기난동 CCTV"
       },
       {
         "rank": 7,
-        "keyword": "IMF 한국 성장률 상향"
+        "keyword": "검찰총장 후보추천위 구성"
       },
       {
         "rank": 8,
@@ -102,95 +102,95 @@
       },
       {
         "rank": 9,
-        "keyword": "미신고 코인거래소 접속차단"
+        "keyword": "장애인 가족 활동지원 연장"
       },
       {
         "rank": 10,
-        "keyword": "하이브리드차 판매 감소"
+        "keyword": "중앙행정기관 세종 이전"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "보그"
+        "keyword": "atlético vs man utd"
       },
       {
         "rank": 2,
-        "keyword": "국가유공자"
+        "keyword": "비야레알 대 나폴리"
       },
       {
         "rank": 3,
-        "keyword": "송영길"
+        "keyword": "아스날"
       },
       {
         "rank": 4,
-        "keyword": "김영훈"
+        "keyword": "galatasaray vs barcelona"
       },
       {
         "rank": 5,
-        "keyword": "자동차"
+        "keyword": "현대자동차"
       },
       {
         "rank": 6,
-        "keyword": "보험"
+        "keyword": "갈라타사라이 대 바르셀로나"
       },
       {
         "rank": 7,
-        "keyword": "논문"
+        "keyword": "아틀레티코 대 맨유"
       },
       {
         "rank": 8,
-        "keyword": "종신보험"
+        "keyword": "ucl"
       },
       {
         "rank": 9,
-        "keyword": "태광그룹"
+        "keyword": "uefa champions league"
       },
       {
         "rank": 10,
-        "keyword": "조선"
+        "keyword": "이찬원"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "엄지민 정우철 결혼"
+        "keyword": "100분 토론"
       },
       {
         "rank": 2,
-        "keyword": "인천 흉기난동"
+        "keyword": "이형일 화상면담"
       },
       {
         "rank": 3,
-        "keyword": "HMM 본사 이전"
+        "keyword": "라이어"
       },
       {
         "rank": 4,
-        "keyword": "유지원 마라톤 사망"
+        "keyword": "빈칸 채우기"
       },
       {
         "rank": 5,
-        "keyword": "김용지 깜짝 결혼 임신"
+        "keyword": "김재영 30kg 감량 모델 데뷔"
       },
       {
         "rank": 6,
-        "keyword": "추미애 국감"
+        "keyword": "김수현 은현장 관계"
       },
       {
         "rank": 7,
-        "keyword": "주진우 골프특검법 발의"
+        "keyword": "인천칼부림사고"
       },
       {
         "rank": 8,
-        "keyword": "한화 류지현 감독 선임"
+        "keyword": "사우디 아라비아"
       },
       {
         "rank": 9,
-        "keyword": "100일의 거짓말"
+        "keyword": "강경화 한미 소통 부재"
       },
       {
         "rank": 10,
-        "keyword": "와일드 카드 결정전"
+        "keyword": "란커배 세계 바둑대회"
       }
     ]
   },
