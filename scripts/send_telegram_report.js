@@ -42,10 +42,10 @@ function fetchJson(url) {
         try {
           resolve(JSON.parse(body));
         } catch (e) {
-          reject(e);
+          resolve(null);
         }
       });
-    }).on('error', reject);
+    }).on('error', () => resolve(null));
   });
 }
 
@@ -90,7 +90,7 @@ function sendTelegramMessage(text, parseMode = 'HTML') {
   });
 }
 
-// 1. 실시간 시장 지수 수집
+// 1. 국내 시장 실시간 지수 수집 (코스피, 코스닥, 원/달러 환율)
 async function getLiveIndices() {
   try {
     const [kData, kdData, fxRaw] = await Promise.all([
@@ -98,25 +98,23 @@ async function getLiveIndices() {
       fetchJson('https://m.stock.naver.com/api/index/KOSDAQ/basic'),
       fetchJson('https://m.stock.naver.com/front-api/marketIndex/prices?category=exchange&reutersCode=FX_USDKRW&page=1')
     ]);
-    const fxData = fxRaw.result?.[0] || {};
+    const fxData = fxRaw?.result?.[0] || {};
     const result = {
       updatedAt: new Date().toISOString(),
       kospi: {
         name: '코스피',
-        closePrice: kData.closePrice || kData.now,
-        fluctuationsRatio: kData.fluctuationsRatio,
-        compareToPreviousClosePrice: kData.compareToPreviousClosePrice
+        closePrice: kData?.closePrice || kData?.now || '-',
+        fluctuationsRatio: kData?.fluctuationsRatio || '0'
       },
       kosdaq: {
         name: '코스닥',
-        closePrice: kdData.closePrice || kdData.now,
-        fluctuationsRatio: kdData.fluctuationsRatio,
-        compareToPreviousClosePrice: kdData.compareToPreviousClosePrice
+        closePrice: kdData?.closePrice || kdData?.now || '-',
+        fluctuationsRatio: kdData?.fluctuationsRatio || '0'
       },
       usdKrw: {
         name: '원/달러 환율',
-        closePrice: fxData.closePrice,
-        fluctuationsRatio: fxData.fluctuationsRatio
+        closePrice: fxData?.closePrice || '-',
+        fluctuationsRatio: fxData?.fluctuationsRatio || '0'
       }
     };
 
@@ -127,7 +125,7 @@ async function getLiveIndices() {
 
     return result;
   } catch (err) {
-    console.warn('실시간 지수 API 호출 실패, 캐시 사용:', err.message);
+    console.warn('국내 지수 API 호출 실패, 캐시 조회:', err.message);
     const paths = [
       path.join(__dirname, '..', 'scratch', 'api_result.json'),
       path.join(__dirname, '..', 'data', 'api_result.json')
@@ -143,7 +141,52 @@ async function getLiveIndices() {
   return null;
 }
 
-// 2. 오늘의 실시간 1위 테마 그룹 수집 (네이버 테마 API)
+// 2. 밤사이 미국 및 글로벌 증시 실시간 4대 지표 수집 (장전 모닝 브리핑용)
+async function getLiveUsIndices() {
+  try {
+    const [ixic, dji, inx, sox, fxRaw] = await Promise.all([
+      fetchJson('https://api.stock.naver.com/index/.IXIC/basic'),
+      fetchJson('https://api.stock.naver.com/index/.DJI/basic'),
+      fetchJson('https://api.stock.naver.com/index/.INX/basic'),
+      fetchJson('https://api.stock.naver.com/index/.SOX/basic'),
+      fetchJson('https://m.stock.naver.com/front-api/marketIndex/prices?category=exchange&reutersCode=FX_USDKRW&page=1')
+    ]);
+    const fxData = fxRaw?.result?.[0] || {};
+
+    return {
+      nasdaq: {
+        name: '나스닥',
+        closePrice: ixic?.closePrice || ixic?.nowValue || '-',
+        fluctuationsRatio: ixic?.fluctuationsRatio || '0'
+      },
+      dji: {
+        name: '다우존스',
+        closePrice: dji?.closePrice || dji?.nowValue || '-',
+        fluctuationsRatio: dji?.fluctuationsRatio || '0'
+      },
+      sp500: {
+        name: 'S&P 500',
+        closePrice: inx?.closePrice || inx?.nowValue || '-',
+        fluctuationsRatio: inx?.fluctuationsRatio || '0'
+      },
+      sox: {
+        name: '필라델피아 반도체',
+        closePrice: sox?.closePrice || sox?.nowValue || '-',
+        fluctuationsRatio: sox?.fluctuationsRatio || '0'
+      },
+      usdKrw: {
+        name: '원/달러 환율',
+        closePrice: fxData?.closePrice || '-',
+        fluctuationsRatio: fxData?.fluctuationsRatio || '0'
+      }
+    };
+  } catch (err) {
+    console.warn('미국 지수 수집 실패:', err.message);
+    return null;
+  }
+}
+
+// 3. 오늘의 실시간 1위 테마 그룹 수집 (네이버 테마 API)
 async function getTodayTopTheme() {
   try {
     const listRes = await fetchJson('https://m.stock.naver.com/api/stocks/theme?page=1&pageSize=5');
@@ -169,7 +212,7 @@ async function getTodayTopTheme() {
   }
 }
 
-// 3. 오늘의 상한가 및 20% 이상 급등 개별주 & 근거 분석
+// 4. 오늘의 상한가 및 20% 이상 급등 개별주 & 근거 분석
 function getTodaySurgeStocks() {
   const newsPath = path.join(__dirname, '..', 'data', 'live_domestic_news.json');
   if (!fs.existsSync(newsPath)) return [];
@@ -218,8 +261,8 @@ function getTodaySurgeStocks() {
   return results;
 }
 
-// 4. 실시간 증시 뉴스 선별 (비증시 잡음 필터링)
-function getCuratedMarketNews() {
+// 5. 실시간 증시 뉴스 선별 (진짜 기사 원문 링크 연동)
+function getCuratedMarketNews(isMorning = false) {
   const paths = [
     path.join(__dirname, '..', 'public', 'data', 'live_domestic_news.json'),
     path.join(__dirname, '..', 'data', 'live_domestic_news.json'),
@@ -248,13 +291,12 @@ function getCuratedMarketNews() {
   });
 
   const domesticKeywords = ['코스피', '코스닥', '급락', '마감', '외인', '외국인', '투매', '반도체', '삼성전자', '환율'];
-  const globalKeywords = ['트럼프', '우크라', '휴전', '미국', '나스닥', '금리', 'CPI', '유가', '전쟁'];
+  const globalKeywords = ['트럼프', '우크라', '휴전', '미국', '나스닥', '금리', 'CPI', '유가', '전쟁', '엔비디아', '뉴욕증시'];
 
   const domesticList = [];
   const globalList = [];
 
   stockNews.forEach(item => {
-    const text = (item.tit || '') + ' ' + (item.subcontent || '');
     let dScore = 0;
     domesticKeywords.forEach(k => {
       if ((item.tit || '').includes(k)) dScore += 5;
@@ -285,41 +327,157 @@ function getCuratedMarketNews() {
     }
   }
 
-  domesticList.slice(0, 2).forEach(a => addArticle(a, '국내 시황'));
-  globalList.slice(0, 1).forEach(a => addArticle(a, '글로벌 변수'));
-  domesticList.slice(2, 4).forEach(a => {
-    if (selected.length < 3) addArticle(a, '주요 특징');
-  });
-
-  return selected;
-}
-
-async function run() {
-  const now = new Date();
-  const dateStr = now.toLocaleDateString('ko-KR', { 
-    timeZone: 'Asia/Seoul', 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric', 
-    weekday: 'short' 
-  });
-  const timeStr = now.toLocaleTimeString('ko-KR', { 
-    timeZone: 'Asia/Seoul', 
-    hour: '2-digit', 
-    minute: '2-digit' 
-  });
-
-  const kstHour = parseInt(now.toLocaleTimeString('en-US', { timeZone: 'Asia/Seoul', hour12: false, hour: '2-digit' }), 10);
-  let reportType = '심층 브리핑 리포트';
-  if (kstHour >= 15 || kstHour < 6) {
-    reportType = '장마감 심층 종합 리포트';
-  } else if (kstHour >= 8 && kstHour < 10) {
-    reportType = '개장전 모닝 브리핑';
+  if (isMorning) {
+    // 장전 모닝 브리핑: 글로벌/밤사이 변수 우선
+    globalList.slice(0, 2).forEach(a => addArticle(a, '글로벌 변수'));
+    domesticList.slice(0, 2).forEach(a => addArticle(a, '국내 개장전'));
   } else {
-    reportType = '장중 실시간 브리핑';
+    // 장마감 종합 리포트: 국내 마감 시황 우선
+    domesticList.slice(0, 2).forEach(a => addArticle(a, '국내 시황'));
+    globalList.slice(0, 1).forEach(a => addArticle(a, '글로벌 변수'));
+    domesticList.slice(2, 4).forEach(a => {
+      if (selected.length < 3) addArticle(a, '주요 특징');
+    });
   }
 
-  // 1. 시장 핵심 지표
+  return selected.slice(0, 3);
+}
+
+// 6. 심플 관심종목 TV 당일 아침 브리핑 데이터 추출 (장전 모닝 브리핑용)
+function getMorningBriefingData() {
+  const p = path.join(__dirname, '..', 'data', 'simple_channel_briefing.json');
+  if (!fs.existsSync(p)) return null;
+  try {
+    const data = JSON.parse(fs.readFileSync(p, 'utf8'));
+    const morning = data.timeline?.find(t => t.categoryCode === 'morning') || data.timeline?.[0];
+    if (!morning) return null;
+
+    const themeNames = morning.themes ? morning.themes.map(t => t.name).slice(0, 4) : [];
+    const stockNames = morning.targetStocks ? morning.targetStocks.map(s => s.name).slice(0, 5) : [];
+
+    return {
+      title: morning.title || '',
+      summary: morning.executiveSummary || '',
+      themes: themeNames,
+      stocks: stockNames,
+      url: morning.url || ''
+    };
+  } catch (e) {
+    return null;
+  }
+}
+
+// 7. 매크로 흔들릴 때 볼 EPS 지속성 탑픽 섹터 공통 템플릿
+const EPS_PICK_SECTION = `💎 <b>[매크로 흔들릴 때 볼 EPS 지속성 탑픽 섹터]</b>\n` +
+  `⚡ <b>AI 전력망/변압기:</b>\n` +
+  `   👉 <b>HD현대일렉트릭, 효성중공업, LS ELECTRIC, 일진전기, 제룡전기, 산일전기</b>\n` +
+  `   ↳ <i>EPS 지속성: AI 데이터센터 전력 쇼티지 & 4~5년치 일감 완판, 20%대 고마진 유지</i>\n\n` +
+  `💾 <b>AI 반도체 HBM/장비:</b>\n` +
+  `   👉 <b>SK하이닉스, 한미반도체, 테크윙, 한솔케미칼, 디아이, 와이씨</b>\n` +
+  `   ↳ <i>EPS 지속성: 엔비디아향 HBM3E/HBM4 독점 완판, 분기 영업익 7조원대 실적 폭발</i>\n\n` +
+  `🚢 <b>K-조선/친환경선:</b>\n` +
+  `   👉 <b>HD한국조선해양, HD현대중공업, 삼성중공업, 한화오션, HD현대마린엔진, 동성화인텍</b>\n` +
+  `   ↳ <i>EPS 지속성: 3년치 고선가 도크 풀가동, 헐값 물량 해소 후 분기별 순이익 급증</i>\n\n` +
+  `🧬 <b>K-바이오 CDMO/신약:</b>\n` +
+  `   👉 <b>삼성바이오로직스, 알테오젠, 에스티팜, 리가켐바이오, 유한양행</b>\n` +
+  `   ↳ <i>EPS 지속성: 美 생물보안법 수혜 + 비만치료제 위탁생산 폭증, 30~40% 마진 지속</i>\n\n`;
+
+// 🌅 [개장전 모닝 브리핑] 빌더
+async function buildMorningReport(dateStr, timeStr) {
+  const us = await getLiveUsIndices();
+  let indexSection = '';
+  let soxNum = 0;
+  let nasdaqNum = 0;
+
+  if (us) {
+    soxNum = parseFloat(us.sox.fluctuationsRatio || 0);
+    nasdaqNum = parseFloat(us.nasdaq.fluctuationsRatio || 0);
+
+    const fmtRate = (r) => (parseFloat(r) >= 0 ? `+${r}%` : `${r}%`);
+    indexSection = `🌐 <b>[1. 밤사이 뉴욕 증시 & 글로벌 핵심 지표]</b>\n` +
+      `• 다우존스: <b>${us.dji.closePrice}</b> (${fmtRate(us.dji.fluctuationsRatio)})\n` +
+      `• 나스닥: <b>${us.nasdaq.closePrice}</b> (${fmtRate(us.nasdaq.fluctuationsRatio)})\n` +
+      `• S&P 500: <b>${us.sp500.closePrice}</b> (${fmtRate(us.sp500.fluctuationsRatio)})\n` +
+      `• 필라델피아 반도체: <b>${us.sox.closePrice}</b> (${fmtRate(us.sox.fluctuationsRatio)})\n` +
+      `• 원/달러 환율: <b>${us.usdKrw.closePrice}원</b> (${fmtRate(us.usdKrw.fluctuationsRatio)})\n\n`;
+  }
+
+  // 글로벌 시황 심층 진단
+  let globalDiagnosis = '';
+  if (soxNum <= -2.0) {
+    globalDiagnosis = `🚨 <b>[2. 밤사이 글로벌 증시 심층 진단: 반도체 급락 주의]</b>\n` +
+      `🔥 <b>글로벌 동향:</b> 필라델피아 반도체 지수(${soxNum}%) 급락 및 기술주 차익 실현\n` +
+      `💡 <b>핵심 변수:</b> AI 대형주 수익화 우려 및 국채 금리·CPI 발표 앞둔 관망세\n` +
+      `📊 <b>국내 영향:</b> 삼성전자·SK하이닉스 등 국내 반도체주 장 초반 경계 매물 유입 가능성\n` +
+      `🔴 <b>주의 리스크:</b> 섣부른 시초가 추격 매수 자제 및 9시 30분 수급 확인 필수\n\n`;
+  } else if (nasdaqNum <= -1.0) {
+    globalDiagnosis = `📉 <b>[2. 밤사이 글로벌 증시 심층 진단: 기술주 약세 조정]</b>\n` +
+      `🔥 <b>글로벌 동향:</b> 나스닥(${nasdaqNum}%) 차익 매물 출회 및 혼조세 마감\n` +
+      `💡 <b>핵심 변수:</b> 글로벌 매크로 불확실성 속 방어주 및 실적주 선별 장세\n` +
+      `📊 <b>국내 영향:</b> 개장 초반 지수 보합권 등락 속 개별 실적 호전주 중심 차별화\n\n`;
+  } else if (nasdaqNum >= 1.0 || soxNum >= 1.5) {
+    globalDiagnosis = `🚀 <b>[2. 밤사이 글로벌 증시 심층 진단: 미 증시 훈풍 랠리]</b>\n` +
+      `🔥 <b>글로벌 동향:</b> 나스닥(${nasdaqNum}%) 및 반도체(${soxNum}%) 동반 강세\n` +
+      `💡 <b>핵심 재료:</b> 빅테크 호실적 기대감 및 금리 안정에 따른 투자심리 개선\n` +
+      `🟢 <b>국내 영향:</b> 국내 대표 기술주 및 성장주 시초가 갭상승 출발 기대\n\n`;
+  } else {
+    globalDiagnosis = `⚖️ <b>[2. 밤사이 글로벌 증시 심층 진단: 보합 혼조 장세]</b>\n` +
+      `🔥 <b>글로벌 동향:</b> 뉴욕 3대 지수 뚜렷한 방향성 없이 관망세 마감\n` +
+      `💡 <b>핵심 변수:</b> 주요 경제지표 대기 속 종목별 실적에 따른 개별 장세 전개\n\n`;
+  }
+
+  // 당일 아침 핵심 관심 테마 & 추천 종목
+  const morningBrief = getMorningBriefingData();
+  let morningThemeSection = '';
+  if (morningBrief && morningBrief.themes.length > 0) {
+    const tStr = morningBrief.themes.join(', ');
+    const sStr = morningBrief.stocks.length > 0 ? morningBrief.stocks.join(', ') : '대표 대장주';
+    const sumLine = morningBrief.summary ? `   ↳ <i>체크: ${escapeHtml(morningBrief.summary.slice(0, 75))}...</i>\n` : '';
+    morningThemeSection = `📺 <b>[4. 당일 아침 핵심 관심 테마 & 추천 종목 (심플 관심종목 TV)]</b>\n` +
+      `• 💡 <b>관심 테마군:</b> <b>${escapeHtml(tStr)}</b>\n` +
+      `• 🎯 <b>집중 추적 종목:</b> <b>${escapeHtml(sStr)}</b>\n` +
+      sumLine +
+      `• ⚡ <b>핵심 체크포인트:</b> 8:40~9:00 동시호가 예상체결가 점검 및 1등 대장주 압축 대응\n\n`;
+  }
+
+  // 장전 핵심 글로벌·국내 속보
+  const newsList = getCuratedMarketNews(true);
+  let newsSection = '';
+  if (newsList.length > 0) {
+    const newsLines = newsList.map((n, i) => {
+      const press = n.ohnm ? `[${escapeHtml(n.ohnm)}] ` : '';
+      const tag = n.categoryTag ? `[${escapeHtml(n.categoryTag)}] ` : '';
+      const title = escapeHtml(n.tit || n.title || '속보');
+      const newsUrl = (n.oid && n.aid) 
+        ? `https://n.news.naver.com/mnews/article/${n.oid}/${n.aid}`
+        : `https://finance.naver.com/news/`;
+      const sub = n.subcontent ? `\n   ↳ <i>${escapeHtml(n.subcontent.trim().slice(0, 75))}...</i>` : '';
+      return `<b>${i + 1}.</b> ${tag}${press}<a href="${newsUrl}"><b>${title}</b></a>${sub}\n   🔗 <a href="${newsUrl}">👉 [기사 원문 바로가기]</a>`;
+    }).join('\n\n');
+    newsSection = `📰 <b>[5. 장전 핵심 글로벌·국내 속보 (클릭시 기사 원문)]</b>\n${newsLines}\n\n`;
+  }
+
+  // 개장전 실전 가이드
+  const strategySection = `🧭 <b>[6. 개장전 실전 투자 대응 전략 (모닝 실전 가이드)]</b>\n` +
+    `• <b>뇌동 시초가 추격 절대 금지:</b> 8:40~9:00 사이 5% 이상 갭이 크게 뜨는 종목은 시초가 추격매수 절대 지양\n` +
+    `• <b>장 초반(09:00~09:30) 수급 확인:</b> 장 개시 30분 후 외인·기관 실질 순매수 유입 여부 확인 후 눌림목 접근\n` +
+    `• <b>거래대금 1등 대장주 압축:</b> 관심 섹터 내에서 거래량과 호가 잔량이 가장 탄탄한 1등주로만 압축 매매\n\n`;
+
+  const footer = `🌐 <a href="https://my-data-stock.pages.dev">주식센터 실시간 대시보드 바로가기</a>`;
+
+  return `📊 <b>[주식 인텔리전스 센터 - 🌅 개장전 모닝 브리핑]</b>\n\n` +
+    `📅 <b>기준일시:</b> ${dateStr} ${timeStr}\n\n` +
+    indexSection +
+    globalDiagnosis +
+    EPS_PICK_SECTION +
+    morningThemeSection +
+    newsSection +
+    strategySection +
+    footer;
+}
+
+// 🌆 [장마감 심층 종합 리포트] 빌더
+async function buildClosingReport(dateStr, timeStr) {
   const indices = await getLiveIndices();
   let marketSection = '';
   let kospiNum = 0;
@@ -339,7 +497,7 @@ async function run() {
       `• 원/달러 환율: <b>${usd}</b>\n\n`;
   }
 
-  // 2. 시장 국면 심층 진단
+  // 시장 국면 심층 진단
   let diagnosisSection = '';
   const isMarketCrash = (kospiNum <= -2.0 || kosdaqNum <= -3.0);
   const isMarketDrop = (kospiNum <= -1.0 || kosdaqNum <= -1.5);
@@ -370,22 +528,7 @@ async function run() {
       `📊 <b>기술적 위치:</b> 박스권 내 수급 공방 국면\n\n`;
   }
 
-  // 3. 매크로 흔들릴 때 볼 EPS 지속성 탑픽 섹터 (가독성 높은 굵은 글씨 및 확장된 종목군)
-  const epsSection = `💎 <b>[3. 매크로 흔들릴 때 볼 EPS 지속성 탑픽 섹터]</b>\n` +
-    `⚡ <b>AI 전력망/변압기:</b>\n` +
-    `   👉 <b>HD현대일렉트릭, 효성중공업, LS ELECTRIC, 일진전기, 제룡전기, 산일전기</b>\n` +
-    `   ↳ <i>EPS 지속성: AI 데이터센터 전력 쇼티지 & 4~5년치 일감 완판, 20%대 고마진 유지</i>\n\n` +
-    `💾 <b>AI 반도체 HBM/장비:</b>\n` +
-    `   👉 <b>SK하이닉스, 한미반도체, 테크윙, 한솔케미칼, 디아이, 와이씨</b>\n` +
-    `   ↳ <i>EPS 지속성: 엔비디아향 HBM3E/HBM4 독점 완판, 분기 영업익 7조원대 실적 폭발</i>\n\n` +
-    `🚢 <b>K-조선/친환경선:</b>\n` +
-    `   👉 <b>HD한국조선해양, HD현대중공업, 삼성중공업, 한화오션, HD현대마린엔진, 동성화인텍</b>\n` +
-    `   ↳ <i>EPS 지속성: 3년치 고선가 도크 풀가동, 헐값 물량 해소 후 분기별 순이익 급증</i>\n\n` +
-    `🧬 <b>K-바이오 CDMO/신약:</b>\n` +
-    `   👉 <b>삼성바이오로직스, 알테오젠, 에스티팜, 리가켐바이오, 유한양행</b>\n` +
-    `   ↳ <i>EPS 지속성: 美 생물보안법 수혜 + 비만치료제 위탁생산 폭증, 30~40% 마진 지속</i>\n\n`;
-
-  // 4. 오늘의 실시간 주도 테마 그룹 & 급등/상한가(+20%↑) 집중 분석 (신규 추가!)
+  // 오늘의 실시간 주도 테마 그룹 & 급등/상한가 집중 분석
   const topTheme = await getTodayTopTheme();
   const surgeStocks = getTodaySurgeStocks();
 
@@ -395,7 +538,7 @@ async function run() {
     const stockStr = topTheme.stocks.length > 0 ? topTheme.stocks.join(', ') : '주요 관련주 상승';
     themeContent = `🔥 <b>오늘의 주도 테마군:</b> <b>${escapeHtml(topTheme.name)} (+${topTheme.changeRate}%)</b>\n` +
       `   • <b>핵심 상승 종목:</b> ${stockStr}\n` +
-      `   • <b>상승 근거:</b> 글로벌 운임 지수 급등 및 지정학적 리스크 수혜로 전 종목 동반 강세\n\n`;
+      `   • <b>상승 근거:</b> 글로벌 수급 집중 및 정책·실적 모멘텀으로 전 종목 동반 강세\n\n`;
   }
 
   let surgeContent = '';
@@ -413,8 +556,8 @@ async function run() {
       surgeContent;
   }
 
-  // 5. 증시 핵심 속보 & 시황 헤드라인
-  const newsList = getCuratedMarketNews();
+  // 증시 핵심 속보 & 시황 헤드라인
+  const newsList = getCuratedMarketNews(false);
   let newsSection = '';
   if (newsList.length > 0) {
     const newsLines = newsList.map((n, i) => {
@@ -427,11 +570,10 @@ async function run() {
       const sub = n.subcontent ? `\n   ↳ <i>${escapeHtml(n.subcontent.trim().slice(0, 75))}...</i>` : '';
       return `<b>${i + 1}.</b> ${tag}${press}<a href="${newsUrl}"><b>${title}</b></a>${sub}\n   🔗 <a href="${newsUrl}">👉 [기사 원문 바로가기]</a>`;
     }).join('\n\n');
-
     newsSection = `📰 <b>[5. 증시 핵심 속보 & 시황 헤드라인 (클릭시 기사 원문)]</b>\n${newsLines}\n\n`;
   }
 
-  // 6. 실전 투자 대응 전략
+  // 실전 투자 대응 전략
   let strategySection = '';
   if (isMarketCrash) {
     strategySection = `💡 <b>[6. 실전 투자 대응 전략 (급락장 긴급 가이드)]</b>\n` +
@@ -447,19 +589,59 @@ async function run() {
 
   const footer = `🌐 <a href="https://my-data-stock.pages.dev">주식센터 실시간 대시보드 바로가기</a>`;
 
-  const fullReport = `📊 <b>[주식 인텔리전스 센터 - ${reportType}]</b>\n\n` +
+  return `📊 <b>[주식 인텔리전스 센터 - 🌆 장마감 심층 종합 리포트]</b>\n\n` +
     `📅 <b>기준일시:</b> ${dateStr} ${timeStr}\n\n` +
     marketSection +
     diagnosisSection +
-    epsSection +
+    EPS_PICK_SECTION +
     themeAndSurgeSection +
     newsSection +
     strategySection +
     footer;
+}
+
+async function run() {
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('ko-KR', { 
+    timeZone: 'Asia/Seoul', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric', 
+    weekday: 'short' 
+  });
+  const timeStr = now.toLocaleTimeString('ko-KR', { 
+    timeZone: 'Asia/Seoul', 
+    hour: '2-digit', 
+    minute: '2-digit' 
+  });
+
+  const kstHour = parseInt(now.toLocaleTimeString('en-US', { timeZone: 'Asia/Seoul', hour12: false, hour: '2-digit' }), 10);
+  const arg = (process.argv[2] || '').toLowerCase();
+
+  let isMorning = false;
+  if (arg === 'morning') {
+    isMorning = true;
+  } else if (arg === 'close' || arg === 'closing') {
+    isMorning = false;
+  } else {
+    // 기본 시간대 자동 판별: 06시~11시는 개장전 모닝 브리핑, 그 외는 장마감 종합 리포트
+    if (kstHour >= 6 && kstHour < 11) {
+      isMorning = true;
+    } else {
+      isMorning = false;
+    }
+  }
+
+  let fullReport = '';
+  if (isMorning) {
+    fullReport = await buildMorningReport(dateStr, timeStr);
+  } else {
+    fullReport = await buildClosingReport(dateStr, timeStr);
+  }
 
   try {
     await sendTelegramMessage(fullReport);
-    console.log('✅ 전면 개선된 고품질 주식 보고서 발송 성공!');
+    console.log(`✅ [${isMorning ? '개장전 모닝 브리핑' : '장마감 심층 종합 리포트'}] 텔레그램 발송 성공!`);
   } catch (err) {
     console.error('❌ 발송 실패:', err.message);
   }
@@ -469,4 +651,4 @@ if (require.main === module) {
   run();
 }
 
-module.exports = { sendTelegramMessage };
+module.exports = { sendTelegramMessage, buildMorningReport, buildClosingReport };
