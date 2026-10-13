@@ -1,214 +1,198 @@
 {
   "success": true,
-  "updatedAt": "2026-10-12T22:23:45.594Z",
-  "updatedAtKst": "2026. 10. 13. AM 7:23:45",
+  "updatedAt": "2026-10-13T10:07:21.950Z",
+  "updatedAtKst": "2026. 10. 13. PM 7:07:21",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "강경화 백악관 소통 한계"
+        "keyword": "인천 흉기 난동 재점검 필요"
       },
       {
         "rank": 2,
-        "keyword": "축하 받는 레이예스"
+        "keyword": "홍라희, 이재용 삼성전자 지분 증여"
       },
       {
         "rank": 3,
-        "keyword": "우리들의 발라드2 전이수"
+        "keyword": "새마을금고 400명 정보 유출"
       },
       {
         "rank": 4,
-        "keyword": "복권"
+        "keyword": "송영길"
       },
       {
         "rank": 5,
-        "keyword": "故 김현이 추모 비보 3개월 만에"
+        "keyword": "이자벨 위페르 부산 방문"
       },
       {
         "rank": 6,
-        "keyword": "KIA, LG 이기고 준PO 직행"
+        "keyword": "김영훈"
       },
       {
         "rank": 7,
-        "keyword": "장윤정"
+        "keyword": "APBC 대표팀 명단"
       },
       {
         "rank": 8,
-        "keyword": "2026년 10월 13일 운세"
+        "keyword": "자동차"
       },
       {
         "rank": 9,
-        "keyword": "두산에너빌리티"
+        "keyword": "와타나베 마사코 별세 97세"
       },
       {
         "rank": 10,
-        "keyword": "후티 리야드 공항 공격"
+        "keyword": "보험"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "김현이 동��"
+        "keyword": "종휘 정관장 SOOP new"
       },
       {
         "rank": 2,
-        "keyword": "연애박사 하락 2"
+        "keyword": "장모 20대 구속 new"
       },
       {
         "rank": 3,
-        "keyword": "후티 사우디 또 공격 new"
+        "keyword": "SK가스 자사주 소각 동일"
       },
       {
         "rank": 4,
-        "keyword": "2026년 13일 운세 하락 1"
+        "keyword": "지진해일 대비 동일"
       },
       {
         "rank": 5,
-        "keyword": "피겨 차준환 중단 new"
+        "keyword": "성 마사코 별세 new"
       }
     ],
-    "zum": [],
-    "google": [
+    "zum": [
       {
         "rank": 1,
-        "keyword": "weather"
+        "keyword": "OK저축은행 정보 유출"
       },
       {
         "rank": 2,
-        "keyword": "이재명"
+        "keyword": "검찰총장 후보추천위 구성"
       },
       {
         "rank": 3,
-        "keyword": "thời tiết"
+        "keyword": "이재용 홍라희 주식 증여"
       },
       {
         "rank": 4,
-        "keyword": "погода"
+        "keyword": "장애인 가족 활동지원 연장"
       },
       {
         "rank": 5,
-        "keyword": "필라델피아 반도체 지수"
+        "keyword": "경찰서장 향피제 인사"
       },
       {
         "rank": 6,
-        "keyword": "skhy"
+        "keyword": "금융권 해킹 경고문자"
       },
       {
         "rank": 7,
-        "keyword": "dodgers vs brewers"
+        "keyword": "IMF 한국 성장률 상향"
       },
       {
         "rank": 8,
-        "keyword": "สภาพอากาศ"
+        "keyword": "부동산 PF 현황 규제"
       },
       {
         "rank": 9,
-        "keyword": "장한별"
+        "keyword": "미신고 코인거래소 접속차단"
       },
       {
         "rank": 10,
-        "keyword": "국민 총소득"
+        "keyword": "하이브리드차 판매 감소"
+      }
+    ],
+    "google": [
+      {
+        "rank": 1,
+        "keyword": "보그"
+      },
+      {
+        "rank": 2,
+        "keyword": "국가유공자"
+      },
+      {
+        "rank": 3,
+        "keyword": "송영길"
+      },
+      {
+        "rank": 4,
+        "keyword": "김영훈"
+      },
+      {
+        "rank": 5,
+        "keyword": "자동차"
+      },
+      {
+        "rank": 6,
+        "keyword": "보험"
+      },
+      {
+        "rank": 7,
+        "keyword": "논문"
+      },
+      {
+        "rank": 8,
+        "keyword": "종신보험"
+      },
+      {
+        "rank": 9,
+        "keyword": "태광그룹"
+      },
+      {
+        "rank": 10,
+        "keyword": "조선"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "트럼프 김정은 회담"
+        "keyword": "엄지민 정우철 결혼"
       },
       {
         "rank": 2,
-        "keyword": "김현이 무술배우"
+        "keyword": "인천 흉기난동"
       },
       {
         "rank": 3,
-        "keyword": "박세미 결혼 예비신랑"
+        "keyword": "HMM 본사 이전"
       },
       {
         "rank": 4,
-        "keyword": "홍소영 병무청장"
+        "keyword": "유지원 마라톤 사망"
       },
       {
         "rank": 5,
-        "keyword": "김세인 배우"
+        "keyword": "김용지 깜짝 결혼 임신"
       },
       {
         "rank": 6,
-        "keyword": "후티 사우디 공격"
+        "keyword": "추미애 국감"
       },
       {
         "rank": 7,
-        "keyword": "차준환 선수 활동 중단"
+        "keyword": "주진우 골프특검법 발의"
       },
       {
         "rank": 8,
-        "keyword": "김도영 홈런왕 MVP"
+        "keyword": "한화 류지현 감독 선임"
       },
       {
         "rank": 9,
-        "keyword": "dn 오토모티브"
+        "keyword": "100일의 거짓말"
       },
       {
         "rank": 10,
-        "keyword": "한동훈 딸 수사"
+        "keyword": "와일드 카드 결정전"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "‘20kg 감량’ 소유, 운동하다 결국 폭발…“왜 나만 보면 욕심내? 나 가수야!”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261012/134829908/1",
-      "publishedAt": "수집 10. 13. 07:23 KST",
-      "publishedOrder": 1791843821309
-    },
-    {
-      "title": "노재원 “어릴 때 이나영 닮았단 말 많이 들어…난 잘생겼구나 했다”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261012/134829971/1",
-      "publishedAt": "수집 10. 13. 07:23 KST",
-      "publishedOrder": 1791843821309
-    },
-    {
-      "title": "이주연, 애프터스쿨 시절 한강 데이트 고백…“지금은 돌아다녀도 몰라”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261012/134829858/1",
-      "publishedAt": "수집 10. 13. 07:23 KST",
-      "publishedOrder": 1791843821309
-    },
-    {
-      "title": "박정민 “내 몸에서 남자 냄새 나는 게 싫어”…뜻밖의 향수 취향",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261012/134829820/1",
-      "publishedAt": "수집 10. 13. 07:23 KST",
-      "publishedOrder": 1791843821309
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 13. 07:23 KST",
-      "publishedOrder": 1791843821040
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 13. 07:23 KST",
-      "publishedOrder": 1791843821040
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 13. 07:23 KST",
-      "publishedOrder": 1791843821040
-    },
-    {
-      "title": "액션 배우 故김현이, 뒤늦게 전해진 사망 비보..'닥터X'·'100일의 거짓말' 엔딩서 추모",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/12/2026101211345686217",
-      "publishedAt": "수집 10. 13. 07:23 KST",
-      "publishedOrder": 1791843821040
-    }
-  ]
+  "entertainment": []
 }
