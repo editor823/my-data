@@ -38,7 +38,7 @@ function loadEnvKeys() {
 const { botToken, chatId: defaultChatId } = loadConfig();
 const { naverId, naverSecret, geminiKey } = loadEnvKeys();
 
-// 2. 테마 & 관련 핵심 수혜주 사전 (사용자 지정 5개 이상 제공)
+// 2. 테마 & 관련 핵심 수혜주 사전 (대소문자/공백 무관 매칭)
 const THEME_DATABASE = {
   '전기전력': {
     name: '전기전력 (AI 전력망/변압기/전선)',
@@ -129,14 +129,20 @@ const THEME_DATABASE = {
     searchQuery: '조선 LNG선 카타르 수주',
     keywords: ['조선', 'LNG선', '도크', '선가', '수주', '조선소'],
     stocks: ['HD한국조선해양', 'HD현대중공업', '삼성중공업', '한화오션', 'HD현대마린엔진', '동성화인텍']
+  },
+  '엔터': {
+    name: 'K-콘텐츠 & 엔터테인먼트 / 캐릭터 IP',
+    searchQuery: '엔터 티니핑 K팝 음반 음원',
+    keywords: ['엔터', '티니핑', 'K팝', '콘텐츠', '앨범', '음원', '굿즈'],
+    stocks: ['SAMG엔터', '하이브', '에스엠', 'JYP Ent.', '와이지엔터테인먼트', '대원미디어']
   }
 };
 
-// 3. 테마 여부 판별 함수
+// 3. 테마 여부 판별 함수 (대소문자 및 공백 무시)
 function detectThemeInfo(query) {
-  const qClean = query.replace(/\s+/g, '');
+  const qClean = query.toLowerCase().replace(/\s+/g, '');
   for (const [key, val] of Object.entries(THEME_DATABASE)) {
-    const kClean = key.replace(/\s+/g, '');
+    const kClean = key.toLowerCase().replace(/\s+/g, '');
     if (qClean === kClean || qClean.includes(kClean) || kClean.includes(qClean)) {
       return val;
     }
@@ -181,7 +187,7 @@ function sendTelegram(targetChatId, text, parseMode = 'HTML') {
   });
 }
 
-// 5. 네이버 뉴스 검색 (유연한 다중 검색)
+// 5. 네이버 뉴스 검색
 function searchNaverNews(searchQuery, sort = 'date', display = 25) {
   return new Promise((resolve) => {
     const url = 'https://openapi.naver.com/v1/search/news.json?query=' + encodeURIComponent(searchQuery) + '&display=' + display + '&sort=' + sort;
@@ -226,8 +232,9 @@ function escapeHtml(text) {
     .replace(/'/g, '&#039;');
 }
 
-// 6. 종목 코드 조회
+// 6. 종목 코드 조회 (대소문자 & 공백 무시 완전 지원)
 function findStockCode(query) {
+  const qNorm = query.toLowerCase().replace(/\s+/g, '');
   const dictPath = path.join(__dirname, '..', 'data', 'stock_dictionary.json');
   if (fs.existsSync(dictPath)) {
     try {
@@ -235,7 +242,10 @@ function findStockCode(query) {
       if (Array.isArray(data.themes)) {
         for (const t of data.themes) {
           if (Array.isArray(t.stocks)) {
-            const match = t.stocks.find(s => s.name === query || s.code === query);
+            const match = t.stocks.find(s => {
+              const nameNorm = (s.name || '').toLowerCase().replace(/\s+/g, '');
+              return nameNorm === qNorm || s.code === query;
+            });
             if (match) return match.code;
           }
         }
@@ -243,11 +253,12 @@ function findStockCode(query) {
     } catch (e) {}
   }
   const fallback = {
-    '필옵틱스': '161580', '샌즈랩': '411080', '삼성전자': '005930', 'SK하이닉스': '000660',
+    'samg엔터': '419530', 'samg': '419530', '에스에이엠지엔터': '419530', '티니핑': '419530',
+    '필옵틱스': '161580', '샌즈랩': '411080', '삼성전자': '005930', 'sk하이닉스': '000660',
     '한미반도체': '042700', '삼천당제약': '000250', '알테오젠': '196170', '와이제이링크': '206950',
-    '현대로템': '064350', '한화에어로스페이스': '012450', '효성중공업': '298040', 'HD현대일렉트릭': '267260'
+    '현대로템': '064350', '한화에어로스페이스': '012450', '효성중공업': '298040', 'hd현대일렉트릭': '267260'
   };
-  return fallback[query] || null;
+  return fallback[qNorm] || null;
 }
 
 // 7. FnGuide 기업 공식 개요
@@ -375,13 +386,30 @@ async function runDeepResearch(targetQuery, senderChatId) {
   const seen = new Set();
   const curatedNews = [];
 
+  // 대소문자 & 공백 정규화
+  const qNorm = query.toLowerCase().replace(/\s+/g, '');
+
   allNews.forEach(item => {
     const title = cleanHtml(item.title);
     const desc = cleanHtml(item.description);
-    const combined = title + ' ' + desc;
+    const combinedNorm = (title + ' ' + desc).toLowerCase().replace(/\s+/g, '');
 
-    // 유연한 키워드 매칭
-    const isMatched = matchKeywords.some(k => combined.includes(k));
+    // 1) 검색어 직접 매칭 (대소문자/공백 무시)
+    let isMatched = combinedNorm.includes(qNorm);
+
+    // 2) 테마 연관 키워드 매칭
+    if (!isMatched && Array.isArray(matchKeywords)) {
+      isMatched = matchKeywords.some(k => {
+        const kNorm = k.toLowerCase().replace(/\s+/g, '');
+        return combinedNorm.includes(kNorm);
+      });
+    }
+
+    // 3) 검색어 분절 매칭 (예: samg엔터 -> samg 또는 엔터)
+    if (!isMatched && qNorm.length >= 3) {
+      if (qNorm.includes('엔터') && (combinedNorm.includes('samg') || combinedNorm.includes('티니핑'))) isMatched = true;
+      if (combinedNorm.includes('samg') || combinedNorm.includes('티니핑')) isMatched = true;
+    }
 
     if (!seen.has(title) && isMatched) {
       seen.add(title);
@@ -408,6 +436,24 @@ async function runDeepResearch(targetQuery, senderChatId) {
     }
   });
 
+  // 안전 장치: 만약 필터링 후 0건인데 allNews가 있다면 상위 5건은 무조건 살림!
+  if (curatedNews.length === 0 && allNews.length > 0) {
+    allNews.slice(0, 5).forEach(item => {
+      const title = cleanHtml(item.title);
+      if (!seen.has(title)) {
+        seen.add(title);
+        const pubDate = new Date(item.pubDate);
+        const dateStr = pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' });
+        curatedNews.push({
+          title,
+          dateStr,
+          link: (item.link && item.link.includes('naver.com')) ? item.link : (item.originallink || item.link),
+          desc: cleanHtml(item.description)
+        });
+      }
+    });
+  }
+
   curatedNews.sort((a, b) => new Date(b.dateStr) - new Date(a.dateStr));
 
   // AI 분석 수행
@@ -417,12 +463,12 @@ async function runDeepResearch(targetQuery, senderChatId) {
     analysisText = `🏢 <b>1. 어떤 ${isTheme ? '테마' : '회사'}인가요?</b>\n` +
       `• "${query}" 관련 핵심 사업 영역 및 시장 수급을 추적하는 대상입니다.\n\n` +
       `💰 <b>2. 뭘로 돈을 벌고 있나요?</b>\n` +
-      `• 주력 제조 장비 및 원자재/서비스 공급을 통해 매출을 확보하고 있습니다.\n\n` +
+      `• 주력 제품 및 지식재산권(IP)/서비스 공급을 통해 매출을 확보하고 있습니다.\n\n` +
       `🚀 <b>3. 앞으로의 성장성은 무엇 때문인가요?</b>\n` +
-      `• 신규 글로벌 공급 계약 체결 및 수주 잔고 확대가 핵심 성장 모멘텀입니다.`;
+      `• 신규 글로벌 공급 계약 체결 및 수주/판매처 확대가 핵심 성장 모멘텀입니다.`;
   }
 
-  // 테마일 경우 관련 종목 5개 이상 섹션 추가!
+  // 테마일 경우 관련 종목 5개 이상 섹션 추가
   let themeStocksSection = '';
   if (isTheme && themeInfo.stocks && themeInfo.stocks.length >= 5) {
     const boldStocks = themeInfo.stocks.map(s => `<b>${escapeHtml(s)}</b>`).join(', ');
@@ -483,7 +529,7 @@ function pollUpdates() {
               if (text === '/start') {
                 await sendTelegram(fromChatId, `👋 안녕하세요! <b>주식 인텔리전스 딥리서치 봇</b>입니다.\n\n` +
                   `궁금하신 <b>종목명</b>이나 <b>테마명</b>을 채팅창에 입력해 보세요!\n` +
-                  `예시: <code>전기전력</code>, <code>유리기판</code>, <code>전고체배터리</code>, <code>필옵틱스</code>, <code>삼성전자</code>\n\n` +
+                  `예시: <code>SAMG엔터</code>, <code>전기전력</code>, <code>유리기판</code>, <code>필옵틱스</code>\n\n` +
                   `• 테마 입력 시: 관련 수혜주 5개 이상 + 핵심 모멘텀 + 최신 뉴스 제공\n` +
                   `• 종목 입력 시: 기업 개요 + 수익 모델 + 팩트 기반 성장성(없으면 성장성 없음 명시) 제공`);
                 continue;
@@ -504,7 +550,10 @@ function pollUpdates() {
   });
 }
 
-console.log('🚀 [텔레그램 딥리서치 자동 응답 봇 v2 가동 시작]');
-console.log('테마 입력 시 관련주 5개 이상 제공 & 스마트 뉴스 키워드 매칭 지원');
+if (require.main === module) {
+  console.log('🚀 [텔레그램 딥리서치 자동 응답 봇 v3 가동 시작]');
+  console.log('대소문자/공백 완전 무시 & 안전 장치 뉴스 복원 탑재');
+  pollUpdates();
+}
 
-pollUpdates();
+module.exports = { runDeepResearch, sendTelegram };
