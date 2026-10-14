@@ -1,255 +1,198 @@
 {
   "success": true,
-  "updatedAt": "2026-10-14T00:09:06.165Z",
-  "updatedAtKst": "2026. 10. 14. AM 9:09:06",
+  "updatedAt": "2026-10-14T08:24:31.958Z",
+  "updatedAtKst": "2026. 10. 14. PM 5:24:31",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "이준혁 로또 1등 작품 만남"
+        "keyword": "하정우 차정원 12월 결혼"
       },
       {
         "rank": 2,
-        "keyword": "이형일 부총리 비상회의 주재"
+        "keyword": "이재명 대통령 인구전략"
       },
       {
         "rank": 3,
-        "keyword": "플레어 유 첫 컴백 기대!"
+        "keyword": "강선우 징역 2년6개월"
       },
       {
         "rank": 4,
-        "keyword": "최지우"
+        "keyword": "안성훈"
       },
       {
         "rank": 5,
-        "keyword": "김현이 추모 드라마 100일의 거짓말"
+        "keyword": "설인아 숏컷 우울, 남장 도전"
       },
       {
         "rank": 6,
-        "keyword": "김민석"
+        "keyword": "가스관"
       },
       {
         "rank": 7,
-        "keyword": "하는 오세훈 서울시장"
+        "keyword": "이태원참사 추모하는 한성숙 총리"
       },
       {
         "rank": 8,
-        "keyword": "오픈ai"
+        "keyword": "도지코인"
       },
       {
         "rank": 9,
-        "keyword": "정의선, 인도에 7년 21조 투자"
+        "keyword": "염경엽 감독 인터뷰"
       },
       {
         "rank": 10,
-        "keyword": "김영철"
+        "keyword": "이혜성"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "주재하는 이형일 부총리 상승 1"
+        "keyword": "차정원 동일"
       },
       {
         "rank": 2,
-        "keyword": "로또 1등 이준혁 하락 1"
+        "keyword": "600M 무지개 가래떡 동일"
       },
       {
         "rank": 3,
-        "keyword": "플레어 유 첫 컴백 동일"
+        "keyword": "이태원참사 한성숙 총리 상승 1"
       },
       {
         "rank": 4,
-        "keyword": "김현이 동일"
+        "keyword": "LG 염경엽 감독 하락 1"
       },
       {
         "rank": 5,
-        "keyword": "장동혁 국민의힘 대표 상승 3"
+        "keyword": "인천 흉기난동범 범행 상승 3"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "IMF 한국 성장률 상향"
+        "keyword": "이형일 경제회의"
       },
       {
         "rank": 2,
-        "keyword": "정인이 6주기 추모"
+        "keyword": "금융권 해킹 피해"
       },
       {
         "rank": 3,
-        "keyword": "한국 알래스카 540억불 투자"
+        "keyword": "코스피 6000선 붕괴"
       },
       {
         "rank": 4,
-        "keyword": "경찰서장 향피제 인사"
+        "keyword": "박종준 비화폰 2심"
       },
       {
         "rank": 5,
-        "keyword": "장애인 가족 활동지원 연장"
+        "keyword": "강선우 공천헌금 징역"
       },
       {
         "rank": 6,
-        "keyword": "OK저축은행 정보 유출"
+        "keyword": "신압록강대교 개통"
       },
       {
         "rank": 7,
-        "keyword": "코스피 6천선 급락"
+        "keyword": "서울 저층주거지 건축규제 완화"
       },
       {
         "rank": 8,
-        "keyword": "이재용 홍라희 주식 증여"
+        "keyword": "밀가루 부산물 담합"
       },
       {
         "rank": 9,
-        "keyword": "검찰총장 후보추천위 구성"
+        "keyword": "한국 CPTPP 수출"
       },
       {
         "rank": 10,
-        "keyword": "부동산 PF 현황 규제"
+        "keyword": "9월 ICT 수출 사상 최대"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "수학"
+        "keyword": "세계 경제"
       },
       {
         "rank": 2,
-        "keyword": "최지우"
+        "keyword": "이대호"
       },
       {
         "rank": 3,
-        "keyword": "김민석"
+        "keyword": "공공기관"
       },
       {
         "rank": 4,
-        "keyword": "오픈ai"
+        "keyword": "안지만"
       },
       {
         "rank": 5,
-        "keyword": "생계"
+        "keyword": "안성훈"
       },
       {
         "rank": 6,
-        "keyword": "김영철"
+        "keyword": "가스관"
       },
       {
         "rank": 7,
-        "keyword": "폴 튜더 존스"
+        "keyword": "도지코인"
       },
       {
         "rank": 8,
-        "keyword": "석탄"
+        "keyword": "이혜성"
       },
       {
         "rank": 9,
-        "keyword": "파기환송"
+        "keyword": "kbo mvp"
       },
       {
         "rank": 10,
-        "keyword": "식품의약품안전처장"
+        "keyword": "gs25"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "김용임 가수"
+        "keyword": "차정원 하정우 결혼"
       },
       {
         "rank": 2,
-        "keyword": "강균성 결혼"
+        "keyword": "인천 흉기난동"
       },
       {
         "rank": 3,
-        "keyword": "남지현 서강대 심리학과"
+        "keyword": "LG 목 디스크"
       },
       {
         "rank": 4,
-        "keyword": "향피제란"
+        "keyword": "서명옥 국회의원"
       },
       {
         "rank": 5,
-        "keyword": "민주당 당원 가입"
+        "keyword": "강선우 1억 공천헌금 판결"
       },
       {
         "rank": 6,
-        "keyword": "이재명 인천경찰청 방문"
+        "keyword": "강훈식 청��대 퇴임"
       },
       {
         "rank": 7,
-        "keyword": "강선우 1심 선고"
+        "keyword": "이재명 지지율 하락"
       },
       {
         "rank": 8,
-        "keyword": "니온"
+        "keyword": "오타니 3차전 출전"
       },
       {
         "rank": 9,
-        "keyword": "은현장 김수현 응원"
+        "keyword": "안지만 3억대 사기"
       },
       {
         "rank": 10,
-        "keyword": "양현석 로드맵 공개"
+        "keyword": "금융권 해킹 확산"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 14. 09:08 KST",
-      "publishedOrder": 1791936524973
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 14. 09:08 KST",
-      "publishedOrder": 1791936524973
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 14. 09:08 KST",
-      "publishedOrder": 1791936524973
-    },
-    {
-      "title": "'리얼' 촬영 바빴는데..\"김수현 아닌줄 알고 숨겼다\" 故김새론 카톡 조작 이유[★FOCUS]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/13/2026101314584167902",
-      "publishedAt": "수집 10. 14. 09:08 KST",
-      "publishedOrder": 1791936524973
-    },
-    {
-      "title": "[문화연예 플러스] 뮤지컬 '스위니 토드', 예매 전쟁",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9CWHhQa0UwMWtNUmVXVE9SbC1SY3FEWURyaUNoazdyREVWRzE3ZS1ocDBEaEpleXZBQnNxRnltd1pRaGZKeWYxODROdm10TWw0bG5OZUE1NWt0YWdlamt6anhCdXRiMXBiUHUyOV9sSk9ma3lTWVdvQ19R0gF6QVVfeXFMUFRhT2lJSURZd2Y2b2JVUE9uclJrNG51QVU2WGczaFZSSjY3bm43bVVuVEZIczJ4ckJvSGU5MUFZQ0NfUEEwOEFETHl4TTZtdTNNeWdrdmZrTFlvclRsZWxQNndLck1rMjR3NzUyc0pUOGRRSXBlMWV5Z2c?oc=5",
-      "publishedAt": "10. 14. 07:04 KST",
-      "publishedOrder": 1791929059000
-    },
-    {
-      "title": "[문화연예 플러스] 차준환, 피겨 선수 활동 잠정 중단",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFAxVGNRYk03TDQ2bTN3dExPTEdvSFdmY2V6REhyeXhuODJQTWZ1eFJnY3JWbnVBazJRcld2MkZ6SDJDcF9UN1VqaU5iOGtJNU96LXNJVjAtYVR0NHhhTE4yVkhUSmh3RlBFd2dxSkppcUU2Q0hzQXpoOG9n0gF6QVVfeXFMT2tXMnVEamlNeWNzMmxHZkR1TFFvRDBiQWk3dEhlSGF4MGVkZzRSTW1HOXlRMUFmNkIyOFhlQVg0TmJUWVlDMW1VQTdTeVlJc3VfckZXTklWM2xQTFlaQ2FlcUJrSEdPYkluMy1QNFhsNDJUUnFKeDJaOXc?oc=5",
-      "publishedAt": "10. 14. 07:01 KST",
-      "publishedOrder": 1791928890000
-    },
-    {
-      "title": "[문화연예 플러스] 에일리, 5인조 밴드로 신곡 발매",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5HN1czb3JpNEttakVySjZVNkVqMFJsYkZNVzd5U084UVBCTnFPVXhXTmZGZ2g1VHZOYjJBZVAtUGZYM05iTzliTXhXcEJGTEp0OWgxTXNWOXlGam5MLUFNSTZuT3VSeUxJRFdIaHhxd1hSSEFfT0xkaEJ30gF6QVVfeXFMTTR6MEdJVnJDX09yQjI4RWdvdWhOc05CV2pBRGU4OEhBcncyQ0lUMG9MUHFxTFNJRDdwUldzNWl5QVRkaHRYNXdCdkExMHV4NjBxRTJ4cmpfTkZfM0tOWUJWdHRDUm9VSU9halNNOHZDY2tMUHFPTlFfUlE?oc=5",
-      "publishedAt": "10. 14. 07:00 KST",
-      "publishedOrder": 1791928807000
-    },
-    {
-      "title": "[문화연예 플러스] '암살자(들)' 논쟁 속 300만 돌파",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE4zZUhnQmNNZzZ2UG9JbzBpMWUxUlR4MHd1cGQxN29RUUY0alNnMTF5Vnp1RElleFowa1cyUnpnRTNDOHFwYUhCQllHQXItRUJqRXk2SEVKcjFQVDJwRTFQcWlqRGo0bkkxckgtZzFrMEpiT0h2NC1DenNn0gF6QVVfeXFMTTk0UHZMVDVJR1o0dUJ0Zk11dDh0dy1JeUtyMXJnY0FGcEc4aWNTNnVoQ2NpUXctRURDRGxabzdTdUhlT0dMV2JzX3hCbWMxdGVKN0ZsZnlMcURRZ002a0RCVXdPTTYtdkNXdmwtcG13MC13a05zT0g1cFE?oc=5",
-      "publishedAt": "10. 14. 06:59 KST",
-      "publishedOrder": 1791928751000
-    }
-  ]
+  "entertainment": []
 }
