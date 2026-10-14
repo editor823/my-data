@@ -1,88 +1,88 @@
 {
   "success": true,
-  "updatedAt": "2026-10-14T08:24:31.958Z",
-  "updatedAtKst": "2026. 10. 14. PM 5:24:31",
+  "updatedAt": "2026-10-14T14:20:43.864Z",
+  "updatedAtKst": "2026. 10. 14. PM 11:20:43",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "하정우 차정원 12월 결혼"
+        "keyword": "오스틴 선제포 발사!"
       },
       {
         "rank": 2,
-        "keyword": "이재명 대통령 인구전략"
+        "keyword": "‘엄지성 인종차별 수사’"
       },
       {
         "rank": 3,
-        "keyword": "강선우 징역 2년6개월"
+        "keyword": "제니하우스 패션쇼 참석"
       },
       {
         "rank": 4,
-        "keyword": "안성훈"
+        "keyword": "포스트시즌 일정"
       },
       {
         "rank": 5,
-        "keyword": "설인아 숏컷 우울, 남장 도전"
+        "keyword": "한동훈 딸 의혹 다르다"
       },
       {
         "rank": 6,
-        "keyword": "가스관"
+        "keyword": "동대문구청 직원 사망"
       },
       {
         "rank": 7,
-        "keyword": "이태원참사 추모하는 한성숙 총리"
+        "keyword": "정성숙 감독 사퇴 선언"
       },
       {
         "rank": 8,
-        "keyword": "도지코인"
+        "keyword": "크보"
       },
       {
         "rank": 9,
-        "keyword": "염경엽 감독 인터뷰"
+        "keyword": "김채연의 가을 야구 인증샷"
       },
       {
         "rank": 10,
-        "keyword": "이혜성"
+        "keyword": "원자로"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "차정원 동일"
+        "keyword": "제니하우스 패션쇼 참석 하락 3"
       },
       {
         "rank": 2,
-        "keyword": "600M 무지개 가래떡 동일"
+        "keyword": "하현상 11월 30대 new"
       },
       {
         "rank": 3,
-        "keyword": "이태원참사 한성숙 총리 상승 1"
+        "keyword": "차정원 상승 1"
       },
       {
         "rank": 4,
-        "keyword": "LG 염경엽 감독 하락 1"
+        "keyword": "남편 병원 랍스터 new"
       },
       {
         "rank": 5,
-        "keyword": "인천 흉기난동범 범행 상승 3"
+        "keyword": "옥상서 직원 사망 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "이형일 경제회의"
+        "keyword": "미국 9월 CPI"
       },
       {
         "rank": 2,
-        "keyword": "금융권 해킹 피해"
+        "keyword": "후티 사우디 아람코 공격"
       },
       {
         "rank": 3,
-        "keyword": "코스피 6000선 붕괴"
+        "keyword": "대통령 비서실장 임광현"
       },
       {
         "rank": 4,
-        "keyword": "박종준 비화폰 2심"
+        "keyword": "서울 저층주거지 건축규제 완화"
       },
       {
         "rank": 5,
@@ -90,65 +90,65 @@
       },
       {
         "rank": 6,
-        "keyword": "신압록강대교 개통"
+        "keyword": "코스피 6000선 붕괴"
       },
       {
         "rank": 7,
-        "keyword": "서울 저층주거지 건축규제 완화"
-      },
-      {
-        "rank": 8,
         "keyword": "밀가루 부산물 담합"
       },
       {
+        "rank": 8,
+        "keyword": "다카이치 핵반입 검토"
+      },
+      {
         "rank": 9,
-        "keyword": "한국 CPTPP 수출"
+        "keyword": "박종준 비화폰 2심"
       },
       {
         "rank": 10,
-        "keyword": "9월 ICT 수출 사상 최대"
+        "keyword": "트럼프 아세안 회의 참석"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "세계 경제"
+        "keyword": "팬오션"
       },
       {
         "rank": 2,
-        "keyword": "이대호"
+        "keyword": "허정한"
       },
       {
         "rank": 3,
-        "keyword": "공공기관"
+        "keyword": "스마트폰"
       },
       {
         "rank": 4,
-        "keyword": "안지만"
+        "keyword": "kbo"
       },
       {
         "rank": 5,
-        "keyword": "안성훈"
+        "keyword": "포스트시즌 일정"
       },
       {
         "rank": 6,
-        "keyword": "가스관"
+        "keyword": "준플레이오프 일정"
       },
       {
         "rank": 7,
-        "keyword": "도지코인"
+        "keyword": "크보"
       },
       {
         "rank": 8,
-        "keyword": "이혜성"
+        "keyword": "원자로"
       },
       {
         "rank": 9,
-        "keyword": "kbo mvp"
+        "keyword": "이영하"
       },
       {
         "rank": 10,
-        "keyword": "gs25"
+        "keyword": "김택연"
       }
     ],
     "daum": [
@@ -158,39 +158,39 @@
       },
       {
         "rank": 2,
-        "keyword": "인천 흉기난동"
+        "keyword": "금잔디 성리 대학 교수"
       },
       {
         "rank": 3,
-        "keyword": "LG 목 디스크"
+        "keyword": "염경엽 김도영 봉쇄"
       },
       {
         "rank": 4,
-        "keyword": "서명옥 국회의원"
+        "keyword": "임광현 비서실장 임명"
       },
       {
         "rank": 5,
-        "keyword": "강선우 1억 공천헌금 판결"
+        "keyword": "인천 흉기 난동"
       },
       {
         "rank": 6,
-        "keyword": "강훈식 청��대 퇴임"
+        "keyword": "김원형 자책"
       },
       {
         "rank": 7,
-        "keyword": "이재명 지지율 하락"
+        "keyword": "강선우 공천헌금 징역"
       },
       {
         "rank": 8,
-        "keyword": "오타니 3차전 출전"
+        "keyword": "빅나티 10년 짝사랑 결혼"
       },
       {
         "rank": 9,
-        "keyword": "안지만 3억대 사기"
+        "keyword": "신천지 여야 갈등"
       },
       {
         "rank": 10,
-        "keyword": "금융권 해킹 확산"
+        "keyword": "킥보드"
       }
     ]
   },
