@@ -1,76 +1,76 @@
 {
   "success": true,
-  "updatedAt": "2026-10-14T19:11:10.912Z",
-  "updatedAtKst": "2026. 10. 15. AM 4:11:10",
+  "updatedAt": "2026-10-14T23:42:30.725Z",
+  "updatedAtKst": "2026. 10. 15. AM 8:42:30",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "LG 선발 카라스코 무실점 호투"
+        "keyword": "잠수함발사 전략순항미사일 시험발사"
       },
       {
         "rank": 2,
-        "keyword": "美 9월 물가 3.7% 상승"
+        "keyword": "A2O LITE, 29시간 만에 멜론 1위 기록"
       },
       {
         "rank": 3,
-        "keyword": "빅나티 10년 사랑 결혼 발표"
+        "keyword": "오타니 6번 타순 유지"
       },
       {
         "rank": 4,
-        "keyword": "sk그룹"
+        "keyword": "의대생"
       },
       {
         "rank": 5,
-        "keyword": "제니하우스 패션쇼 참석"
+        "keyword": "나는 솔로 영숙 요리 멘붕"
       },
       {
         "rank": 6,
-        "keyword": "경찰, 인천 흉기난동 구속 영장 신청"
+        "keyword": "띠별 운세"
       },
       {
         "rank": 7,
-        "keyword": "리버풀"
+        "keyword": "트럼프 韓 500억 투자"
       },
       {
         "rank": 8,
-        "keyword": "솔로 영숙 요리 멘붕"
+        "keyword": "엘링 홀란"
       },
       {
         "rank": 9,
-        "keyword": "‘아내 살해한 70대 검거’"
+        "keyword": "물가 약세로 하락"
       },
       {
         "rank": 10,
-        "keyword": "멜론"
+        "keyword": "임진모, 아들 양말 착용"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "LG ��산 꺾고 상승 2"
+        "keyword": "北 2종 시험발사 new"
       },
       {
         "rank": 2,
-        "keyword": "美 9월 3.7% 동일"
+        "keyword": "A2O 멜론 1위 동일"
       },
       {
         "rank": 3,
-        "keyword": "빅나티 10년 짝사랑 동일"
+        "keyword": "LIV 골프 회생안 new"
       },
       {
         "rank": 4,
-        "keyword": "제니하우스 패션쇼 참석 동일"
+        "keyword": "임광현 상승 5"
       },
       {
         "rank": 5,
-        "keyword": "경찰 구속영장 신청 동일"
+        "keyword": "조윤희 이동건과 이혼 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "후티 사우디 아람코 공격"
+        "keyword": "미국 9월 CPI"
       },
       {
         "rank": 2,
@@ -78,7 +78,7 @@
       },
       {
         "rank": 3,
-        "keyword": "미국 9월 CPI"
+        "keyword": "주한미군사령관 전작권 전환"
       },
       {
         "rank": 4,
@@ -86,170 +86,113 @@
       },
       {
         "rank": 5,
-        "keyword": "대통령 비서실장 임광현"
+        "keyword": "북한 잠수함발사 순항미사일"
       },
       {
         "rank": 6,
-        "keyword": "다카이치 핵반입 검토"
+        "keyword": "후티 사우디 아람코 공격"
       },
       {
         "rank": 7,
-        "keyword": "트럼프 아세안 회의 참석"
-      },
-      {
-        "rank": 8,
         "keyword": "신압록강대교 개통"
       },
       {
+        "rank": 8,
+        "keyword": "애플 시총 5조달러"
+      },
+      {
         "rank": 9,
-        "keyword": "스타링크 우크라이나 제한"
+        "keyword": "내일 날씨 쌀쌀 일교차"
       },
       {
         "rank": 10,
-        "keyword": "코스피 6000선 붕괴"
+        "keyword": "트럼프 대만 알래스카 LNG"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "sk그룹"
+        "keyword": "교통 사고"
       },
       {
         "rank": 2,
-        "keyword": "lask vs liverpool"
+        "keyword": "킬리안 음바페"
       },
       {
         "rank": 3,
-        "keyword": "리버풀"
+        "keyword": "의대생"
       },
       {
         "rank": 4,
-        "keyword": "lask"
+        "keyword": "띠별 운세"
       },
       {
         "rank": 5,
-        "keyword": "멜론"
+        "keyword": "엘링 홀란"
       },
       {
         "rank": 6,
-        "keyword": "west indies vs india"
+        "keyword": "jtbc"
       },
       {
         "rank": 7,
-        "keyword": "약"
+        "keyword": "로봇"
       },
       {
         "rank": 8,
-        "keyword": "앤트로픽"
+        "keyword": "코어위브"
       },
       {
         "rank": 9,
-        "keyword": "박성현"
+        "keyword": "klasemen as roma vs real madrid"
       },
       {
         "rank": 10,
-        "keyword": "기온"
+        "keyword": "송전선"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "임광현 비서실장 임명"
+        "keyword": "임광현 비서실장 발탁"
       },
       {
         "rank": 2,
-        "keyword": "강균성 유하진 결혼"
+        "keyword": "애플 시총 5조달러 돌파"
       },
       {
         "rank": 3,
-        "keyword": "함은정 김병우 감독 결혼식"
+        "keyword": "북한 전략순항미사일"
       },
       {
         "rank": 4,
-        "keyword": "강선우 1억 공천헌금 선고"
+        "keyword": "강선우 텔레그램 김병기"
       },
       {
         "rank": 5,
-        "keyword": "��나티 10년 짝사랑 결혼"
+        "keyword": "빅나티 혼인신고"
       },
       {
         "rank": 6,
-        "keyword": "서정희 유방암 투병"
+        "keyword": "준플레이오프 일정"
       },
       {
         "rank": 7,
-        "keyword": "금잔디 성리 교수"
+        "keyword": "국정원 법적 대응"
       },
       {
         "rank": 8,
-        "keyword": "안지만 실형 선고"
+        "keyword": "이경은 총영사"
       },
       {
         "rank": 9,
-        "keyword": "신천지"
+        "keyword": "안지만 사기 혐의 징역형"
       },
       {
         "rank": 10,
-        "keyword": "미국 cpi"
+        "keyword": "유하진 혼전순결"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "박준금, 술 따르라는 PD 뺨 때렸다는 소문에 발끈…“난 맞을 스타일”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261014/134844297/1",
-      "publishedAt": "수집 10. 15. 04:11 KST",
-      "publishedOrder": 1792005064756
-    },
-    {
-      "title": "KCM♥방예원, 15년 만의 결혼식서 오열…“평생 잘할게 사랑해”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261014/134844268/1",
-      "publishedAt": "수집 10. 15. 04:11 KST",
-      "publishedOrder": 1792005064756
-    },
-    {
-      "title": "하희라, ♥최수종 폭행 루머에 충격…“술 마시고 때린다고 하더라” [SD리뷰]",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261014/134844249/1",
-      "publishedAt": "수집 10. 15. 04:11 KST",
-      "publishedOrder": 1792005064756
-    },
-    {
-      "title": "‘이광수♥’ 이선빈 가출소녀였다 “고등학생 때 오디션 보려고” (거장항준)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261014/134842849/1",
-      "publishedAt": "수집 10. 15. 04:11 KST",
-      "publishedOrder": 1792005064756
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 15. 04:11 KST",
-      "publishedOrder": 1792005064505
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 15. 04:11 KST",
-      "publishedOrder": 1792005064505
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 15. 04:11 KST",
-      "publishedOrder": 1792005064505
-    },
-    {
-      "title": "단독 \"딸이다\"..김용지, 일본인 남편과 깜짝 결혼식→임신 발표 [종합]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/14/2026101317390112865",
-      "publishedAt": "수집 10. 15. 04:11 KST",
-      "publishedOrder": 1792005064505
-    }
-  ]
+  "entertainment": []
 }
