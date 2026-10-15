@@ -1,283 +1,198 @@
 {
   "success": true,
-  "updatedAt": "2026-10-15T13:58:01.826Z",
-  "updatedAtKst": "2026. 10. 15. PM 10:58:01",
+  "updatedAt": "2026-10-15T18:53:14.523Z",
+  "updatedAtKst": "2026. 10. 16. AM 3:53:14",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "김지용 중수청장 임명안 재가"
+        "keyword": "김지용 중수청장 임명 재가"
       },
       {
         "rank": 2,
-        "keyword": "홈플러스 희망퇴직 조기 종료"
-      },
-      {
-        "rank": 3,
-        "keyword": "장모 살해와 아내 납치"
-      },
-      {
-        "rank": 4,
-        "keyword": "이선빈"
-      },
-      {
-        "rank": 5,
-        "keyword": "재정 빨대 발언에 소방 반발"
-      },
-      {
-        "rank": 6,
-        "keyword": "가정폭력"
-      },
-      {
-        "rank": 7,
         "keyword": "부국제 폐막식 참석자들"
       },
       {
+        "rank": 3,
+        "keyword": "삼성, 개막 4연승!"
+      },
+      {
+        "rank": 4,
+        "keyword": "레이스 대 가디언즈"
+      },
+      {
+        "rank": 5,
+        "keyword": "유로파리그"
+      },
+      {
+        "rank": 6,
+        "keyword": "신진서 란커배 10번째 우승"
+      },
+      {
+        "rank": 7,
+        "keyword": "美 9월 물가 급등 1.3% 상승"
+      },
+      {
         "rank": 8,
-        "keyword": "정호영"
+        "keyword": "김귀정"
       },
       {
         "rank": 9,
-        "keyword": "신진서 란커배 10회 우승"
+        "keyword": "트럼프 총살형 생중계 안 한다"
       },
       {
         "rank": 10,
-        "keyword": "홍수"
+        "keyword": "정원오"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "김지용 ��수청장 임명안 new"
+        "keyword": "김지�� 중수청장 재가 동일"
       },
       {
         "rank": 2,
-        "keyword": "장모 아내 납치 new"
+        "keyword": "부국제 폐막식 찾은 동일"
       },
       {
         "rank": 3,
-        "keyword": "재정 빨대라 발언에 new"
+        "keyword": "나솔사계 동일"
       },
       {
         "rank": 4,
-        "keyword": "부국제 폐막식 찾은 상승 1"
+        "keyword": "삼성 개막 4연승 하락 1"
       },
       {
         "rank": 5,
-        "keyword": "이규한 상승 2"
+        "keyword": "고범석 서울경찰청장 하락 1"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "이진숙 제척 권한쟁의"
-      },
-      {
-        "rank": 2,
         "keyword": "이재명 개헌 음모론"
       },
       {
-        "rank": 3,
+        "rank": 2,
         "keyword": "남동구 흉기 난동"
       },
       {
-        "rank": 4,
-        "keyword": "트럼프 정보 유출자 총살"
-      },
-      {
-        "rank": 5,
-        "keyword": "선관위 특검 투표자수 허위"
-      },
-      {
-        "rank": 6,
+        "rank": 3,
         "keyword": "김건희 추가 구속영장"
       },
       {
-        "rank": 7,
-        "keyword": "청년미래적금 2차 신청"
+        "rank": 4,
+        "keyword": "젤렌스키 러 정유시설 공격"
       },
       {
-        "rank": 8,
-        "keyword": "주한미군사령관 전작권 전환"
-      },
-      {
-        "rank": 9,
+        "rank": 5,
         "keyword": "한일 통화스와프 연장"
       },
       {
+        "rank": 6,
+        "keyword": "무기징역 가석방 실태"
+      },
+      {
+        "rank": 7,
+        "keyword": "주한미군사령관 전작권 전환"
+      },
+      {
+        "rank": 8,
+        "keyword": "선관위 특검 투표자수 허위"
+      },
+      {
+        "rank": 9,
+        "keyword": "후티 메디나 미사일 요격"
+      },
+      {
         "rank": 10,
-        "keyword": "르펜 우크라이나 지원 중단"
+        "keyword": "트럼프 정보 유출자 총살"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "김태형"
+        "keyword": "레이스 대 가디언즈"
       },
       {
         "rank": 2,
-        "keyword": "이선빈"
+        "keyword": "유로파리그"
       },
       {
         "rank": 3,
-        "keyword": "가정폭력"
+        "keyword": "a20 soul"
       },
       {
         "rank": 4,
-        "keyword": "정호영"
+        "keyword": "김귀정"
       },
       {
         "rank": 5,
-        "keyword": "홍수"
+        "keyword": "정원오"
       },
       {
         "rank": 6,
-        "keyword": "증여세"
+        "keyword": "콜레스테롤"
       },
       {
         "rank": 7,
-        "keyword": "moab"
+        "keyword": "최혜진"
       },
       {
         "rank": 8,
-        "keyword": "xổ số miền bắc"
+        "keyword": "수출"
       },
       {
         "rank": 9,
-        "keyword": "인공지능"
+        "keyword": "김혜자"
       },
       {
         "rank": 10,
-        "keyword": "선수"
+        "keyword": "자동차산업"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "미 생산자물가 급등"
+        "keyword": "솔비 이규한 결혼"
       },
       {
         "rank": 2,
-        "keyword": "안성훈 주먹밥 장사"
+        "keyword": "안세영 배드민턴 경기"
       },
       {
         "rank": 3,
-        "keyword": "나솔사계"
-      },
-      {
-        "rank": 4,
         "keyword": "이영애 정호영 시상식"
       },
       {
-        "rank": 5,
-        "keyword": "솔비 이��한 결혼"
-      },
-      {
-        "rank": 6,
-        "keyword": "국립 스포츠 박물관"
-      },
-      {
-        "rank": 7,
+        "rank": 4,
         "keyword": "내가 떨릴 수 있게"
       },
       {
+        "rank": 5,
+        "keyword": "미스트롯 포유"
+      },
+      {
+        "rank": 6,
+        "keyword": "차정원 하정우"
+      },
+      {
+        "rank": 7,
+        "keyword": "신천지 후폭풍"
+      },
+      {
         "rank": 8,
-        "keyword": "삼성 개막 4연승"
+        "keyword": "서킷 브레이커"
       },
       {
         "rank": 9,
-        "keyword": "고 안성기 추모"
+        "keyword": "티처스3 재수전쟁"
       },
       {
         "rank": 10,
-        "keyword": "장항준 차기작 준비"
+        "keyword": "거장항준"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 15. 22:58 KST",
-      "publishedOrder": 1792072681787
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 15. 22:58 KST",
-      "publishedOrder": 1792072681787
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "���집 10. 15. 22:58 KST",
-      "publishedOrder": 1792072681787
-    },
-    {
-      "title": "빅나티, ♥아내 얼굴 공개 \"9살에 처음 만나 24살에 결혼\"..프러포즈 순간 포착",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/15/2026101507183674232",
-      "publishedAt": "수집 10. 15. 22:58 KST",
-      "publishedOrder": 1792072681787
-    },
-    {
-      "title": "74세 윤미라, 화장품 한 번 발랐다가 60만원 요구…“사기당했구나 싶어”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261015/134850508/1",
-      "publishedAt": "수집 10. 15. 22:58 KST",
-      "publishedOrder": 1792072681730
-    },
-    {
-      "title": "윤형빈, ♥정경미에 졸혼 꺼냈다가 역공…“이혼이면 이혼”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261015/134850336/1",
-      "publishedAt": "수집 10. 15. 22:58 KST",
-      "publishedOrder": 1792072681730
-    },
-    {
-      "title": "이다해♥세븐, 태어나지도 않은 딸 얼굴이 벌써?…AI로 만든 ‘해븐이’ [SD셀픽]",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261015/134850288/1",
-      "publishedAt": "수집 10. 15. 22:58 KST",
-      "publishedOrder": 1792072681730
-    },
-    {
-      "title": "김혜자 측 “단순 감기로 인한 컨디션 난조” 건강이상설 일축[공식]",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261015/134849564/1",
-      "publishedAt": "수집 10. 15. 22:58 KST",
-      "publishedOrder": 1792072681730
-    },
-    {
-      "title": "장성규, '나혼산' 김민 일상에 감탄… “올해 연예대상 신인상 감”",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBPSnpQOThuZ2kyS1F5aUhjaEJIWTJaRkJwYkcxbWRqLWNpWEFwWXRxUFItWXR3TWhYMFZJalZnMTgwTVZpMjdJNElfRDFBbTNfLWV1TFF1a1FNc1gwV3F0MDBjR24?oc=5",
-      "publishedAt": "10. 15. 16:51 KST",
-      "publishedOrder": 1792050698000
-    },
-    {
-      "title": "장한별·손빈아·손태진, ‘한류연예대상’ 트로트男 순위변동 노린다",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBKa0x6NGoyb1lxYmxkTWNFRXl4WnhEMjhZWWZ1dDFFcXBXQm5lSHZROExHcGdOSGtlM1hVUVpBT0lMTi03aDNvOWRkVmtkX3Nva2pIWnZMRWFBemN5ekUwU3JLUXRLUQ?oc=5",
-      "publishedAt": "10. 15. 13:28 KST",
-      "publishedOrder": 1792038509000
-    },
-    {
-      "title": "장한별·손빈아·손태진, 한류연예대상 인기상 경쟁 속 팬심 확보에 '주목'",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBneEtXelQ0cWNXSHdidC04Y0xtWEFqZ0w5QXdaM2JXR3NrbGFwMUlZalFPZ09sTXNOUy1VeWxqYkdXZndqRFhzX0laTXdqOXdfOThzcWx0STlkNEg2b21TSWh2OU1WYmJWUG5YTnBR?oc=5",
-      "publishedAt": "10. 15. 11:43 KST",
-      "publishedOrder": 1792032233000
-    },
-    {
-      "title": "김수현 '교제 증거' 카톡…상대는 연예인 A씨",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFA5VmNRS01uVGlEWmRhcXVZeGZkWVlPTlkxRVZ4bjVCNHFkUG9fRzlVenVCQklCcHdNVGhxOVNnQkJwdVlQMUJLdHlXa2VvcVhRMnB4VXRkMnhycFVCQkFJTU0xQ3lwbTlUaGc?oc=5",
-      "publishedAt": "10. 15. 08:42 KST",
-      "publishedOrder": 1792021366000
-    }
-  ]
+  "entertainment": []
 }
