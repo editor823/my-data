@@ -1,198 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-10-14T23:42:30.725Z",
-  "updatedAtKst": "2026. 10. 15. AM 8:42:30",
+  "updatedAt": "2026-10-15T08:00:15.834Z",
+  "updatedAtKst": "2026. 10. 15. PM 5:00:15",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "잠수함발사 전략순항미사일 시험발사"
+        "keyword": "이재명 대통령 수석보좌관회의"
       },
       {
         "rank": 2,
-        "keyword": "A2O LITE, 29시간 만에 멜론 1위 기록"
+        "keyword": "김지용 중수청장 인사청문 보고서 채택"
       },
       {
         "rank": 3,
-        "keyword": "오타니 6번 타순 유지"
+        "keyword": "김건희 추가 구속 요청"
       },
       {
         "rank": 4,
-        "keyword": "의대생"
+        "keyword": "김장훈"
       },
       {
         "rank": 5,
-        "keyword": "나는 솔로 영숙 요리 멘붕"
+        "keyword": "한성숙 총리 대전환 토론회"
       },
       {
         "rank": 6,
-        "keyword": "띠별 운세"
+        "keyword": "최동원"
       },
       {
         "rank": 7,
-        "keyword": "트럼프 韓 500억 투자"
+        "keyword": "이규한, 솔비에 고백"
       },
       {
         "rank": 8,
-        "keyword": "엘링 홀란"
+        "keyword": "오스탈"
       },
       {
         "rank": 9,
-        "keyword": "물가 약세로 하락"
+        "keyword": "장모 살해 조재복 징역 45년"
       },
       {
         "rank": 10,
-        "keyword": "임진모, 아들 양말 착용"
+        "keyword": "조원철"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "北 2종 시험발사 new"
+        "keyword": "코스�� 급락 마감 new"
       },
       {
         "rank": 2,
-        "keyword": "A2O 멜론 1위 동일"
+        "keyword": "한성숙 총리 상승 2"
       },
       {
         "rank": 3,
-        "keyword": "LIV 골프 회생안 new"
+        "keyword": "이재명 대통령 수석보좌관회의 하락 2"
       },
       {
         "rank": 4,
-        "keyword": "임광현 상승 5"
+        "keyword": "김지용 중수청장 채택 하락 2"
       },
       {
         "rank": 5,
-        "keyword": "조윤희 이동건과 이혼 new"
+        "keyword": "벤틀리 토르칼 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "미국 9월 CPI"
+        "keyword": "이진숙 제척 권한쟁의"
       },
       {
         "rank": 2,
-        "keyword": "금융권 해킹 피해"
+        "keyword": "김건희 추가 구속영장"
       },
       {
         "rank": 3,
-        "keyword": "주한미군사령관 전작권 전환"
+        "keyword": "코스피 급락 사이드카"
       },
       {
         "rank": 4,
-        "keyword": "강선우 공천헌금 징역"
+        "keyword": "트럼프 지지율 하락"
       },
       {
         "rank": 5,
-        "keyword": "북한 잠수함발사 순항미사일"
+        "keyword": "호르무즈 컨테이너선 침몰"
       },
       {
         "rank": 6,
-        "keyword": "후티 사우디 아람코 공격"
+        "keyword": "김지용 중수청장 인사청문보고서 채택"
       },
       {
         "rank": 7,
-        "keyword": "신압록강대교 개통"
+        "keyword": "9월 서울 집값 상승 둔화"
       },
       {
         "rank": 8,
-        "keyword": "애플 시총 5조달러"
+        "keyword": "트럼프 정보 유출자 총살"
       },
       {
         "rank": 9,
-        "keyword": "내일 날씨 쌀쌀 일교차"
+        "keyword": "주한미군사령관 전작권 전환"
       },
       {
         "rank": 10,
-        "keyword": "트럼프 대만 알래스카 LNG"
+        "keyword": "선관위 특검 투표자수 허위"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "교통 사고"
+        "keyword": "인벤"
       },
       {
         "rank": 2,
-        "keyword": "킬리안 음바페"
+        "keyword": "mlb"
       },
       {
         "rank": 3,
-        "keyword": "의대생"
+        "keyword": "tvn"
       },
       {
         "rank": 4,
-        "keyword": "띠별 운세"
+        "keyword": "프로게이머"
       },
       {
         "rank": 5,
-        "keyword": "엘링 홀란"
+        "keyword": "조윤희"
       },
       {
         "rank": 6,
-        "keyword": "jtbc"
+        "keyword": "서장훈의 이웃집 백만장 자"
       },
       {
         "rank": 7,
-        "keyword": "로봇"
+        "keyword": "김장호"
       },
       {
         "rank": 8,
-        "keyword": "코어위브"
+        "keyword": "세종문화회관"
       },
       {
         "rank": 9,
-        "keyword": "klasemen as roma vs real madrid"
+        "keyword": "김장훈"
       },
       {
         "rank": 10,
-        "keyword": "송전선"
+        "keyword": "대한민국 재정경제부"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "임광현 비서실장 발탁"
+        "keyword": "솔비 이규한 결혼"
       },
       {
         "rank": 2,
-        "keyword": "애플 시총 5조달러 돌파"
+        "keyword": "이재명 지지율"
       },
       {
         "rank": 3,
-        "keyword": "북한 전략순항미사일"
+        "keyword": "차정원 하정우 결혼"
       },
       {
         "rank": 4,
-        "keyword": "강선우 텔레그램 김병기"
+        "keyword": "인태연 국정감사 질타"
       },
       {
         "rank": 5,
-        "keyword": "빅나티 혼인신고"
+        "keyword": "tsmc 실적발표"
       },
       {
         "rank": 6,
-        "keyword": "준플레이오프 일정"
+        "keyword": "김혜자 무대인사 취소"
       },
       {
         "rank": 7,
-        "keyword": "국정원 법적 대응"
+        "keyword": "준플레이오프 일정"
       },
       {
         "rank": 8,
-        "keyword": "이경은 총영사"
+        "keyword": "임진모 유퀴즈 출연"
       },
       {
         "rank": 9,
-        "keyword": "안지만 사기 혐의 징역형"
+        "keyword": "LG 신민재 햄스트링"
       },
       {
         "rank": 10,
-        "keyword": "유하진 혼전순결"
+        "keyword": "장유식 권익위 임명"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "바다vs백구영vs베이비주vs캐스퍼 파이널? 네, 생방입니다 (스디파)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261015/134849057/1",
+      "publishedAt": "수집 10. 15. 17:00 KST",
+      "publishedOrder": 1792051211621
+    },
+    {
+      "title": "김혜자, ‘여전히 찬란하게’ 무대인사 당일 취소…손편지로 대신",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261015/134848964/1",
+      "publishedAt": "수집 10. 15. 17:00 KST",
+      "publishedOrder": 1792051211621
+    },
+    {
+      "title": "소녀시대, 시즌 그리팅 공개로 66만 뷰[주간SD]",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261015/134846485/1",
+      "publishedAt": "수집 10. 15. 17:00 KST",
+      "publishedOrder": 1792051211621
+    },
+    {
+      "title": "이서진 ‘동태눈’에 지예은 발끈…“연예인 기 죽인다”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261015/134848632/1",
+      "publishedAt": "수집 10. 15. 17:00 KST",
+      "publishedOrder": 1792051211621
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 10. 15. 17:00 KST",
+      "publishedOrder": 1792051210763
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 10. 15. 17:00 KST",
+      "publishedOrder": 1792051210763
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 10. 15. 17:00 KST",
+      "publishedOrder": 1792051210763
+    },
+    {
+      "title": "빅나티, ♥아내 얼굴 공개 \"9살에 처음 만나 24살에 결혼\"..프러포즈 순간 포착",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/10/15/2026101507183674232",
+      "publishedAt": "수집 10. 15. 17:00 KST",
+      "publishedOrder": 1792051210763
+    }
+  ]
 }
