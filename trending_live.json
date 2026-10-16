@@ -1,198 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-10-16T18:37:33.131Z",
-  "updatedAtKst": "2026. 10. 17. AM 3:37:33",
+  "updatedAt": "2026-10-16T23:15:52.664Z",
+  "updatedAtKst": "2026. 10. 17. AM 8:15:52",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "기념사하는 이재명 대통령"
+        "keyword": "백악관 대변인 나흘 만에 경질"
       },
       {
         "rank": 2,
-        "keyword": "전진♥류이서, 2세 유산 슬픔"
+        "keyword": "이서진 지예은 결혼 왜?"
       },
       {
         "rank": 3,
-        "keyword": "소노, 현대모비스 4연패 탈출"
+        "keyword": "2026년 10월 17일 운세"
       },
       {
         "rank": 4,
-        "keyword": "박준금"
+        "keyword": "홍윤화"
       },
       {
         "rank": 5,
-        "keyword": "선수단 전국체육대회 입장"
+        "keyword": "렉서스 올 뉴 ES는 대형 세단이다."
       },
       {
         "rank": 6,
-        "keyword": "l g 에너지 솔루션"
+        "keyword": "심형탁"
       },
       {
         "rank": 7,
-        "keyword": "엔비디아 스파크 출시"
+        "keyword": "김지원 수술 성공"
       },
       {
         "rank": 8,
-        "keyword": "유실물"
+        "keyword": "kia 타이거즈"
       },
       {
         "rank": 9,
-        "keyword": "인천 흉기난동 최충락"
+        "keyword": "아들 이름 인세 기부"
       },
       {
         "rank": 10,
-        "keyword": "지예은"
+        "keyword": "류필립"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "인천 흉기��동 최충락 new"
+        "keyword": "전진 시험관 유산 new"
       },
       {
         "rank": 2,
-        "keyword": "GS칼텍스 현대건설 준결승 상승 4"
+        "keyword": "정수진 출전 구제 new"
       },
       {
         "rank": 3,
-        "keyword": "부천 화재 소방관 new"
+        "keyword": "트럼프 우크라 스타실드 상승 1"
       },
       {
         "rank": 4,
-        "keyword": "강균성 결혼 new"
+        "keyword": "신영균 new"
       },
       {
         "rank": 5,
-        "keyword": "버디 퍼트 new"
+        "keyword": "조희대 탄핵 논의 동일"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "과방위 국감 파행"
+        "keyword": "다카이치 야스쿠니 참배"
       },
       {
         "rank": 2,
-        "keyword": "부마항쟁 5·18 헌법 개헌"
+        "keyword": "과방위 국감 파행"
       },
       {
         "rank": 3,
-        "keyword": "윤석열 평양 무인기 2심 구형"
+        "keyword": "우크라 스타링크 제한"
       },
       {
         "rank": 4,
-        "keyword": "우크라 스타실드 백악관 지시"
-      },
-      {
-        "rank": 5,
-        "keyword": "석유 최고가격 동결"
-      },
-      {
-        "rank": 6,
-        "keyword": "IEA 경유 비축분 방출"
-      },
-      {
-        "rank": 7,
-        "keyword": "한강버스 리베이트 의혹"
-      },
-      {
-        "rank": 8,
         "keyword": "젤렌스키 EU 지원 호소"
       },
       {
-        "rank": 9,
+        "rank": 5,
+        "keyword": "한강버스 리베이트 의혹"
+      },
+      {
+        "rank": 6,
         "keyword": "공주 스토킹 살인"
       },
       {
+        "rank": 7,
+        "keyword": "마가 계엄령 요구"
+      },
+      {
+        "rank": 8,
+        "keyword": "뉴욕증시 AI 부채 하락"
+      },
+      {
+        "rank": 9,
+        "keyword": "삼성바이오 노조 파업"
+      },
+      {
         "rank": 10,
-        "keyword": "중국 수출통제 기술"
+        "keyword": "백악관 대변인 경질"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "박준금"
+        "keyword": "백악관 대변인"
       },
       {
         "rank": 2,
-        "keyword": "l g 에너지 솔루션"
+        "keyword": "베트남 축구 국가대표팀"
       },
       {
         "rank": 3,
-        "keyword": "유실물"
+        "keyword": "러시아"
       },
       {
         "rank": 4,
-        "keyword": "지예은"
+        "keyword": "홍윤화"
       },
       {
         "rank": 5,
-        "keyword": "최예나"
+        "keyword": "심형탁"
       },
       {
         "rank": 6,
-        "keyword": "대만"
+        "keyword": "관광객"
       },
       {
         "rank": 7,
-        "keyword": "기업은행 채용"
+        "keyword": "kia 타이거즈"
       },
       {
         "rank": 8,
-        "keyword": "축의금"
+        "keyword": "류필립"
       },
       {
         "rank": 9,
-        "keyword": "고민시"
+        "keyword": "장인화"
       },
       {
         "rank": 10,
-        "keyword": "콜오브듀티 모던워페어4"
+        "keyword": "ionq"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "지석진 지예은 바타 연애"
+        "keyword": "안치환 직장암 투병"
       },
       {
         "rank": 2,
-        "keyword": "장승조 닥터X 등장"
+        "keyword": "장승조 닥터X 특별출연"
       },
       {
         "rank": 3,
-        "keyword": "ufc"
+        "keyword": "베스티 완전체 재결합"
       },
       {
         "rank": 4,
-        "keyword": "안치환 직장암 3기 투병"
+        "keyword": "솔비 이규한 결혼"
       },
       {
         "rank": 5,
-        "keyword": "파이널 테이블"
+        "keyword": "부천 화재"
       },
       {
         "rank": 6,
-        "keyword": "추미애 재정 빨대 발언"
+        "keyword": "여전히 찬란하게"
       },
       {
         "rank": 7,
-        "keyword": "안세영 덴마크 오픈 4강"
+        "keyword": "전국체전"
       },
       {
         "rank": 8,
-        "keyword": "류이서 전진 유산"
+        "keyword": "조국 특검 요구"
       },
       {
         "rank": 9,
-        "keyword": "부천화재"
+        "keyword": "전현무 계획 4"
       },
       {
         "rank": 10,
-        "keyword": "가수 솔비 나이"
+        "keyword": "덴마크 오픈 배드민턴"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "김용빈, 1점 차로 밀렸던 신승태 다시 만났다…결과는 100점",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261017/134858250/1",
+      "publishedAt": "수집 10. 17. 08:15 KST",
+      "publishedOrder": 1792192547592
+    },
+    {
+      "title": "‘치킨집 매출 12억’ 박명수, 먹튀 피해 고백…“가방에 신문지만” (사당귀)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261017/134858254/1",
+      "publishedAt": "수집 10. 17. 08:15 KST",
+      "publishedOrder": 1792192547592
+    },
+    {
+      "title": "김원훈, 백현진과 충돌 후 돌연 회사 이탈…‘직장인들3’ 반전",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261017/134858230/1",
+      "publishedAt": "수집 10. 17. 08:15 KST",
+      "publishedOrder": 1792192547592
+    },
+    {
+      "title": "주우재, 母가 건넨 50만 원에 오열…“나잇살 조심해” 잔소리까지",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261017/134858223/1",
+      "publishedAt": "수집 10. 17. 08:15 KST",
+      "publishedOrder": 1792192547592
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 10. 17. 08:15 KST",
+      "publishedOrder": 1792192546574
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 10. 17. 08:15 KST",
+      "publishedOrder": 1792192546574
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 10. 17. 08:15 KST",
+      "publishedOrder": 1792192546574
+    },
+    {
+      "title": "'HAPPY BIRTHDAY JIMIN' 방탄소년단 지민, 칠레서 받은 뜨거운 생일 축하",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/10/16/2026101607560619345",
+      "publishedAt": "수집 10. 17. 08:15 KST",
+      "publishedOrder": 1792192546574
+    }
+  ]
 }
