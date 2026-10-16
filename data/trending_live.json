@@ -1,154 +1,154 @@
 {
   "success": true,
-  "updatedAt": "2026-10-16T07:54:49.402Z",
-  "updatedAtKst": "2026. 10. 16. PM 4:54:49",
+  "updatedAt": "2026-10-16T13:45:24.165Z",
+  "updatedAtKst": "2026. 10. 16. PM 10:45:24",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "국감서 질의하는 의원"
+        "keyword": "엔비디아 RTX 출시"
       },
       {
         "rank": 2,
-        "keyword": "류지현 감독 환영합니다"
+        "keyword": "전진♥류이서, 유산 소식 안고 눈물"
       },
       {
         "rank": 3,
-        "keyword": "해군"
+        "keyword": "유현조, 샷 이글 성공"
       },
       {
         "rank": 4,
-        "keyword": "추미애 재정 발언 논란"
+        "keyword": "기념사하는 이재명 대통령"
       },
       {
         "rank": 5,
-        "keyword": "여당"
+        "keyword": "애플"
       },
       {
         "rank": 6,
-        "keyword": "중동 임직원 격려"
+        "keyword": "전국체육대회 개막식 입장"
       },
       {
         "rank": 7,
-        "keyword": "탄핵"
+        "keyword": "이승기"
       },
       {
         "rank": 8,
-        "keyword": "소년판타지 유준원 6억 배상"
+        "keyword": "학살"
       },
       {
         "rank": 9,
-        "keyword": "오지환"
+        "keyword": "소노 현대모비스 제압!"
       },
       {
         "rank": 10,
-        "keyword": "이규한 결혼 발표 깜짝 양복 해드릴 것"
+        "keyword": "와일드카드"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "방시혁 민희진에 42억 new"
+        "keyword": "엔비디아 RTX 스파크 new"
       },
       {
         "rank": 2,
-        "keyword": "수도권 착공 new"
+        "keyword": "전진 류이서 유산 동일"
       },
       {
         "rank": 3,
-        "keyword": "제1차 주택공급 정례브리핑 new"
+        "keyword": "유현조 샷 이글 동일"
       },
       {
         "rank": 4,
-        "keyword": "이규한 하락 2"
+        "keyword": "선수단 전국체육대회 입장 new"
       },
       {
         "rank": 5,
-        "keyword": "한동훈 의혹 이관 new"
+        "keyword": "소노 현대모비스 탈출 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "부천 공장 화재 부상"
+        "keyword": "한강버스 리베이트 의혹"
       },
       {
         "rank": 2,
-        "keyword": "부마항쟁 5·18 헌법 개헌"
-      },
-      {
-        "rank": 3,
-        "keyword": "윤석열 평양 무인기 2심 구형"
-      },
-      {
-        "rank": 4,
-        "keyword": "우크라이나 북한 포로 송환"
-      },
-      {
-        "rank": 5,
         "keyword": "국민일자리 프로젝트 추진"
       },
       {
+        "rank": 3,
+        "keyword": "석유 최고가격 동결"
+      },
+      {
+        "rank": 4,
+        "keyword": "파키스탄 학교 지붕 붕괴"
+      },
+      {
+        "rank": 5,
+        "keyword": "윤석열 평양 무인기 2심 구형"
+      },
+      {
         "rank": 6,
-        "keyword": "캘리포니아 말리부 산불"
+        "keyword": "젤렌스키 EU 지원 호소"
       },
       {
         "rank": 7,
-        "keyword": "IEA 경유 비축분 방출"
+        "keyword": "부마항쟁 5·18 헌법 개헌"
       },
       {
         "rank": 8,
-        "keyword": "한일 통화스와프 연장"
+        "keyword": "IEA 경유 비축분 방출"
       },
       {
         "rank": 9,
-        "keyword": "우크라 패트리엇 고갈"
+        "keyword": "트럼프 선거 불복 우려"
       },
       {
         "rank": 10,
-        "keyword": "트럼프 중러 핵군축"
+        "keyword": "중국 수출통제 기술"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "비궁"
+        "keyword": "셀트리온"
       },
       {
         "rank": 2,
-        "keyword": "노동자"
+        "keyword": "현대무벡스"
       },
       {
         "rank": 3,
-        "keyword": "시장"
+        "keyword": "하이마트"
       },
       {
         "rank": 4,
-        "keyword": "제임스 네일"
+        "keyword": "애플"
       },
       {
         "rank": 5,
-        "keyword": "맞벌이"
+        "keyword": "apple store"
       },
       {
         "rank": 6,
-        "keyword": "송민호"
+        "keyword": "이승기"
       },
       {
         "rank": 7,
-        "keyword": "여당"
+        "keyword": "학살"
       },
       {
         "rank": 8,
-        "keyword": "탄핵"
+        "keyword": "와일드카드"
       },
       {
         "rank": 9,
-        "keyword": "오지환"
+        "keyword": "lg에너지솔루션"
       },
       {
         "rank": 10,
-        "keyword": "송치"
+        "keyword": "kf-21 보라매"
       }
     ],
     "daum": [
@@ -158,98 +158,98 @@
       },
       {
         "rank": 2,
-        "keyword": "테슬라 로드스터"
+        "keyword": "김장훈 전국투어"
       },
       {
         "rank": 3,
-        "keyword": "신영균 백수연"
+        "keyword": "소노 4연패 탈출"
       },
       {
         "rank": 4,
-        "keyword": "송민호 재복무 확정"
+        "keyword": "부마항쟁"
       },
       {
         "rank": 5,
-        "keyword": "수도권 주택 착공 미달"
+        "keyword": "��연우 콘서트"
       },
       {
         "rank": 6,
-        "keyword": "준플레이오프 일정"
+        "keyword": "테슬라 로드스터"
       },
       {
         "rank": 7,
-        "keyword": "류지현 한화 감독 취임"
+        "keyword": "GS칼텍스 준결승"
       },
       {
         "rank": 8,
-        "keyword": "현대 아울렛 화재"
+        "keyword": "추미애 발언"
       },
       {
         "rank": 9,
-        "keyword": "티처스3 재수전쟁"
+        "keyword": "썸데이 알고 있나요"
       },
       {
         "rank": 10,
-        "keyword": "솔비 이규한 결혼"
+        "keyword": "류이서 시험관 유산"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "박보영, 깊이 파인 드레스에 우아+고혹미",
+      "title": "최화정부터 박명수·미미까지…요즘 스타들은 ‘남대문’에 간다",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261016/134855441/1",
-      "publishedAt": "수집 10. 16. 16:54 KST",
-      "publishedOrder": 1792137283803
+      "url": "https://sports.donga.com/ent/article/all/20261016/134844198/1",
+      "publishedAt": "수집 10. 16. 22:06 KST",
+      "publishedOrder": 1792155971223
     },
     {
-      "title": "한혜진 놀라운 행보…패션 브랜드 론칭+프로젝트 진행",
+      "title": "유재석, 노래 시작하자마자 감탄…“첫 소절에 끝났다” (놀뭐?)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261016/134855258/1",
-      "publishedAt": "수집 10. 16. 16:54 KST",
-      "publishedOrder": 1792137283803
+      "url": "https://sports.donga.com/ent/article/all/20261016/134854043/1",
+      "publishedAt": "수집 10. 16. 22:06 KST",
+      "publishedOrder": 1792155971223
     },
     {
-      "title": "100% 생라이브 결투…‘이영현의 강���체념’ 김연지·지세희 출격",
+      "title": "‘부실 근무’ 송민호 다시 군대 간다…102일 복무 예상 (종합)[DA이슈]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261016/134855194/1",
-      "publishedAt": "수집 10. 16. 16:54 KST",
-      "publishedOrder": 1792137283803
+      "url": "https://sports.donga.com/ent/article/all/20261016/134856056/1",
+      "publishedAt": "수집 10. 16. 22:06 KST",
+      "publishedOrder": 1792155971223
     },
     {
-      "title": "BTS 뷔도 반한 ‘할머니 반지’…MZ 사로잡은 ‘옥코어’",
+      "title": "와이에스 블락, 새 EP ‘블랙플래그’ 17일 발매",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261016/134844232/1",
-      "publishedAt": "수집 10. 16. 16:54 KST",
-      "publishedOrder": 1792137283803
+      "url": "https://sports.donga.com/ent/article/all/20261016/134855529/1",
+      "publishedAt": "수집 10. 16. 22:06 KST",
+      "publishedOrder": 1792155971223
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 16. 16:54 KST",
-      "publishedOrder": 1792137282935
+      "publishedAt": "수집 10. 16. 22:06 KST",
+      "publishedOrder": 1792155965592
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 16. 16:54 KST",
-      "publishedOrder": 1792137282935
+      "publishedAt": "수집 10. 16. 22:06 KST",
+      "publishedOrder": 1792155965592
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 16. 16:54 KST",
-      "publishedOrder": 1792137282935
+      "publishedAt": "수집 10. 16. 22:06 KST",
+      "publishedOrder": 1792155965592
     },
     {
       "title": "'HAPPY BIRTHDAY JIMIN' 방탄소년단 지민, 칠레서 받은 뜨거운 생일 축하",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/star/2026/10/16/2026101607560619345",
-      "publishedAt": "수집 10. 16. 16:54 KST",
-      "publishedOrder": 1792137282935
+      "publishedAt": "수집 10. 16. 22:06 KST",
+      "publishedOrder": 1792155965592
     }
   ]
 }
