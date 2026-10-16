@@ -1,188 +1,188 @@
 {
   "success": true,
-  "updatedAt": "2026-10-15T18:53:14.523Z",
-  "updatedAtKst": "2026. 10. 16. AM 3:53:14",
+  "updatedAt": "2026-10-16T07:54:49.402Z",
+  "updatedAtKst": "2026. 10. 16. PM 4:54:49",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "김지용 중수청장 임명 재가"
+        "keyword": "국감서 질의하는 의원"
       },
       {
         "rank": 2,
-        "keyword": "부국제 폐막식 참석자들"
+        "keyword": "류지현 감독 환영합니다"
       },
       {
         "rank": 3,
-        "keyword": "삼성, 개막 4연승!"
+        "keyword": "해군"
       },
       {
         "rank": 4,
-        "keyword": "레이스 대 가디언즈"
+        "keyword": "추미애 재정 발언 논란"
       },
       {
         "rank": 5,
-        "keyword": "유로파리그"
+        "keyword": "여당"
       },
       {
         "rank": 6,
-        "keyword": "신진서 란커배 10번째 우승"
+        "keyword": "중동 임직원 격려"
       },
       {
         "rank": 7,
-        "keyword": "美 9월 물가 급등 1.3% 상승"
+        "keyword": "탄핵"
       },
       {
         "rank": 8,
-        "keyword": "김귀정"
+        "keyword": "소년판타지 유준원 6억 배상"
       },
       {
         "rank": 9,
-        "keyword": "트럼프 총살형 생중계 안 한다"
+        "keyword": "오지환"
       },
       {
         "rank": 10,
-        "keyword": "정원오"
+        "keyword": "이규한 결혼 발표 깜짝 양복 해드릴 것"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "김지�� 중수청장 재가 동일"
+        "keyword": "방시혁 민희진에 42억 new"
       },
       {
         "rank": 2,
-        "keyword": "부국제 폐막식 찾은 동일"
+        "keyword": "수도권 착공 new"
       },
       {
         "rank": 3,
-        "keyword": "나솔사계 동일"
+        "keyword": "제1차 주택공급 정례브리핑 new"
       },
       {
         "rank": 4,
-        "keyword": "삼성 개막 4연승 하락 1"
+        "keyword": "이규한 하락 2"
       },
       {
         "rank": 5,
-        "keyword": "고범석 서울경찰청장 하락 1"
+        "keyword": "한동훈 의혹 이관 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "이재명 개헌 음모론"
+        "keyword": "부천 공장 화재 부상"
       },
       {
         "rank": 2,
-        "keyword": "남동구 흉기 난동"
+        "keyword": "부마항쟁 5·18 헌법 개헌"
       },
       {
         "rank": 3,
-        "keyword": "김건희 추가 구속영장"
+        "keyword": "윤석열 평양 무인기 2심 구형"
       },
       {
         "rank": 4,
-        "keyword": "젤렌스키 러 정유시설 공격"
+        "keyword": "우크라이나 북한 포로 송환"
       },
       {
         "rank": 5,
-        "keyword": "한일 통화스와프 연장"
+        "keyword": "국민일자리 프로젝트 추진"
       },
       {
         "rank": 6,
-        "keyword": "무기징역 가석방 실태"
+        "keyword": "캘리포니아 말리부 산불"
       },
       {
         "rank": 7,
-        "keyword": "주한미군사령관 전작권 전환"
+        "keyword": "IEA 경유 비축분 방출"
       },
       {
         "rank": 8,
-        "keyword": "선관위 특검 투표자수 허위"
+        "keyword": "한일 통화스와프 연장"
       },
       {
         "rank": 9,
-        "keyword": "후티 메디나 미사일 요격"
+        "keyword": "우크라 패트리엇 고갈"
       },
       {
         "rank": 10,
-        "keyword": "트럼프 정보 유출자 총살"
+        "keyword": "트럼프 중러 핵군축"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "레이스 대 가디언즈"
+        "keyword": "비궁"
       },
       {
         "rank": 2,
-        "keyword": "유로파리그"
+        "keyword": "노동자"
       },
       {
         "rank": 3,
-        "keyword": "a20 soul"
+        "keyword": "시장"
       },
       {
         "rank": 4,
-        "keyword": "김귀정"
+        "keyword": "제임스 네일"
       },
       {
         "rank": 5,
-        "keyword": "정원오"
+        "keyword": "맞벌이"
       },
       {
         "rank": 6,
-        "keyword": "콜레스테롤"
+        "keyword": "송민호"
       },
       {
         "rank": 7,
-        "keyword": "최혜진"
+        "keyword": "여당"
       },
       {
         "rank": 8,
-        "keyword": "수출"
+        "keyword": "탄핵"
       },
       {
         "rank": 9,
-        "keyword": "김혜자"
+        "keyword": "오지환"
       },
       {
         "rank": 10,
-        "keyword": "자동차산업"
+        "keyword": "송치"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "솔비 이규한 결혼"
+        "keyword": "안치환 직장암 3기 투병"
       },
       {
         "rank": 2,
-        "keyword": "안세영 배드민턴 경기"
+        "keyword": "테슬라 로드스터"
       },
       {
         "rank": 3,
-        "keyword": "이영애 정호영 시상식"
+        "keyword": "신영균 백수연"
       },
       {
         "rank": 4,
-        "keyword": "내가 떨릴 수 있게"
+        "keyword": "송민호 재복무 확정"
       },
       {
         "rank": 5,
-        "keyword": "미스트롯 포유"
+        "keyword": "수도권 주택 착공 미달"
       },
       {
         "rank": 6,
-        "keyword": "차정원 하정우"
+        "keyword": "준플레이오프 일정"
       },
       {
         "rank": 7,
-        "keyword": "신천지 후폭풍"
+        "keyword": "류지현 한화 감독 취임"
       },
       {
         "rank": 8,
-        "keyword": "서킷 브레이커"
+        "keyword": "현대 아울렛 화재"
       },
       {
         "rank": 9,
@@ -190,9 +190,66 @@
       },
       {
         "rank": 10,
-        "keyword": "거장항준"
+        "keyword": "솔비 이규한 결혼"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "박보영, 깊이 파인 드레스에 우아+고혹미",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261016/134855441/1",
+      "publishedAt": "수집 10. 16. 16:54 KST",
+      "publishedOrder": 1792137283803
+    },
+    {
+      "title": "한혜진 놀라운 행보…패션 브랜드 론칭+프로젝트 진행",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261016/134855258/1",
+      "publishedAt": "수집 10. 16. 16:54 KST",
+      "publishedOrder": 1792137283803
+    },
+    {
+      "title": "100% 생라이브 결투…‘이영현의 강���체념’ 김연지·지세희 출격",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261016/134855194/1",
+      "publishedAt": "수집 10. 16. 16:54 KST",
+      "publishedOrder": 1792137283803
+    },
+    {
+      "title": "BTS 뷔도 반한 ‘할머니 반지’…MZ 사로잡은 ‘옥코어’",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261016/134844232/1",
+      "publishedAt": "수집 10. 16. 16:54 KST",
+      "publishedOrder": 1792137283803
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 10. 16. 16:54 KST",
+      "publishedOrder": 1792137282935
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 10. 16. 16:54 KST",
+      "publishedOrder": 1792137282935
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 10. 16. 16:54 KST",
+      "publishedOrder": 1792137282935
+    },
+    {
+      "title": "'HAPPY BIRTHDAY JIMIN' 방탄소년단 지민, 칠레서 받은 뜨거운 생일 축하",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/10/16/2026101607560619345",
+      "publishedAt": "수집 10. 16. 16:54 KST",
+      "publishedOrder": 1792137282935
+    }
+  ]
 }
