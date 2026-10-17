@@ -1,255 +1,198 @@
 {
   "success": true,
-  "updatedAt": "2026-10-17T07:32:34.769Z",
-  "updatedAtKst": "2026. 10. 17. PM 4:32:34",
+  "updatedAt": "2026-10-17T12:42:29.072Z",
+  "updatedAtKst": "2026. 10. 17. PM 9:42:29",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "부천 화재 합동감식"
+        "keyword": "부천 화재 순직 소방관 조문"
       },
       {
         "rank": 2,
-        "keyword": "송찬의 솔로포 발사"
+        "keyword": "임찬규 준PO 선발"
       },
       {
         "rank": 3,
-        "keyword": "추미애 소방관 발언 논란"
+        "keyword": "김진석 소방위 합동분향소"
       },
       {
         "rank": 4,
-        "keyword": "기아타이거즈"
+        "keyword": "손나은, 동생 손새은과 빈소 지킨다"
       },
       {
         "rank": 5,
-        "keyword": "라이브 공연 김루꾸밴드"
+        "keyword": "에스파뇰 대 아틀레티코"
       },
       {
         "rank": 6,
-        "keyword": "하주석"
+        "keyword": "남아시아 기후 이주"
       },
       {
         "rank": 7,
-        "keyword": "야스쿠니 공물 유감"
+        "keyword": "김유정 단발 100일 거짓말 시작"
       },
       {
         "rank": 8,
-        "keyword": "코스피 반대매매 3000억"
+        "keyword": "퇴거"
       },
       {
         "rank": 9,
-        "keyword": "우크라 스타링크 제한"
+        "keyword": "트럼프 러시아 제재 면제"
       },
       {
         "rank": 10,
-        "keyword": "남원 SUV와 오토바이 충돌"
+        "keyword": "허각 김예찬 우�� 417표"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "김도영 역전 솔로포 동일"
+        "keyword": "100일의 거짓말 하락 2"
       },
       {
         "rank": 2,
-        "keyword": "순직 소방관 추미애 new"
+        "keyword": "에반 상승 2"
       },
       {
         "rank": 3,
-        "keyword": "한강 청년 버스킹 new"
+        "keyword": "선발 출격 리그 new"
       },
       {
         "rank": 4,
-        "keyword": "야스쿠니 공물 유감 상승 2"
+        "keyword": "1246회 로또 1등 new"
       },
       {
         "rank": 5,
-        "keyword": "김민석 대표 동일"
+        "keyword": "5연패 유도 허미미 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "추미애 소방관 발언 논란"
+        "keyword": "김진석 소방위 합동분향소"
       },
       {
         "rank": 2,
-        "keyword": "트럼프 러시아 제재 면제"
+        "keyword": "남아시아 기후 이주"
       },
       {
         "rank": 3,
-        "keyword": "북한 AI 어뢰 시험발사"
+        "keyword": "트럼프 러시아 제재 면제"
       },
       {
         "rank": 4,
-        "keyword": "사우디 유조선 피격"
+        "keyword": "북한 AI 어뢰 시험발사"
       },
       {
         "rank": 5,
-        "keyword": "코스피 반대매매 3000억"
+        "keyword": "추미애 소방관 발언 논란"
       },
       {
         "rank": 6,
-        "keyword": "우크라 스타링크 제한"
+        "keyword": "코스피 반대매매 3000억"
       },
       {
         "rank": 7,
-        "keyword": "미국 재정적자 2조달러"
+        "keyword": "우크라 스타링크 제한"
       },
       {
         "rank": 8,
-        "keyword": "오리건 초교 총격"
+        "keyword": "사우디 유조선 피격"
       },
       {
         "rank": 9,
-        "keyword": "인도네시아 산불 진화 사망"
+        "keyword": "오리건 초교 총격"
       },
       {
         "rank": 10,
-        "keyword": "CXMT 3분기 실적 급증"
+        "keyword": "앤트로픽 한국 작가 저작권"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "ssg 랜더스"
+        "keyword": "weather tomorrow"
       },
       {
         "rank": 2,
-        "keyword": "위스키"
+        "keyword": "thời tiết ngày mai"
       },
       {
         "rank": 3,
-        "keyword": "구글플레이"
+        "keyword": "espanyol vs atlético"
       },
       {
         "rank": 4,
-        "keyword": "기아타이거즈"
+        "keyword": "погода завтра"
       },
       {
         "rank": 5,
-        "keyword": "기아 엘지"
+        "keyword": "cuaca besok"
       },
       {
         "rank": 6,
-        "keyword": "k리그2"
+        "keyword": "เอฟเวอร์ตัน พบ เชลซี"
       },
       {
         "rank": 7,
-        "keyword": "하주석"
+        "keyword": "에스파뇰 대 아틀레티코"
       },
       {
         "rank": 8,
-        "keyword": "lg vs kia"
+        "keyword": "퇴거"
       },
       {
         "rank": 9,
-        "keyword": "박해민"
+        "keyword": "everton vs chelsea"
       },
       {
         "rank": 10,
-        "keyword": "빅 나티"
+        "keyword": "삼성중공업"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "바타 지예은 결혼"
+        "keyword": "1246회 로또 당첨 번호"
       },
       {
         "rank": 2,
-        "keyword": "추미애 발언 사과"
+        "keyword": "LG ��찬규 장모상 선발"
       },
       {
         "rank": 3,
-        "keyword": "손나은 모친상 빈소"
+        "keyword": "지구마불 세계여행 시즌 4"
       },
       {
         "rank": 4,
-        "keyword": "LG 우강훈 준PO 1차전 등��"
+        "keyword": "현숙 나이"
       },
       {
         "rank": 5,
-        "keyword": "문보경 실책"
+        "keyword": "추미애 발언"
       },
       {
         "rank": 6,
-        "keyword": "이찬원 성리 트로트 동료"
+        "keyword": "지예은 12월 결혼"
       },
       {
         "rank": 7,
-        "keyword": "케네디 야구선수"
+        "keyword": "조희대 탄핵 추진"
       },
       {
         "rank": 8,
-        "keyword": "대전 빵 축제"
+        "keyword": "대전 빵 투어버스"
       },
       {
         "rank": 9,
-        "keyword": "기상청 날씨누리"
+        "keyword": "개미들 반대매매"
       },
       {
         "rank": 10,
-        "keyword": "야구선수 이우찬"
+        "keyword": "아는 형님"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "‘예비 신랑’ 바타, 지예은 커피차 선물에 하트 발사…사랑꾼 (전참시)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261017/134858890/1",
-      "publishedAt": "수집 10. 17. 16:32 KST",
-      "publishedOrder": 1792222349617
-    },
-    {
-      "title": "이븐, 타이틀곡 전원 작사 참여…미니 6집 하이라이트 메들리 공개",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261017/134858757/1",
-      "publishedAt": "수집 10. 17. 16:32 KST",
-      "publishedOrder": 1792222349617
-    },
-    {
-      "title": "‘♥홍현희’ 제이쓴, 부모님 농막 상습 절도에 분노…“PD와 잠복까지 고민”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261017/134858467/1",
-      "publishedAt": "수집 10. 17. 16:32 KST",
-      "publishedOrder": 1792222349617
-    },
-    {
-      "title": "지예은, 결혼 말리는 이서진에 반박…“암 투병 후 생각 달라져”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261017/134858608/1",
-      "publishedAt": "수집 10. 17. 16:32 KST",
-      "publishedOrder": 1792222349617
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 17. 16:32 KST",
-      "publishedOrder": 1792222348555
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 17. 16:32 KST",
-      "publishedOrder": 1792222348555
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 17. 16:32 KST",
-      "publishedOrder": 1792222348555
-    },
-    {
-      "title": "석진이와 커피 한잔~ 방탄소년단 진, '커피 광고 모델에 찰떡인 스타' 1위",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/17/2026101707415596773",
-      "publishedAt": "수집 10. 17. 16:32 KST",
-      "publishedOrder": 1792222348555
-    }
-  ]
+  "entertainment": []
 }
