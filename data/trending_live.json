@@ -1,156 +1,115 @@
 {
   "success": true,
-  "updatedAt": "2026-10-18T17:50:43.539Z",
-  "updatedAtKst": "2026. 10. 19. AM 2:50:43",
+  "updatedAt": "2026-10-18T22:47:27.375Z",
+  "updatedAtKst": "2026. 10. 19. AM 7:47:27",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "서울 폭우 침수 피해"
+        "keyword": "트럼프 네타냐후 지지"
       },
       {
         "rank": 2,
-        "keyword": "순직 소방관 빈소 조문"
+        "keyword": "김유정 단발 거짓말 시작"
       },
       {
         "rank": 3,
-        "keyword": "아이치-나고야 아시안 패러게임"
+        "keyword": "공형진, 차지연에 무례 진행"
       },
       {
         "rank": 4,
-        "keyword": "던롭 엑스오픈 4강 진출!"
+        "keyword": "프랑스 대규모 시위"
       },
       {
         "rank": 5,
-        "keyword": "중수청 16일 만 첫 구속"
+        "keyword": "안세영 덴마크 2연패 달성!"
       },
       {
         "rank": 6,
-        "keyword": "수능"
+        "keyword": "라리가"
       },
       {
         "rank": 7,
-        "keyword": "선관위 특검 탈세 조사"
+        "keyword": "북한군 포로 송환 비공개"
       },
       {
         "rank": 8,
-        "keyword": "구성환"
+        "keyword": "2026년 10월 19일 운세"
       },
       {
         "rank": 9,
-        "keyword": "평택 아파트 투척"
+        "keyword": "젤렌스키 정보공유 재개 감사"
       },
       {
         "rank": 10,
-        "keyword": "프랑스 대규모 시위"
+        "keyword": "미국 합법이민 감소"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "100일의 거짓말 하락 1"
+        "keyword": "트럼프 네타냐후 지지 동일"
       },
       {
         "rank": 2,
-        "keyword": "안세영 야마구치 2연패 new"
+        "keyword": "100일의 거짓말 동일"
       },
       {
         "rank": 3,
-        "keyword": "할리스 멤버십 유출 new"
+        "keyword": "안세영 덴마크 오픈 new"
       },
       {
         "rank": 4,
-        "keyword": "윤여정 팔순 파티 하락 1"
+        "keyword": "풍자 박세미 부케 new"
       },
       {
         "rank": 5,
-        "keyword": "2026년 19일 new"
+        "keyword": "순직 소방관 상승 2"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "현대제철 당진공장 사고"
-      },
-      {
-        "rank": 2,
-        "keyword": "서울 폭우 침수 피해"
-      },
-      {
-        "rank": 3,
-        "keyword": "선관위 특검 탈세 조사"
-      },
-      {
-        "rank": 4,
         "keyword": "프랑스 대규모 시위"
       },
       {
-        "rank": 5,
-        "keyword": "국토부 불법하도급 단속"
-      },
-      {
-        "rank": 6,
-        "keyword": "북한군 포로 송환 비공개"
-      },
-      {
-        "rank": 7,
-        "keyword": "이란 신임 국방장관"
-      },
-      {
-        "rank": 8,
-        "keyword": "시도지사 지방교부세 유지"
-      },
-      {
-        "rank": 9,
-        "keyword": "안세영 덴마크 오픈 우승"
-      },
-      {
-        "rank": 10,
-        "keyword": "경기도 아동가구 주거개선"
-      }
-    ],
-    "google": [
-      {
-        "rank": 1,
-        "keyword": "수능"
-      },
-      {
         "rank": 2,
-        "keyword": "구성환"
+        "keyword": "젤렌스키 정보공유 재개 감사"
       },
       {
         "rank": 3,
-        "keyword": "nottm forest vs arsenal"
+        "keyword": "대법원 의료진 검사 지연 과실"
       },
       {
         "rank": 4,
-        "keyword": "ngoại hạng anh"
+        "keyword": "서울 폭우 침수 피해"
       },
       {
         "rank": 5,
-        "keyword": "premier league"
+        "keyword": "AI 투자 과잉 경고"
       },
       {
         "rank": 6,
-        "keyword": "pl"
+        "keyword": "시도지사 지방교부세 유지"
       },
       {
         "rank": 7,
-        "keyword": "신세계백화점 강남점"
+        "keyword": "미국 합법이민 감소"
       },
       {
         "rank": 8,
-        "keyword": "노팅엄 포레스트 대 아스널"
+        "keyword": "구직 청년 취업비용 부담"
       },
       {
         "rank": 9,
-        "keyword": "사업"
+        "keyword": "할리스 개인정보 유출"
       },
       {
         "rank": 10,
-        "keyword": "박위"
+        "keyword": "중수청 첫 구속"
       }
     ],
+    "google": [],
     "daum": [
       {
         "rank": 1,
@@ -158,98 +117,99 @@
       },
       {
         "rank": 2,
-        "keyword": "오상욱 여자친구"
+        "keyword": "한미관계 재설정"
       },
       {
         "rank": 3,
-        "keyword": "마크롱 청년 시위"
+        "keyword": "미우새 박혜연 커플 성사"
       },
       {
         "rank": 4,
-        "keyword": "���진영 배우"
+        "keyword": "프랑스 시위"
       },
       {
         "rank": 5,
-        "keyword": "이은미 신동엽 거절"
+        "keyword": "김민석 공연 중단 사과"
       },
       {
         "rank": 6,
-        "keyword": "윤여정 팔순 파티"
+        "keyword": "민주당 재수사 촉구"
       },
       {
         "rank": 7,
-        "keyword": "여주 화재"
+        "keyword": "마서영 KLPGA 첫 우승"
       },
       {
         "rank": 8,
-        "keyword": "김민석 지역축제 공연 중단"
+        "keyword": "마크롱 폭동 강경 대응"
       },
       {
         "rank": 9,
-        "keyword": "프랑스 오픈 배드민턴 대회"
+        "keyword": "태풍 경로"
       },
       {
         "rank": 10,
-        "keyword": "솔비 이규한 결혼"
+        "keyword": "국민연금 손실"
       }
-    ]
+    ],
+    "googleError": "google trends HTTP 429"
   },
   "entertainment": [
     {
-      "title": "에이티즈 홍중, 캡틴 완장 내려놓고 색다른 매력 [화보]",
+      "title": "최다니엘, 김대호 요리 지식에 감탄…“왜 이렇게 잘 알아?”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261019/134864093/1",
+      "publishedAt": "수집 10. 19. 07:47 KST",
+      "publishedOrder": 1792363642981
+    },
+    {
+      "title": "이영자, 막걸리로 배추 농사 도전…“술 먹은 애들”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261019/134864077/1",
+      "publishedAt": "수집 10. 19. 07:47 KST",
+      "publishedOrder": 1792363642981
+    },
+    {
+      "title": "에이티즈 홍중, ��틴 완장 내려놓고 색다른 매력 [화보]",
       "source": "스포츠동아",
       "url": "https://sports.donga.com/ent/article/all/20261018/134863225/1",
-      "publishedAt": "수집 10. 19. 02:50 KST",
-      "publishedOrder": 1792345837525
+      "publishedAt": "수집 10. 19. 07:47 KST",
+      "publishedOrder": 1792363642981
     },
     {
       "title": "투어스, 청량 소년들의 반전…시크美 장착 [화보]",
       "source": "스포츠동아",
       "url": "https://sports.donga.com/ent/article/all/20261018/134863189/1",
-      "publishedAt": "수집 10. 19. 02:50 KST",
-      "publishedOrder": 1792345837525
-    },
-    {
-      "title": "유라, 양세찬과 열애설 ��접 언급 “우리 티 진짜 안나” (런닝맨)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261018/134863294/1",
-      "publishedAt": "수집 10. 19. 02:50 KST",
-      "publishedOrder": 1792345837525
-    },
-    {
-      "title": "‘예비 아빠’ 김종민, 코요태 완전체 무대…‘우리의 꿈’ 떼창 완벽",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261018/134863154/1",
-      "publishedAt": "수집 10. 19. 02:50 KST",
-      "publishedOrder": 1792345837525
+      "publishedAt": "수집 10. 19. 07:47 KST",
+      "publishedOrder": 1792363642981
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 19. 02:50 KST",
-      "publishedOrder": 1792345837447
+      "publishedAt": "수집 10. 19. 07:47 KST",
+      "publishedOrder": 1792363642207
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 19. 02:50 KST",
-      "publishedOrder": 1792345837447
+      "publishedAt": "수집 10. 19. 07:47 KST",
+      "publishedOrder": 1792363642207
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 19. 02:50 KST",
-      "publishedOrder": 1792345837447
+      "publishedAt": "수집 10. 19. 07:47 KST",
+      "publishedOrder": 1792363642207
     },
     {
-      "title": "'알로의 얼굴' 방탄소년단 진, 화보 촬영 현장 공개..전 세계 팬심 홀릭~♥",
+      "title": "장승조, 환자 간에 이니셜 새긴 '미친 의사'..소름 유발자 [닥터X]",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/18/2026101807212611315",
-      "publishedAt": "수집 10. 19. 02:50 KST",
-      "publishedOrder": 1792345837447
+      "url": "https://www.starnewskorea.com/broadcast-drama/2026/10/18/2026101810271964478",
+      "publishedAt": "수집 10. 19. 07:47 KST",
+      "publishedOrder": 1792363642207
     }
   ]
 }
