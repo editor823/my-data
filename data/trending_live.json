@@ -1,283 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-10-18T12:58:43.586Z",
-  "updatedAtKst": "2026. 10. 18. PM 9:58:43",
+  "updatedAt": "2026-10-18T17:50:43.539Z",
+  "updatedAtKst": "2026. 10. 19. AM 2:50:43",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "닥터X : 하얀 마피아의 시대"
+        "keyword": "서울 폭우 침수 피해"
       },
       {
         "rank": 2,
-        "keyword": "중수청 첫 구속 대마 밀수"
+        "keyword": "순직 소방관 빈소 조문"
       },
       {
         "rank": 3,
-        "keyword": "아이치 장애인아시아경기대회 개회식"
+        "keyword": "아이치-나고야 아시안 패러게임"
       },
       {
         "rank": 4,
-        "keyword": "폭우로 공연 취소, 전액 환불"
+        "keyword": "던롭 엑스오픈 4강 진출!"
       },
       {
         "rank": 5,
-        "keyword": "평택 아파트 투척"
+        "keyword": "중수청 16일 만 첫 구속"
       },
       {
         "rank": 6,
-        "keyword": "미국 노킹스 시위"
+        "keyword": "수능"
       },
       {
         "rank": 7,
-        "keyword": "주소까지 개인정보 유출"
+        "keyword": "선관위 특검 탈세 조사"
       },
       {
         "rank": 8,
-        "keyword": "가계"
+        "keyword": "구성환"
       },
       {
         "rank": 9,
-        "keyword": "북한군 포로 송환 비공개"
+        "keyword": "평택 아파트 투척"
       },
       {
         "rank": 10,
-        "keyword": "우크라이나"
+        "keyword": "프랑스 대규모 시위"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "임찬규 상승 2"
+        "keyword": "100일의 거짓말 하락 1"
       },
       {
         "rank": 2,
-        "keyword": "부천 공장 대표 new"
+        "keyword": "안세영 야마구치 2연패 new"
       },
       {
         "rank": 3,
-        "keyword": "부캉이 지느러미 수로 new"
+        "keyword": "할리스 멤버십 유출 new"
       },
       {
         "rank": 4,
-        "keyword": "김종민 아들 16주 new"
+        "keyword": "윤여정 팔순 파티 하락 1"
       },
       {
         "rank": 5,
-        "keyword": "추미애 집무실로 빨대 new"
+        "keyword": "2026년 19일 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "평택 아파트 투척"
-      },
-      {
-        "rank": 2,
-        "keyword": "미국 노킹스 시위"
-      },
-      {
-        "rank": 3,
-        "keyword": "북한군 포로 송환 비공개"
-      },
-      {
-        "rank": 4,
-        "keyword": "인도 힌두 축제 압사"
-      },
-      {
-        "rank": 5,
-        "keyword": "선관위 특검 탈세 조사"
-      },
-      {
-        "rank": 6,
-        "keyword": "서안 유럽 외교관 공격"
-      },
-      {
-        "rank": 7,
-        "keyword": "국토부 불법하도급 단속"
-      },
-      {
-        "rank": 8,
-        "keyword": "서울 폭우 침수 피해"
-      },
-      {
-        "rank": 9,
         "keyword": "현대제철 당진공장 사고"
       },
       {
+        "rank": 2,
+        "keyword": "서울 폭우 침수 피해"
+      },
+      {
+        "rank": 3,
+        "keyword": "선관위 특검 탈세 조사"
+      },
+      {
+        "rank": 4,
+        "keyword": "프랑스 대규모 시위"
+      },
+      {
+        "rank": 5,
+        "keyword": "국토부 불법하도급 단속"
+      },
+      {
+        "rank": 6,
+        "keyword": "북한군 포로 송환 비공개"
+      },
+      {
+        "rank": 7,
+        "keyword": "이란 신임 국방장관"
+      },
+      {
+        "rank": 8,
+        "keyword": "시도지사 지방교부세 유지"
+      },
+      {
+        "rank": 9,
+        "keyword": "안세영 덴마크 오픈 우승"
+      },
+      {
         "rank": 10,
-        "keyword": "젤렌스키 G20 3자 회담"
+        "keyword": "경기도 아동가구 주거개선"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "삼성 갤럭시 z 시리즈"
+        "keyword": "수능"
       },
       {
         "rank": 2,
-        "keyword": "가계"
+        "keyword": "구성환"
       },
       {
         "rank": 3,
-        "keyword": "마야 흐발린스카"
+        "keyword": "nottm forest vs arsenal"
       },
       {
         "rank": 4,
-        "keyword": "우크라이나"
+        "keyword": "ngoại hạng anh"
       },
       {
         "rank": 5,
-        "keyword": "암표"
+        "keyword": "premier league"
       },
       {
         "rank": 6,
-        "keyword": "렉서스"
+        "keyword": "pl"
       },
       {
         "rank": 7,
-        "keyword": "최혜진"
+        "keyword": "신세계백화점 강남점"
       },
       {
         "rank": 8,
-        "keyword": "무기"
+        "keyword": "노팅엄 포레스트 대 아스널"
       },
       {
         "rank": 9,
-        "keyword": "포도"
+        "keyword": "사업"
       },
       {
         "rank": 10,
-        "keyword": "인천광역시"
+        "keyword": "박위"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "중수청 대마 밀수"
+        "keyword": "이상민 추미애 빨대 배송"
       },
       {
         "rank": 2,
-        "keyword": "담양 죽녹원 화재"
+        "keyword": "오상욱 여자친구"
       },
       {
         "rank": 3,
-        "keyword": "소노 에이스 이정현 복귀"
+        "keyword": "마크롱 청년 시위"
       },
       {
         "rank": 4,
-        "keyword": "윤여정 팔순 파���"
+        "keyword": "���진영 배우"
       },
       {
         "rank": 5,
-        "keyword": "추미애 사과"
+        "keyword": "이은미 신동엽 거절"
       },
       {
         "rank": 6,
-        "keyword": "이상민 빨대 배송"
+        "keyword": "윤여정 팔순 파티"
       },
       {
         "rank": 7,
-        "keyword": "임성재 마카오 오픈 준우승"
+        "keyword": "여주 화재"
       },
       {
         "rank": 8,
-        "keyword": "흐발린스카 우한오픈 결승"
+        "keyword": "김민석 지역축제 공연 중단"
       },
       {
         "rank": 9,
-        "keyword": "KIA 준PO 2연승"
+        "keyword": "프랑스 오픈 배드민턴 대회"
       },
       {
         "rank": 10,
-        "keyword": "미래한국재단"
+        "keyword": "솔비 이규한 결혼"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "유라, 양세찬과 열애설 직접 언급 “우리 티 진짜 안나” (런닝맨)",
+      "title": "에이티즈 홍중, 캡틴 완장 내려놓고 색다른 매력 [화보]",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261018/134863225/1",
+      "publishedAt": "수집 10. 19. 02:50 KST",
+      "publishedOrder": 1792345837525
+    },
+    {
+      "title": "투어스, 청량 소년들의 반전…시크美 장착 [화보]",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261018/134863189/1",
+      "publishedAt": "수집 10. 19. 02:50 KST",
+      "publishedOrder": 1792345837525
+    },
+    {
+      "title": "유라, 양세찬과 열애설 ��접 언급 “우리 티 진짜 안나” (런닝맨)",
       "source": "스포츠동아",
       "url": "https://sports.donga.com/ent/article/all/20261018/134863294/1",
-      "publishedAt": "수집 10. 18. 21:39 KST",
-      "publishedOrder": 1792327179469
+      "publishedAt": "수집 10. 19. 02:50 KST",
+      "publishedOrder": 1792345837525
     },
     {
       "title": "‘예비 아빠’ 김종민, 코요태 완전체 무대…‘우리의 꿈’ 떼창 완벽",
       "source": "스포츠동아",
       "url": "https://sports.donga.com/ent/article/all/20261018/134863154/1",
-      "publishedAt": "수집 10. 18. 21:39 KST",
-      "publishedOrder": 1792327179469
-    },
-    {
-      "title": "박경혜, 영어 간판 못 읽을 때 대처법…“안 보인다고 해요”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261018/134862466/1",
-      "publishedAt": "수집 10. 18. 21:39 KST",
-      "publishedOrder": 1792327179469
-    },
-    {
-      "title": "남윤수, 이상형은 귀여운 사람…류혜영 “그거 나잖아”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261018/134862394/1",
-      "publishedAt": "수집 10. 18. 21:39 KST",
-      "publishedOrder": 1792327179469
+      "publishedAt": "수집 10. 19. 02:50 KST",
+      "publishedOrder": 1792345837525
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 18. 21:39 KST",
-      "publishedOrder": 1792327178584
+      "publishedAt": "수집 10. 19. 02:50 KST",
+      "publishedOrder": 1792345837447
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 18. 21:39 KST",
-      "publishedOrder": 1792327178584
+      "publishedAt": "수집 10. 19. 02:50 KST",
+      "publishedOrder": 1792345837447
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 18. 21:39 KST",
-      "publishedOrder": 1792327178584
+      "publishedAt": "수집 10. 19. 02:50 KST",
+      "publishedOrder": 1792345837447
     },
     {
       "title": "'알로의 얼굴' 방탄소년단 진, 화보 촬영 현장 공개..전 세계 팬심 홀릭~♥",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/star/2026/10/18/2026101807212611315",
-      "publishedAt": "수집 10. 18. 21:39 KST",
-      "publishedOrder": 1792327178584
-    },
-    {
-      "title": "연예 뉴스 10월 18일: 푸옹 오안의 쌍둥이가 엄마와 함께 부엌에서 요리하는 모습; 바오 탄의 남편이 아내의 생일 파티에서 다정한 모습을 보였다.",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQUVBtaGtVQzluMXNRUjg0aHJmR0tjd2pVYUg1QTM1Rl9NaE0wOGZkcXh2MmpYRW9CVDhpdXRwTW9WVHFha2t5TnhzTFdjZkRDRjB5dXNSZVdnZWxPTE5OdTZZLWNnYjJLSmZNcXpaSW9mTU14VHNweEU1RWVrdUhzN29nbUVUN25TYVB5TlJBOTg3b3V2Q19OSEE5WExMTVoxLXhKY0hFZFZBMWw4R3lPMGp1bl9ubXRDMDd2cmc5N1o2SXBnOERSUHJB?oc=5",
-      "publishedAt": "10. 18. 20:37 KST",
-      "publishedOrder": 1792323442000
-    },
-    {
-      "title": "지수, 빅뱅 공연장 깜짝 방문…“2시간 걸려 왔다”",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE51b1AtVlo2cTZ0a0EwNHMtaHBMZ1RILVNoUktwaS0xck92SFZrUkE3Zzdid2ZoaF9wR3JIcW9WWFZIN05aTkZ4UWplSFNqNHQ2VDNubkRSamdQTUJLcGk5ZVVadFYwRVgweW1v?oc=5",
-      "publishedAt": "10. 18. 18:47 KST",
-      "publishedOrder": 1792316836000
-    },
-    {
-      "title": "딘딘, 새 앨범 타이틀곡 '연애대상' 공개...\"연예대상에서 무대\" 선언 (1박 2일)",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9NaEtaUjAzLXVuZzV2THVVMVZlSTBqWUdoVDJKUEQyYm9pdFZGZ1dIeVJWa3ZQa1VLdVN2RXJ1ei1DU1FMazdpR2tmbFY0MXlGdzdhZg?oc=5",
-      "publishedAt": "10. 18. 18:38 KST",
-      "publishedOrder": 1792316292000
-    },
-    {
-      "title": "넥스지 하루 “아직 3년차인데 더 큰 공연장 입성하고파”",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9xS0R3bWF4T0Y5ZENMR01zd3pZdzZWSEs5RmNnX25rZVBSNHlFVllmMUhjZzBlaG5SWlhTdTdweDZPWG84Zk1RaVd1S1pBb0F0U2cydTBoTXA1dmNNYkxrUVZkTUY4b2Fvekln?oc=5",
-      "publishedAt": "10. 18. 18:29 KST",
-      "publishedOrder": 1792315741000
+      "publishedAt": "수집 10. 19. 02:50 KST",
+      "publishedOrder": 1792345837447
     }
   ]
 }
