@@ -1,92 +1,92 @@
 {
   "success": true,
-  "updatedAt": "2026-10-19T08:30:37.521Z",
-  "updatedAtKst": "2026. 10. 19. PM 5:30:37",
+  "updatedAt": "2026-10-19T16:12:45.810Z",
+  "updatedAtKst": "2026. 10. 20. AM 1:12:45",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "5대 은행장 증인 출석"
+        "keyword": "대남 확성기 재개 검토"
       },
       {
         "rank": 2,
-        "keyword": "코스피 상승 마감"
+        "keyword": "5대 은행장 해킹 사과 늘리겠다"
       },
       {
         "rank": 3,
-        "keyword": "질의에 추미애 경기도지사"
+        "keyword": "수능 출제 비밀 밝혀져"
       },
       {
         "rank": 4,
-        "keyword": "김제 지평선축제 식중독"
+        "keyword": "장모 살해 아내 납치 김성우"
       },
       {
         "rank": 5,
-        "keyword": "조희대 탄핵소추안 공개"
+        "keyword": "최원호 감독 야구대표팀 선임"
       },
       {
         "rank": 6,
-        "keyword": "국감서 질의하는 의원"
+        "keyword": "후티 예멘 정부군 미사일 공격"
       },
       {
         "rank": 7,
-        "keyword": "한동훈"
+        "keyword": "바바라팔빈"
       },
       {
         "rank": 8,
-        "keyword": "한국전력공사"
-      },
-      {
-        "rank": 9,
         "keyword": "항공기 비상문 개방 시도 집행유예"
       },
       {
+        "rank": 9,
+        "keyword": "전작권 반드시 조기 환수"
+      },
+      {
         "rank": 10,
-        "keyword": "기자들과 간담회하는 이 대통령"
+        "keyword": "머스크 스페이스X 주식 나눔"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "증인 5대 은행장 동일"
+        "keyword": "대남 재개 검토 동일"
       },
       {
         "rank": 2,
-        "keyword": "코스피 상승 마감 동일"
-      },
-      {
-        "rank": 3,
         "keyword": "수능 출제의 비밀 동일"
       },
       {
+        "rank": 3,
+        "keyword": "장모 살해 아내 상승 1"
+      },
+      {
         "rank": 4,
-        "keyword": "동메달 최휘영 장관 동일"
+        "keyword": "최원호 감독 선임 상승 1"
       },
       {
         "rank": 5,
-        "keyword": "박홍근 기획예산처 장관 상승 1"
+        "keyword": "전작권 반드시 조기 환수 상승 1"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "김지용 중수청장 임명장"
-      },
-      {
-        "rank": 2,
-        "keyword": "조희대 탄핵소추안 공개"
-      },
-      {
-        "rank": 3,
         "keyword": "항공기 비상문 개방 시도 집행유예"
       },
       {
+        "rank": 2,
+        "keyword": "금감원장 해킹 CEO 책임"
+      },
+      {
+        "rank": 3,
+        "keyword": "이형일 성장률 전망"
+      },
+      {
         "rank": 4,
-        "keyword": "JMS 정명석 징역 33년"
+        "keyword": "송파 장모 살해 신상공개"
       },
       {
         "rank": 5,
-        "keyword": "브런슨 DMZ 발언"
+        "keyword": "후티 예멘 정부군 미사일 공격"
       },
       {
         "rank": 6,
@@ -94,105 +94,162 @@
       },
       {
         "rank": 7,
-        "keyword": "중국 야스쿠니 공물 규탄"
+        "keyword": "브런슨 DMZ 발언"
       },
       {
         "rank": 8,
-        "keyword": "트럼프 네타냐후 지지"
+        "keyword": "JMS 정명석 징역 33년"
       },
       {
         "rank": 9,
-        "keyword": "공소청 미제사건 이관"
+        "keyword": "중국 터널굴착기 수출통제"
       },
       {
         "rank": 10,
-        "keyword": "금감원장 해킹 CEO 책임"
+        "keyword": "특별감찰관 청문보고서 채택"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "미국 증권거래위원회"
+        "keyword": "수영"
       },
       {
         "rank": 2,
-        "keyword": "택배"
+        "keyword": "icc cwc league 2"
       },
       {
         "rank": 3,
-        "keyword": "모스 탄"
+        "keyword": "로이킴"
       },
       {
         "rank": 4,
-        "keyword": "파리바게뜨"
+        "keyword": "바바라 팔빈"
       },
       {
         "rank": 5,
-        "keyword": "최원호"
+        "keyword": "중"
       },
       {
         "rank": 6,
-        "keyword": "스토브리그"
+        "keyword": "이종혁"
       },
       {
         "rank": 7,
-        "keyword": "한동훈"
+        "keyword": "시험"
       },
       {
         "rank": 8,
-        "keyword": "한국전력공사"
+        "keyword": "박평순"
       },
       {
         "rank": 9,
-        "keyword": "붕어빵 차은 우"
+        "keyword": "문재인"
       },
       {
         "rank": 10,
-        "keyword": "김명신"
+        "keyword": "나의 유죄인간"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "두산 손아섭 방출"
+        "keyword": "나의 유죄인간"
       },
       {
         "rank": 2,
-        "keyword": "추미애 명예훼손 고발"
+        "keyword": "손아섭 두산 방출"
       },
       {
         "rank": 3,
-        "keyword": "��세훈 서울 집값 우상향"
+        "keyword": "부승찬 소방 재정 발언"
       },
       {
         "rank": 4,
-        "keyword": "김한민 이소영 결혼"
+        "keyword": "에펠탑"
       },
       {
         "rank": 5,
-        "keyword": "김승수 박혜연 커플"
+        "keyword": "중증외상센터2 정예인 합류"
       },
       {
         "rank": 6,
-        "keyword": "김지용 임명장"
+        "keyword": "식스센스 b사이드"
       },
       {
         "rank": 7,
-        "keyword": "중증외상센터 정예인 교체"
+        "keyword": "트럼프 비비 네타냐후"
       },
       {
         "rank": 8,
-        "keyword": "프랑스 시위"
+        "keyword": "김한민 이소영 명창 결혼"
       },
       {
         "rank": 9,
-        "keyword": "금융권 해킹사태"
+        "keyword": "아이브 룩스 캔 킬 컴백"
       },
       {
         "rank": 10,
-        "keyword": "은행 우대금리 축소"
+        "keyword": "김다영 아나운서"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "유현철♥10기 옥순, 파경 위기 딛고 결혼식…혼인신고 3년 만",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261019/134871131/1",
+      "publishedAt": "수집 10. 20. 01:12 KST",
+      "publishedOrder": 1792426360818
+    },
+    {
+      "title": "기안84, 러닝에 진심인데 마라톤 대회엔 쓴소리…“길 다 틀어막아 놓고”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261019/134871073/1",
+      "publishedAt": "수집 10. 20. 01:12 KST",
+      "publishedOrder": 1792426360818
+    },
+    {
+      "title": "풍자, 캠핑카 구매 후 현실 고백…“남자친구 생겨도 같이 못 가”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261019/134870841/1",
+      "publishedAt": "수집 10. 20. 01:12 KST",
+      "publishedOrder": 1792426360818
+    },
+    {
+      "title": "2PM 장우영, 가수 꿈꾸던 학창 시절 고백…“데뷔 못 할까 불안했다”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261019/134870916/1",
+      "publishedAt": "수집 10. 20. 01:12 KST",
+      "publishedOrder": 1792426360818
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 10. 20. 01:12 KST",
+      "publishedOrder": 1792426360590
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 10. 20. 01:12 KST",
+      "publishedOrder": 1792426360590
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 10. 20. 01:12 KST",
+      "publishedOrder": 1792426360590
+    },
+    {
+      "title": "개그맨 이상민, 추미애 지사에 '빨대 250개' 배송 \"사과에도 진정성 느껴지지 않아\"",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/10/19/2026101909323774273",
+      "publishedAt": "수집 10. 20. 01:12 KST",
+      "publishedOrder": 1792426360590
+    }
+  ]
 }
