@@ -1,215 +1,198 @@
 {
   "success": true,
-  "updatedAt": "2026-10-18T22:47:27.375Z",
-  "updatedAtKst": "2026. 10. 19. AM 7:47:27",
+  "updatedAt": "2026-10-19T08:30:37.521Z",
+  "updatedAtKst": "2026. 10. 19. PM 5:30:37",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "트럼프 네타냐후 지지"
+        "keyword": "5대 은행장 증인 출석"
       },
       {
         "rank": 2,
-        "keyword": "김유정 단발 거짓말 시작"
+        "keyword": "코스피 상승 마감"
       },
       {
         "rank": 3,
-        "keyword": "공형진, 차지연에 무례 진행"
+        "keyword": "질의에 추미애 경기도지사"
       },
       {
         "rank": 4,
-        "keyword": "프랑스 대규모 시위"
+        "keyword": "김제 지평선축제 식중독"
       },
       {
         "rank": 5,
-        "keyword": "안세영 덴마크 2연패 달성!"
+        "keyword": "조희대 탄핵소추안 공개"
       },
       {
         "rank": 6,
-        "keyword": "라리가"
+        "keyword": "국감서 질의하는 의원"
       },
       {
         "rank": 7,
-        "keyword": "북한군 포로 송환 비공개"
+        "keyword": "한동훈"
       },
       {
         "rank": 8,
-        "keyword": "2026년 10월 19일 운세"
+        "keyword": "한국전력공사"
       },
       {
         "rank": 9,
-        "keyword": "젤렌스키 정보공유 재개 감사"
+        "keyword": "항공기 비상문 개방 시도 집행유예"
       },
       {
         "rank": 10,
-        "keyword": "미국 합법이민 감소"
+        "keyword": "기자들과 간담회하는 이 대통령"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "트럼프 네타냐후 지지 동일"
+        "keyword": "증인 5대 은행장 동일"
       },
       {
         "rank": 2,
-        "keyword": "100일의 거짓말 동일"
+        "keyword": "코스피 상승 마감 동일"
       },
       {
         "rank": 3,
-        "keyword": "안세영 덴마크 오픈 new"
+        "keyword": "수능 출제의 비밀 동일"
       },
       {
         "rank": 4,
-        "keyword": "풍자 박세미 부케 new"
+        "keyword": "동메달 최휘영 장관 동일"
       },
       {
         "rank": 5,
-        "keyword": "순직 소방관 상승 2"
+        "keyword": "박홍근 기획예산처 장관 상승 1"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "프랑스 대규모 시위"
+        "keyword": "김지용 중수청장 임명장"
       },
       {
         "rank": 2,
-        "keyword": "젤렌스키 정보공유 재개 감사"
+        "keyword": "조희대 탄핵소추안 공개"
       },
       {
         "rank": 3,
-        "keyword": "대법원 의료진 검사 지연 과실"
+        "keyword": "항공기 비상문 개방 시도 집행유예"
       },
       {
         "rank": 4,
-        "keyword": "서울 폭우 침수 피해"
+        "keyword": "JMS 정명석 징역 33년"
       },
       {
         "rank": 5,
-        "keyword": "AI 투자 과잉 경고"
+        "keyword": "브런슨 DMZ 발언"
       },
       {
         "rank": 6,
-        "keyword": "시도지사 지방교부세 유지"
+        "keyword": "김제 지평선축제 식중독"
       },
       {
         "rank": 7,
-        "keyword": "미국 합법이민 감소"
+        "keyword": "중국 야스쿠니 공물 규탄"
       },
       {
         "rank": 8,
-        "keyword": "구직 청년 취업비용 부담"
+        "keyword": "트럼프 네타냐후 지지"
       },
       {
         "rank": 9,
-        "keyword": "할리스 개인정보 유출"
+        "keyword": "공소청 미제사건 이관"
       },
       {
         "rank": 10,
-        "keyword": "중수청 첫 구속"
+        "keyword": "금감원장 해킹 CEO 책임"
       }
     ],
-    "google": [],
+    "google": [
+      {
+        "rank": 1,
+        "keyword": "미국 증권거래위원회"
+      },
+      {
+        "rank": 2,
+        "keyword": "택배"
+      },
+      {
+        "rank": 3,
+        "keyword": "모스 탄"
+      },
+      {
+        "rank": 4,
+        "keyword": "파리바게뜨"
+      },
+      {
+        "rank": 5,
+        "keyword": "최원호"
+      },
+      {
+        "rank": 6,
+        "keyword": "스토브리그"
+      },
+      {
+        "rank": 7,
+        "keyword": "한동훈"
+      },
+      {
+        "rank": 8,
+        "keyword": "한국전력공사"
+      },
+      {
+        "rank": 9,
+        "keyword": "붕어빵 차은 우"
+      },
+      {
+        "rank": 10,
+        "keyword": "김명신"
+      }
+    ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "이상민 추미애 빨대 배송"
+        "keyword": "두산 손아섭 방출"
       },
       {
         "rank": 2,
-        "keyword": "한미관계 재설정"
+        "keyword": "추미애 명예훼손 고발"
       },
       {
         "rank": 3,
-        "keyword": "미우새 박혜연 커플 성사"
+        "keyword": "��세훈 서울 집값 우상향"
       },
       {
         "rank": 4,
-        "keyword": "프랑스 시위"
+        "keyword": "김한민 이소영 결혼"
       },
       {
         "rank": 5,
-        "keyword": "김민석 공연 중단 사과"
+        "keyword": "김승수 박혜연 커플"
       },
       {
         "rank": 6,
-        "keyword": "민주당 재수사 촉구"
+        "keyword": "김지용 임명장"
       },
       {
         "rank": 7,
-        "keyword": "마서영 KLPGA 첫 우승"
+        "keyword": "중증외상센터 정예인 교체"
       },
       {
         "rank": 8,
-        "keyword": "마크롱 폭동 강경 대응"
+        "keyword": "프랑스 시위"
       },
       {
         "rank": 9,
-        "keyword": "태풍 경로"
+        "keyword": "금융권 해킹사태"
       },
       {
         "rank": 10,
-        "keyword": "국민연금 손실"
+        "keyword": "은행 우대금리 축소"
       }
-    ],
-    "googleError": "google trends HTTP 429"
+    ]
   },
-  "entertainment": [
-    {
-      "title": "최다니엘, 김대호 요리 지식에 감탄…“왜 이렇게 잘 알아?”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261019/134864093/1",
-      "publishedAt": "수집 10. 19. 07:47 KST",
-      "publishedOrder": 1792363642981
-    },
-    {
-      "title": "이영자, 막걸리로 배추 농사 도전…“술 먹은 애들”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261019/134864077/1",
-      "publishedAt": "수집 10. 19. 07:47 KST",
-      "publishedOrder": 1792363642981
-    },
-    {
-      "title": "에이티즈 홍중, ��틴 완장 내려놓고 색다른 매력 [화보]",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261018/134863225/1",
-      "publishedAt": "수집 10. 19. 07:47 KST",
-      "publishedOrder": 1792363642981
-    },
-    {
-      "title": "투어스, 청량 소년들의 반전…시크美 장착 [화보]",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261018/134863189/1",
-      "publishedAt": "수집 10. 19. 07:47 KST",
-      "publishedOrder": 1792363642981
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 19. 07:47 KST",
-      "publishedOrder": 1792363642207
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 19. 07:47 KST",
-      "publishedOrder": 1792363642207
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 19. 07:47 KST",
-      "publishedOrder": 1792363642207
-    },
-    {
-      "title": "장승조, 환자 간에 이니셜 새긴 '미친 의사'..소름 유발자 [닥터X]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/broadcast-drama/2026/10/18/2026101810271964478",
-      "publishedAt": "수집 10. 19. 07:47 KST",
-      "publishedOrder": 1792363642207
-    }
-  ]
+  "entertainment": []
 }
