@@ -1,70 +1,70 @@
 {
   "success": true,
-  "updatedAt": "2026-10-20T08:12:08.894Z",
-  "updatedAtKst": "2026. 10. 20. PM 5:12:08",
+  "updatedAt": "2026-10-20T14:07:00.185Z",
+  "updatedAtKst": "2026. 10. 20. PM 11:07:00",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "트럼프, 김정은 회동 가능성 불확실"
+        "keyword": "아리셀 참사 징역 4년"
       },
       {
         "rank": 2,
-        "keyword": "김지용 중수청장 취임식"
+        "keyword": "프랑스 야간 통행금지"
       },
       {
         "rank": 3,
-        "keyword": "핼러윈 안전관리 대책회의"
+        "keyword": "장모 살해와 아내 납치 김성우 구속"
       },
       {
         "rank": 4,
-        "keyword": "우크라 공관원 일부 철수"
+        "keyword": "오세훈 선고 생중계 23일 14시"
       },
       {
         "rank": 5,
-        "keyword": "힐리어드, 외인 최초 월간 MVP 2회 수상"
+        "keyword": "임시완"
       },
       {
         "rank": 6,
-        "keyword": "가덕도신공항"
+        "keyword": "재정 빨대 추미애 사과하라"
       },
       {
         "rank": 7,
-        "keyword": "합참 북한 적반하장 대응"
-      },
-      {
-        "rank": 8,
         "keyword": "코스피 급락 마감"
       },
       {
+        "rank": 8,
+        "keyword": "김도영 만루 홈런"
+      },
+      {
         "rank": 9,
-        "keyword": "삼전 닉스"
+        "keyword": "류현진"
       },
       {
         "rank": 10,
-        "keyword": "이재명 주택 ��급 전격전"
+        "keyword": "합참 북한 적반하장 대응"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "염경엽 감독 new"
+        "keyword": "징역 4년 아리셀 new"
       },
       {
         "rank": 2,
-        "keyword": "김종출 KAI 사장 new"
+        "keyword": "장모 살인 납치 new"
       },
       {
         "rank": 3,
-        "keyword": "코스피 5552.74 마감 new"
+        "keyword": "만루포 김도영 동일"
       },
       {
         "rank": 4,
-        "keyword": "손석락 공군총장 국감 new"
+        "keyword": "빨대 사과하라 추미애 new"
       },
       {
         "rank": 5,
-        "keyword": "한성숙 총리 정부업무평가위원회 하락 2"
+        "keyword": "오세훈 생중계 23일 new"
       }
     ],
     "zum": [
@@ -74,182 +74,182 @@
       },
       {
         "rank": 2,
-        "keyword": "합참 북한 적반하장 대응"
-      },
-      {
-        "rank": 3,
-        "keyword": "역삼동 연쇄 방화 검거"
-      },
-      {
-        "rank": 4,
         "keyword": "아버지 방치 사망 선고"
       },
       {
+        "rank": 3,
+        "keyword": "프랑스 야간 통행금지"
+      },
+      {
+        "rank": 4,
+        "keyword": "합참 북한 적반하장 대응"
+      },
+      {
         "rank": 5,
-        "keyword": "순천만 고병원성 AI 검출"
+        "keyword": "금융기관 해킹 중수청 통보"
       },
       {
         "rank": 6,
-        "keyword": "이재명 주택 공급 전격전"
+        "keyword": "젤렌스키 패트리엇 요구"
       },
       {
         "rank": 7,
-        "keyword": "초광역특구법 52시간 특례"
+        "keyword": "우크라이나 공관원 철수"
       },
       {
         "rank": 8,
-        "keyword": "미국 하원 선거 판세"
-      },
-      {
-        "rank": 9,
         "keyword": "국가필수의약품 8종 지정"
       },
       {
+        "rank": 9,
+        "keyword": "오세훈 항소심 생중계"
+      },
+      {
         "rank": 10,
-        "keyword": "우크라이나 공관원 철수"
+        "keyword": "초광역특구법 52시간 특례"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "서울지하철"
+        "keyword": "погода завтра"
       },
       {
         "rank": 2,
-        "keyword": "mlb"
+        "keyword": "남현종"
       },
       {
         "rank": 3,
-        "keyword": "시위"
+        "keyword": "임시완"
       },
       {
         "rank": 4,
-        "keyword": "폐교"
+        "keyword": "류현진"
       },
       {
         "rank": 5,
-        "keyword": "미어캣"
+        "keyword": "기획"
       },
       {
         "rank": 6,
-        "keyword": "캪 틴큐"
+        "keyword": "엔비디아"
       },
       {
         "rank": 7,
-        "keyword": "박해철"
+        "keyword": "후티 예멘"
       },
       {
         "rank": 8,
-        "keyword": "가덕도신공항"
+        "keyword": "cuaca besok"
       },
       {
         "rank": 9,
-        "keyword": "플라잉카"
+        "keyword": "weather tomorrow"
       },
       {
         "rank": 10,
-        "keyword": "삼전 닉스"
+        "keyword": "박정우"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "박순관 징역"
+        "keyword": "강헌 별세"
       },
       {
         "rank": 2,
-        "keyword": "염경엽 타순 변경"
+        "keyword": "KIA PO 진출"
       },
       {
         "rank": 3,
-        "keyword": "부산 북항 부캉이"
+        "keyword": "박민 적시타"
       },
       {
         "rank": 4,
-        "keyword": "추미애 경기국제공항 재추진"
+        "keyword": "이호연 2루타"
       },
       {
         "rank": 5,
-        "keyword": "나의 유죄인간"
+        "keyword": "태풍 ���로"
       },
       {
         "rank": 6,
-        "keyword": "태풍 경로"
+        "keyword": "잠실 야구장 철거"
       },
       {
         "rank": 7,
-        "keyword": "이재명 존재 의의 증명"
+        "keyword": "유재석 수빈 사과"
       },
       {
         "rank": 8,
-        "keyword": "역삼동 연쇄 방화"
+        "keyword": "역삼동 화재"
       },
       {
         "rank": 9,
-        "keyword": "프로야구 암표 단속"
+        "keyword": "나성범 선제 솔로 홈런"
       },
       {
         "rank": 10,
-        "keyword": "박세영 곽정욱 결혼"
+        "keyword": "시사타파"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "박수영♥김현진 난리 “이제 선 왕창 넘을 건데” (유일무이 로맨스)",
+      "title": "A2O LITE, 데뷔 7일 만에 첫 1위…음반 없이 해냈다",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261020/134876066/1",
-      "publishedAt": "수집 10. 20. 16:59 KST",
-      "publishedOrder": 1792483155593
+      "url": "https://sports.donga.com/ent/article/all/20261020/134878839/1",
+      "publishedAt": "수집 10. 20. 22:28 KST",
+      "publishedOrder": 1792502932624
     },
     {
-      "title": "플레이브, 미니 5집 초동 132만 장 돌파 ‘버추얼 아이돌의 새 기준 썼다’",
+      "title": "심진화, 친정 빚 갚아준 김원효에 1억 원 선물…“아빠가 보내준 선물 같아”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261020/134871531/1",
-      "publishedAt": "수집 10. 20. 16:59 KST",
-      "publishedOrder": 1792483155593
+      "url": "https://sports.donga.com/ent/article/all/20261020/134878778/1",
+      "publishedAt": "수집 10. 20. 22:28 KST",
+      "publishedOrder": 1792502932624
     },
     {
-      "title": "캣츠아이 무대에 배윤영 런웨이까지…빅토리아 시크릿 수놓은 ‘코리아 타임’",
+      "title": "온유, 이토록 자신 있는 ‘착각’…전곡 타이틀곡 승부수 (종합)[DA신곡]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261020/134871445/1",
-      "publishedAt": "수집 10. 20. 16:59 KST",
-      "publishedOrder": 1792483155593
+      "url": "https://sports.donga.com/ent/article/all/20261020/134877426/1",
+      "publishedAt": "수집 10. 20. 22:28 KST",
+      "publishedOrder": 1792502932624
     },
     {
-      "title": "‘몰입도냐, 리스크냐’…배우 교체 초강수 둔 시즌제의 딜레마",
+      "title": "윤미라, 75세까지 독신…과거 청혼남 떠올리며 “안 죽었나?”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261020/134875482/1",
-      "publishedAt": "수집 10. 20. 16:59 KST",
-      "publishedOrder": 1792483155593
+      "url": "https://sports.donga.com/ent/article/all/20261020/134877160/1",
+      "publishedAt": "수집 10. 20. 22:28 KST",
+      "publishedOrder": 1792502932624
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 20. 16:59 KST",
-      "publishedOrder": 1792483155270
+      "publishedAt": "수집 10. 20. 22:28 KST",
+      "publishedOrder": 1792502932194
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 20. 16:59 KST",
-      "publishedOrder": 1792483155270
+      "publishedAt": "수집 10. 20. 22:28 KST",
+      "publishedOrder": 1792502932194
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 20. 16:59 KST",
-      "publishedOrder": 1792483155270
+      "publishedAt": "수집 10. 20. 22:28 KST",
+      "publishedOrder": 1792502932194
     },
     {
-      "title": "차지연 논란에 이승기·현빈까지 소환..공형진, 사과에도 남은 아쉬움 [종합]",
+      "title": "이재♥샘킴, 美 아닌 韓서 결혼..신영균 옛집서 웨딩마치·폐백까지 [종합]",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/19/2026101918471842769",
-      "publishedAt": "수집 10. 20. 16:59 KST",
-      "publishedOrder": 1792483155270
+      "url": "https://www.starnewskorea.com/star/2026/10/20/2026102008145343963",
+      "publishedAt": "수집 10. 20. 22:28 KST",
+      "publishedOrder": 1792502932194
     }
   ]
 }
