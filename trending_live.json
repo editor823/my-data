@@ -1,70 +1,70 @@
 {
   "success": true,
-  "updatedAt": "2026-10-21T08:17:33.297Z",
-  "updatedAtKst": "2026. 10. 21. PM 5:17:33",
+  "updatedAt": "2026-10-21T14:21:20.068Z",
+  "updatedAtKst": "2026. 10. 21. PM 11:21:20",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "정의용 서훈 징역형 집유"
+        "keyword": "김여정 대남 확성기 가동"
       },
       {
         "rank": 2,
-        "keyword": "탈북어민 강제 북송 2심"
+        "keyword": "노태악 출장 압수수색"
       },
       {
         "rank": 3,
-        "keyword": "정규직 비정규직 임금격차"
+        "keyword": "비정규직"
       },
       {
         "rank": 4,
-        "keyword": "안용준, BTS 거론 사기 의혹"
+        "keyword": "탈북어민 강제 북송 2심"
       },
       {
         "rank": 5,
-        "keyword": "박해민"
+        "keyword": "선관위 직원 조사 후 발견"
       },
       {
         "rank": 6,
-        "keyword": "부캉이 위험 3차 유도 작업"
+        "keyword": "모델과 결혼 음문석 소감 밝혀"
       },
       {
         "rank": 7,
-        "keyword": "김정은 벙커 대비 K 현무"
+        "keyword": "잭 로그"
       },
       {
         "rank": 8,
-        "keyword": "코스피 3.3% 급등 마감"
+        "keyword": "단일종목 ETP 손실 6.3조"
       },
       {
         "rank": 9,
-        "keyword": "대치동"
+        "keyword": "이진숙 국감 참석 가능"
       },
       {
         "rank": 10,
-        "keyword": "북한 남부국경 요새화 시찰"
+        "keyword": "오산시 전동보장구 급속충전기"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "정의용 서훈 징역형 동일"
+        "keyword": "이진숙 국감 인용에 new"
       },
       {
         "rank": 2,
-        "keyword": "부캉이 상승 2"
+        "keyword": "배후 구형 전광훈 new"
       },
       {
         "rank": 3,
-        "keyword": "김정은 사망 상승 1"
+        "keyword": "경찰 연쇄방화 70대 new"
       },
       {
         "rank": 4,
-        "keyword": "BMW 레이디스 챔피언십 상승 2"
+        "keyword": "박세영 하락 3"
       },
       {
         "rank": 5,
-        "keyword": "코스피 5735.66 마감 new"
+        "keyword": "삼성 개막 6연승 하락 2"
       }
     ],
     "zum": [
@@ -82,117 +82,174 @@
       },
       {
         "rank": 4,
-        "keyword": "중대재해 3건 이상 기업"
-      },
-      {
-        "rank": 5,
         "keyword": "오산시 전동보장구 급속충전기"
       },
       {
+        "rank": 5,
+        "keyword": "국가교육발전계획 시안 연기"
+      },
+      {
         "rank": 6,
-        "keyword": "머스크 스타링크 속도제한"
-      },
-      {
-        "rank": 7,
-        "keyword": "소방재정 보완 검토"
-      },
-      {
-        "rank": 8,
-        "keyword": "청와대 국감 증인 채택"
-      },
-      {
-        "rank": 9,
         "keyword": "트럼프 인도 무역협상"
       },
       {
+        "rank": 7,
+        "keyword": "김여정 대남확성기 가동"
+      },
+      {
+        "rank": 8,
+        "keyword": "이진숙 국감 제척 가처분"
+      },
+      {
+        "rank": 9,
+        "keyword": "코스피 급등 매수 사이드카"
+      },
+      {
         "rank": 10,
-        "keyword": "선관위 특검 직원 사망"
+        "keyword": "유홍준 국립중앙박물관장 사의"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "신인감독 김연경 2"
+        "keyword": "잭 로그"
       },
       {
         "rank": 2,
-        "keyword": "고소영"
+        "keyword": "비정규직"
       },
       {
         "rank": 3,
-        "keyword": "창동"
+        "keyword": "persija jakarta vs arema fc"
       },
       {
         "rank": 4,
-        "keyword": "폭스바겐"
+        "keyword": "아침마당"
       },
       {
         "rank": 5,
-        "keyword": "ai 안경"
+        "keyword": "송성문"
       },
       {
         "rank": 6,
-        "keyword": "박해민"
+        "keyword": "우덕배"
       },
       {
         "rank": 7,
-        "keyword": "대치동"
+        "keyword": "이현중"
       },
       {
         "rank": 8,
-        "keyword": "파라타항공"
+        "keyword": "오디션"
       },
       {
         "rank": 9,
-        "keyword": "중수청"
+        "keyword": "황보라"
       },
       {
         "rank": 10,
-        "keyword": "문화일보"
+        "keyword": "thời tiết ngày mai"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "강신일 바디프로필 촬영"
+        "keyword": "임진모 유퀴즈 출연"
       },
       {
         "rank": 2,
-        "keyword": "나의 유죄인간"
-      },
-      {
-        "rank": 3,
-        "keyword": "국제 종자박람회"
-      },
-      {
-        "rank": 4,
-        "keyword": "태풍 경로"
-      },
-      {
-        "rank": 5,
-        "keyword": "김여정 휴전선 시찰"
-      },
-      {
-        "rank": 6,
-        "keyword": "한동훈 차기 대선 적합도"
-      },
-      {
-        "rank": 7,
-        "keyword": "음문석 결혼"
-      },
-      {
-        "rank": 8,
-        "keyword": "차량용 반도체 TF 출범"
-      },
-      {
-        "rank": 9,
         "keyword": "부캉이"
       },
       {
+        "rank": 3,
+        "keyword": "이찬원 황��성 응원"
+      },
+      {
+        "rank": 4,
+        "keyword": "태풍 경로 현재 위치"
+      },
+      {
+        "rank": 5,
+        "keyword": "안용준 사기 피소"
+      },
+      {
+        "rank": 6,
+        "keyword": "이웃집 백만장자"
+      },
+      {
+        "rank": 7,
+        "keyword": "이상민 개그맨"
+      },
+      {
+        "rank": 8,
+        "keyword": "박해룡 미술관"
+      },
+      {
+        "rank": 9,
+        "keyword": "김여정 국경 요새화"
+      },
+      {
         "rank": 10,
-        "keyword": "강헌 별세"
+        "keyword": "오세훈 재판"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "이혜성, 하영 친일 논란 언급했다가 발칵…“옹호한 적 없다” [SD이슈]",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261021/134886375/1",
+      "publishedAt": "수집 10. 21. 23:21 KST",
+      "publishedOrder": 1792592474371
+    },
+    {
+      "title": "최민수 “인생샷은 경찰서·법원 앞에서 많이 찍었다”…강주은 폭소",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261021/134886356/1",
+      "publishedAt": "수집 10. 21. 23:21 KST",
+      "publishedOrder": 1792592474371
+    },
+    {
+      "title": "서인영 “돈 펑펑 쓴 과거 후회”…46억 집 앞에서 눈물",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261021/134886249/1",
+      "publishedAt": "수집 10. 21. 23:21 KST",
+      "publishedOrder": 1792592474371
+    },
+    {
+      "title": "황정음, 활동 중단 후 생활고 고백…“아이들 돌반지 팔고, 보험까지 해지”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261021/134884972/1",
+      "publishedAt": "수집 10. 21. 23:21 KST",
+      "publishedOrder": 1792592474371
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 10. 21. 23:21 KST",
+      "publishedOrder": 1792592474283
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 10. 21. 23:21 KST",
+      "publishedOrder": 1792592474283
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 10. 21. 23:21 KST",
+      "publishedOrder": 1792592474283
+    },
+    {
+      "title": "송중기, 中서 '송혜교' 이름 듣고 굳은 표정..\"팬이 잘못했네\" \"안 좋은 과거 왜 들추냐\" [스타이슈]",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/10/21/2026102108140576085",
+      "publishedAt": "수집 10. 21. 23:21 KST",
+      "publishedOrder": 1792592474283
+    }
+  ]
 }
