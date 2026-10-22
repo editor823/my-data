@@ -1,96 +1,32 @@
 {
   "success": true,
-  "updatedAt": "2026-10-22T19:03:29.805Z",
-  "updatedAtKst": "2026. 10. 23. AM 4:03:29",
+  "updatedAt": "2026-10-22T23:53:08.239Z",
+  "updatedAtKst": "2026. 10. 23. AM 8:53:08",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "김정은 20년 만 이혼 후 컴백"
+        "keyword": "SK하이닉스, 솔리다임 IPO 중단"
       },
       {
         "rank": 2,
-        "keyword": "부산교통공사 노사 단체교섭"
+        "keyword": "AI 우려 나스닥 2.6% 급락"
       },
       {
         "rank": 3,
-        "keyword": "역삼 방화범 70대 도주 우려"
+        "keyword": "태풍 영향 제주 남부 비바람"
       },
       {
         "rank": 4,
-        "keyword": "신세계 특별 세무조사"
+        "keyword": "김정은 4월 이혼 6개월 늦게 알림"
       },
       {
         "rank": 5,
-        "keyword": "피터 틸 이란전쟁 비판"
+        "keyword": "미국 에볼라 증명서"
       },
       {
         "rank": 6,
-        "keyword": "베즐리의 역전 덩크슛"
-      },
-      {
-        "rank": 7,
-        "keyword": "한미연합 제병협동 도하훈련"
-      },
-      {
-        "rank": 8,
-        "keyword": "CPTPP 가입 추진"
-      },
-      {
-        "rank": 9,
-        "keyword": "조기성 장애인AG 금메달"
-      },
-      {
-        "rank": 10,
-        "keyword": "솔��다임"
-      }
-    ],
-    "nate": [
-      {
-        "rank": 1,
-        "keyword": "부산교통공사 노사 단체교섭 동일"
-      },
-      {
-        "rank": 2,
-        "keyword": "이규한 20년 전부터 상승 1"
-      },
-      {
-        "rank": 3,
-        "keyword": "70대 도주 우려 상승 1"
-      },
-      {
-        "rank": 4,
-        "keyword": "다리우스 베즐리 하락 1"
-      },
-      {
-        "rank": 5,
-        "keyword": "김정은 하락 3"
-      }
-    ],
-    "zum": [
-      {
-        "rank": 1,
-        "keyword": "신세계 특별 세무조사"
-      },
-      {
-        "rank": 2,
-        "keyword": "CPTPP 가입 추진"
-      },
-      {
-        "rank": 3,
-        "keyword": "김건희 추가 구속영장 심문"
-      },
-      {
-        "rank": 4,
-        "keyword": "피터 틸 이란전쟁 비판"
-      },
-      {
-        "rank": 5,
-        "keyword": "선관위 투표자수 허위 입력"
-      },
-      {
-        "rank": 6,
-        "keyword": "7대 SEED 프로젝트 이행전략"
+        "keyword": "상속"
       },
       {
         "rank": 7,
@@ -98,101 +34,250 @@
       },
       {
         "rank": 8,
+        "keyword": "북한 IT 위장취업"
+      },
+      {
+        "rank": 9,
+        "keyword": "8월 은행 연체율 상승"
+      },
+      {
+        "rank": 10,
+        "keyword": "테오스카 에르난데스"
+      }
+    ],
+    "nate": [
+      {
+        "rank": 1,
+        "keyword": "SK하이닉스 솔리다임 중단 동일"
+      },
+      {
+        "rank": 2,
+        "keyword": "태풍 동일"
+      },
+      {
+        "rank": 3,
+        "keyword": "김정은 동일"
+      },
+      {
+        "rank": 4,
+        "keyword": "오현규 베식타시 팰리스와 new"
+      },
+      {
+        "rank": 5,
+        "keyword": "유튜버 길바닥 생존신고 new"
+      }
+    ],
+    "zum": [
+      {
+        "rank": 1,
+        "keyword": "티베트 규모 7.0 지진"
+      },
+      {
+        "rank": 2,
+        "keyword": "북한 DMZ 지뢰 매설"
+      },
+      {
+        "rank": 3,
+        "keyword": "트럼프 머스크 스타실드"
+      },
+      {
+        "rank": 4,
+        "keyword": "미국 에볼라 증명서"
+      },
+      {
+        "rank": 5,
+        "keyword": "정부 북한 유엔 서한"
+      },
+      {
+        "rank": 6,
+        "keyword": "북한 IT 위장취업"
+      },
+      {
+        "rank": 7,
+        "keyword": "푸틴 최종 평화협정"
+      },
+      {
+        "rank": 8,
         "keyword": "후티 사우디 공격"
       },
       {
         "rank": 9,
-        "keyword": "토스뱅크 입금 오류 사고"
+        "keyword": "김건희 추가 구속영장 심문"
       },
       {
         "rank": 10,
-        "keyword": "북한 IT 위장취업"
+        "keyword": "은행 대출 연체율 0.69%"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "england cricket team vs sri lanka national cricket team standings"
+        "keyword": "필라데피아 대 클리블랜드"
       },
       {
         "rank": 2,
-        "keyword": "솔리다임"
+        "keyword": "록히드 마틴"
       },
       {
         "rank": 3,
-        "keyword": "레흐 포즈난 대 선덜랜드"
+        "keyword": "파리"
       },
       {
         "rank": 4,
-        "keyword": "크래프톤"
+        "keyword": "상속"
       },
       {
         "rank": 5,
-        "keyword": "야블로네츠 대 브라이턴"
+        "keyword": "테오스카 에르난데스"
       },
       {
         "rank": 6,
-        "keyword": "리설주"
+        "keyword": "금양"
       },
       {
         "rank": 7,
-        "keyword": "자격증"
+        "keyword": "아성다이소"
       },
       {
         "rank": 8,
-        "keyword": "박찬호"
+        "keyword": "연금"
       },
       {
         "rank": 9,
-        "keyword": "이혼"
+        "keyword": "에어쇼"
       },
       {
         "rank": 10,
-        "keyword": "천천히 강렬하게"
+        "keyword": "주우재"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "서현진 부친상"
+        "keyword": "김태원 재산 161억"
       },
       {
         "rank": 2,
-        "keyword": "���강"
+        "keyword": "오윤아 재혼 웨딩드레스"
       },
       {
         "rank": 3,
-        "keyword": "김태원 재산신고"
+        "keyword": "오경미 대법관"
       },
       {
         "rank": 4,
-        "keyword": "이세웅 재산 증가"
+        "keyword": "이세웅 재산 공개"
       },
       {
         "rank": 5,
-        "keyword": "뜨거운 안녕"
+        "keyword": "디티에스"
       },
       {
         "rank": 6,
-        "keyword": "ufc"
+        "keyword": "상강"
       },
       {
         "rank": 7,
-        "keyword": "심유진 배드민턴"
+        "keyword": "저스틴 비버 한국 방문"
       },
       {
         "rank": 8,
-        "keyword": "태풍 참피"
+        "keyword": "부산 지하철"
       },
       {
         "rank": 9,
-        "keyword": "pba"
+        "keyword": "서현진 부친상"
       },
       {
         "rank": 10,
-        "keyword": "박찬호 U-23 격려"
+        "keyword": "이광재 대학 부지 주택 공급"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "김선영·노윤서 눈물… ‘언니네 산지직송3’ 종영",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261023/134894538/1",
+      "publishedAt": "수집 10. 23. 08:53 KST",
+      "publishedOrder": 1792713188198
+    },
+    {
+      "title": "안성훈 父, 송가인에 “며느리보다 은인”…무명 시절부터 15년 우정 (편스토랑)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261023/134894506/1",
+      "publishedAt": "수집 10. 23. 08:53 KST",
+      "publishedOrder": 1792713188198
+    },
+    {
+      "title": "말투 독특 임시완 “사람 죽여봤어요?”…‘나의 유죄인간’ 미스터리",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261023/134894497/1",
+      "publishedAt": "수집 10. 23. 08:53 KST",
+      "publishedOrder": 1792713188198
+    },
+    {
+      "title": "유영우, ‘역대급 짠돌이’ 매니저 등장…냉장고·세탁기도 없다 (전참시)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261023/134894485/1",
+      "publishedAt": "수집 10. 23. 08:53 KST",
+      "publishedOrder": 1792713188198
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 10. 23. 08:53 KST",
+      "publishedOrder": 1792713187961
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 10. 23. 08:53 KST",
+      "publishedOrder": 1792713187961
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 10. 23. 08:53 KST",
+      "publishedOrder": 1792713187961
+    },
+    {
+      "title": "코르티스 성현 스타뉴스 스타랭킹 특전 옥외 전광판 현장 [영상]",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/10/22/2026102213244433104",
+      "publishedAt": "수집 10. 23. 08:53 KST",
+      "publishedOrder": 1792713187961
+    },
+    {
+      "title": "키즈모델·아이돌 꿈꾸는 아이들 노린다…학원형 연예기획사 피해 급증",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1IUWZBWDZ5d2RDcnYxUXphMm8zSnlZSUs3ekRMZElVSDJFalllN0ZYYkN0OEVySzJVa052YnUtNktRRE9sYUpDT1dWM1owWDZja2dBSk16Q1lSQUs1Y3pCSzdxNkZPSEFkWFVKcg?oc=5",
+      "publishedAt": "10. 23. 04:22 KST",
+      "publishedOrder": 1792696950000
+    },
+    {
+      "title": "“데뷔시켜 준다더니“…연예기획사 상술 계약 ’주의보’",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1yYVNrSVNTNExjZ1lhZjRWR3FyRkpXNURUUEpfY1ZfbzBSZ1RaRkc5M3VGRF9lSS01UmlEaDNCbkx5QmFRdFN2MnZEbmo0dmxiYlBRQ3pnQW85WTFwa0ZHcl9MdEdaRGM?oc=5",
+      "publishedAt": "10. 22. 18:27 KST",
+      "publishedOrder": 1792661220000
+    },
+    {
+      "title": "소비자원 \"학원형 연예기획사 피해 급증‥절반은 아동·청소년\"",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1vNk01Nk5JRGRrVXZlYU9kRW5YMm5maHBJYlJPaXdsZEVuZlV0dkdOU0NUWjZQYWdpUXpzS2F4X0xndUVVQmpKdVhmZ0E3YU5sM01iZ3dZMFRsNzctZG9HbllEZDJ6NG8yT1Z1b25qd2F4RTlR0gF0QVVfeXFMTW82TTU2TklEZGtVdmVhT2RFblgybmZocEliUk9pd2xkRW5mVXR2R05TQ1RaNlBhZ2lRenNLYXhfTGd1RVVCakp1WGZnQTdhTmwzTWJnd1kwVGw3Ny1kb0duWURkMno0bzJPVnVvbmp3YXhFOVE?oc=5",
+      "publishedAt": "10. 22. 16:28 KST",
+      "publishedOrder": 1792654080000
+    },
+    {
+      "title": "“오디션 합격 보장” 내걸고 오리발…학원형 연예기획사 피해 급증",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB2NHlQX002OXVpejV5Qy1lbEhHTC1JVUV6WmFMQXl3TTdSUFpSTVRLalY3WHZjVlZmUVZBMjJUYVFRZTg1NV9yWHM4VHlMOWVDblROVjJBcW5BcVZNYkhQaEpJVk1NNGRnRV9XZ3U3RmtiV0FJd3c?oc=5",
+      "publishedAt": "10. 22. 14:47 KST",
+      "publishedOrder": 1792648020000
+    }
+  ]
 }
