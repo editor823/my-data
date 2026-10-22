@@ -1,255 +1,198 @@
 {
   "success": true,
-  "updatedAt": "2026-10-21T23:54:37.051Z",
-  "updatedAtKst": "2026. 10. 22. AM 8:54:37",
+  "updatedAt": "2026-10-22T08:19:23.724Z",
+  "updatedAtKst": "2026. 10. 22. PM 5:19:23",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "새 대응수단 확성기도"
+        "keyword": "AI 보안 취약점 유럽 웹사이트 폐쇄"
       },
       {
         "rank": 2,
-        "keyword": "태풍 경로"
+        "keyword": "안효섭, K-셰프 도전!"
       },
       {
         "rank": 3,
-        "keyword": "유홍준 국립중앙박물관장 사의"
+        "keyword": "법사위, 최길수 청문보고서 채택"
       },
       {
         "rank": 4,
-        "keyword": "김정은과 시진핑, 세대 이어 도움"
+        "keyword": "코스피 3.5% 급락"
       },
       {
         "rank": 5,
-        "keyword": "미8군 한반도 밖 투입"
+        "keyword": "이재명 대통령 수석보좌관회의"
       },
       {
         "rank": 6,
-        "keyword": "김민재 뮌헨 아스널 2-2 무승부"
+        "keyword": "성과급"
       },
       {
         "rank": 7,
-        "keyword": "김여정 대남확성기 가동"
+        "keyword": "서울 아파트값 89주 상승"
       },
       {
         "rank": 8,
-        "keyword": "한은 기준금리 매파적 동결"
+        "keyword": "이계인"
       },
       {
         "rank": 9,
-        "keyword": "부캉이 다시 그물 앞 맴돌아"
+        "keyword": "산은 부산 이전"
       },
       {
         "rank": 10,
-        "keyword": "스페이스X 상승"
+        "keyword": "김민석 대표 면담"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "태풍 경로 상승 1"
+        "keyword": "여서정 전국체전 MVP new"
       },
       {
         "rank": 2,
-        "keyword": "김여정 새 대응수단 new"
+        "keyword": "서울 아파트값 상승 하락 3"
       },
       {
         "rank": 3,
-        "keyword": "부캉이 상승 2"
+        "keyword": "100인 헌다례 진다례 하락 1"
       },
       {
         "rank": 4,
-        "keyword": "김민재 뮌헨 아스널과 동일"
+        "keyword": "현장 한성숙 총리 new"
       },
       {
         "rank": 5,
-        "keyword": "김정은 하락 2"
+        "keyword": "나나 징역 7년 상승 2"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "김여정 대남확성기 가동"
-      },
-      {
-        "rank": 2,
-        "keyword": "트럼프 우크라 종전 발언"
-      },
-      {
-        "rank": 3,
-        "keyword": "미8군 한반도 밖 투입"
-      },
-      {
-        "rank": 4,
-        "keyword": "선관위 특검 직원 사망"
-      },
-      {
-        "rank": 5,
-        "keyword": "교황 폐암 수술 회복"
-      },
-      {
-        "rank": 6,
         "keyword": "AI 보안 취약점 유럽 웹사이트 폐쇄"
       },
       {
+        "rank": 2,
+        "keyword": "산은 부산 이전"
+      },
+      {
+        "rank": 3,
+        "keyword": "EU 산업가속화법 대응"
+      },
+      {
+        "rank": 4,
+        "keyword": "시진핑 김정은 답전"
+      },
+      {
+        "rank": 5,
+        "keyword": "7대 SEED 프로젝트 이행전략"
+      },
+      {
+        "rank": 6,
+        "keyword": "이재명 대통령 상생협력"
+      },
+      {
         "rank": 7,
-        "keyword": "삼성E&A 3분기 실적"
+        "keyword": "CPTPP 가입 추진"
       },
       {
         "rank": 8,
-        "keyword": "경기도 공사장 환경단속"
+        "keyword": "비만주사제 불법 판매 조사"
       },
       {
         "rank": 9,
-        "keyword": "뮌헨 아스널 UCL 무승부"
+        "keyword": "가거도 방파제 비리"
       },
       {
         "rank": 10,
-        "keyword": "메타 개인정보 벌금 33조"
+        "keyword": "트럼프 지지율 역대 최저"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "한혜진"
+        "keyword": "new zealand vs india"
       },
       {
         "rank": 2,
-        "keyword": "klasemen real madrid vs rb leipzig"
+        "keyword": "비료"
       },
       {
         "rank": 3,
-        "keyword": "nvda"
+        "keyword": "학생"
       },
       {
         "rank": 4,
-        "keyword": "thứ hạng của real madrid gặp rb leipzig"
+        "keyword": "성과급"
       },
       {
         "rank": 5,
-        "keyword": "thứ hạng của bayern gặp arsenal"
+        "keyword": "이계인"
       },
       {
         "rank": 6,
-        "keyword": "xrpn"
+        "keyword": "휴직"
       },
       {
         "rank": 7,
-        "keyword": "spch"
+        "keyword": "경마"
       },
       {
         "rank": 8,
-        "keyword": "미스터트롯"
+        "keyword": "송치"
       },
       {
         "rank": 9,
-        "keyword": "제너럴 모터스"
+        "keyword": "전주월드컵경기장"
       },
       {
         "rank": 10,
-        "keyword": "박위"
+        "keyword": "결혼식"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "김형진 결혼식 신부 공개"
+        "keyword": "심영순 췌장암 완치"
       },
       {
         "rank": 2,
-        "keyword": "뮌헨 ���스널 무승부"
+        "keyword": "황정음 김용준 전남친"
       },
       {
         "rank": 3,
-        "keyword": "상강"
+        "keyword": "김형진 결혼 신부 공개"
       },
       {
         "rank": 4,
-        "keyword": "박세영 곽정욱 결혼 반대"
+        "keyword": "PHP 취약점 발견"
       },
       {
         "rank": 5,
-        "keyword": "부캉이"
+        "keyword": "상강"
       },
       {
         "rank": 6,
-        "keyword": "아침마당 신동을 찾아라"
+        "keyword": "인제양양터널 화재"
       },
       {
         "rank": 7,
-        "keyword": "태풍 경로"
+        "keyword": "이문세 백내장 수술"
       },
       {
         "rank": 8,
-        "keyword": "시진핑 김정은 답전"
+        "keyword": "여야 대표 지지율"
       },
       {
         "rank": 9,
-        "keyword": "오세훈 재판"
+        "keyword": "오세훈 2심 재판"
       },
       {
         "rank": 10,
-        "keyword": "이다현 배구선수"
+        "keyword": "범죄도시 5"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "이찬원, 황윤성에 “사랑하는 윤성이”…영상 편지로 응원 (전설의 사내)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261022/134887146/1",
-      "publishedAt": "수집 10. 22. 08:54 KST",
-      "publishedOrder": 1792626871014
-    },
-    {
-      "title": "곽범, 유재석에게 먼저 연락받았다…허경환도 깜짝 (뭔데뭔데)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261022/134887137/1",
-      "publishedAt": "수집 10. 22. 08:54 KST",
-      "publishedOrder": 1792626871014
-    },
-    {
-      "title": "에이티즈 최산 “정산금으로 부모님 빚 다 갚아”…남해 출신 효자",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261022/134887125/1",
-      "publishedAt": "수집 10. 22. 08:54 KST",
-      "publishedOrder": 1792626871014
-    },
-    {
-      "title": "김준호, 백두산 천지 보자마자 임신한 ♥김지민에 영상통화…“여기가 천지야”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261022/134887111/1",
-      "publishedAt": "수집 10. 22. 08:54 KST",
-      "publishedOrder": 1792626871014
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 22. 08:54 KST",
-      "publishedOrder": 1792626870310
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 22. 08:54 KST",
-      "publishedOrder": 1792626870310
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 22. 08:54 KST",
-      "publishedOrder": 1792626870310
-    },
-    {
-      "title": "'CCTV 논란' 박위, 감자튀김 짜증 영상까지 파묘..\"아 씨!\"[스타이슈]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/21/2026102115075676672",
-      "publishedAt": "수집 10. 22. 08:54 KST",
-      "publishedOrder": 1792626870310
-    }
-  ]
+  "entertainment": []
 }
