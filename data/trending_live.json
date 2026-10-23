@@ -1,76 +1,12 @@
 {
   "success": true,
-  "updatedAt": "2026-10-22T23:53:08.239Z",
-  "updatedAtKst": "2026. 10. 23. AM 8:53:08",
+  "updatedAt": "2026-10-23T08:15:39.644Z",
+  "updatedAtKst": "2026. 10. 23. PM 5:15:39",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "SK하이닉스, 솔리다임 IPO 중단"
-      },
-      {
-        "rank": 2,
-        "keyword": "AI 우려 나스닥 2.6% 급락"
-      },
-      {
-        "rank": 3,
-        "keyword": "태풍 영향 제주 남부 비바람"
-      },
-      {
-        "rank": 4,
-        "keyword": "김정은 4월 이혼 6개월 늦게 알림"
-      },
-      {
-        "rank": 5,
-        "keyword": "미국 에볼라 증명서"
-      },
-      {
-        "rank": 6,
-        "keyword": "상속"
-      },
-      {
-        "rank": 7,
-        "keyword": "티베트 규모 7.0 지진"
-      },
-      {
-        "rank": 8,
-        "keyword": "북한 IT 위장취업"
-      },
-      {
-        "rank": 9,
-        "keyword": "8월 은행 연체율 상승"
-      },
-      {
-        "rank": 10,
-        "keyword": "테오스카 에르난데스"
-      }
-    ],
-    "nate": [
-      {
-        "rank": 1,
-        "keyword": "SK하이닉스 솔리다임 중단 동일"
-      },
-      {
-        "rank": 2,
-        "keyword": "태풍 동일"
-      },
-      {
-        "rank": 3,
-        "keyword": "김정은 동일"
-      },
-      {
-        "rank": 4,
-        "keyword": "오현규 베식타시 팰리스와 new"
-      },
-      {
-        "rank": 5,
-        "keyword": "유튜버 길바닥 생존신고 new"
-      }
-    ],
-    "zum": [
-      {
-        "rank": 1,
-        "keyword": "티베트 규모 7.0 지진"
+        "keyword": "오세훈 2심 무죄 판결 논란"
       },
       {
         "rank": 2,
@@ -78,206 +14,270 @@
       },
       {
         "rank": 3,
-        "keyword": "트럼프 머스크 스타실드"
+        "keyword": "하나금융 3분기 순익 최대"
       },
       {
         "rank": 4,
-        "keyword": "미국 에볼라 증명서"
+        "keyword": "장동혁 대표 참석"
       },
       {
         "rank": 5,
-        "keyword": "정부 북한 유엔 서한"
+        "keyword": "코스피 급락 개장"
       },
       {
         "rank": 6,
-        "keyword": "북한 IT 위장취업"
+        "keyword": "인플 루 언서"
       },
       {
         "rank": 7,
-        "keyword": "푸틴 최종 평화협정"
+        "keyword": "이재명 대통령 상생협력"
       },
       {
         "rank": 8,
-        "keyword": "후티 사우디 공격"
+        "keyword": "이태한 특검, 중수청 인력 요청"
       },
       {
         "rank": 9,
-        "keyword": "김건희 추가 구속영장 심문"
+        "keyword": "node.js 취약점"
       },
       {
         "rank": 10,
-        "keyword": "은행 대출 연체율 0.69%"
+        "keyword": "송혜교, 스탠드 전속계약"
+      }
+    ],
+    "nate": [
+      {
+        "rank": 1,
+        "keyword": "오세훈 2심 무죄 동일"
+      },
+      {
+        "rank": 2,
+        "keyword": "하나금융 3분기 누적 동일"
+      },
+      {
+        "rank": 3,
+        "keyword": "홍범식 LG유플러스 대표이사 상승 2"
+      },
+      {
+        "rank": 4,
+        "keyword": "이태한 특검 동일"
+      },
+      {
+        "rank": 5,
+        "keyword": "코스피 마감 상승 1"
+      }
+    ],
+    "zum": [
+      {
+        "rank": 1,
+        "keyword": "인권위 세종 이전 반대"
+      },
+      {
+        "rank": 2,
+        "keyword": "입양기록 신청 절반 미접수"
+      },
+      {
+        "rank": 3,
+        "keyword": "태풍 참피 대비"
+      },
+      {
+        "rank": 4,
+        "keyword": "LGU+ 해킹 은폐 국감"
+      },
+      {
+        "rank": 5,
+        "keyword": "트럼프 김정은 회담 가능성"
+      },
+      {
+        "rank": 6,
+        "keyword": "유럽 폭염 사망자 5만명"
+      },
+      {
+        "rank": 7,
+        "keyword": "네타냐후 이란 정권 전복"
+      },
+      {
+        "rank": 8,
+        "keyword": "푸틴 최종 평화협정"
+      },
+      {
+        "rank": 9,
+        "keyword": "경운기 안전사업 예산 전무"
+      },
+      {
+        "rank": 10,
+        "keyword": "최길수 특별감찰관 임명"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "필라데피아 대 클리블랜드"
+        "keyword": "에너지 위기"
       },
       {
         "rank": 2,
-        "keyword": "록히드 마틴"
+        "keyword": "인플 루 언서"
       },
       {
         "rank": 3,
-        "keyword": "파리"
+        "keyword": "node.js 취약점"
       },
       {
         "rank": 4,
-        "keyword": "상속"
+        "keyword": "사업"
       },
       {
         "rank": 5,
-        "keyword": "테오스카 에르난데스"
+        "keyword": "송금"
       },
       {
         "rank": 6,
-        "keyword": "금양"
+        "keyword": "cve-2026-111497"
       },
       {
         "rank": 7,
-        "keyword": "아성다이소"
+        "keyword": "풍자"
       },
       {
         "rank": 8,
-        "keyword": "연금"
+        "keyword": "상장지수 펀드"
       },
       {
         "rank": 9,
-        "keyword": "에어쇼"
+        "keyword": "조재호"
       },
       {
         "rank": 10,
-        "keyword": "주우재"
+        "keyword": "김미화"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "김태원 재산 161억"
+        "keyword": "오세훈 정치자금법 무죄"
       },
       {
         "rank": 2,
-        "keyword": "오윤아 재혼 웨딩드레스"
+        "keyword": "KIA 고종욱 방출"
       },
       {
         "rank": 3,
-        "keyword": "오경미 대법관"
+        "keyword": "김현중 혼외자 근황"
       },
       {
         "rank": 4,
-        "keyword": "이세웅 재산 공개"
+        "keyword": "코스피 5500선 회복"
       },
       {
         "rank": 5,
-        "keyword": "디티에스"
+        "keyword": "초광역특구법"
       },
       {
         "rank": 6,
-        "keyword": "상강"
+        "keyword": "금융권 해킹 사건"
       },
       {
         "rank": 7,
-        "keyword": "저스틴 비버 한국 방문"
+        "keyword": "태풍 참피"
       },
       {
         "rank": 8,
-        "keyword": "부산 지하철"
+        "keyword": "한화 진종길 코치 영입"
       },
       {
         "rank": 9,
-        "keyword": "서현진 부친상"
+        "keyword": "무라카미 류 별세"
       },
       {
         "rank": 10,
-        "keyword": "이광재 대학 부지 주택 공급"
+        "keyword": "구회근 판사"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "김선영·노윤서 눈물… ‘언니네 산지직송3’ 종영",
+      "title": "‘37kg 감량’ 풍자 근황, 얼굴이 반쪽…확 달라진 비주얼 [DA★]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261023/134894538/1",
-      "publishedAt": "수집 10. 23. 08:53 KST",
-      "publishedOrder": 1792713188198
+      "url": "https://sports.donga.com/ent/article/all/20261023/134898065/1",
+      "publishedAt": "수집 10. 23. 17:15 KST",
+      "publishedOrder": 1792743339592
     },
     {
-      "title": "안성훈 父, 송가인에 “며느리보다 은인”…무명 시절부터 15년 우정 (편스토랑)",
+      "title": "저스틴 비버, 13년 만에 내한…♥헤일리와 성수동 팝업 방문 [DA이슈]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261023/134894506/1",
-      "publishedAt": "수집 10. 23. 08:53 KST",
-      "publishedOrder": 1792713188198
+      "url": "https://sports.donga.com/ent/article/all/20261023/134897790/1",
+      "publishedAt": "수집 10. 23. 17:15 KST",
+      "publishedOrder": 1792743339592
     },
     {
-      "title": "말투 독특 임시완 “사람 죽여봤어요?”…‘나의 유죄인간’ 미스터리",
+      "title": "DJ 이삭, K팝과 함께한 20년…아리랑라디오 특별 생방송",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261023/134894497/1",
-      "publishedAt": "수집 10. 23. 08:53 KST",
-      "publishedOrder": 1792713188198
+      "url": "https://sports.donga.com/ent/article/all/20261023/134897638/1",
+      "publishedAt": "수집 10. 23. 17:15 KST",
+      "publishedOrder": 1792743339592
     },
     {
-      "title": "유영우, ‘역대급 짠돌이’ 매니저 등장…냉장고·세탁기도 없다 (전참시)",
+      "title": "정유미, 고요하게 빛나는 우아함…독보적 분위기 [화보]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261023/134894485/1",
-      "publishedAt": "수집 10. 23. 08:53 KST",
-      "publishedOrder": 1792713188198
+      "url": "https://sports.donga.com/ent/article/all/20261023/134897588/1",
+      "publishedAt": "수집 10. 23. 17:15 KST",
+      "publishedOrder": 1792743339592
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 23. 08:53 KST",
-      "publishedOrder": 1792713187961
+      "publishedAt": "수집 10. 23. 17:15 KST",
+      "publishedOrder": 1792743339512
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 23. 08:53 KST",
-      "publishedOrder": 1792713187961
+      "publishedAt": "수집 10. 23. 17:15 KST",
+      "publishedOrder": 1792743339512
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 23. 08:53 KST",
-      "publishedOrder": 1792713187961
+      "publishedAt": "수집 10. 23. 17:15 KST",
+      "publishedOrder": 1792743339512
     },
     {
-      "title": "코르티스 성현 스타뉴스 스타랭킹 특전 옥외 전광판 현장 [영상]",
+      "title": "뭘 해도 트집..손예진, 쩝쩝 먹방→아줌마 옷 이어 집밥까지 '도 넘은 악플' [스타이슈]",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/22/2026102213244433104",
-      "publishedAt": "수집 10. 23. 08:53 KST",
-      "publishedOrder": 1792713187961
+      "url": "https://www.starnewskorea.com/star/2026/10/22/2026102223195089771",
+      "publishedAt": "수집 10. 23. 17:15 KST",
+      "publishedOrder": 1792743339512
     },
     {
-      "title": "키즈모델·아이돌 꿈꾸는 아이들 노린다…학원형 연예기획사 피해 급증",
+      "title": "배우 이정재의 최대주주인 연예기획사 아티스트컴퍼니, 업무상 배임 혐의로 전 임원 5명을 경찰에 고소",
       "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1IUWZBWDZ5d2RDcnYxUXphMm8zSnlZSUs3ekRMZElVSDJFalllN0ZYYkN0OEVySzJVa052YnUtNktRRE9sYUpDT1dWM1owWDZja2dBSk16Q1lSQUs1Y3pCSzdxNkZPSEFkWFVKcg?oc=5",
-      "publishedAt": "10. 23. 04:22 KST",
-      "publishedOrder": 1792696950000
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1UTkJ1TDJtVm9DZXlVb1dsMllTZnZhdEpXRS1BSUNVV2xzWW1xWmpxM2pWajIzTW1uajZEdXYzcmpaNHVxMzhwa0NQNnA1LU1EWWJkMlNuVE1TVG8wc21nV3ExSGZ1N01x?oc=5",
+      "publishedAt": "10. 23. 16:47 KST",
+      "publishedOrder": 1792741648000
     },
     {
-      "title": "“데뷔시켜 준다더니“…연예기획사 상술 계약 ’주의보’",
+      "title": "키즈모델·아이돌 지망 아동·청소년 노린 ‘학원형 연예기획사’ 피해 주의보",
       "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1yYVNrSVNTNExjZ1lhZjRWR3FyRkpXNURUUEpfY1ZfbzBSZ1RaRkc5M3VGRF9lSS01UmlEaDNCbkx5QmFRdFN2MnZEbmo0dmxiYlBRQ3pnQW85WTFwa0ZHcl9MdEdaRGM?oc=5",
-      "publishedAt": "10. 22. 18:27 KST",
-      "publishedOrder": 1792661220000
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBlM0tFaTdjNHliRnJhd2F1YkRxdEhzcm1PUFlqVXlSelEyN2Zxc1p4d0lNMTZHS0xsWDZiY2QzbklXTUJlemR1VS1naUtwcG5lLTFaUWpMRFMwaFFBSWdUbXJPdXNjbHVRdlQxMGlB0gFyQVVfeXFMTmY3SGxXY1ptMWRUOWpmSTZkZU1GS3VCU1h3WFNYSWdrTFpzc0d3Tlp6OFN1YWplbE1vOGE3WEpYa1BobzBVY1NDV0JUWXhzbng3eHRHV0JPODNIV2pFTUV0UlZTcFAtM1UxWFVDU0lIMzhB?oc=5",
+      "publishedAt": "10. 23. 13:25 KST",
+      "publishedOrder": 1792729523000
     },
     {
-      "title": "소비자원 \"학원형 연예기획사 피해 급증‥절반은 아동·청소년\"",
+      "title": "‘한류연예대상’ 전유진, 막판 뒤집기",
       "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1vNk01Nk5JRGRrVXZlYU9kRW5YMm5maHBJYlJPaXdsZEVuZlV0dkdOU0NUWjZQYWdpUXpzS2F4X0xndUVVQmpKdVhmZ0E3YU5sM01iZ3dZMFRsNzctZG9HbllEZDJ6NG8yT1Z1b25qd2F4RTlR0gF0QVVfeXFMTW82TTU2TklEZGtVdmVhT2RFblgybmZocEliUk9pd2xkRW5mVXR2R05TQ1RaNlBhZ2lRenNLYXhfTGd1RVVCakp1WGZnQTdhTmwzTWJnd1kwVGw3Ny1kb0duWURkMno0bzJPVnVvbmp3YXhFOVE?oc=5",
-      "publishedAt": "10. 22. 16:28 KST",
-      "publishedOrder": 1792654080000
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1BLTlTNmZRcjBiLVU5bGU2N3JBemN1N19KemNjdmpFMWpENWo0RWhHdkcxSTlPV0I4TEsydjZLaTFXaWlRckYwVTByLVh1dmFDTjdTX1k2UjNUVHR3OFHSAWNBVV95cUxOcGFCQkdoem1tdXVuSlJxN2NybUIzRUNrbnVBQ01rZ2paV0h1VVNFczhPMFZDQzgwLXRVM2hRSXlsN1RUNExsaGdab0JIMDVoWm4zZTZURFo0ZFdQdHNFdU0wWEk?oc=5",
+      "publishedAt": "10. 23. 11:45 KST",
+      "publishedOrder": 1792723500000
     },
     {
-      "title": "“오디션 합격 보장” 내걸고 오리발…학원형 연예기획사 피해 급증",
+      "title": "[문화연예 플러스] 마동석, '존 윅' 키아누 리브스 만나나?",
       "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB2NHlQX002OXVpejV5Qy1lbEhHTC1JVUV6WmFMQXl3TTdSUFpSTVRLalY3WHZjVlZmUVZBMjJUYVFRZTg1NV9yWHM4VHlMOWVDblROVjJBcW5BcVZNYkhQaEpJVk1NNGRnRV9XZ3U3RmtiV0FJd3c?oc=5",
-      "publishedAt": "10. 22. 14:47 KST",
-      "publishedOrder": 1792648020000
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5TYlFQVEZOZ1liMVE4RkJuOXhoYXVLM2NMVmh6SGtUd1V3NlUzRm03OUFmbW50UEJZZUxWR1V2ZUlSR2JCSmVvRWl6Ul9xdk16U3VyTXJORDdPUWJFN01CaEFscWd0MFhZSGM2WnpIVVdwOHZIWDYxaGR30gF6QVVfeXFMUDlIZ3RCM3NqNTBQMGNxZGg0OXZVY1VRYWR4RjNvc2U3Sy1ZaU90RXRjdzlaOElNRUlsLUFUYVp0cU5kZndfM3REV1F2cFFwR3l6bHh6NW1zWnBVWEJwZThIRmp1dHNwbFRwNHRTT2FVMGhldTMwem14ZkE?oc=5",
+      "publishedAt": "10. 23. 07:03 KST",
+      "publishedOrder": 1792706586000
     }
   ]
 }
