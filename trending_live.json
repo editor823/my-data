@@ -1,16 +1,16 @@
 {
   "success": true,
-  "updatedAt": "2026-10-24T17:50:38.083Z",
-  "updatedAtKst": "2026. 10. 25. AM 2:50:38",
+  "updatedAt": "2026-10-24T22:54:08.723Z",
+  "updatedAtKst": "2026. 10. 25. AM 7:54:08",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "한성숙 총리 이태원 참사 사과"
+        "keyword": "100일의 거짓말"
       },
       {
         "rank": 2,
-        "keyword": "미국 대사관 인력 감축"
+        "keyword": "2026년 10월 25일 운세"
       },
       {
         "rank": 3,
@@ -18,137 +18,137 @@
       },
       {
         "rank": 4,
-        "keyword": "김정은, 왕후닝과 회담"
+        "keyword": "미 연준 금리 동결"
       },
       {
         "rank": 5,
-        "keyword": "볼카노프스키"
+        "keyword": "최산, 정산금으로 빚 청산"
       },
       {
         "rank": 6,
-        "keyword": "윤선우 김가은, 결혼 1년 만에 임신"
+        "keyword": "부상 복귀 드리블 100%"
       },
       {
         "rank": 7,
-        "keyword": "알래스카 선거 결과 확정 보류"
+        "keyword": "이다해"
       },
       {
         "rank": 8,
-        "keyword": "태풍 참피 제주 접근"
+        "keyword": "메이저 리그 사커"
       },
       {
         "rank": 9,
-        "keyword": "황희찬"
+        "keyword": "로또 1247회 당첨번호"
       },
       {
         "rank": 10,
-        "keyword": "태극기 입장하는 윤��유"
+        "keyword": "장률, 파이널 테이블 셰프 도전!"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "태극기 들고 입장하는 new"
+        "keyword": "100일의 거짓말 동일"
       },
       {
         "rank": 2,
-        "keyword": "구속 도주 우려 동일"
+        "keyword": "2026년 25일 운세 동일"
       },
       {
         "rank": 3,
-        "keyword": "1247회 로또 1등 상승 1"
+        "keyword": "최산 정산금으로 빚 동일"
       },
       {
         "rank": 4,
-        "keyword": "삼성 개막 7연승 new"
+        "keyword": "이강인 드리블 성공 new"
       },
       {
         "rank": 5,
-        "keyword": "최산 정산금으로 빚 상승 7"
+        "keyword": "태풍 상승 1"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "이스라엘 서안 군사작전"
+        "keyword": "한국 경상흑자 독일 일본"
       },
       {
         "rank": 2,
-        "keyword": "미국 대사관 인력 감축"
+        "keyword": "이스라엘 서안 군사작전"
       },
       {
         "rank": 3,
-        "keyword": "인도네시아 Z세대 시위"
+        "keyword": "미 연준 금리 동결"
       },
       {
         "rank": 4,
-        "keyword": "알래스카 선거 결과 확정 보류"
-      },
-      {
-        "rank": 5,
-        "keyword": "이란 미 군함 진입 불가"
-      },
-      {
-        "rank": 6,
-        "keyword": "FC서울 K리그 우승"
-      },
-      {
-        "rank": 7,
         "keyword": "로또 1247회 당첨번호"
       },
       {
-        "rank": 8,
-        "keyword": "우크라 스타실드 복구"
+        "rank": 5,
+        "keyword": "이강인 아틀레티코 복귀"
       },
       {
-        "rank": 9,
+        "rank": 6,
         "keyword": "치이카와 200만 관객"
       },
       {
+        "rank": 7,
+        "keyword": "인도네시아 Z세대 시위"
+      },
+      {
+        "rank": 8,
+        "keyword": "이란 미 군함 진입 불가"
+      },
+      {
+        "rank": 9,
+        "keyword": "이태원 참사 4주기 추모"
+      },
+      {
         "rank": 10,
-        "keyword": "필리핀 공군기 공중 충돌"
+        "keyword": "IAEA 원전 수요 전망"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "볼카노프스키"
+        "keyword": "สภาพอากาศ"
       },
       {
         "rank": 2,
-        "keyword": "chelsea vs spurs"
+        "keyword": "박현호"
       },
       {
         "rank": 3,
-        "keyword": "황희찬"
+        "keyword": "이다해"
       },
       {
         "rank": 4,
-        "keyword": "유영우"
+        "keyword": "메이저 리그 사커"
       },
       {
         "rank": 5,
-        "keyword": "내 새끼의 연애"
+        "keyword": "대구날씨"
       },
       {
         "rank": 6,
-        "keyword": "첼시 대 토트넘"
+        "keyword": "이강인"
       },
       {
         "rank": 7,
-        "keyword": "이재성"
+        "keyword": "김장"
       },
       {
         "rank": 8,
-        "keyword": "파이널 테이블"
+        "keyword": "f1"
       },
       {
         "rank": 9,
-        "keyword": "잠수교"
+        "keyword": "삼성전자"
       },
       {
         "rank": 10,
-        "keyword": "아스날"
+        "keyword": "포스코노동조합"
       }
     ],
     "daum": [
@@ -158,98 +158,41 @@
       },
       {
         "rank": 2,
-        "keyword": "최형우 조문"
+        "keyword": "웅산 청혼 고백"
       },
       {
         "rank": 3,
-        "keyword": "신천지"
-      },
-      {
-        "rank": 4,
-        "keyword": "유영우 개그맨"
-      },
-      {
-        "rank": 5,
         "keyword": "1247회 로또 당첨 번호"
       },
       {
-        "rank": 6,
+        "rank": 4,
+        "keyword": "닥터x 등장인물"
+      },
+      {
+        "rank": 5,
         "keyword": "ufc"
       },
       {
+        "rank": 6,
+        "keyword": "전원주 치매 진단"
+      },
+      {
         "rank": 7,
-        "keyword": "국프와 514번의 처벌"
+        "keyword": "오세훈 무죄"
       },
       {
         "rank": 8,
-        "keyword": "안효섭 부모님 자동차 선물"
+        "keyword": "이강인 부상 복귀전 활약"
       },
       {
         "rank": 9,
-        "keyword": "에이티즈 최산 집안 빚 청산"
+        "keyword": "정준하 아이스크림"
       },
       {
         "rank": 10,
-        "keyword": "lpba"
+        "keyword": "안세영 배드민턴 중계"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "에이티즈 최산, 52kg 마른 몸에서 근육질로…‘가슴 1인자’ 등극 (전참시)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261024/134900356/1",
-      "publishedAt": "수집 10. 25. 02:50 KST",
-      "publishedOrder": 1792864231795
-    },
-    {
-      "title": "안은진, 서강준에 좋아하지 말라더니…이주안 고백에 흔들리나 (너 말고 다른 연애)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261024/134900993/1",
-      "publishedAt": "수집 10. 25. 02:50 KST",
-      "publishedOrder": 1792864231795
-    },
-    {
-      "title": "‘수술방의 미친 계’ 김지원, 뇌에 박힌 총알 제거 집도 (닥터X)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261024/134901093/1",
-      "publishedAt": "수집 10. 25. 02:50 KST",
-      "publishedOrder": 1792864231795
-    },
-    {
-      "title": "유재석, AI로 재물운 확인→집단 반발…“그걸 왜 봐!” (런닝맨)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261024/134901084/1",
-      "publishedAt": "수집 10. 25. 02:50 KST",
-      "publishedOrder": 1792864231795
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 25. 02:50 KST",
-      "publishedOrder": 1792864231777
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 25. 02:50 KST",
-      "publishedOrder": 1792864231777
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 25. 02:50 KST",
-      "publishedOrder": 1792864231777
-    },
-    {
-      "title": "'52세 임신' 유명 女 배우, 고령 출산 비판에 \"남자는 괜찮고?\"[스타이슈]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/24/2026102314173837043",
-      "publishedAt": "수집 10. 25. 02:50 KST",
-      "publishedOrder": 1792864231777
-    }
-  ]
+  "entertainment": []
 }
