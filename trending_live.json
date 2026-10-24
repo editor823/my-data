@@ -1,255 +1,283 @@
 {
   "success": true,
-  "updatedAt": "2026-10-24T07:54:03.402Z",
-  "updatedAtKst": "2026. 10. 24. PM 4:54:03",
+  "updatedAt": "2026-10-24T13:07:11.619Z",
+  "updatedAtKst": "2026. 10. 24. PM 10:07:11",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "선취골 환호하는 FC서울"
+        "keyword": "김정은, 왕후닝 회담"
       },
       {
         "rank": 2,
-        "keyword": "김정은 방중 단둥 도착"
+        "keyword": "인도네시아 Z세대 시위"
       },
       {
         "rank": 3,
-        "keyword": "대한항공 개인정보 유출"
-      },
-      {
-        "rank": 4,
-        "keyword": "삼성 마무리 김재윤 부상으로 PO 불가"
-      },
-      {
-        "rank": 5,
-        "keyword": "단독 콘서트 개최!"
-      },
-      {
-        "rank": 6,
-        "keyword": "박지현"
-      },
-      {
-        "rank": 7,
-        "keyword": "뉴욕증시 하락 마감"
-      },
-      {
-        "rank": 8,
-        "keyword": "이억원"
-      },
-      {
-        "rank": 9,
         "keyword": "미국 EU 빅테크 규제 압박"
       },
       {
+        "rank": 4,
+        "keyword": "2026 장애인아시아경기대회 종료"
+      },
+      {
+        "rank": 5,
+        "keyword": "라포엠과 송가인 공연"
+      },
+      {
+        "rank": 6,
+        "keyword": "이기혁"
+      },
+      {
+        "rank": 7,
+        "keyword": "하석진, 안희연 사랑 선택"
+      },
+      {
+        "rank": 8,
+        "keyword": "양홍원 모텔 여성 불륜 해명"
+      },
+      {
+        "rank": 9,
+        "keyword": "놀면 뭐하니"
+      },
+      {
         "rank": 10,
-        "keyword": "디즈니런 인천 2026, 모두 어울렸다!"
+        "keyword": "허구연"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "유재석 AI 재물운 상승 6"
+        "keyword": "그것이 알고 싶다 new"
       },
       {
         "rank": 2,
-        "keyword": "이태원참사 4주기 추모행진 하락 1"
+        "keyword": "태극기 들고 입장하는 new"
       },
       {
         "rank": 3,
-        "keyword": "문선민 서울 우승 new"
+        "keyword": "이태원 참사 4주기 동일"
       },
       {
         "rank": 4,
-        "keyword": "친모 살해 40대 동일"
+        "keyword": "태풍 new"
       },
       {
         "rank": 5,
-        "keyword": "하나 발언에 나락 new"
+        "keyword": "1247회 로또 1등 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "미국 대사관 인력 감축"
+        "keyword": "인도네시아 Z세대 시위"
       },
       {
         "rank": 2,
-        "keyword": "뉴욕증시 하락 마감"
-      },
-      {
-        "rank": 3,
-        "keyword": "브렌트유 116달러 급등"
-      },
-      {
-        "rank": 4,
-        "keyword": "대한항공 개인정보 유출"
-      },
-      {
-        "rank": 5,
         "keyword": "미국 EU 빅테크 규제 압박"
       },
       {
+        "rank": 3,
+        "keyword": "미국 대사관 인력 감축"
+      },
+      {
+        "rank": 4,
+        "keyword": "이란 미 군함 진입 불가"
+      },
+      {
+        "rank": 5,
+        "keyword": "로또 1247회 당첨번호"
+      },
+      {
         "rank": 6,
-        "keyword": "알래스카 선거 결과 확정 보류"
+        "keyword": "우크라 스타실드 복구"
       },
       {
         "rank": 7,
-        "keyword": "호르무즈 유조선 기뢰 충돌"
+        "keyword": "최형우 전 장관 별세"
       },
       {
         "rank": 8,
-        "keyword": "파리 근교 총격 사건"
+        "keyword": "FC서울 K리그 우승"
       },
       {
         "rank": 9,
-        "keyword": "IAEA 원전 수요 전망"
+        "keyword": "포스코 임금협상 결렬 파업"
       },
       {
         "rank": 10,
-        "keyword": "양홍원 불륜 의혹"
+        "keyword": "치이카와 200만 관객"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "mlb"
+        "keyword": "로또1247"
       },
       {
         "rank": 2,
-        "keyword": "jtbc"
+        "keyword": "잔나비"
       },
       {
         "rank": 3,
-        "keyword": "자영업"
+        "keyword": "이기혁"
       },
       {
         "rank": 4,
-        "keyword": "박지현"
+        "keyword": "астон вилла – манчестер сити"
       },
       {
         "rank": 5,
-        "keyword": "이억원"
+        "keyword": "허구연"
       },
       {
         "rank": 6,
-        "keyword": "김재윤"
+        "keyword": "이준수"
       },
       {
         "rank": 7,
-        "keyword": "6.25 전쟁"
+        "keyword": "당진시의회"
       },
       {
         "rank": 8,
-        "keyword": "k리그2"
+        "keyword": "แอสตันวิลลา พบ แมนซิตี"
       },
       {
         "rank": 9,
-        "keyword": "최태원"
+        "keyword": "aston villa đấu với man city"
       },
       {
         "rank": 10,
-        "keyword": "일본인"
+        "keyword": "파업"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "최희서 손석구 연기 인생"
+        "keyword": "김정은 왕후닝 회담"
       },
       {
         "rank": 2,
-        "keyword": "오세훈 국힘 통합"
+        "keyword": "손석구 한지민 반말"
       },
       {
         "rank": 3,
-        "keyword": "김정은 방중"
+        "keyword": "푸른길"
       },
       {
         "rank": 4,
-        "keyword": "김상혁 유채련 결혼"
-      },
-      {
-        "rank": 5,
         "keyword": "최형우 전 내무부 장관 별세"
       },
       {
+        "rank": 5,
+        "keyword": "파이널 테이블"
+      },
+      {
         "rank": 6,
-        "keyword": "유해란 BMW 챔피언십 선두"
+        "keyword": "지구마불 세계여행 시즌 4"
       },
       {
         "rank": 7,
-        "keyword": "김보미 LPBA 준결승"
+        "keyword": "안세영 프랑스오픈 결승"
       },
       {
         "rank": 8,
-        "keyword": "참피 예상경로"
+        "keyword": "도경완 짠내 연출"
       },
       {
         "rank": 9,
-        "keyword": "정부 실업급여"
+        "keyword": "롯데자이언츠 결별"
       },
       {
         "rank": 10,
-        "keyword": "fc서울"
+        "keyword": "정준하 아이스크림"
       }
     ]
   },
   "entertainment": [
     {
+      "title": "에이티즈 최산, 52kg 마른 몸에서 근육질로…‘가슴 1인자’ 등극 (전참시)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261024/134900356/1",
+      "publishedAt": "수집 10. 24. 22:07 KST",
+      "publishedOrder": 1792847231562
+    },
+    {
+      "title": "안은진, 서강준에 좋아하지 말라더니…이주안 고백에 흔들리나 (너 말고 다른 연애)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261024/134900993/1",
+      "publishedAt": "수집 10. 24. 22:07 KST",
+      "publishedOrder": 1792847231562
+    },
+    {
+      "title": "‘수술방의 미친 계’ 김지원, 뇌에 박힌 총알 제거 집도 (닥터X)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261024/134901093/1",
+      "publishedAt": "수집 10. 24. 22:07 KST",
+      "publishedOrder": 1792847231562
+    },
+    {
       "title": "유재석, AI로 재물운 확인→집단 반발…“그걸 왜 봐!” (런닝맨)",
       "source": "스포츠동아",
       "url": "https://sports.donga.com/ent/article/all/20261024/134901084/1",
-      "publishedAt": "수집 10. 24. 16:53 KST",
-      "publishedOrder": 1792828439739
-    },
-    {
-      "title": "김연경, 한일전 설욕 위해 승부수…황연주 교체 투입 통할까 (신인감독 김연경2)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261024/134901019/1",
-      "publishedAt": "수집 10. 24. 16:53 KST",
-      "publishedOrder": 1792828439739
-    },
-    {
-      "title": "전현무, 아이브 리즈母와 77년생 동갑내기…예능감 남달라",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261024/134901006/1",
-      "publishedAt": "수집 10. 24. 16:53 KST",
-      "publishedOrder": 1792828439739
-    },
-    {
-      "title": "‘170cm·48kg’ 장원영, 요즘 밥보다 디저트 “밥 거의 안 먹어요”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261024/134900927/1",
-      "publishedAt": "수집 10. 24. 16:53 KST",
-      "publishedOrder": 1792828439739
+      "publishedAt": "수집 10. 24. 22:07 KST",
+      "publishedOrder": 1792847231562
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 24. 16:53 KST",
-      "publishedOrder": 1792828438614
+      "publishedAt": "수집 10. 24. 22:07 KST",
+      "publishedOrder": 1792847230575
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 24. 16:53 KST",
-      "publishedOrder": 1792828438614
+      "publishedAt": "수집 10. 24. 22:07 KST",
+      "publishedOrder": 1792847230575
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 24. 16:53 KST",
-      "publishedOrder": 1792828438614
+      "publishedAt": "수집 10. 24. 22:07 KST",
+      "publishedOrder": 1792847230575
     },
     {
-      "title": "'5일 전 결혼' 양홍원, 불륜 의혹..폭로자 \"돈과 관심 필요\" [스타이슈]",
+      "title": "'52세 임신' 유명 女 배우, 고령 출산 비판에 \"남자는 괜찮고?\"[스타이슈]",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/23/2026102317555144519",
-      "publishedAt": "수집 10. 24. 16:53 KST",
-      "publishedOrder": 1792828438614
+      "url": "https://www.starnewskorea.com/star/2026/10/24/2026102314173837043",
+      "publishedAt": "수집 10. 24. 22:07 KST",
+      "publishedOrder": 1792847230575
+    },
+    {
+      "title": "백지영, 9살 딸 연예계 진출 질문에 \"죽어도 안 돼\" - 머니투데이",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1lT1BTNWpiajBZdlNMSXBpdXV5Z08yZlROc3NFRFcxUHdZUVh4cUZQYVZfWlpZZzdkdC1ZMzRZNXU5QXVZNXQwd05HaDdua2pwYWowYWE3SF94YkpKaXRsSlpBVDVhMWlsYUstWDYwSVN1b3fSAXhBVV95cUxPX2FCVFF3SHR3bWV6M3dUN1NGcGhQOFpiWHhKVXR0MnlVcENheVlDWHlPUTJLcUdmR3kwQVppbWJXV0Q5bW1vc1FXYnBEdTdfdkJIRnhtYXdxXzgyR3ptcVpMdjZKWFRQUjFGeDFyU2dHb1FzbzdsQUY?oc=5",
+      "publishedAt": "10. 24. 15:57 KST",
+      "publishedOrder": 1792825068000
+    },
+    {
+      "title": "[부고] 원세나(더팩트 연예부장)씨 부친상",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE82UmdsX3piNGV0QmJmN3Z5SkdneTBxU0I5RXNtZG00VkpQZ0Y0QnFXUHY1OVpfeXRkOUpuZVRmdVN5eXVnVWVKanhPa3lGODAyeGtNSlhDSFVOYkx4Tk5RcjhGMFA0RkZKbHfSAW5BVV95cUxOUXVpaHl0RDVRc1NJSm1EWUZCUUNtNXhJN2pieG4zOUhVQ1lKS2dETWtUaG53QVJfY2tmNXRDY2NzS0Q2a3hSQzlwTmV1VUpuZGRPcFpYNjNTV1BjYWR3TUE2NFoyNktnakdtT0twQQ?oc=5",
+      "publishedAt": "10. 24. 10:50 KST",
+      "publishedOrder": 1792806657000
+    },
+    {
+      "title": "[부고] 원세나(더팩트 연예부장)씨 부친상",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5CbldsNWJLbVJTMHZmWUg2WF9raEg1LTVhTGZGMndMZDRKV0thbEVReXl2eTBUQXZXYkxzRHM5N3BtZW9XMnZ4Z1A0X2pZeTFHcm9KMHdHb041NFnSAWBBVV95cUxPVTRxbHZCMFhqdnVnQ1hiRHNkdmc3a0QwaVRWUFZfTHdKRllpeVJGZ0NrdjBvV1h2Zl9MQVZrYXNfUjd6MTc1LXM3ZHB0cE5Eb0FhWlRJRmFmU2RyV1gyRkU?oc=5",
+      "publishedAt": "10. 24. 10:34 KST",
+      "publishedOrder": 1792805660000
+    },
+    {
+      "title": "‘급식왕’ 박병규, 비연예인 연인과 결혼...\"책임감 들어\"",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5PWnc1bk1CMzVqNnRiZjBkX0EwTjk4R2dlalczcldzR3dRbmU1d0hKNjBjMmxEcEFESGdvWXZWRzNsYVdjV2p2MHVTeDZJNGZ6Ymk2aFhPVlUxUTNDM3c1QXBDYWZVdw?oc=5",
+      "publishedAt": "10. 24. 08:03 KST",
+      "publishedOrder": 1792796598000
     }
   ]
 }
