@@ -1,172 +1,172 @@
 {
   "success": true,
-  "updatedAt": "2026-10-25T13:34:17.257Z",
-  "updatedAtKst": "2026. 10. 25. PM 10:34:17",
+  "updatedAt": "2026-10-25T18:08:50.699Z",
+  "updatedAtKst": "2026. 10. 26. AM 3:08:50",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "윤미라, 결혼 없이 동안 비결 밝혀"
+        "keyword": "삼성, 개막 8연승 실화냐!"
       },
       {
         "rank": 2,
-        "keyword": "삼성, 개막 8연승 성공!"
+        "keyword": "지예은 유재석 김종국 결혼식"
       },
       {
         "rank": 3,
-        "keyword": "주진우 개표 상황표 불일치"
+        "keyword": "sc 프라이부르크 대 바이에른"
       },
       {
         "rank": 4,
-        "keyword": "철도"
+        "keyword": "30호 태풍 참피"
       },
       {
         "rank": 5,
-        "keyword": "한국경제"
+        "keyword": "가상자산 과세 유예"
       },
       {
         "rank": 6,
-        "keyword": "이란 호르무즈 정책"
+        "keyword": "한국 경상흑자 독일 일본"
       },
       {
         "rank": 7,
-        "keyword": "사랑이 온다, 주말 시청률 변동"
+        "keyword": "박균택·양부남 압축"
       },
       {
         "rank": 8,
-        "keyword": "JMS 정명석 항소"
+        "keyword": "75세 윤미라 동안 비결은 비혼"
       },
       {
         "rank": 9,
-        "keyword": "신인감독 김연경 시즌2"
+        "keyword": "LIG D&A 방산업체 제재"
       },
       {
         "rank": 10,
-        "keyword": "가상자산 과세 유예"
+        "keyword": "분만"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "윤미라 상승 3"
+        "keyword": "삼성 개막 8연승 동일"
       },
       {
         "rank": 2,
-        "keyword": "안세영 하락 1"
+        "keyword": "75세 윤미라 동안 상승 3"
       },
       {
         "rank": 3,
-        "keyword": "삼성 개막 8연승 상승 9"
+        "keyword": "태풍 참피 상승 3"
       },
       {
         "rank": 4,
-        "keyword": "사랑이 온다 하락 2"
+        "keyword": "안세영 프랑스오픈 3연패 동일"
       },
       {
         "rank": 5,
-        "keyword": "JMS 정명석 항소 new"
+        "keyword": "유재석 축가 김종국 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "주진우 개표 상황표 불일치"
-      },
-      {
-        "rank": 2,
-        "keyword": "아파트 관리비 비리"
-      },
-      {
-        "rank": 3,
-        "keyword": "한국 경상흑자 독일 일본"
-      },
-      {
-        "rank": 4,
-        "keyword": "LIG D&A 방산업체 제재"
-      },
-      {
-        "rank": 5,
-        "keyword": "5대 은행 가계대출 증가"
-      },
-      {
-        "rank": 6,
         "keyword": "가상자산 과세 유예"
       },
       {
-        "rank": 7,
-        "keyword": "음주측정 물 제공 대법원"
+        "rank": 2,
+        "keyword": "한국 경상흑자 독일 일본"
       },
       {
-        "rank": 8,
+        "rank": 3,
+        "keyword": "LIG D&A 방산업체 제재"
+      },
+      {
+        "rank": 4,
         "keyword": "트럼프 아우디 투자 발표"
       },
       {
+        "rank": 5,
+        "keyword": "이란 호르무즈 정책"
+      },
+      {
+        "rank": 6,
+        "keyword": "기프티엘 해킹 개인정보 유출"
+      },
+      {
+        "rank": 7,
+        "keyword": "브라질 대선 결선투표"
+      },
+      {
+        "rank": 8,
+        "keyword": "미 중간선거 맞불 유세"
+      },
+      {
         "rank": 9,
-        "keyword": "중국 6개 성 지도부 교체"
+        "keyword": "지역의대 신설 발표"
       },
       {
         "rank": 10,
-        "keyword": "남중국해 인공섬 활주로"
+        "keyword": "닥터X 방영중단 청원"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "벙커버스터"
+        "keyword": "sc 프라이부르크 대 바이에른"
       },
       {
         "rank": 2,
-        "keyword": "노태 문"
+        "keyword": "30호 태풍 참피"
       },
       {
         "rank": 3,
-        "keyword": "관광"
+        "keyword": "분만"
       },
       {
         "rank": 4,
-        "keyword": "철도"
+        "keyword": "pl"
       },
       {
         "rank": 5,
-        "keyword": "한국경제"
+        "keyword": "셀타 비고 대 레알 베티스"
       },
       {
         "rank": 6,
-        "keyword": "garudayaksa fc vs persib bandung"
+        "keyword": "남양주시"
       },
       {
         "rank": 7,
-        "keyword": "신인감독 김연경 시즌2"
+        "keyword": "김치"
       },
       {
         "rank": 8,
-        "keyword": "한국전력공사"
+        "keyword": "리버풀"
       },
       {
         "rank": 9,
-        "keyword": "윤혜진"
+        "keyword": "premier league"
       },
       {
         "rank": 10,
-        "keyword": "inter vs fiorentina"
+        "keyword": "fotmob"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "윤미라 동안 비결"
+        "keyword": "김보미 LPBA 결승전"
       },
       {
         "rank": 2,
-        "keyword": "최형우 전 내무장관 별세"
+        "keyword": "이영현 33kg 감량"
       },
       {
         "rank": 3,
-        "keyword": "실낙원"
+        "keyword": "미운우리새끼 윤미라 ���혼"
       },
       {
         "rank": 4,
-        "keyword": "이경규 예능 인생"
+        "keyword": "최형우 전 장관 별세"
       },
       {
         "rank": 5,
@@ -174,23 +174,23 @@
       },
       {
         "rank": 6,
-        "keyword": "파이널 테이블"
+        "keyword": "임정숙 당구선수"
       },
       {
         "rank": 7,
-        "keyword": "너 말고 다른 연애"
+        "keyword": "정준하 아이스크림"
       },
       {
         "rank": 8,
-        "keyword": "오바마 트럼프 유세 대결"
+        "keyword": "양부남 법무장관 후보"
       },
       {
         "rank": 9,
-        "keyword": "이동욱 감독"
+        "keyword": "모레노 감독"
       },
       {
         "rank": 10,
-        "keyword": "제네시스 챔피언십"
+        "keyword": "자주포"
       }
     ]
   },
