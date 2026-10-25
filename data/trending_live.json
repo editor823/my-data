@@ -1,70 +1,70 @@
 {
   "success": true,
-  "updatedAt": "2026-10-25T08:07:32.456Z",
-  "updatedAtKst": "2026. 10. 25. PM 5:07:32",
+  "updatedAt": "2026-10-25T13:34:17.257Z",
+  "updatedAtKst": "2026. 10. 25. PM 10:34:17",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "최형우 빈소 조문 장동혁"
+        "keyword": "윤미라, 결혼 없이 동안 비결 밝혀"
       },
       {
         "rank": 2,
-        "keyword": "BMW 레이디스 챔피언십"
+        "keyword": "삼성, 개막 8연승 성공!"
       },
       {
         "rank": 3,
-        "keyword": "대한항공 현대캐피탈 꺾고 2연패"
-      },
-      {
-        "rank": 4,
         "keyword": "주진우 개표 상황표 불일치"
       },
       {
+        "rank": 4,
+        "keyword": "철도"
+      },
+      {
         "rank": 5,
-        "keyword": "진관사 국행수륙재 인사말하는"
+        "keyword": "한국경제"
       },
       {
         "rank": 6,
-        "keyword": "닥터X 방송 중단 청원"
+        "keyword": "이란 호르무즈 정책"
       },
       {
         "rank": 7,
-        "keyword": "중고"
+        "keyword": "사랑이 온다, 주말 시청률 변동"
       },
       {
         "rank": 8,
-        "keyword": "가상자산 과세 유예"
+        "keyword": "JMS 정명석 항소"
       },
       {
         "rank": 9,
-        "keyword": "염소"
+        "keyword": "신인감독 김연경 시즌2"
       },
       {
         "rank": 10,
-        "keyword": "아파트 관리비 비리"
+        "keyword": "가상자산 과세 유예"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "북한 군인들 new"
+        "keyword": "윤미라 상승 3"
       },
       {
         "rank": 2,
-        "keyword": "태풍 new"
+        "keyword": "안세영 하락 1"
       },
       {
         "rank": 3,
-        "keyword": "권상우 손태영 꼬셨다 new"
+        "keyword": "삼성 개막 8연승 상승 9"
       },
       {
         "rank": 4,
-        "keyword": "독도의 날 하락 3"
+        "keyword": "사랑이 온다 하락 2"
       },
       {
         "rank": 5,
-        "keyword": "가상자산 과세 new"
+        "keyword": "JMS 정명석 항소 new"
       }
     ],
     "zum": [
@@ -74,123 +74,123 @@
       },
       {
         "rank": 2,
-        "keyword": "가상자산 과세 유예"
-      },
-      {
-        "rank": 3,
         "keyword": "아파트 관리비 비리"
       },
       {
-        "rank": 4,
+        "rank": 3,
         "keyword": "한국 경상흑자 독일 일본"
       },
       {
-        "rank": 5,
-        "keyword": "트럼프 아우디 투자 발표"
-      },
-      {
-        "rank": 6,
-        "keyword": "남중국해 인공섬 활주로"
-      },
-      {
-        "rank": 7,
-        "keyword": "5대 은행 가계대출 증가"
-      },
-      {
-        "rank": 8,
+        "rank": 4,
         "keyword": "LIG D&A 방산업체 제재"
       },
       {
+        "rank": 5,
+        "keyword": "5대 은행 가계대출 증가"
+      },
+      {
+        "rank": 6,
+        "keyword": "가상자산 과세 유예"
+      },
+      {
+        "rank": 7,
+        "keyword": "음주측정 물 제공 대법원"
+      },
+      {
+        "rank": 8,
+        "keyword": "트럼프 아우디 투자 발표"
+      },
+      {
         "rank": 9,
-        "keyword": "미 연준 금리 동결"
+        "keyword": "중국 6개 성 지도부 교체"
       },
       {
         "rank": 10,
-        "keyword": "중국 6개 성 지도부 교체"
+        "keyword": "남중국해 인공섬 활주로"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "이동욱"
+        "keyword": "벙커버스터"
       },
       {
         "rank": 2,
-        "keyword": "부산항 국제여객터미널"
+        "keyword": "노태 문"
       },
       {
         "rank": 3,
-        "keyword": "전영현"
+        "keyword": "관광"
       },
       {
         "rank": 4,
-        "keyword": "mlb"
+        "keyword": "철도"
       },
       {
         "rank": 5,
-        "keyword": "중고"
+        "keyword": "한국경제"
       },
       {
         "rank": 6,
-        "keyword": "염소"
+        "keyword": "garudayaksa fc vs persib bandung"
       },
       {
         "rank": 7,
-        "keyword": "kbo리그"
+        "keyword": "신인감독 김연경 시즌2"
       },
       {
         "rank": 8,
-        "keyword": "정준하"
+        "keyword": "한국전력공사"
       },
       {
         "rank": 9,
-        "keyword": "프랑스"
+        "keyword": "윤혜진"
       },
       {
         "rank": 10,
-        "keyword": "선우용여"
+        "keyword": "inter vs fiorentina"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "정준하 아이스크림"
+        "keyword": "윤미라 동안 비결"
       },
       {
         "rank": 2,
-        "keyword": "요시다 유리 우승"
+        "keyword": "최형우 전 내무장관 별세"
       },
       {
         "rank": 3,
-        "keyword": "가상자산 과세 유예"
+        "keyword": "실낙원"
       },
       {
         "rank": 4,
-        "keyword": "양부남 법무장관 후보"
+        "keyword": "이경규 예능 인생"
       },
       {
         "rank": 5,
-        "keyword": "닥터X 방영 중단 청원"
+        "keyword": "천천히 강렬하게"
       },
       {
         "rank": 6,
-        "keyword": "삼성-KIA 1차전 취소"
+        "keyword": "파이널 테이블"
       },
       {
         "rank": 7,
-        "keyword": "DB 정관장 제압"
+        "keyword": "너 말고 다른 연애"
       },
       {
         "rank": 8,
-        "keyword": "김정은 단둥 방문"
+        "keyword": "오바마 트럼프 유세 대결"
       },
       {
         "rank": 9,
-        "keyword": "조희대 국정조사"
+        "keyword": "이동욱 감독"
       },
       {
         "rank": 10,
-        "keyword": "조국 패퇴"
+        "keyword": "제네시스 챔피언십"
       }
     ]
   },
