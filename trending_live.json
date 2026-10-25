@@ -1,196 +1,196 @@
 {
   "success": true,
-  "updatedAt": "2026-10-25T18:08:50.699Z",
-  "updatedAtKst": "2026. 10. 26. AM 3:08:50",
+  "updatedAt": "2026-10-25T23:01:45.206Z",
+  "updatedAtKst": "2026. 10. 26. AM 8:01:45",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "삼성, 개막 8연승 실화냐!"
+        "keyword": "브라질 대선 결선투표"
       },
       {
         "rank": 2,
-        "keyword": "지예은 유재석 김종국 결혼식"
+        "keyword": "100일의 거짓말"
       },
       {
         "rank": 3,
-        "keyword": "sc 프라이부르크 대 바이에른"
+        "keyword": "2026년 10월 26일 운세"
       },
       {
         "rank": 4,
-        "keyword": "30호 태풍 참피"
+        "keyword": "기프티엘 해킹 개인정보 유출"
       },
       {
         "rank": 5,
-        "keyword": "가상자산 과세 유예"
+        "keyword": "맨유 본머스에 0-3 패배"
       },
       {
         "rank": 6,
-        "keyword": "한국 경상흑자 독일 일본"
+        "keyword": "바르샤 레알"
       },
       {
         "rank": 7,
-        "keyword": "박균택·양부남 압축"
+        "keyword": "네타냐후 이란 경고"
       },
       {
         "rank": 8,
-        "keyword": "75세 윤미라 동안 비결은 비혼"
+        "keyword": "DJ소다, 대만 태풍 현장 웃음"
       },
       {
         "rank": 9,
-        "keyword": "LIG D&A 방산업체 제재"
+        "keyword": "75세 미혼 윤미라, 동안 미모 비법은 맹물 세안"
       },
       {
         "rank": 10,
-        "keyword": "분만"
+        "keyword": "이다해"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "삼성 개막 8연승 동일"
+        "keyword": "브라질 2시간 연장 상승 1"
       },
       {
         "rank": 2,
-        "keyword": "75세 윤미라 동안 상승 3"
+        "keyword": "신인감독 김연경 시즌2 하락 1"
       },
       {
         "rank": 3,
-        "keyword": "태풍 참피 상승 3"
+        "keyword": "2026년 26일 운세 동일"
       },
       {
         "rank": 4,
-        "keyword": "안세영 프랑스오픈 3연패 동일"
+        "keyword": "양홍원 동일"
       },
       {
         "rank": 5,
-        "keyword": "유재석 축가 김종국 new"
+        "keyword": "라이즈 인섬니아 하락 1"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "가상자산 과세 유예"
+        "keyword": "마차도 베네수엘라 귀국"
       },
       {
         "rank": 2,
-        "keyword": "한국 경상흑자 독일 일본"
+        "keyword": "중국 5중전회 개막"
       },
       {
         "rank": 3,
-        "keyword": "LIG D&A 방산업체 제재"
-      },
-      {
-        "rank": 4,
-        "keyword": "트럼프 아우디 투자 발표"
-      },
-      {
-        "rank": 5,
-        "keyword": "이란 호르무즈 정책"
-      },
-      {
-        "rank": 6,
-        "keyword": "기프티엘 해킹 개인정보 유출"
-      },
-      {
-        "rank": 7,
         "keyword": "브라질 대선 결선투표"
       },
       {
+        "rank": 4,
+        "keyword": "가상자산 과세 유예"
+      },
+      {
+        "rank": 5,
+        "keyword": "기프티엘 해킹 개인정보 유출"
+      },
+      {
+        "rank": 6,
+        "keyword": "미국 이란 전면전 위험"
+      },
+      {
+        "rank": 7,
+        "keyword": "네타냐후 이란 경고"
+      },
+      {
         "rank": 8,
-        "keyword": "미 중간선거 맞불 유세"
+        "keyword": "영국 국방장관 전쟁 대비"
       },
       {
         "rank": 9,
-        "keyword": "지역의대 신설 발표"
+        "keyword": "트럼프 아우디 투자 발표"
       },
       {
         "rank": 10,
-        "keyword": "닥터X 방영중단 청원"
+        "keyword": "안세영 프랑스오픈 우승"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "sc 프라이부르크 대 바이에른"
+        "keyword": "บาร์ซา พบ เรอัลมาดริด"
       },
       {
         "rank": 2,
-        "keyword": "30호 태풍 참피"
+        "keyword": "lyon"
       },
       {
         "rank": 3,
-        "keyword": "분만"
+        "keyword": "天气"
       },
       {
         "rank": 4,
-        "keyword": "pl"
+        "keyword": "이시영"
       },
       {
         "rank": 5,
-        "keyword": "셀타 비고 대 레알 베티스"
+        "keyword": "lcs"
       },
       {
         "rank": 6,
-        "keyword": "남양주시"
+        "keyword": "barca"
       },
       {
         "rank": 7,
-        "keyword": "김치"
+        "keyword": "이다해"
       },
       {
         "rank": 8,
-        "keyword": "리버풀"
+        "keyword": "손지창"
       },
       {
         "rank": 9,
-        "keyword": "premier league"
+        "keyword": "퇴직"
       },
       {
         "rank": 10,
-        "keyword": "fotmob"
+        "keyword": "장례"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "김보미 LPBA 결승전"
-      },
-      {
-        "rank": 2,
-        "keyword": "이영현 33kg 감량"
-      },
-      {
-        "rank": 3,
-        "keyword": "미운우리새끼 윤미라 ���혼"
-      },
-      {
-        "rank": 4,
-        "keyword": "최형우 전 장관 별세"
-      },
-      {
-        "rank": 5,
-        "keyword": "천천히 강렬하게"
-      },
-      {
-        "rank": 6,
-        "keyword": "임정숙 당구선수"
-      },
-      {
-        "rank": 7,
-        "keyword": "정준하 아이스크림"
-      },
-      {
-        "rank": 8,
         "keyword": "양부남 법무장관 후보"
       },
       {
+        "rank": 2,
+        "keyword": "북한 안보리 서한"
+      },
+      {
+        "rank": 3,
+        "keyword": "윤미라 남편 외도"
+      },
+      {
+        "rank": 4,
+        "keyword": "이호철 부모 이혼 고백"
+      },
+      {
+        "rank": 5,
+        "keyword": "이란 공습 재개"
+      },
+      {
+        "rank": 6,
+        "keyword": "추미애 소방 재원"
+      },
+      {
+        "rank": 7,
+        "keyword": "북한 자주포 배치"
+      },
+      {
+        "rank": 8,
+        "keyword": "안세영 푸살라 신두 경기"
+      },
+      {
         "rank": 9,
-        "keyword": "모레노 감독"
+        "keyword": "태풍 인파"
       },
       {
         "rank": 10,
-        "keyword": "자주포"
+        "keyword": "트럼프 임기"
       }
     ]
   },
