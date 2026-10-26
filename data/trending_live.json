@@ -1,76 +1,76 @@
 {
   "success": true,
-  "updatedAt": "2026-10-25T23:01:45.206Z",
-  "updatedAtKst": "2026. 10. 26. AM 8:01:45",
+  "updatedAt": "2026-10-26T08:32:39.748Z",
+  "updatedAtKst": "2026. 10. 26. PM 5:32:39",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "브라질 대선 결선투표"
+        "keyword": "홍라희 명예관장 국민훈장"
       },
       {
         "rank": 2,
-        "keyword": "100일의 거짓말"
+        "keyword": "미래에셋생명 고객정보 유출"
       },
       {
         "rank": 3,
-        "keyword": "2026년 10월 26일 운세"
+        "keyword": "답변하는 박진만 감독"
       },
       {
         "rank": 4,
-        "keyword": "기프티엘 해킹 개인정보 유출"
+        "keyword": "중국 5중전회 개막"
       },
       {
         "rank": 5,
-        "keyword": "맨유 본머스에 0-3 패배"
+        "keyword": "오세훈 시장 동행안심벨 점검"
       },
       {
         "rank": 6,
-        "keyword": "바르샤 레알"
+        "keyword": "안경"
       },
       {
         "rank": 7,
-        "keyword": "네타냐후 이란 경고"
+        "keyword": "아일릿, 오늘 컴백 체포할게!"
       },
       {
         "rank": 8,
-        "keyword": "DJ소다, 대만 태풍 현장 웃음"
+        "keyword": "김혜경 여사 골프 논란"
       },
       {
         "rank": 9,
-        "keyword": "75세 미혼 윤미라, 동안 미모 비법은 맹물 세안"
+        "keyword": "코스피 5500선 붕괴"
       },
       {
         "rank": 10,
-        "keyword": "이다해"
+        "keyword": "하태경"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "브라질 2시간 연장 상승 1"
+        "keyword": "���라희 명예관장 국민훈장 new"
       },
       {
         "rank": 2,
-        "keyword": "신인감독 김연경 시즌2 하락 1"
+        "keyword": "답변하는 박진만 감독 new"
       },
       {
         "rank": 3,
-        "keyword": "2026년 26일 운세 동일"
+        "keyword": "동행안심벨 오세훈 시장 동일"
       },
       {
         "rank": 4,
-        "keyword": "양홍원 동일"
+        "keyword": "안중근 의사 유묵 상승 1"
       },
       {
         "rank": 5,
-        "keyword": "라이즈 인섬니아 하락 1"
+        "keyword": "아일릿 컴백 체포하겠어 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "마차도 베네수엘라 귀국"
+        "keyword": "미래에셋생명 고객정보 유출"
       },
       {
         "rank": 2,
@@ -78,15 +78,15 @@
       },
       {
         "rank": 3,
-        "keyword": "브라질 대선 결선투표"
+        "keyword": "코스피 5500선 붕괴"
       },
       {
         "rank": 4,
-        "keyword": "가상자산 과세 유예"
+        "keyword": "홈플러스 단전 예고"
       },
       {
         "rank": 5,
-        "keyword": "기프티엘 해킹 개인정보 유출"
+        "keyword": "송도 흉기 소지 20대 체포"
       },
       {
         "rank": 6,
@@ -94,105 +94,162 @@
       },
       {
         "rank": 7,
-        "keyword": "네타냐후 이란 경고"
+        "keyword": "북한 DMZ 지뢰 자작극 서한"
       },
       {
         "rank": 8,
-        "keyword": "영국 국방장관 전쟁 대비"
+        "keyword": "브라질 대선 결선투표"
       },
       {
         "rank": 9,
-        "keyword": "트럼프 아우디 투자 발표"
+        "keyword": "가축전염병 보상금 상향"
       },
       {
         "rank": 10,
-        "keyword": "안세영 프랑스오픈 우승"
+        "keyword": "선관위 특검 투표지 검증"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "บาร์ซา พบ เรอัลมาดริด"
+        "keyword": "안경"
       },
       {
         "rank": 2,
-        "keyword": "lyon"
+        "keyword": "전도연"
       },
       {
         "rank": 3,
-        "keyword": "天气"
+        "keyword": "하태경"
       },
       {
         "rank": 4,
-        "keyword": "이시영"
+        "keyword": "안세영"
       },
       {
         "rank": 5,
-        "keyword": "lcs"
+        "keyword": "리디아 고"
       },
       {
         "rank": 6,
-        "keyword": "barca"
+        "keyword": "미래에셋생명"
       },
       {
         "rank": 7,
-        "keyword": "이다해"
+        "keyword": "이창호"
       },
       {
         "rank": 8,
-        "keyword": "손지창"
+        "keyword": "대전광역시"
       },
       {
         "rank": 9,
-        "keyword": "퇴직"
+        "keyword": "임영웅 아임 히어로 더 스타디움"
       },
       {
         "rank": 10,
-        "keyword": "장례"
+        "keyword": "왕옌청"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "양부남 법무장관 후보"
+        "keyword": "롯데 이택근 단장 선임"
       },
       {
         "rank": 2,
-        "keyword": "북한 안보리 서한"
+        "keyword": "미래에셋생명 해킹"
       },
       {
         "rank": 3,
-        "keyword": "윤미라 남편 외도"
+        "keyword": "윤하 소속�� 소송"
       },
       {
         "rank": 4,
-        "keyword": "이호철 부모 이혼 고백"
+        "keyword": "오세훈 무죄"
       },
       {
         "rank": 5,
-        "keyword": "이란 공습 재개"
+        "keyword": "윤미라 초호화 싱글 라이프"
       },
       {
         "rank": 6,
-        "keyword": "추미애 소방 재원"
+        "keyword": "배우 하재영"
       },
       {
         "rank": 7,
-        "keyword": "북한 자주포 배치"
+        "keyword": "브라질 대선"
       },
       {
         "rank": 8,
-        "keyword": "안세영 푸살라 신두 경기"
+        "keyword": "이재명 지지율"
       },
       {
         "rank": 9,
-        "keyword": "태풍 인파"
+        "keyword": "오대환 김주혁 미담"
       },
       {
         "rank": 10,
-        "keyword": "트럼프 임기"
+        "keyword": "31호 태풍"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "김태우, god 막내에서 솔로 20년…‘하고 싶은 말’ 아직 끝나지 않았다 [DA피플]",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261026/134911713/1",
+      "publishedAt": "수집 10. 26. 17:32 KST",
+      "publishedOrder": 1793003554665
+    },
+    {
+      "title": "아일릿 “비록 4명 무대지만 모카 마음까지”… 미니 5집으로 컴백",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261026/134911699/1",
+      "publishedAt": "수집 10. 26. 17:32 KST",
+      "publishedOrder": 1793003554665
+    },
+    {
+      "title": "“시청자가 팀·규칙 정한다”…레쥬·STN SPORTS, 시청자 참여형 골프 예능 론칭",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261026/134911372/1",
+      "publishedAt": "수집 10. 26. 17:32 KST",
+      "publishedOrder": 1793003554665
+    },
+    {
+      "title": "몬스타엑스, 북미 10개 도시 투어 성료…외신 뜨거운 반응",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261026/134911260/1",
+      "publishedAt": "수집 10. 26. 17:32 KST",
+      "publishedOrder": 1793003554665
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 10. 26. 17:32 KST",
+      "publishedOrder": 1793003554002
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 10. 26. 17:32 KST",
+      "publishedOrder": 1793003554002
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 10. 26. 17:32 KST",
+      "publishedOrder": 1793003554002
+    },
+    {
+      "title": "\"내년 4월, 요한이 장가 간다\"..김요한♥오연희, 또 연예계 결혼 커플 탄생?[신랑수업2]",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/broadcast-show/2026/10/25/2026102517284830234",
+      "publishedAt": "수집 10. 26. 17:32 KST",
+      "publishedOrder": 1793003554002
+    }
+  ]
 }
