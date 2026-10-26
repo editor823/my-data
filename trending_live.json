@@ -1,255 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-10-26T08:32:39.748Z",
-  "updatedAtKst": "2026. 10. 26. PM 5:32:39",
+  "updatedAt": "2026-10-26T15:51:54.274Z",
+  "updatedAtKst": "2026. 10. 27. AM 12:51:54",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "홍라희 명예관장 국민훈장"
+        "keyword": "국민은행 2091명 추가 유출"
       },
       {
         "rank": 2,
-        "keyword": "미래에셋생명 고객정보 유출"
+        "keyword": "네일 퇴장과 불펜 호투"
       },
       {
         "rank": 3,
-        "keyword": "답변하는 박진만 감독"
+        "keyword": "이태원 참사"
       },
       {
         "rank": 4,
-        "keyword": "중국 5중전회 개막"
-      },
-      {
-        "rank": 5,
-        "keyword": "오세훈 시장 동행안심벨 점검"
-      },
-      {
-        "rank": 6,
-        "keyword": "안경"
-      },
-      {
-        "rank": 7,
-        "keyword": "아일릿, 오늘 컴백 체포할게!"
-      },
-      {
-        "rank": 8,
-        "keyword": "김혜경 여사 골프 논란"
-      },
-      {
-        "rank": 9,
         "keyword": "코스피 5500선 붕괴"
       },
       {
+        "rank": 5,
+        "keyword": "카스트로 2점 홈런 쾌투"
+      },
+      {
+        "rank": 6,
+        "keyword": "대전 40대 옛 연인 살해"
+      },
+      {
+        "rank": 7,
+        "keyword": "앤트로픽 IPO 신청"
+      },
+      {
+        "rank": 8,
+        "keyword": "마차도 베네수엘라 귀국"
+      },
+      {
+        "rank": 9,
+        "keyword": "송도 흉기 소지 20대 체포"
+      },
+      {
         "rank": 10,
-        "keyword": "하태경"
+        "keyword": "군인"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "���라희 명예관장 국민훈장 new"
+        "keyword": "이��호 감독 1차전 new"
       },
       {
         "rank": 2,
-        "keyword": "답변하는 박진만 감독 new"
+        "keyword": "KB국민은행 추가 확인 new"
       },
       {
         "rank": 3,
-        "keyword": "동행안심벨 오세훈 시장 동일"
+        "keyword": "3분기 누적 순익 new"
       },
       {
         "rank": 4,
-        "keyword": "안중근 의사 유묵 상승 1"
+        "keyword": "31기 옥순 영호와 new"
       },
       {
         "rank": 5,
-        "keyword": "아일릿 컴백 체포하겠어 new"
+        "keyword": "김혜경 여사 골프 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "미래에셋생명 고객정보 유출"
-      },
-      {
-        "rank": 2,
-        "keyword": "중국 5중전회 개막"
-      },
-      {
-        "rank": 3,
         "keyword": "코스피 5500선 붕괴"
       },
       {
-        "rank": 4,
-        "keyword": "홈플러스 단전 예고"
+        "rank": 2,
+        "keyword": "마차도 베네수엘라 귀국"
       },
       {
-        "rank": 5,
+        "rank": 3,
         "keyword": "송도 흉기 소지 20대 체포"
       },
       {
+        "rank": 4,
+        "keyword": "김오진 관저 이전 구형"
+      },
+      {
+        "rank": 5,
+        "keyword": "윤석열 부부 영치금"
+      },
+      {
         "rank": 6,
-        "keyword": "미국 이란 전면전 위험"
+        "keyword": "KB국민은행 정보유출 추가"
       },
       {
         "rank": 7,
-        "keyword": "북한 DMZ 지뢰 자작극 서한"
+        "keyword": "무안공항 참사 유가족 위로"
       },
       {
         "rank": 8,
-        "keyword": "브라질 대선 결선투표"
+        "keyword": "집값 격차 290배"
       },
       {
         "rank": 9,
-        "keyword": "가축전염병 보상금 상향"
+        "keyword": "홈플러스 단전 예고"
       },
       {
         "rank": 10,
-        "keyword": "선관위 특검 투표지 검증"
+        "keyword": "Node.js 보안 취약점"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "안경"
+        "keyword": "시효"
       },
       {
         "rank": 2,
-        "keyword": "전도연"
+        "keyword": "반려견"
       },
       {
         "rank": 3,
-        "keyword": "하태경"
+        "keyword": "이태원 참사"
       },
       {
         "rank": 4,
-        "keyword": "안세영"
+        "keyword": "dazn"
       },
       {
         "rank": 5,
-        "keyword": "리디아 고"
+        "keyword": "군인"
       },
       {
         "rank": 6,
-        "keyword": "미래에셋생명"
+        "keyword": "기소"
       },
       {
         "rank": 7,
-        "keyword": "이창호"
+        "keyword": "이세돌"
       },
       {
         "rank": 8,
-        "keyword": "대전광역시"
+        "keyword": "여행경보"
       },
       {
         "rank": 9,
-        "keyword": "임영웅 아임 히어로 더 스타디움"
+        "keyword": "jyp 엔터테인먼트"
       },
       {
         "rank": 10,
-        "keyword": "왕옌청"
+        "keyword": "ballon d&apos;or"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "롯데 이택근 단장 선임"
+        "keyword": "앤트로픽 IPO 신청"
       },
       {
         "rank": 2,
-        "keyword": "미래에셋생명 해킹"
+        "keyword": "nc"
       },
       {
         "rank": 3,
-        "keyword": "윤하 소속�� 소송"
+        "keyword": "비비지 은하 신비 엄지"
       },
       {
         "rank": 4,
-        "keyword": "오세훈 무죄"
+        "keyword": "허민 안중근 유묵 전시"
       },
       {
         "rank": 5,
-        "keyword": "윤미라 초호화 싱글 라이프"
+        "keyword": "문근영 나이"
       },
       {
         "rank": 6,
-        "keyword": "배우 하재영"
-      },
-      {
-        "rank": 7,
         "keyword": "브라질 대선"
       },
       {
+        "rank": 7,
+        "keyword": "정재형 포르쉐 운전"
+      },
+      {
         "rank": 8,
-        "keyword": "이재명 지지율"
+        "keyword": "권노갑 최형우 조문"
       },
       {
         "rank": 9,
-        "keyword": "오대환 김주혁 미담"
+        "keyword": "판옵티콘"
       },
       {
         "rank": 10,
-        "keyword": "31호 태풍"
+        "keyword": "32기 영숙"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "김태우, god 막내에서 솔로 20년…‘하고 싶은 말’ 아직 끝나지 않았다 [DA피플]",
+      "title": "제3회 피지컬퍼포먼스페스티벌: 경계파괴자 11월 3일 개최",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261026/134911713/1",
-      "publishedAt": "수집 10. 26. 17:32 KST",
-      "publishedOrder": 1793003554665
+      "url": "https://sports.donga.com/ent/article/all/20261026/134913342/1",
+      "publishedAt": "수집 10. 27. 00:43 KST",
+      "publishedOrder": 1793029383029
     },
     {
-      "title": "아일릿 “비록 4명 무대지만 모카 마음까지”… 미니 5집으로 컴백",
+      "title": "다이브 캐비닛 어떻게 꾸몄나…아이브 멤버들 직접 나선다",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261026/134911699/1",
-      "publishedAt": "수집 10. 26. 17:32 KST",
-      "publishedOrder": 1793003554665
+      "url": "https://sports.donga.com/ent/article/all/20261026/134913325/1",
+      "publishedAt": "수집 10. 27. 00:43 KST",
+      "publishedOrder": 1793029383029
     },
     {
-      "title": "“시청자가 팀·규칙 정한다”…레쥬·STN SPORTS, 시청자 참여형 골프 예능 론칭",
+      "title": "전현무, 외모 악플�� “유두 자르는 수술 고민” (사당귀)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261026/134911372/1",
-      "publishedAt": "수집 10. 26. 17:32 KST",
-      "publishedOrder": 1793003554665
+      "url": "https://sports.donga.com/ent/article/all/20261026/134912853/1",
+      "publishedAt": "수집 10. 27. 00:43 KST",
+      "publishedOrder": 1793029383029
     },
     {
-      "title": "몬스타엑스, 북미 10개 도시 투어 성료…외신 뜨거운 반응",
+      "title": "이영현, 33kg 감량 후 근황…미모도 포텐 [DA★]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261026/134911260/1",
-      "publishedAt": "수집 10. 26. 17:32 KST",
-      "publishedOrder": 1793003554665
+      "url": "https://sports.donga.com/ent/article/all/20261026/134912808/1",
+      "publishedAt": "수집 10. 27. 00:43 KST",
+      "publishedOrder": 1793029383029
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 26. 17:32 KST",
-      "publishedOrder": 1793003554002
+      "publishedAt": "수집 10. 27. 00:43 KST",
+      "publishedOrder": 1793029382037
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 26. 17:32 KST",
-      "publishedOrder": 1793003554002
+      "publishedAt": "수집 10. 27. 00:43 KST",
+      "publishedOrder": 1793029382037
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 26. 17:32 KST",
-      "publishedOrder": 1793003554002
+      "publishedAt": "수집 10. 27. 00:43 KST",
+      "publishedOrder": 1793029382037
     },
     {
-      "title": "\"내년 4월, 요한이 장가 간다\"..김요한♥오연희, 또 연예계 결혼 커플 탄생?[신랑수업2]",
+      "title": "양홍원 불륜설 폭로자, 경찰 출동에 억울 \"수배자 아니라고\"",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/broadcast-show/2026/10/25/2026102517284830234",
-      "publishedAt": "수집 10. 26. 17:32 KST",
-      "publishedOrder": 1793003554002
+      "url": "https://www.starnewskorea.com/star/2026/10/26/2026102607410873938",
+      "publishedAt": "수집 10. 27. 00:43 KST",
+      "publishedOrder": 1793029382037
     }
   ]
 }
