@@ -1,255 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-10-26T15:51:54.274Z",
-  "updatedAtKst": "2026. 10. 27. AM 12:51:54",
+  "updatedAt": "2026-10-27T00:14:27.633Z",
+  "updatedAtKst": "2026. 10. 27. AM 9:14:27",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "국민은행 2091명 추가 유출"
+        "keyword": "3분기 GDP 1.0% 성장"
       },
       {
         "rank": 2,
-        "keyword": "네일 퇴장과 불펜 호투"
+        "keyword": "앤트로픽 IPO 기대 상승"
       },
       {
         "rank": 3,
-        "keyword": "이태원 참사"
+        "keyword": "선관위 특검 투표지 검증"
       },
       {
         "rank": 4,
-        "keyword": "코스피 5500선 붕괴"
+        "keyword": "김건희 추가 구속 심문"
       },
       {
         "rank": 5,
-        "keyword": "카스트로 2점 홈런 쾌투"
+        "keyword": "정건주 원픽 착한 매너"
       },
       {
         "rank": 6,
-        "keyword": "대전 40대 옛 연인 살해"
+        "keyword": "2026 발롱도르 수상자 발표"
       },
       {
         "rank": 7,
-        "keyword": "앤트로픽 IPO 신청"
+        "keyword": "병역 기피"
       },
       {
         "rank": 8,
-        "keyword": "마차도 베네수엘라 귀국"
+        "keyword": "미군 이란 재공격 준비"
       },
       {
         "rank": 9,
-        "keyword": "송도 흉기 소지 20대 체포"
+        "keyword": "KBS 35기 공채 코미디언 모집"
       },
       {
         "rank": 10,
-        "keyword": "군인"
+        "keyword": "욕망의 덫"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "이��호 감독 1차전 new"
+        "keyword": "앤트로픽 IPO 상승 상승 3"
       },
       {
         "rank": 2,
-        "keyword": "KB국민은행 추가 확인 new"
+        "keyword": "3분기 GDP 1.0% 하락 1"
       },
       {
         "rank": 3,
-        "keyword": "3분기 누적 순익 new"
+        "keyword": "정건주 하락 1"
       },
       {
         "rank": 4,
-        "keyword": "31기 옥순 영호와 new"
+        "keyword": "2026 발롱도르 수상 new"
       },
       {
         "rank": 5,
-        "keyword": "김혜경 여사 골프 new"
+        "keyword": "KBS 35기 공채 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "코스피 5500선 붕괴"
+        "keyword": "선관위 특검 투표지 검증"
       },
       {
         "rank": 2,
-        "keyword": "마차도 베네수엘라 귀국"
+        "keyword": "김건희 추가 구속 심문"
       },
       {
         "rank": 3,
-        "keyword": "송도 흉기 소지 20대 체포"
+        "keyword": "3분기 GDP 성장"
       },
       {
         "rank": 4,
-        "keyword": "김오진 관저 이전 구형"
+        "keyword": "미군 이란 재공격 준비"
       },
       {
         "rank": 5,
-        "keyword": "윤석열 부부 영치금"
-      },
-      {
-        "rank": 6,
         "keyword": "KB국민은행 정보유출 추가"
       },
       {
+        "rank": 6,
+        "keyword": "미국 중간선거 D-7"
+      },
+      {
         "rank": 7,
-        "keyword": "무안공항 참사 유가족 위로"
+        "keyword": "헤이지니 노동 착취 의혹"
       },
       {
         "rank": 8,
-        "keyword": "집값 격차 290배"
+        "keyword": "이란 사우디 회동 유가"
       },
       {
         "rank": 9,
-        "keyword": "홈플러스 단전 예고"
+        "keyword": "이창호 통산 2000승"
       },
       {
         "rank": 10,
-        "keyword": "Node.js 보안 취약점"
+        "keyword": "SK하이닉스 3분기 실적"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "시효"
+        "keyword": "지게차"
       },
       {
         "rank": 2,
-        "keyword": "반려견"
+        "keyword": "psg vs olympique lyon standings"
       },
       {
         "rank": 3,
-        "keyword": "이태원 참사"
+        "keyword": "병역 기피"
       },
       {
         "rank": 4,
-        "keyword": "dazn"
+        "keyword": "욕망의 덫"
       },
       {
         "rank": 5,
-        "keyword": "군인"
+        "keyword": "고현항"
       },
       {
         "rank": 6,
-        "keyword": "기소"
+        "keyword": "체포"
       },
       {
         "rank": 7,
-        "keyword": "이세돌"
+        "keyword": "이스라엘 총선"
       },
       {
         "rank": 8,
-        "keyword": "여행경보"
+        "keyword": "제네시스 gv80"
       },
       {
         "rank": 9,
-        "keyword": "jyp 엔터테인먼트"
+        "keyword": "광명시"
       },
       {
         "rank": 10,
-        "keyword": "ballon d&apos;or"
+        "keyword": "이차전지"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "앤트로픽 IPO 신청"
+        "keyword": "앤트로픽 IPO"
       },
       {
         "rank": 2,
-        "keyword": "nc"
+        "keyword": "경찰 기동대 투입"
       },
       {
         "rank": 3,
-        "keyword": "비비지 은하 신비 엄지"
+        "keyword": "이지훈 가수"
       },
       {
         "rank": 4,
-        "keyword": "허민 안중근 유묵 전시"
+        "keyword": "롯데 이택근 단장"
       },
       {
         "rank": 5,
-        "keyword": "문근영 나이"
+        "keyword": "손흥민 니하오"
       },
       {
         "rank": 6,
-        "keyword": "브라질 대선"
+        "keyword": "해리 케인 발롱도르 수상"
       },
       {
         "rank": 7,
-        "keyword": "정재형 포르쉐 운전"
+        "keyword": "카스트로 야구선수"
       },
       {
         "rank": 8,
-        "keyword": "권노갑 최형우 조문"
+        "keyword": "우리들의 발라드2"
       },
       {
         "rank": 9,
-        "keyword": "판옵티콘"
+        "keyword": "발롱도르"
       },
       {
         "rank": 10,
-        "keyword": "32기 영숙"
+        "keyword": "룰라 브라질 대선 승리"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "제3회 피지컬퍼포먼스페스티벌: 경계파괴자 11월 3일 개최",
+      "title": "유연석vs서현진, 첫 데이트 후 진실게임 (라이어)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261026/134913342/1",
-      "publishedAt": "수집 10. 27. 00:43 KST",
-      "publishedOrder": 1793029383029
+      "url": "https://sports.donga.com/ent/article/all/20261027/134914490/1",
+      "publishedAt": "수집 10. 27. 09:07 KST",
+      "publishedOrder": 1793059658549
     },
     {
-      "title": "다이브 캐비닛 어떻게 꾸몄나…아이브 멤버들 직접 나선다",
+      "title": "롯데男 두고 KT女 두 명 신경전…손깍지에 “저 집에 가도 돼요?”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261026/134913325/1",
-      "publishedAt": "수집 10. 27. 00:43 KST",
-      "publishedOrder": 1793029383029
+      "url": "https://sports.donga.com/ent/article/all/20261027/134914466/1",
+      "publishedAt": "수집 10. 27. 09:07 KST",
+      "publishedOrder": 1793059658549
     },
     {
-      "title": "전현무, 외모 악플�� “유두 자르는 수술 고민” (사당귀)",
+      "title": "김정난 가위는 눌렸���만, “귀신은 안 믿어” (심야괴담회6)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261026/134912853/1",
-      "publishedAt": "수집 10. 27. 00:43 KST",
-      "publishedOrder": 1793029383029
+      "url": "https://sports.donga.com/ent/article/all/20261027/134914463/1",
+      "publishedAt": "수집 10. 27. 09:07 KST",
+      "publishedOrder": 1793059658549
     },
     {
-      "title": "이영현, 33kg 감량 후 근황…미모도 포텐 [DA★]",
+      "title": "미미, 새집·새 작업실 공개…DJ 연습부터 발레까지 바쁜 일상",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261026/134912808/1",
-      "publishedAt": "수집 10. 27. 00:43 KST",
-      "publishedOrder": 1793029383029
+      "url": "https://sports.donga.com/ent/article/all/20261027/134914407/1",
+      "publishedAt": "수집 10. 27. 09:07 KST",
+      "publishedOrder": 1793059658549
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 27. 00:43 KST",
-      "publishedOrder": 1793029382037
+      "publishedAt": "수집 10. 27. 09:07 KST",
+      "publishedOrder": 1793059657666
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 27. 00:43 KST",
-      "publishedOrder": 1793029382037
+      "publishedAt": "수집 10. 27. 09:07 KST",
+      "publishedOrder": 1793059657666
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 27. 00:43 KST",
-      "publishedOrder": 1793029382037
+      "publishedAt": "수집 10. 27. 09:07 KST",
+      "publishedOrder": 1793059657666
     },
     {
-      "title": "양홍원 불륜설 폭로자, 경찰 출동에 억울 \"수배자 아니라고\"",
+      "title": "'뒷담화 논란 기수' 31기 상철, 결혼한다..청첩장 모임에 순자→옥순 불참",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/26/2026102607410873938",
-      "publishedAt": "수집 10. 27. 00:43 KST",
-      "publishedOrder": 1793029382037
+      "url": "https://www.starnewskorea.com/broadcast-show/2026/10/26/2026102614022119891",
+      "publishedAt": "수집 10. 27. 09:07 KST",
+      "publishedOrder": 1793059657666
     }
   ]
 }
