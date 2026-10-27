@@ -1,70 +1,70 @@
 {
   "success": true,
-  "updatedAt": "2026-10-27T08:39:49.257Z",
-  "updatedAtKst": "2026. 10. 27. PM 5:39:49",
+  "updatedAt": "2026-10-27T15:08:25.504Z",
+  "updatedAtKst": "2026. 10. 28. AM 12:08:25",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "與, 조희대 국정조사 본회의 처리 목표"
+        "keyword": "구룡마을 화재 현장 방문 오세훈"
       },
       {
         "rank": 2,
-        "keyword": "고리 3·4호기 계속운전 허가"
+        "keyword": "김건희 구속 연장"
       },
       {
         "rank": 3,
-        "keyword": "구룡마을 화재"
+        "keyword": "구로구 시신 유기 체포"
       },
       {
         "rank": 4,
-        "keyword": "3분기 GDP 성장"
+        "keyword": "최형우, 최고령 홈런!"
       },
       {
         "rank": 5,
-        "keyword": "삼성 박진만 감독, 최형우 선발 출전"
+        "keyword": "40대 여성 징역 10개월"
       },
       {
         "rank": 6,
-        "keyword": "박승수"
+        "keyword": "우주발사체"
       },
       {
         "rank": 7,
-        "keyword": "닛케이 평균주가"
+        "keyword": "앤 트로픽"
       },
       {
         "rank": 8,
-        "keyword": "코스피 3% 반등"
+        "keyword": "나의 유죄인간"
       },
       {
         "rank": 9,
-        "keyword": "2026-2027 여자프로농구 개막"
+        "keyword": "러시아 경유 미국 수입"
       },
       {
         "rank": 10,
-        "keyword": "전현무계획"
+        "keyword": "허구연 3연임 앞둔 총회"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "與 조희대 국정조사 동일"
+        "keyword": "투��포 디아즈 동일"
       },
       {
         "rank": 2,
-        "keyword": "고리 3·4호기 계속운전 상승 3"
+        "keyword": "서인영 결혼식에 하객 상승 2"
       },
       {
         "rank": 3,
-        "keyword": "삼성 박진만 감독 하락 1"
+        "keyword": "서현진 하락 1"
       },
       {
         "rank": 4,
-        "keyword": "구룡마을 화재 발생 new"
+        "keyword": "연애박사 new"
       },
       {
         "rank": 5,
-        "keyword": "범부처 주택 신속공급 new"
+        "keyword": "사미자 뇌경색 며느리에 new"
       }
     ],
     "zum": [
@@ -74,35 +74,35 @@
       },
       {
         "rank": 2,
-        "keyword": "고리 원전 계속운전 허가"
+        "keyword": "구로구 시신 유기 체포"
       },
       {
         "rank": 3,
-        "keyword": "역삼동 방화 사건"
-      },
-      {
-        "rank": 4,
         "keyword": "러시아 경유 미국 수입"
       },
       {
-        "rank": 5,
+        "rank": 4,
         "keyword": "이스라엘 총선 투표"
       },
       {
+        "rank": 5,
+        "keyword": "송파 장모살해 보완수사"
+      },
+      {
         "rank": 6,
-        "keyword": "조희대 국정조사 결정"
+        "keyword": "인천 흉기난동 최충락 자해"
       },
       {
         "rank": 7,
-        "keyword": "전국 한파주의보"
+        "keyword": "임성근 징역 3년 확정"
       },
       {
         "rank": 8,
-        "keyword": "김건희 추가 구속 심문"
+        "keyword": "금감원 신용융자 규제"
       },
       {
         "rank": 9,
-        "keyword": "미군 이란 재공격 준비"
+        "keyword": "금감원 JYP 공개매수"
       },
       {
         "rank": 10,
@@ -112,172 +112,87 @@
     "google": [
       {
         "rank": 1,
-        "keyword": "몸매"
+        "keyword": "3기신도시 남양주 왕숙지구"
       },
       {
         "rank": 2,
-        "keyword": "박승수"
+        "keyword": "우주발사체"
       },
       {
         "rank": 3,
-        "keyword": "닛케이 평균주가"
+        "keyword": "앤 트로픽"
       },
       {
         "rank": 4,
-        "keyword": "구룡마을"
+        "keyword": "잠실"
       },
       {
         "rank": 5,
-        "keyword": "전현무계획"
+        "keyword": "나의 유죄인간"
       },
       {
         "rank": 6,
-        "keyword": "데스티니 차일드"
+        "keyword": "관광"
       },
       {
         "rank": 7,
-        "keyword": "국민 총소득"
+        "keyword": "단발"
       },
       {
         "rank": 8,
-        "keyword": "new zealand vs india"
+        "keyword": "충주시장"
       },
       {
         "rank": 9,
-        "keyword": "손태진"
+        "keyword": "서울 지하철 7호선"
       },
       {
         "rank": 10,
-        "keyword": "최혜진"
+        "keyword": "잇섭"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "김똘똘 정건주 실물 원픽"
+        "keyword": "지만원 구속"
       },
       {
         "rank": 2,
-        "keyword": "조희대 국정조사"
+        "keyword": "홍준표 측근 구속영장 기각"
       },
       {
         "rank": 3,
-        "keyword": "고리 원전 계속운전"
+        "keyword": "이경규 공황장애 진단"
       },
       {
         "rank": 4,
-        "keyword": "앤트로픽 IPO"
+        "keyword": "김건희 구속 연장"
       },
       {
         "rank": 5,
-        "keyword": "앤더블 첫 컴백"
+        "keyword": "헤이지니 노동착취 논란 해명"
       },
       {
         "rank": 6,
-        "keyword": "LG이노텍"
-      },
-      {
-        "rank": 7,
         "keyword": "구룡마을 화재"
       },
       {
+        "rank": 7,
+        "keyword": "이천희 가구 회사 퇴사"
+      },
+      {
         "rank": 8,
-        "keyword": "임성근 채상병 순직 책임"
+        "keyword": "오경미 대법관"
       },
       {
         "rank": 9,
-        "keyword": "송미령 농지 전수조사"
+        "keyword": "재혼 황후"
       },
       {
         "rank": 10,
-        "keyword": "KIA 이호연 2번 DH"
+        "keyword": "김종서 신해철 반목 화해"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "이채연, 춤 내려놓고 J록으로…日 오리콘 차트 진입",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261027/134919040/1",
-      "publishedAt": "수집 10. 27. 17:39 KST",
-      "publishedOrder": 1793090389232
-    },
-    {
-      "title": "앤더블 컴백, 데뷔 앨범 초동 73만 장…2번째 페이지",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261027/134915963/1",
-      "publishedAt": "수집 10. 27. 17:39 KST",
-      "publishedOrder": 1793090389232
-    },
-    {
-      "title": "이주연, 사극서 호위무사 맡��다가 혼쭐…“몸을 못 써서 엄청 혼났다”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261027/134919103/1",
-      "publishedAt": "수집 10. 27. 17:39 KST",
-      "publishedOrder": 1793090389232
-    },
-    {
-      "title": "앤더블 유승언 “데뷔 활동 아쉬움? 비주얼 못 보여줘…열심히 운동했다”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261027/134918673/1",
-      "publishedAt": "수집 10. 27. 17:39 KST",
-      "publishedOrder": 1793090389232
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 27. 17:39 KST",
-      "publishedOrder": 1793090388523
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 27. 17:39 KST",
-      "publishedOrder": 1793090388523
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 27. 17:39 KST",
-      "publishedOrder": 1793090388523
-    },
-    {
-      "title": "'100만원' 같은 옷 맞대결..장원영 vs 김지원에 공효진까지 [스타이슈]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/26/2026102616170476685",
-      "publishedAt": "수집 10. 27. 17:39 KST",
-      "publishedOrder": 1793090388523
-    },
-    {
-      "title": "[포토] 유재필, 앤더블 컴백 쇼케이스 진행",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1HZk9vZmdQTDhHamo0MjM4R1lXV2VYa1hUUERFWGxrX0tINUNvUjVSQWNXWTh5R3R0TDd4QkJDNTEyOW51UVNoaEpOYV9sV1E3ZGZVN0VWdzByQmVQdk1kTE92X2Vzc043RmsxRGdUS2xrZU1v?oc=5",
-      "publishedAt": "10. 27. 16:03 KST",
-      "publishedOrder": 1793084580000
-    },
-    {
-      "title": "쥬얼리 출신 하주연, 연예계 떠난 이유는 [소셜in]",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBTZzFlMHlUVTlQb1JXdEZLcFRpZkRmZTlSb3FiVzVhTFpKSDc0NW9KVTBaYTJ5RDhuRm9RekFyVTQ1dFRwUVZSZ2FKUW9yVVZ6ZkVJZDc4aUVnSlhFMTg5S0NXVWNaWXdvOHJGQnVxNWdjcVRk?oc=5",
-      "publishedAt": "10. 27. 13:52 KST",
-      "publishedOrder": 1793076720000
-    },
-    {
-      "title": "박기영, 11월 단독 콘서트 '포레스트' 개최…신곡 첫 공개",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBoMi1BTDItbzV6bWJhdDYxU2NpMjhxRzBzTkFsVFlzTTY0cEtNRk9tZDE4bUxqcHFqMEhYN3VzczhMcVdCTUw3Y28tRkI5QkF2cHB4VUxkaEhNSzFTWlhYS0daWkFHV05XOGfSAW5BVV95cUxQNExIRVBFNUw4cW82YjJPekVDM0hiLTV0T0RlcnZKNkdpNC1jZ05NbzJXb2RTMmZwcFhscmVzc1NzTExOVWsxNEoyT055akhMcDNKb3ZSWGZfdGJzb1VSRFBYNUUzRE0yN0dVSzB2QQ?oc=5",
-      "publishedAt": "10. 27. 13:19 KST",
-      "publishedOrder": 1793074792000
-    },
-    {
-      "title": "[포토] 이재현, 현재는 배우",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5JbHhfczY2S2x6UXNHVUZ6MmtFNFowTi1wc0hUOVhhdjN0SEFFWXk2REZ4VHNhcU1fWjN0Z2xnX1hjb0tKeVYtYmhlN1owZlFreWFJbDRDN0liVkRMUkpoLXY2bWFtcmRWODZPN0hFYlNDS2lk?oc=5",
-      "publishedAt": "10. 27. 12:05 KST",
-      "publishedOrder": 1793070300000
-    }
-  ]
+  "entertainment": []
 }
