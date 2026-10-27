@@ -1,255 +1,283 @@
 {
   "success": true,
-  "updatedAt": "2026-10-27T00:14:27.633Z",
-  "updatedAtKst": "2026. 10. 27. AM 9:14:27",
+  "updatedAt": "2026-10-27T08:39:49.257Z",
+  "updatedAtKst": "2026. 10. 27. PM 5:39:49",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "3분기 GDP 1.0% 성장"
+        "keyword": "與, 조희대 국정조사 본회의 처리 목표"
       },
       {
         "rank": 2,
-        "keyword": "앤트로픽 IPO 기대 상승"
+        "keyword": "고리 3·4호기 계속운전 허가"
       },
       {
         "rank": 3,
-        "keyword": "선관위 특검 투표지 검증"
+        "keyword": "구룡마을 화재"
       },
       {
         "rank": 4,
-        "keyword": "김건희 추가 구속 심문"
+        "keyword": "3분기 GDP 성장"
       },
       {
         "rank": 5,
-        "keyword": "정건주 원픽 착한 매너"
+        "keyword": "삼성 박진만 감독, 최형우 선발 출전"
       },
       {
         "rank": 6,
-        "keyword": "2026 발롱도르 수상자 발표"
+        "keyword": "박승수"
       },
       {
         "rank": 7,
-        "keyword": "병역 기피"
+        "keyword": "닛케이 평균주가"
       },
       {
         "rank": 8,
-        "keyword": "미군 이란 재공격 준비"
+        "keyword": "코스피 3% 반등"
       },
       {
         "rank": 9,
-        "keyword": "KBS 35기 공채 코미디언 모집"
+        "keyword": "2026-2027 여자프로농구 개막"
       },
       {
         "rank": 10,
-        "keyword": "욕망의 덫"
+        "keyword": "전현무계획"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "앤트로픽 IPO 상승 상승 3"
+        "keyword": "與 조희대 국정조사 동일"
       },
       {
         "rank": 2,
-        "keyword": "3분기 GDP 1.0% 하락 1"
+        "keyword": "고리 3·4호기 계속운전 상승 3"
       },
       {
         "rank": 3,
-        "keyword": "정건주 하락 1"
+        "keyword": "삼성 박진만 감독 하락 1"
       },
       {
         "rank": 4,
-        "keyword": "2026 발롱도르 수상 new"
+        "keyword": "구룡마을 화재 발생 new"
       },
       {
         "rank": 5,
-        "keyword": "KBS 35기 공채 new"
+        "keyword": "범부처 주택 신속공급 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "선관위 특검 투표지 검증"
+        "keyword": "구룡마을 화재"
       },
       {
         "rank": 2,
-        "keyword": "김건희 추가 구속 심문"
+        "keyword": "고리 원전 계속운전 허가"
       },
       {
         "rank": 3,
-        "keyword": "3분기 GDP 성장"
+        "keyword": "역삼동 방화 사건"
       },
       {
         "rank": 4,
-        "keyword": "미군 이란 재공격 준비"
+        "keyword": "러시아 경유 미국 수입"
       },
       {
         "rank": 5,
-        "keyword": "KB국민은행 정보유출 추가"
+        "keyword": "이스라엘 총선 투표"
       },
       {
         "rank": 6,
-        "keyword": "미국 중간선거 D-7"
+        "keyword": "조희대 국정조사 결정"
       },
       {
         "rank": 7,
-        "keyword": "헤이지니 노동 착취 의혹"
+        "keyword": "전국 한파주의보"
       },
       {
         "rank": 8,
-        "keyword": "이란 사우디 회동 유가"
+        "keyword": "김건희 추가 구속 심문"
       },
       {
         "rank": 9,
-        "keyword": "이창호 통산 2000승"
+        "keyword": "미군 이란 재공격 준비"
       },
       {
         "rank": 10,
-        "keyword": "SK하이닉스 3분기 실적"
+        "keyword": "IAEA 원자력 장관회의"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "지게차"
+        "keyword": "몸매"
       },
       {
         "rank": 2,
-        "keyword": "psg vs olympique lyon standings"
+        "keyword": "박승수"
       },
       {
         "rank": 3,
-        "keyword": "병역 기피"
+        "keyword": "닛케이 평균주가"
       },
       {
         "rank": 4,
-        "keyword": "욕망의 덫"
+        "keyword": "구룡마을"
       },
       {
         "rank": 5,
-        "keyword": "고현항"
+        "keyword": "전현무계획"
       },
       {
         "rank": 6,
-        "keyword": "체포"
+        "keyword": "데스티니 차일드"
       },
       {
         "rank": 7,
-        "keyword": "이스라엘 총선"
+        "keyword": "국민 총소득"
       },
       {
         "rank": 8,
-        "keyword": "제네시스 gv80"
+        "keyword": "new zealand vs india"
       },
       {
         "rank": 9,
-        "keyword": "광명시"
+        "keyword": "손태진"
       },
       {
         "rank": 10,
-        "keyword": "이차전지"
+        "keyword": "최혜진"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "앤트로픽 IPO"
+        "keyword": "김똘똘 정건주 실물 원픽"
       },
       {
         "rank": 2,
-        "keyword": "경찰 기동대 투입"
+        "keyword": "조희대 국정조사"
       },
       {
         "rank": 3,
-        "keyword": "이지훈 가수"
+        "keyword": "고리 원전 계속운전"
       },
       {
         "rank": 4,
-        "keyword": "롯데 이택근 단장"
+        "keyword": "앤트로픽 IPO"
       },
       {
         "rank": 5,
-        "keyword": "손흥민 니하오"
+        "keyword": "앤더블 첫 컴백"
       },
       {
         "rank": 6,
-        "keyword": "해리 케인 발롱도르 수상"
+        "keyword": "LG이노텍"
       },
       {
         "rank": 7,
-        "keyword": "카스트로 야구선수"
+        "keyword": "구룡마을 화재"
       },
       {
         "rank": 8,
-        "keyword": "우리들의 발라드2"
+        "keyword": "임성근 채상병 순직 책임"
       },
       {
         "rank": 9,
-        "keyword": "발롱도르"
+        "keyword": "송미령 농지 전수조사"
       },
       {
         "rank": 10,
-        "keyword": "룰라 브라질 대선 승리"
+        "keyword": "KIA 이호연 2번 DH"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "유연석vs서현진, 첫 데이트 후 진실게임 (라이어)",
+      "title": "이채연, 춤 내려놓고 J록으로…日 오리콘 차트 진입",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261027/134914490/1",
-      "publishedAt": "수집 10. 27. 09:07 KST",
-      "publishedOrder": 1793059658549
+      "url": "https://sports.donga.com/ent/article/all/20261027/134919040/1",
+      "publishedAt": "수집 10. 27. 17:39 KST",
+      "publishedOrder": 1793090389232
     },
     {
-      "title": "롯데男 두고 KT女 두 명 신경전…손깍지에 “저 집에 가도 돼요?”",
+      "title": "앤더블 컴백, 데뷔 앨범 초동 73만 장…2번째 페이지",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261027/134914466/1",
-      "publishedAt": "수집 10. 27. 09:07 KST",
-      "publishedOrder": 1793059658549
+      "url": "https://sports.donga.com/ent/article/all/20261027/134915963/1",
+      "publishedAt": "수집 10. 27. 17:39 KST",
+      "publishedOrder": 1793090389232
     },
     {
-      "title": "김정난 가위는 눌렸���만, “귀신은 안 믿어” (심야괴담회6)",
+      "title": "이주연, 사극서 호위무사 맡��다가 혼쭐…“몸을 못 써서 엄청 혼났다”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261027/134914463/1",
-      "publishedAt": "수집 10. 27. 09:07 KST",
-      "publishedOrder": 1793059658549
+      "url": "https://sports.donga.com/ent/article/all/20261027/134919103/1",
+      "publishedAt": "수집 10. 27. 17:39 KST",
+      "publishedOrder": 1793090389232
     },
     {
-      "title": "미미, 새집·새 작업실 공개…DJ 연습부터 발레까지 바쁜 일상",
+      "title": "앤더블 유승언 “데뷔 활동 아쉬움? 비주얼 못 보여줘…열심히 운동했다”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261027/134914407/1",
-      "publishedAt": "수집 10. 27. 09:07 KST",
-      "publishedOrder": 1793059658549
+      "url": "https://sports.donga.com/ent/article/all/20261027/134918673/1",
+      "publishedAt": "수집 10. 27. 17:39 KST",
+      "publishedOrder": 1793090389232
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 27. 09:07 KST",
-      "publishedOrder": 1793059657666
+      "publishedAt": "수집 10. 27. 17:39 KST",
+      "publishedOrder": 1793090388523
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 27. 09:07 KST",
-      "publishedOrder": 1793059657666
+      "publishedAt": "수집 10. 27. 17:39 KST",
+      "publishedOrder": 1793090388523
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 27. 09:07 KST",
-      "publishedOrder": 1793059657666
+      "publishedAt": "수집 10. 27. 17:39 KST",
+      "publishedOrder": 1793090388523
     },
     {
-      "title": "'뒷담화 논란 기수' 31기 상철, 결혼한다..청첩장 모임에 순자→옥순 불참",
+      "title": "'100만원' 같은 옷 맞대결..장원영 vs 김지원에 공효진까지 [스타이슈]",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/broadcast-show/2026/10/26/2026102614022119891",
-      "publishedAt": "수집 10. 27. 09:07 KST",
-      "publishedOrder": 1793059657666
+      "url": "https://www.starnewskorea.com/star/2026/10/26/2026102616170476685",
+      "publishedAt": "수집 10. 27. 17:39 KST",
+      "publishedOrder": 1793090388523
+    },
+    {
+      "title": "[포토] 유재필, 앤더블 컴백 쇼케이스 진행",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1HZk9vZmdQTDhHamo0MjM4R1lXV2VYa1hUUERFWGxrX0tINUNvUjVSQWNXWTh5R3R0TDd4QkJDNTEyOW51UVNoaEpOYV9sV1E3ZGZVN0VWdzByQmVQdk1kTE92X2Vzc043RmsxRGdUS2xrZU1v?oc=5",
+      "publishedAt": "10. 27. 16:03 KST",
+      "publishedOrder": 1793084580000
+    },
+    {
+      "title": "쥬얼리 출신 하주연, 연예계 떠난 이유는 [소셜in]",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBTZzFlMHlUVTlQb1JXdEZLcFRpZkRmZTlSb3FiVzVhTFpKSDc0NW9KVTBaYTJ5RDhuRm9RekFyVTQ1dFRwUVZSZ2FKUW9yVVZ6ZkVJZDc4aUVnSlhFMTg5S0NXVWNaWXdvOHJGQnVxNWdjcVRk?oc=5",
+      "publishedAt": "10. 27. 13:52 KST",
+      "publishedOrder": 1793076720000
+    },
+    {
+      "title": "박기영, 11월 단독 콘서트 '포레스트' 개최…신곡 첫 공개",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBoMi1BTDItbzV6bWJhdDYxU2NpMjhxRzBzTkFsVFlzTTY0cEtNRk9tZDE4bUxqcHFqMEhYN3VzczhMcVdCTUw3Y28tRkI5QkF2cHB4VUxkaEhNSzFTWlhYS0daWkFHV05XOGfSAW5BVV95cUxQNExIRVBFNUw4cW82YjJPekVDM0hiLTV0T0RlcnZKNkdpNC1jZ05NbzJXb2RTMmZwcFhscmVzc1NzTExOVWsxNEoyT055akhMcDNKb3ZSWGZfdGJzb1VSRFBYNUUzRE0yN0dVSzB2QQ?oc=5",
+      "publishedAt": "10. 27. 13:19 KST",
+      "publishedOrder": 1793074792000
+    },
+    {
+      "title": "[포토] 이재현, 현재는 배우",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5JbHhfczY2S2x6UXNHVUZ6MmtFNFowTi1wc0hUOVhhdjN0SEFFWXk2REZ4VHNhcU1fWjN0Z2xnX1hjb0tKeVYtYmhlN1owZlFreWFJbDRDN0liVkRMUkpoLXY2bWFtcmRWODZPN0hFYlNDS2lk?oc=5",
+      "publishedAt": "10. 27. 12:05 KST",
+      "publishedOrder": 1793070300000
     }
   ]
 }
