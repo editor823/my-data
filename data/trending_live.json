@@ -1,119 +1,160 @@
 {
   "success": true,
-  "updatedAt": "2026-10-28T09:19:30.976Z",
-  "updatedAtKst": "2026. 10. 28. PM 6:19:30",
+  "updatedAt": "2026-10-28T20:05:23.705Z",
+  "updatedAtKst": "2026. 10. 29. AM 5:05:23",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "구글 애플 인앱결제 과징금"
+        "keyword": "투표지 검증 종료"
       },
       {
         "rank": 2,
-        "keyword": "코스피 6000선 회복"
+        "keyword": "포항, 가시마 원정 0-3 패배"
       },
       {
         "rank": 3,
-        "keyword": "빗썸 사내 시스템 해킹"
+        "keyword": "미 연준 기준금리 동결"
       },
       {
         "rank": 4,
-        "keyword": "삼성물산 3분기 영업익 1조1430억원"
+        "keyword": "스페인 열차 사고 경상 6명"
       },
       {
         "rank": 5,
-        "keyword": "1라운드 지명된 한양대"
+        "keyword": "바이에른 대 fc 마그데부르크"
       },
       {
         "rank": 6,
-        "keyword": "김연경"
+        "keyword": "한국 러시아 관계 유럽 우려"
       },
       {
         "rank": 7,
-        "keyword": "미국 이란 공격 대비"
+        "keyword": "신민아, 이광수와 김우빈 옆에서 긴장"
       },
       {
         "rank": 8,
-        "keyword": "김재원 조이현 로맨스 200점"
+        "keyword": "유시민 이재명 비판"
       },
       {
         "rank": 9,
-        "keyword": "레버리지"
+        "keyword": "비트코인 기욤 서울 집 공개"
       },
       {
         "rank": 10,
-        "keyword": "전남광주 학교무상급식 예산"
+        "keyword": "젤렌스키 트럼프 종전"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "구글 애플 과징금 상승 1"
+        "keyword": "투표지 검증 종료 new"
       },
       {
         "rank": 2,
-        "keyword": "코스피 6000선 회복 new"
+        "keyword": "스페인 한국인 경상 동일"
       },
       {
         "rank": 3,
-        "keyword": "1라운드 지명된 한양대 동일"
+        "keyword": "포항 0-3 ACLE 동일"
       },
       {
         "rank": 4,
-        "keyword": "최종면접 조이현 김재원 new"
+        "keyword": "신민아 이광수 김우빈 동일"
       },
       {
         "rank": 5,
-        "keyword": "삼성물산 3분기 영업익 동일"
+        "keyword": "美연준 기준금리 동결 동일"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "빗썸 사내 시스템 해킹"
+        "keyword": "미 연준 기준금리 동결"
       },
       {
         "rank": 2,
-        "keyword": "구글 애플 인앱결제 과징금"
+        "keyword": "올림픽공원 투표지 검증"
       },
       {
         "rank": 3,
-        "keyword": "미국 이란 공격 대비"
+        "keyword": "유시민 이재명 비판"
       },
       {
         "rank": 4,
-        "keyword": "코스피 매수 사이드카"
+        "keyword": "한국 러시아 관계 유럽 우려"
       },
       {
         "rank": 5,
-        "keyword": "전남광주 학교무상급식 예산"
+        "keyword": "젤렌스키 트럼프 종전"
       },
       {
         "rank": 6,
-        "keyword": "북한 IP 금융권 해킹"
+        "keyword": "구글 애플 인앱결제 과징금"
       },
       {
         "rank": 7,
-        "keyword": "국제유가 중동 평화 기대"
+        "keyword": "탈북어민 강제북송 상고"
       },
       {
         "rank": 8,
-        "keyword": "엘리엇 ISDS 배상 확정"
+        "keyword": "한미 국방장관 회담"
       },
       {
         "rank": 9,
-        "keyword": "한동훈 딸 수사 무마 의혹"
+        "keyword": "원당역 흉기 사건"
       },
       {
         "rank": 10,
         "keyword": "박종준 2심 선고"
       }
     ],
-    "google": [],
+    "google": [
+      {
+        "rank": 1,
+        "keyword": "황희찬"
+      },
+      {
+        "rank": 2,
+        "keyword": "바이에른 대 fc 마그데부르크"
+      },
+      {
+        "rank": 3,
+        "keyword": "국채"
+      },
+      {
+        "rank": 4,
+        "keyword": "맨 시티 대 브라이턴"
+      },
+      {
+        "rank": 5,
+        "keyword": "sc 프라이부르크 대 볼프스부르크"
+      },
+      {
+        "rank": 6,
+        "keyword": "apple"
+      },
+      {
+        "rank": 7,
+        "keyword": "은지원"
+      },
+      {
+        "rank": 8,
+        "keyword": "lg에너지솔루션"
+      },
+      {
+        "rank": 9,
+        "keyword": "노바크 조코비치"
+      },
+      {
+        "rank": 10,
+        "keyword": "한겨레"
+      }
+    ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "배우 윤대열 LPG 폭발"
+        "keyword": "김민 동두천집"
       },
       {
         "rank": 2,
@@ -121,95 +162,94 @@
       },
       {
         "rank": 3,
-        "keyword": "고민시 공식석상 불참"
+        "keyword": "스페인 열차 충돌"
       },
       {
         "rank": 4,
-        "keyword": "구글 애플 과징금 부과"
+        "keyword": "신민아 결혼 1주년"
       },
       {
         "rank": 5,
-        "keyword": "NC 정구범 은퇴"
+        "keyword": "전현무 계획 4"
       },
       {
         "rank": 6,
-        "keyword": "유혜원 근황"
+        "keyword": "일본 비상식량"
       },
       {
         "rank": 7,
-        "keyword": "이택림 모친상"
+        "keyword": "이스라엘 선거"
       },
       {
         "rank": 8,
-        "keyword": "빗썸 해킹"
+        "keyword": "할로윈데이"
       },
       {
         "rank": 9,
-        "keyword": "지만원 구속"
+        "keyword": "존박 랩 실력 로꼬 호평"
       },
       {
         "rank": 10,
-        "keyword": "역삼동 연쇄방화 70대"
+        "keyword": "나는 솔로 34기"
       }
-    ],
-    "googleError": "google trends HTTP 429"
+    ]
   },
   "entertainment": [
     {
-      "title": "추영우표 멜로, 맵고 쓰고 달다…‘연애박사’에서 터진 진가",
+      "title": "“가” 장영란, 의사 집안 시부모에 결혼 반대당했다…한창 “둘이서 울어”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261028/134926947/1",
-      "publishedAt": "수집 10. 28. 18:02 KST",
-      "publishedOrder": 1793178129639
+      "url": "https://sports.donga.com/ent/article/all/20261028/134929127/1",
+      "publishedAt": "수집 10. 29. 05:05 KST",
+      "publishedOrder": 1793217918729
     },
     {
-      "title": "올해 전방위 활약 지코, 일본 연말 대형 페스티벌 상륙",
+      "title": "김경란, 탁재훈에 “ADHD 있나?” 돌직구…“20초 이상 못 들어”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261028/134926394/1",
-      "publishedAt": "수집 10. 28. 18:02 KST",
-      "publishedOrder": 1793178129639
+      "url": "https://sports.donga.com/ent/article/all/20261028/134929109/1",
+      "publishedAt": "수집 10. 29. 05:05 KST",
+      "publishedOrder": 1793217918729
     },
     {
-      "title": "고수, 드���어 얼굴 쓴다…15년 만에 로맨스 복귀",
+      "title": "앤더블 “관심에서 끌림으로…2026년 우리의 해로 만들 것” (종합)[DA현장]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261028/134926416/1",
-      "publishedAt": "수집 10. 28. 18:02 KST",
-      "publishedOrder": 1793178129639
+      "url": "https://sports.donga.com/ent/article/all/20261028/134918991/2",
+      "publishedAt": "수집 10. 29. 05:05 KST",
+      "publishedOrder": 1793217918729
     },
     {
-      "title": "‘여자친구→비비지→?’ 은하·신비·엄지, 새 프로필 공개하며 본격 행보",
+      "title": "‘최종면접’ 조이현→김재원, 6인 배우가 만든 긴장감 (종합)[DA현장]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261028/134925679/1",
-      "publishedAt": "수집 10. 28. 18:02 KST",
-      "publishedOrder": 1793178129639
+      "url": "https://sports.donga.com/ent/article/all/20261028/134926460/2",
+      "publishedAt": "수집 10. 29. 05:05 KST",
+      "publishedOrder": 1793217918729
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 28. 18:02 KST",
-      "publishedOrder": 1793178129454
+      "publishedAt": "수집 10. 29. 05:05 KST",
+      "publishedOrder": 1793217918172
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 28. 18:02 KST",
-      "publishedOrder": 1793178129454
+      "publishedAt": "수집 10. 29. 05:05 KST",
+      "publishedOrder": 1793217918172
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 28. 18:02 KST",
-      "publishedOrder": 1793178129454
+      "publishedAt": "수집 10. 29. 05:05 KST",
+      "publishedOrder": 1793217918172
     },
     {
       "title": "\"2세는 아들\"..'성매매 알선' 승리, '임신' 20대 여성과 이미 혼인신고 [스타이슈]",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/star/2026/10/28/2026102807020036718",
-      "publishedAt": "수집 10. 28. 18:02 KST",
-      "publishedOrder": 1793178129454
+      "publishedAt": "수집 10. 29. 05:05 KST",
+      "publishedOrder": 1793217918172
     }
   ]
 }
