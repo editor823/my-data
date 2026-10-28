@@ -1,198 +1,215 @@
 {
   "success": true,
-  "updatedAt": "2026-10-28T00:15:17.485Z",
-  "updatedAtKst": "2026. 10. 28. AM 9:15:17",
+  "updatedAt": "2026-10-28T09:19:30.976Z",
+  "updatedAtKst": "2026. 10. 28. PM 6:19:30",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "이스라엘 총선 투표"
+        "keyword": "구글 애플 인앱결제 과징금"
       },
       {
         "rank": 2,
-        "keyword": "발언하는 이찬진 금감원장"
+        "keyword": "코스피 6000선 회복"
       },
       {
         "rank": 3,
-        "keyword": "우승한 백구영 아내에게 감사"
+        "keyword": "빗썸 사내 시스템 해킹"
       },
       {
         "rank": 4,
-        "keyword": "유죄인간 임시완 설인아와"
+        "keyword": "삼성물산 3분기 영업익 1조1430억원"
       },
       {
         "rank": 5,
-        "keyword": "창신 메모리 테크놀로지"
+        "keyword": "1라운드 지명된 한양대"
       },
       {
         "rank": 6,
-        "keyword": "전국 한파주의보"
+        "keyword": "김연경"
       },
       {
         "rank": 7,
-        "keyword": "국제유가 중동 평화 기대"
+        "keyword": "미국 이란 공격 대비"
       },
       {
         "rank": 8,
-        "keyword": "공중강습"
+        "keyword": "김재원 조이현 로맨스 200점"
       },
       {
         "rank": 9,
-        "keyword": "구룡마을 화재"
+        "keyword": "레버리지"
       },
       {
         "rank": 10,
-        "keyword": "헤이지니 갑질 논란"
+        "keyword": "전남광주 학교무상급식 예산"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "김건희 동일"
+        "keyword": "구글 애플 과징금 상승 1"
       },
       {
         "rank": 2,
-        "keyword": "소아응급 교수 사직 new"
+        "keyword": "코스피 6000선 회복 new"
       },
       {
         "rank": 3,
-        "keyword": "구룡마을 만에 완진 상승 2"
+        "keyword": "1라운드 지명된 한양대 동일"
       },
       {
         "rank": 4,
-        "keyword": "스디파 백구영 하락 7"
+        "keyword": "최종면접 조이현 김재원 new"
       },
       {
         "rank": 5,
-        "keyword": "자기만 양 동지 공격 new"
+        "keyword": "삼성물산 3분기 영업익 동일"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "이스라엘 총선 투표"
+        "keyword": "빗썸 사내 시스템 해킹"
       },
       {
         "rank": 2,
-        "keyword": "전국 한파주의보"
+        "keyword": "구글 애플 인앱결제 과징금"
       },
       {
         "rank": 3,
+        "keyword": "미국 이란 공격 대비"
+      },
+      {
+        "rank": 4,
+        "keyword": "코스피 매수 사이드카"
+      },
+      {
+        "rank": 5,
+        "keyword": "전남광주 학교무상급식 예산"
+      },
+      {
+        "rank": 6,
+        "keyword": "북한 IP 금융권 해킹"
+      },
+      {
+        "rank": 7,
         "keyword": "국제유가 중동 평화 기대"
       },
       {
-        "rank": 4,
-        "keyword": "구룡마을 화재"
-      },
-      {
-        "rank": 5,
-        "keyword": "이란 장금상선 법적조치 경고"
-      },
-      {
-        "rank": 6,
-        "keyword": "아주대병원 소아응급 교수 사직"
-      },
-      {
-        "rank": 7,
-        "keyword": "임성근 징역 3년 확정"
-      },
-      {
         "rank": 8,
-        "keyword": "트럼프 중간선거 결과 수용"
+        "keyword": "엘리엇 ISDS 배상 확정"
       },
       {
         "rank": 9,
-        "keyword": "CRE 다제내성균 관리"
+        "keyword": "한동훈 딸 수사 무마 의혹"
       },
       {
         "rank": 10,
-        "keyword": "IAEA 이란 핵시설 복구"
+        "keyword": "박종준 2심 선고"
       }
     ],
-    "google": [
-      {
-        "rank": 1,
-        "keyword": "창신 메모리 테크놀로지"
-      },
-      {
-        "rank": 2,
-        "keyword": "공중강습"
-      },
-      {
-        "rank": 3,
-        "keyword": "별자리"
-      },
-      {
-        "rank": 4,
-        "keyword": "허문회"
-      },
-      {
-        "rank": 5,
-        "keyword": "신상진"
-      },
-      {
-        "rank": 6,
-        "keyword": "브라질"
-      },
-      {
-        "rank": 7,
-        "keyword": "하이닉스 실적발표"
-      },
-      {
-        "rank": 8,
-        "keyword": "묀헨글라트바흐 대 카를스루에"
-      },
-      {
-        "rank": 9,
-        "keyword": "기온"
-      },
-      {
-        "rank": 10,
-        "keyword": "수험"
-      }
-    ],
+    "google": [],
     "daum": [
       {
         "rank": 1,
-        "keyword": "차경은 이유진 상견례"
+        "keyword": "배우 윤대열 LPG 폭발"
       },
       {
         "rank": 2,
-        "keyword": "헤이지니 산재 갈등 녹취"
+        "keyword": "원당역"
       },
       {
         "rank": 3,
-        "keyword": "김건희 구속 연장"
+        "keyword": "고민시 공식석상 불참"
       },
       {
         "rank": 4,
-        "keyword": "엄마가 미쳤어요"
+        "keyword": "구글 애플 과징금 부과"
       },
       {
         "rank": 5,
-        "keyword": "선관위 특검 진입"
+        "keyword": "NC 정구범 은퇴"
       },
       {
         "rank": 6,
-        "keyword": "이재명 발언"
+        "keyword": "유혜원 근황"
       },
       {
         "rank": 7,
-        "keyword": "롯데 허문회 수석코치"
+        "keyword": "이택림 모친상"
       },
       {
         "rank": 8,
-        "keyword": "구룡마을 화재"
+        "keyword": "빗썸 해킹"
       },
       {
         "rank": 9,
-        "keyword": "SK하이닉스 영업익 최대"
+        "keyword": "지만원 구속"
       },
       {
         "rank": 10,
-        "keyword": "이찬진 금융지주 이사회"
+        "keyword": "역삼동 연쇄방화 70대"
       }
-    ]
+    ],
+    "googleError": "google trends HTTP 429"
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "추영우표 멜로, 맵고 쓰고 달다…‘연애박사’에서 터진 진가",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261028/134926947/1",
+      "publishedAt": "수집 10. 28. 18:02 KST",
+      "publishedOrder": 1793178129639
+    },
+    {
+      "title": "올해 전방위 활약 지코, 일본 연말 대형 페스티벌 상륙",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261028/134926394/1",
+      "publishedAt": "수집 10. 28. 18:02 KST",
+      "publishedOrder": 1793178129639
+    },
+    {
+      "title": "고수, 드���어 얼굴 쓴다…15년 만에 로맨스 복귀",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261028/134926416/1",
+      "publishedAt": "수집 10. 28. 18:02 KST",
+      "publishedOrder": 1793178129639
+    },
+    {
+      "title": "‘여자친구→비비지→?’ 은하·신비·엄지, 새 프로필 공개하며 본격 행보",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261028/134925679/1",
+      "publishedAt": "수집 10. 28. 18:02 KST",
+      "publishedOrder": 1793178129639
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 10. 28. 18:02 KST",
+      "publishedOrder": 1793178129454
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 10. 28. 18:02 KST",
+      "publishedOrder": 1793178129454
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 10. 28. 18:02 KST",
+      "publishedOrder": 1793178129454
+    },
+    {
+      "title": "\"2세는 아들\"..'성매매 알선' 승리, '임신' 20대 여성과 이미 혼인신고 [스타이슈]",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/10/28/2026102807020036718",
+      "publishedAt": "수집 10. 28. 18:02 KST",
+      "publishedOrder": 1793178129454
+    }
+  ]
 }
