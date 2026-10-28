@@ -1,96 +1,96 @@
 {
   "success": true,
-  "updatedAt": "2026-10-27T15:08:25.504Z",
-  "updatedAtKst": "2026. 10. 28. AM 12:08:25",
+  "updatedAt": "2026-10-28T00:15:17.485Z",
+  "updatedAtKst": "2026. 10. 28. AM 9:15:17",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "구룡마을 화재 현장 방문 오세훈"
+        "keyword": "이스라엘 총선 투표"
       },
       {
         "rank": 2,
-        "keyword": "김건희 구속 연장"
+        "keyword": "발언하는 이찬진 금감원장"
       },
       {
         "rank": 3,
-        "keyword": "구로구 시신 유기 체포"
+        "keyword": "우승한 백구영 아내에게 감사"
       },
       {
         "rank": 4,
-        "keyword": "최형우, 최고령 홈런!"
+        "keyword": "유죄인간 임시완 설인아와"
       },
       {
         "rank": 5,
-        "keyword": "40대 여성 징역 10개월"
+        "keyword": "창신 메모리 테크놀로지"
       },
       {
         "rank": 6,
-        "keyword": "우주발사체"
+        "keyword": "전국 한파주의보"
       },
       {
         "rank": 7,
-        "keyword": "앤 트로픽"
+        "keyword": "국제유가 중동 평화 기대"
       },
       {
         "rank": 8,
-        "keyword": "나의 유죄인간"
+        "keyword": "공중강습"
       },
       {
         "rank": 9,
-        "keyword": "러시아 경유 미국 수입"
+        "keyword": "구룡마을 화재"
       },
       {
         "rank": 10,
-        "keyword": "허구연 3연임 앞둔 총회"
+        "keyword": "헤이지니 갑질 논란"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "투��포 디아즈 동일"
+        "keyword": "김건희 동일"
       },
       {
         "rank": 2,
-        "keyword": "서인영 결혼식에 하객 상승 2"
+        "keyword": "소아응급 교수 사직 new"
       },
       {
         "rank": 3,
-        "keyword": "서현진 하락 1"
+        "keyword": "구룡마을 만에 완진 상승 2"
       },
       {
         "rank": 4,
-        "keyword": "연애박사 new"
+        "keyword": "스디파 백구영 하락 7"
       },
       {
         "rank": 5,
-        "keyword": "사미자 뇌경색 며느리에 new"
+        "keyword": "자기만 양 동지 공격 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "구룡마을 화재"
-      },
-      {
-        "rank": 2,
-        "keyword": "구로구 시신 유기 체포"
-      },
-      {
-        "rank": 3,
-        "keyword": "러시아 경유 미국 수입"
-      },
-      {
-        "rank": 4,
         "keyword": "이스라엘 총선 투표"
       },
       {
+        "rank": 2,
+        "keyword": "전국 한파주의보"
+      },
+      {
+        "rank": 3,
+        "keyword": "국제유가 중동 평화 기대"
+      },
+      {
+        "rank": 4,
+        "keyword": "구룡마을 화재"
+      },
+      {
         "rank": 5,
-        "keyword": "송파 장모살해 보완수사"
+        "keyword": "이란 장금상선 법적조치 경고"
       },
       {
         "rank": 6,
-        "keyword": "인천 흉기난동 최충락 자해"
+        "keyword": "아주대병원 소아응급 교수 사직"
       },
       {
         "rank": 7,
@@ -98,99 +98,99 @@
       },
       {
         "rank": 8,
-        "keyword": "금감원 신용융자 규제"
+        "keyword": "트럼프 중간선거 결과 수용"
       },
       {
         "rank": 9,
-        "keyword": "금감원 JYP 공개매수"
+        "keyword": "CRE 다제내성균 관리"
       },
       {
         "rank": 10,
-        "keyword": "IAEA 원자력 장관회의"
+        "keyword": "IAEA 이란 핵시설 복구"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "3기신도시 남양주 왕숙지구"
+        "keyword": "창신 메모리 테크놀로지"
       },
       {
         "rank": 2,
-        "keyword": "우주발사체"
+        "keyword": "공중강습"
       },
       {
         "rank": 3,
-        "keyword": "앤 트로픽"
+        "keyword": "별자리"
       },
       {
         "rank": 4,
-        "keyword": "잠실"
+        "keyword": "허문회"
       },
       {
         "rank": 5,
-        "keyword": "나의 유죄인간"
+        "keyword": "신상진"
       },
       {
         "rank": 6,
-        "keyword": "관광"
+        "keyword": "브라질"
       },
       {
         "rank": 7,
-        "keyword": "단발"
+        "keyword": "하이닉스 실적발표"
       },
       {
         "rank": 8,
-        "keyword": "충주시장"
+        "keyword": "묀헨글라트바흐 대 카를스루에"
       },
       {
         "rank": 9,
-        "keyword": "서울 지하철 7호선"
+        "keyword": "기온"
       },
       {
         "rank": 10,
-        "keyword": "잇섭"
+        "keyword": "수험"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "지만원 구속"
+        "keyword": "차경은 이유진 상견례"
       },
       {
         "rank": 2,
-        "keyword": "홍준표 측근 구속영장 기각"
+        "keyword": "헤이지니 산재 갈등 녹취"
       },
       {
         "rank": 3,
-        "keyword": "이경규 공황장애 진단"
-      },
-      {
-        "rank": 4,
         "keyword": "김건희 구속 연장"
       },
       {
+        "rank": 4,
+        "keyword": "엄마가 미쳤어요"
+      },
+      {
         "rank": 5,
-        "keyword": "헤이지니 노동착취 논란 해명"
+        "keyword": "선관위 특검 진입"
       },
       {
         "rank": 6,
-        "keyword": "구룡마을 화재"
+        "keyword": "이재명 발언"
       },
       {
         "rank": 7,
-        "keyword": "이천희 가구 회사 퇴사"
+        "keyword": "롯데 허문회 수석코치"
       },
       {
         "rank": 8,
-        "keyword": "오경미 대법관"
+        "keyword": "구룡마을 화재"
       },
       {
         "rank": 9,
-        "keyword": "재혼 황후"
+        "keyword": "SK하이닉스 영업익 최대"
       },
       {
         "rank": 10,
-        "keyword": "김종서 신해철 반목 화해"
+        "keyword": "이찬진 금융지주 이사회"
       }
     ]
   },
