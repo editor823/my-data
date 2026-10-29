@@ -1,198 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-10-29T00:36:43.322Z",
-  "updatedAtKst": "2026. 10. 29. AM 9:36:43",
+  "updatedAt": "2026-10-29T09:22:39.327Z",
+  "updatedAtKst": "2026. 10. 29. PM 6:22:39",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "올림픽공원 투표함 반출"
+        "keyword": "빗썸 해킹 고객정보 유출"
       },
       {
         "rank": 2,
-        "keyword": "역삼 방화범 구속 송치"
+        "keyword": "3분기 누적 순익"
       },
       {
         "rank": 3,
-        "keyword": "구글 실적발표"
+        "keyword": "임광현 국감 출석"
       },
       {
         "rank": 4,
-        "keyword": "한미 국방장관 회담"
+        "keyword": "이범호 감독 3차전 필승!"
       },
       {
         "rank": 5,
-        "keyword": "영철, 현숙에 올인"
+        "keyword": "코스피 6000선 반납"
       },
       {
         "rank": 6,
-        "keyword": "자산"
+        "keyword": "국정원 김정은 방중 의중 전달"
       },
       {
         "rank": 7,
-        "keyword": "퇴직급여 사외적립 의무화"
+        "keyword": "팔만대장경 판각 시연"
       },
       {
         "rank": 8,
-        "keyword": "유시민 이재명 비판"
+        "keyword": "아일릿 원희 이로하 발목 부상"
       },
       {
         "rank": 9,
-        "keyword": "김민재 결장 뮌헨 대승"
+        "keyword": "풍자"
       },
       {
         "rank": 10,
-        "keyword": "이강인도 애도 스페인 열차 참사"
+        "keyword": "젤렌스키 트럼프 종전"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "강석우 하락 3"
+        "keyword": "메르츠 독일 총리 동일"
       },
       {
         "rank": 2,
-        "keyword": "양육비 선지급 소득기준 상승 1"
+        "keyword": "이승기 항소 취하 상승 1"
       },
       {
         "rank": 3,
-        "keyword": "강남 괌 관광객 new"
+        "keyword": "동원산업 다누리호 출항 상승 2"
       },
       {
         "rank": 4,
-        "keyword": "유시민 자기 집 new"
+        "keyword": "황종우 장관 new"
       },
       {
         "rank": 5,
-        "keyword": "태풍 동일"
+        "keyword": "코스피 하루 반납 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "한미 국방장관 회담"
+        "keyword": "임광현 국감 출석"
       },
       {
         "rank": 2,
-        "keyword": "구글 애플 인앱결제 과징금"
+        "keyword": "빗썸 해킹 고객정보 유출"
       },
       {
         "rank": 3,
-        "keyword": "밴스 이란 협상 서한"
+        "keyword": "코스피 6000선 반납"
       },
       {
         "rank": 4,
-        "keyword": "퇴직급여 사외적립 의무화"
+        "keyword": "젤렌스키 트럼프 종전"
       },
       {
         "rank": 5,
-        "keyword": "유시민 이재명 비판"
-      },
-      {
-        "rank": 6,
-        "keyword": "경기버스 총파업 대비"
-      },
-      {
-        "rank": 7,
         "keyword": "쿠팡 물류센터 화재 원인"
       },
       {
+        "rank": 6,
+        "keyword": "담배 유해성분 발암물질 공개"
+      },
+      {
+        "rank": 7,
+        "keyword": "윤석열 내란 사형 구형"
+      },
+      {
         "rank": 8,
-        "keyword": "미 연준 기준금리 동결"
+        "keyword": "경기도교육청 교복 담합"
       },
       {
         "rank": 9,
-        "keyword": "보우소나루 미국 도피"
+        "keyword": "어린이 완구 석면 리콜"
       },
       {
         "rank": 10,
-        "keyword": "올림픽공원 투표함 반출"
+        "keyword": "김정은 방중 국정원 분석"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "호텔"
+        "keyword": "퇴직금"
       },
       {
         "rank": 2,
-        "keyword": "우서윤"
+        "keyword": "sk"
       },
       {
         "rank": 3,
-        "keyword": "성리"
+        "keyword": "은가은"
       },
       {
         "rank": 4,
-        "keyword": "자산"
+        "keyword": "sl vs eng"
       },
       {
         "rank": 5,
-        "keyword": "이기혁"
+        "keyword": "009830"
       },
       {
         "rank": 6,
-        "keyword": "백금"
+        "keyword": "005930"
       },
       {
         "rank": 7,
-        "keyword": "육군"
+        "keyword": "풍자"
       },
       {
         "rank": 8,
-        "keyword": "구글 실적발표"
+        "keyword": "장신영"
       },
       {
         "rank": 9,
-        "keyword": "담합"
+        "keyword": "(주)돌고래유괴단"
       },
       {
         "rank": 10,
-        "keyword": "조상"
+        "keyword": "한남더힐아파트"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "윤대열 가스 폭발 사고"
+        "keyword": "신민아 나이"
       },
       {
         "rank": 2,
-        "keyword": "퇴직급여 사외적립 의무화"
+        "keyword": "재혼 황후"
       },
       {
         "rank": 3,
-        "keyword": "美 연준 기준금리 동결"
-      },
-      {
-        "rank": 4,
-        "keyword": "김유정 의원"
-      },
-      {
-        "rank": 5,
-        "keyword": "두산 에너빌리티"
-      },
-      {
-        "rank": 6,
         "keyword": "진성준 비자 거부"
       },
       {
+        "rank": 4,
+        "keyword": "빗썸 고객정보 유출"
+      },
+      {
+        "rank": 5,
+        "keyword": "한화오션 임단협 타결"
+      },
+      {
+        "rank": 6,
+        "keyword": "옥주현 한남더힐 경매"
+      },
+      {
         "rank": 7,
-        "keyword": "삼성전자 실적발표"
+        "keyword": "윤석열 사형 구형"
       },
       {
         "rank": 8,
-        "keyword": "스페인 열차 충돌"
+        "keyword": "서울시 경기 버스 파업 대비"
       },
       {
         "rank": 9,
-        "keyword": "삼성SDI 영업익 흑자 전환"
+        "keyword": "진태옥 디자이너"
       },
       {
         "rank": 10,
-        "keyword": "이재명 만찬"
+        "keyword": "이재명 지지율"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "스윙스 배우 되더니 새 식구 찾았다…이준혁 소속사 전속계약 [공식]",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261029/134934926/1",
+      "publishedAt": "수집 10. 29. 18:22 KST",
+      "publishedOrder": 1793265758502
+    },
+    {
+      "title": "“습관성 친절 체포” 아일릿, 당찬 변화로 음원차트 Top 10 직행",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261029/134934601/1",
+      "publishedAt": "수집 10. 29. 18:22 KST",
+      "publishedOrder": 1793265758502
+    },
+    {
+      "title": "“내가 꼰대 남편?” 김강우, ♥한무영 어묵 하나 바꿨다가 뜻밖의 논란",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261029/134933555/1",
+      "publishedAt": "수집 10. 29. 18:22 KST",
+      "publishedOrder": 1793265758502
+    },
+    {
+      "title": "지수 흠뻑 젖은 채 수중 퍼포먼스…매혹적인 ‘ADDICTED’",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261029/134934511/1",
+      "publishedAt": "수집 10. 29. 18:22 KST",
+      "publishedOrder": 1793265758502
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 10. 29. 18:22 KST",
+      "publishedOrder": 1793265753798
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 10. 29. 18:22 KST",
+      "publishedOrder": 1793265753798
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 10. 29. 18:22 KST",
+      "publishedOrder": 1793265753798
+    },
+    {
+      "title": "김태희 고모된다..'이완♥' 이보미, 숨길 수 없는 D라인 근황 [스타이슈]",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/10/29/2026102822423296310",
+      "publishedAt": "수집 10. 29. 18:22 KST",
+      "publishedOrder": 1793265753798
+    }
+  ]
 }
