@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.querySelector('.nav-menu');
 
   function switchTab(tabId, pushHistory = true) {
+    if (tabId === 'exposure') tabId = 'ranktracker';
+
     // 모든 탭 섹션 숨기기
     tabSections.forEach(section => {
       section.classList.remove('active');
@@ -37,6 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (targetBtn) {
       targetBtn.classList.add('active');
+    }
+
+    if ((tabId === 'ranktracker' || tabId === 'exposure') && typeof window.initBlogExposure === 'function') {
+      window.initBlogExposure();
     }
 
     // 모바일 메뉴가 열려있다면 닫기
@@ -69,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let pageParam = urlParams.get('page') || savedPage || 'home';
   if (pageParam === 'keywordcenter') pageParam = 'adsense';
   if (pageParam === 'homepan') pageParam = 'home';
+  if (pageParam === 'exposure') pageParam = 'ranktracker';
   
   // 최초 진입 히스토리 상태 설정
   const initialUrl = new URL(window.location);

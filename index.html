@@ -48,13 +48,14 @@
       <ul class="nav-menu" id="nav-menu">
         <li><button class="nav-btn active" data-tab="home">HOME</button></li>
         <li><button class="nav-btn" data-tab="keyword">키워드분석기</button></li>
+        <li><button class="nav-btn" data-tab="guide">콘텐츠 가이드</button></li>
         <li><button class="nav-btn" data-tab="adsense">애드센스&황금키워드</button></li>
+        <li><button class="nav-btn" data-tab="ranktracker">블로그 노출 추적</button></li>
         <li><button class="nav-btn" data-tab="prompt">글쓰기프롬프트</button></li>
         <li><button class="nav-btn" data-tab="external">외부유입글생성</button></li>
         <li><button class="nav-btn" data-tab="converter">이미지변환기</button></li>
         <li><button class="nav-btn" data-tab="imggen">🎨 AI 이미지 생성기</button></li>
         <li><a href="https://my-data-stock.pages.dev" target="_blank" rel="noopener noreferrer" class="nav-btn" style="color: #0284c7; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center;">📈 주식분석센터 ↗</a></li>
-        <li><button class="nav-btn" data-tab="guide">📚 콘텐츠 가이드</button></li>
         <li><a href="./archive.html" class="nav-btn" style="color: #475569; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center;">📋 글 목록</a></li>
         <li data-admin-only style="display: none;">
           <button type="button" id="btn-run-blog-inspector" onclick="openBlogInspectorBot()" class="btn btn-emerald btn-sm" style="background: linear-gradient(135deg, #059669, #10b981); color: #ffffff; font-weight: 800; border-radius: 8px; border: none; padding: 7px 14px; font-size: 0.83rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);">
@@ -886,7 +887,75 @@
       </div>
     </div>
 
-    <!-- [TAB 4] 맞춤형 글쓰기 프롬프트 화면 (스크린샷 1:1 완벽 구현) -->
+    <!-- [TAB 4] 블로그 실시간 노출 추적 화면 (스크린샷 1:1 완벽 구현) -->
+    <section id="tab-ranktracker" class="tab-section">
+      <!-- 상단 뒤로가기 & 홈 버튼 바 (스크린샷 2, 3 동일) -->
+      <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="history.back()" style="padding: 8px 14px; font-weight: 700; border-radius: 8px; border: 1px solid #cbd5e1; background: #ffffff; color: #334155; display: inline-flex; align-items: center; gap: 4px; cursor: pointer;">
+          ← 뒤로가기
+        </button>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="switchTab('home')" style="padding: 8px 14px; font-weight: 700; border-radius: 8px; border: 1px solid #cbd5e1; background: #ffffff; color: #334155; display: inline-flex; align-items: center; gap: 4px; cursor: pointer;">
+          🏠 홈
+        </button>
+      </div>
+
+      <div class="glass-card" style="overflow:hidden; position:relative; border:1px solid #c7d2fe; background:linear-gradient(145deg,#ffffff 0%,#f5f7ff 58%,#eefbf6 100%); border-radius: 16px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+        <div style="position:absolute; width:220px; height:220px; right:-80px; top:-105px; border-radius:50%; background:rgba(99,102,241,.09); pointer-events:none;"></div>
+        <div style="position:relative; display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+          <div style="max-width:720px;">
+            <span style="display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border-radius:999px; background:#e0e7ff; color:#3730a3; font-size:14.667px; font-weight:800; letter-spacing:.04em;">📡 SERP RANK TRACKER</span>
+            <h2 style="margin:12px 0 8px; font-size:clamp(22px,3vw,30px); font-weight:900; color:#172033; letter-spacing:-.03em;">📊 내 블로그 실시간 노출 측정</h2>
+            <p style="margin:0; color:#475569; font-size:16.667px; line-height:1.65;">내 블로그 RSS 피드 실시간 연동 ➔ 네이버 블로그탭 관련도순 첫 페이지 · 글 주소 기준 노출 측정</p>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr; min-width:230px;">
+            <div style="padding:13px 18px; border:1px solid #c7d2fe; border-radius:14px; background:#f5f7ff; text-align:center;">
+              <small style="color:#4338ca; font-weight:700;">🎁 이용 범위</small>
+              <b style="display:block; margin-top:3px; color:#1e1b4b; font-size:18px;">무료: 최근 글 30개 · 하루 10회 / 유료: 최근 글 50개 · 하루 50회</b>
+            </div>
+          </div>
+        </div>
+        <div style="position:relative; display:flex; gap:10px; margin-top:24px; flex-wrap:wrap;">
+          <input class="text-input" id="exposureBlogUrl" onkeydown="if(event.key==='Enter') startBlogExposureAnalysis()" placeholder="네이버 블로그 아이디 또는 주소 입력 (예: myblog 또는 https://blog.naver.com/아이디)" value="https://blog.naver.com/editer0823" style="flex:1; min-width:260px; background:#fff; border:1.5px solid #cbd5e1; border-radius:10px; padding:12px 16px; font-size:15px; font-weight:600; outline:none;" type="url"/>
+          <button class="btn-primary" id="exposureStartBtn" onclick="startBlogExposureAnalysis()" style="min-width:180px; background:linear-gradient(135deg,#4f46e5,#2563eb); color:#fff; border:none; border-radius:10px; padding:12px 22px; font-size:15px; font-weight:800; cursor:pointer;" type="button">📊 실시간 노출 순위 측정</button>
+        </div>
+        <div id="exposureStatus" style="position:relative; min-height:20px; margin-top:11px; color:#64748b; font-size:15px; line-height:1.6;"><b style="color:#059669">측정 완료</b> · 총 30개 글 중 노출 20건, 밀면 되는 자리 3건</div>
+      </div>
+
+      <div id="exposureResults" style="margin-top:18px;">
+        <p style="margin:12px 0; color:#334155; font-size:15px; line-height:1.7;">
+          네이버 블로그탭 관련도순 첫 페이지의 일반 글을 비교합니다. 광고와 동일 글의 중복 링크를 제외하며, 검색 시각·환경에 따라 순위는 달라질 수 있습니다. 확인 범위 밖은 미색인을 뜻하지 않습니다. 서버 조회가 제한되면 공식 검색 API로 확인하며, 이때는 ‘API 참고’로 구분합니다. 블로그탭 결과는 최대 15분 재사용합니다.
+        </p>
+        <div id="exposureNoticeBar" style="margin-bottom:14px; padding:12px 18px; border-radius:10px; background:#1e1e24; border:1px solid #33333d; color:#e2e8f0; font-size:15px; font-weight:600; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+          <span id="exposureNoticeText">지금 <span id="exposureNoticeCount" style="color:#f59e0b; font-weight:800;">30건</span>까지 받았습니다 — 발행 글이 더 있으면 넓혀서 받습니다.</span>
+          <span id="exposureCheckedAt" style="color:#94a3b8; font-size:14px;">확인 시각: 오후 7:50:17</span>
+        </div>
+        <div style="display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;">
+          <button class="exposure-filter-btn active" id="expFilterAll" onclick="setExposureFilter('all')" style="padding:8px 18px; border-radius:8px; font-size:15px; font-weight:800; cursor:pointer; border:1px solid #f59e0b; background:#f59e0b; color:#1e1e24;" type="button">전체 <span id="expCountAll" style="margin-left:4px;">30</span></button>
+          <button class="exposure-filter-btn" id="expFilterExposed" onclick="setExposureFilter('exposed')" style="padding:8px 18px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; border:1px solid #33333d; background:#1e1e24; color:#94a3b8;" type="button">노출됨 <span id="expCountExposed" style="margin-left:4px; color:#16a34a; font-weight:800;">20</span></button>
+          <button class="exposure-filter-btn" id="expFilterHidden" onclick="setExposureFilter('hidden')" style="padding:8px 18px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; border:1px solid #33333d; background:#1e1e24; color:#94a3b8;" type="button">노출안됨 <span id="expCountHidden" style="margin-left:4px; color:#dc2626; font-weight:800;">10</span></button>
+          <button class="exposure-filter-btn" id="expFilterPush" onclick="setExposureFilter('push')" style="padding:8px 18px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; border:1px solid #33333d; background:#1e1e24; color:#94a3b8;" type="button">밀면 되는 자리 <span id="expCountPush" style="margin-left:4px; color:#0284c7; font-weight:800;">3</span></button>
+        </div>
+        <div class="glass-card" style="padding:0 !important; overflow:hidden; border:1px solid #e2e8f0 !important; background:#ffffff !important; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.06) !important;">
+          <div class="table-wrapper" style="max-height:850px; overflow:auto;">
+            <table class="exposure-benchmark-table" style="width:100%; border-collapse:collapse; font-size:15px; text-align:left;">
+              <thead>
+                <tr style="background:#f8fafc; border-bottom:2px solid #e2e8f0; color:#334155; font-size:14.5px; font-weight:800;">
+                  <th style="width:125px; text-align:center; padding:14px 10px;">상태</th>
+                  <th style="min-width:320px; text-align:left; padding:14px 12px;">포스팅 제목</th>
+                  <th style="width:95px; text-align:center; padding:14px 8px;">발행일</th>
+                  <th style="width:155px; text-align:center; padding:14px 10px;">키워드 순위</th>
+                  <th style="width:175px; text-align:center; padding:14px 10px;">확장 순위</th>
+                  <th style="width:130px; text-align:center; padding:14px 10px;">네이버 제목검색</th>
+                </tr>
+              </thead>
+              <tbody id="exposureTbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [TAB 5] 맞춤형 글쓰기 프롬프트 화면 (스크린샷 1:1 완벽 구현) -->
     <section id="tab-prompt" class="tab-section">
       <div class="hero-header" style="padding-bottom: 30px;">
         <h2 style="font-size: clamp(2rem, 3.5vw, 2.6rem); font-weight: 900; color: var(--text-main); margin-bottom: 12px;">
@@ -2774,7 +2843,8 @@
   <script src="js/external.js?v=20260914_final"></script>
   <script src="js/converter.js?v=20260926_soft_warm_light"></script>
   <script src="js/imggen.js?v=20260915_imagen3_v2_fallback"></script>
-  <script src="js/ranktracker.js?v=20260926_rank_live"></script>
+  <script src="data/blog_exposure_editer0823.js?v=20261029_v1"></script>
+  <script src="js/ranktracker.js?v=20261029_v2"></script>
   <script src="js/blog_inspector.js?v=20261010_copyfix"></script>
   <script src="js/inspector_admin_gate.js?v=20261010_gate"></script>
   <script src="js/guide_journal.js?v=20261029_v1"></script>

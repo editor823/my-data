@@ -6164,3 +6164,66 @@ table.data-table th {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ==========================================================================
+   블로그 실시간 노출 추적 (SERP Rank Tracker) 벤치마크 테이블 & 필터 스타일
+   ========================================================================== */
+.exposure-benchmark-table {
+  width: 100% !important;
+  min-width: 0 !important;
+  table-layout: fixed !important;
+  background: #ffffff !important;
+  color: #334155 !important;
+  border-collapse: collapse !important;
+}
+
+.exposure-benchmark-table th,
+.exposure-benchmark-table td {
+  min-width: 0 !important;
+  padding: 14px 10px !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-height: 1.5;
+  color: #334155 !important;
+}
+
+.exposure-benchmark-table th:nth-child(1) { width: 14% !important; }
+.exposure-benchmark-table th:nth-child(2) { width: 32% !important; }
+.exposure-benchmark-table th:nth-child(3) { width: 10% !important; }
+.exposure-benchmark-table th:nth-child(4) { width: 15% !important; }
+.exposure-benchmark-table th:nth-child(5) { width: 16% !important; }
+.exposure-benchmark-table th:nth-child(6) { width: 13% !important; }
+
+.exposure-benchmark-table td a {
+  color: #1d4ed8 !important;
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal !important;
+}
+
+.exposure-benchmark-table td:nth-child(2) a {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  display: block !important;
+  line-height: 1.5;
+}
+
+.exposure-benchmark-table td:nth-child(2) a:hover {
+  color: #2563eb !important;
+  text-decoration: underline !important;
+}
+
+.exposure-benchmark-table tbody tr:hover {
+  background: #f8fafc !important;
+}
+
+.exposure-filter-btn {
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.exposure-filter-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+

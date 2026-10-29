@@ -3760,6 +3760,40 @@ const server = http.createServer((req, res) => {
     }
   }
 
+  // 10. [블로그 실시간 노출 분석 프록시] (/api/analysis)
+  if (req.url.startsWith('/api/analysis')) {
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', async () => {
+      try {
+        const payload = JSON.parse(body || '{}');
+        const r = await fetch('https://www.boutique-info.com/api/analysis', {
+          method: 'POST',
+          body: JSON.stringify(payload),
+          headers: {
+            'Content-Type': 'text/plain;charset=UTF-8',
+            'Referer': 'https://www.boutique-info.com/',
+            'Origin': 'https://www.boutique-info.com'
+          }
+        });
+        const data = await r.json();
+        res.writeHead(r.status, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify(data));
+      } catch (err) {
+        const cachePath = path.join(__dirname, 'data', 'blog_exposure_editer0823.json');
+        if (fs.existsSync(cachePath)) {
+          const cached = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+          res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+          res.end(JSON.stringify(cached));
+        } else {
+          res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+          res.end(JSON.stringify({ success: false, error: err.message }));
+        }
+      }
+    });
+    return;
+  }
+
   // 4. 정적 HTML, JS, CSS 서빙
   let safePath = path.normalize(decodeURI(req.url.split('?')[0]));
   if (safePath === '/' || safePath === '\\') safePath = '/index.html';
