@@ -58,3 +58,70 @@
   #tab-keyword .kw-hero h1 { font-size: 24px; }
 }
 
+
+
+/* [상단 네이버 API 안내 바] */
+#tab-keyword .kw-top-notice {
+  background: #fefce8;
+  border: 1px solid #fef08a;
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  font-size: 13.5px;
+  color: #854d0e;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* [네이버 / 구글 분리 검색 토글 스위치] */
+#tab-keyword .kw-engine-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: #e2e8f0;
+  padding: 4px;
+  border-radius: 999px;
+  margin: 0 auto 20px;
+  gap: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+#tab-keyword .kw-engine-btn {
+  padding: 6px 22px;
+  border: none;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  background: transparent;
+  color: #64748b;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+}
+#tab-keyword .kw-engine-btn:hover:not(.active) {
+  color: #0f172a;
+}
+#tab-keyword .kw-engine-btn.active[data-engine="naver"] {
+  background: #00c73c;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 199, 60, 0.35);
+}
+#tab-keyword .kw-engine-btn.active[data-engine="google"] {
+  background: #1a73e8;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.35);
+}
+
+/* [구글 모드 시 검색창 & 버튼 컬러 전환] */
+#tab-keyword .kw-form.engine-google .kw-input {
+  border-color: #1a73e8;
+}
+#tab-keyword .kw-form.engine-google .kw-go {
+  background: #1a73e8;
+}
+#tab-keyword .kw-form.engine-google .kw-go:hover {
+  background: #1557b0;
+}
+
+/* [결과 배지 구글 블루] */
+#tab-keyword .kw-badge.kw-google {
+  background: #1a73e8;
+}

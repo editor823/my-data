@@ -502,9 +502,21 @@
     <!-- [TAB 2] 키워드 분석기 화면 -->
     <section id="tab-keyword" class="tab-section">
   <div class="kw-wrap">
+    <!-- 원본 상단 노란 안내 바 -->
+    <div class="kw-top-notice">
+      본인의 네이버 API 키로 분석합니다. 네이버 API 사용량은 각 계정에 적용되며, 발급키별 이용 권한은 별도로 적용됩니다.
+    </div>
+
     <div class="kw-hero">
       <h1>어떤 키워드를 분석할까요?</h1>
       <p>검색량 · 문서수 · 경쟁도 · 연관 키워드까지 한 번에 확인합니다.</p>
+
+      <!-- 네이버 / 구글 분리 검색 세그먼트 토글 -->
+      <div class="kw-engine-toggle" id="kwEngineToggle">
+        <button type="button" class="kw-engine-btn active" data-engine="naver">네이버</button>
+        <button type="button" class="kw-engine-btn" data-engine="google">구글</button>
+      </div>
+
       <form id="kwForm" class="kw-form" role="search">
         <input id="kwInput" class="kw-input" type="search" placeholder="분석할 키워드를 입력하세요 (예: 캠핑의자)" autocomplete="off">
         <button id="kwGo" class="kw-go" type="submit">분석하기</button>
