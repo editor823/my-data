@@ -1,0 +1,494 @@
+/* =========================================================
+   홈 매거진 최신 개편 스타일 (boutique-info 100% 동기화)
+   ========================================================= */
+
+/* 1. 최상단 검은색 띠 바 (Top Bar) */
+.top-notice-bar {
+  background: #0f172a;
+  color: #94a3b8;
+  font-size: 0.82rem;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1e293b;
+  position: relative;
+  z-index: 10000;
+}
+.top-notice-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.top-notice-brand {
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.top-notice-tagline {
+  color: #64748b;
+  font-weight: 500;
+}
+.top-notice-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.top-notice-btn {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s;
+}
+.top-notice-btn:hover {
+  color: #38bdf8;
+}
+
+/* 2. 비밀 키워드 검은색 캡슐 배너 */
+.secret-capsule-banner {
+  background: #090d16;
+  border: 1px solid #1e293b;
+  border-radius: 9999px;
+  padding: 10px 24px;
+  margin: 16px auto 32px;
+  max-width: 980px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.secret-capsule-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f1f5f9;
+  font-size: 0.88rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.secret-capsule-text .lock-icon {
+  font-size: 0.95rem;
+}
+.secret-capsule-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.btn-capsule-green {
+  background: #059669;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-capsule-green:hover {
+  background: #047857;
+}
+.btn-capsule-outline {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-capsule-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* 3. 메인 히어로 2단 분할 영역 */
+.magazine-hero-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding: 0 4px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.magazine-hero-title {
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+}
+.magazine-hero-desc {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+.magazine-hero-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+}
+.magazine-hero-btn:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+}
+
+/* 4. 실시간 숏텐츠 섹션 */
+.short-contents-container {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 26px 28px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+.short-contents-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.short-contents-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.short-contents-time {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* 카테고리 알약 바 */
+.short-cat-scroll-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+  scrollbar-width: thin;
+}
+.short-cat-pill {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.short-cat-pill:hover {
+  background: #f8fafc;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+.short-cat-pill.active {
+  background: #059669;
+  color: #ffffff;
+  border-color: #059669;
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
+}
+.short-cat-pill.pro-tag {
+  color: #7c3aed;
+  border-color: #ddd6fe;
+  background: #f5f3ff;
+}
+.short-cat-pill.pro-tag .badge-pro {
+  background: #f59e0b;
+  color: #ffffff;
+  font-size: 0.7rem;
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+/* 숏텐츠 행 리스트 */
+.short-row-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 12px;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.15s;
+  border-radius: 10px;
+}
+.short-row-item:hover {
+  background: #f8fafc;
+}
+.short-row-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  margin-right: 16px;
+}
+.short-rank-num {
+  width: 28px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #334155;
+  text-align: center;
+  flex-shrink: 0;
+  margin-right: 14px;
+}
+.short-thumb-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin-right: 16px;
+  border: 1px solid #e2e8f0;
+  background: #f1f5f9;
+}
+.short-text-col {
+  flex: 1;
+  min-width: 0;
+}
+.short-item-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 3px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+.short-item-desc {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0 0 4px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+.short-item-meta {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.naver-badge-icon {
+  background: #03c75a;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+.short-action-col {
+  flex-shrink: 0;
+}
+.btn-short-write {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 7px 16px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-short-write:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+/* 숏텐츠 하단 액션 */
+.short-footer-box {
+  text-align: center;
+  padding-top: 18px;
+}
+.btn-short-load-more {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 9px 36px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-short-load-more:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+.short-disclaimer-note {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin: 12px 0 0 0;
+}
+
+/* 5. 최신 연예뉴스 세로 박스 */
+.ent-news-vert-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 26px 28px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+.ent-news-vert-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.ent-news-vert-item:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+.ent-news-source-time {
+  font-size: 0.75rem;
+  color: #0284c7;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.ent-news-main-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* 6. FROM THE DESK 최근 공지와 업데이트 박스 */
+.from-the-desk-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 26px 28px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+.desk-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.desk-main-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0 0 18px 0;
+  letter-spacing: -0.02em;
+}
+.desk-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 18px;
+  margin-bottom: 16px;
+}
+.desk-row-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  font-size: 0.92rem;
+  color: #334155;
+  transition: color 0.15s;
+}
+.desk-row-link:hover {
+  color: #059669;
+}
+.desk-date {
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  font-family: monospace;
+}
+.desk-title-text {
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.desk-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #059669;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.desk-all-link:hover {
+  color: #047857;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .secret-capsule-banner {
+    flex-direction: column;
+    border-radius: 16px;
+    align-items: stretch;
+  }
+  .secret-capsule-text {
+    white-space: normal;
+  }
+  .magazine-hero-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .short-contents-container,
+  .ent-news-vert-card,
+  .from-the-desk-card {
+    padding: 18px 16px;
+  }
+  .desk-row-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
