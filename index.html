@@ -2676,6 +2676,24 @@
     </div>
   </div>
 
+  <!-- 숏텐츠 글쓰기 도구 선택 팝업 다이얼로그 (홈판 글쓰기 & 네이버 SEO 글쓰기) -->
+  <dialog class="shortents-dialog" id="shortentsDialog" aria-labelledby="shortentsDialogTitle">
+    <h2 id="shortentsDialogTitle">글쓰기 도구 선택</h2>
+    <input type="text" class="shortents-title-copy" id="shortentsTitleField" readonly aria-label="복사할 숏텐츠 제목">
+    <div class="shortents-copy-actions">
+      <button type="button" id="btnCopyShortTitle">제목 복사</button>
+      <button type="button" id="btnCopyShortArticle">기사 정보 전체 복사</button>
+    </div>
+    <p class="shortents-copy-status" id="shortentsCopyStatus" role="status">숏텐츠 제목은 복사했어요. Claude 입력칸에 붙여넣으세요.</p>
+    <textarea class="shortents-copy-fallback" id="shortentsCopyFallback" aria-label="복사할 키워드와 기사 정보" readonly hidden></textarea>
+    <a href="https://claude.ai/artifact/Dz4C9g72LWALJ1gD6kAV3v" target="_blank" rel="noopener noreferrer" class="shortents-tool-link">홈판 글쓰기 ↗</a>
+    <a href="https://claude.ai/artifact/CmkGdF3oogzH3MBbbJtkgD" target="_blank" rel="noopener noreferrer" class="shortents-tool-link">네이버 SEO 글쓰기 ↗</a>
+    <button type="button" class="btn-shortents-close" id="btnCloseShortentsDialog">닫기</button>
+  </dialog>
+
+  <!-- 복사 완료 안내 토스트 -->
+  <div class="shortents-toast" id="shortentsToast" role="status" hidden>숏텐츠 제목을 복사했어요. Claude 입력칸에 붙여넣으세요.</div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <script src="js/app.js?v=20260915_fix1"></script>
