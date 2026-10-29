@@ -1308,3 +1308,318 @@
   .kc-report-head { flex-direction: column; }
   .kc-report-score { width: 100%; box-sizing: border-box; }
 }
+
+
+/* ==========================================================
+   [시즌 캘린더] 📅 월별 시즌성 키워드 원본 역공학 1:1 완벽 스타일
+   ========================================================== */
+.scal {
+  min-width: 0;
+  color: #0f172a;
+}
+.scal-head h2 {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+  font-weight: 900;
+  color: #0f172a;
+}
+.scal-head p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: #475569;
+}
+.scal button {
+  font-family: inherit;
+  cursor: pointer;
+}
+.scal-months {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 10px;
+}
+.scal-months button {
+  padding: 9px 18px;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #334155;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.15s ease;
+}
+.scal-months button:hover {
+  background: #f8fafc;
+}
+.scal-months button[aria-pressed="true"],
+.scal-months button.active {
+  background: #1e293b;
+  border-color: #1e293b;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(30, 41, 59, 0.2);
+}
+.scal-meta {
+  margin: 8px 0 14px;
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 600;
+}
+.scal-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 18px;
+}
+.scal-cats button {
+  padding: 6px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+.scal-cats button:hover {
+  background: #f1f5f9;
+}
+.scal-cats button[aria-pressed="true"],
+.scal-cats button.active {
+  border-color: #0284c7;
+  color: #0284c7;
+  font-weight: 800;
+  background: #f0f9ff;
+}
+.scal-row {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 20px 22px;
+  margin: 0 0 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.scal-row:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+.scal-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+.scal-rank {
+  font-weight: 900;
+  color: #94a3b8;
+  font-size: 18px;
+  min-width: 24px;
+}
+.scal-top h4 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.35;
+  color: #0f172a;
+}
+.scal-badge {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  line-height: 1.4;
+}
+.scal-badge.t-peak {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+.scal-badge.t-rise {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+}
+.scal-badge.t-hold {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+.scal-cat {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+}
+.scal-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0 16px;
+}
+.scal-stats div {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  min-width: 0;
+}
+.scal-stats span {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+.scal-stats b {
+  display: block;
+  font-size: 17.5px;
+  font-weight: 900;
+  color: #0f172a;
+  overflow-wrap: anywhere;
+}
+.scal-stats small {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+.scal-year {
+  margin: 14px 0 10px;
+}
+.scal-year-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #64748b;
+  margin: 0 0 6px;
+}
+.scal-heat {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 4px;
+}
+.scal-heat div {
+  border-radius: 6px;
+  text-align: center;
+  padding: 6px 0 7px;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.25;
+  min-width: 0;
+  transition: all 0.15s ease;
+}
+.scal-heat i {
+  display: block;
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+.scal-heat .on {
+  outline: 2px solid #ea580c;
+  outline-offset: 1px;
+  font-weight: 900;
+  background: #064e3b !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(6, 78, 59, 0.3);
+}
+.scal-h0 { background: #f8fafc; color: #94a3b8; }
+.scal-h1 { background: #f1f5f9; color: #64748b; }
+.scal-h2 { background: #e2e8f0; color: #334155; }
+.scal-h3 { background: #cbd5e1; color: #1e293b; }
+.scal-h4 { background: #94a3b8; color: #ffffff; }
+.scal-h5 { background: #64748b; color: #ffffff; }
+.scal-h6 { background: #334155; color: #ffffff; }
+.scal-h7 { background: #0f172a; color: #ffffff; }
+
+.scal-more {
+  margin-top: 14px;
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 12px;
+}
+.scal-more summary {
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 14.5px;
+  color: #0284c7;
+  padding: 4px 0;
+  user-select: none;
+}
+.scal-reason {
+  line-height: 1.75;
+  margin: 10px 0 14px;
+  font-size: 13.5px;
+  color: #334155;
+  background: #f8fafc;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border-left: 3px solid #0284c7;
+}
+.scal-rel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 8px 0 16px;
+}
+.scal-rel button {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+.scal-rel button:hover {
+  background: #f1f5f9;
+  border-color: #0284c7;
+  color: #0284c7;
+}
+.scal-rel small {
+  color: #64748b;
+  margin-left: 6px;
+  font-weight: 500;
+}
+.scal-act {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.scal-act button {
+  min-height: 40px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid #0284c7;
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 800;
+  transition: all 0.15s ease;
+}
+.scal-act button:hover {
+  background: #0369a1;
+}
+.scal-act button+button {
+  background: #ffffff;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+.scal-act button+button:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+.scal-foot {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.7;
+  margin-top: 18px;
+}
+@media (max-width: 600px) {
+  .scal-row { padding: 14px 12px; }
+  .scal-top h4 { font-size: 17px; }
+  .scal-stats { grid-template-columns: 1fr 1fr; }
+  .scal-stats div:last-child { grid-column: 1 / -1; }
+  .scal-heat { gap: 2px; }
+  .scal-heat div { font-size: 10px; padding: 4px 0; }
+  .scal-heat i { font-size: 9px; }
+}

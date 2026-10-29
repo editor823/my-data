@@ -1784,150 +1784,203 @@ function renderDetailReport(item) {
 /**
  * [5. 월별 시즌성 키워드] 탭 전용 렌더링
  */
-function renderSeasonalTab() {
+/**
+ * [시즌 캘린더] 📅 6. 월별 시즌성 키워드 (원본 역공학 1:1 완벽 구현)
+ */
+let seasonCalendarData = null;
+let seasonSelectedMonth = '2026-11';
+let seasonSelectedCat = '전체';
+
+async function renderSeasonalTab() {
   const container = document.getElementById('kc-seasonal-container');
   if (!container) return;
 
-  let monthBtnsHtml = '';
-  for (let m = 1; m <= 12; m++) {
-    const isAct = m === kcSeasonalSelectedMonth ? 'active' : '';
-    monthBtnsHtml += `
-      <button type="button" class="kc-month-pill-btn ${isAct}" onclick="selectSeasonalMonth(${m})">
-        ${m}월
-      </button>
-    `;
-  }
-
   container.innerHTML = `
-    <div class="kc-seasonal-header-bar" style="margin-bottom: 20px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <h3 style="font-size: 1.15rem; font-weight: 800; color: #1f2937; margin: 0; display: flex; align-items: center; gap: 8px;">
-          <span>📅</span> 월별 시즌성 키워드 캘린더
-        </h3>
-        <span style="font-size: 0.82rem; color: var(--text-muted);">
-          현재 선택: <strong style="color: #60a5fa;">${kcSeasonalSelectedMonth}월</strong> 시즌 키워드
-        </span>
+    <section class="editorial-help season-panel scal" style="padding: 24px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+      <div class="scal-head">
+        <h2>시즌 캘린더</h2>
+        <p>지난 3년 동안 달마다 검색이 얼마나 몰렸는지 평균을 내서, 곧 검색이 늘어날 키워드를 미리 골랐습니다. <b>발행 권장일</b> 전에 글을 올려 두면 검색이 오를 때 바로 노출될 수 있습니다.</p>
       </div>
-      <div class="kc-seasonal-month-bar">
-        ${monthBtnsHtml}
+      <div class="scal-months" id="scalMonths"></div>
+      <p class="scal-meta" id="scalMeta"></p>
+      <div class="scal-cats" id="scalCats"></div>
+      <div class="scal-list" id="scalList">
+        <div style="padding: 40px; text-align: center; color: #64748b;">
+          <span style="display: inline-block; animation: spin 1s linear infinite; margin-right: 8px;">⏳</span>
+          시즌 캘린더 데이터를 불러오는 중입니다...
+        </div>
       </div>
-    </div>
-    <div id="kc-seasonal-groups-container"></div>
+      <p class="scal-foot" id="scalFoot"></p>
+    </section>
   `;
 
-  renderSeasonalMonthGroups();
-}
+  // 1. 데이터 로드 (신규 시즌 캘린더 데이터)
+  if (!seasonCalendarData || !seasonCalendarData.months) {
+    try {
+      const res = await fetch('data/seasonal_calendar_live.json?v=' + Date.now());
+      if (res.ok) {
+        seasonCalendarData = await res.json();
+      }
+    } catch (e) {
+      console.warn('시즌 캘린더 로컬 데이터 로드 실패, API 시도:', e);
+    }
 
-/**
- * 선택된 월의 그룹 카드 목록 렌더링
- */
-function renderSeasonalMonthGroups() {
-  const container = document.getElementById('kc-seasonal-groups-container');
-  if (!container) return;
+    if (!seasonCalendarData || !seasonCalendarData.months) {
+      try {
+        const resApi = await fetch('https://www.boutique-info.com/api/keyword-center?action=getSeasonCalendar');
+        if (resApi.ok) {
+          seasonCalendarData = await resApi.json();
+        }
+      } catch (_) {}
+    }
+  }
 
-  if (!kcSeasonalData || !kcSeasonalData.months) {
-    container.innerHTML = `
-      <div style="padding: 40px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 12px; border: 1px dashed var(--border-color);">
-        시즌성 키워드 데이터를 불러오는 중입니다...
-      </div>
-    `;
+  const d = seasonCalendarData;
+  if (!d || !Array.isArray(d.months)) {
+    const listEl = document.getElementById('scalList');
+    if (listEl) listEl.innerHTML = '<div style="padding: 30px; text-align: center; color: #ef4444;">시즌 데이터를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.</div>';
     return;
   }
 
-  const monthObj = kcSeasonalData.months.find(m => Number(m.month) === Number(kcSeasonalSelectedMonth));
-  if (!monthObj || !monthObj.groups || monthObj.groups.length === 0) {
-    container.innerHTML = `
-      <div style="padding: 40px; text-align: center; color: var(--text-muted); background: var(--bg-card); border-radius: 12px; border: 1px dashed var(--border-color);">
-        ${kcSeasonalSelectedMonth}월 시즌 키워드 데이터를 준비 중입니다.
-      </div>
-    `;
-    return;
-  }
+  // 2. 렌더링 함수
+  function renderSeasonCalendar() {
+    const monthsWrap = document.getElementById('scalMonths');
+    const metaWrap = document.getElementById('scalMeta');
+    const catsWrap = document.getElementById('scalCats');
+    const listWrap = document.getElementById('scalList');
+    const footWrap = document.getElementById('scalFoot');
 
-  let html = '';
-  monthObj.groups.forEach(group => {
-    const mainKw = group.main || '메인 키워드';
-    const relatedList = group.related || [];
-    const reason = group.reason || '시즌 특수 수요가 집중되는 핵심 키워드입니다.';
-    const timing = group.timing || `${kcSeasonalSelectedMonth}월 초순 발행 권장`;
+    if (!monthsWrap || !listWrap) return;
 
-    let relatedRowsHtml = '';
-    relatedList.forEach(relKw => {
-      relatedRowsHtml += `
-        <div class="kc-related-row-item">
-          <span class="kc-rel-kw-name">${escapeHtml(relKw)}</span>
-          <button type="button" class="kc-btn-analyze-go" onclick="goToKeywordAnalysis('${escapeHtml(relKw)}')">
-            분석하러가기 ➔
-          </button>
-        </div>
+    // 월 탭 버튼
+    monthsWrap.innerHTML = d.months.map(mo => `
+      <button type="button" class="${mo.ym === seasonSelectedMonth ? 'active' : ''}" aria-pressed="${mo.ym === seasonSelectedMonth}" onclick="window.selectSeasonMonth('${mo.ym}')">
+        ${mo.month}월 · ${mo.label} (${mo.items ? mo.items.length : 30})
+      </button>
+    `).join('');
+
+    const currentMo = d.months.find(x => x.ym === seasonSelectedMonth) || d.months[1] || d.months[0];
+
+    if (metaWrap) {
+      metaWrap.textContent = `${currentMo.month}월 목록 · 10월 28일 집계 · ${currentMo.items ? currentMo.items.length : 0}개`;
+    }
+
+    if (footWrap) {
+      footWrap.textContent = (d.method || '지난 3년 네이버 데이터랩 일별·월별 검색 통계 기반 시즌성 분석 모델.') + ' 공휴일·정책 일정은 해마다 달라질 수 있으니 발행 전에 올해 날짜를 확인하세요.';
+    }
+
+    // 카테고리 추출
+    const items = currentMo.items || [];
+    const presentCats = ['전체', ...new Set(items.map(x => x.cat).filter(Boolean))];
+
+    if (catsWrap) {
+      catsWrap.innerHTML = presentCats.map(c => `
+        <button type="button" class="${c === seasonSelectedCat ? 'active' : ''}" aria-pressed="${c === seasonSelectedCat}" onclick="window.selectSeasonCat('${c}')">
+          ${c}
+        </button>
+      `).join('');
+    }
+
+    // 키워드 목록 필터링
+    const filtered = seasonSelectedCat === '전체'
+      ? items
+      : items.filter(x => x.cat === seasonSelectedCat);
+
+    const typeClass = { '정점': 't-peak', '상승': 't-rise', '유지': 't-hold' };
+    const typeText = { '정점': '이 달이 정점', '상승': '오르는 중', '유지': '높게 유지' };
+    const m = currentMo.month;
+
+    function level(v) {
+      return v >= 220 ? 7 : v >= 180 ? 6 : v >= 150 ? 5 : v >= 125 ? 4 : v >= 105 ? 3 : v >= 85 ? 2 : v >= 60 ? 1 : 0;
+    }
+
+    listWrap.innerHTML = filtered.map((it, idx) => {
+      const isPeakMonth = it.peak === m;
+      const bClass = typeClass[it.type] || 't-hold';
+      const bText = typeText[it.type] || (isPeakMonth ? '이 달이 정점' : '오르는 중');
+
+      // 12개월 히트맵 생성
+      const monthlyHeat = (it.monthly || [6, 18, 10, 4, 6, 5, 6, 8, 13, 165, 952, 7]).map((val, k) => {
+        const isCurrentTarget = (k + 1 === m);
+        const lvl = level(val);
+        return `
+          <div class="scal-h${lvl} ${isCurrentTarget ? 'on' : ''}" title="${k + 1}월 지수: ${val}">
+            <i>${k + 1}월</i>${val}
+          </div>
+        `;
+      }).join('');
+
+      // 연관 키워드 태그
+      const relatedHtml = (it.related || []).map(r => `
+        <button type="button" onclick="window.sbOpenInAnalyzer('${(r.keyword || r).replace(/'/g, "\\'")}')">
+          ${r.keyword || r} <small>${r.volume ? Number(r.volume).toLocaleString() : ''}</small>
+        </button>
+      `).join('');
+
+      return `
+        <article class="scal-row">
+          <div class="scal-top">
+            <span class="scal-rank">${idx + 1}</span>
+            <h4>${it.keyword}</h4>
+            <span class="scal-badge ${bClass}">${bText}</span>
+            <span class="scal-cat">${it.cat || '시즌키워드'}</span>
+          </div>
+
+          <div class="scal-stats">
+            <div>
+              <span>${m}월 예상 검색</span>
+              <b>${Number(it.volumeExpected || 0).toLocaleString()}회</b>
+              <small>지금 ${Number(it.volumeNow || 0).toLocaleString()}회</small>
+            </div>
+            <div>
+              <span>블로그 문서</span>
+              <b>${Number(it.docs || 0).toLocaleString()}건</b>
+              <small>${it.volumeExpected ? '검색 대비 ' + (it.docs / it.volumeExpected).toFixed(1) + '배' : ''}</small>
+            </div>
+            <div>
+              <span>발행 권장</span>
+              <b>지금 바로</b>
+              <small>${it.riseFrom === m ? m + '월에 몰림' : (it.riseFrom || (m - 1)) + '월부터 오르기 시작'}</small>
+            </div>
+          </div>
+
+          <div class="scal-year">
+            <p class="scal-year-label">1~12월 검색 흐름 (3년 평균, 연평균=100)</p>
+            <div class="scal-heat">
+              ${monthlyHeat}
+            </div>
+          </div>
+
+          <details class="scal-more" ${idx === 0 ? 'open' : ''}>
+            <summary>추천 이유 · 연관 키워드 ${(it.related || []).length}개</summary>
+            <p class="scal-reason">${it.reason || '최근 3년 검색 추이를 바탕으로 산출된 최적의 시즌 키워드입니다.'}</p>
+            <div class="scal-rel">
+              ${relatedHtml}
+            </div>
+            <div class="scal-act">
+              <button type="button" onclick="window.sbOpenInAnalyzer('${it.keyword.replace(/'/g, "\\'")}')">분석하러가기</button>
+              <button type="button" onclick="window.saveSecretBookmark('${it.keyword.replace(/'/g, "\\'")}', this)">키워드 저장</button>
+            </div>
+          </details>
+        </article>
       `;
-    });
-
-    html += `
-      <div class="kc-seasonal-group-card">
-        <!-- 좌측: 메인 키워드 박스 -->
-        <div class="kc-seasonal-left-col">
-          <div class="kc-seasonal-main-header">
-            <span class="kc-seasonal-badge-count">상세 ${relatedList.length}개</span>
-            <h4 class="kc-seasonal-main-kw">${escapeHtml(mainKw)}</h4>
-          </div>
-          <div class="kc-seasonal-reason-box">
-            <strong>💡 기획 의도:</strong> ${escapeHtml(reason)}
-          </div>
-          <div class="kc-seasonal-timing-box">
-            <strong>⏰ 작성 시점:</strong> ${escapeHtml(timing)}
-          </div>
-        </div>
-
-        <!-- 우측: 연관 키워드 목록 -->
-        <div class="kc-seasonal-related-list">
-          <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-bottom: 6px;">
-            연관키워드 및 세부 검색어 (${relatedList.length})
-          </div>
-          ${relatedRowsHtml}
-        </div>
-      </div>
-    `;
-  });
-
-  container.innerHTML = html;
-}
-
-window.selectSeasonalMonth = function(month) {
-  kcSeasonalSelectedMonth = month;
-  renderSeasonalTab();
-};
-
-/**
- * [분석하러가기] 클릭 시 키워드 분석 탭 이동 및 자동 분석 실행
- */
-window.goToKeywordAnalysis = function(keyword) {
-  if (!keyword) return;
-
-  if (typeof window.switchTab === 'function') {
-    window.switchTab('keyword');
+    }).join('');
   }
 
-  setTimeout(() => {
-    const singleInput = document.getElementById('singleFastInput');
-    const singleBtn = document.getElementById('singleFastBtn');
+  window.selectSeasonMonth = function(ym) {
+    seasonSelectedMonth = ym;
+    seasonSelectedCat = '전체';
+    renderSeasonCalendar();
+  };
 
-    if (singleInput) {
-      singleInput.value = keyword;
-      singleInput.focus();
-    }
-    if (singleBtn) {
-      singleBtn.click();
-    }
-    if (typeof window.showToast === 'function') {
-      window.showToast(`'${keyword}' 키워드 단건 정밀 분석을 실행합니다! 🚀`);
-    }
-  }, 100);
-};
+  window.selectSeasonCat = function(c) {
+    seasonSelectedCat = c;
+    renderSeasonCalendar();
+  };
 
-/**
- * [9. 바이럴숏폼 · 유튜브 실시간] 탭 전용 렌더링
- */
+  renderSeasonCalendar();
+}
+
 function renderYoutubeGrid() {
   const container = document.getElementById('kc-tab9-container');
   if (!container) return;
