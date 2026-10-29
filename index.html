@@ -385,16 +385,16 @@
       <!-- 2. 상단 2단 카테고리 필터 알약 탭 바 (이미지와 100% 동일) -->
       <div class="kc-pill-tabs-bar" id="kc-pill-tabs-bar">
         <div class="kc-pill-row">
-          <button type="button" class="kc-pill-btn kc-pill-1" data-type="type-1" onclick="switchKcTab('type-1')">✨ 1. 황금키워드 (10/20) · 매일</button>
-          <button type="button" class="kc-pill-btn kc-pill-2" data-type="type-2" onclick="switchKcTab('type-2')">📝 2. 제휴마케팅 키워드 (10/20) · 매일</button>
-          <button type="button" class="kc-pill-btn kc-pill-3" data-type="type-3" onclick="switchKcTab('type-3')">💰 3. 애드센스 키워드 (4/7) · 매일</button>
-          <button type="button" class="kc-pill-btn kc-pill-4" data-type="type-4" onclick="switchKcTab('type-4')">👾 4. 네이버 mate 키워드 (5/10) · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-1" data-type="type-1" onclick="switchKcTab('type-1')">✨ 1. 황금키워드 (20) · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-2" data-type="type-2" onclick="switchKcTab('type-2')">📝 2. 제휴마케팅 키워드 (20) · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-3" data-type="type-3" onclick="switchKcTab('type-3')">💰 3. 애드센스 키워드 (7) · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-4" data-type="type-4" onclick="switchKcTab('type-4')">👾 4. 네이버 mate 키워드 (10) · 매일</button>
           <button type="button" class="kc-pill-btn kc-pill-5 active" data-type="type-5" onclick="switchKcTab('type-5')">🟣 5. 홈판 실시간 키워드</button>
-          <button type="button" class="kc-pill-btn kc-pill-6" data-type="type-6" onclick="switchKcTab('type-6')">🏛️ 6. 일별 시즌성 키워드</button>
-          <button type="button" class="kc-pill-btn kc-pill-7" data-type="type-7" onclick="switchKcTab('type-7')">❓ 7. 지식iN Q&amp;A (10/20) · 3일 주기</button>
+          <button type="button" class="kc-pill-btn kc-pill-6" data-type="type-6" onclick="switchKcTab('type-6')">🏛️ 6. 월별 시즌성 키워드</button>
+          <button type="button" class="kc-pill-btn kc-pill-7" data-type="type-7" onclick="switchKcTab('type-7')">❓ 7. 지식iN Q&amp;A (20) · 3일 주기</button>
+          <button type="button" class="kc-pill-btn kc-pill-8" data-type="type-8" onclick="switchKcTab('type-8')">📢 8. 정책신호형 애드센스 키워드 · 저장본 기준</button>
         </div>
         <div class="kc-pill-row">
-          <button type="button" class="kc-pill-btn kc-pill-8" data-type="type-8" onclick="switchKcTab('type-8')">📢 8. 정책신호형 애드센스 키워드 · 저장본 기준</button>
           <button type="button" class="kc-pill-btn kc-pill-9" data-type="type-9" onclick="switchKcTab('type-9')">👑 9. 이번주 머니대외비 추천 애드센스 키워드 · 저장본 기준</button>
           <button type="button" class="kc-pill-btn kc-pill-10" data-type="type-10" onclick="switchKcTab('type-10')">🔥 10. 바이럴숏폼 · 유튜브 실시간</button>
           <button type="button" class="kc-pill-btn kc-pill-11" data-type="type-11" onclick="switchKcTab('type-11')">📁 11. 주제별 키워드 · 매일</button>
@@ -407,15 +407,14 @@
       <!-- 3. [5번 탭 전용] 홈판 실시간 키워드 컨테이너 -->
       <div id="kc-homefeed-container"></div>
 
-      <!-- 4. 주제 카테고리별 보기 서브 바 (전체 30개 / 검증 통과 30개) -->
-      <div class="kc-sub-filter-bar" style="display: none;">
-        <div class="kc-sub-filter-header">
-          <span style="font-weight: 800; color: var(--text-main); font-size: 0.88rem;">주제 카테고리별 보기</span>
-          <span style="font-size: 0.78rem; color: var(--text-muted);">전체 공개 30개 · 검증 통과 30개 · 최소 15개 / 목표 30개 · 목표 확보</span>
+      <!-- 4. 주제 카테고리별 보기 서브 바 -->
+      <div class="kc-sub-filter-bar" id="kc-sub-filter-bar" style="display: none; flex-direction: column; align-items: flex-start; gap: 10px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px 20px; margin-bottom: 18px;">
+        <div class="kc-sub-filter-header" style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-weight: 800; color: #0f172a; font-size: 0.95rem;">주제 카테고리별 보기</span>
+          <span id="kc-sub-filter-status" style="font-size: 0.8rem; color: #64748b;">전체 공개 7개 · 검증 통과 7개 · 최소 5개 / 목표 10개 · 최소 확보 · 추가 검증 중</span>
         </div>
-        <div class="kc-sub-filter-btns">
-          <button class="kc-sub-btn active" data-sub="all">전체 (15)</button>
-          <button class="kc-sub-btn" data-sub="evergreen">생활/정보/에버그린 (15)</button>
+        <div class="kc-sub-filter-btns" id="kc-sub-filter-btns" style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <button class="kc-sub-btn active" data-sub="all">전체 (7)</button>
         </div>
       </div>
 
