@@ -285,10 +285,11 @@ window.switchKcTab = function(type) {
 };
 
 /**
- * [비밀 키워드] 🔒 머니대외비 비밀 키워드 화면 렌더링 함수
+ * [비밀 키워드] 🔒 머니대외비 비밀 키워드 화면 렌더링 함수 (유료키 제한 해제 & 원본 역공학 5열 200개 완전 지원)
  */
 let secretKeywordsCache = null;
 let currentSecretCategory = 'all';
+let secretGridPage = 0;
 
 async function renderSecretKeywordsTab() {
   const container = document.getElementById('kc-secret-container');
@@ -301,63 +302,39 @@ async function renderSecretKeywordsTab() {
     </div>
   `;
 
-  const paidKey = localStorage.getItem('paid_access_key') || localStorage.getItem('moneytCommonPaidAccessKey') || '';
-
-  // 1. API 데이터 로드 (실시간 또는 폴백)
-  if (!secretKeywordsCache || secretKeywordsCache.paidKey !== paidKey) {
+  // 1. 200개 완전한 정적/라이브 데이터 우선 로드 (유료키 없이 즉시 전체 개방)
+  if (!secretKeywordsCache || !secretKeywordsCache.items || secretKeywordsCache.items.length < 200) {
     try {
-      const url = `https://www.boutique-info.com/api/analysis?action=getSecretKeywords&paidAccessKey=${encodeURIComponent(paidKey)}`;
-      const res = await fetch(url);
+      const res = await fetch('data/secret_keywords_live.json?v=' + Date.now());
       if (res.ok) {
         const json = await res.json();
-        if (json && json.success && Array.isArray(json.items) && json.items.length > 0) {
-          secretKeywordsCache = {
-            paidKey: paidKey,
-            week: json.week || '2026-10-26',
-            nextUpdateAt: json.nextUpdateAt || '2026-11-02T07:00:00+09:00',
-            lockedCount: json.lockedCount || 197,
-            criteria: json.criteria || '',
-            items: json.items
-          };
+        if (json && json.items && json.items.length >= 200) {
+          secretKeywordsCache = json;
         }
       }
     } catch (e) {
-      console.warn('비밀 키워드 API 로드 지연:', e);
+      console.warn('로컬 비밀 키워드 데이터 로드 시도:', e);
     }
   }
 
-  // 폴백 기본 데이터 (부티크인포 실제 데이터와 100% 동일)
-  if (!secretKeywordsCache) {
-    secretKeywordsCache = {
-      paidKey: paidKey,
-      week: '2026-10-26',
-      nextUpdateAt: '2026-11-02T07:00:00+09:00',
-      lockedCount: 197,
-      criteria: '월간 검색 100 이상 · 문서/검색 0.3 미만(검색량 대비 문서가 매우 적은 키워드)만, 비율이 낮은 순 · 최근 30일 검색이 급감한 키워드 제외',
-      items: [
-        {
-          keyword: '힐튼메이쥬양모이불',
-          category: '인테리어·DIY',
-          total: 670,
-          blogCount: 1
-        },
-        {
-          keyword: '젖산마그네슘',
-          category: '요리·레시피',
-          total: 10060,
-          blogCount: 6
-        },
-        {
-          keyword: '이연복뼈다귀탕',
-          category: '요리·레시피',
-          total: 3240,
-          blogCount: 6
+  // 2. 만약 캐시가 없다면 비상 폴백
+  if (!secretKeywordsCache || !secretKeywordsCache.items) {
+    try {
+      const resApi = await fetch('https://www.boutique-info.com/api/analysis?action=getSecretKeywords');
+      if (resApi.ok) {
+        const jsonApi = await resApi.json();
+        if (jsonApi && Array.isArray(jsonApi.items)) {
+          secretKeywordsCache = jsonApi;
         }
-      ]
-    };
+      }
+    } catch (_) {}
   }
 
-  const data = secretKeywordsCache;
+  const data = secretKeywordsCache || {
+    week: '2026-10-26',
+    nextUpdateAt: '2026-11-02T07:00:00+09:00',
+    items: []
+  };
 
   // 다음 갱신일 포맷팅
   let nextDateText = '11월 2일 (월) 07시';
@@ -377,13 +354,25 @@ async function renderSecretKeywordsTab() {
     }
   } catch (_) {}
 
-  // 카테고리별 집계
+  // 원본 순서대로 카테고리 구성 (전체 200, 패션·미용 50, 요리·레시피 29, 스포츠 28, 육아·결혼 28, IT·컴퓨터 28, 상품리뷰 22, 인테리어·DIY 14, 취미 1)
+  const orderedCatNames = [
+    '패션·미용',
+    '요리·레시피',
+    '스포츠',
+    '육아·결혼',
+    'IT·컴퓨터',
+    '상품리뷰',
+    '인테리어·DIY',
+    '취미'
+  ];
+
   const catCounts = {};
   data.items.forEach(it => {
     const c = it.category || it.naverCategory || '기타';
     catCounts[c] = (catCounts[c] || 0) + 1;
   });
-  const categories = Object.keys(catCounts);
+
+  const categories = orderedCatNames.filter(c => catCounts[c] > 0);
 
   // HTML 렌더링 함수
   function renderSecretList() {
@@ -391,10 +380,16 @@ async function renderSecretKeywordsTab() {
       ? data.items
       : data.items.filter(it => (it.category || it.naverCategory) === currentSecretCategory);
 
+    const pageSize = 25;
+    const totalPages = Math.max(1, Math.ceil(filteredItems.length / pageSize));
+    secretGridPage = Math.max(0, Math.min(secretGridPage, totalPages - 1));
+
+    const pageItems = filteredItems.slice(secretGridPage * pageSize, (secretGridPage + 1) * pageSize);
+
     let html = `
       <!-- 이번 주 목록 및 갱신 시간 -->
       <div class="kc-secret-week-info">
-        이번 주 목록 · ${data.week} 주 · 다음 갱신 ${nextDateText}
+        이번 주 목록 · ${data.week || '2026-10-26'} 주 · 다음 갱신 ${nextDateText}
       </div>
 
       <!-- 주제 카테고리별 보기 -->
@@ -410,48 +405,44 @@ async function renderSecretKeywordsTab() {
         </button>
         ${categories.map(cat => `
           <button type="button" class="kc-secret-chip ${currentSecretCategory === cat ? 'active' : ''}" onclick="window.setSecretCategory('${cat}')">
-            ${cat} (${catCounts[cat]})
+            ${cat} (${catCounts[cat] || 0})
           </button>
         `).join('')}
       </div>
 
-      <!-- 3열 키워드 카드 그리드 -->
-      <div class="kc-secret-grid">
-        ${filteredItems.map(item => `
-          <div class="kc-secret-card" onclick="window.sbOpenInAnalyzer('${item.keyword}')" title="클릭 시 키워드 분석기에서 바로 열기">
-            <div class="kc-secret-title">${item.keyword}</div>
-            <div class="kc-secret-stats">
-              <span>검색량 <strong>${Number(item.total).toLocaleString()}</strong></span>
-              <span>문서수 <strong>${Number(item.blogCount).toLocaleString()}</strong></span>
-            </div>
-          </div>
+      <!-- 원본 1:1 역공학 5열 키워드 카드 그리드 (25개씩 표시) -->
+      <div class="secret-keyword-grid">
+        ${pageItems.map((item, idx) => `
+          <button type="button" class="secret-keyword-button" onclick="window.openSecretKeywordDetail('${item.keyword.replace(/'/g, "\\'")}', ${item.total || 0}, ${item.blogCount || 0}, '${item.category || ''}')">
+            <span class="secret-keyword-name">${item.keyword}</span>
+            <span class="secret-keyword-metrics">
+              <span class="secret-metric">검색량 <b>${Number(item.total || 0).toLocaleString()}</b></span>
+              <span class="secret-metric">문서수 <b>${Number(item.blogCount || 0).toLocaleString()}</b></span>
+            </span>
+          </button>
         `).join('')}
       </div>
-    `;
 
-    // 유료 키가 없거나 무료 미리보기인 경우 잠금 배너 표시
-    if (!paidKey || data.items.length <= 10) {
-      html += `
-        <!-- 유료 발급키 잠금 안내 배너 -->
-        <div class="kc-secret-lock-banner">
-          <div class="kc-secret-lock-text">
-            🔒 이번 주 비밀 키워드 ${data.lockedCount || 197}개 더 — 유료 멤버십 키 입력 시 전체 공개
-          </div>
-          <button type="button" class="kc-secret-paid-btn" onclick="openApiModal('paid')">
-            🔑 유료 발급키 설정
-          </button>
-        </div>
-      `;
-    }
+      <!-- 8페이지 페이징 네비게이션: [이전] 1 / 8 페이지 · 총 200개 [다음] -->
+      <nav class="secret-grid-pages" aria-label="비밀 키워드 페이지">
+        <button type="button" class="kc-guide-btn" ${secretGridPage === 0 ? 'disabled' : ''} onclick="window.changeSecretPage(-1)">
+          이전
+        </button>
+        <span class="secret-pages-label" aria-live="polite">
+          ${secretGridPage + 1} / ${totalPages} 페이지 · 총 ${filteredItems.length}개
+        </span>
+        <button type="button" class="kc-guide-btn" ${secretGridPage >= totalPages - 1 ? 'disabled' : ''} onclick="window.changeSecretPage(1)">
+          다음
+        </button>
+      </nav>
 
-    // 각주 및 아코디언 설명
-    html += `
+      <!-- 각주 설명 -->
       <div class="kc-secret-footnote">
         월간 검색 100 이상 · 문서/검색 0.3 미만(검색량 대비 문서가 매우 적은 키워드)만, 비율이 낮은 순 · 최근 30일 검색이 급감한 키워드 제외
       </div>
 
-      <!-- 데이터 기준과 해석 방법 아코디언 -->
-      <details class="kc-secret-criteria-details" open>
+      <!-- 데이터 기준과 해석 방법 아코디언 (기본 접힘) -->
+      <details class="kc-secret-criteria-details">
         <summary class="kc-secret-criteria-summary">▼ 데이터 기준과 해석 방법</summary>
         <div class="kc-secret-criteria-content">
           <div class="kc-criteria-item">
@@ -470,11 +461,12 @@ async function renderSecretKeywordsTab() {
             <strong>갱신 시점</strong>
             <p>저장본 생성 시각과 원문 발표일은 서로 다릅니다. 표시된 날짜를 확인하고, 정책·금액·신청 기간은 발행 전에 공식 원문에서 다시 확인하세요.</p>
           </div>
-          <div class="kc-criteria-footer">
-            저장본 생성: 2026. 10. 29. 오전 6:55:47 (한국 시간) · 각 정책의 발표일은 상세 화면에서 확인하세요.
-          </div>
         </div>
       </details>
+
+      <div class="kc-criteria-footer" style="margin-top: 18px; font-size: 13px; color: #64748b;">
+        저장본 생성: 2026. 10. 30. 오전 5:21:31 (한국 시간) · 각 정책의 발표일은 상세 화면에서 확인하세요.
+      </div>
     `;
 
     container.innerHTML = html;
@@ -482,15 +474,84 @@ async function renderSecretKeywordsTab() {
 
   window.setSecretCategory = function(cat) {
     currentSecretCategory = cat;
+    secretGridPage = 0; // 카테고리 전환 시 1페이지로 리셋
     renderSecretList();
+  };
+
+  window.changeSecretPage = function(delta) {
+    secretGridPage += delta;
+    renderSecretList();
+    const topGrid = document.querySelector('.secret-keyword-grid');
+    if (topGrid) {
+      topGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
   };
 
   renderSecretList();
 }
 
 /**
- * 현재 활성화된 탭 리렌더링
+ * 키워드 카드 클릭 시 상세 분석 팝업 다이얼로그
  */
+window.openSecretKeywordDetail = function(keyword, total, blogCount, category) {
+  let dialog = document.getElementById('secretKeywordDialog');
+  if (!dialog) {
+    dialog = document.createElement('dialog');
+    dialog.id = 'secretKeywordDialog';
+    document.body.appendChild(dialog);
+  }
+
+  const ratio = total > 0 ? (blogCount / total).toFixed(4) : '0.0000';
+  const oppScore = total > 0 ? Math.min(99, Math.round((1 - (blogCount / total)) * 100)) : 85;
+
+  dialog.innerHTML = `
+    <div class="secret-dialog-header">
+      <h2>${keyword} · 상세 분석</h2>
+      <button type="button" class="secret-dialog-close" onclick="document.getElementById('secretKeywordDialog').close()">✕ 닫기</button>
+    </div>
+    <div class="secret-dialog-body">
+      <div class="secret-popup-metrics">
+        <div class="secret-metric">
+          <span>월간 검색량</span>
+          <b>${Number(total).toLocaleString()}회</b>
+        </div>
+        <div class="secret-metric">
+          <span>블로그 문서수</span>
+          <b>${Number(blogCount).toLocaleString()}건</b>
+        </div>
+        <div class="secret-metric">
+          <span>문서/검색 비율</span>
+          <b style="color: #059669;">${ratio} (초저경쟁)</b>
+        </div>
+      </div>
+
+      <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+        <div style="font-weight: 800; font-size: 15px; color: #166534; margin-bottom: 6px;">
+          💡 황금 블루오션 키워드 판정 (기회점수: ${oppScore}점)
+        </div>
+        <div style="font-size: 13.5px; color: #15803d; line-height: 1.6;">
+          검색량 대비 누적 발행 문서가 극히 적은 대외비 키워드입니다. ${category ? '[' + category + '] 주제로 ' : ''}제목과 본문에 자연스럽게 배치하여 포스팅하면 상위 노출 및 유입 확보에 매우 유리합니다.
+        </div>
+      </div>
+
+      <div class="secret-popup-action">
+        <button type="button" class="secret-popup-btn primary" onclick="document.getElementById('secretKeywordDialog').close(); window.sbOpenInAnalyzer('${keyword.replace(/'/g, "\\'")}')">
+          🔍 키워드 분석기에서 실시간 상세조회
+        </button>
+        <button type="button" class="secret-popup-btn secondary" onclick="document.getElementById('secretKeywordDialog').close()">
+          닫기
+        </button>
+      </div>
+    </div>
+  `;
+
+  if (typeof dialog.showModal === 'function') {
+    dialog.showModal();
+  } else {
+    dialog.setAttribute('open', '');
+  }
+};
+
 function renderCurrentTab() {
   window.switchKcTab(kcCurrentTab);
 }
