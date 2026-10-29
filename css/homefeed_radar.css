@@ -56,6 +56,7 @@
 .kc-pill-secret.active, .kc-pill-row .kc-pill-secret.active { background: #3730a3 !important; border-color: #3730a3 !important; color: #ffffff !important; box-shadow: 0 4px 12px rgba(55, 48, 163, 0.3) !important; }
 .kc-pill-find { border: 1.5px solid #22d3ee !important; color: #155e75 !important; }
 .kc-pill-excel { border: 1.5px solid #c084fc !important; color: #581c87 !important; }
+.kc-pill-excel.active, .kc-pill-row .kc-pill-excel.active { background: #251e62 !important; border-color: #251e62 !important; color: #ffffff !important; box-shadow: 0 4px 12px rgba(37, 30, 98, 0.3) !important; }
 .kc-pill-btn:hover { transform: translateY(-1px); opacity: 0.9; }
 
 /* 액션 버튼 (분석기에서 열기 / 프롬프트로 보내기) */

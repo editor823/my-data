@@ -31,6 +31,7 @@
 
   <!-- Chart.js CDN 비동기 로드 -->
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 
@@ -577,7 +578,7 @@
           <button type="button" class="kc-pill-btn kc-pill-11" data-type="type-11" onclick="switchKcTab('type-11')">📁 11. 주제별 키워드 · 매일</button>
           <button type="button" class="kc-pill-btn kc-pill-secret" data-type="type-secret" onclick="switchKcTab('type-secret')">🔒 머니대외비 비밀 키워드</button>
           <button type="button" class="kc-pill-btn kc-pill-find" data-type="type-find" onclick="switchTab('keyword')">🔗 키워드 찾으러 가기</button>
-          <button type="button" class="kc-pill-btn kc-pill-excel" data-type="type-excel" onclick="switchTab('keyword')">📊 엑셀 파일 대량 분석</button>
+          <button type="button" class="kc-pill-btn kc-pill-excel" data-type="type-excel" onclick="switchKcTab('type-excel')">📊 엑셀 파일 대량 분석</button>
         </div>
       </div>
 
@@ -612,6 +613,9 @@
 
       <!-- 8. 비밀 키워드 전용 컨테이너 (스크린샷 100% 동일 구현) -->
       <div class="kc-secret-container" id="kc-secret-container" style="display: none;"></div>
+
+      <!-- 9. 엑셀 파일 대량 분석 전용 컨테이너 (스크린샷 100% 동일 구현) -->
+      <div class="kc-excel-container" id="kc-excel-container" style="display: none; width: 100%; margin-top: 18px;"></div>
     </section>
 
     <!-- ===== [모달 1] 내 네이버 API 키 설정 팝업 ===== -->
