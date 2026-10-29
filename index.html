@@ -356,201 +356,101 @@
         </div>
       </div>
 
-      <!-- [보조 레거시 헤더 - 하위 호환성 유지용 숨김] -->
-      <div id="legacy-kw-header" style="display: none;">
-        <!-- 1. 상단 타이틀 및 API 키 연동 헤더 카드 -->
-        <div class="card" style="margin-bottom: 24px; padding: 28px 24px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
-                <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 8px;">
-                  <span>⚡</span> 키워드 분석기
-                </h2>
-                <span style="background: #4f46e5; color: #fff; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 20px;">
-                  실시간 네이버 검색량 분석
-                </span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
-                <button class="btn btn-secondary btn-sm" onclick="openApiModal('user')" style="font-size: 0.8rem; padding: 6px 14px; border-radius: 20px;">
-                  ⚙️ 내 네이버 API 키 설정
-                </button>
-                <div id="apiKeyStatusBadge" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #10b981;">
-                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
-                  <span id="apiKeyStatusText">개인 전용 무제한 분석 모드 활성화됨 ✅</span>
-                </div>
-              </div>
-              <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0;">
-                검색량 대비 경쟁 문서가 극도로 적은 <strong>틈새 황금키워드</strong>를 횟수 제한 없이 자유롭게 실시간 발굴합니다.
-              </p>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 8px; min-width: 180px;">
-              <a href="https://searchad.naver.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="background: #047857; color: #fff; font-weight: 800; padding: 10px 16px; border-radius: 10px; text-decoration: none; text-align: center;">
-                네이버 API 무료 발급 안내 ↗
-              </a>
-            </div>
-          </div>
-        </div>
+      <!-- [보조 레거시 인풋 - 호환성 유지용 숨김] -->
+      <input type="hidden" id="singleFastInput">
+      <input type="hidden" id="analyzerInput">
 
-        <!-- 2. 개인 무제한 분석 안내 배너 (초록색 박스) -->
-        <div style="margin-bottom: 24px; padding: 18px 22px; border: 1px solid rgba(16,185,129,0.4); border-radius: 14px; background: rgba(16,185,129,0.06);">
-          <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <div>
-              <div style="font-size: 0.95rem; font-weight: 900; color: #10b981; display: flex; align-items: center; gap: 6px;">
-                <span>⚡</span> 개인 전용 무제한 분석 모드
-              </div>
-              <div style="margin-top: 6px; color: var(--text-main); font-size: 0.85rem; line-height: 1.6;">
-                외부 유료 결제 없이 <strong>단건 키워드 분석과 메인 키워드 연관 분석을 횟수 제한 없이 무제한</strong>으로 이용할 수 있습니다.
-              </div>
-            </div>
-            <span id="freeQuotaCountBadge" style="padding: 6px 14px; border-radius: 20px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #10b981; font-size: 0.85rem; font-weight: 800; white-space: nowrap;">
-              상태: <span id="quotaRemaining">무제한 이용 가능</span>
-            </span>
-          </div>
-        </div>
+      <!-- 동적 보고서 컨테이너 (#sbReport: 스크린샷 1, 2 1:1 리포트) -->
+      <div id="sbReport" class="sb-report" style="display: none;"></div>
 
-        <!-- 2-1. 서브 탭 바 -->
-        <div class="kw-subtabs-bar" style="display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 4px; border-bottom: 1px solid var(--border-color);">
-          <button type="button" class="kw-subtab-btn active" data-kwsub="analysis" onclick="switchKwSubTab('analysis')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
-            <span>🔍</span> 1. 연관 황금키워드 분석기
-          </button>
-          <button type="button" class="kw-subtab-btn" data-kwsub="trending" onclick="switchTab('home')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-sub); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
-            <span>🔥</span> 2. 실시간 급상승 검색어
-          </button>
-          <button type="button" class="kw-subtab-btn" data-kwsub="find" onclick="switchTab('adsense')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-sub); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
-            <span>🔗</span> 3. 키워드 찾으러 가기
-          </button>
-          <button type="button" class="kw-subtab-btn" data-kwsub="excel" onclick="switchKwSubTab('excel')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-sub); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
-            <span>📁</span> 4. 엑셀 파일 대량 분석
-          </button>
-          <button type="button" class="kw-subtab-btn" id="subtab-btn-ranktracker" data-kwsub="ranktracker" onclick="switchKwSubTab('ranktracker')" style="background: rgba(37, 99, 235, 0.15); border: 1px solid rgba(37, 99, 235, 0.35); border-radius: 8px 8px 0 0; padding: 12px 20px; font-size: 0.95rem; font-weight: 800; color: #60a5fa; cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid #2563eb; transition: all 0.2s; white-space: nowrap;">
-            <span>🔬</span> 5. 블로그 노출 추적
-          </button>
+      <!-- [체급별 필터 컨테이너] -->
+      <div class="card" id="tierFilterContainer" style="display: none; padding: 15px; margin-bottom: 20px; background: #ffffff;">
+        <h4 style="margin: 0 0 10px 0; font-size: 15px; color: #475569;">체급별 필터 (월 검색량 기준)</h4>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button type="button" class="kw-tier-chip active" onclick="filterByTier('전체')">전체</button>
+          <button type="button" class="kw-tier-chip" onclick="filterByTier('레전드')">👑 레전드 (50만↑)</button>
+          <button type="button" class="kw-tier-chip" onclick="filterByTier('챌린저')">⚡ 챌린저 (10만~50만)</button>
+          <button type="button" class="kw-tier-chip" onclick="filterByTier('마스터')">🔮 마스터 (5만~10만)</button>
+          <button type="button" class="kw-tier-chip" onclick="filterByTier('전문가')">🔥 전문가 (1만~5만)</button>
+          <button type="button" class="kw-tier-chip" onclick="filterByTier('고급자')">🌟 고급자 (2천~1만)</button>
+          <button type="button" class="kw-tier-chip" onclick="filterByTier('중급자')">☘️ 중급자 (500~2천)</button>
+          <button type="button" class="kw-tier-chip" onclick="filterByTier('초보자')">🌱 초보자 (100~500)</button>
         </div>
       </div>
 
-      <!-- [서브 패널 1] 연관 황금키워드 분석기 -->
-      <div id="kw-panel-analysis" class="kw-sub-panel">
-        <!-- 3. [폼 1] ⚡ 1. 단건 키워드 분석 (호환성 유지용 숨김) -->
-        <div class="card" style="display: none; margin-bottom: 20px; padding: 22px;">
-          <h3 style="margin: 0 0 12px 0; color: #10b981; font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
-            <span>⚡</span> 1. 단건 키워드 분석 (1건 빠르게 결과 확인)
-          </h3>
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <input type="text" id="singleFastInput" class="form-input" style="flex: 1; min-width: 260px;" placeholder="키워드 1개 입력 (예: 취사병)">
-            <button id="singleFastBtn" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981, #059669); min-width: 140px;">
-              단건 빠른 분석
-            </button>
-          </div>
-        </div>
-
-        <!-- 4. [폼 2] 🎯 2. 메인 키워드 연관 분석 (호환성 유지용 숨김) -->
-        <div class="card" style="display: none; margin-bottom: 24px; padding: 22px;">
-          <h3 style="margin: 0 0 12px 0; color: #f59e0b; font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
-            <span>🎯</span> 2. 메인 키워드 연관 분석 (실시간 연관 분석)
-          </h3>
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <input type="text" id="analyzerInput" class="form-input" style="flex: 1; min-width: 260px;" placeholder="검색할 키워드 (예: 취사병, 캠핑, 신입사원강회장)">
-            <button id="mainKeywordBtn" class="btn btn-accent" style="min-width: 140px;">
-              연관 분석 시작
-            </button>
-          </div>
-        </div>
-
-        <!-- 5. 분석 결과 테이블 카드 & 30일 검색 추이 그래프 -->
-        <div class="card" id="keyword-result-container" style="display: none; margin-bottom: 30px; padding: 24px;">
-          <!-- 상단 헤더 & 다운로드 버튼 -->
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
-            <div>
-              <h3 style="font-size: 1.25rem; font-weight: 800; display: flex; align-items: center; gap: 8px; margin: 0 0 4px 0;">
-                <span>📊</span> '<span id="analyzedSearchTerm" style="color: #10b981;"></span>' 키워드 분석 결과
+      <!-- 연관 키워드 분석 결과 테이블 (#resultsWrapper - 스크린샷 3 1:1 완벽 일치) -->
+      <div id="resultsWrapper" style="display: none; margin-top: 20px;">
+        <div class="dashboard-grid">
+          <div class="card" style="flex: 1; min-width: 0; padding: 20px; background: #ffffff;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+              <h3 style="margin: 0; font-size: 18px; font-weight: 900; color: #0f172a;">
+                📊 '<span class="text-highlight-analyzer" id="searchedKeywordText" style="color: #10b981;"></span>' 관련 키워드 (<span id="resultCount">0</span>개)
               </h3>
-              <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0;">
-                총 검색량, 블로그 문서수, 기회지수 및 네이버 데이터랩 30일 검색 추이를 실시간 분석합니다.
-              </p>
-              <div id="kwUsageNotice" style="font-size: 0.82rem; color: #10b981; font-weight: 700; margin-top: 4px; display: none;"></div>
-            </div>
-            <button id="keyword-export-btn" class="btn btn-secondary btn-sm" onclick="exportRelatedKeywordsToCsv()">
-              📥 엑셀(CSV) 다운로드
-            </button>
-          </div>
-
-          <!-- 요약 스탯 5개 카드 -->
-          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 24px;" class="kw-stat-cards">
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-align: center;">
-              <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px;">총 검색량</div>
-              <div id="statTotalSearch" style="font-size: 1.35rem; font-weight: 900; color: #10b981;">-</div>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-align: center;">
-              <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px;">PC 검색수</div>
-              <div id="statPcSearch" style="font-size: 1.2rem; font-weight: 800; color: var(--text-main);">-</div>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-align: center;">
-              <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px;">모바일 검색수</div>
-              <div id="statMobileSearch" style="font-size: 1.2rem; font-weight: 800; color: var(--text-main);">-</div>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-align: center;">
-              <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px;">블로그 문서수</div>
-              <div id="statBlogCount" style="font-size: 1.2rem; font-weight: 800; color: #f59e0b;">-</div>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-align: center;">
-              <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px;">기회지수 (황금도)</div>
-              <div id="statOpportunity" style="font-size: 1.2rem; font-weight: 900; color: #8b5cf6;">-</div>
-            </div>
-          </div>
-
-          <!-- 30일 검색 추이 그래프 카드 -->
-          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; margin-bottom: 24px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="font-size: 1.1rem;">📈</span>
-                <span style="font-size: 1rem; font-weight: 800; color: var(--text-main);">최근 30일 검색량 및 관심도 추이</span>
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <label style="font-size: 14px; font-weight: 700; cursor: pointer; background: #ffffff; padding: 8px 12px; border-radius: 8px; border: 1px solid #e2e8f0; display: inline-flex; align-items: center; gap: 6px; color: #1e293b;">
+                  <input type="checkbox" id="filterRatio50" onchange="applyFilters()" style="accent-color: #f59e0b; cursor: pointer;">
+                  <span>⭐ 기회지수 50점 이상</span>
+                </label>
+                <label id="labelGoldenOnly" style="font-size: 14px; font-weight: 700; cursor: pointer; background: #fffdf5; padding: 8px 12px; border-radius: 8px; border: 1px solid #fde68a; display: inline-flex; align-items: center; gap: 6px; color: #92400e;">
+                  <input type="checkbox" id="sbGoldenOnly" onchange="applyFilters()" style="accent-color: #d97706; cursor: pointer;">
+                  <span>💎 황금 후보만 (문서/검색 0.3 미만)</span>
+                </label>
+                <button type="button" class="btn-excel" onclick="exportCSV('analyzerTable')">📥 엑셀 다운로드</button>
               </div>
-              <span id="trendChartBadge" style="font-size: 0.78rem; padding: 3px 10px; border-radius: 20px; background: rgba(16, 185, 129, 0.12); color: #10b981; font-weight: 700;">네이버 DataLab 실시간</span>
             </div>
-            <div style="position: relative; width: 100%; height: 260px;">
-              <canvas id="trendChartCanvas"></canvas>
+
+            <div id="blogApiErrorBanner" style="display: none; margin: -6px 0 14px; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(244,63,94,.45); background: #fff1f2; color: #e11d48; font-size: 14px; line-height: 1.6;"></div>
+            <div id="searchAdErrorBanner" style="display: none; margin: -6px 0 14px; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(245,158,11,.45); background: #fffbeb; color: #b45309; font-size: 14px; line-height: 1.6;"></div>
+
+            <div class="table-wrapper" style="max-height: 650px; overflow-y: auto;">
+              <table id="analyzerTable">
+                <thead>
+                  <tr>
+                    <th class="text-center" style="width: 50px;">순위</th>
+                    <th>키워드</th>
+                    <th style="text-align: right;">총 검색량</th>
+                    <th style="text-align: right;">전체 블로그 문서</th>
+                    <th style="text-align: center;">최근 30일 발행 문서수<br><small style="color: #64748b; font-size: 11px;">무료 일 20개 · 유효한 유료키 무제한</small></th>
+                    <th style="text-align: right; color: #a16207;">기회지수</th>
+                    <th class="text-center" style="width: 80px;">체급</th>
+                  </tr>
+                </thead>
+                <tbody id="analyzerTbody"></tbody>
+              </table>
             </div>
           </div>
 
-          <!-- 3. 체급별 필터링 칩 버튼 & 4. 기회지수 50점 이상 필터 체크박스 바 -->
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; padding: 14px 18px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px;">
-            <!-- 체급 칩 버튼 그룹 -->
-            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center;">
-              <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); margin-right: 4px;">체급 필터:</span>
-              <button type="button" class="kw-tier-chip active" data-tier="all" onclick="filterRelatedKeywordsByTier('all')">전체</button>
-              <button type="button" class="kw-tier-chip" data-tier="legend" onclick="filterRelatedKeywordsByTier('legend')">레전드 (50만↑)</button>
-              <button type="button" class="kw-tier-chip" data-tier="challenger" onclick="filterRelatedKeywordsByTier('challenger')">챌린저 (10만~50만)</button>
-              <button type="button" class="kw-tier-chip" data-tier="master" onclick="filterRelatedKeywordsByTier('master')">마스터 (5만~10만)</button>
-              <button type="button" class="kw-tier-chip" data-tier="expert" onclick="filterRelatedKeywordsByTier('expert')">전문가 (1만~5만)</button>
-              <button type="button" class="kw-tier-chip" data-tier="advanced" onclick="filterRelatedKeywordsByTier('advanced')">고급자 (2천~1만)</button>
-              <button type="button" class="kw-tier-chip" data-tier="intermediate" onclick="filterRelatedKeywordsByTier('intermediate')">중급자 (500~2천)</button>
-              <button type="button" class="kw-tier-chip" data-tier="beginner" onclick="filterRelatedKeywordsByTier('beginner')">초보자 (100~500)</button>
-            </div>
+          <!-- 우측 상세 고정 패널 (#detailPanel) -->
+          <div class="card" id="detailPanel" style="width: 380px; flex-shrink: 0; display: none; border-left: 1px solid #dbe3ef; padding: 20px; background: #ffffff;">
+            <div style="position: sticky; top: 20px;">
+              <h3 id="detailKeyword" style="margin: 0 0 16px 0; font-size: 22px; font-weight: 900; color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">키워드명</h3>
+              <div class="info-grid-simple" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+                <div style="background: #ffffff; padding: 14px 12px; border-radius: 12px; text-align: center; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+                  <div style="font-size: 13px; color: #475569; font-weight: 700;">총 검색량</div>
+                  <div id="detailTotal" style="font-size: 20px; font-weight: 900; color: #0f172a; margin-top: 4px;">-</div>
+                </div>
+                <div style="background: #ffffff; padding: 14px 12px; border-radius: 12px; text-align: center; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+                  <div style="font-size: 13px; color: #475569; font-weight: 700;">블로그 문서수</div>
+                  <div id="detailBlog" style="font-size: 20px; font-weight: 900; color: #0f172a; margin-top: 4px;">-</div>
+                </div>
+                <div style="background: #ffffff; padding: 14px 12px; border-radius: 12px; text-align: center; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+                  <div style="font-size: 13px; color: #475569; font-weight: 700;">PC / 모바일</div>
+                  <div id="detailPcMobile" style="font-size: 15px; font-weight: 800; color: #0f172a; margin-top: 6px;">-</div>
+                </div>
+                <div style="background: #ffffff; padding: 14px 12px; border-radius: 12px; text-align: center; border: 1.5px solid #fde68a; box-shadow: 0 1px 3px rgba(217,119,6,0.08);">
+                  <div style="font-size: 13px; color: #b45309; font-weight: 800;">기회지수 (비율)</div>
+                  <div id="detailRatio" style="font-size: 20px; font-weight: 900; color: #d97706; margin-top: 4px;">-</div>
+                </div>
+              </div>
 
-            <!-- 기회지수 50점 이상 필터 체크박스 -->
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: #f59e0b; cursor: pointer; user-select: none;">
-                <input type="checkbox" id="filterOpportunityCheckbox" onchange="toggleOpportunityFilter()" style="width: 16px; height: 16px; accent-color: #f59e0b; cursor: pointer;">
-                <span>⭐ 기회지수 50점 이상만 보기</span>
-              </label>
+              <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 16px; padding: 16px; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 14px; font-weight: 800; color: #047857;">💡 AI INSIGHT</span>
+                  <span style="font-size: 13px; color: #fff; background: #059669; padding: 2px 8px; border-radius: 8px;">Golden Score: <b id="detailScore">-</b>점</span>
+                </div>
+                <p id="detailComment" style="margin: 0; font-size: 13.5px; color: #1e293b; line-height: 1.6;">키워드를 선택하면 맞춤 분석이 표시됩니다.</p>
+              </div>
             </div>
-          </div>
-
-          <!-- 상세 테이블 -->
-          <div class="table-container">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th style="width: 50px; text-align: center;">순위</th>
-                  <th>키워드 (클릭 시 네이버 검색 ↗)</th>
-                  <th style="text-align: right;">총 검색량</th>
-                  <th style="text-align: right;">전체 블로그 문서</th>
-                  <th style="text-align: right; color: #d97706; font-weight: 800;">기회지수</th>
-                  <th style="text-align: center; width: 100px;">체급</th>
-                </tr>
-              </thead>
-              <tbody id="keyword-table-body"></tbody>
-            </table>
           </div>
         </div>
       </div>
@@ -2834,7 +2734,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <script src="js/app.js?v=20260915_fix1"></script>
   <script src="js/trending.js?v=20261009_v3"></script>
-  <script src="js/keyword.js?v=20261029_landing_v1"></script>
+  <script src="js/recent_blog.js?v=20261029_v1"></script>
+  <script src="js/keyword.js?v=20261029_landing_v2"></script>
   <script src="js/viral_shorts_data.js?v=20260915_loading"></script>
   <script src="js/adsense.js?v=20261029_secret_v1"></script>
   <script src="data/prompts.js?v=20261002_prompts_v1"></script>

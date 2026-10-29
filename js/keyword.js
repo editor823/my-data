@@ -1,1181 +1,820 @@
 /**
- * 머니대외비 스타일 키워드 분석기 모듈 (keyword.js)
- * 1. 단건 키워드 분석 (1건 빠른 분석)
- * 2. 메인 키워드 연관 분석 (보통 5~10초)
- * 3. 일일 무료 40회 카운팅 & 로컬스토리지 보존
- * 4. 내 API 키 설정 & 유료 발급키 설정 모달
+ * 머니대외비 키워드 분석기 모듈 (js/keyword.js)
+ * 1. 실시간 네이버 API 보고서 시스템 (월 검색량, 블로그 문서수, 경쟁도, 상위글 평균 나이)
+ * 2. 30일 / 1년 실측 추정 검색 추이 (SVG 그래프 & 7일/15일 증감 비교 태그)
+ * 3. 3열 종합 리포트: 최신 뉴스(왜 검색될까), 블로그 상위 10개, 월별 발행량 및 성별·연령 분포
+ * 4. 연관 키워드 분석 표: 순위, 총 검색량, 전체 블로그 문서, 최근 30일 발행 문서수 조회, 기회지수, 체급, 💎 황금 필터
+ * 5. 우측 상세 패널 및 엑셀(CSV) 다운로드 지원
  */
 
-// 일일 무료 한도 기본값
-const MAX_FREE_DAILY_QUOTA = 40;
+(function () {
+  'use strict';
 
-// 샘플 키워드 데이터베이스
-const SAMPLE_KEYWORD_DATABASE = {
-  '취사병': [
-    { keyword: '취사병 일과', pc: 2800, mobile: 14200, comp: '낮음' },
-    { keyword: '취사병 훈련소', pc: 1900, mobile: 8900, comp: '낮음' },
-    { keyword: '취사병 휴가 일수', pc: 3400, mobile: 16500, comp: '중간' },
-    { keyword: '취사병 조리병 차이', pc: 1200, mobile: 5400, comp: '낮음' },
-    { keyword: '취사병 난이도 후기', pc: 2100, mobile: 9800, comp: '낮음' }
-  ],
-  '캠핑': [
-    { keyword: '캠핑용품 추천 리스트', pc: 8900, mobile: 42000, comp: '높음' },
-    { keyword: '캠핑장 예약 사이트', pc: 12400, mobile: 58900, comp: '높음' },
-    { keyword: '차박 캠핑 준비물', pc: 6500, mobile: 31200, comp: '중간' },
-    { keyword: '초보 캠핑 텐트 추천', pc: 4300, mobile: 21500, comp: '낮음' },
-    { keyword: '가을 캠핑 요리 메뉴', pc: 3100, mobile: 18200, comp: '낮음' }
-  ],
-  '신입사원강회장': [
-    { keyword: '신입사원강회장 웹툰 결말', pc: 4200, mobile: 21000, comp: '중간' },
-    { keyword: '신입사원강회장 줄거리 요약', pc: 2800, mobile: 13500, comp: '낮음' },
-    { keyword: '신입사원강회장 소설 등장인물', pc: 1800, mobile: 9400, comp: '낮음' }
-  ],
-  '청년도약계좌': [
-    { keyword: '청년도약계좌 신청기간', pc: 18200, mobile: 74900, comp: '높음' },
-    { keyword: '청년도약계좌 조건', pc: 12100, mobile: 52300, comp: '높음' },
-    { keyword: '청년도약계좌 환급금', pc: 4300, mobile: 18900, comp: '중간' },
-    { keyword: '청년도약계좌 중도해지', pc: 3100, mobile: 14200, comp: '중간' },
-    { keyword: '청년도약계좌 비과세 혜택', pc: 1200, mobile: 6800, comp: '낮음' }
-  ]
-};
+  var WORKER_API_URL = '/api/analysis';
+  var currentAnalyzerData = [];
+  var filteredAnalyzerData = [];
+  var selectedTier = '전체';
+  var goldenMap = new Map();
+  var reportSeq = 0;
+  var isKeywordAnalysisRunning = false;
+  var LS_HIST = 'sb_analyzer_hist_v1';
+  var LS_ENGINE = 'sb_analyzer_engine_v1';
+  var ANALYZER_RESULT_LIMIT = 50;
 
-let currentAnalyzedData = [];
-
-// ==========================================================
-// [키워드 분석기] 최신 sbLanding 히스토리 & 엔진 상태 관리
-// ==========================================================
-const LS_HIST = 'sb_analyzer_hist_v1';
-const LS_ENGINE = 'sb_analyzer_engine_v1';
-
-function getHist() {
-  try {
-    return JSON.parse(localStorage.getItem(LS_HIST) || '[]');
-  } catch (_) {
-    return [];
+  function safeText(v) { return String(v == null ? '' : v); }
+  function escapeHtml(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, function (ch) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch];
+    });
   }
-}
-
-function pushHist(kw) {
-  if (!kw) return;
-  const clean = String(kw).trim();
-  if (!clean) return;
-  const h = getHist().filter(x => x !== clean);
-  h.unshift(clean);
-  try {
-    localStorage.setItem(LS_HIST, JSON.stringify(h.slice(0, 8)));
-  } catch (_) {}
-}
-
-window.renderHist = function() {
-  const box = document.getElementById('sbHist');
-  if (!box) return;
-  const h = getHist();
-  box.innerHTML = '';
-  if (!h.length) {
-    box.style.display = 'none';
-    return;
+  function toFiniteNumber(value) {
+    var n = Number(String(value == null ? '' : value).replace(/[ ,]/g, ''));
+    return Number.isFinite(n) ? Math.max(0, n) : 0;
   }
-  box.style.display = 'flex';
-  const label = document.createElement('span');
-  label.className = 'sb-hist-label';
-  label.textContent = '최근 검색';
-  box.appendChild(label);
+  function fmtN(n) {
+    n = Number(n);
+    return isFinite(n) ? n.toLocaleString('ko-KR') : '-';
+  }
+  function shortN(n) {
+    n = Math.round(n);
+    return n >= 10000 ? (Math.round(n / 1000) / 10) + '만' : n.toLocaleString('ko-KR');
+  }
+  function avg(a) { return a.length ? a.reduce(function (s, x) { return s + x; }, 0) / a.length : 0; }
+  function pctChange(now, prev) { if (!prev) return null; return Math.round((now - prev) / prev * 100); }
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
 
-  h.forEach(kw => {
-    const chip = document.createElement('button');
-    chip.type = 'button';
-    chip.className = 'sb-chip sb-chip-sm';
-    chip.textContent = kw;
-    chip.onclick = () => {
-      const sbInp = document.getElementById('sbLandInput');
-      if (sbInp) sbInp.value = kw;
-      runMainKeywordAnalysis(kw);
-    };
-    box.appendChild(chip);
-  });
+  /* ---------- 로컬 스토리지 & 히스토리 관리 ---------- */
+  function lsGet(k, d) { try { var v = localStorage.getItem(k); return v == null ? d : v; } catch (_) { return d; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (_) {} }
+  function getHist() { try { return JSON.parse(lsGet(LS_HIST, '[]')) || []; } catch (_) { return []; } }
+  function pushHist(kw) {
+    var clean = safeText(kw).trim();
+    if (!clean) return;
+    var h = getHist().filter(function (x) { return x !== clean; });
+    h.unshift(clean);
+    lsSet(LS_HIST, JSON.stringify(h.slice(0, 8)));
+  }
 
-  const clearBtn = document.createElement('button');
-  clearBtn.type = 'button';
-  clearBtn.className = 'sb-hist-clear';
-  clearBtn.textContent = '지우기';
-  clearBtn.onclick = () => {
-    try { localStorage.setItem(LS_HIST, '[]'); } catch (_) {}
-    window.renderHist();
+  function renderHist() {
+    var box = document.getElementById('sbHist');
+    if (!box) return;
+    var h = getHist();
+    box.textContent = '';
+    if (!h.length) {
+      // 기본 추천 태그
+      h = ['나는솔로', 'kpr', '큐보션'];
+    }
+    box.append(el('span', 'sb-hist-label', '최근 검색'));
+    h.forEach(function (kw) {
+      var c = el('button', 'sb-chip-sm', kw);
+      c.type = 'button';
+      c.onclick = function () { runMainKeywordAnalysis(kw); };
+      box.append(c);
+    });
+    var clr = el('button', 'sb-hist-clear', '지우기');
+    clr.type = 'button';
+    clr.onclick = function () { lsSet(LS_HIST, '[]'); renderHist(); };
+    box.append(clr);
+  }
+
+  window.switchEngine = function (engine) {
+    lsSet(LS_ENGINE, engine);
+    var btns = document.querySelectorAll('.sb-engine-btn');
+    btns.forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-engine') === engine);
+    });
+    var note = document.getElementById('sbEngineNote');
+    if (note) note.style.display = engine === 'google' ? 'block' : 'none';
   };
-  box.appendChild(clearBtn);
-};
 
-window.switchEngine = function(engine) {
-  try { localStorage.setItem(LS_ENGINE, engine); } catch (_) {}
-  const btns = document.querySelectorAll('.sb-engine-btn');
-  btns.forEach(b => {
-    b.classList.toggle('on', b.getAttribute('data-engine') === engine);
-  });
-  const note = document.getElementById('sbEngineNote');
-  if (note) {
-    note.style.display = engine === 'google' ? 'block' : 'none';
-  }
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-  initQuotaUI();
-  initApiStatusBadge();
-  window.renderHist();
-
-  // 0. sbLanding 메인 검색창 바인딩
-  const sbLandInput = document.getElementById('sbLandInput');
-  if (sbLandInput) {
-    sbLandInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        runMainKeywordAnalysis(sbLandInput.value);
-      }
-    });
-  }
-
-  // 1. 단건 빠른 분석 이벤트 바인딩
-  const singleInput = document.getElementById('singleFastInput');
-  const singleBtn = document.getElementById('singleFastBtn');
-  if (singleBtn && singleInput) {
-    singleBtn.addEventListener('click', () => runSingleFastAnalysis());
-    singleInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') runSingleFastAnalysis();
-    });
-  }
-
-  // 2. 메인 키워드 연관 분석 이벤트 바인딩
-  const analyzerInput = document.getElementById('analyzerInput');
-  const mainBtn = document.getElementById('mainKeywordBtn');
-  if (mainBtn && analyzerInput) {
-    mainBtn.addEventListener('click', () => runMainKeywordAnalysis());
-    analyzerInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') runMainKeywordAnalysis();
-    });
-  }
-
-  // 엑셀 내보내기 버튼 이벤트
-  const exportBtn = document.getElementById('keyword-export-btn');
-  if (exportBtn) {
-    exportBtn.addEventListener('click', () => {
-      if (currentAnalyzedData.length === 0) {
-        window.showToast('먼저 키워드를 분석해 주세요.', '⚠️');
-        return;
-      }
-      const title = document.getElementById('analyzedSearchTerm')?.textContent || '키워드분석';
-      exportToCSV(currentAnalyzedData, title);
-    });
-  }
-});
-
-// ===== 실제 네이버 검색광고 API 호출 및 서명 생성 로직 =====
-async function fetchNaverSearchAdStats(hintKeywords) {
-  const customerId = localStorage.getItem('ad_customer_id');
-  const licenseKey = localStorage.getItem('ad_license_key');
-  const secretKey = localStorage.getItem('ad_secret_key');
-
-  if (!customerId || !licenseKey || !secretKey) {
-    return null; // API 키가 아직 없는 경우
-  }
-
-  const timestamp = String(Date.now());
-  const method = 'GET';
-  const uri = '/keywordstool';
-  const signMessage = `${timestamp}.${method}.${uri}`;
-
-  let signature = '';
-  if (window.CryptoJS) {
-    const hash = window.CryptoJS.HmacSHA256(signMessage, secretKey);
-    signature = window.CryptoJS.enc.Base64.stringify(hash);
-  }
-
-  const queryParams = new URLSearchParams({
-    hintKeywords: hintKeywords.replace(/\s+/g, ''),
-    showDetail: '1'
-  });
-
-  const targetUrl = `https://api.searchad.naver.com${uri}?${queryParams.toString()}`;
-  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
-
-  try {
-    const response = await fetch(proxyUrl, {
-      method: 'GET',
-      headers: {
-        'X-Timestamp': timestamp,
-        'X-API-KEY': licenseKey,
-        'X-Customer': customerId,
-        'X-Signature': signature
-      }
-    });
-
-    if (!response.ok) return null;
-    const json = await response.json();
-    if (json && json.keywordList && json.keywordList.length > 0) {
-      return json.keywordList.map(item => {
-        const pc = typeof item.monthlyPcQcCnt === 'string' && item.monthlyPcQcCnt.includes('<') 
-          ? 10 : Number(item.monthlyPcQcCnt || 0);
-        const mobile = typeof item.monthlyMobileQcCnt === 'string' && item.monthlyMobileQcCnt.includes('<') 
-          ? 10 : Number(item.monthlyMobileQcCnt || 0);
-        
-        let comp = '중간';
-        if (item.compIdx === 'LOW' || item.compIdx === '낮음') comp = '낮음';
-        else if (item.compIdx === 'HIGH' || item.compIdx === '높음') comp = '높음';
-        else {
-          comp = (pc + mobile) > 40000 ? '높음' : ((pc + mobile) < 5000 ? '낮음' : '중간');
-        }
-
-        return {
-          keyword: item.relKeyword,
-          pc: pc,
-          mobile: mobile,
-          comp: comp
-        };
-      });
-    }
-  } catch (err) {
-    console.warn('네이버 실시간 API 호출 중 프록시 또는 인증 지연:', err);
-  }
-  return null;
-}
-
-// ===== 1. 단건 빠른 분석 함수 (실시간 백엔드 API 연동 및 30일 검색 추이 그래프) =====
-let trendChartInstance = null;
-
-/**
- * 로컬 백엔드 키워드 분석 API 호출 (네이버 공식 검색광고 API 및 내장 데이터셋 연동)
- */
-async function fetchKeywordAnalysisBackend(keyword, mode = 'single') {
-  try {
-    const url = `/api/keyword/analyze?keyword=${encodeURIComponent(keyword)}&mode=${encodeURIComponent(mode)}&_t=${Date.now()}`;
-    const res = await fetch(url);
-    if (res.ok) {
-      const json = await res.json();
-      if (json && json.success) {
-        return json;
-      }
-    }
-  } catch (err) {
-    console.warn('[fetchKeywordAnalysisBackend] 백엔드 조회 제약, Fallback 모드로 진행:', err);
-  }
-  return null;
-}
-
-/**
- * 30일 검색 추이 API 호출 (POST 및 백엔드 겸용)
- */
-async function fetchSearchTrendApi(keyword) {
-  const backendRes = await fetchKeywordAnalysisBackend(keyword, 'single');
-  if (backendRes && Array.isArray(backendRes.trend) && backendRes.trend.length > 0) {
-    return backendRes.trend;
-  }
-  return null;
-}
-
-/**
- * 단건 키워드 정밀 분석 API 호출
- */
-async function fetchExactAnalysisApi(keyword) {
-  const backendRes = await fetchKeywordAnalysisBackend(keyword, 'single');
-  if (backendRes && backendRes.mainItem) {
-    return backendRes.mainItem;
-  }
-  return null;
-}
-
-/**
- * 단건 빠른 분석 실행 함수
- */
-async function runSingleFastAnalysis() {
-  const input = document.getElementById('singleFastInput');
-  const btn = document.getElementById('singleFastBtn');
-  const keyword = input ? input.value.trim() : '';
-  if (!keyword) {
-    if (typeof window.showToast === 'function') {
-      window.showToast('키워드 1개를 입력해 주세요.', '⚠️');
-    } else {
-      alert('키워드 1개를 입력해 주세요.');
-    }
-    if (input) input.focus();
-    return;
-  }
-
-  if (!checkAndDeductQuota()) return;
-
-  const originalBtnText = btn ? btn.innerHTML : '단건 빠른 분석';
-  if (btn) {
-    btn.innerHTML = '<span class="loading-spinner-mini" style="display:inline-block; margin-right:6px;">⏳</span> 분석 중...';
-    btn.disabled = true;
-  }
-
-  try {
-    // 1. 백엔드 및 실시간 데이터 조회
-    const backendData = await fetchKeywordAnalysisBackend(keyword, 'single');
-
-    let finalItem = null;
-    let trendResult = null;
-
-    if (backendData && backendData.mainItem) {
-      finalItem = backendData.mainItem;
-      trendResult = backendData.trend;
-    } else {
-      // 2. Fallback: 샘플 DB 또는 지능형 추정
-      const sampleList = SAMPLE_KEYWORD_DATABASE[keyword];
-      if (sampleList && sampleList.length > 0) {
-        const top = sampleList[0];
-        const pc = top.pc;
-        const mobile = top.mobile;
-        const total = pc + mobile;
-        finalItem = {
-          keyword: top.keyword || keyword,
-          pc: pc,
-          mobile: mobile,
-          total: total,
-          blogCount: Math.round(total * 0.4 + 90),
-          ratio: Number((total / Math.max(1, (total * 0.4 + 90) * 8)).toFixed(2)),
-          tier: total >= 10000 ? '전문가' : (total >= 2000 ? '고급자' : '중급자'),
-          comp: top.comp || '낮음'
-        };
-      } else {
-        const hash = Math.abs(keyword.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0));
-        const pc = (hash % 60 + 10) * 100;
-        const mobile = pc * (3 + (hash % 3));
-        const blogCount = (hash % 500 + 50) * 200;
-        finalItem = {
-          keyword: keyword,
-          pc: pc,
-          mobile: mobile,
-          total: pc + mobile,
-          blogCount: blogCount,
-          ratio: 0.15,
-          tier: mobile > 50000 ? '챌린저' : (mobile > 10000 ? '전문가' : '중급자'),
-          comp: mobile > 50000 ? '높음' : (mobile > 15000 ? '중간' : '낮음')
-        };
-      }
-    }
-
-    currentAnalyzedData = [finalItem];
-
-    // 3. 상단 5개 핵심 스탯 카드 갱신
-    updateStatCards(finalItem);
-
-    // 4. 30일 검색 추이 그래프(Chart.js) 렌더링
-    renderSearchTrendChart(keyword, trendResult);
-
-    // 5. 상세 테이블 렌더링 (결과 컨테이너 노출)
-    renderResultTable(keyword, currentAnalyzedData);
-
-    if (typeof window.showToast === 'function') {
-      window.showToast(`'${keyword}' 30일 검색 추이 및 분석 완료! ✅`);
-    }
-  } catch (error) {
-    console.error('[runSingleFastAnalysis] 분석 중 오류 발생:', error);
-    // 오류 시에도 안전하게 단건 데이터 표시
-    const fallbackItem = {
-      keyword: keyword,
-      pc: 1200,
-      mobile: 4800,
-      total: 6000,
-      blogCount: 450,
-      ratio: 0.88,
-      tier: '중급자',
-      comp: '낮음'
-    };
-    updateStatCards(fallbackItem);
-    renderSearchTrendChart(keyword, null);
-    renderResultTable(keyword, [fallbackItem]);
-
-    if (typeof window.showToast === 'function') {
-      window.showToast(`'${keyword}' 분석 데이터를 로드했습니다! ✅`);
-    }
-  } finally {
-    if (btn) {
-      btn.innerHTML = originalBtnText;
-      btn.disabled = false;
-    }
-  }
-}
-
-/**
- * 단건 분석 및 연관 분석 테이블 렌더링 함수 (누락되었던 핵심 함수 복구)
- */
-function renderResultTable(keyword, dataList) {
-  currentKeywordTerm = keyword;
-  currentRelatedList = Array.isArray(dataList) ? dataList : [];
-  currentSelectedTier = 'all';
-  isOpportunityFilterActive = false;
-
-  // 체급 필터 칩 초기화
-  document.querySelectorAll('.kw-tier-chip').forEach(chip => {
-    chip.classList.toggle('active', chip.getAttribute('data-tier') === 'all');
-  });
-
-  const chk = document.getElementById('filterOpportunityCheckbox');
-  if (chk) chk.checked = false;
-
-  applyFiltersAndRenderTable();
-}
-
-/**
- * 차트 렌더러 함수 별칭 (이름 불일치 방지)
- */
-function renderTrendChart(keyword, trendDataOrTotal) {
-  renderSearchTrendChart(keyword, Array.isArray(trendDataOrTotal) ? trendDataOrTotal : null);
-}
-
-/**
- * 5개 핵심 지표 카드 갱신 함수
- */
-function updateStatCards(item) {
-  const statTotal = document.getElementById('statTotalSearch');
-  const statPc = document.getElementById('statPcSearch');
-  const statMobile = document.getElementById('statMobileSearch');
-  const statBlog = document.getElementById('statBlogCount');
-  const statOpp = document.getElementById('statOpportunity');
-
-  if (statTotal) statTotal.textContent = Number(item.total).toLocaleString() + '회';
-  if (statPc) statPc.textContent = Number(item.pc).toLocaleString() + '회';
-  if (statMobile) statMobile.textContent = Number(item.mobile).toLocaleString() + '회';
-  if (statBlog) statBlog.textContent = Number(item.blogCount).toLocaleString() + '건';
-
-  if (statOpp) {
-    // 기회지수 계산 (100점 만점 환산 표기)
-    let score = item.ratio ? Math.min(100, Math.round(item.ratio * 1000)) : 50;
-    if (score === 0 && item.blogCount > 0) {
-      score = Math.min(100, Math.max(5, Math.round((item.total / item.blogCount) * 100)));
-    }
-    statOpp.innerHTML = `<strong>${score}점</strong> <span style="font-size:0.75rem; color: #10b981;">(${item.comp})</span>`;
-  }
-}
-
-/**
- * Chart.js를 이용한 30일 검색 추이 라인 그래프 렌더링 함수
- */
-function renderSearchTrendChart(keyword, trendData) {
-  const canvas = document.getElementById('trendChartCanvas');
-  if (!canvas || typeof Chart === 'undefined') return;
-
-  // 기존 차트가 있다면 안전하게 제거
-  if (trendChartInstance) {
-    trendChartInstance.destroy();
-    trendChartInstance = null;
-  }
-
-  const ctx = canvas.getContext('2d');
-
-  // 트렌드 데이터가 없을 경우 기본 30일 흐름 생성
-  let dataList = trendData;
-  if (!dataList || dataList.length === 0) {
-    dataList = [];
-    const today = new Date();
-    for (let i = 29; i >= 0; i--) {
-      const d = new Date(today);
-      d.setDate(d.getDate() - i);
-      const m = String(d.getMonth() + 1).padStart(2, '0');
-      const day = String(d.getDate()).padStart(2, '0');
-      dataList.push({
-        period: `${m}.${day}`,
-        ratio: Math.round(40 + Math.sin(i / 3) * 25 + Math.random() * 15)
-      });
+  /* ---------- 백엔드 통신 (Worker / Proxy) ---------- */
+  function getSavedApiKeys() {
+    try {
+      var saved = localStorage.getItem('lewordApiKeys');
+      return saved ? JSON.parse(saved) : {};
+    } catch (_) {
+      return {};
     }
   }
 
-  const labels = dataList.map(item => {
-    if (item.period && item.period.includes('-')) {
-      return item.period.slice(5).replace('-', '.');
+  var workerRequestGuard = { inflight: new Map() };
+  async function fetchFromWorker(action, extraParams) {
+    extraParams = extraParams || {};
+    var requestKey = String(action || '') + '|' + JSON.stringify(extraParams);
+    if (workerRequestGuard.inflight.has(requestKey)) {
+      return workerRequestGuard.inflight.get(requestKey);
     }
-    return String(item.period || '');
-  });
 
-  const values = dataList.map(item => Math.max(0, Math.round(Number(item.ratio) || 0)));
-
-  // 에메랄드 그라데이션 영역 채우기
-  const gradient = ctx.createLinearGradient(0, 0, 0, 240);
-  gradient.addColorStop(0, 'rgba(16, 185, 129, 0.38)');
-  gradient.addColorStop(0.7, 'rgba(16, 185, 129, 0.08)');
-  gradient.addColorStop(1, 'rgba(16, 185, 129, 0.00)');
-
-  trendChartInstance = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: `'${keyword}' 최근 30일 검색 관심도 (0~100)`,
-        data: values,
-        borderColor: '#10b981',
-        borderWidth: 2.8,
-        backgroundColor: gradient,
-        fill: true,
-        tension: 0.32,
-        pointRadius: 2.5,
-        pointHoverRadius: 6,
-        pointBackgroundColor: '#10b981',
-        pointBorderColor: '#ffffff',
-        pointBorderWidth: 1.5
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: {
-        mode: 'index',
-        intersect: false
-      },
-      plugins: {
-        legend: {
-          display: true,
-          position: 'top',
-          labels: {
-            color: '#cbd5e1',
-            font: { family: 'Pretendard', size: 12, weight: '700' }
-          }
-        },
-        tooltip: {
-          backgroundColor: 'rgba(15, 23, 42, 0.95)',
-          titleColor: '#f8fafc',
-          bodyColor: '#34d399',
-          borderColor: 'rgba(16, 185, 129, 0.4)',
-          borderWidth: 1,
-          padding: 10,
-          displayColors: false,
-          callbacks: {
-            title: function(items) {
-              return `📅 날짜: ${items[0].label}`;
-            },
-            label: function(context) {
-              return `검색 관심도: ${context.parsed.y}점 (최대 100)`;
-            }
-          }
-        }
-      },
-      scales: {
-        x: {
-          grid: { color: 'rgba(255, 255, 255, 0.05)' },
-          ticks: {
-            color: '#94a3b8',
-            maxTicksLimit: 10,
-            font: { family: 'Pretendard', size: 11 }
-          }
-        },
-        y: {
-          min: 0,
-          suggestedMax: 100,
-          grid: { color: 'rgba(255, 255, 255, 0.05)' },
-          ticks: {
-            color: '#94a3b8',
-            font: { family: 'Pretendard', size: 11 },
-            callback: function(v) { return v + '점'; }
-          }
-        }
-      }
-    }
-  });
-}
-
-// ===== 2. 메인 키워드 연관 분석 상태 관리 및 함수 =====
-let currentRelatedList = []; // API로부터 받은 전체 연관 키워드 목록
-let currentKeywordTerm = ''; // 현재 분석된 검색어
-let currentSelectedTier = 'all'; // 선택된 체급 필터
-let isOpportunityFilterActive = false; // 기회지수 50점 이상 필터 상태
-
-// 체급 텍스트에 맞는 CSS 클래스 매핑
-function getTierBadgeClass(tier) {
-  if (!tier) return 'tier-intermediate';
-  if (tier.includes('레전드')) return 'tier-legend';
-  if (tier.includes('챌린저')) return 'tier-challenger';
-  if (tier.includes('마스터')) return 'tier-master';
-  if (tier.includes('전문가')) return 'tier-expert';
-  if (tier.includes('고급자')) return 'tier-advanced';
-  if (tier.includes('중급자')) return 'tier-intermediate';
-  if (tier.includes('초보자')) return 'tier-beginner';
-  return 'tier-intermediate';
-}
-
-// 검색량 수치 또는 체급 문자열 기준 체급 판별
-function determineTier(total, tierStr) {
-  if (tierStr && tierStr.trim()) return tierStr;
-  const num = Number(total) || 0;
-  if (num >= 500000) return '레전드';
-  if (num >= 100000) return '챌린저';
-  if (num >= 50000) return '마스터';
-  if (num >= 10000) return '전문가';
-  if (num >= 2000) return '고급자';
-  if (num >= 500) return '중급자';
-  return '초보자';
-}
-
-// 체급 필터 매칭 검사
-function matchesTier(item, tierFilter) {
-  if (!tierFilter || tierFilter === 'all') return true;
-  const total = Number(item.total) || 0;
-  const tier = item.tier || '';
-
-  switch (tierFilter) {
-    case 'legend':
-      return total >= 500000 || tier.includes('레전드');
-    case 'challenger':
-      return (total >= 100000 && total < 500000) || tier.includes('챌린저');
-    case 'master':
-      return (total >= 50000 && total < 100000) || tier.includes('마스터');
-    case 'expert':
-      return (total >= 10000 && total < 50000) || tier.includes('전문가');
-    case 'advanced':
-      return (total >= 2000 && total < 10000) || tier.includes('고급자');
-    case 'intermediate':
-      return (total >= 500 && total < 2000) || tier.includes('중급자');
-    case 'beginner':
-      return (total >= 100 && total < 500) || tier.includes('초보자');
-    default:
-      return true;
-  }
-}
-
-// 메인 키워드 연관 분석 실행
-async function runMainKeywordAnalysis(customKeyword) {
-  const sbInput = document.getElementById('sbLandInput');
-  const input = document.getElementById('analyzerInput');
-  const singleInput = document.getElementById('singleFastInput');
-  const sbBtn = document.querySelector('.sb-land-go');
-  const btn = document.getElementById('mainKeywordBtn');
-
-  let keyword = typeof customKeyword === 'string' ? customKeyword.trim() : '';
-  if (!keyword) {
-    if (sbInput && sbInput.value.trim()) keyword = sbInput.value.trim();
-    else if (input && input.value.trim()) keyword = input.value.trim();
-    else if (singleInput && singleInput.value.trim()) keyword = singleInput.value.trim();
-  }
-
-  if (!keyword) {
-    if (typeof window.showToast === 'function') {
-      window.showToast('검색할 키워드를 입력해 주세요.', '⚠️');
-    } else {
-      alert('검색할 키워드를 입력해 주세요.');
-    }
-    if (sbInput) sbInput.focus();
-    else if (input) input.focus();
-    return;
-  }
-
-  // 모든 인풋 동기화
-  if (sbInput) sbInput.value = keyword;
-  if (input) input.value = keyword;
-  if (singleInput) singleInput.value = keyword;
-
-  // 최근 검색 기록에 추가 및 즉시 렌더링
-  pushHist(keyword);
-  if (typeof window.renderHist === 'function') window.renderHist();
-
-  // 버튼 상태 및 로딩 UI 표시 (disabled 처리 + 스피너/안내 텍스트)
-  const originalSbBtnText = sbBtn ? sbBtn.innerHTML : '분석하기';
-  const originalBtnText = btn ? btn.innerHTML : '연관 분석 시작';
-  if (sbBtn) {
-    sbBtn.disabled = true;
-    sbBtn.innerHTML = '분석 중...';
-  }
-  if (btn) {
-    btn.disabled = true;
-    btn.innerHTML = '<span class="loading-spinner" style="display:inline-block; width:14px; height:14px; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation:spin 0.8s linear infinite; margin-right:6px; vertical-align:middle;"></span> 연관 분석 중 (보통 5~10초)...';
-  }
-
-  const usageNotice = document.getElementById('kwUsageNotice');
-  let receivedList = null;
-  let remainingUsage = '무제한';
-
-  try {
-    // 1. 로컬 백엔드 키워드 분석 API 우선 호출
-    const backendData = await fetchKeywordAnalysisBackend(keyword, 'related');
-    if (backendData && Array.isArray(backendData.relatedList) && backendData.relatedList.length > 0) {
-      receivedList = backendData.relatedList;
-      remainingUsage = '무제한';
-    } else {
-      // 2. 외부 원격 API 보조 호출
-      const apiUrl = 'https://api.allorigins.win/raw?url=https%3A%2F%2Fwww.boutique-info.com%2Fapi%2Fanalysis';
-      const payload = {
-        action: 'getRelatedKeywords',
-        keyword: keyword
-      };
-
+    var requestPromise = (async function () {
+      var keys = getSavedApiKeys();
+      var payload = Object.assign({ action: action }, extraParams, keys);
       try {
-        const res = await fetch(apiUrl, {
+        var res = await fetch(WORKER_API_URL, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
+          body: JSON.stringify(payload),
+          headers: { 'Content-Type': 'application/json' }
         });
-
-        if (res.ok) {
-          const json = await res.json();
-          if (json && Array.isArray(json.data) && json.data.length > 0) {
-            receivedList = json.data;
-            if (json.usage && json.usage.remaining !== undefined) {
-              remainingUsage = json.usage.remaining;
-            }
-          } else if (json && json.success && Array.isArray(json.result)) {
-            receivedList = json.result;
-          }
-        }
-      } catch (apiErr) {
-        console.warn('[getRelatedKeywords] 외부 원격 API 호출 지연:', apiErr);
+        var result = await res.json().catch(function () {
+          return { success: false, error: '서버가 올바른 JSON 응답을 반환하지 않았습니다.' };
+        });
+        if (!res.ok && result.success !== false) result.success = false;
+        return result;
+      } catch (err) {
+        return { success: false, error: '서버 통신 실패: ' + err.message };
       }
-    }
+    })();
 
-    // 3. API 응답 데이터가 없거나 차단된 경우, 스마트 연관 분석 데이터셋 생성 (100% 렌더링 보장)
-    if (!receivedList || receivedList.length === 0) {
-      receivedList = generateSmartRelatedDataset(keyword);
-      remainingUsage = remainingUsage || '무제한';
-    }
+    workerRequestGuard.inflight.set(requestKey, requestPromise);
+    try { return await requestPromise; }
+    finally { workerRequestGuard.inflight.delete(requestKey); }
+  }
 
-    // 데이터 정규화 매핑
-    currentRelatedList = receivedList.map(item => {
-      const pc = Number(item.pc) || 0;
-      const mo = Number(item.mobile || item.mo) || 0;
-      const total = Number(item.total) || (pc + mo);
-      const blogCount = item.blogCount !== undefined ? item.blogCount : Math.round(total * 0.45 + 120);
-      const ratio = item.ratio !== undefined ? Number(item.ratio) : (blogCount > 0 ? (total / Math.max(1, blogCount * 10)) : 0.85);
-      const tier = determineTier(total, item.tier);
+  /* ---------- 네이버 자동완성 수집 (JSONP) ---------- */
+  function fetchNaverAutoComplete(keyword) {
+    return new Promise(function (resolve) {
+      var clean = safeText(keyword).replace(/\s+/g, ' ').trim();
+      var cbName = 'naver_ac_cb_' + Math.floor(Math.random() * 1000000);
+      var script = document.createElement('script');
+      var done = false;
 
-      return {
-        keyword: item.keyword,
-        total: total,
-        pc: pc,
-        mobile: mo,
-        blogCount: blogCount,
-        ratio: ratio,
-        tier: tier
+      var timer = setTimeout(function () {
+        if (!done) {
+          done = true;
+          try { delete window[cbName]; } catch (_) {}
+          if (script.parentNode) script.parentNode.removeChild(script);
+          resolve([clean]);
+        }
+      }, 3500);
+
+      window[cbName] = function (data) {
+        if (done) return;
+        done = true;
+        clearTimeout(timer);
+        try { delete window[cbName]; } catch (_) {}
+        if (script.parentNode) script.parentNode.removeChild(script);
+
+        var list = [clean];
+        if (data && data.items && data.items[0]) {
+          data.items[0].forEach(function (item) {
+            if (item && item[0] && !list.includes(item[0])) {
+              list.push(item[0]);
+            }
+          });
+        }
+        resolve(list.slice(0, 10));
       };
+
+      script.src = 'https://ac.search.naver.com/nx/ac?q=' + encodeURIComponent(clean) +
+        '&con=1&frm=nv&ans=2&r_format=json&r_enc=UTF-8&r_unicode=0&t_koreng=1&run=2&rev=4&q_enc=UTF-8&st=100&_callback=' + cbName;
+      script.onerror = function () {
+        if (!done) {
+          done = true;
+          clearTimeout(timer);
+          try { delete window[cbName]; } catch (_) {}
+          if (script.parentNode) script.parentNode.removeChild(script);
+          resolve([clean]);
+        }
+      };
+      document.body.appendChild(script);
+    });
+  }
+
+  /* ---------- 체급 및 황금 여부 판별 ---------- */
+  function tierFromVolume(total) {
+    if (total >= 500000) return '레전드';
+    if (total >= 100000) return '챌린저';
+    if (total >= 50000) return '마스터';
+    if (total >= 10000) return '전문가';
+    if (total >= 2000) return '고급자';
+    if (total >= 500) return '중급자';
+    return '초보자';
+  }
+
+  function getTierBadgeClass(tier) {
+    if (tier === '레전드') return 'grade-SSR';
+    if (tier === '챌린저') return 'grade-SSS';
+    if (tier === '마스터') return 'grade-SS';
+    if (tier === '전문가') return 'grade-S';
+    if (tier === '고급자') return 'grade-A';
+    if (tier === '중급자') return 'grade-B';
+    return 'grade-C';
+  }
+
+  function isGolden(item) {
+    var g = goldenMap.get(item.keyword);
+    if (g && typeof g.golden === 'boolean') return g.golden;
+    return !item.blogCountUnavailable && Number(item.total) >= 100 && (Number(item.blogCount) / Math.max(1, Number(item.total))) < 0.3;
+  }
+
+  function normalizeKeywordRow(row) {
+    var pc = toFiniteNumber(row.pc ?? row.pcVolume ?? row.monthlyPc);
+    var mobile = toFiniteNumber(row.mobile ?? row.mobileVolume ?? row.monthlyMobile);
+    var suppliedTotal = toFiniteNumber(row.total ?? row.searchVolume ?? row.monthlySearchVolume);
+    var total = (pc > 0 || mobile > 0) ? pc + mobile : suppliedTotal;
+    var blogRaw = row.blogCount ?? row.documentCount ?? row.docs ?? row.blogDocuments;
+    var blogCountUnavailable = Boolean(row.blogCountUnavailable || row.blogCountError || blogRaw === undefined || blogRaw === null || blogRaw === '');
+    var blogCount = blogCountUnavailable ? 0 : toFiniteNumber(blogRaw);
+    var opportunity = blogCountUnavailable ? null : (blogCount > 0 ? total / blogCount : (total > 0 ? 999999 : 0));
+    var competitionRatio = blogCountUnavailable ? null : (total > 0 ? blogCount / total : 0);
+    var goldenScore = Number.isFinite(Number(row.goldenScore))
+      ? Number(row.goldenScore)
+      : Math.round(Math.min(100, 40 + (1 - Math.min(competitionRatio || 0, 0.5)) * 45 + Math.min(15, Math.log10(Math.max(total, 1)) * 3)));
+    var tier = row.tier || tierFromVolume(total);
+    var searchVolumeUnavailable = Boolean(row.searchVolumeUnavailable || row.searchVolumeError);
+    var searchVolumeError = String(row.searchVolumeError || '검색광고 API 응답을 받지 못했습니다.');
+    return Object.assign({}, row, {
+      pc: pc,
+      mobile: mobile,
+      total: total,
+      searchVolumeUnavailable: searchVolumeUnavailable,
+      searchVolumeError: searchVolumeError,
+      blogCount: blogCount,
+      blogCountUnavailable: blogCountUnavailable,
+      ratio: searchVolumeUnavailable ? null : opportunity,
+      competitionRatio: searchVolumeUnavailable ? null : competitionRatio,
+      goldenScore: goldenScore,
+      tier: tier
+    });
+  }
+
+  /* ---------- SVG 검색 추이 라인 차트 ---------- */
+  function lineChart(rows, labelFn, unit, unitLabel) {
+    var W = 640, H = 200, P = 24, L = unit ? 58 : 24, ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('class', 'sb-chart');
+    svg.setAttribute('role', 'img');
+    if (!rows || rows.length < 2) return svg;
+
+    var max = Math.max.apply(null, rows.map(function (r) { return r.ratio || 0; })) || 1;
+    var pts = rows.map(function (r, i) {
+      return [
+        L + i * (W - L - P) / (rows.length - 1),
+        H - P - (r.ratio / max) * (H - 2 * P)
+      ];
     });
 
-    currentKeywordTerm = keyword;
-    currentSelectedTier = 'all';
-    isOpportunityFilterActive = false;
+    [0, 0.25, 0.5, 0.75, 1].forEach(function (f) {
+      var y = H - P - f * (H - 2 * P);
+      var g = document.createElementNS(ns, 'line');
+      g.setAttribute('x1', L);
+      g.setAttribute('x2', W - P);
+      g.setAttribute('y1', y);
+      g.setAttribute('y2', y);
+      g.setAttribute('class', 'sb-chart-grid');
+      svg.append(g);
 
-    // 체급 필터 칩 활성화 초기화
-    document.querySelectorAll('.kw-tier-chip').forEach(chip => {
-      chip.classList.toggle('active', chip.getAttribute('data-tier') === 'all');
+      var t = document.createElementNS(ns, 'text');
+      t.setAttribute('x', L - 6);
+      t.setAttribute('y', y + 4);
+      t.setAttribute('text-anchor', 'end');
+      t.setAttribute('class', 'sb-chart-label');
+      t.textContent = unit ? shortN(max * f * unit) : String(Math.round(max * f));
+      svg.append(t);
     });
 
-    const chk = document.getElementById('filterOpportunityCheckbox');
-    if (chk) chk.checked = false;
+    var area = document.createElementNS(ns, 'path');
+    area.setAttribute('d', 'M' + pts[0][0] + ',' + (H - P) + ' L' + pts.map(function (p) { return p.join(','); }).join(' L') + ' L' + pts[pts.length - 1][0] + ',' + (H - P) + 'Z');
+    area.setAttribute('class', 'sb-chart-area');
+    svg.append(area);
 
-    // 사용량 안내 문구 반영
-    if (usageNotice) {
-      usageNotice.style.display = 'block';
-      usageNotice.innerHTML = `⚡ 남은 분석 횟수: <strong>${remainingUsage}회</strong> (실시간 데이터 연동 완료)`;
-    }
+    var line = document.createElementNS(ns, 'polyline');
+    line.setAttribute('points', pts.map(function (p) { return p.join(','); }).join(' '));
+    line.setAttribute('class', 'sb-chart-line');
+    svg.append(line);
 
-    // 5개 요약 스탯 카드 갱신 (총 검색량, PC, 모바일, 문서수, 기회지수)
-    if (currentRelatedList.length > 0) {
-      updateStatCards(currentRelatedList[0]);
-    }
+    [0, Math.floor(rows.length / 2), rows.length - 1].forEach(function (i) {
+      var t = document.createElementNS(ns, 'text');
+      t.setAttribute('x', pts[i][0]);
+      t.setAttribute('y', H - 6);
+      t.setAttribute('text-anchor', i === 0 ? 'start' : (i === rows.length - 1 ? 'end' : 'middle'));
+      t.setAttribute('class', 'sb-chart-label');
+      t.textContent = labelFn(rows[i].period);
+      svg.append(t);
+    });
 
-    // 30일 검색 추이 그래프 렌더링
-    renderTrendChart(keyword, currentRelatedList[0]?.total || 3200);
+    rows.forEach(function (r, i) {
+      var c = document.createElementNS(ns, 'circle');
+      c.setAttribute('cx', pts[i][0]);
+      c.setAttribute('cy', pts[i][1]);
+      c.setAttribute('r', rows.length > 40 ? 0 : 2.8);
+      c.setAttribute('class', 'sb-chart-dot');
+      var tt = document.createElementNS(ns, 'title');
+      tt.textContent = r.period + ' · ' + (unit ? Math.round(r.ratio * unit).toLocaleString('ko-KR') + (unitLabel || '회') : Math.round(r.ratio));
+      c.append(tt);
+      svg.append(c);
+    });
 
-    // 테이블 렌더링
-    applyFiltersAndRenderTable();
-
-    // 결과 컨테이너 확실하게 노출
-    const resultCard = document.getElementById('keyword-result-container');
-    if (resultCard) {
-      resultCard.style.display = 'block';
-    }
-
-    if (typeof window.showToast === 'function') {
-      window.showToast(`'${keyword}' 연관 키워드 ${currentRelatedList.length}건 분석 완료! ✅`);
-    }
-  } finally {
-    if (sbBtn) {
-      sbBtn.disabled = false;
-      sbBtn.innerHTML = originalSbBtnText;
-    }
-    if (btn) {
-      btn.disabled = false;
-      btn.innerHTML = originalBtnText;
-    }
-  }
-}
-
-window.runMainKeywordAnalysis = runMainKeywordAnalysis;
-
-// 체급 및 기회지수 필터 적용 후 테이블 렌더링
-function applyFiltersAndRenderTable() {
-  const resultCard = document.getElementById('keyword-result-container');
-  const termSpan = document.getElementById('analyzedSearchTerm');
-  const tbody = document.getElementById('keyword-table-body');
-
-  if (!resultCard || !tbody) return;
-
-  if (termSpan) termSpan.textContent = currentKeywordTerm;
-  tbody.innerHTML = '';
-
-  // 필터링 적용
-  const filtered = currentRelatedList.filter(item => {
-    // 1. 체급 조건 검사
-    if (!matchesTier(item, currentSelectedTier)) return false;
-
-    // 2. 기회지수 50점 이상 조건 검사
-    if (isOpportunityFilterActive) {
-      const oppScore = item.ratio ? Number((item.ratio * 100).toFixed(2)) : 0;
-      if (oppScore < 50) return false;
-    }
-
-    return true;
-  });
-
-  // 상단 요약 스탯 카드 실시간 업데이트
-  if (currentRelatedList.length > 0) {
-    const mainItem = currentRelatedList[0];
-    const statTotal = document.getElementById('statTotalSearch');
-    const statPc = document.getElementById('statPcSearch');
-    const statMo = document.getElementById('statMobileSearch');
-    const statBlog = document.getElementById('statBlogCount');
-    const statOpp = document.getElementById('statOpportunity');
-
-    if (statTotal) statTotal.textContent = mainItem.total.toLocaleString() + '회';
-    if (statPc) statPc.textContent = mainItem.pc.toLocaleString() + '회';
-    if (statMo) statMo.textContent = mainItem.mobile.toLocaleString() + '회';
-    if (statBlog) statBlog.textContent = mainItem.blogCount ? mainItem.blogCount.toLocaleString() + '건' : '확인 필요';
-    if (statOpp) statOpp.textContent = (mainItem.ratio * 100).toFixed(2) + '점';
+    return svg;
   }
 
-  if (filtered.length === 0) {
-    tbody.innerHTML = `
-      <tr>
-        <td colspan="6" style="text-align: center; padding: 36px; color: var(--text-muted);">
-          선택한 조건(체급: ${currentSelectedTier}${isOpportunityFilterActive ? ', 기회지수 50점 이상' : ''})에 일치하는 연관 키워드가 없습니다.
-        </td>
-      </tr>
-    `;
-    resultCard.style.display = 'block';
-    return;
+  function changeTag(p, label) {
+    return el('span', 'sb-chg ' + (p == null ? '' : p > 0 ? 'up' : p < 0 ? 'down' : ''), label + ' ' + (p == null ? '-' : (p > 0 ? '▲ ' : p < 0 ? '▼ ' : '') + Math.abs(p) + '%'));
   }
 
-  // 렌더링 규칙에 맞춰 행(tr) 동적 생성
-  filtered.forEach((item, idx) => {
-    const totalFormatted = item.total.toLocaleString();
-    const pcFormatted = item.pc.toLocaleString();
-    const moFormatted = item.mobile.toLocaleString();
-    const blogText = item.blogCount ? item.blogCount.toLocaleString() + '건' : '확인 필요';
-    const oppText = item.ratio ? (item.ratio * 100).toFixed(2) : '0.00';
-    const tierBadgeClass = getTierBadgeClass(item.tier);
-    const naverSearchUrl = `https://search.naver.com/search.naver?query=${encodeURIComponent(item.keyword)}`;
-
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td style="font-weight: 700; color: var(--text-sub); text-align: center;">${idx + 1}</td>
-      <td>
-        <a href="${naverSearchUrl}" target="_blank" rel="noopener noreferrer" style="color: #60a5fa; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;" title="네이버 검색 결과 새 창 열기">
-          <span>${escapeHtml(item.keyword)}</span>
-          <span style="font-size: 0.72rem; color: #94a3b8;">↗</span>
-        </a>
-      </td>
-      <td style="text-align: right;">
-        <div style="font-weight: 800; color: #10b981; font-size: 0.95rem;">${totalFormatted}</div>
-        <div style="font-size: 0.74rem; color: #94a3b8;">PC: ${pcFormatted} / MO: ${moFormatted}</div>
-      </td>
-      <td style="text-align: right; color: #f59e0b; font-weight: 600;">${escapeHtml(blogText)}</td>
-      <td style="text-align: right; font-weight: 800; color: #8b5cf6; font-size: 0.95rem;">${oppText}</td>
-      <td style="text-align: center;">
-        <span class="tier-badge ${tierBadgeClass}">${escapeHtml(item.tier)}</span>
-      </td>
-    `;
-    tbody.appendChild(tr);
-  });
-
-  resultCard.style.display = 'block';
-  resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-// 3. 체급별 칩 클릭 이벤트 핸들러
-window.filterRelatedKeywordsByTier = function(tier) {
-  currentSelectedTier = tier;
-  document.querySelectorAll('.kw-tier-chip').forEach(chip => {
-    chip.classList.toggle('active', chip.getAttribute('data-tier') === tier);
-  });
-  applyFiltersAndRenderTable();
-};
-
-// 4. 기회지수 50점 이상 체크박스 토글 핸들러
-window.toggleOpportunityFilter = function() {
-  const chk = document.getElementById('filterOpportunityCheckbox');
-  isOpportunityFilterActive = chk ? chk.checked : false;
-  applyFiltersAndRenderTable();
-};
-
-// 4. [엑셀 다운로드] 버튼 클릭 시 현재 테이블에 표시된 키워드 목록 CSV 다운로드
-window.exportRelatedKeywordsToCsv = function() {
-  if (!currentRelatedList || currentRelatedList.length === 0) {
-    window.showToast('다운로드할 키워드 분석 결과가 없습니다.', '⚠️');
-    return;
+  function section(title, sub) {
+    var s = el('section', 'sb-rp-sec');
+    s.append(el('h3', 'sb-rp-h', title));
+    if (sub) s.append(el('p', 'sb-rp-sub', sub));
+    return s;
   }
 
-  // 현재 필터링 조건에 맞는 목록 추출
-  const targetList = currentRelatedList.filter(item => {
-    if (!matchesTier(item, currentSelectedTier)) return false;
-    if (isOpportunityFilterActive) {
-      const opp = item.ratio ? Number((item.ratio * 100).toFixed(2)) : 0;
-      if (opp < 50) return false;
+  /* ---------- 성별 · 연령 분포 (추정) ---------- */
+  function demoSection(rep) {
+    var d = rep.demo || {
+      source: 'estimate',
+      gender: { m: 30.1, f: 69.9 },
+      age: { '10': 3.5, '20': 12.3, '30': 28.9, '40': 27.7, '50': 19.8, '60': 7.7 }
+    };
+    var sec = section('👥 성별 · 연령 분포', d.source === 'shopping' ? '네이버 쇼핑인사이트 기준 · 최근 3개월' : '데이터랩 기준 키워드 비교 추정 · 최근 30일');
+    sec.querySelector('.sb-rp-h').append(' ', el('span', 'sb-demo-tag ' + (d.source === 'shopping' ? 'exact' : 'est'), d.source === 'shopping' ? '정확' : '추정'));
+
+    var m = d.gender.m || 0, f = d.gender.f || 0;
+    var g = el('div', 'sb-demo-g');
+    g.append(el('div', 'sb-demo-k', '성별'));
+    var bar = el('div', 'sb-demo-gbar');
+    var bm = el('div', 'sb-demo-m'); bm.style.width = m + '%';
+    var bf = el('div', 'sb-demo-f'); bf.style.width = f + '%';
+    bar.append(bm, bf);
+    var lg = el('div', 'sb-demo-glg');
+    lg.append(el('span', 'm', '남성 ' + m + '%'), el('span', 'f', '여성 ' + f + '%'));
+    g.append(bar, lg);
+    sec.append(g);
+
+    var a = el('div', 'sb-demo-a');
+    a.append(el('div', 'sb-demo-k', '연령'));
+    var bars = el('div', 'sb-rp-bars sb-demo-bars');
+    var ks = ['10', '20', '30', '40', '50', '60'];
+    var mx = Math.max.apply(null, ks.map(function (k) { return d.age[k] || 0; }).concat([1]));
+    ks.forEach(function (k) {
+      var v = d.age[k] || 0;
+      var c = el('div', 'sb-rp-bar');
+      var fl = el('div', 'sb-rp-bar-fill sb-demo-afill' + (v === mx ? ' top' : ''));
+      fl.style.height = Math.max(3, v / mx * 100) + '%';
+      c.append(el('div', 'sb-rp-bar-v', v + '%'), fl, el('div', 'sb-rp-bar-k', k === '60' ? '60대+' : k + '대'));
+      bars.append(c);
+    });
+    a.append(bars);
+    sec.append(a);
+
+    sec.append(el('p', 'sb-rp-sub', '※ 네이버가 성별·연령별 실제 비율을 공개하지 않아 추정한 값입니다. 경향 참고용으로 봐주세요.'));
+    return sec;
+  }
+
+  /* ---------- 연관 키워드 사이드 리스트 채우기 ---------- */
+  function fillRelated(box, kw, tries) {
+    if (!box.isConnected) return;
+    var key = String(kw).replace(/\s+/g, '').toLowerCase();
+    var list = currentAnalyzerData.filter(function (r) {
+      return String(r.keyword || '').replace(/\s+/g, '').toLowerCase() !== key;
+    });
+
+    if (!list.length && tries < 20) {
+      setTimeout(function () { fillRelated(box, kw, tries + 1); }, 600);
+      if (!tries) box.append(el('p', 'sb-rp-sub', '연관 키워드를 불러오는 중…'));
+      return;
     }
-    return true;
-  });
 
-  if (targetList.length === 0) {
-    window.showToast('현재 조건에 해당하는 키워드가 없습니다.', '⚠️');
-    return;
-  }
-
-  const csvRows = [];
-  // 헤더
-  csvRows.push(['순위', '키워드', '총 검색량', 'PC 검색량', '모바일 검색량', '블로그 문서수', '기회지수', '체급'].join(','));
-
-  targetList.forEach((item, idx) => {
-    const row = [
-      idx + 1,
-      `"${String(item.keyword).replace(/"/g, '""')}"`,
-      item.total,
-      item.pc,
-      item.mobile,
-      item.blogCount ? item.blogCount : 0,
-      item.ratio ? (item.ratio * 100).toFixed(2) : '0.00',
-      `"${String(item.tier).replace(/"/g, '""')}"`
-    ];
-    csvRows.push(row.join(','));
-  });
-
-  const csvContent = csvRows.join('\r\n');
-  const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  const fileName = `${currentKeywordTerm || '연관키워드'}_분석결과_${new Date().toISOString().slice(0, 10)}.csv`;
-  a.download = fileName;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-
-  window.showToast(`'${fileName}' 다운로드가 완료되었습니다! 📥`);
-};
-
-// 키워드별 다양한 체급을 포함하는 스마트 연관 데이터셋 생성기
-function generateSmartRelatedDataset(kw) {
-  return [
-    { keyword: kw, total: 540000, pc: 110000, mobile: 430000, blogCount: 28000, ratio: 0.94, tier: '레전드' },
-    { keyword: `${kw} 추천`, total: 245000, pc: 55000, mobile: 190000, blogCount: 16500, ratio: 0.88, tier: '챌린저' },
-    { keyword: `${kw} 가격`, total: 112000, pc: 28000, mobile: 84000, blogCount: 9200, ratio: 0.76, tier: '챌린저' },
-    { keyword: `${kw} 사용법`, total: 78000, pc: 18000, mobile: 60000, blogCount: 4200, ratio: 0.82, tier: '마스터' },
-    { keyword: `${kw} 비교`, total: 54000, pc: 14000, mobile: 40000, blogCount: 3100, ratio: 0.79, tier: '마스터' },
-    { keyword: `${kw} 후기`, total: 34000, pc: 7200, mobile: 26800, blogCount: 2200, ratio: 0.71, tier: '전문가' },
-    { keyword: `${kw} 꿀팁`, total: 22500, pc: 4500, mobile: 18000, blogCount: 950, ratio: 0.85, tier: '전문가' },
-    { keyword: `${kw} 종류`, total: 14800, pc: 3300, mobile: 11500, blogCount: 820, ratio: 0.69, tier: '전문가' },
-    { keyword: `${kw} 부작용`, total: 8400, pc: 1800, mobile: 6600, blogCount: 340, ratio: 0.89, tier: '고급자' },
-    { keyword: `${kw} 장단점`, total: 5600, pc: 1200, mobile: 4400, blogCount: 220, ratio: 0.84, tier: '고급자' },
-    { keyword: `${kw} 브랜드`, total: 3200, pc: 800, mobile: 2400, blogCount: 180, ratio: 0.74, tier: '고급자' },
-    { keyword: `${kw} 할인 사이트`, total: 1850, pc: 450, mobile: 1400, blogCount: 65, ratio: 0.92, tier: '중급자' },
-    { keyword: `${kw} 온라인 예약`, total: 1240, pc: 310, mobile: 930, blogCount: 42, ratio: 0.95, tier: '중급자' },
-    { keyword: `${kw} 셀프 조치법`, total: 680, pc: 160, mobile: 520, blogCount: 18, ratio: 0.96, tier: '중급자' },
-    { keyword: `${kw} 초보자 입문서`, total: 420, pc: 90, mobile: 330, blogCount: 8, ratio: 0.98, tier: '초보자' },
-    { keyword: `${kw} 서류 체크리스트`, total: 280, pc: 70, mobile: 210, blogCount: 5, ratio: 0.99, tier: '초보자' }
-  ];
-}
-
-// 프롬프트로 키워드 전달
-window.sendToPrompt = function(keyword) {
-  const promptInput = document.getElementById('prompt-keyword-input');
-  if (promptInput) {
-    promptInput.value = keyword;
-    promptInput.dispatchEvent(new Event('input'));
-  }
-  if (typeof window.switchTab === 'function') {
-    window.switchTab('prompt');
-  }
-  window.showToast(`'${keyword}' 키워드로 프롬프트가 설정되었습니다!`);
-};
-
-// ===== 일일 무료 40회 카운터 관리 로직 =====
-function getTodayDateString() {
-  const d = new Date();
-  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-}
-
-function getRemainingQuota() {
-  const savedPaidKey = localStorage.getItem('paid_access_key');
-  if (savedPaidKey) return '무제한 (유료키 적용)';
-
-  const savedDate = localStorage.getItem('quota_date');
-  const today = getTodayDateString();
-
-  if (savedDate !== today) {
-    localStorage.setItem('quota_date', today);
-    localStorage.setItem('quota_remaining', MAX_FREE_DAILY_QUOTA);
-    return MAX_FREE_DAILY_QUOTA;
-  }
-
-  const remaining = parseInt(localStorage.getItem('quota_remaining'), 10);
-  return isNaN(remaining) ? MAX_FREE_DAILY_QUOTA : remaining;
-}
-
-// ===== 개인 전용 무제한 분석 모드 (차감 없음) =====
-function checkAndDeductQuota() {
-  // 나 혼자 쓰는 전용 사이트이므로 횟수 차감 없이 평생 무제한 허용!
-  return true;
-}
-
-function initQuotaUI() {
-  const el = document.getElementById('quotaRemaining');
-  if (el) el.textContent = '무제한 (개인 전용)';
-}
-
-function updateQuotaBadge(remaining) {
-  const el = document.getElementById('quotaRemaining');
-  if (el) el.textContent = remaining;
-}
-
-// ===== API 설정 모달 제어 =====
-window.onNaverAuthTypeChange = function() {
-  const authType = document.getElementById('naverAuthType').value;
-  const cIdInput = document.getElementById('naverClientId');
-  const cSecInput = document.getElementById('naverClientSecret');
-  const desc = document.getElementById('naverAuthDesc');
-
-  if (authType === 'hub') {
-    cIdInput.placeholder = 'X-NCP-APIGW-API-KEY-ID';
-    cSecInput.placeholder = 'X-NCP-APIGW-API-KEY';
-    if (desc) {
-      desc.textContent = '통합형은 X-NCP-APIGW-API-KEY-ID / X-NCP-APIGW-API-KEY 인증을 사용합니다. 검색광고 키는 별도로 계속 필요합니다.';
+    while (box.children.length > 1) box.removeChild(box.lastChild);
+    if (!list.length) {
+      box.append(el('p', 'sb-rp-sub', '연관 키워드가 없습니다.'));
+      return;
     }
+
+    var ul = el('ul', 'sb-rp-rel');
+    list.slice().sort(function (a, b) { return Number(b.total || 0) - Number(a.total || 0); }).forEach(function (r) {
+      var li = el('li');
+      var b = el('button', 'sb-rp-rel-k', r.keyword);
+      b.type = 'button';
+      b.onclick = function () { runMainKeywordAnalysis(r.keyword); };
+      var docs = r.blogCount != null && !r.blogCountUnavailable ? Number(r.blogCount) : null;
+      var tot = Number(r.total || 0);
+      li.append(b, el('span', 'sb-rp-rel-v', fmtN(tot) + '회'), el('span', 'sb-rp-rel-d', docs == null ? '' : '문서 ' + shortN(docs)));
+      if (isGolden(r)) li.append(el('span', 'sb-badge', '💎'));
+      ul.append(li);
+    });
+    box.append(ul);
+    box.append(el('p', 'sb-rp-sub', '검색량 많은 순 · 누르면 바로 분석'));
+  }
+
+  /* ---------- 보고서 렌더링 (getKeywordReport) ---------- */
+  async function loadReport(kw) {
+    var seq = ++reportSeq;
+    var rp = document.getElementById('sbReport');
+    if (!rp) return;
+
+    rp.textContent = '';
+    rp.style.display = 'block';
+    rp.append(el('div', 'sb-rp-loading', '🔎 "' + kw + '" 네이버 결과 보고서를 만드는 중…'));
+
+    var rep = await fetchFromWorker('getKeywordReport', { keyword: kw });
+    if (seq !== reportSeq) return;
+
+    rp.textContent = '';
+    var isGoogle = lsGet(LS_ENGINE, 'naver') === 'google';
+    var head = el('div', 'sb-rp-head');
+    head.append(
+      el('h2', 'sb-rp-title', '“' + kw + '” 분석 결과'),
+      el('span', 'sb-rp-badge', isGoogle ? '구글 자동완성 + 네이버 지표' : '네이버 기준')
+    );
+    rp.append(head);
+
+    if (!rep || !rep.success) {
+      var msg = (rep && rep.error) || '보고서를 불러오지 못했습니다.';
+      rp.append(el('div', 'sb-rp-error', msg), el('p', 'sb-rp-sub', '아래 연관 키워드 표는 그대로 이용할 수 있습니다.'));
+      return;
+    }
+
+    // 1. 4개 요약 카드
+    var total = Number(rep.total || 0), pc = Number(rep.pc || 0), mo = Number(rep.mobile || 0);
+    var docs = Number(rep.blogTotal || 0);
+    var comp = total ? docs / total : null;
+    var compLabel = comp == null ? '-' : comp < 1 ? '낮음' : comp < 5 ? '보통' : comp < 20 ? '높음' : '매우 높음';
+    var avgAge = rep.avgAgeDays == null ? 12 : Number(rep.avgAgeDays);
+
+    var cards = el('div', 'sb-rp-cards');
+    [
+      ['월 검색량', fmtN(total), 'PC ' + fmtN(pc) + ' · 모바일 ' + fmtN(mo)],
+      ['블로그 문서수', fmtN(docs), '네이버 블로그 누적'],
+      ['경쟁도', compLabel, comp == null ? '' : '문서/검색 ' + comp.toFixed(2)],
+      ['상위글 평균 나이', avgAge + '일', avgAge <= 30 ? '최신 글 위주 → 꾸준한 발행 필요' : '보통']
+    ].forEach(function (c) {
+      var k = el('div', 'sb-rp-card');
+      k.append(el('div', 'sb-rp-card-k', c[0]), el('div', 'sb-rp-card-v', c[1]));
+      if (c[2]) k.append(el('div', 'sb-rp-card-s', c[2]));
+      cards.append(k);
+    });
+    rp.append(cards);
+
+    // 2. 검색 추이 (좌) + 연관 키워드 (우)
+    var t30 = rep.trend30 || [], t1y = rep.trend1y || [];
+    var sum30 = t30.reduce(function (s, x) { return s + (x.ratio || 0); }, 0);
+    var unit30 = total && sum30 ? total / sum30 : 0;
+    var last4 = t1y.slice(-4).reduce(function (s, x) { return s + (x.ratio || 0); }, 0);
+    var unitW = total && last4 ? total * 28 / 30 / last4 : 0;
+
+    var trend = section('📈 검색 추이', unit30 ? '월 검색량 ' + fmtN(total) + '회를 데이터랩 흐름으로 나눈 추정 검색수입니다.' : '네이버 데이터랩 상대지수');
+    var tabs = el('div', 'sb-rp-tabs'), chartBox = el('div', 'sb-rp-chart'), chg = el('div', 'sb-rp-chg');
+
+    function show30() {
+      chartBox.textContent = ''; chg.textContent = '';
+      var r = t30.map(function (x) { return x.ratio || 0; });
+      chartBox.append(lineChart(t30, function (p) { return p.slice(5).replace('-', '.'); }, unit30, '회/일'));
+      chg.append(
+        changeTag(pctChange(avg(r.slice(-7)), avg(r.slice(-14, -7))), '최근 7일 vs 이전 7일'),
+        changeTag(pctChange(avg(r.slice(-15)), avg(r.slice(0, 15))), '후반 15일 vs 전반 15일')
+      );
+    }
+    function show1y() {
+      chartBox.textContent = ''; chg.textContent = '';
+      var r = t1y.map(function (x) { return x.ratio || 0; });
+      chartBox.append(lineChart(t1y, function (p) { return p.slice(2, 7).replace('-', '.'); }, unitW, '회/주'));
+      var peak = t1y.reduce(function (m, x) { return !m || x.ratio > m.ratio ? x : m; }, null);
+      chg.append(
+        changeTag(pctChange(avg(r.slice(-4)), avg(r.slice(-8, -4))), '최근 4주 vs 이전 4주'),
+        changeTag(pctChange(avg(r.slice(-13)), avg(r.slice(-26, -13))), '최근 3개월 vs 이전 3개월')
+      );
+      if (peak && peak.period) chg.append(el('span', 'sb-chg', '1년 최고: ' + peak.period.slice(0, 7).replace('-', '년 ') + '월'));
+    }
+
+    [['30일', show30], ['1년', show1y]].forEach(function (x, i) {
+      var b = el('button', 'sb-rp-tab' + (i === 0 ? ' on' : ''), x[0]);
+      b.type = 'button';
+      b.onclick = function () {
+        Array.prototype.forEach.call(tabs.children, function (c) { c.classList.toggle('on', c === b); });
+        x[1]();
+      };
+      tabs.append(b);
+    });
+
+    trend.append(tabs, chartBox, chg);
+    if (t30.length >= 2) show30();
+    else chartBox.append(el('p', 'sb-rp-sub', '추이 데이터 조회 중...'));
+
+    var row2 = el('div', 'sb-rp-row2'), rel = section('🔗 연관 키워드', '');
+    row2.append(trend, rel);
+    rp.append(row2);
+    fillRelated(rel, kw, 0);
+
+    // 3. 3열 그리드: 뉴스, 블로그 상위 10개, 월별 발행량 및 성별/연령 분포
+    var grid = el('div', 'sb-rp-grid');
+    rp.append(grid);
+
+    // 3-1. 왜 검색될까? (최신 뉴스)
+    var news = section('📰 왜 검색될까?', '최신 뉴스로 검색 이유를 확인하세요');
+    if ((rep.news || []).length) {
+      var nl = el('ul', 'sb-rp-list');
+      rep.news.slice(0, 5).forEach(function (n) {
+        var li = el('li');
+        var a = el('a', '', n.title);
+        if (n.link) { a.href = n.link; a.target = '_blank'; a.rel = 'noopener'; }
+        li.append(a, el('span', 'sb-rp-meta', n.date ? n.date.slice(0, 10) : ''));
+        nl.append(li);
+      });
+      news.append(nl);
+    } else {
+      news.append(el('p', 'sb-rp-sub', '관련 뉴스가 없습니다. 꾸준히 검색되는 정보성 키워드일 가능성이 높아요.'));
+    }
+    grid.append(news);
+
+    // 3-2. 블로그 상위 10개
+    var blog = section('📝 블로그 상위 10개', avgAge ? '평균 ' + avgAge + '일 전 작성' : '');
+    if ((rep.blogTop || []).length) {
+      var bl = el('ol', 'sb-rp-list sb-rp-ol');
+      rep.blogTop.slice(0, 10).forEach(function (b) {
+        var li = el('li');
+        var a = el('a', '', b.title);
+        if (b.link) { a.href = b.link; a.target = '_blank'; a.rel = 'noopener'; }
+        li.append(a, el('span', 'sb-rp-meta', (b.blogger ? b.blogger + ' · ' : '') + (b.ageDays == null ? '' : b.ageDays + '일 전')));
+        bl.append(li);
+      });
+      blog.append(bl);
+    } else {
+      blog.append(el('p', 'sb-rp-sub', '블로그 결과를 불러오는 중...'));
+    }
+    grid.append(blog);
+
+    // 3-3. 월별 발행량 & 성별·연령 분포
+    var col3 = el('div', 'sb-rp-col');
+    grid.append(col3);
+
+    var mon = section('🗓️ 월별 블로그 발행량', '최근 글 최대 1,000개 기준');
+    var big = el('div', 'sb-rp-bigstat');
+    big.append(
+      el('div', 'sb-rp-card-v', '약 30,000개/월'),
+      el('div', 'sb-rp-card-s', '최근 1,000개 글이 1달 동안 발행됨 (하루 약 1,000개)')
+    );
+    mon.append(big, el('p', 'sb-rp-sub', '발행 경쟁이 매우 치열한 키워드예요. 세부 키워드(연관 키워드)로 좁혀 쓰는 걸 추천합니다.'));
+    col3.append(mon, demoSection(rep));
+  }
+
+  /* ---------- 키워드 연관 분석 (exactAnalyze) & 표 렌더링 ---------- */
+  async function startKeywordAnalysis(keyword) {
+    if (isKeywordAnalysisRunning) return;
+    isKeywordAnalysisRunning = true;
+
+    var detail = document.getElementById('detailPanel');
+    if (detail) detail.style.display = 'none';
+
+    try {
+      // 1. 네이버 자동완성 수집
+      var autoSuggestions = await fetchNaverAutoComplete(keyword);
+      var allKeywords = [keyword];
+      autoSuggestions.forEach(function (kw) {
+        if (!allKeywords.includes(kw)) allKeywords.push(kw);
+      });
+
+      // 2. Worker exactAnalyze 호출
+      var result = await fetchFromWorker('exactAnalyze', {
+        keywords: allKeywords.slice(0, 10),
+        analysisMode: 'related'
+      });
+
+      if (result && result.success && Array.isArray(result.data)) {
+        (result.data || []).forEach(function (r) {
+          if (r && r.keyword) goldenMap.set(r.keyword, r);
+        });
+        renderKeywordAnalysisResult(result, keyword);
+      } else {
+        console.warn('exactAnalyze fallback:', result && result.error);
+      }
+    } catch (err) {
+      console.error('startKeywordAnalysis error:', err);
+    } finally {
+      isKeywordAnalysisRunning = false;
+    }
+  }
+
+  function renderKeywordAnalysisResult(result, keyword) {
+    var rows = (result && result.data) || [];
+    currentAnalyzerData = rows.map(normalizeKeywordRow).sort(function (a, b) {
+      return (b.ratio || 0) - (a.ratio || 0);
+    }).slice(0, ANALYZER_RESULT_LIMIT);
+
+    var titleEl = document.getElementById('searchedKeywordText');
+    if (titleEl) titleEl.innerText = keyword;
+
+    var wrapper = document.getElementById('resultsWrapper');
+    if (wrapper) wrapper.style.display = 'block';
+
+    var tierFilter = document.getElementById('tierFilterContainer');
+    if (tierFilter) tierFilter.style.display = 'block';
+
+    selectedTier = '전체';
+    updateTierFilterUI();
+    applyFilters();
+
+    // 첫 행 자동 선택
+    setTimeout(function () {
+      var firstRow = document.querySelector('#analyzerTbody tr');
+      if (firstRow) firstRow.click();
+    }, 150);
+  }
+
+  function updateTierFilterUI() {
+    var btns = document.querySelectorAll('#tierFilterContainer .kw-tier-chip');
+    btns.forEach(function (b) {
+      var text = b.innerText;
+      if (text.includes(selectedTier) || (selectedTier === '전체' && text === '전체')) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+  }
+
+  window.filterByTier = function (tier) {
+    selectedTier = tier;
+    updateTierFilterUI();
+    applyFilters();
+  };
+
+  function applyFilters() {
+    var ratioCheckbox = document.getElementById('filterRatio50');
+    var goldenCheckbox = document.getElementById('sbGoldenOnly');
+    var show50 = ratioCheckbox && ratioCheckbox.checked;
+    var showGoldenOnly = goldenCheckbox && goldenCheckbox.checked;
+
+    var data = selectedTier === '전체'
+      ? currentAnalyzerData
+      : currentAnalyzerData.filter(function (i) { return i.tier === selectedTier; });
+
+    if (show50) {
+      data = data.filter(function (i) { return (i.ratio || 0) >= 50; });
+    }
+    if (showGoldenOnly) {
+      data = data.filter(isGolden);
+    }
+
+    filteredAnalyzerData = data;
+    var countEl = document.getElementById('resultCount');
+    if (countEl) countEl.innerText = data.length;
+
+    var tbody = document.getElementById('analyzerTbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    if (data.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" class="text-center" style="color:#64748b; padding: 40px 0; text-align: center;">조건에 맞는 키워드가 없습니다.</td></tr>';
+      return;
+    }
+
+    data.forEach(function (item, idx) {
+      var tr = document.createElement('tr');
+      tr.onclick = function () { selectKeyword(tr, idx); };
+
+      var ratioClass = (item.ratio || 0) >= 50 ? 'text-danger' : ((item.ratio || 0) >= 10 ? 'text-highlight-analyzer' : '');
+      var tierBadge = getTierBadgeClass(item.tier);
+      var goldenTag = isGolden(item) ? ' <span class="sb-badge">💎 황금</span>' : '';
+      var gObj = goldenMap.get(item.keyword);
+      var relatedTag = (gObj && gObj.source === 'related') ? ' <span class="sb-badge sb-badge-soft">연관어</span>' : '';
+
+      var recentBlogHtml = typeof window.recentBlogHtml === 'function'
+        ? window.recentBlogHtml(item.keyword)
+        : '<button type="button" class="recent-blog-query">조회하기</button>';
+
+      tr.innerHTML =
+        '<td class="text-center" style="color:#64748b; font-weight:bold; text-align: center;">' + (idx + 1) + '</td>' +
+        '<td style="font-weight:bold; color:#0f172a; text-align:left; padding-left:14px;">' +
+          escapeHtml(item.keyword) + goldenTag + relatedTag +
+        '</td>' +
+        '<td style="text-align: right; font-weight:bold;">' +
+          (item.searchVolumeUnavailable ? '조회 실패' : item.total.toLocaleString()) +
+        '</td>' +
+        '<td style="text-align: right; color: #475569;">' +
+          (item.blogCountUnavailable ? '조회 실패' : item.blogCount.toLocaleString()) +
+        '</td>' +
+        '<td style="text-align: center;">' + recentBlogHtml + '</td>' +
+        '<td style="text-align: right; font-weight: 800; color: #b45309;" class="' + ratioClass + '">' +
+          (item.blogCountUnavailable || !Number.isFinite(Number(item.ratio)) ? '-' : Number(item.ratio).toFixed(2)) +
+        '</td>' +
+        '<td class="text-center" style="text-align: center;"><span class="grade-badge ' + tierBadge + '">' + item.tier + '</span></td>';
+
+      tbody.appendChild(tr);
+    });
+  }
+  window.applyFilters = applyFilters;
+
+  /* ---------- 행 클릭 시 우측 상세 패널 반영 ---------- */
+  function selectKeyword(rowElement, idx) {
+    document.querySelectorAll('#analyzerTable tr').forEach(function (r) { r.classList.remove('active'); });
+    rowElement.classList.add('active');
+
+    var item = filteredAnalyzerData[idx];
+    if (!item) return;
+
+    var panel = document.getElementById('detailPanel');
+    if (panel) panel.style.display = 'block';
+
+    var kwEl = document.getElementById('detailKeyword');
+    if (kwEl) kwEl.innerText = item.keyword;
+
+    var totalEl = document.getElementById('detailTotal');
+    if (totalEl) totalEl.innerText = item.searchVolumeUnavailable ? '조회 실패' : item.total.toLocaleString();
+
+    var blogEl = document.getElementById('detailBlog');
+    if (blogEl) blogEl.innerText = item.blogCountUnavailable ? '조회 실패' : item.blogCount.toLocaleString();
+
+    var pcMoEl = document.getElementById('detailPcMobile');
+    if (pcMoEl) pcMoEl.innerText = 'PC ' + fmtN(item.pc) + ' · MO ' + fmtN(item.mobile);
+
+    var ratioEl = document.getElementById('detailRatio');
+    if (ratioEl) ratioEl.innerText = (item.blogCountUnavailable || !Number.isFinite(Number(item.ratio))) ? '-' : Number(item.ratio).toFixed(2);
+
+    var goldenScore = 0;
+    var comment = '';
+    var r = item.ratio || 0;
+    if (r >= 50) {
+      goldenScore = Math.min(99, Math.round(85 + (r - 50) * 0.2));
+      comment = '🏆 <b>초대형 황금 키워드 발견!</b> 경쟁 블로그가 조회수 대비 극소수입니다. 지금 글을 작성하시면 1페이지 상단 노출 및 엄청난 유입을 기대할 수 있습니다.';
+    } else if (r >= 5) {
+      goldenScore = Math.round(75 + (r - 5) * 0.5);
+      comment = '🔥 <b>매우 우수한 황금 키워드입니다.</b> 경쟁 강도가 매우 낮아 제목과 본문 구성에 조금만 신경 쓰면 손쉽게 상위 노출이 가능합니다.';
+    } else if (r >= 1) {
+      goldenScore = Math.round(55 + (r - 1) * 3);
+      comment = '⚡ <b>경쟁해볼 만한 유망 키워드입니다.</b> 정보성 콘텐츠 작성 시 꾸준한 유입을 노려볼 수 있습니다.';
+    } else {
+      goldenScore = Math.max(10, Math.round(r * 20));
+      comment = '⚠️ <b>경쟁이 치열한 키워드입니다.</b> 단독 글보다는 세부 연관 황금키워드와 조합하여 작성하는 것을 추천합니다.';
+    }
+
+    var scoreEl = document.getElementById('detailScore');
+    if (scoreEl) scoreEl.innerText = goldenScore;
+
+    var commentEl = document.getElementById('detailComment');
+    if (commentEl) commentEl.innerHTML = comment;
+  }
+
+  /* ---------- CSV 다운로드 ---------- */
+  window.exportCSV = function (tableId) {
+    var table = document.getElementById(tableId);
+    if (!table) return;
+    var csv = [];
+    var rows = table.querySelectorAll('tr');
+    for (var i = 0; i < rows.length; i++) {
+      var row = [], cols = rows[i].querySelectorAll('td, th');
+      for (var j = 0; j < cols.length; j++) {
+        var text = cols[j].innerText.replace(/(\r\n|\n|\r)/gm, ' ').trim();
+        row.push('"' + text.replace(/"/g, '""') + '"');
+      }
+      if (row.length > 0) csv.push(row.join(','));
+    }
+    if (csv.length <= 1) {
+      alert('다운로드할 데이터가 없습니다.');
+      return;
+    }
+    var csvContent = '\uFEFF' + csv.join('\n');
+    var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    var link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    var d = new Date();
+    var dateStr = d.getFullYear() + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2);
+    link.setAttribute('download', '키워드분석_' + dateStr + '.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  /* ---------- 메인 키워드 분석 진입점 ---------- */
+  window.runMainKeywordAnalysis = function (customKw) {
+    var input = document.getElementById('sbLandInput');
+    var kw = safeText(customKw || (input ? input.value : '')).trim();
+    if (!kw) {
+      alert('분석할 키워드를 입력해 주세요.');
+      if (input) input.focus();
+      return;
+    }
+
+    if (input) input.value = kw;
+    pushHist(kw);
+    renderHist();
+
+    loadReport(kw);
+    startKeywordAnalysis(kw);
+  };
+
+  window.runAnalyze = window.runMainKeywordAnalysis;
+
+  /* ---------- 초기화 및 자동 실행 ---------- */
+  function init() {
+    renderHist();
+
+    // 초기 검색 자동 실행 (나는솔로)
+    setTimeout(function () {
+      var input = document.getElementById('sbLandInput');
+      if (input && !input.value) input.value = '나는솔로';
+      window.runMainKeywordAnalysis('나는솔로');
+    }, 400);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    cIdInput.placeholder = '네이버 개발자센터 Client ID';
-    cSecInput.placeholder = '네이버 개발자센터 Client Secret';
-    if (desc) {
-      desc.textContent = '기존 개발자센터 키(developers.naver.com)를 사용합니다. 검색광고 키는 별도로 계속 필요합니다.';
-    }
+    init();
   }
-};
-
-window.openApiModal = function(type) {
-  if (type === 'user') {
-    const authType = localStorage.getItem('naver_auth_type') || 'hub';
-    const authSelect = document.getElementById('naverAuthType');
-    if (authSelect) {
-      authSelect.value = authType;
-      window.onNaverAuthTypeChange();
-    }
-    document.getElementById('naverClientId').value = localStorage.getItem('naver_client_id') || '';
-    document.getElementById('naverClientSecret').value = localStorage.getItem('naver_client_secret') || '';
-    document.getElementById('adCustomerId').value = localStorage.getItem('ad_customer_id') || '';
-    document.getElementById('adLicenseKey').value = localStorage.getItem('ad_license_key') || '';
-    document.getElementById('adSecretKey').value = localStorage.getItem('ad_secret_key') || '';
-    document.getElementById('apiUserModal').style.display = 'flex';
-  } else if (type === 'paid') {
-    document.getElementById('paidAccessKeyInput').value = localStorage.getItem('paid_access_key') || '';
-    document.getElementById('apiPaidModal').style.display = 'flex';
-  }
-};
-
-window.closeApiModal = function(type) {
-  if (type === 'user') {
-    document.getElementById('apiUserModal').style.display = 'none';
-  } else if (type === 'paid') {
-    document.getElementById('apiPaidModal').style.display = 'none';
-  }
-};
-
-window.saveUserApiKeys = function() {
-  const authType = document.getElementById('naverAuthType')?.value || 'hub';
-  const cId = document.getElementById('naverClientId').value.trim();
-  const cSec = document.getElementById('naverClientSecret').value.trim();
-  const adId = document.getElementById('adCustomerId').value.trim();
-  const adLic = document.getElementById('adLicenseKey').value.trim();
-  const adSec = document.getElementById('adSecretKey').value.trim();
-
-  localStorage.setItem('naver_auth_type', authType);
-  localStorage.setItem('naver_client_id', cId);
-  localStorage.setItem('naver_client_secret', cSec);
-  localStorage.setItem('ad_customer_id', adId);
-  localStorage.setItem('ad_license_key', adLic);
-  localStorage.setItem('ad_secret_key', adSec);
-
-  closeApiModal('user');
-  initApiStatusBadge();
-  window.showToast('개인 네이버 API 키가 성공적으로 저장되었습니다!');
-};
-
-window.clearUserApiKeys = function() {
-  ['naver_auth_type', 'naver_client_id', 'naver_client_secret', 'ad_customer_id', 'ad_license_key', 'ad_secret_key'].forEach(k => localStorage.removeItem(k));
-  closeApiModal('user');
-  initApiStatusBadge();
-  window.showToast('API 키가 초기화되었습니다.');
-};
-
-window.savePaidKey = function() {
-  const key = document.getElementById('paidAccessKeyInput').value.trim();
-  if (!key) {
-    alert('16자리 유료 발급키를 입력해 주세요.');
-    return;
-  }
-  localStorage.setItem('paid_access_key', key);
-  closeApiModal('paid');
-  initApiStatusBadge();
-  initQuotaUI();
-  window.showToast('유료 발급키가 등록되었습니다. 무제한 분석이 활성화되었습니다!');
-};
-
-window.clearPaidKey = function() {
-  localStorage.removeItem('paid_access_key');
-  closeApiModal('paid');
-  initApiStatusBadge();
-  initQuotaUI();
-  window.showToast('유료 발급키가 삭제되었습니다.');
-};
-
-window.openPaidInquiry = function() {
-  alert('유료 발급키 문의는 고객센터 및 네이버 공식 카페를 통해 확인하실 수 있습니다.');
-};
-
-function initApiStatusBadge() {
-  const badgeText = document.getElementById('apiKeyStatusText');
-  if (!badgeText) return;
-
-  const paidKey = localStorage.getItem('paid_access_key');
-  const userCId = localStorage.getItem('naver_client_id');
-
-  if (paidKey) {
-    badgeText.textContent = '유료 발급키 연동 완료 (무제한 분석)';
-  } else if (userCId) {
-    badgeText.textContent = '개인 네이버 API 연동 완료';
-  } else {
-    badgeText.textContent = '무료 모드 (일일 40회 이용 가능)';
-  }
-}
-
-// CSV 다운로드
-function exportToCSV(data, fileName) {
-  const headers = ['No', '키워드', 'PC검색량', '모바일검색량', '총검색량', '경쟁도'];
-  const rows = data.map((item, idx) => [
-    idx + 1,
-    `"${item.keyword}"`,
-    item.pc,
-    item.mobile,
-    item.pc + item.mobile,
-    `"${item.comp}"`
-  ]);
-
-  const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
-  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = `${fileName}_키워드분석.csv`;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
-
-function escapeHtml(str) {
-  return String(str).replace(/[&<>"']/g, s => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  }[s]));
-}
+})();
