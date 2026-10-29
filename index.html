@@ -315,85 +315,118 @@
 
     <!-- [TAB 2] 키워드 분석기 화면 -->
     <section id="tab-keyword" class="tab-section">
-      <!-- 1. 상단 타이틀 및 API 키 연동 헤더 카드 -->
-      <div class="card" style="margin-bottom: 24px; padding: 28px 24px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-          <!-- 왼쪽 타이틀 및 상태 뱃지 -->
-          <div>
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
-              <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 8px;">
-                <span>⚡</span> 키워드 분석기
-              </h2>
-              <span style="background: #4f46e5; color: #fff; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 20px;">
-                실시간 네이버 검색량 분석
-              </span>
-            </div>
+      <!-- 0. 상단 네비게이션: 뒤로가기 / 홈 버튼 (스크린샷 100% 일치) -->
+      <div class="sb-kw-topbar">
+        <button type="button" class="sb-nav-btn" onclick="switchTab('adsense')">
+          ← 뒤로가기
+        </button>
+        <button type="button" class="sb-nav-btn" onclick="switchTab('home')">
+          🏠 홈
+        </button>
+      </div>
 
-            <!-- API 키 설정 버튼 -->
-            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
-              <button class="btn btn-secondary btn-sm" onclick="openApiModal('user')" style="font-size: 0.8rem; padding: 6px 14px; border-radius: 20px;">
-                ⚙️ 내 네이버 API 키 설정
-              </button>
-              <div id="apiKeyStatusBadge" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #10b981;">
-                <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
-                <span id="apiKeyStatusText">개인 전용 무제한 분석 모드 활성화됨 ✅</span>
+      <!-- 0-1. 네이버 API 공지 배너 (스크린샷 100% 일치) -->
+      <div class="preview-notice">
+        본인의 네이버 API 키로 분석합니다. 네이버 API 사용량은 각 계정에 적용되며, 발급키별 이용 권한은 별도로 적용됩니다.
+      </div>
+
+      <!-- 0-2. 메인 히어로 검색창 (#sbLanding - 스크린샷 100% 일치) -->
+      <div id="sbLanding" class="sb-landing">
+        <h1 class="sb-land-title">어떤 키워드를 분석할까요?</h1>
+        <p class="sb-land-sub">검색량 · 문서수 · 경쟁도 · 연관 키워드까지 한 번에 확인합니다.</p>
+        
+        <div class="sb-engine" id="sbEngine">
+          <button type="button" class="sb-engine-btn on" data-engine="naver" onclick="switchEngine('naver')">네이버</button>
+          <button type="button" class="sb-engine-btn" data-engine="google" onclick="switchEngine('google')">구글</button>
+        </div>
+
+        <form class="sb-land-form" role="search" onsubmit="event.preventDefault(); window.runMainKeywordAnalysis(document.getElementById('sbLandInput').value);">
+          <input type="search" id="sbLandInput" class="sb-land-input" placeholder="분석할 키워드를 입력하세요 (예: 나는솔로)" autocomplete="off">
+          <button type="submit" class="sb-land-go">분석하기</button>
+        </form>
+
+        <div id="sbHist" class="sb-hist"></div>
+        <div id="sbEngineNote" class="sb-engine-note" style="display: none;">
+          구글 모드: 구글 자동완성 키워드와 네이버 지표(검색량·문서수)를 함께 보여드려요.
+        </div>
+      </div>
+
+      <!-- [보조 레거시 헤더 - 하위 호환성 유지용 숨김] -->
+      <div id="legacy-kw-header" style="display: none;">
+        <!-- 1. 상단 타이틀 및 API 키 연동 헤더 카드 -->
+        <div class="card" style="margin-bottom: 24px; padding: 28px 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
+                <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 8px;">
+                  <span>⚡</span> 키워드 분석기
+                </h2>
+                <span style="background: #4f46e5; color: #fff; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 20px;">
+                  실시간 네이버 검색량 분석
+                </span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+                <button class="btn btn-secondary btn-sm" onclick="openApiModal('user')" style="font-size: 0.8rem; padding: 6px 14px; border-radius: 20px;">
+                  ⚙️ 내 네이버 API 키 설정
+                </button>
+                <div id="apiKeyStatusBadge" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #10b981;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+                  <span id="apiKeyStatusText">개인 전용 무제한 분석 모드 활성화됨 ✅</span>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0;">
+                검색량 대비 경쟁 문서가 극도로 적은 <strong>틈새 황금키워드</strong>를 횟수 제한 없이 자유롭게 실시간 발굴합니다.
+              </p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px; min-width: 180px;">
+              <a href="https://searchad.naver.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="background: #047857; color: #fff; font-weight: 800; padding: 10px 16px; border-radius: 10px; text-decoration: none; text-align: center;">
+                네이버 API 무료 발급 안내 ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. 개인 무제한 분석 안내 배너 (초록색 박스) -->
+        <div style="margin-bottom: 24px; padding: 18px 22px; border: 1px solid rgba(16,185,129,0.4); border-radius: 14px; background: rgba(16,185,129,0.06);">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <div>
+              <div style="font-size: 0.95rem; font-weight: 900; color: #10b981; display: flex; align-items: center; gap: 6px;">
+                <span>⚡</span> 개인 전용 무제한 분석 모드
+              </div>
+              <div style="margin-top: 6px; color: var(--text-main); font-size: 0.85rem; line-height: 1.6;">
+                외부 유료 결제 없이 <strong>단건 키워드 분석과 메인 키워드 연관 분석을 횟수 제한 없이 무제한</strong>으로 이용할 수 있습니다.
               </div>
             </div>
-
-            <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0;">
-              검색량 대비 경쟁 문서가 극도로 적은 <strong>틈새 황금키워드</strong>를 횟수 제한 없이 자유롭게 실시간 발굴합니다.
-            </p>
-          </div>
-
-          <!-- 오른쪽 안내 링크 버튼 -->
-          <div style="display: flex; flex-direction: column; gap: 8px; min-width: 180px;">
-            <a href="https://searchad.naver.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="background: #047857; color: #fff; font-weight: 800; padding: 10px 16px; border-radius: 10px; text-decoration: none; text-align: center;">
-              네이버 API 무료 발급 안내 ↗
-            </a>
+            <span id="freeQuotaCountBadge" style="padding: 6px 14px; border-radius: 20px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #10b981; font-size: 0.85rem; font-weight: 800; white-space: nowrap;">
+              상태: <span id="quotaRemaining">무제한 이용 가능</span>
+            </span>
           </div>
         </div>
-      </div>
 
-      <!-- 2. 개인 무제한 분석 안내 배너 (초록색 박스) -->
-      <div style="margin-bottom: 24px; padding: 18px 22px; border: 1px solid rgba(16,185,129,0.4); border-radius: 14px; background: rgba(16,185,129,0.06);">
-        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
-          <div>
-            <div style="font-size: 0.95rem; font-weight: 900; color: #10b981; display: flex; align-items: center; gap: 6px;">
-              <span>⚡</span> 개인 전용 무제한 분석 모드
-            </div>
-            <div style="margin-top: 6px; color: var(--text-main); font-size: 0.85rem; line-height: 1.6;">
-              외부 유료 결제 없이 <strong>단건 키워드 분석과 메인 키워드 연관 분석을 횟수 제한 없이 무제한</strong>으로 이용할 수 있습니다.
-            </div>
-          </div>
-          <span id="freeQuotaCountBadge" style="padding: 6px 14px; border-radius: 20px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #10b981; font-size: 0.85rem; font-weight: 800; white-space: nowrap;">
-            상태: <span id="quotaRemaining">무제한 이용 가능</span>
-          </span>
+        <!-- 2-1. 서브 탭 바 -->
+        <div class="kw-subtabs-bar" style="display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 4px; border-bottom: 1px solid var(--border-color);">
+          <button type="button" class="kw-subtab-btn active" data-kwsub="analysis" onclick="switchKwSubTab('analysis')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
+            <span>🔍</span> 1. 연관 황금키워드 분석기
+          </button>
+          <button type="button" class="kw-subtab-btn" data-kwsub="trending" onclick="switchTab('home')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-sub); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
+            <span>🔥</span> 2. 실시간 급상승 검색어
+          </button>
+          <button type="button" class="kw-subtab-btn" data-kwsub="find" onclick="switchTab('adsense')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-sub); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
+            <span>🔗</span> 3. 키워드 찾으러 가기
+          </button>
+          <button type="button" class="kw-subtab-btn" data-kwsub="excel" onclick="switchKwSubTab('excel')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-sub); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
+            <span>📁</span> 4. 엑셀 파일 대량 분석
+          </button>
+          <button type="button" class="kw-subtab-btn" id="subtab-btn-ranktracker" data-kwsub="ranktracker" onclick="switchKwSubTab('ranktracker')" style="background: rgba(37, 99, 235, 0.15); border: 1px solid rgba(37, 99, 235, 0.35); border-radius: 8px 8px 0 0; padding: 12px 20px; font-size: 0.95rem; font-weight: 800; color: #60a5fa; cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid #2563eb; transition: all 0.2s; white-space: nowrap;">
+            <span>🔬</span> 5. 블로그 노출 추적
+          </button>
         </div>
-      </div>
-
-      <!-- 2-1. 키워드 분석기 내부 상단 5대 서브 탭 바 (스크린샷 100% 동일 구현) -->
-      <div class="kw-subtabs-bar" style="display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 4px; border-bottom: 1px solid var(--border-color);">
-        <button type="button" class="kw-subtab-btn active" data-kwsub="analysis" onclick="switchKwSubTab('analysis')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-main); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
-          <span>🔍</span> 1. 연관 황금키워드 분석기
-        </button>
-        <button type="button" class="kw-subtab-btn" data-kwsub="trending" onclick="switchTab('home')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-sub); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
-          <span>🔥</span> 2. 실시간 급상승 검색어
-        </button>
-        <button type="button" class="kw-subtab-btn" data-kwsub="find" onclick="switchTab('adsense')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-sub); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
-          <span>🔗</span> 3. 키워드 찾으러 가기
-        </button>
-        <button type="button" class="kw-subtab-btn" data-kwsub="excel" onclick="switchKwSubTab('excel')" style="background: transparent; border: none; padding: 12px 18px; font-size: 0.95rem; font-weight: 700; color: var(--text-sub); cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;">
-          <span>📁</span> 4. 엑셀 파일 대량 분석
-        </button>
-        <button type="button" class="kw-subtab-btn" id="subtab-btn-ranktracker" data-kwsub="ranktracker" onclick="switchKwSubTab('ranktracker')" style="background: rgba(37, 99, 235, 0.15); border: 1px solid rgba(37, 99, 235, 0.35); border-radius: 8px 8px 0 0; padding: 12px 20px; font-size: 0.95rem; font-weight: 800; color: #60a5fa; cursor: pointer; display: flex; align-items: center; gap: 6px; border-bottom: 3px solid #2563eb; transition: all 0.2s; white-space: nowrap;">
-          <span>🔬</span> 5. 블로그 노출 추적
-        </button>
       </div>
 
       <!-- [서브 패널 1] 연관 황금키워드 분석기 -->
       <div id="kw-panel-analysis" class="kw-sub-panel">
-        <!-- 3. [폼 1] ⚡ 1. 단건 키워드 분석 (1건 빠르게 결과 확인) -->
-        <div class="card" style="margin-bottom: 20px; padding: 22px;">
+        <!-- 3. [폼 1] ⚡ 1. 단건 키워드 분석 (호환성 유지용 숨김) -->
+        <div class="card" style="display: none; margin-bottom: 20px; padding: 22px;">
           <h3 style="margin: 0 0 12px 0; color: #10b981; font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
             <span>⚡</span> 1. 단건 키워드 분석 (1건 빠르게 결과 확인)
           </h3>
@@ -405,8 +438,8 @@
           </div>
         </div>
 
-        <!-- 4. [폼 2] 🎯 2. 메인 키워드 연관 분석 (실시간 연관 분석) -->
-        <div class="card" style="margin-bottom: 24px; padding: 22px;">
+        <!-- 4. [폼 2] 🎯 2. 메인 키워드 연관 분석 (호환성 유지용 숨김) -->
+        <div class="card" style="display: none; margin-bottom: 24px; padding: 22px;">
           <h3 style="margin: 0 0 12px 0; color: #f59e0b; font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
             <span>🎯</span> 2. 메인 키워드 연관 분석 (실시간 연관 분석)
           </h3>

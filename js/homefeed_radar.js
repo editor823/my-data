@@ -60,14 +60,15 @@
     if (!cleanKw) return;
     if (typeof switchTab === 'function') switchTab('keyword');
     setTimeout(() => {
-      const input = document.getElementById('keyword-search-input') || document.getElementById('keywordInput');
-      if (input) {
-        input.value = cleanKw;
-        input.focus();
-        const searchBtn = document.getElementById('search-btn') || document.querySelector('.btn-search');
-        if (searchBtn) searchBtn.click();
+      const sbInp = document.getElementById('sbLandInput') || document.getElementById('analyzerInput') || document.getElementById('singleFastInput');
+      if (sbInp) {
+        sbInp.value = cleanKw;
+        sbInp.focus();
       }
-    }, 200);
+      if (typeof window.runMainKeywordAnalysis === 'function') {
+        window.runMainKeywordAnalysis(cleanKw);
+      }
+    }, 150);
   };
 
   window.sbSendToPrompt = async function(kw) {

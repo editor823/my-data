@@ -41,9 +41,97 @@ const SAMPLE_KEYWORD_DATABASE = {
 
 let currentAnalyzedData = [];
 
+// ==========================================================
+// [키워드 분석기] 최신 sbLanding 히스토리 & 엔진 상태 관리
+// ==========================================================
+const LS_HIST = 'sb_analyzer_hist_v1';
+const LS_ENGINE = 'sb_analyzer_engine_v1';
+
+function getHist() {
+  try {
+    return JSON.parse(localStorage.getItem(LS_HIST) || '[]');
+  } catch (_) {
+    return [];
+  }
+}
+
+function pushHist(kw) {
+  if (!kw) return;
+  const clean = String(kw).trim();
+  if (!clean) return;
+  const h = getHist().filter(x => x !== clean);
+  h.unshift(clean);
+  try {
+    localStorage.setItem(LS_HIST, JSON.stringify(h.slice(0, 8)));
+  } catch (_) {}
+}
+
+window.renderHist = function() {
+  const box = document.getElementById('sbHist');
+  if (!box) return;
+  const h = getHist();
+  box.innerHTML = '';
+  if (!h.length) {
+    box.style.display = 'none';
+    return;
+  }
+  box.style.display = 'flex';
+  const label = document.createElement('span');
+  label.className = 'sb-hist-label';
+  label.textContent = '최근 검색';
+  box.appendChild(label);
+
+  h.forEach(kw => {
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'sb-chip sb-chip-sm';
+    chip.textContent = kw;
+    chip.onclick = () => {
+      const sbInp = document.getElementById('sbLandInput');
+      if (sbInp) sbInp.value = kw;
+      runMainKeywordAnalysis(kw);
+    };
+    box.appendChild(chip);
+  });
+
+  const clearBtn = document.createElement('button');
+  clearBtn.type = 'button';
+  clearBtn.className = 'sb-hist-clear';
+  clearBtn.textContent = '지우기';
+  clearBtn.onclick = () => {
+    try { localStorage.setItem(LS_HIST, '[]'); } catch (_) {}
+    window.renderHist();
+  };
+  box.appendChild(clearBtn);
+};
+
+window.switchEngine = function(engine) {
+  try { localStorage.setItem(LS_ENGINE, engine); } catch (_) {}
+  const btns = document.querySelectorAll('.sb-engine-btn');
+  btns.forEach(b => {
+    b.classList.toggle('on', b.getAttribute('data-engine') === engine);
+  });
+  const note = document.getElementById('sbEngineNote');
+  if (note) {
+    note.style.display = engine === 'google' ? 'block' : 'none';
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   initQuotaUI();
   initApiStatusBadge();
+  window.renderHist();
+
+  // 0. sbLanding 메인 검색창 바인딩
+  const sbLandInput = document.getElementById('sbLandInput');
+  if (sbLandInput) {
+    sbLandInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        runMainKeywordAnalysis(sbLandInput.value);
+      }
+    });
+  }
 
   // 1. 단건 빠른 분석 이벤트 바인딩
   const singleInput = document.getElementById('singleFastInput');
@@ -541,23 +629,55 @@ function matchesTier(item, tierFilter) {
 }
 
 // 메인 키워드 연관 분석 실행
-async function runMainKeywordAnalysis() {
+async function runMainKeywordAnalysis(customKeyword) {
+  const sbInput = document.getElementById('sbLandInput');
   const input = document.getElementById('analyzerInput');
+  const singleInput = document.getElementById('singleFastInput');
+  const sbBtn = document.querySelector('.sb-land-go');
   const btn = document.getElementById('mainKeywordBtn');
-  const keyword = input.value.trim();
+
+  let keyword = typeof customKeyword === 'string' ? customKeyword.trim() : '';
+  if (!keyword) {
+    if (sbInput && sbInput.value.trim()) keyword = sbInput.value.trim();
+    else if (input && input.value.trim()) keyword = input.value.trim();
+    else if (singleInput && singleInput.value.trim()) keyword = singleInput.value.trim();
+  }
 
   if (!keyword) {
-    window.showToast('검색할 메인 키워드를 입력해 주세요.', '⚠️');
-    input.focus();
+    if (typeof window.showToast === 'function') {
+      window.showToast('검색할 키워드를 입력해 주세요.', '⚠️');
+    } else {
+      alert('검색할 키워드를 입력해 주세요.');
+    }
+    if (sbInput) sbInput.focus();
+    else if (input) input.focus();
     return;
   }
 
+  // 모든 인풋 동기화
+  if (sbInput) sbInput.value = keyword;
+  if (input) input.value = keyword;
+  if (singleInput) singleInput.value = keyword;
+
+  // 최근 검색 기록에 추가 및 즉시 렌더링
+  pushHist(keyword);
+  if (typeof window.renderHist === 'function') window.renderHist();
+
   // 버튼 상태 및 로딩 UI 표시 (disabled 처리 + 스피너/안내 텍스트)
-  const originalBtnText = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '<span class="loading-spinner" style="display:inline-block; width:14px; height:14px; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation:spin 0.8s linear infinite; margin-right:6px; vertical-align:middle;"></span> 연관 분석 중 (보통 5~10초)...';
+  const originalSbBtnText = sbBtn ? sbBtn.innerHTML : '분석하기';
+  const originalBtnText = btn ? btn.innerHTML : '연관 분석 시작';
+  if (sbBtn) {
+    sbBtn.disabled = true;
+    sbBtn.innerHTML = '분석 중...';
+  }
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<span class="loading-spinner" style="display:inline-block; width:14px; height:14px; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation:spin 0.8s linear infinite; margin-right:6px; vertical-align:middle;"></span> 연관 분석 중 (보통 5~10초)...';
+  }
 
   const usageNotice = document.getElementById('kwUsageNotice');
+  let receivedList = null;
+  let remainingUsage = '무제한';
 
   try {
     // 1. 로컬 백엔드 키워드 분석 API 우선 호출
@@ -642,18 +762,39 @@ async function runMainKeywordAnalysis() {
       usageNotice.innerHTML = `⚡ 남은 분석 횟수: <strong>${remainingUsage}회</strong> (실시간 데이터 연동 완료)`;
     }
 
+    // 5개 요약 스탯 카드 갱신 (총 검색량, PC, 모바일, 문서수, 기회지수)
+    if (currentRelatedList.length > 0) {
+      updateStatCards(currentRelatedList[0]);
+    }
+
     // 30일 검색 추이 그래프 렌더링
     renderTrendChart(keyword, currentRelatedList[0]?.total || 3200);
 
     // 테이블 렌더링
     applyFiltersAndRenderTable();
 
-    window.showToast(`'${keyword}' 연관 키워드 ${currentRelatedList.length}건 분석 완료! ✅`);
+    // 결과 컨테이너 확실하게 노출
+    const resultCard = document.getElementById('keyword-result-container');
+    if (resultCard) {
+      resultCard.style.display = 'block';
+    }
+
+    if (typeof window.showToast === 'function') {
+      window.showToast(`'${keyword}' 연관 키워드 ${currentRelatedList.length}건 분석 완료! ✅`);
+    }
   } finally {
-    btn.disabled = false;
-    btn.innerHTML = originalBtnText;
+    if (sbBtn) {
+      sbBtn.disabled = false;
+      sbBtn.innerHTML = originalSbBtnText;
+    }
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = originalBtnText;
+    }
   }
 }
+
+window.runMainKeywordAnalysis = runMainKeywordAnalysis;
 
 // 체급 및 기회지수 필터 적용 후 테이블 렌더링
 function applyFiltersAndRenderTable() {
