@@ -130,8 +130,8 @@
       card.append(niche);
     }
 
-    // 5. 참고 원문 가로 스크롤 카드
-    const refs = Array.isArray(item.benchmarks) ? item.benchmarks.filter(x => x && typeof x === 'object').slice(0, 5) : [];
+    // 5. 참고 원문 가로 스크롤 카드 & 좌우 이동 화살표
+    const refs = Array.isArray(item.benchmarks) ? item.benchmarks.filter(x => x && typeof x === 'object').slice(0, 8) : [];
     if (refs.length) {
       card.append(el('h5', '', '참고 원문'));
       const scroll = el('div', 'hfr-references');
@@ -142,13 +142,25 @@
         const imgBox = el('div', 'hfr-image');
         if (ref.thumb) {
           const img = el('img');
-          img.src = ref.thumb;
-          img.alt = '';
+          img.alt = ref.title || '';
           img.loading = 'lazy';
-          img.onerror = () => { imgBox.textContent = '이미지 없음'; };
+          img.referrerPolicy = 'no-referrer';
+          img.setAttribute('referrerpolicy', 'no-referrer');
+          img.src = ref.thumb;
+          
+          let triedFallback = false;
+          img.onerror = () => {
+            if (!triedFallback) {
+              triedFallback = true;
+              // 네이버 서버 차단 시 무료 이미지 프록시로 2차 시도
+              img.src = `https://images.weserv.nl/?url=${encodeURIComponent(ref.thumb)}&default=1`;
+            } else {
+              imgBox.innerHTML = '<span style="font-size:12px;color:#94a3b8;">이미지</span>';
+            }
+          };
           imgBox.append(img);
         } else {
-          imgBox.textContent = '이미지 없음';
+          imgBox.innerHTML = '<span style="font-size:12px;color:#94a3b8;">이미지</span>';
         }
         refItem.append(imgBox);
 
@@ -164,7 +176,18 @@
         refItem.append(byline, refTitle, refLink);
         scroll.append(refItem);
       });
-      card.append(scroll);
+
+      // 좌우 이동 화살표 컨트롤
+      const scrollControls = el('div', 'hfr-scroll-controls');
+      const btnLeft = el('button', 'hfr-scroll-btn', '◀');
+      btnLeft.type = 'button';
+      btnLeft.onclick = () => scroll.scrollBy({ left: -200, behavior: 'smooth' });
+      const btnRight = el('button', 'hfr-scroll-btn', '▶');
+      btnRight.type = 'button';
+      btnRight.onclick = () => scroll.scrollBy({ left: 200, behavior: 'smooth' });
+      scrollControls.append(btnLeft, btnRight);
+
+      card.append(scroll, scrollControls);
     }
 
     // 6. 제목 아이디어 아코디언
@@ -190,23 +213,66 @@
     ideasDetails.append(ideasContent);
     card.append(ideasDetails);
 
-    // 7. 이렇게 쓰세요 아코디언
-    const guideDetails = el('details', 'hfr-details');
+    // 7. 이렇게 쓰세요 아코디언 (사용자 스크린샷 2 100% 동일 구현)
+    const guideDetails = el('details', 'hfr-details hfr-guide-details');
     guideDetails.append(el('summary', '', '▶ 이렇게 쓰세요'));
     const guideContent = el('div', 'hfr-guide');
+
+    const commonTags = Array.isArray(item.commonTags) ? item.commonTags : [];
+    const tag0 = commonTags[1] || commonTags[0] || `${item.subject} 이슈`;
+    const tag1 = commonTags[2] || `${item.subject} 관련`;
+    const mustKeywords = item.guide?.mustKeywords || (commonTags.length ? commonTags.slice(0, 5) : [item.subject]);
+    const lengthTarget = item.guide?.lengthTarget || item.titleStats?.medianLength || 43;
+
+    // 7-1. 추천 작성 방향
     guideContent.append(
       el('p', 'hfr-label', '추천 작성 방향'),
-      el('p', '', `‘${item.subject}’의 최근 소식을 먼저 확인하고, 과거 소식이 섞이지 않도록 날짜와 출처를 나눠 정리하세요.`)
+      el('p', 'hfr-guide-p', `‘${tag0}’의 최근 이야기를 먼저 확인하고, ‘${item.subject}’의 과거 소식이 섞이지 않도록 날짜와 출처를 나눠 정리하세요.`)
     );
 
-    const outline = el('ol');
+    // 7-2. 본문 구성 (번호 목록)
+    const outline = el('ol', 'hfr-steps-ol');
     outline.append(
-      el('li', '', `${item.subject} 핵심 요약 — 어떤 상황인지 2~3문장으로 간결하게 설명`),
-      el('li', '', `원문 핵심 내용 — 기사·공식 발표 등 확인된 사실만 날짜순 정리`),
-      el('li', '', `나만의 생각 및 비교 — 독자 입장에서 알아둘 점과 유용한 팁 정리`),
-      el('li', '', `마무리 — 추가 확인할 공식 출처 안내`)
+      el('li', '', `${item.subject} 최근 소식 ── 발생일·공개일과 최초 발언·게시 출처부터 확인`),
+      el('li', '', `${tag0} 관련 경위 ── 확인된 내용만 날짜 순으로 정리`),
+      el('li', '', `${tag1} 연결 맥락 ── 직접 발언과 다른 글의 해석을 구분`),
+      el('li', '', `마무리 ── 확인된 사실, 아직 확인되지 않은 부분, 추가 확인할 공식 출처 정리`)
     );
     guideContent.append(el('p', 'hfr-label', '본문 구성'), outline);
+
+    // 7-3. 쓰기 전에 열어볼 원문
+    if (refs.length > 0) {
+      guideContent.append(el('p', 'hfr-label', '쓰기 전에 열어볼 원문'));
+      const refUl = el('ul', 'hfr-refs-ul');
+      refs.slice(0, 2).forEach(r => {
+        const li = el('li');
+        const a = el('a', '', r.title);
+        a.href = r.link || '#';
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        li.append(a);
+        refUl.append(li);
+      });
+      guideContent.append(refUl);
+      guideContent.append(el('p', 'hfr-guide-caption', '위 공개 글은 소재 확인용입니다. 원문 기사·영상·공식 발표까지 확인하고, 제목만으로 사실을 확정하지 마세요.'));
+    }
+
+    // 7-4. 함께 넣을 키워드
+    if (mustKeywords.length > 0) {
+      guideContent.append(el('p', 'hfr-label', '함께 넣을 키워드'));
+      const chipBox = el('div', 'hfr-chips');
+      mustKeywords.forEach(kw => {
+        chipBox.append(el('span', 'hfr-tag', kw));
+      });
+      guideContent.append(chipBox);
+    }
+
+    // 7-5. 권장 구성 및 차별화 팁
+    guideContent.append(
+      el('p', 'hfr-guide-summary', `권장 구성: 도입 2~3문장 → 소제목 3~4개 → 확인 항목 정리. 제목 길이 약 ${lengthTarget}자.`),
+      el('p', 'hfr-guide-warning', item.guide?.note || `이미 ${item.channels || 75}개 채널이 다룬 소재라 같은 각도는 피하고, 아래 원문에 없는 정보(가격·일정·비교 등)를 더하세요.`)
+    );
+
     guideDetails.append(guideContent);
     card.append(guideDetails);
 

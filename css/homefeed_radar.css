@@ -453,4 +453,97 @@
   margin-top: 16px;
 }
 
+/* ==========================================================
+   [홈판 실시간] 가로 스크롤 좌우 화살표 & 이렇게 쓰세요 세부 스타일
+   ========================================================== */
+.hfr-scroll-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 6px 8px;
+}
+.hfr-scroll-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+.hfr-scroll-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+.hfr-guide-details {
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  padding: 14px 18px !important;
+  margin-top: 12px !important;
+}
+.hfr-guide-details > summary {
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  cursor: pointer !important;
+  user-select: none !important;
+}
+.hfr-label {
+  font-size: 14.5px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  margin: 16px 0 6px !important;
+}
+.hfr-guide-p {
+  font-size: 13.5px !important;
+  color: #334155 !important;
+  line-height: 1.65 !important;
+  margin: 0 0 12px !important;
+}
+.hfr-steps-ol {
+  padding-left: 20px !important;
+  margin: 0 0 16px !important;
+}
+.hfr-steps-ol li {
+  font-size: 13.5px !important;
+  color: #334155 !important;
+  line-height: 1.75 !important;
+  margin-bottom: 6px !important;
+}
+.hfr-refs-ul {
+  padding-left: 20px !important;
+  margin: 0 0 8px !important;
+}
+.hfr-refs-ul li {
+  font-size: 13.5px !important;
+  line-height: 1.75 !important;
+  margin-bottom: 6px !important;
+}
+.hfr-refs-ul a {
+  color: #0284c7 !important;
+  text-decoration: underline !important;
+  font-weight: 600 !important;
+}
+.hfr-guide-caption {
+  font-size: 12.5px !important;
+  color: #64748b !important;
+  margin: 4px 0 14px !important;
+  line-height: 1.5 !important;
+}
+.hfr-guide-summary {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #475569 !important;
+  margin: 14px 0 6px !important;
+}
+.hfr-guide-warning {
+  font-size: 13px !important;
+  color: #64748b !important;
+  margin: 0 0 10px !important;
+  line-height: 1.5 !important;
+}
+
+
 
