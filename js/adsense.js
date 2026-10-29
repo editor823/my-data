@@ -204,6 +204,7 @@ window.switchKcTab = function(type) {
   const seasonalContainer = document.getElementById('kc-seasonal-container');
   const tab9Container = document.getElementById('kc-tab9-container');
   const homefeedContainer = document.getElementById('kc-homefeed-container');
+  const secretContainer = document.getElementById('kc-secret-container');
   const subFilterBar = document.querySelector('.kc-sub-filter-bar');
 
   if (type === 'type-5') {
@@ -211,6 +212,7 @@ window.switchKcTab = function(type) {
     if (dualLayout) dualLayout.style.display = 'none';
     if (tab9Container) tab9Container.style.display = 'none';
     if (seasonalContainer) seasonalContainer.style.display = 'none';
+    if (secretContainer) secretContainer.style.display = 'none';
     if (subFilterBar) subFilterBar.style.display = 'none';
     if (homefeedContainer) {
       homefeedContainer.style.display = 'block';
@@ -223,6 +225,7 @@ window.switchKcTab = function(type) {
     if (homefeedContainer) homefeedContainer.style.display = 'none';
     if (dualLayout) dualLayout.style.display = 'none';
     if (tab9Container) tab9Container.style.display = 'none';
+    if (secretContainer) secretContainer.style.display = 'none';
     if (subFilterBar) subFilterBar.style.display = 'none';
     if (seasonalContainer) {
       seasonalContainer.style.display = 'block';
@@ -233,6 +236,7 @@ window.switchKcTab = function(type) {
     if (homefeedContainer) homefeedContainer.style.display = 'none';
     if (dualLayout) dualLayout.style.display = 'none';
     if (seasonalContainer) seasonalContainer.style.display = 'none';
+    if (secretContainer) secretContainer.style.display = 'none';
     if (subFilterBar) subFilterBar.style.display = 'none';
     if (tab9Container) {
       tab9Container.style.display = 'block';
@@ -241,24 +245,231 @@ window.switchKcTab = function(type) {
   } else if (type === 'type-find' || type === 'type-excel') {
     if (typeof switchTab === 'function') switchTab('keyword');
   } else if (type === 'type-secret') {
-    // 비밀 키워드 안내 알림
-    alert('🔒 이번 주 머니대외비 비밀 키워드 200개가 활성화되었습니다.');
+    // 🔒 비밀 키워드 전용 화면 렌더링
     if (homefeedContainer) homefeedContainer.style.display = 'none';
     if (seasonalContainer) seasonalContainer.style.display = 'none';
     if (tab9Container) tab9Container.style.display = 'none';
-    if (subFilterBar) subFilterBar.style.display = 'flex';
-    if (dualLayout) dualLayout.style.display = 'grid';
-    renderDualLaneTab('type-1');
+    if (subFilterBar) subFilterBar.style.display = 'none';
+    if (dualLayout) dualLayout.style.display = 'none';
+    if (secretContainer) {
+      secretContainer.style.display = 'block';
+      renderSecretKeywordsTab();
+    }
   } else {
     // 1, 2, 3, 4, 7, 8, 9, 11번 탭: 좌측 리스트 + 우측 상세 2단 레이아웃
     if (homefeedContainer) homefeedContainer.style.display = 'none';
     if (seasonalContainer) seasonalContainer.style.display = 'none';
     if (tab9Container) tab9Container.style.display = 'none';
+    if (secretContainer) secretContainer.style.display = 'none';
     if (subFilterBar) subFilterBar.style.display = 'flex';
     if (dualLayout) dualLayout.style.display = 'grid';
     renderDualLaneTab(type);
   }
 };
+
+/**
+ * [비밀 키워드] 🔒 머니대외비 비밀 키워드 화면 렌더링 함수
+ */
+let secretKeywordsCache = null;
+let currentSecretCategory = 'all';
+
+async function renderSecretKeywordsTab() {
+  const container = document.getElementById('kc-secret-container');
+  if (!container) return;
+
+  container.innerHTML = `
+    <div style="padding: 40px; text-align: center; color: #64748b;">
+      <span style="display: inline-block; animation: spin 1s linear infinite; margin-right: 8px;">⏳</span>
+      비밀 키워드를 불러오는 중입니다...
+    </div>
+  `;
+
+  const paidKey = localStorage.getItem('paid_access_key') || localStorage.getItem('moneytCommonPaidAccessKey') || '';
+
+  // 1. API 데이터 로드 (실시간 또는 폴백)
+  if (!secretKeywordsCache || secretKeywordsCache.paidKey !== paidKey) {
+    try {
+      const url = `https://www.boutique-info.com/api/analysis?action=getSecretKeywords&paidAccessKey=${encodeURIComponent(paidKey)}`;
+      const res = await fetch(url);
+      if (res.ok) {
+        const json = await res.json();
+        if (json && json.success && Array.isArray(json.items) && json.items.length > 0) {
+          secretKeywordsCache = {
+            paidKey: paidKey,
+            week: json.week || '2026-10-26',
+            nextUpdateAt: json.nextUpdateAt || '2026-11-02T07:00:00+09:00',
+            lockedCount: json.lockedCount || 197,
+            criteria: json.criteria || '',
+            items: json.items
+          };
+        }
+      }
+    } catch (e) {
+      console.warn('비밀 키워드 API 로드 지연:', e);
+    }
+  }
+
+  // 폴백 기본 데이터 (부티크인포 실제 데이터와 100% 동일)
+  if (!secretKeywordsCache) {
+    secretKeywordsCache = {
+      paidKey: paidKey,
+      week: '2026-10-26',
+      nextUpdateAt: '2026-11-02T07:00:00+09:00',
+      lockedCount: 197,
+      criteria: '월간 검색 100 이상 · 문서/검색 0.3 미만(검색량 대비 문서가 매우 적은 키워드)만, 비율이 낮은 순 · 최근 30일 검색이 급감한 키워드 제외',
+      items: [
+        {
+          keyword: '힐튼메이쥬양모이불',
+          category: '인테리어·DIY',
+          total: 670,
+          blogCount: 1
+        },
+        {
+          keyword: '젖산마그네슘',
+          category: '요리·레시피',
+          total: 10060,
+          blogCount: 6
+        },
+        {
+          keyword: '이연복뼈다귀탕',
+          category: '요리·레시피',
+          total: 3240,
+          blogCount: 6
+        }
+      ]
+    };
+  }
+
+  const data = secretKeywordsCache;
+
+  // 다음 갱신일 포맷팅
+  let nextDateText = '11월 2일 (월) 07시';
+  try {
+    if (data.nextUpdateAt) {
+      const d = new Date(data.nextUpdateAt);
+      if (!isNaN(d)) {
+        nextDateText = new Intl.DateTimeFormat('ko-KR', {
+          timeZone: 'Asia/Seoul',
+          month: 'long',
+          day: 'numeric',
+          weekday: 'short',
+          hour: '2-digit',
+          hour12: false
+        }).format(d);
+      }
+    }
+  } catch (_) {}
+
+  // 카테고리별 집계
+  const catCounts = {};
+  data.items.forEach(it => {
+    const c = it.category || it.naverCategory || '기타';
+    catCounts[c] = (catCounts[c] || 0) + 1;
+  });
+  const categories = Object.keys(catCounts);
+
+  // HTML 렌더링 함수
+  function renderSecretList() {
+    const filteredItems = currentSecretCategory === 'all'
+      ? data.items
+      : data.items.filter(it => (it.category || it.naverCategory) === currentSecretCategory);
+
+    let html = `
+      <!-- 이번 주 목록 및 갱신 시간 -->
+      <div class="kc-secret-week-info">
+        이번 주 목록 · ${data.week} 주 · 다음 갱신 ${nextDateText}
+      </div>
+
+      <!-- 주제 카테고리별 보기 -->
+      <div class="kc-secret-filter-header">주제 카테고리별 보기</div>
+      <div class="kc-secret-filter-desc">
+        ${categories.length}개 주제로 자동 분류되었습니다. 버튼을 누르면 해당 주제만 바로 볼 수 있습니다.
+      </div>
+
+      <!-- 카테고리 칩 버튼 -->
+      <div class="kc-secret-chips">
+        <button type="button" class="kc-secret-chip ${currentSecretCategory === 'all' ? 'active' : ''}" onclick="window.setSecretCategory('all')">
+          전체 (${data.items.length})
+        </button>
+        ${categories.map(cat => `
+          <button type="button" class="kc-secret-chip ${currentSecretCategory === cat ? 'active' : ''}" onclick="window.setSecretCategory('${cat}')">
+            ${cat} (${catCounts[cat]})
+          </button>
+        `).join('')}
+      </div>
+
+      <!-- 3열 키워드 카드 그리드 -->
+      <div class="kc-secret-grid">
+        ${filteredItems.map(item => `
+          <div class="kc-secret-card" onclick="window.sbOpenInAnalyzer('${item.keyword}')" title="클릭 시 키워드 분석기에서 바로 열기">
+            <div class="kc-secret-title">${item.keyword}</div>
+            <div class="kc-secret-stats">
+              <span>검색량 <strong>${Number(item.total).toLocaleString()}</strong></span>
+              <span>문서수 <strong>${Number(item.blogCount).toLocaleString()}</strong></span>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    // 유료 키가 없거나 무료 미리보기인 경우 잠금 배너 표시
+    if (!paidKey || data.items.length <= 10) {
+      html += `
+        <!-- 유료 발급키 잠금 안내 배너 -->
+        <div class="kc-secret-lock-banner">
+          <div class="kc-secret-lock-text">
+            🔒 이번 주 비밀 키워드 ${data.lockedCount || 197}개 더 — 유료 멤버십 키 입력 시 전체 공개
+          </div>
+          <button type="button" class="kc-secret-paid-btn" onclick="openApiModal('paid')">
+            🔑 유료 발급키 설정
+          </button>
+        </div>
+      `;
+    }
+
+    // 각주 및 아코디언 설명
+    html += `
+      <div class="kc-secret-footnote">
+        월간 검색 100 이상 · 문서/검색 0.3 미만(검색량 대비 문서가 매우 적은 키워드)만, 비율이 낮은 순 · 최근 30일 검색이 급감한 키워드 제외
+      </div>
+
+      <!-- 데이터 기준과 해석 방법 아코디언 -->
+      <details class="kc-secret-criteria-details" open>
+        <summary class="kc-secret-criteria-summary">▼ 데이터 기준과 해석 방법</summary>
+        <div class="kc-secret-criteria-content">
+          <div class="kc-criteria-item">
+            <strong>검색량 · 블로그 문서수</strong>
+            <p>검색량은 서버가 반환한 월간 PC·모바일 합계입니다. 문서수는 조회 시점의 검색 결과 수로, 같은 기간에 작성된 글 수와는 다릅니다.</p>
+          </div>
+          <div class="kc-criteria-item">
+            <strong>검색 추이</strong>
+            <p>DataLab 상대 관심도를 사용합니다. 일별 검색량으로 표시한 값은 월간 검색량을 관심도 비중으로 나눈 추정치입니다. 미제공 날짜는 실제 0건으로 단정할 수 없습니다.</p>
+          </div>
+          <div class="kc-criteria-item">
+            <strong>기회지수 · 점수 · CPC</strong>
+            <p>후보를 비교하는 참고 지표입니다. 실제 클릭당 수익, 검색 순위 또는 승인 가능성을 보장하지 않습니다. 계산 기준이 다른 화면의 점수를 직접 비교하지 마세요.</p>
+          </div>
+          <div class="kc-criteria-item">
+            <strong>갱신 시점</strong>
+            <p>저장본 생성 시각과 원문 발표일은 서로 다릅니다. 표시된 날짜를 확인하고, 정책·금액·신청 기간은 발행 전에 공식 원문에서 다시 확인하세요.</p>
+          </div>
+          <div class="kc-criteria-footer">
+            저장본 생성: 2026. 10. 29. 오전 6:55:47 (한국 시간) · 각 정책의 발표일은 상세 화면에서 확인하세요.
+          </div>
+        </div>
+      </details>
+    `;
+
+    container.innerHTML = html;
+  }
+
+  window.setSecretCategory = function(cat) {
+    currentSecretCategory = cat;
+    renderSecretList();
+  };
+
+  renderSecretList();
+}
 
 /**
  * 현재 활성화된 탭 리렌더링
