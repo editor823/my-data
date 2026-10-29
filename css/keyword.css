@@ -1,0 +1,60 @@
+/* 키워드 분석기 화면 (블로그 UI: 화이트/라이트 테마) */
+#tab-keyword .kw-wrap { max-width: 1100px; margin: 0 auto; padding: 24px 16px 60px; color: #0f172a; }
+#tab-keyword .kw-hero { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 18px; padding: 32px 20px; text-align: center; }
+#tab-keyword .kw-hero h1 { margin: 0 0 8px; font-size: 30px; font-weight: 900; color: #0f172a; }
+#tab-keyword .kw-hero p { margin: 0 0 18px; color: #475569; font-size: 14.5px; }
+#tab-keyword .kw-form { display: flex; gap: 8px; max-width: 640px; margin: 0 auto; }
+#tab-keyword .kw-input { flex: 1; height: 52px; padding: 0 16px; border: 2px solid #059669; border-radius: 12px; background: #fff; color: #0f172a; font-size: 17px; outline: none; }
+#tab-keyword .kw-go { height: 52px; padding: 0 26px; border: 0; border-radius: 12px; background: #059669; color: #fff; font-size: 16px; font-weight: 800; cursor: pointer; }
+#tab-keyword .kw-go:disabled { opacity: .6; cursor: wait; }
+#tab-keyword .kw-hist { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; margin-top: 14px; }
+#tab-keyword .kw-hist-label { font-size: 13px; font-weight: 700; color: #475569; }
+#tab-keyword .kw-chip { border: 1px solid #cbd5e1; background: #fff; color: #1e293b; border-radius: 999px; padding: 5px 12px; font-size: 13.5px; cursor: pointer; }
+#tab-keyword .kw-chip:hover { border-color: #059669; color: #059669; }
+#tab-keyword .kw-hist-clear { border: 0; background: none; color: #64748b; font-size: 12.5px; text-decoration: underline; cursor: pointer; }
+
+#tab-keyword .kw-result { margin-top: 20px; background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; }
+#tab-keyword .kw-result:empty { display: none; }
+#tab-keyword .kw-msg { padding: 14px 16px; border-radius: 10px; background: #f0f9ff; color: #075985; font-size: 14.5px; }
+#tab-keyword .kw-msg.kw-err { background: #fef2f2; color: #b91c1c; }
+#tab-keyword .kw-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 16px; }
+#tab-keyword .kw-title { margin: 0; font-size: 22px; font-weight: 900; color: #0f172a; }
+#tab-keyword .kw-badge { padding: 3px 10px; border-radius: 999px; background: #03c75a; color: #fff; font-size: 12px; font-weight: 800; }
+#tab-keyword .kw-badge.kw-gold { background: #fef3c7; color: #92400e; }
+#tab-keyword .kw-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+#tab-keyword .kw-card { border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; background: #fff; }
+#tab-keyword .kw-card-k { font-size: 12.5px; color: #64748b; font-weight: 700; }
+#tab-keyword .kw-card-v { margin-top: 4px; font-size: 26px; font-weight: 900; color: #0f172a; }
+#tab-keyword .kw-card-s { margin-top: 4px; font-size: 12px; color: #475569; }
+#tab-keyword .kw-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+#tab-keyword .kw-sec-t { margin: 0 0 4px; font-size: 16.5px; font-weight: 800; color: #0f172a; }
+#tab-keyword .kw-sec-s { margin: 0 0 10px; font-size: 12.5px; color: #64748b; }
+#tab-keyword .kw-list { margin: 0; padding: 0; list-style: none; }
+#tab-keyword .kw-list li { padding: 8px 0; border-bottom: 1px dashed #e2e8f0; font-size: 14px; line-height: 1.45; }
+#tab-keyword .kw-ol { counter-reset: r; }
+#tab-keyword .kw-ol li::before { counter-increment: r; content: counter(r); display: inline-block; width: 22px; font-weight: 900; color: #059669; }
+#tab-keyword .kw-list a { color: #0f172a; text-decoration: none; font-weight: 700; }
+#tab-keyword .kw-list a:hover { color: #0284c7; text-decoration: underline; }
+#tab-keyword .kw-meta { display: block; margin-top: 2px; font-size: 12px; color: #64748b; }
+#tab-keyword .kw-empty { color: #64748b; font-size: 13.5px; text-align: center; padding: 14px; }
+#tab-keyword .kw-related { margin-top: 28px; }
+#tab-keyword .kw-rel-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+#tab-keyword .kw-tools { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+#tab-keyword .kw-golden-label { font-size: 13.5px; font-weight: 700; color: #92400e; cursor: pointer; }
+#tab-keyword .kw-btn { border: 0; background: #059669; color: #fff; border-radius: 8px; padding: 8px 14px; font-size: 13.5px; font-weight: 700; cursor: pointer; }
+#tab-keyword .kw-table-wrap { overflow-x: auto; border: 1px solid #e2e8f0; border-radius: 12px; }
+#tab-keyword .kw-table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; }
+#tab-keyword .kw-table th { background: #f8fafc; color: #475569; font-weight: 800; padding: 10px 12px; text-align: left; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
+#tab-keyword .kw-table td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; color: #1e293b; }
+#tab-keyword .kw-table td.n { text-align: right; font-variant-numeric: tabular-nums; }
+#tab-keyword .kw-table td.c { text-align: center; }
+#tab-keyword .kw-link { border: 0; background: none; padding: 0; color: #0f172a; font-weight: 800; font-size: 14px; cursor: pointer; }
+#tab-keyword .kw-link:hover { color: #0284c7; text-decoration: underline; }
+#tab-keyword .kw-gold-mini { margin-left: 6px; padding: 1px 7px; border-radius: 999px; background: #fef3c7; color: #92400e; font-size: 11.5px; font-weight: 800; }
+#tab-keyword .kw-note { margin: 10px 0 0; font-size: 12px; color: #64748b; }
+@media (max-width: 800px) {
+  #tab-keyword .kw-cards { grid-template-columns: 1fr 1fr; }
+  #tab-keyword .kw-cols { grid-template-columns: 1fr; }
+  #tab-keyword .kw-hero h1 { font-size: 24px; }
+}
+

@@ -60,13 +60,13 @@
     if (!cleanKw) return;
     if (typeof switchTab === 'function') switchTab('keyword');
     setTimeout(() => {
-      const sbInp = document.getElementById('sbLandInput') || document.getElementById('analyzerInput') || document.getElementById('singleFastInput');
+      const sbInp = document.getElementById('kwInput');
       if (sbInp) {
         sbInp.value = cleanKw;
         sbInp.focus();
       }
-      if (typeof window.runMainKeywordAnalysis === 'function') {
-        window.runMainKeywordAnalysis(cleanKw);
+      if (typeof window.runKeywordAnalysis === 'function') {
+        window.runKeywordAnalysis(cleanKw);
       }
     }, 150);
   };

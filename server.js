@@ -3760,22 +3760,30 @@ const server = http.createServer((req, res) => {
     }
   }
 
-  // 10. [키워드 및 블로그 실시간 분석 프록시] (/api/analysis)
+  // 9-1. [내 키워드 분석 API] (/api/keyword?q=...) - worker/keyword-worker.mjs 와 같은 코드를 사용합니다.
+  if (req.url.startsWith('/api/keyword?') || req.url === '/api/keyword') {
+    (async () => {
+      try {
+        const mod = await import('./worker/keyword-worker.mjs');
+        const q = new URL(req.url, 'http://localhost').searchParams.get('q');
+        const { status, body } = await mod.analyzeKeyword(q, process.env);
+        res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify(body));
+      } catch (err) {
+        res.writeHead(502, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ success: false, error: err.message }));
+      }
+    })();
+    return;
+  }
+
+  // 10. [블로그 실시간 노출 분석 프록시] (/api/analysis)
   if (req.url.startsWith('/api/analysis')) {
     let body = '';
     req.on('data', chunk => { body += chunk; });
     req.on('end', async () => {
       try {
         const payload = JSON.parse(body || '{}');
-        // .env.local에 저장된 검증 완료된 네이버 API 키 자동 주입
-        if (!payload.searchClientId && (process.env.NAVER_HUB_CLIENT_ID || process.env.NAVER_CLIENT_ID)) {
-          payload.searchClientId = process.env.NAVER_HUB_CLIENT_ID || process.env.NAVER_CLIENT_ID;
-          payload.searchClientSecret = process.env.NAVER_HUB_CLIENT_SECRET || process.env.NAVER_CLIENT_SECRET;
-          payload.adCustomerId = process.env.NAVER_AD_CUSTOMER_ID;
-          payload.adLicenseKey = process.env.NAVER_AD_ACCESS_LICENSE;
-          payload.adSecretKey = process.env.NAVER_AD_SECRET_KEY;
-          payload.apiMode = 'hub';
-        }
         const r = await fetch('https://www.boutique-info.com/api/analysis', {
           method: 'POST',
           body: JSON.stringify(payload),
