@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 및 아카이브 · THE BOUTIQUE JOURNAL</title>
+  <meta name="description" content="블로그 자동화 허브의 키워드 조사, 콘텐츠 가이드, AI 글쓰기 및 시스템 업데이트 공지 아카이브입니다.">
+  
+  <!-- 한글 폰트 Pretendard CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      min-height: 100vh;
+      line-height: 1.65;
+      letter-spacing: -0.015em;
+    }
+
+    ::selection {
+      background: rgba(5, 150, 105, 0.15);
+      color: #065f46;
+    }
+
+    .journal-row {
+      display: block;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+
+    .journal-row:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .journal-row:hover h2 {
+      color: #059669;
+    }
+
+    .label-badge {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .label-badge.active {
+      background: #059669;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
+    }
+
+    .label-badge:not(.active) {
+      background: #ffffff;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+
+    .label-badge:not(.active):hover {
+      background: #f1f5f9;
+      color: #059669;
+    }
+  </style>
+</head>
+<body class="py-8 px-4 sm:px-6 lg:px-8">
+
+  <div class="max-w-4xl mx-auto">
+    
+    <!-- 1. 상단 내비게이션 바 -->
+    <nav class="flex items-center justify-between gap-3 mb-8 pb-4 border-b border-[#e2e8f0]">
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="inline-flex items-center gap-1.5 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#059669] text-sm font-bold px-4 py-2 rounded-full border border-[#cbd5e1] shadow-sm transition-colors">
+          ⌂ 홈으로
+        </a>
+        <a href="./guides.html" class="inline-flex items-center gap-1.5 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#0284c7] text-sm font-bold px-4 py-2 rounded-full border border-[#cbd5e1] shadow-sm transition-colors">
+          📚 콘텐츠 가이드
+        </a>
+      </div>
+      <div class="text-xs text-[#64748b] font-medium tracking-wide">
+        블로그 아카이브
+      </div>
+    </nav>
+
+    <!-- 2. 헤더 타이틀 영역 -->
+    <header class="mb-10 text-center sm:text-left">
+      <div class="text-xs font-bold uppercase tracking-widest text-[#64748b] mb-2 font-mono">
+        THE BOUTIQUE JOURNAL ARCHIVE
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#0f172a] tracking-tight mb-3">
+        정보를 읽고, 나만의 기회를 발견하세요
+      </h1>
+      <p class="text-sm sm:text-base text-[#475569] max-w-2xl leading-relaxed">
+        키워드와 콘텐츠, 검색 최적화(SEO) 및 블로그 운영에 도움이 되는 모든 이야기를 모았습니다.
+      </p>
+    </header>
+
+    <!-- 3. 검색창 및 필터 태그 -->
+    <div class="bg-[#ffffff] border border-[#e2e8f0] rounded-2xl p-5 mb-8 shadow-sm">
+      <div class="flex flex-col sm:flex-row gap-3 mb-5">
+        <input 
+          type="search" 
+          id="archiveSearchInput" 
+          placeholder="궁금한 글이나 주제를 검색하세요..." 
+          class="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-xl px-4 py-3 text-sm text-[#0f172a] placeholder-[#94a3b8] focus:outline-none focus:ring-2 focus:ring-[#059669] transition-all"
+        />
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#f1f5f9]">
+        <div class="flex flex-wrap gap-2" id="archiveFilterButtons">
+          <span class="label-badge active" data-cat="all">전체</span>
+          <span class="label-badge" data-cat="콘텐츠 가이드">콘텐츠 가이드</span>
+          <span class="label-badge" data-cat="키워드 조사">키워드 조사</span>
+          <span class="label-badge" data-cat="AI 글쓰기">AI 글쓰기</span>
+          <span class="label-badge" data-cat="시즌 글 기획">시즌 글 기획</span>
+          <span class="label-badge" data-cat="이미지 활용">이미지 활용</span>
+          <span class="label-badge" data-cat="공지사항">공지사항</span>
+        </div>
+        <div class="text-xs font-bold text-[#64748b]">
+          총 <span id="archivePostCount" class="text-[#059669]">14</span>개의 글
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. 아카이브 글 목록 -->
+    <div id="archivePostList">
+      <!-- JavaScript로 렌더링 -->
+    </div>
+
+    <!-- 5. 하단 푸터 -->
+    <footer class="text-center text-xs text-[#64748b] py-8 border-t border-[#e2e8f0] mt-10">
+      <p class="mb-2">본 아카이브는 블로그 작성자를 위한 실전 가이드와 공식 업데이트 정보를 제공합니다.</p>
+      <p>© 2026 Blog Automation Hub. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const archiveData = [
+      {
+        date: "2026-10-24",
+        category: "공지사항",
+        title: "[업데이트] 홈판 글쓰기 프롬프트 오류 수정 및 키워드분석기 황금키워드 알고리즘 개선",
+        summary: "네이버 홈판 글쓰기 프롬프트 제미나이/클로드 연동 오류 수정 및 초경량 황금키워드 즉시 발굴 로직이 업데이트되었습니다.",
+        link: "./posts/before-publish-checklist.html"
+      },
+      {
+        date: "2026-10-20",
+        category: "공지사항",
+        title: "[업데이트] 홈판·비밀 키워드 신설과 Gemini 홈판 프롬프트 전면 개편",
+        summary: "키워드를 찾고 글쓰기로 이어가는 과정을 더 편하게 이용하실 수 있도록 최신 추천 템플릿을 반영했습니다.",
+        link: "./posts/keyword-prompt-worksheet.html"
+      },
+      {
+        date: "2026-10-13",
+        category: "공지사항",
+        title: "[업데이트] 주제별 키워드에 연금형 등급 및 디스커버 작성 설계 탑재",
+        summary: "키워드를 선택하면 제목부터 본문 구성까지 글 작성에 필요한 설계를 한눈에 확인하고 바로 복사할 수 있습니다.",
+        link: "./posts/seasonal-keyword-planning.html"
+      },
+      {
+        date: "2026-10-06",
+        category: "공지사항",
+        title: "[업데이트] 주제별 키워드 · 블로그 노출 추적 · WebP 변환기 변경점 안내",
+        summary: "최근 30일 문서수 실시간 분석, 엑셀 대량 분석, 블로그 순위 노출 추적의 변경점을 정리했습니다.",
+        link: "./posts/recent-30-day-blog-documents.html"
+      },
+      {
+        date: "2026-09-21",
+        category: "키워드 조사",
+        title: "최근 30일 발행 문서수: 997건 이상이라는 표시를 읽는 방법",
+        summary: "실제 조회 사례로 전체 문서수와 최근 발행 문서수, 최대 1,000개 검색 결과에서 확인한 하한값의 차이를 설명합니다.",
+        link: "./posts/recent-30-day-blog-documents.html"
+      },
+      {
+        date: "2026-09-21",
+        category: "키워드 조사",
+        title: "검색 관심도 100은 100회가 아닙니다: 30일 그래프 읽기",
+        summary: "노트북리퍼샵 조회 사례를 통해 DataLab 상대지수와 월 검색량을 구분하고, 빠진 날짜와 비교 조건을 확인하는 방법입니다.",
+        link: "./posts/read-datalab-relative-interest.html"
+      },
+      {
+        date: "2026-09-21",
+        category: "키워드 조사",
+        title: "검색량은 나오는데 문서수는 조회 실패? API 오류 확인 순서",
+        summary: "실제 401·429 표시 사례를 바탕으로 검색광고와 블로그 검색 인증을 구분하고, 재시도 전 확인할 항목을 정리합니다.",
+        link: "./posts/naver-api-error-checklist.html"
+      },
+      {
+        date: "2026-09-21",
+        category: "AI 글쓰기",
+        title: "키워드 하나를 글쓰기 요청서로 바꾸는 6칸 작업표",
+        summary: "독자·질문·근거·범위·목차·완료 기준을 먼저 정해, 키워드만 넣었을 때 생기는 반복적인 AI 초안을 줄이는 방법입니다.",
+        link: "./posts/keyword-prompt-worksheet.html"
+      },
+      {
+        date: "2026-09-21",
+        category: "AI 글쓰기",
+        title: "발행 버튼을 누르기 전: 본문·링크·모바일 화면 점검표",
+        summary: "실제 문서수와 이미지 비교 글을 기준으로, 근거·링크·대체 텍스트·모바일 표·공개 상태를 점검하는 발행 절차입니다.",
+        link: "./posts/before-publish-checklist.html"
+      },
+      {
+        date: "2026-09-19",
+        category: "키워드 조사",
+        title: "검색량과 문서수를 함께 읽고 글감을 고르는 방법",
+        summary: "청년미래적금의 실제 조회값과 가상 비교표를 구분해 검색량·문서수를 읽고, 근거를 확인해 글감을 좁히는 방법입니다.",
+        link: "./posts/keyword-volume-and-document-count.html"
+      },
+      {
+        date: "2026-09-19",
+        category: "시즌 글 기획",
+        title: "월별 시즌 키워드를 글 기획과 발행 일정으로 바꾸기",
+        summary: "시즌 주제를 대상·질문·시점으로 나누고, 신청 전후에 필요한 내용을 한 글의 목차와 업데이트 계획으로 정리하는 방법입니다.",
+        link: "./posts/seasonal-keyword-planning.html"
+      },
+      {
+        date: "2026-09-19",
+        category: "키워드 조사",
+        title: "검색량이 많아도 바로 쓰지 말아야 할 키워드",
+        summary: "검색 의도 불일치, 일시적 급등, 확인하기 어려운 정보 등 키워드를 보류해야 하는 상황과 대안을 설명합니다.",
+        link: "./posts/keywords-to-avoid.html"
+      },
+      {
+        date: "2026-09-19",
+        category: "AI 글쓰기",
+        title: "AI 글쓰기 초안의 오류를 확인하고 고치는 순서",
+        summary: "AI 초안의 주장·숫자·날짜·출처를 분리하고 원문과 대조해 수정하는 검토표와 발행 전 확인 절차입니다.",
+        link: "./posts/ai-draft-verification-workflow.html"
+      },
+      {
+        date: "2026-09-19",
+        category: "이미지 활용",
+        title: "이미지 변환 전후 용량과 품질을 비교하는 방법",
+        summary: "동일한 시험 이미지의 PNG·WebP·JPG 실제 용량을 비교하고, 원본과 결과 파일로 직접 재현하는 이미지 변환 안내입니다.",
+        link: "./posts/image-conversion-comparison.html"
+      }
+    ];
+
+    let currentCat = 'all';
+
+    function renderArchive(list) {
+      const container = document.getElementById('archivePostList');
+      const countEl = document.getElementById('archivePostCount');
+      if (!container) return;
+
+      countEl.textContent = list.length;
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="py-16 text-center bg-[#ffffff] border border-[#e2e8f0] rounded-2xl">
+            <span class="text-3xl block mb-2">🔍</span>
+            <p class="text-sm font-bold text-[#0f172a]">검색 결과가 없습니다.</p>
+            <p class="text-xs text-[#64748b] mt-1">다른 검색어나 카테고리를 선택해 보세요.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list.map(item => `
+        <a class="journal-row" href="${item.link}">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <small class="text-xs font-semibold text-[#64748b]">${item.date}</small>
+            <span class="text-xs font-bold text-[#059669] bg-[#ecfdf5] border border-[#a7f3d0] px-2.5 py-0.5 rounded-full">
+              ${item.category}
+            </span>
+          </div>
+          <h2 class="text-lg sm:text-xl font-bold text-[#0f172a] leading-snug mb-2 transition-colors">
+            ${item.title}
+          </h2>
+          <p class="text-xs sm:text-sm text-[#475569] leading-relaxed mb-4">
+            ${item.summary}
+          </p>
+          <div class="pt-3 border-t border-[#f1f5f9] flex items-center justify-end text-xs font-bold text-[#059669]">
+            읽어보기 ↗
+          </div>
+        </a>
+      `).join('');
+    }
+
+    function filterArchive() {
+      const q = (document.getElementById('archiveSearchInput').value || '').trim().toLowerCase();
+      const filtered = archiveData.filter(item => {
+        const matchCat = currentCat === 'all' || item.category === currentCat;
+        const matchQuery = !q || item.title.toLowerCase().includes(q) || item.summary.toLowerCase().includes(q) || item.category.toLowerCase().includes(q);
+        return matchCat && matchQuery;
+      });
+      renderArchive(filtered);
+    }
+
+    document.querySelectorAll('#archiveFilterButtons .label-badge').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#archiveFilterButtons .label-badge').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCat = btn.getAttribute('data-cat');
+        filterArchive();
+      });
+    });
+
+    document.getElementById('archiveSearchInput').addEventListener('input', filterArchive);
+
+    renderArchive(archiveData);
+  </script>
+
+</body>
+</html>
