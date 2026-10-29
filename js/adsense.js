@@ -14,7 +14,7 @@
  */
 
 // 전역 상태
-let kcCurrentTab = 'type-1'; // 기본 활성 탭
+let kcCurrentTab = 'type-5'; // 기본 활성 탭: 5. 홈판 실시간 키워드
 let kcSelectedSub = 'all'; // 서브 필터
 let kcActiveKeywordId = null; // 현재 우측 상세 패널에 표시 중인 키워드
 let kcRawResponse = null; // API categories/data 응답 캐시
@@ -185,7 +185,7 @@ async function loadShortsData() {
 }
 
 /**
- * 9개 탭 전환 함수
+ * 14개 알약 탭 전환 함수
  */
 window.switchKcTab = function(type) {
   kcCurrentTab = type;
@@ -203,10 +203,24 @@ window.switchKcTab = function(type) {
   const dualLayout = document.getElementById('kc-dual-layout');
   const seasonalContainer = document.getElementById('kc-seasonal-container');
   const tab9Container = document.getElementById('kc-tab9-container');
+  const homefeedContainer = document.getElementById('kc-homefeed-container');
   const subFilterBar = document.querySelector('.kc-sub-filter-bar');
 
   if (type === 'type-5') {
-    // 5번 탭: 월별 시즌성
+    // 5번 탭: 5. 홈판 실시간 키워드 (사용자 요청: 30개 기본 표시 및 더보기 30개씩 추가)
+    if (dualLayout) dualLayout.style.display = 'none';
+    if (tab9Container) tab9Container.style.display = 'none';
+    if (seasonalContainer) seasonalContainer.style.display = 'none';
+    if (subFilterBar) subFilterBar.style.display = 'none';
+    if (homefeedContainer) {
+      homefeedContainer.style.display = 'block';
+      if (typeof window.renderHomefeedRadarTab === 'function') {
+        window.renderHomefeedRadarTab();
+      }
+    }
+  } else if (type === 'type-6') {
+    // 6번 탭: 일별 시즌성 키워드
+    if (homefeedContainer) homefeedContainer.style.display = 'none';
     if (dualLayout) dualLayout.style.display = 'none';
     if (tab9Container) tab9Container.style.display = 'none';
     if (subFilterBar) subFilterBar.style.display = 'none';
@@ -214,8 +228,9 @@ window.switchKcTab = function(type) {
       seasonalContainer.style.display = 'block';
       renderSeasonalTab();
     }
-  } else if (type === 'type-9') {
-    // 9번 탭: 바이럴 숏폼 유튜브 그리드
+  } else if (type === 'type-10') {
+    // 10번 탭: 바이럴 숏폼 유튜브 그리드
+    if (homefeedContainer) homefeedContainer.style.display = 'none';
     if (dualLayout) dualLayout.style.display = 'none';
     if (seasonalContainer) seasonalContainer.style.display = 'none';
     if (subFilterBar) subFilterBar.style.display = 'none';
@@ -223,8 +238,20 @@ window.switchKcTab = function(type) {
       tab9Container.style.display = 'block';
       renderYoutubeGrid();
     }
+  } else if (type === 'type-find' || type === 'type-excel') {
+    if (typeof switchTab === 'function') switchTab('keyword');
+  } else if (type === 'type-secret') {
+    // 비밀 키워드 안내 알림
+    alert('🔒 이번 주 머니대외비 비밀 키워드 200개가 활성화되었습니다.');
+    if (homefeedContainer) homefeedContainer.style.display = 'none';
+    if (seasonalContainer) seasonalContainer.style.display = 'none';
+    if (tab9Container) tab9Container.style.display = 'none';
+    if (subFilterBar) subFilterBar.style.display = 'flex';
+    if (dualLayout) dualLayout.style.display = 'grid';
+    renderDualLaneTab('type-1');
   } else {
-    // 1, 2, 3, 4, 6, 7, 8번 탭: 좌측 리스트 + 우측 상세 2단 레이아웃
+    // 1, 2, 3, 4, 7, 8, 9, 11번 탭: 좌측 리스트 + 우측 상세 2단 레이아웃
+    if (homefeedContainer) homefeedContainer.style.display = 'none';
     if (seasonalContainer) seasonalContainer.style.display = 'none';
     if (tab9Container) tab9Container.style.display = 'none';
     if (subFilterBar) subFilterBar.style.display = 'flex';
@@ -250,22 +277,22 @@ function getItemsByTabType(type) {
   let list = [];
 
   switch (type) {
-    case 'type-1': // [1. 황금키워드]: response.categories.golden
+    case 'type-1': // [1. 황금키워드]
       list = cats.golden || [];
       break;
-    case 'type-2': // [2. 제휴마케팅]: response.categories.shopping
+    case 'type-2': // [2. 제휴마케팅 키워드]
       list = cats.shopping || [];
       break;
-    case 'type-3': // [3. 애드센스]: response.categories.adsense
+    case 'type-3': // [3. 애드센스 키워드]
       list = cats.adsense || kcRawResponse.adsense || [];
       break;
-    case 'type-4': // [4. 네이버 mate]: response.categories.naverMate
+    case 'type-4': // [4. 네이버 mate 키워드]
       list = cats.naverMate || [];
       break;
-    case 'type-6': // [6. 지식iN Q&A]: response.categories.jisikQin
+    case 'type-7': // [7. 지식iN Q&A]
       list = cats.jisikQin || [];
       break;
-    case 'type-7': // [7. 정책신호형]: policySignal: true 또는 bench 글감 또는 제도/금융 키워드
+    case 'type-8': // [8. 정책신호형 애드센스 키워드]
       {
         const adsList = cats.adsense || kcRawResponse.adsense || [];
         list = adsList.filter(item => item.policySignal === true || item.lane === 'policySignal' || item.adsLane === 'bench');
@@ -277,7 +304,7 @@ function getItemsByTabType(type) {
         }
       }
       break;
-    case 'type-8': // [8. 머니대외비 추천]: lanes.verifiedCore 또는 고단가(head) 핵심 글감
+    case 'type-9': // [9. 이번주 머니대외비 추천 애드센스 키워드]
       {
         const adsList = cats.adsense || kcRawResponse.adsense || [];
         const coreList = adsList.filter(item => item.adsLane === 'head');
@@ -286,6 +313,9 @@ function getItemsByTabType(type) {
           list = cats.golden || [];
         }
       }
+      break;
+    case 'type-11': // [11. 주제별 키워드]
+      list = cats.golden || [];
       break;
     default:
       list = cats.golden || [];

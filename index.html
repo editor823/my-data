@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/style.css?v=20261002_fix_table_light">
   <link rel="stylesheet" href="css/components.css?v=20261004_blog_light_guide">
   <link rel="stylesheet" href="css/home_magazine.css?v=20261029_v1">
+  <link rel="stylesheet" href="css/homefeed_radar.css?v=20261029_v1">
 </head>
 <body>
 
@@ -636,10 +637,10 @@
           </div>
           <div class="kc-header-btn-group">
             <a href="https://cafe.naver.com" target="_blank" rel="noopener noreferrer" class="kc-header-btn" style="text-decoration: none;">
-              <span>🟣</span> 카페로 황금키워드 보러가기
+              <span>☕</span> 카페로 황금키워드 보러가기
             </a>
             <button type="button" class="kc-header-btn" onclick="openApiModal('paid')">
-              <span>🔑</span> 유료 발급키 설정
+              <span>🔑</span> API/유료키설정 탭에서 설정
             </button>
           </div>
         </div>
@@ -647,48 +648,60 @@
         <!-- 키워드 센터 업데이트 주기 안내 박스 (보라색 원 아이콘 + 4열 카드) -->
         <div class="kc-update-info-card">
           <div class="kc-update-info-title">
-            <span class="kc-purple-dot">🟣</span> 키워드 센터 업데이트 주기 안내
+            <span class="kc-purple-dot">🟣</span> 키워드 센터 업데이트 주기 안내 <span style="font-weight: 400; font-size: 0.82rem; color: #64748b; margin-left: 6px;">황금·쇼핑·애드센스 mate 키워드는 매일, 지식iN 키워드는 3일 주기로 목록이 갱신됩니다.</span>
           </div>
           <div class="kc-update-grid-4">
-            <!-- 1. 황금·쇼핑·mate -->
+            <!-- 1. 황금·쇼핑·애드센스 -->
             <div class="kc-cycle-card">
-              <div class="kc-cycle-name">⚡ 황금 · 쇼핑 · mate</div>
-              <div class="kc-cycle-sub">매일 업데이트 (중복 제외)</div>
+              <div class="kc-cycle-name">⚡ 황금 · 쇼핑 · 애드센스</div>
+              <div class="kc-cycle-sub">기존 서버 목록 기준</div>
             </div>
-            <!-- 2. 애드센스·지식iN -->
+            <!-- 2. mate·지식iN -->
             <div class="kc-cycle-card">
-              <div class="kc-cycle-name">🎯 애드센스 · 지식iN</div>
-              <div class="kc-cycle-sub">3일에 한번 업데이트<br><span style="color: #60a5fa;">(정확한 키워드 제공을 위해서)</span></div>
+              <div class="kc-cycle-name">🎯 mate · 지식iN</div>
+              <div class="kc-cycle-sub">mate 매일 · 지식iN 3일<br><span style="color: #64748b;">(기존 서버 목록 기준)</span></div>
             </div>
             <!-- 3. 정책신호형 -->
             <div class="kc-cycle-card">
               <div class="kc-cycle-name">📢 정책신호형</div>
-              <div class="kc-cycle-sub">매주 월요일 업데이트</div>
+              <div class="kc-cycle-sub">저장 목록 및 원문 갱신 기준</div>
             </div>
-            <!-- 4. 프리미엄 추천 애드센스 키워드 -->
+            <!-- 4. 머니대외비 추천 애드센스 키워드 -->
             <div class="kc-cycle-card">
-              <div class="kc-cycle-name">👑 프리미엄 추천 애드센스 키워드</div>
-              <div class="kc-cycle-sub">매주 월요일 업데이트</div>
+              <div class="kc-cycle-name">👑 머니대외비 추천 애드센스 키워드</div>
+              <div class="kc-cycle-sub">저장 목록 및 원문 갱신 기준</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 2. 상단 9개 카테고리 필터 알약 탭 바 -->
+      <!-- 2. 상단 2단 카테고리 필터 알약 탭 바 (이미지와 100% 동일) -->
       <div class="kc-pill-tabs-bar" id="kc-pill-tabs-bar">
-        <button class="kc-pill-btn active" data-type="type-1" onclick="switchKcTab('type-1')">✨ 1. 황금키워드</button>
-        <button class="kc-pill-btn" data-type="type-2" onclick="switchKcTab('type-2')">🛒 2. 제휴마케팅 키워드</button>
-        <button class="kc-pill-btn" data-type="type-3" onclick="switchKcTab('type-3')">💰 3. 애드센스 키워드</button>
-        <button class="kc-pill-btn" data-type="type-4" onclick="switchKcTab('type-4')">🤖 4. 네이버 mate 키워드</button>
-        <button class="kc-pill-btn" data-type="type-5" onclick="switchKcTab('type-5')">📅 5. 월별 시즌성 키워드</button>
-        <button class="kc-pill-btn" data-type="type-6" onclick="switchKcTab('type-6')">❓ 6. 지식iN Q&amp;A</button>
-        <button class="kc-pill-btn" data-type="type-7" onclick="switchKcTab('type-7')">📢 7. 정책신호형 애드센스 키워드</button>
-        <button class="kc-pill-btn" data-type="type-8" onclick="switchKcTab('type-8')">👑 8. 머니대외비 추천 애드센스 키워드</button>
-        <button class="kc-pill-btn" data-type="type-9" onclick="switchKcTab('type-9')">🔥 9. 바이럴숏폼 · 유튜브 실시간</button>
+        <div class="kc-pill-row">
+          <button type="button" class="kc-pill-btn kc-pill-1" data-type="type-1" onclick="switchKcTab('type-1')">✨ 1. 황금키워드 (10/20) · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-2" data-type="type-2" onclick="switchKcTab('type-2')">📝 2. 제휴마케팅 키워드 (10/20) · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-3" data-type="type-3" onclick="switchKcTab('type-3')">💰 3. 애드센스 키워드 (4/7) · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-4" data-type="type-4" onclick="switchKcTab('type-4')">👾 4. 네이버 mate 키워드 (5/10) · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-5 active" data-type="type-5" onclick="switchKcTab('type-5')">🟣 5. 홈판 실시간 키워드</button>
+          <button type="button" class="kc-pill-btn kc-pill-6" data-type="type-6" onclick="switchKcTab('type-6')">🏛️ 6. 일별 시즌성 키워드</button>
+          <button type="button" class="kc-pill-btn kc-pill-7" data-type="type-7" onclick="switchKcTab('type-7')">❓ 7. 지식iN Q&amp;A (10/20) · 3일 주기</button>
+        </div>
+        <div class="kc-pill-row">
+          <button type="button" class="kc-pill-btn kc-pill-8" data-type="type-8" onclick="switchKcTab('type-8')">📢 8. 정책신호형 애드센스 키워드 · 저장본 기준</button>
+          <button type="button" class="kc-pill-btn kc-pill-9" data-type="type-9" onclick="switchKcTab('type-9')">👑 9. 이번주 머니대외비 추천 애드센스 키워드 · 저장본 기준</button>
+          <button type="button" class="kc-pill-btn kc-pill-10" data-type="type-10" onclick="switchKcTab('type-10')">🔥 10. 바이럴숏폼 · 유튜브 실시간</button>
+          <button type="button" class="kc-pill-btn kc-pill-11" data-type="type-11" onclick="switchKcTab('type-11')">📁 11. 주제별 키워드 · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-secret" data-type="type-secret" onclick="switchKcTab('type-secret')">🔒 머니대외비 비밀 키워드</button>
+          <button type="button" class="kc-pill-btn kc-pill-find" data-type="type-find" onclick="switchTab('keyword')">🔗 키워드 찾으러 가기</button>
+          <button type="button" class="kc-pill-btn kc-pill-excel" data-type="type-excel" onclick="switchTab('keyword')">📊 엑셀 파일 대량 분석</button>
+        </div>
       </div>
 
-      <!-- 3. 주제 카테고리별 보기 서브 바 (전체 30개 / 검증 통과 30개) -->
-      <div class="kc-sub-filter-bar">
+      <!-- 3. [5번 탭 전용] 홈판 실시간 키워드 컨테이너 -->
+      <div id="kc-homefeed-container"></div>
+
+      <!-- 4. 주제 카테고리별 보기 서브 바 (전체 30개 / 검증 통과 30개) -->
+      <div class="kc-sub-filter-bar" style="display: none;">
         <div class="kc-sub-filter-header">
           <span style="font-weight: 800; color: var(--text-main); font-size: 0.88rem;">주제 카테고리별 보기</span>
           <span style="font-size: 0.78rem; color: var(--text-muted);">전체 공개 30개 · 검증 통과 30개 · 최소 15개 / 목표 30개 · 목표 확보</span>
@@ -699,8 +712,8 @@
         </div>
       </div>
 
-      <!-- 4. 메인 2단 대시보드 (1, 2, 3, 4, 6, 7, 8번 탭용: 좌측 카드 리스트 + 우측 상세 리포트) -->
-      <div class="kc-dual-layout" id="kc-dual-layout">
+      <!-- 5. 메인 2단 대시보드 (1, 2, 3, 4, 7, 8, 9번 탭용: 좌측 카드 리스트 + 우측 상세 리포트) -->
+      <div class="kc-dual-layout" id="kc-dual-layout" style="display: none;">
         <!-- [좌측] 키워드 카드 스크롤 리스트 -->
         <div class="kc-list-col" id="kc-cards-container"></div>
 
@@ -708,10 +721,10 @@
         <div class="kc-detail-card" id="kc-detail-panel"></div>
       </div>
 
-      <!-- 5. 5번 탭 전용 월별 시즌성 키워드 레이아웃 컨테이너 -->
+      <!-- 6. 6번 탭 전용 월별 시즌성 키워드 레이아웃 컨테이너 -->
       <div class="kc-seasonal-container" id="kc-seasonal-container" style="display: none;"></div>
 
-      <!-- 6. 9번 탭 전용 바이럴 숏폼 유튜브 영상 그리드 컨테이너 -->
+      <!-- 7. 10번 탭 전용 바이럴 숏폼 유튜브 영상 그리드 컨테이너 -->
       <div class="kc-tab9-container" id="kc-tab9-container" style="display: none;"></div>
     </section>
 
@@ -2727,5 +2740,7 @@
   <script src="js/guide_journal.js?v=20261029_v1"></script>
   <script src="data/shortents_data.js?v=20261029_v2"></script>
   <script src="js/short_contents.js?v=20261029_v2"></script>
+  <script src="data/homefeed_radar_data.js?v=20261029_v1"></script>
+  <script src="js/homefeed_radar.js?v=20261029_v1"></script>
 </body>
 </html>
