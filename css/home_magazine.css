@@ -1,19 +1,50 @@
 /* =========================================================
-   홈 매거진 최신 개편 스타일 (boutique-info 100% 동기화)
+   홈 매거진 최신 개편 스타일 (boutique-info 1:1 여백 & 여유 공간 완벽 반영)
    ========================================================= */
+
+/* 전체 페이지 레이아웃 여백 확보 (모니터 끝까지 퍼지지 않도록 1180px 중앙 정렬) */
+body {
+  background-color: #f7f8f9 !important; /* 차분하고 은은한 에디토리얼 라이트 배경 */
+}
+
+/* 최상단 GNB 네비게이션 너비 제한 및 중앙 정렬 */
+.site-nav {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+.site-nav .nav-container {
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+  height: 62px !important;
+}
+
+/* 메인 컨테이너 최대 너비 1180px 고정 및 좌우 시원한 여백 확보 */
+.main-content {
+  max-width: 1180px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 28px 20px 80px !important;
+  box-sizing: border-box !important;
+}
 
 /* 1. 최상단 검은색 띠 바 (Top Bar) */
 .top-notice-bar {
   background: #0f172a;
   color: #94a3b8;
   font-size: 0.82rem;
-  padding: 8px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 8px 20px;
   border-bottom: 1px solid #1e293b;
   position: relative;
   z-index: 10000;
+}
+.top-notice-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 .top-notice-left {
   display: flex;
@@ -51,26 +82,26 @@
   color: #38bdf8;
 }
 
-/* 2. 비밀 키워드 검은색 캡슐 배너 */
+/* 2. 비밀 키워드 검은색 캡슐 배너 (컴팩트 & 여유 공간) */
 .secret-capsule-banner {
   background: #090d16;
   border: 1px solid #1e293b;
   border-radius: 9999px;
   padding: 10px 24px;
-  margin: 16px auto 32px;
-  max-width: 980px;
+  margin: 16px auto 36px;
+  max-width: 860px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 .secret-capsule-text {
   display: flex;
   align-items: center;
   gap: 8px;
   color: #f1f5f9;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
@@ -115,26 +146,26 @@
   border-color: rgba(255, 255, 255, 0.35);
 }
 
-/* 3. 메인 히어로 2단 분할 영역 */
+/* 3. 메인 히어로 2단 분할 영역 (상하 마진 확장) */
 .magazine-hero-row {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 32px;
-  padding: 0 4px;
+  margin-bottom: 40px;
+  padding: 0 2px;
   flex-wrap: wrap;
   gap: 16px;
 }
 .magazine-hero-title {
-  font-size: 2.1rem;
+  font-size: 2.15rem;
   font-weight: 900;
   color: #0f172a;
   letter-spacing: -0.03em;
-  margin: 0 0 6px 0;
+  margin: 0 0 8px 0;
   line-height: 1.25;
 }
 .magazine-hero-desc {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: #64748b;
   margin: 0;
   line-height: 1.5;
@@ -144,28 +175,82 @@
   color: #ffffff;
   border: none;
   border-radius: 8px;
-  padding: 12px 22px;
-  font-size: 0.92rem;
+  padding: 12px 20px;
+  font-size: 0.9rem;
   font-weight: 800;
   cursor: pointer;
   transition: all 0.2s;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
 }
 .magazine-hero-btn:hover {
   background: #1e293b;
   transform: translateY(-2px);
 }
 
-/* 4. 실시간 숏텐츠 섹션 */
+/* 4. 실시간 급상승어 섹션 (카드 내부 및 행간 여유 공간 확장) */
+.trending-section {
+  margin-bottom: 48px !important;
+}
+.trending-header {
+  margin-bottom: 16px !important;
+}
+.trending-header-title {
+  font-size: 1.45rem !important;
+  font-weight: 900 !important;
+  color: #0f172a !important;
+  letter-spacing: -0.02em;
+}
+.trending-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+.trending-portal-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  padding: 16px 14px 14px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+  min-height: 310px !important;
+}
+.portal-title-row {
+  padding-bottom: 10px !important;
+  margin-bottom: 8px !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+.trending-list {
+  padding: 4px 0 !important;
+}
+.trending-list li {
+  padding: 6px 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.trending-list li .trend-rank {
+  font-size: 0.85rem !important;
+  font-weight: 800 !important;
+  color: #64748b !important;
+  width: 18px !important;
+  text-align: center !important;
+}
+.trending-list li a {
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.4 !important;
+}
+
+/* 5. 실시간 숏텐츠 섹션 (넉넉한 패딩과 여유 공간) */
 .short-contents-container {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 26px 28px;
-  margin-bottom: 32px;
+  border-radius: 18px;
+  padding: 28px 30px;
+  margin-bottom: 48px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 .short-contents-head {
@@ -175,7 +260,7 @@
   margin-bottom: 18px;
 }
 .short-contents-title {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 900;
   color: #0f172a;
   margin: 0;
@@ -191,10 +276,10 @@
 .short-cat-scroll-box {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   overflow-x: auto;
   padding-bottom: 14px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   border-bottom: 1px solid #f1f5f9;
   scrollbar-width: thin;
 }
@@ -235,7 +320,7 @@
   margin-left: 4px;
 }
 
-/* 숏텐츠 행 리스트 */
+/* 숏텐츠 행 리스트 (행간 패딩 확대) */
 .short-row-item {
   display: flex;
   align-items: center;
@@ -253,7 +338,7 @@
   align-items: center;
   flex: 1;
   min-width: 0;
-  margin-right: 16px;
+  margin-right: 18px;
 }
 .short-rank-num {
   width: 28px;
@@ -282,7 +367,7 @@
   font-size: 0.95rem;
   font-weight: 800;
   color: #0f172a;
-  margin: 0 0 3px 0;
+  margin: 0 0 4px 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -335,7 +420,7 @@
 /* 숏텐츠 하단 액션 */
 .short-footer-box {
   text-align: center;
-  padding-top: 18px;
+  padding-top: 20px;
 }
 .btn-short-load-more {
   background: #ffffff;
@@ -359,20 +444,20 @@
   margin: 12px 0 0 0;
 }
 
-/* 5. 최신 연예뉴스 세로 박스 */
+/* 6. 최신 연예뉴스 세로 박스 (마진 및 패딩 여유 확보) */
 .ent-news-vert-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 26px 28px;
-  margin-bottom: 32px;
+  border-radius: 18px;
+  padding: 28px 30px;
+  margin-bottom: 48px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 .ent-news-vert-item {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
-  padding: 14px 18px;
+  padding: 15px 18px;
   margin-bottom: 10px;
   transition: all 0.15s;
   cursor: pointer;
@@ -396,13 +481,13 @@
   line-height: 1.45;
 }
 
-/* 6. FROM THE DESK 최근 공지와 업데이트 박스 */
+/* 7. FROM THE DESK 최근 공지와 업데이트 박스 */
 .from-the-desk-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 26px 28px;
-  margin-bottom: 32px;
+  border-radius: 18px;
+  padding: 28px 30px;
+  margin-bottom: 48px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 .desk-eyebrow {
@@ -414,19 +499,19 @@
   text-transform: uppercase;
 }
 .desk-main-title {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 900;
   color: #0f172a;
-  margin: 0 0 18px 0;
+  margin: 0 0 20px 0;
   letter-spacing: -0.02em;
 }
 .desk-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   border-bottom: 1px solid #f1f5f9;
-  padding-bottom: 18px;
-  margin-bottom: 16px;
+  padding-bottom: 20px;
+  margin-bottom: 18px;
 }
 .desk-row-link {
   display: flex;
@@ -468,7 +553,16 @@
   text-decoration: underline;
 }
 
+@media (max-width: 1024px) {
+  .trending-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
 @media (max-width: 768px) {
+  .trending-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
   .secret-capsule-banner {
     flex-direction: column;
     border-radius: 16px;
@@ -484,11 +578,17 @@
   .short-contents-container,
   .ent-news-vert-card,
   .from-the-desk-card {
-    padding: 18px 16px;
+    padding: 20px 16px;
   }
   .desk-row-link {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trending-grid {
+    grid-template-columns: 1fr !important;
   }
 }
