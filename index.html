@@ -524,6 +524,94 @@
       <div id="kwHist" class="kw-hist"></div>
     </div>
     <div id="kwResult" class="kw-result"></div>
+
+    <!-- [⚡ 오늘 바로 분석해 볼 키워드 카드] -->
+    <div class="kw-recommend-card">
+      <div class="kw-rec-header">
+        <h3 class="kw-rec-title">⚡ 오늘 바로 분석해 볼 키워드</h3>
+        <p class="kw-rec-subtitle">키워드를 누르면 연관 분석이 바로 시작됩니다. 매일·실시간으로 바뀌는 추천입니다.</p>
+      </div>
+
+      <!-- 🟢 홈판 틈새 키워드 -->
+      <div class="kw-rec-group">
+        <div class="kw-rec-group-title">
+          <span>🟢</span> <strong>홈판 틈새 키워드</strong>
+        </div>
+        <div class="kw-rec-chips">
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('기태영 프로필')">기태영 프로필</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('미요시 아야카 하차')">미요시 아야카 하차</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('kpr 공모전')">kpr 공모전</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('A20 LITE 순위')">A20 LITE 순위</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('코르티스 프로필')">코르티스 프로필</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('kt hcn 중복방송')">kt hcn 중복방송</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('김숙 소속사')">김숙 소속사</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('알카에디 이온수기')">알카에디 이온수기</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('실낙원 관람평')">실낙원 관람평</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('배종옥 프로필')">배종옥 프로필</button>
+        </div>
+        <div class="kw-rec-desc">실시간 이슈 주변에서 아직 문서가 적은 키워드</div>
+      </div>
+
+      <!-- 🔥 홈판 블로거들이 지금 쓰는 소재 -->
+      <div class="kw-rec-group">
+        <div class="kw-rec-group-title">
+          <span>🔥</span> <strong>홈판 블로거들이 지금 쓰는 소재</strong>
+        </div>
+        <div class="kw-rec-chips">
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('나는솔로')">나는솔로</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('헤이지니')">헤이지니</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('최불암')">최불암</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('신민아 김우빈')">신민아 김우빈</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('서현진 유연석')">서현진 유연석</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('백진희')">백진희</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('유재석')">유재석</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('닥터X')">닥터X</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('김태희')">김태희</button>
+          <button type="button" class="kw-rec-chip" onclick="window.runKeywordAnalysis('빅뱅')">빅뱅</button>
+        </div>
+        <div class="kw-rec-desc">최근 48시간 여러 채널이 함께 다룬 소재</div>
+      </div>
+    </div>
+
+    <!-- [🎁 일일 무료 분석 카드] -->
+    <div class="kw-daily-quota-box">
+      <div class="kw-quota-top">
+        <div class="kw-quota-badge-title">
+          <span>🎁</span> 일일 무료 분석
+        </div>
+        <div class="kw-quota-status-pill">공통 유료 발급키 저장됨</div>
+      </div>
+      <p class="kw-quota-p1">발급키 없이도 단건 키워드 분석과 메인 키워드 연관 분석을 합산 하루 20회(1시간 최대 5회) 무료로 이용할 수 있습니다. 유료 발급키는 제한 없이 이용할 수 있습니다. 한국 시간 자정에 초기화됩니다.</p>
+      <p class="kw-quota-p2">내 API 키·유료 발급키는 상단 API/유료키설정 탭에서 한 번만 저장하면 모든 분석에 함께 적용됩니다.</p>
+      <div class="kw-quota-footer">© CardBenefitLab Keyword Master. All rights reserved.</div>
+    </div>
+
+    <!-- [▼ 데이터 기준과 해석 방법 아코디언] -->
+    <div class="kw-criteria-card">
+      <details class="kw-criteria-details" open>
+        <summary class="kw-criteria-summary">
+          <span class="kw-summary-arrow">▼</span> 데이터 기준과 해석 방법
+        </summary>
+        <div class="kw-criteria-content">
+          <div class="kw-criteria-item">
+            <h4 class="kw-criteria-label">검색량 · 블로그 문서수</h4>
+            <p class="kw-criteria-text">검색량은 서버가 반환한 월간 PC·모바일 합계입니다. 문서수는 조회 시점의 검색 결과 수로, 같은 기간에 작성된 글 수와는 다릅니다.</p>
+          </div>
+          <div class="kw-criteria-item">
+            <h4 class="kw-criteria-label">검색 추이</h4>
+            <p class="kw-criteria-text">DataLab 상대 관심도를 사용합니다. 일별 검색량으로 표시한 값은 월간 검색량을 관심도 비중으로 나눈 추정치입니다. 미제공 날짜는 실제 0건으로 단정할 수 없습니다.</p>
+          </div>
+          <div class="kw-criteria-item">
+            <h4 class="kw-criteria-label">기회지수 · 점수 · CPC</h4>
+            <p class="kw-criteria-text">후보를 비교하는 참고 지표입니다. 실제 클릭당 수익, 검색 순위 또는 승인 가능성을 보장하지 않습니다. 계산 기준이 다른 화면의 점수를 직접 비교하지 마세요.</p>
+          </div>
+          <div class="kw-criteria-item">
+            <h4 class="kw-criteria-label">갱신 시점</h4>
+            <p class="kw-criteria-text">저장본 생성 시각과 원문 발표일은 서로 다릅니다. 표시된 날짜를 확인하고, 정책·금액·신청 기간은 발행 전에 공식 원문에서 다시 확인하세요.</p>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 </section>
 <section id="tab-adsense" class="tab-section">

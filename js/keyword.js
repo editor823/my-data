@@ -403,6 +403,21 @@
     });
   }
 
+  // 외부 및 추천 칩에서 즉시 분석 실행할 수 있는 전역 함수 노출
+  window.runKeywordAnalysis = function (kw) {
+    if (!kw) return;
+    var input = $('kwInput');
+    if (input) input.value = kw;
+    if (typeof window.switchTab === 'function') {
+      window.switchTab('keyword');
+    }
+    analyze(kw);
+    var hero = document.querySelector('#tab-keyword .kw-hero');
+    if (hero) {
+      hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   document.addEventListener('DOMContentLoaded', function () {
     var form = $('kwForm');
     if (form) {

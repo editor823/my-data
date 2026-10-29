@@ -125,3 +125,181 @@
 #tab-keyword .kw-badge.kw-google {
   background: #1a73e8;
 }
+
+/* [⚡ 오늘 바로 분석해 볼 키워드 추천 카드] */
+#tab-keyword .kw-recommend-card {
+  margin-top: 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+#tab-keyword .kw-rec-title {
+  margin: 0 0 6px 0;
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#tab-keyword .kw-rec-subtitle {
+  margin: 0 0 20px 0;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.4;
+}
+#tab-keyword .kw-rec-group {
+  margin-bottom: 20px;
+}
+#tab-keyword .kw-rec-group:last-child {
+  margin-bottom: 0;
+}
+#tab-keyword .kw-rec-group-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+#tab-keyword .kw-rec-group-title strong {
+  font-weight: 700;
+}
+#tab-keyword .kw-rec-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+#tab-keyword .kw-rec-chip {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13.5px;
+  color: #334155;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1.4;
+}
+#tab-keyword .kw-rec-chip:hover {
+  border-color: #059669;
+  color: #059669;
+  background: #f0fdf4;
+  transform: translateY(-1px);
+}
+#tab-keyword .kw-rec-desc {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* [🎁 일일 무료 분석 카드] */
+#tab-keyword .kw-daily-quota-box {
+  margin-top: 18px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+#tab-keyword .kw-quota-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+#tab-keyword .kw-quota-badge-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #166534;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#tab-keyword .kw-quota-status-pill {
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  color: #166534;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+#tab-keyword .kw-quota-p1 {
+  font-size: 13.5px;
+  color: #166534;
+  margin: 0 0 6px 0;
+  line-height: 1.55;
+}
+#tab-keyword .kw-quota-p2 {
+  font-size: 13px;
+  color: #15803d;
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+#tab-keyword .kw-quota-footer {
+  text-align: center;
+  font-size: 11.5px;
+  color: #15803d;
+  opacity: 0.8;
+  margin-top: 14px;
+}
+
+/* [▼ 데이터 기준과 해석 방법 아코디언] */
+#tab-keyword .kw-criteria-card {
+  margin-top: 18px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 16px 22px;
+}
+#tab-keyword .kw-criteria-summary {
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#tab-keyword .kw-criteria-summary::-webkit-details-marker {
+  display: none;
+}
+#tab-keyword .kw-summary-arrow {
+  font-size: 11px;
+  color: #64748b;
+  transition: transform 0.2s ease;
+}
+#tab-keyword .kw-criteria-details[open] .kw-summary-arrow {
+  transform: rotate(0deg);
+}
+#tab-keyword .kw-criteria-content {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+#tab-keyword .kw-criteria-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+#tab-keyword .kw-criteria-label {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #0f172a;
+}
+#tab-keyword .kw-criteria-text {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.55;
+}
