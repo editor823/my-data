@@ -44,6 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if ((tabId === 'ranktracker' || tabId === 'exposure') && typeof window.initBlogExposure === 'function') {
       window.initBlogExposure();
     }
+    if (tabId === 'keyword' && typeof window.runMainKeywordAnalysis === 'function') {
+      const rep = document.getElementById('sbReport');
+      if (!rep || rep.style.display === 'none') {
+        setTimeout(() => { window.runMainKeywordAnalysis('나는솔로'); }, 100);
+      }
+    }
 
     // 모바일 메뉴가 열려있다면 닫기
     if (navMenu && navMenu.classList.contains('open')) {
