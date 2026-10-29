@@ -867,3 +867,443 @@
 
 
 
+
+
+/* ==========================================================
+   [비밀 키워드 모달 팝업 & 원본 1:1 상세 리포트 전용 스타일]
+   ========================================================== */
+#secretKeywordDialog {
+  width: min(980px, calc(100% - 28px));
+  max-width: 980px;
+  max-height: 92vh;
+  padding: 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 18px;
+  background: #ffffff;
+  color: #172d40;
+  box-shadow: 0 25px 80px rgba(15, 23, 42, 0.35);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+#secretKeywordDialog::backdrop {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(2px);
+}
+.secret-dialog-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+.secret-dialog-header h2 {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin: 0;
+  color: #0f172a;
+}
+.secret-dialog-close {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.secret-dialog-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+.secret-dialog-body {
+  padding: 26px 28px;
+  background: #ffffff;
+}
+
+/* 1. 상단 리포트 헤더 */
+.kc-report-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.kc-report-badge {
+  display: inline-flex;
+  padding: 5px 12px;
+  border: 1px solid #fed7aa;
+  border-radius: 8px;
+  background: #fff7ed;
+  color: #c2410c;
+  font-size: 13.5px;
+  font-weight: 900;
+}
+.kc-report-title {
+  margin: 12px 0 6px;
+  color: #0f172a;
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+.kc-report-time {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.kc-report-score {
+  flex: 0 0 140px;
+  padding: 16px 14px;
+  border: 1px solid #fed7aa;
+  border-radius: 16px;
+  background: #fffbeb;
+  text-align: center;
+}
+.kc-report-score small {
+  display: block;
+  color: #92400e;
+  font-size: 13.5px;
+  font-weight: 800;
+}
+.kc-report-score strong {
+  display: inline-block;
+  margin-top: 4px;
+  color: #c2410c;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.kc-report-score em {
+  color: #92400e;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+}
+.kc-report-score span {
+  display: block;
+  margin-top: 4px;
+  color: #92400e;
+  font-size: 12px;
+}
+
+/* 2. 비밀 키워드 3칸 지표 */
+.secret-popup-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+  padding: 18px 20px;
+  border: 1px solid #dbe3ee;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+.secret-popup-metrics .secret-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #64748b;
+}
+.secret-popup-metrics .secret-metric b {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* 3. 주의 안내문 */
+.kc-report-notice {
+  margin: 16px 0;
+  padding: 14px 16px;
+  border: 1px solid #fde68a;
+  border-radius: 11px;
+  background: #fffbeb;
+  color: #92400e;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* 4. 점수 가이드 & 4개 팩터 카드 */
+.kc-score-guide {
+  margin: 18px 0 14px;
+  padding: 16px 18px;
+  border: 1px solid #dbe3ef;
+  border-radius: 14px;
+  background: #ffffff;
+}
+.kc-score-guide b {
+  font-size: 15.5px;
+  color: #0f172a;
+}
+.kc-score-legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  color: #475569;
+  font-size: 13.5px;
+}
+.kc-score-legend span b {
+  margin-right: 4px;
+}
+.kc-legend-t { color: #4f46e5; }
+.kc-legend-c { color: #ea580c; }
+.kc-legend-d { color: #059669; }
+.kc-legend-n { color: #2563eb; }
+.kc-score-guide p {
+  margin: 8px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.kc-factor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0 20px;
+}
+.kc-factor {
+  padding: 14px;
+  border: 1px solid #dbe3ef;
+  border-radius: 14px;
+  background: #ffffff;
+}
+.kc-factor-label {
+  display: block;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 800;
+}
+.kc-factor strong {
+  display: block;
+  margin-top: 6px;
+  color: #0f172a;
+  font-size: 24px;
+  letter-spacing: -0.04em;
+  font-weight: 900;
+}
+.kc-factor strong small {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+}
+.kc-factor-note {
+  display: block;
+  margin-top: 3px;
+  color: #64748b;
+  font-size: 12px;
+}
+.kc-factor-bar {
+  height: 4px;
+  margin-top: 9px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+.kc-factor-bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+.kc-factor.t i { background: #4f46e5; }
+.kc-factor.c i { background: #f97316; }
+.kc-factor.d i { background: #059669; }
+.kc-factor.n i { background: #2563eb; }
+
+/* 5. 30일 트렌드 박스 */
+.kc-trend-box {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border: 1px solid #dbe3ef;
+  border-radius: 15px;
+  background: #ffffff;
+}
+.kc-trend-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.kc-trend-top b {
+  display: block;
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.kc-trend-top span {
+  display: block;
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.kc-trend-rise {
+  color: #047857 !important;
+  font-size: 14px !important;
+  font-weight: 900;
+  padding: 4px 10px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* 6. 인사이트 4개 카드 그리드 */
+.kc-insight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+.kc-insight {
+  min-height: 110px;
+  padding: 14px 16px;
+  border: 1px solid #dbe3ef;
+  border-radius: 14px;
+  background: #ffffff;
+}
+.kc-insight b {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.kc-insight p {
+  margin: 8px 0 0;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.kc-insight.fresh { border-color: #a7f3d0; background: #f0fdf4; }
+.kc-insight.intent { border-color: #bfdbfe; background: #eff6ff; }
+.kc-insight.reason { border-color: #ddd6fe; background: #f5f3ff; }
+.kc-insight.ad {
+  grid-column: 1 / -1;
+  border-color: #fde68a;
+  background: #fffbeb;
+}
+
+/* 7. 연관 검색어 & 제목/목차 복사 박스 */
+.kc-related-box,
+.kc-copy-box {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border: 1px solid #dbe3ef;
+  border-radius: 14px;
+  background: #ffffff;
+}
+.kc-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.kc-related-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  color: #64748b;
+  font-size: 13.5px;
+}
+.kc-copy-title {
+  margin-top: 8px;
+  padding: 13px 15px;
+  border: 1px dashed #5eead4;
+  border-radius: 10px;
+  background: #f0fdfa;
+  color: #172033;
+  font-size: 15.5px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+.kc-copy-btn {
+  border: 0;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: #ffffff;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.kc-copy-btn:hover { background: #4338ca; }
+.kc-copy-btn.done { background: #047857; }
+
+/* 8. 목차 리스트 */
+.kc-outline-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: kcoutline;
+}
+.kc-outline-list li {
+  counter-increment: kcoutline;
+  padding: 11px 0;
+  border-bottom: 1px solid #eef2f7;
+  color: #334155;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+.kc-outline-list li:last-child {
+  border-bottom: 0;
+}
+.kc-outline-list li:before {
+  content: counter(kcoutline) '. ';
+  color: #c2410c;
+  font-weight: 900;
+  margin-right: 4px;
+}
+
+/* 9. 링크 버튼 */
+.btn-mini {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #dbe3ef;
+  color: #172033;
+  font-size: 13.5px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-mini:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+.btn-mini.naver {
+  color: #16a34a;
+  border-color: rgba(22, 163, 74, 0.4);
+}
+.btn-mini.naver:hover {
+  background: rgba(22, 163, 74, 0.08);
+}
+
+@media (max-width: 768px) {
+  .kc-factor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kc-insight-grid { grid-template-columns: 1fr; }
+  .secret-dialog-body { padding: 18px 16px; }
+  .kc-report-head { flex-direction: column; }
+  .kc-report-score { width: 100%; box-sizing: border-box; }
+}

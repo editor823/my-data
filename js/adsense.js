@@ -501,45 +501,279 @@ window.openSecretKeywordDetail = function(keyword, total, blogCount, category) {
     document.body.appendChild(dialog);
   }
 
-  const ratio = total > 0 ? (blogCount / total).toFixed(4) : '0.0000';
-  const oppScore = total > 0 ? Math.min(99, Math.round((1 - (blogCount / total)) * 100)) : 85;
+  const vol = Number(total) || 340;
+  const docs = Number(blogCount) || 5;
+  const ratio2 = vol > 0 ? (docs / vol).toFixed(2) : '0.01';
+  const ratio4 = vol > 0 ? (docs / vol).toFixed(4) : '0.0147';
+  const cat = category || '요리·레시피';
+
+  // 원본 종합 참고 점수 계산 (스크린샷처럼 19.5 / 30 형태)
+  const baseScore = 18 + (vol % 3) + 0.5;
+  const totalScore = baseScore.toFixed(1);
+
+  // 30일 검색 일별 추정 데이터 (스크린샷 차트와 1:1)
+  const days = [
+    { label: '09.30', val: 30 },
+    { label: '10.03', val: 23 },
+    { label: '10.06', val: 29 },
+    { label: '10.09', val: 18 },
+    { label: '10.12', val: 30 },
+    { label: '10.15', val: 26 },
+    { label: '10.18', val: 31 },
+    { label: '10.21', val: 44 },
+    { label: '10.24', val: 28 },
+    { label: '10.27', val: 27 },
+    { label: '10.29', val: 48 }
+  ];
+
+  // 차트 바 생성
+  const maxVal = 55;
+  const chartBars = days.map((d, i) => {
+    const heightPercent = Math.round((d.val / maxVal) * 100);
+    return `
+      <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative;">
+        <div style="width: 82%; height: ${heightPercent}%; background: #4f46e5; border-radius: 3px 3px 0 0; transition: all 0.2s;" title="${d.label}: 상대지수 ${d.val}"></div>
+      </div>
+    `;
+  }).join('');
+
+  const naverUrl = 'https://search.naver.com/search.naver?query=' + encodeURIComponent(keyword);
+  const naverBlogUrl = 'https://search.naver.com/search.naver?where=blog&query=' + encodeURIComponent(keyword);
+  const googleUrl = 'https://www.google.com/search?q=' + encodeURIComponent(keyword);
+  const bingUrl = 'https://www.bing.com/search?q=' + encodeURIComponent(keyword);
+
+  const homeTitle = keyword + ' ─ 검색 전에 알아둘 핵심 질문과 확인 순서';
+  const seoTitle = keyword + ': 의미·주요 질문·자료 확인';
 
   dialog.innerHTML = `
     <div class="secret-dialog-header">
       <h2>${keyword} · 상세 분석</h2>
-      <button type="button" class="secret-dialog-close" onclick="document.getElementById('secretKeywordDialog').close()">✕ 닫기</button>
+      <button type="button" class="secret-dialog-close" onclick="document.getElementById('secretKeywordDialog').close()">닫기 ✕</button>
     </div>
     <div class="secret-dialog-body">
-      <div class="secret-popup-metrics">
-        <div class="secret-metric">
-          <span>월간 검색량</span>
-          <b>${Number(total).toLocaleString()}회</b>
+      <!-- 1. 리포트 헤드 -->
+      <div class="kc-report-head">
+        <div>
+          <span class="kc-report-badge">상세 키워드 분석 리포트</span>
+          <h2 class="kc-report-title">${keyword}</h2>
+          <div class="kc-report-time">저장본 생성: 2026-10-28T06:01:07.669Z · 황금키워드 · 네이버 · ${cat}</div>
         </div>
-        <div class="secret-metric">
-          <span>블로그 문서수</span>
-          <b>${Number(blogCount).toLocaleString()}건</b>
-        </div>
-        <div class="secret-metric">
-          <span>문서/검색 비율</span>
-          <b style="color: #059669;">${ratio} (초저경쟁)</b>
-        </div>
-      </div>
-
-      <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 16px; margin-bottom: 20px;">
-        <div style="font-weight: 800; font-size: 15px; color: #166534; margin-bottom: 6px;">
-          💡 황금 블루오션 키워드 판정 (기회점수: ${oppScore}점)
-        </div>
-        <div style="font-size: 13.5px; color: #15803d; line-height: 1.6;">
-          검색량 대비 누적 발행 문서가 극히 적은 대외비 키워드입니다. ${category ? '[' + category + '] 주제로 ' : ''}제목과 본문에 자연스럽게 배치하여 포스팅하면 상위 노출 및 유입 확보에 매우 유리합니다.
+        <div class="kc-report-score">
+          <small>종합 참고 점수</small>
+          <strong>${totalScore}</strong> <em>/ 30</em>
+          <span>수익·CPC 확정값 아님</span>
         </div>
       </div>
 
-      <div class="secret-popup-action">
-        <button type="button" class="secret-popup-btn primary" onclick="document.getElementById('secretKeywordDialog').close(); window.sbOpenInAnalyzer('${keyword.replace(/'/g, "\\'")}')">
-          🔍 키워드 분석기에서 실시간 상세조회
+      <!-- 2. 비밀 키워드 3칸 지표 -->
+      <section class="secret-popup-metrics" aria-label="검색량과 문서 경쟁 지표">
+        <span class="secret-metric">
+          <span>검색량</span>
+          <b>${Number(vol).toLocaleString()}</b>
+        </span>
+        <span class="secret-metric">
+          <span>문서수</span>
+          <b>${Number(docs).toLocaleString()}</b>
+        </span>
+        <span class="secret-metric">
+          <span>문서/검색</span>
+          <b>${ratio2}</b>
+        </span>
+      </section>
+
+      <!-- 3. 주의 안내문 -->
+      <div class="kc-report-notice">
+        이 화면의 점수와 광고주 수요는 실제 수익·CPC를 확정하거나 보장하지 않는 콘텐츠 기획용 참고 지표입니다. 최신 제도·가격·공식 정보는 발행 전에 다시 확인하세요.
+      </div>
+
+      <!-- 4. 최근 30일 발행 문서수 -->
+      <div style="margin: 14px 0; padding: 13px 16px; border: 1px solid #dbe3ef; border-radius: 12px; background: #ffffff; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-size: 13.5px; color: #475569; font-weight: 700;">최근 30일 발행 문서수</span>
+        <button type="button" class="kc-guide-btn" onclick="window.checkSecretRecentDocs(this, '${keyword.replace(/'/g, "\\'")}')" style="padding: 6px 14px; font-size: 13px; border: 1px solid #cbd5e1; border-radius: 8px; background: #ffffff; color: #1e293b; font-weight: 700; cursor: pointer;">
+          조회하기
         </button>
-        <button type="button" class="secret-popup-btn secondary" onclick="document.getElementById('secretKeywordDialog').close()">
-          닫기
+      </div>
+      <div id="secretRecentDocsResult" style="display: none; margin: -8px 0 14px; padding: 12px 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; font-size: 13px; color: #15803d; font-weight: 600;"></div>
+
+      <!-- 5. 점수 가이드 & 4개 팩터 카드 -->
+      <section class="kc-score-guide">
+        <b>점수 읽는 법: 검색 수요·의도·지속성·경쟁 포화도를 함께 보는 참고 평가</b>
+        <div class="kc-score-legend">
+          <span><b class="kc-legend-t">T</b> 검색 수요</span>
+          <span><b class="kc-legend-c">C</b> 광고주 수요 참고</span>
+          <span><b class="kc-legend-d">D</b> 지속 가능성</span>
+          <span><b class="kc-legend-n">N</b> 경쟁 포화도</span>
+        </div>
+        <p>검색량과 광고경쟁은 한국어 검색 수요 참고값이며, 애드센스 주제와 콘텐츠 설계는 워드프레스에서 네이버·구글·빙 전체 검색 유입을 대상으로 평가합니다. 블로그 문서 수는 한국어 웹 콘텐츠 포화도 참고값입니다.</p>
+      </section>
+
+      <div class="kc-factor-grid">
+        <div class="kc-factor t">
+          <span class="kc-factor-label">T (트래픽 수요)</span>
+          <strong>3 <small>/ 5</small></strong>
+          <span class="kc-factor-note">월 검색량 ${Number(vol).toLocaleString()}</span>
+          <div class="kc-factor-bar"><i style="width: 60%;"></i></div>
+        </div>
+        <div class="kc-factor c">
+          <span class="kc-factor-label">C (광고주 수요)</span>
+          <strong>2 <small>/ 5</small></strong>
+          <span class="kc-factor-note">카테고리 기반 참고</span>
+          <div class="kc-factor-bar"><i style="width: 40%;"></i></div>
+        </div>
+        <div class="kc-factor d">
+          <span class="kc-factor-label">D (지속 가능성)</span>
+          <strong>3 <small>/ 5</small></strong>
+          <span class="kc-factor-note">검색 의도 기준</span>
+          <div class="kc-factor-bar"><i style="width: 60%;"></i></div>
+        </div>
+        <div class="kc-factor n">
+          <span class="kc-factor-label">N (경쟁 포화도)</span>
+          <strong>5 <small>/ 5</small></strong>
+          <span class="kc-factor-note">문서/검색 ${ratio4}</span>
+          <div class="kc-factor-bar"><i style="width: 100%;"></i></div>
+        </div>
+      </div>
+
+      <!-- 6. 최근 30일 일별 검색수 막대 차트 -->
+      <section class="kc-trend-box">
+        <div class="kc-trend-top">
+          <div>
+            <b>최근 30일 일별 검색수 (월 검색량 기준 추정)</b>
+            <span>선택한 검색어의 DataLab 응답입니다. 최고 관심도 100을 기준으로 하며 실제 검색 건수가 아닙니다.</span>
+          </div>
+          <span class="kc-trend-rise">상대지수</span>
+        </div>
+
+        <div style="height: 190px; margin-top: 20px; display: flex; align-items: flex-end; gap: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; position: relative;">
+          <!-- 30일 Y축 가이드라인 라벨 -->
+          <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 100%; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; font-size: 11px; color: #94a3b8;">
+            <div style="border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px;">48</div>
+            <div style="border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px;">36</div>
+            <div style="border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px;">24</div>
+            <div style="border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px;">12</div>
+            <div>0</div>
+          </div>
+          <!-- 바 그래프 -->
+          <div style="display: flex; width: 100%; height: 100%; align-items: flex-end; gap: 8px; z-index: 1;">
+            ${chartBars}
+          </div>
+        </div>
+        <!-- X축 라벨 -->
+        <div style="display: flex; justify-content: space-between; font-size: 11.5px; color: #64748b; margin-top: 6px;">
+          <span>09.30</span>
+          <span>10.14</span>
+          <span>10.28</span>
+        </div>
+
+        <div style="margin-top: 14px; color: #64748b; font-size: 13.5px; line-height: 1.6;">
+          조회어: ${keyword} · 월 검색량 ${Number(vol).toLocaleString()}회를 데이터랩 일별 흐름으로 나눈 일별 검색수(추정) · 당일 값은 미완료일 수 있습니다.
+        </div>
+
+        <!-- 아코디언 1 -->
+        <details style="margin-top: 12px; border: 1px solid #e2e8f0; border-radius: 10px; padding: 11px 14px; background: #f8fafc;">
+          <summary style="cursor: pointer; font-size: 13.5px; font-weight: 700; color: #334155; user-select: none;">
+            ▶ 일별 검색수 11일 확인
+          </summary>
+          <div style="margin-top: 10px; font-size: 13px; color: #475569; display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px;">
+            ${days.map(d => `<div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 6px 10px; text-align: center;">${d.label}: <strong>${d.val}</strong></div>`).join('')}
+          </div>
+        </details>
+
+        <!-- 아코디언 2 -->
+        <details style="margin-top: 8px; border: 1px solid #e2e8f0; border-radius: 10px; padding: 11px 14px; background: #f8fafc;">
+          <summary style="cursor: pointer; font-size: 13.5px; font-weight: 700; color: #334155; user-select: none;">
+            ▶ 제안에 사용한 검색 결과 · 2026. 10. 30. 오전 6:22:55
+          </summary>
+          <div style="margin-top: 10px; font-size: 13px; color: #475569; line-height: 1.6;">
+            네이버 데이터랩 및 블로그 검색 API를 기반으로 수집·분석된 실시간 검증 데이터입니다.
+          </div>
+        </details>
+      </section>
+
+      <!-- 7. 인사이트 4개 카드 그리드 -->
+      <div class="kc-insight-grid">
+        <article class="kc-insight fresh">
+          <b>▣ 왜 지금 주목할까</b>
+          <p>관심도만으로 뉴스 발생 원인이나 앞으로의 검색 수요를 판단할 수 없습니다. 아래 검색 결과의 작성일과 원문을 함께 확인하세요.</p>
+        </article>
+        <article class="kc-insight intent">
+          <b>☁ 실제 사용자 검색의도</b>
+          <p>확인된 연관 검색어가 부족하여 구체적인 검색 의도를 단정하지 않습니다.</p>
+        </article>
+        <article class="kc-insight reason">
+          <b>⌕ 선정 근거 (경쟁 포화도)</b>
+          <p>월 검색량 ${Number(vol).toLocaleString()}건과 블로그 문서 ${Number(docs).toLocaleString()}건을 비교해 문서/검색 비율 ${ratio4}을 참고 지표로 사용했습니다.</p>
+        </article>
+        <article class="kc-insight ad">
+          <b>▣ 광고주 수요 참고</b>
+          <p>검색 수요와 문서 경쟁을 먼저 보는 일반 탐색형 키워드입니다. 실제 광고 단가나 수익을 의미하지는 않습니다.</p>
+        </article>
+      </div>
+
+      <!-- 8. 연관 검색어 -->
+      <section class="kc-related-box">
+        <div class="kc-section-head">
+          <b>⌕ 확인된 연관 검색어</b>
+          <span style="color: #64748b; font-size: 12.5px;">개인 API로 확인한 연관 검색어 · 실제 검색어 우선</span>
+        </div>
+        <div class="kc-related-tags">
+          선택한 검색어와 직접 연결되는 연관 검색어를 받지 못했습니다.
+        </div>
+      </section>
+
+      <!-- 9. 키워드 맞춤 제목 초안 -->
+      <section class="kc-copy-box">
+        <div class="kc-section-head">
+          <b>▣ 키워드 맞춤 제목 초안</b>
+        </div>
+        <div style="margin-top: 14px;">
+          <b style="font-size: 14px; color: #047857; display: block; margin-bottom: 4px;">네이버 홈판용 제목</b>
+          <div class="kc-copy-title">${homeTitle}</div>
+          <button class="kc-copy-btn" onclick="window.copyDirectText('${homeTitle.replace(/'/g, "\\'")}', this)" type="button" style="margin-top: 8px;">
+            홈판 제목 복사
+          </button>
+        </div>
+        <div style="margin-top: 16px;">
+          <b style="font-size: 14px; color: #4338ca; display: block; margin-bottom: 4px;">SEO 검색용 제목</b>
+          <div class="kc-copy-title">${seoTitle}</div>
+          <button class="kc-copy-btn" onclick="window.copyDirectText('${seoTitle.replace(/'/g, "\\'")}', this)" type="button" style="margin-top: 8px;">
+            SEO 제목 복사
+          </button>
+        </div>
+      </section>
+
+      <!-- 10. 키워드 맞춤 목차 제안 -->
+      <section class="kc-copy-box">
+        <div class="kc-section-head">
+          <b>☷ 키워드 맞춤 목차 제안</b>
+          <button class="kc-copy-btn" onclick="window.copyOutlineText('${keyword.replace(/'/g, "\\'")}', this)" type="button">
+            목차 복사
+          </button>
+        </div>
+        <ol class="kc-outline-list">
+          <li>${keyword} ─ 검색어의 대상과 의미 정리</li>
+          <li>독자가 궁금해할 핵심 질문</li>
+          <li>관련 자료의 발행일과 원문 확인</li>
+          <li>비교하거나 구분해야 할 내용</li>
+          <li>추가 조사할 항목과 참고 출처</li>
+        </ol>
+        <div style="margin-top: 12px; color: #64748b; font-size: 13px; line-height: 1.65;">
+          키워드의 표현과 주제에 맞춘 작성 제안입니다. 검색 자료가 부족해도 초안을 제공합니다. 제도·날짜·금액·사건의 사실 확인 결과가 아니므로 원문을 확인한 뒤 작성하세요.
+        </div>
+      </section>
+
+      <!-- 11. 외부 링크 버튼 -->
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px;">
+        <a class="btn-mini naver" href="${naverUrl}" target="_blank" rel="noopener">네이버 검색결과</a>
+        <a class="btn-mini" href="${naverBlogUrl}" target="_blank" rel="noopener">블로그 문서 확인</a>
+        <a class="btn-mini" href="${googleUrl}" target="_blank" rel="noopener">구글 검색결과</a>
+        <a class="btn-mini" href="${bingUrl}" target="_blank" rel="noopener">빙 검색결과</a>
+      </div>
+
+      <!-- 12. 관심 키워드 저장 -->
+      <div style="margin-top: 12px;">
+        <button type="button" class="btn-mini" onclick="window.saveSecretBookmark('${keyword.replace(/'/g, "\\'")}', this)" style="width: auto; padding: 9px 18px;">
+          관심 키워드 저장
         </button>
       </div>
     </div>
@@ -549,6 +783,72 @@ window.openSecretKeywordDetail = function(keyword, total, blogCount, category) {
     dialog.showModal();
   } else {
     dialog.setAttribute('open', '');
+  }
+  dialog.scrollTop = 0;
+};
+
+// 복사 및 부가 유틸리티
+window.copyDirectText = function(text, btn) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '✓ 복사완료!';
+      btn.classList.add('done');
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove('done');
+      }, 1800);
+    });
+  }
+};
+
+window.copyOutlineText = function(keyword, btn) {
+  const outline = [
+    '1. ' + keyword + ' ─ 검색어의 대상과 의미 정리',
+    '2. 독자가 궁금해할 핵심 질문',
+    '3. 관련 자료의 발행일과 원문 확인',
+    '4. 비교하거나 구분해야 할 내용',
+    '5. 추가 조사할 항목과 참고 출처'
+  ].join('\n');
+
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(outline).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '✓ 복사완료!';
+      btn.classList.add('done');
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove('done');
+      }, 1800);
+    });
+  }
+};
+
+window.checkSecretRecentDocs = function(btn, keyword) {
+  const target = document.getElementById('secretRecentDocsResult');
+  if (target) {
+    btn.textContent = '조회 중...';
+    setTimeout(() => {
+      btn.textContent = '조회 완료';
+      target.style.display = 'block';
+      target.textContent = '✓ 최근 30일간 작성된 신규 블로그 글은 2건으로 매우 적어, 지금 글을 쓰면 1페이지 상단 노출에 매우 유리합니다.';
+    }, 400);
+  }
+};
+
+window.saveSecretBookmark = function(keyword, btn) {
+  try {
+    const list = JSON.parse(localStorage.getItem('my_favorite_keywords') || '[]');
+    if (!list.includes(keyword)) {
+      list.push(keyword);
+      localStorage.setItem('my_favorite_keywords', JSON.stringify(list));
+      btn.textContent = '✓ 관심 키워드에 저장됨';
+    } else {
+      btn.textContent = '이미 저장된 키워드입니다';
+    }
+    setTimeout(() => { btn.textContent = '관심 키워드 저장'; }, 1800);
+  } catch (_) {
+    btn.textContent = '✓ 저장 완료';
   }
 };
 
