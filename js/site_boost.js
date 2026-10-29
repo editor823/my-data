@@ -11,8 +11,15 @@
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
   function paidKey() { try { return localStorage.getItem('moneytCommonPaidAccessKey') || ''; } catch (_) { return ''; } }
   async function kc(action) {
-    var r = await fetch('/api/keyword-center?action=' + encodeURIComponent(action) + '&paidAccessKey=' + encodeURIComponent(paidKey()), { cache: 'no-store' });
-    return r.json();
+    var endpoint = (location.hostname.includes('github.io') || location.protocol === 'file:')
+      ? 'https://www.boutique-info.com/api/keyword-center'
+      : '/api/keyword-center';
+    try {
+      var r = await fetch(endpoint + '?action=' + encodeURIComponent(action) + '&paidAccessKey=' + encodeURIComponent(paidKey()), { cache: 'no-store' });
+      return await r.json();
+    } catch (_) {
+      return { success: false, data: [] };
+    }
   }
   function toast(msg) {
     var t = el('div', 'sb-toast', msg); document.body.appendChild(t);
@@ -585,15 +592,22 @@
 
   /* ---------- 공통 ---------- */
   function onPage(id) {
-    if (id === 'tool') { installAnalyzerHooks(); installLanding(); loadQuickStart(); }
+    if (id === 'tool' || id === 'keyword') { installAnalyzerHooks(); installLanding(); loadQuickStart(); }
     if (id === 'home') loadSecretBanner();
     if (id === 'settings') refreshSettingsState();
   }
   function hookShowPage() {
-    if (typeof showPage !== 'function' || showPage.__sb) return;
-    var os = showPage;
-    showPage = function (id) { var r = os.apply(this, arguments); try { onPage(id); } catch (_) {} return r; };
-    showPage.__sb = true;
+    if (typeof showPage === 'function' && !showPage.__sb) {
+      var os = showPage;
+      showPage = function (id) { var r = os.apply(this, arguments); try { onPage(id); } catch (_) {} return r; };
+      showPage.__sb = true;
+    }
+    if (typeof switchTab === 'function' && !switchTab.__sb) {
+      var ost = switchTab;
+      switchTab = function (id) { var r = ost.apply(this, arguments); try { onPage(id); } catch (_) {} return r; };
+      switchTab.__sb = true;
+      window.switchTab = switchTab;
+    }
   }
   var CSS = '.sb-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}' +
     '.sb-btn{border:1px solid #146c54;background:#146c54;color:#fff;border-radius:8px;padding:7px 12px;font-size:13.5px;font-weight:700;cursor:pointer}' +
@@ -672,6 +686,7 @@
     installAnalyzerHooks();
     var page = new URLSearchParams(location.search).get('page') || 'home';
     onPage(page);
+    onPage('keyword'); // 항상 키워드 분석기 랜딩 UI 주입 보장!
     decorateCards(document);
     new MutationObserver(function (muts) { for (var i = 0; i < muts.length; i++) if (muts[i].addedNodes.length) { decorateCards(document); scheduleDarkFix(); break; } }).observe(document.body, { childList: true, subtree: true });
   }
