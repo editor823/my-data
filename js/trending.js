@@ -5,29 +5,21 @@
  * - 오래된 더미 텍스트를 완전히 제거하고 실제 라이브 데이터만을 출력합니다.
  */
 
-// 1. API 엔드포인트 설정 (정적 라이브 JSON 최우선 호출 + 로컬 백엔드 + 프록시 fallback)
+// 1. API 엔드포인트 설정 (정적 라이브 JSON 최우선 호출 + 로컬 백엔드 fallback)
 function getTrendingUrls() {
-  const ts = Date.now();
   return {
-    primary: `data/trending_live.json?_t=${ts}`,
+    primary: 'data/trending_live.json',
     fallbacks: [
-      `trending_live.json?_t=${ts}`,
-      `/api/trending-keywords?_t=${ts}`,
-      `/data/trending_live.json?_t=${ts}`,
-      `https://www.boutique-info.com/api/keyword-center?action=getTrendingKeywords&_t=${ts}`
+      'trending_live.json'
     ]
   };
 }
 
 function getEntNewsUrls() {
-  const ts = Date.now();
   return {
-    primary: `data/trending_live.json?_t=${ts}`,
+    primary: 'data/trending_live.json',
     fallbacks: [
-      `trending_live.json?_t=${ts}`,
-      `/api/entertainment-news?_t=${ts}`,
-      `/data/trending_live.json?_t=${ts}`,
-      `https://www.boutique-info.com/api/keyword-center?action=getEntertainmentNews&_t=${ts}`
+      'trending_live.json'
     ]
   };
 }
@@ -203,7 +195,10 @@ function getDynamicFallbackEntNews() {
  * 1. 실시간 급상승어 API 호출 및 5대 포털 100% 매핑
  */
 async function fetchTrendingKeywords(isManualRefresh = false) {
-  showTrendingLoading();
+  const firstList = document.getElementById('trend-list-naver');
+  if (isManualRefresh || !firstList || firstList.children.length === 0) {
+    showTrendingLoading();
+  }
 
   try {
     const urls = getTrendingUrls();
@@ -237,12 +232,14 @@ async function fetchEntertainmentNews(isManualRefresh = false) {
   const container = document.getElementById('ent-news-list');
   if (!container) return;
 
-  // 1. 데이터 가져오는 동안 로딩 상태 표시
-  container.innerHTML = `
-    <div class="ent-news-loading" style="grid-column: 1 / -1; padding: 36px 16px; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
-      <span class="loading-spinner-mini" style="margin-right: 6px;">⏳</span> 최신 연예뉴스를 실시간으로 불러오는 중입니다...
-    </div>
-  `;
+  // 1. 데이터 가져오는 동안 로딩 상태 표시 (이미 정적 기사가 있으면 깜빡임 방지)
+  if (isManualRefresh || container.children.length === 0) {
+    container.innerHTML = `
+      <div class="ent-news-loading" style="grid-column: 1 / -1; padding: 36px 16px; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+        <span class="loading-spinner-mini" style="margin-right: 6px;">⏳</span> 최신 연예뉴스를 실시간으로 불러오는 중입니다...
+      </div>
+    `;
+  }
 
   try {
     const urls = getEntNewsUrls();

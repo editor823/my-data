@@ -195,9 +195,17 @@ body {
   margin-bottom: 48px !important;
 }
 .trending-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-bottom: 16px !important;
 }
 .trending-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 1.45rem !important;
   font-weight: 900 !important;
   color: #0f172a !important;
@@ -217,11 +225,44 @@ body {
   min-height: 310px !important;
 }
 .portal-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-bottom: 10px !important;
   margin-bottom: 8px !important;
   border-bottom: 1px solid #f1f5f9 !important;
 }
+.portal-name-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+.dot-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-naver { background: #03c75a; box-shadow: 0 0 8px rgba(3, 199, 90, 0.5); }
+.dot-nate { background: #ff3344; box-shadow: 0 0 8px rgba(255, 51, 68, 0.5); }
+.dot-zum { background: #8b5cf6; box-shadow: 0 0 8px rgba(139, 92, 246, 0.5); }
+.dot-google { background: #3b82f6; box-shadow: 0 0 8px rgba(59, 130, 246, 0.5); }
+.dot-daum { background: #f59e0b; box-shadow: 0 0 8px rgba(245, 158, 11, 0.5); }
+.portal-goto-link {
+  font-size: 0.78rem;
+  color: #64748b;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
 .trending-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
   padding: 4px 0 !important;
 }
 .trending-list li {
@@ -242,6 +283,15 @@ body {
   font-weight: 700 !important;
   color: #0f172a !important;
   line-height: 1.4 !important;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.trending-footer-bar {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
 }
 
 /* 5. 실시간 숏텐츠 섹션 (넉넉한 패딩과 여유 공간) */

@@ -420,30 +420,48 @@
     renderList();
   }
 
-  // 실시간 데이터 패치 시도
+  // 실시간 데이터 패치 시도 (외부 타임아웃 방지를 위해 내장 정적 데이터 우선 사용)
   async function fetchLiveRadar() {
-    try {
-      const res = await fetch('https://www.boutique-info.com/api/keyword-center?action=getHomefeedRadar', {
-        cache: 'no-store'
-      });
-      if (res.ok) {
-        const json = await res.json();
-        if (json && json.success && Array.isArray(json.subjects) && json.subjects.length > 0) {
-          state.data = json;
-          if (document.getElementById('kc-homefeed-container')?.style.display !== 'none') {
-            renderRadar();
-          }
+    // window.HOMEFEED_RADAR_DATA (628KB)가 이미 최신 상태로 탑재되어 있음
+  }
+
+  function ensureHomefeedDataLoaded(callback) {
+    if (state.data) {
+      if (callback) callback();
+      return;
+    }
+    if (typeof window.HOMEFEED_RADAR_DATA === 'object' && window.HOMEFEED_RADAR_DATA !== null) {
+      state.data = window.HOMEFEED_RADAR_DATA;
+      if (callback) callback();
+      return;
+    }
+    // 필요한 시점에만 628KB 데이터 스크립트 동적 로드
+    let script = document.getElementById('lazy-homefeed-radar-data');
+    if (!script) {
+      script = document.createElement('script');
+      script.id = 'lazy-homefeed-radar-data';
+      script.src = 'data/homefeed_radar_data.js?v=20261029_v1';
+      script.onload = () => {
+        if (typeof window.HOMEFEED_RADAR_DATA === 'object') {
+          state.data = window.HOMEFEED_RADAR_DATA;
         }
-      }
-    } catch (_) {}
+        if (callback) callback();
+      };
+      document.body.appendChild(script);
+    } else {
+      script.addEventListener('load', () => {
+        if (typeof window.HOMEFEED_RADAR_DATA === 'object') {
+          state.data = window.HOMEFEED_RADAR_DATA;
+        }
+        if (callback) callback();
+      });
+    }
   }
 
   window.renderHomefeedRadarTab = function() {
-    if (!state.data && typeof window.HOMEFEED_RADAR_DATA === 'object') {
-      state.data = window.HOMEFEED_RADAR_DATA;
-    }
-    renderRadar();
-    fetchLiveRadar();
+    ensureHomefeedDataLoaded(() => {
+      renderRadar();
+    });
   };
 
   // 초기 로드

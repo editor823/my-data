@@ -330,8 +330,11 @@
   }
   window.initBlogExposure = initBlogExposure;
 
-  // DOM 로드 시 자동 초기화 바인딩
+  // DOM 로드 시 활성 탭인 경우에만 즉시 초기화 (초기 로딩 속도 최적화)
   document.addEventListener('DOMContentLoaded', function() {
-    initBlogExposure();
+    var section = document.getElementById('tab-ranktracker');
+    if (section && section.classList.contains('active')) {
+      initBlogExposure();
+    }
   });
 })();

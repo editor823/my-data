@@ -149,14 +149,14 @@
       const title = item.title || item.keyword || '';
       const desc = item.desc || item.articleTitle || '';
       const time = item.time || item.date || '방금 전';
-      const thumb = item.thumb || item.image || 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=120&auto=format&fit=crop&q=60';
+      const thumb = item.thumb || item.image || 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52"><rect width="52" height="52" fill="%23f1f5f9"/></svg>';
       const source = item.source || 'N';
 
       return `
         <div class="short-row-item">
           <div class="short-row-left">
             <span class="short-rank-num">${rankNum}</span>
-            <img src="${thumb}" alt="${escapeHtml(title)}" class="short-thumb-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=120&auto=format&fit=crop&q=60'">
+            <img src="${thumb}" alt="${escapeHtml(title)}" width="52" height="52" class="short-thumb-img" loading="lazy" decoding="async" fetchpriority="low" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2252%22 height=%2252%22><rect width=%2252%22 height=%2252%22 fill=%22%23f1f5f9%22/></svg>'">
             <div class="short-text-col">
               <h4 class="short-item-title" title="${escapeHtml(title)}">${escapeHtml(title)}</h4>
               <p class="short-item-desc" title="${escapeHtml(desc)}">${escapeHtml(desc)}</p>
@@ -326,7 +326,7 @@
     renderList();
     setupDialogEvents();
 
-    // 현재 시간 표시 (예: 조회 15:55)
+      // 현재 시간 표시 (예: 조회 15:55)
     const timeEl = document.getElementById('shortContentsTime');
     if (timeEl) {
       const now = new Date();
@@ -334,9 +334,6 @@
       const mm = String(now.getMinutes()).padStart(2, '0');
       timeEl.textContent = `조회 ${hh}:${mm}`;
     }
-
-    // 백그라운드 실시간 동기화 시도
-    fetchLiveShortents();
   }
 
   if (document.readyState === 'loading') {

@@ -26,12 +26,9 @@ let kcShortsVideos = null; // 9번 탭 영상 목록 캐시
  * 실시간 API 및 로컬 백업 엔드포인트 URL (로컬 JSON 최우선 호출로 0.01초 즉시 로딩)
  */
 function getAdsenseApiEndpoints() {
-  const ts = Date.now();
   return [
-    `data/keyword_center_live.json?_t=${ts}`,
-    `keyword_center_live.json?_t=${ts}`,
-    `/data/keyword_center_live.json?_t=${ts}`,
-    `https://www.boutique-info.com/api/keyword-center?action=getDailyKeywordCenter&_t=${ts}`
+    'data/keyword_center_live.json',
+    'keyword_center_live.json'
   ];
 }
 
@@ -39,36 +36,54 @@ function getAdsenseApiEndpoints() {
  * 유튜브 숏폼 API 및 로컬 백업 엔드포인트 (로컬 JSON 최우선 호출)
  */
 function getShortsApiEndpoints() {
-  const ts = Date.now();
   return [
-    `data/viral_shorts_live.json?_t=${ts}`,
-    `viral_shorts_live.json?_t=${ts}`,
-    `/data/viral_shorts_live.json?_t=${ts}`,
-    `https://www.boutique-info.com/api/keyword-center?action=searchViralShorts&keyword=&period=week&sort=views&shorts=all&_t=${ts}`
+    'data/viral_shorts_live.json',
+    'viral_shorts_live.json'
   ];
 }
 
-// DOM 준비 시 초기화
+let kcInitialized = false;
+let kcDataLoaded = false;
+
+// DOM 준비 시 이벤트만 가볍게 바인딩하고, 실제 무거운 데이터 패치/렌더링은 탭 진입 시 수행
 document.addEventListener('DOMContentLoaded', () => {
-  initKeywordCenter();
+  bindTabEvents();
+  const adsenseSection = document.getElementById('tab-adsense');
+  if (adsenseSection && adsenseSection.classList.contains('active')) {
+    initKeywordCenter();
+  } else {
+    // 초기 홈 화면 렌더링(LCP)을 방해하지 않도록 여유 시간에 백그라운드 프리로드
+    const idleLoad = window.requestIdleCallback || ((cb) => setTimeout(cb, 2500));
+    idleLoad(() => {
+      initKeywordCenter();
+    });
+  }
 });
 
 /**
  * 모듈 초기화
  */
 async function initKeywordCenter() {
-  bindTabEvents();
+  if (kcDataLoaded) return;
+  kcDataLoaded = true;
+  if (!kcInitialized) {
+    bindTabEvents();
+    kcInitialized = true;
+  }
   await Promise.all([
     loadAdsenseData(),
     loadSeasonalData(),
     loadShortsData()
   ]);
 }
+window.initKeywordCenter = initKeywordCenter;
 
 /**
  * 상단 9개 탭 이벤트 바인딩
  */
 function bindTabEvents() {
+  if (kcInitialized) return;
+  kcInitialized = true;
   const tabBtns = document.querySelectorAll('.kc-pill-btn');
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -133,11 +148,9 @@ async function loadAdsenseData() {
  * seasonal-keywords.json 데이터 패치 (5번 탭)
  */
 async function loadSeasonalData() {
-  const ts = Date.now();
   const paths = [
-    `seasonal-keywords.json?_t=${ts}`,
-    `data/seasonal-keywords.json?_t=${ts}`,
-    `https://api.allorigins.win/raw?url=https%3A%2F%2Fwww.boutique-info.com%2Fseasonal-keywords.json%3F_t%3D${ts}`
+    'seasonal-keywords.json',
+    'data/seasonal-keywords.json'
   ];
 
   for (const path of paths) {

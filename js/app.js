@@ -44,6 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if ((tabId === 'ranktracker' || tabId === 'exposure') && typeof window.initBlogExposure === 'function') {
       window.initBlogExposure();
     }
+    if (tabId === 'adsense' && typeof window.initKeywordCenter === 'function') {
+      window.initKeywordCenter();
+    }
 
     // 모바일 메뉴가 열려있다면 닫기
     if (navMenu && navMenu.classList.contains('open')) {
