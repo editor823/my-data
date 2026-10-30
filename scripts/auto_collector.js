@@ -195,6 +195,18 @@ async function collectKeywordCenterData() {
   } catch (e) {
     console.warn('  ⚠️ 바이럴 숏폼 원본 갱신 실패:', e.message);
   }
+
+  const radarUrl = `https://www.boutique-info.com/api/keyword-center?action=getHomefeedRadar&_t=${ts}`;
+  try {
+    const radarRes = await fetchJson(radarUrl, 15000);
+    if (radarRes && (radarRes.subjects || radarRes.success)) {
+      const p1 = path.join(__dirname, '..', 'data', 'homefeed_radar_data.js');
+      fs.writeFileSync(p1, `window.HOMEFEED_RADAR_DATA = ${JSON.stringify(radarRes)};`, 'utf8');
+      console.log('  ✅ 홈판 실시간 키워드(Radar) 데이터 동기화 완료');
+    }
+  } catch (e) {
+    console.warn('  ⚠️ 홈판 실시간 키워드(Radar) 갱신 실패:', e.message);
+  }
 }
 
 // 5. 일일 수집 실행 메인 함수

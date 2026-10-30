@@ -458,6 +458,7 @@
     }
   }
 
+  window.ensureHomefeedDataLoaded = ensureHomefeedDataLoaded;
   window.renderHomefeedRadarTab = function() {
     ensureHomefeedDataLoaded(() => {
       renderRadar();

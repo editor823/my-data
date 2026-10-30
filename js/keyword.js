@@ -403,6 +403,67 @@
     });
   }
 
+  // 추천 칩(홈판 틈새 키워드 / 지금 쓰는 소재) 실시간 자동 갱신
+  function updateRecommendChips() {
+    var nicheBox = $('kwRecNicheChips');
+    var hotBox = $('kwRecHotChips');
+    if (!nicheBox && !hotBox) return;
+
+    var radar = window.HOMEFEED_RADAR_DATA;
+    if (!radar && typeof window.ensureHomefeedDataLoaded === 'function') {
+      window.ensureHomefeedDataLoaded(function() {
+        updateRecommendChips();
+      });
+      return;
+    }
+
+    if (!radar || !Array.isArray(radar.subjects) || !radar.subjects.length) return;
+
+    // 1. 지금 쓰는 소재 (상위 채널 발행 소재 10개)
+    if (hotBox) {
+      var hotList = radar.subjects.slice(0, 10).map(function(s) { return s.subject; }).filter(Boolean);
+      if (hotList.length) {
+        hotBox.innerHTML = '';
+        hotList.forEach(function(sub) {
+          var btn = el('button', 'kw-rec-chip', sub);
+          btn.type = 'button';
+          btn.onclick = function() { window.runKeywordAnalysis(sub); };
+          hotBox.appendChild(btn);
+        });
+      }
+    }
+
+    // 2. 홈판 틈새 키워드 (homefeed.keyword 우선, 없으면 suggest 롱테일 키워드 10개)
+    if (nicheBox) {
+      var nicheList = [];
+      radar.subjects.forEach(function(s) {
+        if (s.homefeed && s.homefeed.keyword && !nicheList.includes(s.homefeed.keyword)) {
+          nicheList.push(s.homefeed.keyword);
+        }
+      });
+      if (nicheList.length < 10) {
+        radar.subjects.forEach(function(s) {
+          if (s.keyword && Array.isArray(s.keyword.suggest)) {
+            s.keyword.suggest.forEach(function(sug) {
+              if (sug && sug !== s.subject && !nicheList.includes(sug) && nicheList.length < 10) {
+                nicheList.push(sug);
+              }
+            });
+          }
+        });
+      }
+      if (nicheList.length) {
+        nicheBox.innerHTML = '';
+        nicheList.slice(0, 10).forEach(function(kw) {
+          var btn = el('button', 'kw-rec-chip', kw);
+          btn.type = 'button';
+          btn.onclick = function() { window.runKeywordAnalysis(kw); };
+          nicheBox.appendChild(btn);
+        });
+      }
+    }
+  }
+
   // 외부 및 추천 칩에서 즉시 분석 실행할 수 있는 전역 함수 노출
   window.runKeywordAnalysis = function (kw) {
     if (!kw) return;
@@ -434,5 +495,8 @@
       ['나는솔로', '캠핑의자', '청년도약계좌'].forEach(function (k) { pushHist(k); });
     }
     renderHist();
+
+    // 추천 칩 실시간 데이터 동기화
+    updateRecommendChips();
   });
 })();
