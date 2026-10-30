@@ -1,96 +1,96 @@
 {
   "success": true,
-  "updatedAt": "2026-10-29T20:04:31.888Z",
-  "updatedAtKst": "2026. 10. 30. AM 5:04:31",
+  "updatedAt": "2026-10-30T00:37:31.235Z",
+  "updatedAtKst": "2026. 10. 30. AM 9:37:31",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "국민 아버지 최불암 별세"
+        "keyword": "9월 산업활동 트리플 증가"
       },
       {
         "rank": 2,
-        "keyword": "진성준 비자 거부"
+        "keyword": "최불암 기억해요"
       },
       {
         "rank": 3,
-        "keyword": "삼성 승리 환호"
+        "keyword": "김정은, 전시회 참관"
       },
       {
         "rank": 4,
-        "keyword": "9월 PCE 물가 3.6% 상승"
+        "keyword": "미국 이란 공격 준비"
       },
       {
         "rank": 5,
-        "keyword": "SK플래닛 기프티콘 유출"
+        "keyword": "바이낸스 해킹 피해"
       },
       {
         "rank": 6,
-        "keyword": "경기 버스 노사 극적 합의"
+        "keyword": "이예원"
       },
       {
         "rank": 7,
-        "keyword": "노바크 조코비치"
+        "keyword": "압수수색"
       },
       {
         "rank": 8,
-        "keyword": "유정복 가상자산 신고 누락"
+        "keyword": "라가르드 ECB 사임"
       },
       {
         "rank": 9,
-        "keyword": "알나스르 대 알콜루드 클럽"
+        "keyword": "갤럭시 A18 LTE 출시"
       },
       {
         "rank": 10,
-        "keyword": "김정은 방중 국정원 분��"
+        "keyword": "메이저 리그 사커"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "이태원 참사 동일"
+        "keyword": "장모 아내 혐의로도 new"
       },
       {
         "rank": 2,
-        "keyword": "역무원 구속영장 동일"
+        "keyword": "경기버스 노사 합의 new"
       },
       {
         "rank": 3,
-        "keyword": "금리 동결 연 동일"
+        "keyword": "유재석 하락 2"
       },
       {
         "rank": 4,
-        "keyword": "구로 중국인 남성 new"
+        "keyword": "학대 의혹 47만 new"
       },
       {
         "rank": 5,
-        "keyword": "끝 247만장 반출 new"
+        "keyword": "구탱이형 故 김주혁 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "진성준 비자 거부"
+        "keyword": "9월 산업활동 트리플 증가"
       },
       {
         "rank": 2,
-        "keyword": "유정복 가상자산 신고 누락"
+        "keyword": "코스피 3%대 급락"
       },
       {
         "rank": 3,
-        "keyword": "김정은 방중 국정원 분석"
+        "keyword": "미국 이란 공격 준비"
       },
       {
         "rank": 4,
-        "keyword": "윤석열 내란 사형 구형"
+        "keyword": "라가르드 ECB 사임"
       },
       {
         "rank": 5,
-        "keyword": "임광현 국감 출석"
+        "keyword": "진성준 비자 거부"
       },
       {
         "rank": 6,
-        "keyword": "담배 유해성분 발암물질 공개"
+        "keyword": "미국 국가채무 GDP 100%"
       },
       {
         "rank": 7,
@@ -102,53 +102,53 @@
       },
       {
         "rank": 9,
-        "keyword": "빗썸 해킹 고객정보 유출"
+        "keyword": "SK플래닛 기프티콘 개인정보 유출"
       },
       {
         "rank": 10,
-        "keyword": "미국 9월 PCE 물가"
+        "keyword": "유정복 가상자산 신고 누락"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "에버턴 대 뉴캐슬"
+        "keyword": "이예원"
       },
       {
         "rank": 2,
-        "keyword": "노바크 조코비치"
+        "keyword": "압수수색"
       },
       {
         "rank": 3,
-        "keyword": "알나스르 대 알콜루드 클럽"
+        "keyword": "메이저 리그 사커"
       },
       {
         "rank": 4,
-        "keyword": "최준희"
+        "keyword": "머스캣"
       },
       {
         "rank": 5,
-        "keyword": "신구"
+        "keyword": "구자철"
       },
       {
         "rank": 6,
-        "keyword": "설인아"
+        "keyword": "브래드 갈링하우스"
       },
       {
         "rank": 7,
-        "keyword": "서울경제"
+        "keyword": "수도권 광역급행철도 c노선"
       },
       {
         "rank": 8,
-        "keyword": "최불암"
+        "keyword": "도경완"
       },
       {
         "rank": 9,
-        "keyword": "스페인 축구 국가대표팀"
+        "keyword": "인텔"
       },
       {
         "rank": 10,
-        "keyword": "이병헌"
+        "keyword": "붉은사막"
       }
     ],
     "daum": [
@@ -158,39 +158,39 @@
       },
       {
         "rank": 2,
-        "keyword": "오윤아 재혼 남편"
+        "keyword": "김민자 배우"
       },
       {
         "rank": 3,
-        "keyword": "이병찬 가수"
+        "keyword": "아주대병원 압수수색"
       },
       {
         "rank": 4,
-        "keyword": "언더커버 셰프"
+        "keyword": "유시민 재산"
       },
       {
         "rank": 5,
-        "keyword": "이세돌 요구르트 장사"
+        "keyword": "인텔리빅스"
       },
       {
         "rank": 6,
-        "keyword": "무쇠소녀단 3"
+        "keyword": "엔비디아 네이버 3대 주주"
       },
       {
         "rank": 7,
-        "keyword": "이태원 참사"
+        "keyword": "블랙핑크 옥관문화훈장 수훈"
       },
       {
         "rank": 8,
-        "keyword": "연우 쇼트트랙 도전"
+        "keyword": "원당역"
       },
       {
         "rank": 9,
-        "keyword": "꿀알바"
+        "keyword": "7호선 장암역 운행 재개"
       },
       {
         "rank": 10,
-        "keyword": "진성준 국회의원"
+        "keyword": "모레노 발탁"
       }
     ]
   },
