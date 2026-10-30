@@ -1,40 +1,40 @@
 {
   "success": true,
-  "updatedAt": "2026-10-30T15:54:46.814Z",
-  "updatedAtKst": "2026. 10. 31. AM 12:54:46",
+  "updatedAt": "2026-10-30T16:40:11.038Z",
+  "updatedAtKst": "2026. 10. 31. 오전 1:40:11",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "최불암 다시 본다"
+        "keyword": "최불암을 기억하며"
       },
       {
         "rank": 2,
-        "keyword": "포스코 노사 임금 2.6%↑ 합의"
+        "keyword": "최형우 솔로포 10글자"
       },
       {
         "rank": 3,
-        "keyword": "DMZ 지뢰폭발 대응"
+        "keyword": "포스코 노사, 기본급 2.6% 인상"
       },
       {
         "rank": 4,
-        "keyword": "최형우 솔로포"
-      },
-      {
-        "rank": 5,
-        "keyword": "KIA PO 4차전 승리"
-      },
-      {
-        "rank": 6,
-        "keyword": "인천공항 항공사 시스템 복구"
-      },
-      {
-        "rank": 7,
         "keyword": "투표지 보전 요청"
       },
       {
+        "rank": 5,
+        "keyword": "바이낸스 해킹 8.4조원"
+      },
+      {
+        "rank": 6,
+        "keyword": "KIA PO 4차전 승리"
+      },
+      {
+        "rank": 7,
+        "keyword": "크랙"
+      },
+      {
         "rank": 8,
-        "keyword": "김민"
+        "keyword": "한화시스템"
       },
       {
         "rank": 9,
@@ -42,29 +42,29 @@
       },
       {
         "rank": 10,
-        "keyword": "경기도교육감"
+        "keyword": "이재명 다문화가정 우선 배정"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "삼성 개막 9연승 ��승 1"
+        "keyword": "최형우 ��로포 상승 1"
       },
       {
         "rank": 2,
-        "keyword": "GS건설 개인정보 유출 상승 1"
+        "keyword": "최불암 하락 1"
       },
       {
         "rank": 3,
-        "keyword": "이태원 순찰하는 경찰특공대 상승 1"
+        "keyword": "포스코 노사 합의 new"
       },
       {
         "rank": 4,
-        "keyword": "인천공항 시스템 복구 new"
+        "keyword": "KIA PO 4차전 하락 1"
       },
       {
         "rank": 5,
-        "keyword": "페덱 삼진 환호 동일"
+        "keyword": "투표지 보전 요청 new"
       }
     ],
     "zum": [
@@ -94,11 +94,11 @@
       },
       {
         "rank": 7,
-        "keyword": "트럼프 이란 전쟁 마무리"
+        "keyword": "포스코 노사 임금 합의"
       },
       {
         "rank": 8,
-        "keyword": "포스코 노사 임금 합의"
+        "keyword": "트럼프 이란 전쟁 마무리"
       },
       {
         "rank": 9,
@@ -112,43 +112,43 @@
     "google": [
       {
         "rank": 1,
-        "keyword": "크랙"
+        "keyword": "카를로스 알카라스"
       },
       {
         "rank": 2,
-        "keyword": "한화시스템"
+        "keyword": "핼러윈"
       },
       {
         "rank": 3,
-        "keyword": "김민"
+        "keyword": "김혜자"
       },
       {
         "rank": 4,
-        "keyword": "경기도교육감"
+        "keyword": "trick or treat"
       },
       {
         "rank": 5,
-        "keyword": "intc"
+        "keyword": "크랙"
       },
       {
         "rank": 6,
-        "keyword": "원자력"
+        "keyword": "한화시스템"
       },
       {
         "rank": 7,
-        "keyword": "은마아파트"
+        "keyword": "김민"
       },
       {
         "rank": 8,
-        "keyword": "에릭남"
+        "keyword": "경기도교육감"
       },
       {
         "rank": 9,
-        "keyword": "가을"
+        "keyword": "intc"
       },
       {
         "rank": 10,
-        "keyword": "전두환"
+        "keyword": "원자력"
       }
     ],
     "daum": [
@@ -170,29 +170,86 @@
       },
       {
         "rank": 5,
-        "keyword": "기안84 유리 선물"
+        "keyword": "김민자 배우"
       },
       {
         "rank": 6,
-        "keyword": "정철승 변호사"
+        "keyword": "김영웅 수비 실책"
       },
       {
         "rank": 7,
-        "keyword": "김영웅 포구 실책"
+        "keyword": "전원일기"
       },
       {
         "rank": 8,
-        "keyword": "이서진 하지원 23년 만에"
+        "keyword": "KIA 전상현 김태군 베터리"
       },
       {
         "rank": 9,
-        "keyword": "수사반장"
+        "keyword": "김수미 임호 사진"
       },
       {
         "rank": 10,
-        "keyword": "f1 선수"
+        "keyword": "기안84 유리 선물"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "43세 신민아, 운동·식단 없이 몸매 유지했는데…“이젠 바지도 안 맞아”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261030/134942028/1",
+      "publishedAt": "수집 10. 31. 01:29 KST",
+      "publishedOrder": 1793377744439
+    },
+    {
+      "title": "66세 이미숙, 뒤늦게 주식 뛰어들었다가 ‘폭망’…“남 돈 버는 꼴 못 봐”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261030/134942011/1",
+      "publishedAt": "수집 10. 31. 01:29 KST",
+      "publishedOrder": 1793377744439
+    },
+    {
+      "title": "‘동두천 자연인’ 김민, 만 원짜리 운동화 신고 계주 도전 (나혼산)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261030/134941163/1",
+      "publishedAt": "수집 10. 31. 01:29 KST",
+      "publishedOrder": 1793377744439
+    },
+    {
+      "title": "진성·안성훈·박군 총출동…토탈셋, 이브에 트로트 축제 연다",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261030/134941156/1",
+      "publishedAt": "수집 10. 31. 01:29 KST",
+      "publishedOrder": 1793377744439
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 10. 31. 01:29 KST",
+      "publishedOrder": 1793377743215
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 10. 31. 01:29 KST",
+      "publishedOrder": 1793377743215
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 10. 31. 01:29 KST",
+      "publishedOrder": 1793377743215
+    },
+    {
+      "title": "차예련 측, \"뺨 때려 고막 찢어져\" 학폭 여배우 의혹에 \"사실무근\" [공식]",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/10/30/2026103015122356508",
+      "publishedAt": "수집 10. 31. 01:29 KST",
+      "publishedOrder": 1793377743215
+    }
+  ]
 }

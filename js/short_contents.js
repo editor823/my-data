@@ -272,37 +272,65 @@
 
   // 실시간 갱신 시도 (네트워크 환경에 따라 실패 시 정적 데이터 유지)
   async function fetchLiveShortents() {
-    try {
-      const res = await fetch('https://www.boutique-info.com/api/keyword-center?action=getShortents', {
-        cache: 'no-store'
-      });
-      if (!res.ok) return;
-      const data = await res.json();
-      if (data && data.success && Array.isArray(data.topics)) {
-        const fresh = {};
-        for (const t of data.topics) {
-          if (Array.isArray(t.items)) {
-            fresh[t.category] = t.items.map(it => ({
-              rank: it.rank,
-              title: it.keyword,
-              desc: it.articleTitle || '',
-              time: it.date || '',
-              thumb: it.image || 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=120&auto=format&fit=crop&q=60',
-              source: 'N',
-              link: it.link || ''
-            }));
+    const urls = [
+      'data/shortents_live.json?_t=' + Date.now(),
+      'https://www.boutique-info.com/api/keyword-center?action=getShortents&_t=' + Date.now()
+    ];
+
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) continue;
+        const data = await res.json();
+        
+        // shortents_live.json 구조인 경우 (data.data)
+        if (data && data.data && typeof data.data === 'object' && Object.keys(data.data).length > 0) {
+          shortData = data.data;
+          renderList();
+          updateShortTime(data.updatedAt);
+          return;
+        }
+
+        // 원본 boutique API topics 구조인 경우
+        if (data && data.success && Array.isArray(data.topics)) {
+          const fresh = {};
+          for (const t of data.topics) {
+            if (Array.isArray(t.items)) {
+              fresh[t.category] = t.items.map(it => ({
+                rank: it.rank,
+                title: it.keyword,
+                desc: it.articleTitle || '',
+                time: it.date || '',
+                thumb: it.image || 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=120&auto=format&fit=crop&q=60',
+                source: 'N',
+                link: it.link || ''
+              }));
+            }
+          }
+          if (Object.keys(fresh).length > 0) {
+            shortData = fresh;
+            renderList();
+            updateShortTime();
+            return;
           }
         }
-        shortData = fresh;
-        renderList();
+      } catch (_) {
+        // 다음 URL 시도
       }
-    } catch (_) {
-      // CORS 또는 오프라인인 경우 shortData(정적 캐시 260개) 그대로 유지
     }
   }
 
+  function updateShortTime(isoTimeStr) {
+    const timeEl = document.getElementById('shortContentsTime');
+    if (!timeEl) return;
+    const now = isoTimeStr ? new Date(isoTimeStr) : new Date();
+    const hh = String(now.getHours()).padStart(2, '0');
+    const mm = String(now.getMinutes()).padStart(2, '0');
+    timeEl.textContent = `조회 ${hh}:${mm}`;
+  }
+
   function initShortContents() {
-    // 만약 window.SHORTENTS_STATIC_DATA 가 뒤늦게 로드되었을 경우 보정
+    // 1. window.SHORTENTS_STATIC_DATA 로드
     if ((!shortData || Object.keys(shortData).length === 0) && typeof window.SHORTENTS_STATIC_DATA === 'object') {
       shortData = window.SHORTENTS_STATIC_DATA;
     }
@@ -325,15 +353,10 @@
 
     renderList();
     setupDialogEvents();
+    updateShortTime();
 
-      // 현재 시간 표시 (예: 조회 15:55)
-    const timeEl = document.getElementById('shortContentsTime');
-    if (timeEl) {
-      const now = new Date();
-      const hh = String(now.getHours()).padStart(2, '0');
-      const mm = String(now.getMinutes()).padStart(2, '0');
-      timeEl.textContent = `조회 ${hh}:${mm}`;
-    }
+    // 2. 실시간 라이브 데이터 즉시 동기화 호출!
+    fetchLiveShortents();
   }
 
   if (document.readyState === 'loading') {

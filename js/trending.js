@@ -94,8 +94,15 @@ async function fetchSmartJson(primaryUrl, fallbackUrls = []) {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 6000); // 6초 타임아웃
 
-      const response = await fetch(url, {
+      // 강력한 브라우저 캐시 방지 (캐시 버스팅)
+      const sep = url.includes('?') ? '&' : '?';
+      const fetchUrl = url.startsWith('http') || url.startsWith('data/') || url.includes('.json')
+        ? (url + sep + '_t=' + Date.now())
+        : url;
+
+      const response = await fetch(fetchUrl, {
         method: 'GET',
+        cache: 'no-store',
         signal: controller.signal
       });
       clearTimeout(timeoutId);
@@ -210,7 +217,7 @@ async function fetchTrendingKeywords(isManualRefresh = false) {
     } else {
       renderTrendingData(FALLBACK_TRENDING);
     }
-    updateTimestamp();
+    updateTimestamp(result.updatedAt || result.updatedAtKst);
 
     if (isManualRefresh && typeof window.showToast === 'function') {
       window.showToast('5대 포털 실시간 급상승어가 최신으로 갱신되었습니다! 🔄');
@@ -395,10 +402,17 @@ function formatKoreanTime(date = new Date()) {
 /**
  * 마지막 갱신 시각 업데이트
  */
-function updateTimestamp() {
+function updateTimestamp(serverTime) {
   const timeEl = document.getElementById('trending-update-time');
-  if (!timeEl) return;
-  timeEl.textContent = `마지막 갱신 ${formatKoreanTime()}`;
+  if (timeEl) {
+    timeEl.textContent = `마지막 갱신 ${formatKoreanTime()}`;
+  }
+
+  const serverTimeEl = document.getElementById('trending-server-time');
+  if (serverTimeEl) {
+    const sDate = serverTime ? new Date(serverTime) : new Date();
+    serverTimeEl.textContent = `조회 ${formatKoreanTime(sDate)} · 서버 저장본 최대 15분 재사용`;
+  }
 }
 
 /**

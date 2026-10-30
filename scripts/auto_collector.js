@@ -209,7 +209,44 @@ async function collectKeywordCenterData() {
   }
 }
 
-// 5. 일일 수집 실행 메인 함수
+// 5. 실시간 숏텐츠 (13개 카테고리 전체) 자동 수집 및 최신화
+async function collectShortContentsData() {
+  console.log('📡 [3/3] 실시간 숏텐츠 (Short Contents 13개 카테고리) 데이터 수집 시작...');
+  const ts = Date.now();
+  const shortentsUrl = `https://www.boutique-info.com/api/keyword-center?action=getShortents&_t=${ts}`;
+
+  try {
+    const res = await fetchJson(shortentsUrl, 15000);
+    if (res && res.success && Array.isArray(res.topics)) {
+      const fresh = {};
+      for (const t of res.topics) {
+        if (Array.isArray(t.items)) {
+          fresh[t.category] = t.items.map(it => ({
+            rank: it.rank,
+            title: it.keyword,
+            desc: it.articleTitle || '',
+            time: it.date || '',
+            thumb: it.image || 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=120&auto=format&fit=crop&q=60',
+            source: 'N',
+            link: it.link || ''
+          }));
+        }
+      }
+
+      const pJs = path.join(__dirname, '..', 'data', 'shortents_data.js');
+      fs.writeFileSync(pJs, `window.SHORTENTS_STATIC_DATA = ${JSON.stringify(fresh)};`, 'utf8');
+
+      const pJson = path.join(__dirname, '..', 'data', 'shortents_live.json');
+      fs.writeFileSync(pJson, JSON.stringify({ success: true, updatedAt: new Date().toISOString(), topics: res.topics, data: fresh }, null, 2), 'utf8');
+
+      console.log('  ✅ 실시간 숏텐츠 데이터 동기화 완료 (13개 카테고리 260개 최신 항목)');
+    }
+  } catch (e) {
+    console.warn('  ⚠️ 실시간 숏텐츠 원본 갱신 실패:', e.message);
+  }
+}
+
+// 6. 일일 수집 실행 메인 함수
 async function runDailyCollector() {
   try {
     console.log(`[${new Date().toISOString()}] 🚀 일일 자동 수집 가동 시작...`);
@@ -219,6 +256,9 @@ async function runDailyCollector() {
 
     // (2) 키워드 센터 & 바이럴 숏폼 최신화
     await collectKeywordCenterData();
+
+    // (3) 실시간 숏텐츠 최신화
+    await collectShortContentsData();
 
     console.log(`[${new Date().toISOString()}] 🎉 일일 자동 갱신 완료!`);
   } catch (error) {
