@@ -6,8 +6,8 @@ on:
       - 'scripts/auto_collector.js'
       - '.github/workflows/daily_collector.yml'
   schedule:
-    # 매 2시간마다 정기 자동 실행 (매일 최신 트렌드/숏텐츠/키워드 동기화 유지)
-    - cron: '0 */2 * * *'
+    # 6시간마다 정기 자동 실행 (한국 시간 기준 06:00, 12:00, 18:00, 24:00 하루 4회 / UTC 21:00, 03:00, 09:00, 15:00)
+    - cron: '0 21,3,9,15 * * *'
   workflow_dispatch: # 관리자가 깃허브에서 수동으로 '지금 실행' 버튼을 누를 수도 있음
 
 jobs:
