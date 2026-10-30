@@ -167,7 +167,7 @@ async function collectTrendingAndNews() {
 async function collectKeywordCenterData() {
   console.log('📡 [2/3] 키워드 센터 및 바이럴 숏폼 데이터 수집 시작...');
   const ts = Date.now();
-  const kcUrl = `https://www.boutique-info.com/api/keyword-center?action=getDailyKeywordCenter&_t=${ts}`;
+  const kcUrl = `https://www.boutique-info.com/api/keyword-center?action=getDailyKeywordCenter&paidAccessKey=AAAB4Z6KNMC6EYW5&_t=${ts}`;
   const shortsUrl = `https://www.boutique-info.com/api/keyword-center?action=searchViralShorts&keyword=&period=week&sort=views&shorts=all&_t=${ts}`;
 
   try {

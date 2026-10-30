@@ -1212,8 +1212,15 @@ function getBaseItemsByTabType(type) {
   let list = [];
 
   switch (type) {
-    case 'type-1': // [1. 황금키워드]
-      list = cats.golden || [];
+    case 'type-1': // [1. 황금키워드] - 원본과 100% 동일하게 블로그 문서수 오름차순(빈집 저경쟁 순) 정렬
+      {
+        const rawGolden = cats.golden || [];
+        list = rawGolden.slice().sort((a, b) => {
+          const bcA = a.blogCount == null ? Infinity : Number(a.blogCount);
+          const bcB = b.blogCount == null ? Infinity : Number(b.blogCount);
+          return bcA - bcB || (Number(b.total || 0) - Number(a.total || 0));
+        });
+      }
       break;
     case 'type-2': // [2. 제휴마케팅 키워드]
       list = cats.shopping || [];
@@ -1451,7 +1458,7 @@ function renderDualLaneTab(type) {
           <div class="kc-orig-body">
             <div class="kc-orig-title">${escapeHtml(displayKw)}</div>
             <div class="kc-orig-subline">
-              <span style="color: #059669; font-weight: 800;">✨ 추천 키워드</span>
+              <span style="color: #059669; font-weight: 800;">${/사용자 네이버 트렌드 엑셀/.test(String(item.sourceType || '')) ? '엑셀 검증' : '✨ 추천 키워드'}</span>
               <span style="color: #2563eb; font-weight: 800;">${escapeHtml(cat)}</span>
             </div>
             <div class="kc-orig-chips-wrap">
