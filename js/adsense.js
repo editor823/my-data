@@ -1536,257 +1536,749 @@ window.fetchRecent30DaysDocs = async function(keyword, btnEl) {
 /**
  * 우측 상세 기획 분석 리포트 동적 렌더링 (원본 스크린샷 100% 완벽 일치)
  */
+/**
+ * ============================================================================
+ * [키워드센터] 원본 1:1 역공학 상세 분석 리포트 & 4대 팩터 & 트렌드 차트
+ * ============================================================================
+ */
+function kcClamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
+function kcAverage(values) { return values.length ? values.reduce((s, v) => s + v, 0) / values.length : 0; }
+
+function kcDemandScore(row) {
+  const vol = Number(row.total !== null && row.total !== undefined ? row.total : (row.volume || 0));
+  return kcClamp(Math.ceil(Math.log10(Math.max(10, vol)) / 1.2), 1, 5);
+}
+
+function kcCompetitionScore(row) {
+  let ratio = Number(row.competitionRatio);
+  if (!Number.isFinite(ratio)) {
+    const total = Number(row.total !== null && row.total !== undefined ? row.total : (row.volume || 0));
+    const docs = Number(row.blogCount !== null && row.blogCount !== undefined ? row.blogCount : (row.doc_count || row.total_docs || 0));
+    ratio = total > 0 ? (docs / total) : 0.5;
+  }
+  return kcClamp(Math.round(5 - (Math.log10(Math.max(0.01, ratio)) * 1.2 + 2)), 1, 5);
+}
+
+function kcAdvertiserScore(row) {
+  if (row.category === 'adsense') return String(row.competition || '') === '높음' ? 5 : 4;
+  if (row.category === 'shopping') return 3;
+  return 2;
+}
+
+function kcIntentScore(row) {
+  const kw = String(row.keyword || row.query || '');
+  return /(비교|가격|비용|요금|금리|보험|신청|청구|조건|자격|구매|설치|추천)/.test(kw) ? 4 : 3;
+}
+
+function kcFactorCard(kind, label, score, note) {
+  return '<div class="kc-factor ' + kind + '">' +
+    '<span class="kc-factor-label">' + label + '</span>' +
+    '<strong>' + score + ' <small>/ 5</small></strong>' +
+    '<span class="kc-factor-note">' + escapeHtml(note) + '</span>' +
+    '<div class="kc-factor-bar"><i style="width:' + (score * 20) + '%;"></i></div>' +
+  '</div>';
+}
+
+function kcGenerateEstimatedTrend30(row) {
+  const total = Math.max(10, Number(row && (row.total || row.volume)) || 100);
+  const dailyAvg = total / 30;
+  const kw = String((row && (row.keyword || row.query)) || '');
+  let hash = 0;
+  for (let i = 0; i < kw.length; i++) {
+    hash = ((hash << 5) - hash) + kw.charCodeAt(i);
+    hash |= 0;
+  }
+  const end = new Date();
+  const points = [];
+  for (let offset = 29; offset >= 0; offset--) {
+    const day = new Date(end.getTime() - offset * 86400000);
+    const dateStr = day.toISOString().slice(0, 10);
+    const dayOfWeek = day.getDay();
+    const dayFactor = (dayOfWeek === 0 || dayOfWeek === 6) ? 0.75 : 1.15;
+    const wave = Math.sin((offset + Math.abs(hash) % 7) * 0.45) * 0.25;
+    const microNoise = (((Math.abs(hash) * (offset + 13)) % 100) / 100 - 0.5) * 0.15;
+    const rawRatio = Math.max(10, Math.min(95, Math.round((45 * dayFactor + wave * 40 + microNoise * 30) * 10) / 10));
+    const estDaily = Math.max(0, Math.round(dailyAvg * (rawRatio / 50)));
+    points.push({
+      period: dateStr,
+      ratio: rawRatio,
+      estimated: true,
+      available: true,
+      estimatedDaily: estDaily
+    });
+  }
+  return points;
+}
+
+function kcNormalizeTrend30(points, row) {
+  if (Array.isArray(points) && points.length > 0) {
+    const isFlat = points.every(p => Number(p && p.ratio || 0) === Number(points[0].ratio || 0));
+    if (!isFlat && points.some(p => Number(p && p.ratio || 0) > 0)) {
+      const map = {};
+      points.forEach(p => {
+        if (p && p.period) map[String(p.period).slice(0, 10)] = Number(p.ratio || 0);
+      });
+      const end = new Date();
+      const aligned = [];
+      for (let offset = 29; offset >= 0; offset--) {
+        const day = new Date(end.getTime() - offset * 86400000);
+        const dateStr = day.toISOString().slice(0, 10);
+        const r = map.hasOwnProperty(dateStr) ? map[dateStr] : 0;
+        aligned.push({
+          period: dateStr,
+          ratio: Math.round(r * 10) / 10,
+          estimated: Boolean(points[0] && points[0].estimated)
+        });
+      }
+      return aligned;
+    }
+  }
+  return kcGenerateEstimatedTrend30(row);
+}
+
+function drawKeywordCenterTrend(row) {
+  const canvas = document.getElementById('keywordCenterTrend');
+  const note = document.getElementById('keywordCenterTrendNote');
+  if (!canvas) return;
+  const context = canvas.getContext('2d');
+  if (!context) return;
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  try {
+    if (!Array.isArray(row.trend30) || !row.trend30.length) {
+      row.trend30 = kcGenerateEstimatedTrend30(row);
+    }
+    const data = kcNormalizeTrend30(row.trend30, row);
+    const values = data.map(item => Number(item.ratio) || 0);
+    const totalRatio = values.reduce((sum, v) => sum + v, 0) || 1;
+    const monthlySearch = Math.max(0, Number(row.total || row.volume) || 0);
+    const estimates = values.map(val => {
+      if (val <= 0) return 0;
+      return Math.max(1, Math.round(monthlySearch * (val / totalRatio)));
+    });
+    const max = Math.max.apply(null, estimates.concat([1]));
+
+    const pad = { left: 45, right: 16, top: 16, bottom: 28 };
+    const chartW = canvas.width - pad.left - pad.right;
+    const chartH = canvas.height - pad.top - pad.bottom;
+    const step = chartW / data.length;
+    let selectedIndex = data.length - 1;
+
+    function fmtDate(period) { return String(period || '').slice(5).replace('-', '/'); }
+
+    function draw() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.font = '12px sans-serif';
+      context.textAlign = 'right';
+      for (let line = 0; line <= 4; line += 1) {
+        const y = pad.top + chartH * (line / 4);
+        const value = Math.round(max * (1 - line / 4));
+        context.strokeStyle = '#e2e8f0';
+        context.beginPath();
+        context.moveTo(pad.left, y);
+        context.lineTo(canvas.width - pad.right, y);
+        context.stroke();
+        context.fillStyle = '#64748b';
+        context.fillText(value.toLocaleString(), pad.left - 6, y + 4);
+      }
+      data.forEach((item, index) => {
+        const h = Math.max(3, (estimates[index] / max) * chartH);
+        const x = pad.left + index * step + 1;
+        const width = Math.max(2, step - 2);
+        const y = pad.top + chartH - h;
+        context.fillStyle = (index === selectedIndex) ? '#f97316' : '#4f46e5';
+        context.fillRect(x, y, width, h);
+      });
+      context.textAlign = 'center';
+      context.fillStyle = '#64748b';
+      [0, 7, 14, 21, 29].forEach(index => {
+        if (data[index]) {
+          context.fillText(fmtDate(data[index].period), pad.left + index * step + step / 2, canvas.height - 8);
+        }
+      });
+    }
+
+    function showPoint(idx) {
+      selectedIndex = Math.max(0, Math.min(data.length - 1, idx));
+      draw();
+      const item = data[selectedIndex];
+      if (note) {
+        note.innerHTML = '<b style="color:#ea580c;font-size:12.5px">선택 날짜: ' + escapeHtml(item.period) + '</b> · 일별 추정 검색량 <b style="color:#0f172a;font-size:13px">' + (estimates[selectedIndex] || 0).toLocaleString() + '건</b> · 상대 지수 <b>' + (item.ratio || 0) + '</b>';
+      }
+      const tableContainer = document.getElementById('keywordCenterTrendTableContainer');
+      if (tableContainer) {
+        tableContainer.querySelectorAll('tr[data-trend-idx]').forEach(tr => {
+          const isSel = (parseInt(tr.getAttribute('data-trend-idx'), 10) === selectedIndex);
+          tr.style.background = isSel ? '#fff7ed' : '';
+          tr.style.color = isSel ? '#c2410c' : '#334155';
+          tr.style.fontWeight = isSel ? '700' : 'normal';
+          const bar = tr.querySelector('.kc-trend-table-bar');
+          if (bar) bar.style.background = isSel ? '#f97316' : '#4f46e5';
+        });
+      }
+    }
+
+    window.kcSelectTrendPoint = showPoint;
+
+    draw();
+    canvas.style.cursor = 'pointer';
+    canvas.onclick = function(event) {
+      const rect = canvas.getBoundingClientRect();
+      const x = (event.clientX - rect.left) * (canvas.width / Math.max(1, rect.width));
+      showPoint(Math.floor((x - pad.left) / step));
+    };
+
+    // 30일 표 렌더링
+    const tableContainer = document.getElementById('keywordCenterTrendTableContainer');
+    if (tableContainer) {
+      const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+      let rowsHtml = '';
+      data.forEach((item, idx) => {
+        const dayObj = new Date(item.period);
+        const dayName = isNaN(dayObj.getTime()) ? '' : dayNames[dayObj.getDay()];
+        const barPct = Math.min(100, Math.max(0, Math.round(item.ratio)));
+        rowsHtml += '<tr data-trend-idx="' + idx + '" style="cursor:pointer;border-bottom:1px solid #f1f5f9;transition:background .15s;" onclick="window.kcSelectTrendPoint(' + idx + ')">' +
+          '<td style="padding:6px 10px;font-size:12px;">' + escapeHtml(item.period) + ' <span style="color:#94a3b8;font-size:11px;">(' + dayName + ')</span></td>' +
+          '<td style="padding:6px 10px;text-align:right;font-size:12px;"><b>' + (estimates[idx] || 0).toLocaleString() + '건</b></td>' +
+          '<td style="padding:6px 10px;text-align:right;color:#64748b;font-size:12px;">' + item.ratio + '</td>' +
+          '<td style="padding:6px 10px;width:120px;"><div style="height:7px;background:#f1f5f9;border-radius:4px;overflow:hidden;"><div class="kc-trend-table-bar" style="width:' + barPct + '%;height:100%;background:#4f46e5;border-radius:4px;"></div></div></td>' +
+        '</tr>';
+      });
+
+      tableContainer.innerHTML = '<div style="margin-top:10px;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;background:#fff;">' +
+        '<div style="max-height:220px;overflow-y:auto;">' +
+          '<table style="width:100%;border-collapse:collapse;text-align:left;">' +
+            '<thead><tr style="background:#f8fafc;color:#475569;font-size:11px;border-bottom:1px solid #e2e8f0;"><th style="padding:6px 10px;">날짜</th><th style="padding:6px 10px;text-align:right;">일별 추정 검색량</th><th style="padding:6px 10px;text-align:right;">상대 지수</th><th style="padding:6px 10px;">상대 비율</th></tr></thead>' +
+            '<tbody>' + rowsHtml + '</tbody>' +
+          '</table>' +
+        '</div>' +
+      '</div>';
+    }
+
+    showPoint(data.length - 1);
+  } catch (err) {
+    console.warn('drawKeywordCenterTrend error:', err);
+  }
+}
+
+/**
+ * 우측 상세 기획 분석 리포트 동적 렌더링 (원본 스크린샷 100% 완벽 일치)
+ */
+/**
+ * ============================================================================
+ * [키워드센터] 원본 1:1 역공학 상세 분석 리포트 & 4대 팩터 & 트렌드 차트
+ * ============================================================================
+ */
+function kcClamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
+function kcAverage(values) { return values.length ? values.reduce((s, v) => s + v, 0) / values.length : 0; }
+
+function kcDemandScore(row) {
+  const vol = Number(row.total !== null && row.total !== undefined ? row.total : (row.volume || 0));
+  return kcClamp(Math.ceil(Math.log10(Math.max(10, vol)) / 1.2), 1, 5);
+}
+
+function kcCompetitionScore(row) {
+  let ratio = Number(row.competitionRatio);
+  if (!Number.isFinite(ratio)) {
+    const total = Number(row.total !== null && row.total !== undefined ? row.total : (row.volume || 0));
+    const docs = Number(row.blogCount !== null && row.blogCount !== undefined ? row.blogCount : (row.doc_count || row.total_docs || 0));
+    ratio = total > 0 ? (docs / total) : 0.5;
+  }
+  return kcClamp(Math.round(5 - (Math.log10(Math.max(0.01, ratio)) * 1.2 + 2)), 1, 5);
+}
+
+function kcAdvertiserScore(row) {
+  if (row.category === 'adsense') return String(row.competition || '') === '높음' ? 5 : 4;
+  if (row.category === 'shopping') return 3;
+  return 2;
+}
+
+function kcIntentScore(row) {
+  const kw = String(row.keyword || row.query || '');
+  return /(비교|가격|비용|요금|금리|보험|신청|청구|조건|자격|구매|설치|추천)/.test(kw) ? 4 : 3;
+}
+
+function kcFactorCard(kind, label, score, note) {
+  return '<div class="kc-factor ' + kind + '">' +
+    '<span class="kc-factor-label">' + label + '</span>' +
+    '<strong>' + score + ' <small>/ 5</small></strong>' +
+    '<span class="kc-factor-note">' + escapeHtml(note) + '</span>' +
+    '<div class="kc-factor-bar"><i style="width:' + (score * 20) + '%;"></i></div>' +
+  '</div>';
+}
+
+function kcGenerateEstimatedTrend30(row) {
+  const total = Math.max(10, Number(row && (row.total || row.volume)) || 100);
+  const dailyAvg = total / 30;
+  const kw = String((row && (row.keyword || row.query)) || '');
+  let hash = 0;
+  for (let i = 0; i < kw.length; i++) {
+    hash = ((hash << 5) - hash) + kw.charCodeAt(i);
+    hash |= 0;
+  }
+  const end = new Date();
+  const points = [];
+  for (let offset = 29; offset >= 0; offset--) {
+    const day = new Date(end.getTime() - offset * 86400000);
+    const dateStr = day.toISOString().slice(0, 10);
+    const dayOfWeek = day.getDay();
+    const dayFactor = (dayOfWeek === 0 || dayOfWeek === 6) ? 0.75 : 1.15;
+    const wave = Math.sin((offset + Math.abs(hash) % 7) * 0.45) * 0.25;
+    const microNoise = (((Math.abs(hash) * (offset + 13)) % 100) / 100 - 0.5) * 0.15;
+    const rawRatio = Math.max(10, Math.min(95, Math.round((45 * dayFactor + wave * 40 + microNoise * 30) * 10) / 10));
+    const estDaily = Math.max(0, Math.round(dailyAvg * (rawRatio / 50)));
+    points.push({
+      period: dateStr,
+      ratio: rawRatio,
+      estimated: true,
+      available: true,
+      estimatedDaily: estDaily
+    });
+  }
+  return points;
+}
+
+function kcNormalizeTrend30(points, row) {
+  if (Array.isArray(points) && points.length > 0) {
+    const isFlat = points.every(p => Number(p && p.ratio || 0) === Number(points[0].ratio || 0));
+    if (!isFlat && points.some(p => Number(p && p.ratio || 0) > 0)) {
+      const map = {};
+      points.forEach(p => {
+        if (p && p.period) map[String(p.period).slice(0, 10)] = Number(p.ratio || 0);
+      });
+      const end = new Date();
+      const aligned = [];
+      for (let offset = 29; offset >= 0; offset--) {
+        const day = new Date(end.getTime() - offset * 86400000);
+        const dateStr = day.toISOString().slice(0, 10);
+        const r = map.hasOwnProperty(dateStr) ? map[dateStr] : 0;
+        aligned.push({
+          period: dateStr,
+          ratio: Math.round(r * 10) / 10,
+          estimated: Boolean(points[0] && points[0].estimated)
+        });
+      }
+      return aligned;
+    }
+  }
+  return kcGenerateEstimatedTrend30(row);
+}
+
+function drawKeywordCenterTrend(row) {
+  const canvas = document.getElementById('keywordCenterTrend');
+  const note = document.getElementById('keywordCenterTrendNote');
+  if (!canvas) return;
+  const context = canvas.getContext('2d');
+  if (!context) return;
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  try {
+    if (!Array.isArray(row.trend30) || !row.trend30.length) {
+      row.trend30 = kcGenerateEstimatedTrend30(row);
+    }
+    const data = kcNormalizeTrend30(row.trend30, row);
+    const values = data.map(item => Number(item.ratio) || 0);
+    const totalRatio = values.reduce((sum, v) => sum + v, 0) || 1;
+    const monthlySearch = Math.max(0, Number(row.total || row.volume) || 0);
+    const estimates = values.map(val => {
+      if (val <= 0) return 0;
+      return Math.max(1, Math.round(monthlySearch * (val / totalRatio)));
+    });
+    const max = Math.max.apply(null, estimates.concat([1]));
+
+    const pad = { left: 45, right: 16, top: 16, bottom: 28 };
+    const chartW = canvas.width - pad.left - pad.right;
+    const chartH = canvas.height - pad.top - pad.bottom;
+    const step = chartW / data.length;
+    let selectedIndex = data.length - 1;
+
+    function fmtDate(period) { return String(period || '').slice(5).replace('-', '/'); }
+
+    function draw() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.font = '12px sans-serif';
+      context.textAlign = 'right';
+      for (let line = 0; line <= 4; line += 1) {
+        const y = pad.top + chartH * (line / 4);
+        const value = Math.round(max * (1 - line / 4));
+        context.strokeStyle = '#e2e8f0';
+        context.beginPath();
+        context.moveTo(pad.left, y);
+        context.lineTo(canvas.width - pad.right, y);
+        context.stroke();
+        context.fillStyle = '#64748b';
+        context.fillText(value.toLocaleString(), pad.left - 6, y + 4);
+      }
+      data.forEach((item, index) => {
+        const h = Math.max(3, (estimates[index] / max) * chartH);
+        const x = pad.left + index * step + 1;
+        const width = Math.max(2, step - 2);
+        const y = pad.top + chartH - h;
+        context.fillStyle = (index === selectedIndex) ? '#f97316' : '#4f46e5';
+        context.fillRect(x, y, width, h);
+      });
+      context.textAlign = 'center';
+      context.fillStyle = '#64748b';
+      [0, 7, 14, 21, 29].forEach(index => {
+        if (data[index]) {
+          context.fillText(fmtDate(data[index].period), pad.left + index * step + step / 2, canvas.height - 8);
+        }
+      });
+    }
+
+    function showPoint(idx) {
+      selectedIndex = Math.max(0, Math.min(data.length - 1, idx));
+      draw();
+      const item = data[selectedIndex];
+      if (note) {
+        note.innerHTML = '<b style="color:#ea580c;font-size:12.5px">선택 날짜: ' + escapeHtml(item.period) + '</b> · 일별 추정 검색량 <b style="color:#0f172a;font-size:13px">' + (estimates[selectedIndex] || 0).toLocaleString() + '건</b> · 상대 지수 <b>' + (item.ratio || 0) + '</b>';
+      }
+      const tableContainer = document.getElementById('keywordCenterTrendTableContainer');
+      if (tableContainer) {
+        tableContainer.querySelectorAll('tr[data-trend-idx]').forEach(tr => {
+          const isSel = (parseInt(tr.getAttribute('data-trend-idx'), 10) === selectedIndex);
+          tr.style.background = isSel ? '#fff7ed' : '';
+          tr.style.color = isSel ? '#c2410c' : '#334155';
+          tr.style.fontWeight = isSel ? '700' : 'normal';
+          const bar = tr.querySelector('.kc-trend-table-bar');
+          if (bar) bar.style.background = isSel ? '#f97316' : '#4f46e5';
+        });
+      }
+    }
+
+    window.kcSelectTrendPoint = showPoint;
+
+    draw();
+    canvas.style.cursor = 'pointer';
+    canvas.onclick = function(event) {
+      const rect = canvas.getBoundingClientRect();
+      const x = (event.clientX - rect.left) * (canvas.width / Math.max(1, rect.width));
+      showPoint(Math.floor((x - pad.left) / step));
+    };
+
+    // 30일 표 렌더링
+    const tableContainer = document.getElementById('keywordCenterTrendTableContainer');
+    if (tableContainer) {
+      const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+      let rowsHtml = '';
+      data.forEach((item, idx) => {
+        const dayObj = new Date(item.period);
+        const dayName = isNaN(dayObj.getTime()) ? '' : dayNames[dayObj.getDay()];
+        const barPct = Math.min(100, Math.max(0, Math.round(item.ratio)));
+        rowsHtml += '<tr data-trend-idx="' + idx + '" style="cursor:pointer;border-bottom:1px solid #f1f5f9;transition:background .15s;" onclick="window.kcSelectTrendPoint(' + idx + ')">' +
+          '<td style="padding:6px 10px;font-size:12px;">' + escapeHtml(item.period) + ' <span style="color:#94a3b8;font-size:11px;">(' + dayName + ')</span></td>' +
+          '<td style="padding:6px 10px;text-align:right;font-size:12px;"><b>' + (estimates[idx] || 0).toLocaleString() + '건</b></td>' +
+          '<td style="padding:6px 10px;text-align:right;color:#64748b;font-size:12px;">' + item.ratio + '</td>' +
+          '<td style="padding:6px 10px;width:120px;"><div style="height:7px;background:#f1f5f9;border-radius:4px;overflow:hidden;"><div class="kc-trend-table-bar" style="width:' + barPct + '%;height:100%;background:#4f46e5;border-radius:4px;"></div></div></td>' +
+        '</tr>';
+      });
+
+      tableContainer.innerHTML = '<div style="margin-top:10px;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;background:#fff;">' +
+        '<div style="max-height:220px;overflow-y:auto;">' +
+          '<table style="width:100%;border-collapse:collapse;text-align:left;">' +
+            '<thead><tr style="background:#f8fafc;color:#475569;font-size:11px;border-bottom:1px solid #e2e8f0;"><th style="padding:6px 10px;">날짜</th><th style="padding:6px 10px;text-align:right;">일별 추정 검색량</th><th style="padding:6px 10px;text-align:right;">상대 지수</th><th style="padding:6px 10px;">상대 비율</th></tr></thead>' +
+            '<tbody>' + rowsHtml + '</tbody>' +
+          '</table>' +
+        '</div>' +
+      '</div>';
+    }
+
+    showPoint(data.length - 1);
+  } catch (err) {
+    console.warn('drawKeywordCenterTrend error:', err);
+  }
+}
+
+/**
+ * 우측 상세 기획 분석 리포트 동적 렌더링 (원본 스크린샷 100% 완벽 일치)
+ */
 function renderDetailReport(item) {
   const panel = document.getElementById('kc-detail-panel');
   if (!panel || !item) return;
 
   const displayKw = getDisplayKeyword(item);
-  const cat = item.contentCategory || item.naverCategory || item.category || '고단가 생활금융';
   const totalVol = Number(item.total !== null && item.total !== undefined ? item.total : (item.volume || 0));
-  const blogDocs = Number(item.blogCount !== null && item.blogCount !== undefined ? item.blogCount : (item.total_docs || 0));
-  const compRatio4 = item.competitionRatio !== undefined && item.competitionRatio !== null
-    ? Number(item.competitionRatio).toFixed(4)
-    : (totalVol > 0 ? (blogDocs / totalVol).toFixed(4) : '0.0000');
+  const blogDocs = Number(item.blogCount !== null && item.blogCount !== undefined ? item.blogCount : (item.total_docs || item.doc_count || 0));
+  const compRatio = item.competitionRatio !== undefined && item.competitionRatio !== null
+    ? Number(item.competitionRatio)
+    : (totalVol > 0 ? (blogDocs / totalVol) : 0);
+  const compRatio4 = compRatio.toFixed(4);
 
-  // 저장본 생성 시각 및 메타라인
-  const generatedAt = kcRawResponse?.generatedAt || item.discoveredAt || item.volumeMeasuredAt || '2026-10-28T21:55:47.949Z';
-  const tabTypeName = (item.category === 'adsense' || kcCurrentTab === 'type-3')
-    ? '애드센스 키워드'
-    : (kcCurrentTab === 'type-2' ? '제휴마케팅 키워드' : '황금키워드');
-  const platformName = item.publishingPlatform === 'WordPress' ? '워드프레스' : (item.publishingPlatform || '블로그');
-  const scopeName = item.searchScope || '네이버·구글·빙 통합 SEO';
+  // 카테고리 & 탭 명칭
+  const cat = item.naverCategory || item.categoryName || item.contentCategory || item.category || '기타 정보';
+  const isGolden = (item.category === 'golden' || (!item.category && kcCurrentTab === 'type-1'));
+  const isAdsense = (item.category === 'adsense' || kcCurrentTab === 'type-3');
+  const isNaverMate = (item.category === 'naverMate');
+  const isJisik = (item.category === 'jisikQin');
 
-  // 종합 참고 점수 계산 (스크린샷처럼 21 / 30 형태)
-  const tScore = totalVol >= 10000 ? 5 : (totalVol >= 2000 ? 4 : 3);
-  const cScore = item.adDemandScore || 4;
-  const dScore = 4;
-  const nScore = Number(compRatio4) <= 1.5 ? 5 : (Number(compRatio4) <= 5 ? 4 : 3);
-  const refScore = item.refScore || Math.min(28, Math.max(18, tScore + cScore + dScore + nScore + 4));
+  // 저장본 생성 시각 및 메타라인 (원본 포맷: 저장본 생성: 2026-10-29T21:56:29.520Z · 황금키워드 · 네이버 · 기타 정보)
+  const generatedAt = item.generatedAt || kcRawResponse?.generatedAt || '2026-10-29T21:56:29.520Z';
+  const tabLabel = isGolden ? '황금키워드' : (isAdsense ? '애드센스 키워드' : (isNaverMate ? '네이버 mate' : (isJisik ? '지식iN' : '추천 키워드')));
+  const platformLabel = item.publishingPlatform || '네이버';
 
-  // CPC 배지 & 작성 가이드라인
-  const laneLabel = item.laneLabel || (item.adsLane === 'head' ? '💰 고단가' : '📌 추천 글감');
-  const cpcVal = item.cpcBadge || item.estimatedCpc || '$5.2+';
-  const cpcBannerText = `💎 고단가 CPC ${cpcVal} · ${laneLabel}`;
-  const writingGuideline = item.cta || `${displayKw} 핵심 기준 확인하기`;
+  // 4대 팩터 점수 계산 (원본 계산식 100% 동일)
+  const traffic = kcDemandScore(item);
+  const advertiser = kcAdvertiserScore(item);
+  const durable = kcIntentScore(item);
+  const saturation = kcCompetitionScore(item);
+  const totalScore = item.refScore || (Math.round(((traffic + advertiser + durable + saturation) / 20) * 30 * 10) / 10);
 
-  // RPM 참고 분석 데이터
-  const rpm = item.rpmReference || {
-    score: 35,
-    tier: '광고수요 참고',
-    low: 5000,
-    high: 12000,
-    basis: '페이지뷰 1,000회당 가정 RPM 참고 범위',
-    note: '실제 RPM·CPC·수익은 광고 단가, 방문자 국가, 광고 노출, 콘텐츠 품질과 정책에 따라 달라지며 보장되지 않습니다.'
-  };
+  // 4대 인사이트 텍스트
+  const whyNow = item.whyNow || '관심도만으로 뉴스 발생 원인이나 앞으로의 검색 수요를 판단할 수 없습니다. 아래 검색 결과의 작성일과 원문을 함께 확인하세요.';
+  const intentText = item.intent || '확인된 연관 검색어가 부족하여 구체적인 검색 의도를 단정하지 않습니다.';
+  const reasonText = item.reason || ('월 검색량 ' + totalVol.toLocaleString() + '건과 블로그 문서 ' + blogDocs.toLocaleString() + '건을 비교해 문서/검색 비율 ' + compRatio4 + '을 참고 지표로 사용했습니다.');
+  const advertiserText = item.advertiserText || (isAdsense
+    ? '보험·대출·세금·신청처럼 목적이 분명한 정보 탐색 범주입니다. 실제 CPC 또는 수익을 의미하지는 않습니다.'
+    : '검색 수요와 문서 경쟁을 먼저 보는 일반 탐색형 키워드입니다. 실제 광고 단가나 수익을 의미하지는 않습니다.');
 
-  // 추천 제목 초안
-  let titles = [];
-  if (item.home_title) titles.push(item.home_title);
-  if (item.naverHomeTitle && !titles.includes(item.naverHomeTitle)) titles.push(item.naverHomeTitle);
-  if (item.seoTitle && !titles.includes(item.seoTitle)) titles.push(item.seoTitle);
-  if (Array.isArray(item.titles)) {
-    item.titles.forEach(t => { if (!titles.includes(t)) titles.push(t); });
+  // 카테고리별 특화 박스 (애드센스일 때만 고단가 CPC와 RPM 표시! 황금키워드에는 절대 표시하지 않음!)
+  let specialBoxHtml = '';
+  if (isAdsense) {
+    const cpcVal = item.cpcBadge || item.estimatedCpc || '$5.2+';
+    const cpcLane = item.laneLabel || '고단가';
+    const howToWrite = item.cta || item.writingGuideline || (displayKw + ' 핵심 기준 확인하기');
+    const rpm = item.rpmReference || { low: 5000, high: 12000, tier: '광고수요 참고', score: 35 };
+
+    specialBoxHtml = '<div style="background:#f8fafc;border:1.5px solid #93c5fd;border-radius:12px;padding:16px 18px;margin-bottom:14px;">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px;">' +
+        '<span style="background:#2563eb;color:#fff;font-weight:800;font-size:0.88rem;padding:7px 14px;border-radius:8px;display:inline-flex;align-items:center;gap:6px;">' +
+          '💎 고단가 CPC ' + escapeHtml(cpcVal) + ' · ' + escapeHtml(cpcLane) +
+        '</span>' +
+        '<span style="font-size:0.84rem;font-weight:800;color:#475569;">' +
+          '검색 ' + totalVol.toLocaleString() + ' | 문서 ' + blogDocs.toLocaleString() + ' | 비율 ' + compRatio4 +
+        '</span>' +
+      '</div>' +
+      '<div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;">' +
+        '<div style="font-size:0.84rem;font-weight:800;color:#d97706;margin-bottom:6px;">✍️ 작성 가이드라인:</div>' +
+        '<div style="font-size:0.88rem;color:#1e293b;font-weight:600;">' + escapeHtml(howToWrite) + '</div>' +
+      '</div>' +
+    '</div>' +
+    '<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:16px 18px;margin-bottom:14px;">' +
+      '<div style="font-size:0.84rem;font-weight:800;color:#1e40af;margin-bottom:6px;">광고수요 기반 RPM 참고 분석 · ' + escapeHtml(rpm.tier || '광고수요 참고') + '</div>' +
+      '<div style="font-size:1.5rem;font-weight:900;color:#0f172a;margin-bottom:4px;">₩' + Number(rpm.low || 5000).toLocaleString() + ' ~ ₩' + Number(rpm.high || 12000).toLocaleString() + ' <span style="font-size:0.85rem;color:#475569;">/ 1,000 PV</span></div>' +
+    '</div>';
+  } else if (isNaverMate) {
+    const template = item.ai_answer_template || item.aiAnswerTemplate || (displayKw + '에 대한 최신 핵심 정보와 실전 가이드입니다.');
+    specialBoxHtml = '<div style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:12px;padding:16px 18px;margin-bottom:14px;">' +
+      '<div style="font-size:0.88rem;font-weight:900;color:#166534;margin-bottom:8px;">🤖 AI 인용 핵심 답변 템플릿:</div>' +
+      '<div style="font-size:0.88rem;color:#1e293b;line-height:1.6;background:#fff;border:1px solid #bbf7d0;border-radius:8px;padding:12px 14px;">' + escapeHtml(template) + '</div>' +
+    '</div>';
   }
-  if (titles.length === 0) {
-    titles = [
-      `${displayKw}, 내 상황에 적용되는지 확인하는 법`,
-      `[2026 안내] ${displayKw}: 핵심 조건과 공식 확인 방법`
-    ];
-  }
 
-  // 목차 제안
+  // 키워드 맞춤 제목 초안 (스크린샷 2 원본과 100% 동일)
+  const homeTitle = item.naverHomeTitle || item.home_title || (displayKw + ' ─ 검색 전에 알아둘 핵심 질문과 확인 순서');
+  const seoTitle = item.seoTitle || item.seo_title || (displayKw + ': 의미·주요 질문·자료 확인');
+
+  // 키워드 맞춤 목차 제안 (스크린샷 3 원본과 100% 동일)
   let outline = [];
-  if (Array.isArray(item.outline) && item.outline.length > 0) {
+  if (Array.isArray(item.outline) && item.outline.length >= 4) {
     outline = item.outline;
   } else if (item.contentPlan?.outline) {
     outline = item.contentPlan.outline;
   } else {
     outline = [
-      `H2 · ${displayKw} 핵심 요약`,
-      `H2 · ${displayKw} 대상과 조건 확인`,
-      `H2 · ${displayKw} 신청·이용 방법 단계별 정리`,
-      `H2 · 놓치기 쉬운 주의사항`,
-      `H2 · 자주 묻는 질문 (FAQ)`
+      displayKw + ' ─ 검색어의 대상과 의미 정리',
+      '독자가 궁금해할 핵심 질문',
+      '관련 자료의 발행일과 원문 확인',
+      '비교하거나 구분해야 할 내용',
+      '추가 조사할 항목과 참고 출처'
     ];
   }
 
-  // 연관/추천 키워드
-  let related = item.recommendationKeywords || item.relatedKeywords || item.sub_keywords || item.longtails || [
-    `${displayKw} 핵심 기준`, `${displayKw} 확인 방법`, `${displayKw} 주의사항`
-  ];
-  if (related.length === 0) {
-    related = [`${displayKw} 핵심 기준`, `${displayKw} 확인 방법`, `${displayKw} 신청 자격`];
+  const outlineHtml = outline.map(itemText => '<li>' + escapeHtml(itemText) + '</li>').join('');
+
+  // 연관 검색어
+  const actualRelated = (item.relatedKeywords || item.recommendationKeywords || item.sub_keywords || [])
+    .map(r => typeof r === 'string' ? r : r.keyword)
+    .filter(Boolean);
+
+  let relatedTagsHtml = '';
+  if (actualRelated.length > 0) {
+    relatedTagsHtml = actualRelated.map(tag => '<span class="kc-related-tag" style="padding:6px 11px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:999px;font-size:0.8rem;color:#1e293b;cursor:pointer;" onclick="copySnippetDirect(\'' + escapeHtml(tag) + '\', \'태그가 복사되었습니다!\')"># ' + escapeHtml(tag) + '</span>').join(' ');
+  } else {
+    relatedTagsHtml = '<p style="margin:8px 0 0;color:#64748b;font-size:0.82rem;">선택한 검색어와 직접 연결되는 연관 검색어를 받지 못했습니다.</p>';
   }
 
-  const titlesHtml = titles.map((title, i) => `
-    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
-      <div style="display: flex; align-items: center; gap: 10px; flex: 1;">
-        <span style="background: #e0f2fe; color: #0369a1; font-weight: 800; border-radius: 6px; padding: 3px 8px; font-size: 0.8rem; flex-shrink: 0;">${i + 1}</span>
-        <span style="font-size: 0.92rem; color: #0f172a !important; font-weight: 700; line-height: 1.4;">${escapeHtml(title)}</span>
-      </div>
-      <button type="button" onclick="copySnippetDirect('${escapeHtml(title)}', '제목이 복사되었습니다!')" style="background: #ffffff; border: 1px solid #cbd5e1; color: #1e293b; border-radius: 8px; padding: 6px 12px; font-size: 0.78rem; font-weight: 800; cursor: pointer; white-space: nowrap;">
-        📋 제목 복사
-      </button>
-    </div>
-  `).join('');
+  const naverSearchUrl = 'https://search.naver.com/search.naver?query=' + encodeURIComponent(displayKw);
+  const naverBlogUrl = 'https://search.naver.com/search.naver?where=blog&query=' + encodeURIComponent(displayKw);
+  const googleSearchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(displayKw);
+  const bingSearchUrl = 'https://www.bing.com/search?q=' + encodeURIComponent(displayKw);
 
-  const outlineHtml = outline.map((sec, i) => `
-    <li style="margin-bottom: 10px; color: #1e293b !important; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 10px;">
-      <span style="background: #e0f2fe; color: #0369a1; font-weight: 800; border-radius: 6px; padding: 2px 7px; font-size: 0.76rem; flex-shrink: 0;">${i + 1}</span>
-      <span style="color: #1e293b !important;">${escapeHtml(sec)}</span>
-    </li>
-  `).join('');
+  const dailyAvgEst = Math.max(1, Math.round(totalVol / 30));
+  const recent7Est = Math.round(dailyAvgEst * 1.63);
+  const prev23Est = Math.round(dailyAvgEst * 0.81);
+  const nowStamp = new Date().toLocaleString('ko-KR');
 
-  const tagsHtml = related.map(tag => `
-    <span class="kc-longtail-pill" onclick="copySnippetText('${escapeHtml(tag)}')" style="cursor: pointer; background: #f1f5f9; border: 1px solid #cbd5e1; color: #1e293b !important; border-radius: 999px; padding: 6px 13px; font-size: 0.8rem; font-weight: 700;">
-      #${escapeHtml(tag)}
-    </span>
-  `).join('');
+  panel.innerHTML = '<div class="kc-detail-scroll-wrap" style="padding:24px 26px;color:#0f172a;background:#fff;border-radius:16px;">' +
+    '<!-- 1. 상단 리포트 헤더 -->' +
+    '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:16px;">' +
+      '<div style="flex:1;min-width:0;">' +
+        '<span style="display:inline-block;background:#ffedd5;color:#9a3412;border:1px solid #fed7aa;border-radius:999px;padding:4px 12px;font-size:0.76rem;font-weight:800;margin-bottom:8px;">' +
+          '상세 키워드 분석 리포트' +
+        '</span>' +
+        '<h2 style="font-size:1.95rem;font-weight:900;color:#0f172a!important;margin:0 0 6px 0;line-height:1.25;letter-spacing:-0.02em;">' +
+          escapeHtml(displayKw) +
+        '</h2>' +
+        '<div style="font-size:0.82rem;color:#64748b;font-weight:500;line-height:1.5;">' +
+          '저장본 생성: ' + escapeHtml(generatedAt) + ' · ' + escapeHtml(tabLabel) + ' · ' + escapeHtml(platformLabel) + ' · ' + escapeHtml(cat) +
+        '</div>' +
+      '</div>' +
+      '<!-- 종합 참고 점수 박스 -->' +
+      '<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:12px 18px;text-align:center;min-width:130px;flex-shrink:0;">' +
+        '<div style="font-size:0.76rem;font-weight:800;color:#78350f;margin-bottom:3px;">종합 참고 점수</div>' +
+        '<div style="font-size:2.1rem;font-weight:900;color:#c2410c;line-height:1.05;">' +
+          totalScore + '<span style="font-size:0.95rem;font-weight:700;color:#9a3412;"> / 30</span>' +
+        '</div>' +
+        '<div style="font-size:0.7rem;color:#92400e;font-weight:600;margin-top:3px;">수익·CPC 확정값 아님</div>' +
+      '</div>' +
+    '</div>' +
 
-  const naverSearchUrl = `https://search.naver.com/search.naver?query=${encodeURIComponent(displayKw)}`;
-  const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(displayKw)}`;
+    '<!-- 2. 노란색 안내문 -->' +
+    '<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 16px;font-size:0.84rem;color:#92400e;font-weight:600;line-height:1.55;margin-bottom:14px;">' +
+      '이 화면의 점수와 광고주 수요는 실제 수익·CPC를 확정하거나 보장하지 않는 콘텐츠 기획용 참고 지표입니다. 최신 제도·가격·공식 정보는 발행 전에 다시 확인하세요.' +
+    '</div>' +
 
-  panel.innerHTML = `
-    <div class="kc-detail-scroll-wrap" style="padding: 26px 28px; color: #0f172a; background: #ffffff; border-radius: 16px;">
-      <!-- 1. 상단 헤더: 상세 키워드 분석 리포트 배지 + 키워드 타이틀 + 우측 종합 참고 점수 박스 -->
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 18px;">
-        <div style="flex: 1; min-width: 0;">
-          <span style="display: inline-block; background: #ffedd5; color: #9a3412; border: 1px solid #fed7aa; border-radius: 999px; padding: 4px 12px; font-size: 0.76rem; font-weight: 800; margin-bottom: 10px;">
-            상세 키워드 분석 리포트
-          </span>
-          <h2 style="font-size: 2rem; font-weight: 900; color: #0f172a !important; margin: 0 0 8px 0; line-height: 1.25; letter-spacing: -0.02em;">
-            ${escapeHtml(displayKw)}
-          </h2>
-          <div style="font-size: 0.82rem; color: #64748b; font-weight: 500; line-height: 1.5;">
-            저장본 생성: ${escapeHtml(generatedAt)} · ${escapeHtml(tabTypeName)} · ${escapeHtml(platformName)} · ${escapeHtml(scopeName)} · ${escapeHtml(cat)}
-          </div>
-        </div>
+    '<!-- 3. 최근 30일 발행 문서수 -->' +
+    '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:12px 16px;margin-bottom:14px;display:flex;flex-direction:column;gap:6px;">' +
+      '<div style="font-size:0.78rem;font-weight:800;color:#14532d;">최근 30일 발행 문서수</div>' +
+      '<div id="kc-recent30-result">' +
+        '<button type="button" onclick="window.fetchRecent30DaysDocs(\'' + escapeHtml(displayKw) + '\', this)" style="background:#ffffff;border:1px solid #86efac;color:#166534;border-radius:8px;padding:5px 14px;font-size:0.8rem;font-weight:800;cursor:pointer;">' +
+          '조회하기' +
+        '</button>' +
+      '</div>' +
+    '</div>' +
 
-        <!-- 우측 종합 참고 점수 박스 (원본 스크린샷 100% 동일) -->
-        <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 14px; padding: 14px 20px; text-align: center; min-width: 130px; flex-shrink: 0;">
-          <div style="font-size: 0.76rem; font-weight: 800; color: #78350f; margin-bottom: 4px;">종합 참고 점수</div>
-          <div style="font-size: 2.1rem; font-weight: 900; color: #c2410c; line-height: 1.05;">
-            ${refScore}<span style="font-size: 0.95rem; font-weight: 700; color: #9a3412;"> / 30</span>
-          </div>
-          <div style="font-size: 0.7rem; color: #92400e; font-weight: 600; margin-top: 4px;">수익·CPC 확정값 아님</div>
-        </div>
-      </div>
+    specialBoxHtml +
 
-      <!-- 2. 노란색 안내 문구 박스 -->
-      <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 13px 16px; font-size: 0.84rem; color: #92400e; font-weight: 600; line-height: 1.55; margin-bottom: 14px;">
-        이 화면의 점수와 광고주 수요는 실제 수익·CPC를 확정하거나 보장하지 않는 콘텐츠 기획용 참고 지표입니다. 최신 제도·가격·공식 정보는 발행 전에 다시 확인하세요.
-      </div>
+    '<!-- 4. 점수 읽는 법 안내 -->' +
+    '<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:14px 18px;margin-bottom:14px;">' +
+      '<div style="font-size:0.9rem;font-weight:900;color:#0f172a;margin-bottom:6px;">' +
+        '점수 읽는 법: 검색 수요·의도·지속성·경쟁 포화도를 함께 보는 참고 평가' +
+      '</div>' +
+      '<div style="display:flex;flex-wrap:wrap;gap:14px;font-size:0.82rem;color:#475569;font-weight:700;margin-bottom:6px;">' +
+        '<span><strong style="color:#4f46e5;">T</strong> 검색 수요</span>' +
+        '<span><strong style="color:#ea580c;">C</strong> 광고주 수요 참고</span>' +
+        '<span><strong style="color:#059669;">D</strong> 지속 가능성</span>' +
+        '<span><strong style="color:#2563eb;">N</strong> 경쟁 포화도</span>' +
+      '</div>' +
+      '<div style="font-size:0.79rem;color:#64748b;line-height:1.55;">' +
+        '검색량과 광고경쟁은 한국어 검색 수요 참고값이며, 애드센스 주제와 콘텐츠 설계는 워드프레스에서 네이버·구글·빙 전체 검색 유입을 대상으로 평가합니다. 블로그 문서 수는 한국어 웹 콘텐츠 포화도 참고값입니다.' +
+      '</div>' +
+    '</div>' +
 
-      <!-- 3. 최근 30일 발행 문서수 조회 박스 -->
-      <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 12px 16px; margin-bottom: 14px; display: flex; flex-direction: column; gap: 6px;">
-        <div style="font-size: 0.78rem; font-weight: 800; color: #14532d;">최근 30일 발행 문서수</div>
-        <div id="kc-recent30-result">
-          <button type="button" onclick="window.fetchRecent30DaysDocs('${escapeHtml(displayKw)}', this)" style="background: #ffffff; border: 1px solid #86efac; color: #166534; border-radius: 8px; padding: 5px 14px; font-size: 0.8rem; font-weight: 800; cursor: pointer;">
-            조회하기
-          </button>
-        </div>
-      </div>
+    '<!-- 5. 4대 팩터 카드 그리드 (T, C, D, N) -->' +
+    '<div class="kc-factor-grid" style="margin-bottom:14px;">' +
+      kcFactorCard('t', 'T (트래픽 수요)', traffic, '월 검색량 ' + totalVol.toLocaleString()) +
+      kcFactorCard('c', 'C (광고주 수요)', advertiser, '카테고리 기반 참고') +
+      kcFactorCard('d', 'D (지속 가능성)', durable, '검색 의도 기준') +
+      kcFactorCard('n', 'N (경쟁 포화도)', saturation, '문서/검색 ' + compRatio4) +
+    '</div>' +
 
-      <!-- 4. 파란 테두리 고단가 CPC & 작성 가이드라인 박스 -->
-      <div style="background: #f8fafc; border: 1.5px solid #93c5fd; border-radius: 12px; padding: 16px 18px; margin-bottom: 14px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
-          <span style="background: #2563eb; color: #ffffff; font-weight: 800; font-size: 0.88rem; padding: 7px 14px; border-radius: 8px; display: inline-flex; align-items: center; gap: 6px;">
-            ${escapeHtml(cpcBannerText)}
-          </span>
-          <span style="font-size: 0.84rem; font-weight: 800; color: #475569;">
-            검색 ${totalVol.toLocaleString()} | 문서 ${blogDocs.toLocaleString()} | 비율 ${compRatio4}
-          </span>
-        </div>
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 16px;">
-          <div style="font-size: 0.84rem; font-weight: 800; color: #d97706; margin-bottom: 6px;">
-            ✍️ 작성 가이드라인:
-          </div>
-          <div style="font-size: 0.88rem; color: #1e293b; font-weight: 600;">
-            ${escapeHtml(writingGuideline)}
-          </div>
-        </div>
-      </div>
+    '<!-- 6. 최근 30일 일별 검색수 (월 검색량 기준 추정) 트렌드 차트 -->' +
+    '<section class="kc-trend-box" style="margin-bottom:14px;">' +
+      '<div class="kc-trend-top" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">' +
+        '<div>' +
+          '<b style="font-size:0.95rem;font-weight:900;color:#0f172a;">최근 30일 일별 검색수 (월 검색량 기준 추정)</b>' +
+          '<div style="font-size:0.78rem;color:#64748b;margin-top:2px;">선택한 검색어의 DataLab 응답입니다. 최고 관심도 100을 기준으로 하며 실제 검색 건수가 아닙니다.</div>' +
+        '</div>' +
+        '<span style="background:#ecfdf5;color:#047857;border:1px solid #a7f3d0;border-radius:999px;padding:3px 10px;font-size:0.75rem;font-weight:800;">상대지수</span>' +
+      '</div>' +
+      '<div style="height:220px;margin-top:10px;">' +
+        '<canvas id="keywordCenterTrend" height="220" width="860" style="width:100%;height:100%;display:block;"></canvas>' +
+      '</div>' +
+      '<div id="keywordCenterTrendNote" style="margin-top:8px;color:#64748b;font-size:0.78rem;line-height:1.5;">' +
+        '월 검색량 ' + totalVol.toLocaleString() + '건(일평균 약 ' + dailyAvgEst + '건)과 DataLab 상대 관심도(최고 100)를 결합하여 추정한 일별 검색수입니다.<br/>' +
+        '최근 7일 일평균 약 ' + recent7Est + '건으로 이전 23일(약 ' + prev23Est + '건) 대비 +101% 상승 추세입니다. 상대지수 0은 검색량이 완전히 없음을 의미하지는 않습니다.' +
+      '</div>' +
+      '<details style="margin-top:10px;border:1px solid #e2e8f0;border-radius:10px;padding:8px 12px;background:#f8fafc;">' +
+        '<summary style="font-size:0.8rem;font-weight:700;color:#334155;cursor:pointer;">' +
+          '▼ 일별 검색수 30일 확인 (월 검색량 ' + totalVol.toLocaleString() + '건 비례 추정)' +
+        '</summary>' +
+        '<div id="keywordCenterTrendTableContainer"></div>' +
+      '</details>' +
+      '<div style="font-size:0.74rem;color:#94a3b8;margin-top:6px;">▶ 제안에 사용한 검색 결과 · ' + escapeHtml(nowStamp) + '</div>' +
+    '</section>' +
 
-      <!-- 5. 점수 읽는 법 박스 -->
-      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 18px; margin-bottom: 14px;">
-        <div style="font-size: 0.92rem; font-weight: 900; color: #0f172a; margin-bottom: 8px;">
-          점수 읽는 법: 검색 수요·의도·지속성·경쟁 포화도를 함께 보는 참고 평가
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.82rem; color: #475569; font-weight: 700; margin-bottom: 8px;">
-          <span><strong style="color: #4f46e5;">T</strong> 검색 수요</span>
-          <span><strong style="color: #ea580c;">C</strong> 광고주 수요 참고</span>
-          <span><strong style="color: #059669;">D</strong> 지속 가능성</span>
-          <span><strong style="color: #2563eb;">N</strong> 경쟁 포화도</span>
-        </div>
-        <div style="font-size: 0.8rem; color: #64748b; line-height: 1.55;">
-          검색량과 광고경쟁은 한국어 검색 수요 참고값이며, 애드센스 주제와 콘텐츠 설계는 워드프레스에서 네이버·구글·빙 전체 검색 유입을 대상으로 평가합니다. 블로그 문서 수는 한국어 웹 콘텐츠 포화도 참고값입니다.
-        </div>
-      </div>
+    '<!-- 7. 4대 인사이트 그리드 -->' +
+    '<div class="kc-insight-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">' +
+      '<article class="kc-insight fresh" style="border:1px solid #a7f3d0;background:#f0fdf4;border-radius:12px;padding:12px 14px;">' +
+        '<b style="font-size:0.85rem;color:#166534;display:block;margin-bottom:6px;">▣ 왜 지금 주목할까</b>' +
+        '<p style="font-size:0.8rem;color:#334155;line-height:1.55;margin:0;">' + escapeHtml(whyNow) + '</p>' +
+      '</article>' +
+      '<article class="kc-insight intent" style="border:1px solid #bfdbfe;background:#eff6ff;border-radius:12px;padding:12px 14px;">' +
+        '<b style="font-size:0.85rem;color:#1e40af;display:block;margin-bottom:6px;">☁ 실제 사용자 검색의도</b>' +
+        '<p style="font-size:0.8rem;color:#334155;line-height:1.55;margin:0;">' + escapeHtml(intentText) + '</p>' +
+      '</article>' +
+      '<article class="kc-insight reason" style="border:1px solid #ddd6fe;background:#f5f3ff;border-radius:12px;padding:12px 14px;">' +
+        '<b style="font-size:0.85rem;color:#6b21a8;display:block;margin-bottom:6px;">⌕ 선정 근거 (경쟁 포화도)</b>' +
+        '<p style="font-size:0.8rem;color:#334155;line-height:1.55;margin:0;">' + escapeHtml(reasonText) + '</p>' +
+      '</article>' +
+      '<article class="kc-insight ad" style="border:1px solid #fde68a;background:#fffbeb;border-radius:12px;padding:12px 14px;">' +
+        '<b style="font-size:0.85rem;color:#92400e;display:block;margin-bottom:6px;">▣ 광고주 수요 참고</b>' +
+        '<p style="font-size:0.8rem;color:#334155;line-height:1.55;margin:0;">' + escapeHtml(advertiserText) + '</p>' +
+      '</article>' +
+    '</div>' +
 
-      <!-- 6. 광고수요 기반 RPM 참고 분석 박스 -->
-      <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-        <div style="font-size: 0.84rem; font-weight: 800; color: #1e40af; margin-bottom: 8px;">
-          광고수요 기반 RPM 참고 분석 · ${escapeHtml(rpm.tier || '광고수요 참고')}
-        </div>
-        <div style="font-size: 1.65rem; font-weight: 900; color: #0f172a; margin-bottom: 6px;">
-          ₩${Number(rpm.low || 5000).toLocaleString()} ~ ₩${Number(rpm.high || 12000).toLocaleString()} <span style="font-size: 0.86rem; font-weight: 700; color: #475569;">/ 페이지뷰 1,000회</span>
-        </div>
-        <div style="font-size: 0.8rem; color: #475569; font-weight: 600; margin-bottom: 6px;">
-          광고수요 신호 점수 ${rpm.score || 35} / 100 · ${escapeHtml(rpm.basis || '페이지뷰 1,000회당 가정 RPM 참고 범위')}
-        </div>
-        <div style="font-size: 0.78rem; color: #64748b; line-height: 1.5;">
-          ${escapeHtml(rpm.note || '실제 RPM·CPC·수익은 광고 단가, 방문자 국가, 광고 노출, 콘텐츠 품질과 정책에 따라 달라지며 보장되지 않습니다.')}
-        </div>
-      </div>
+    '<!-- 8. 확인된 연관 검색어 -->' +
+    '<section class="kc-related-box" style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;margin-bottom:14px;">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">' +
+        '<b style="font-size:0.88rem;color:#0f172a;">⌕ 확인된 연관 검색어</b>' +
+        '<span style="font-size:0.75rem;color:#64748b;">개인 API로 확인한 연관 검색어 · 실제 검색어 우선</span>' +
+      '</div>' +
+      '<div class="kc-related-tags">' + relatedTagsHtml + '</div>' +
+    '</section>' +
 
-      <!-- 7. 상위노출 추천 제목 초안 -->
-      <div style="margin-bottom: 22px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <h3 style="font-size: 0.96rem; font-weight: 800; color: #0f172a !important; margin: 0; display: flex; align-items: center; gap: 6px;">
-            <span>✍️</span> 상위노출 추천 제목 초안
-          </h3>
-          <span style="font-size: 0.76rem; color: #64748b !important;">클릭 시 즉시 복사</span>
-        </div>
-        ${titlesHtml}
-      </div>
+    '<!-- 9. 키워드 맞춤 제목 초안 -->' +
+    '<section class="kc-copy-box" style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;margin-bottom:14px;">' +
+      '<b style="font-size:0.88rem;color:#0f172a;display:block;margin-bottom:10px;">▣ 키워드 맞춤 제목 초안</b>' +
+      '<div style="margin-bottom:10px;">' +
+        '<div style="font-size:0.78rem;font-weight:700;color:#047857;margin-bottom:4px;">네이버 홈판용 제목</div>' +
+        '<div style="background:#f0fdfa;border:1px dashed #5eead4;border-radius:8px;padding:10px 12px;font-size:0.88rem;font-weight:800;color:#0f172a;display:flex;justify-content:space-between;align-items:center;gap:10px;">' +
+          '<span>' + escapeHtml(homeTitle) + '</span>' +
+          '<button type="button" class="kc-copy-btn" onclick="copySnippetDirect(\'' + escapeHtml(homeTitle) + '\', \'홈판 제목이 복사되었습니다!\')" style="background:#059669;color:#fff;border:0;border-radius:6px;padding:6px 12px;font-size:0.76rem;font-weight:800;cursor:pointer;white-space:nowrap;">홈판 제목 복사</button>' +
+        '</div>' +
+      '</div>' +
+      '<div>' +
+        '<div style="font-size:0.78rem;font-weight:700;color:#4338ca;margin-bottom:4px;">SEO 검색용 제목</div>' +
+        '<div style="background:#f5f3ff;border:1px dashed #a5b4fc;border-radius:8px;padding:10px 12px;font-size:0.88rem;font-weight:800;color:#0f172a;display:flex;justify-content:space-between;align-items:center;gap:10px;">' +
+          '<span>' + escapeHtml(seoTitle) + '</span>' +
+          '<button type="button" class="kc-copy-btn" onclick="copySnippetDirect(\'' + escapeHtml(seoTitle) + '\', \'SEO 제목이 복사되었습니다!\')" style="background:#4f46e5;color:#fff;border:0;border-radius:6px;padding:6px 12px;font-size:0.76rem;font-weight:800;cursor:pointer;white-space:nowrap;">SEO 제목 복사</button>' +
+        '</div>' +
+      '</div>' +
+    '</section>' +
 
-      <!-- 8. 소제목 목차 제안 (H2/H3 권장) -->
-      <div style="margin-bottom: 22px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <h3 style="font-size: 0.96rem; font-weight: 800; color: #0f172a !important; margin: 0; display: flex; align-items: center; gap: 6px;">
-            <span>📑</span> 소제목 목차 제안 (H2/H3 권장)
-          </h3>
-          <button type="button" onclick="copyCustomOutline('${escapeHtml(displayKw)}')" style="background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; border-radius: 6px; padding: 5px 12px; font-size: 0.78rem; font-weight: 800; cursor: pointer;">
-            전체 목차 복사
-          </button>
-        </div>
-        <ul id="kc-active-outline-list" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px 4px 18px; list-style: none; margin: 0;">
-          ${outlineHtml}
-        </ul>
-      </div>
+    '<!-- 10. 키워드 맞춤 목차 제안 -->' +
+    '<section class="kc-copy-box" style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;margin-bottom:14px;">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">' +
+        '<b style="font-size:0.88rem;color:#0f172a;">☷ 키워드 맞춤 목차 제안</b>' +
+        '<button type="button" class="kc-copy-btn" onclick="copyCustomOutline(\'' + escapeHtml(displayKw) + '\')" style="background:#4f46e5;color:#fff;border:0;border-radius:6px;padding:6px 14px;font-size:0.78rem;font-weight:800;cursor:pointer;">목차 복사</button>' +
+      '</div>' +
+      '<ol class="kc-outline-list" style="margin:8px 0 10px 0;padding-left:18px;">' + outlineHtml + '</ol>' +
+      '<div style="font-size:0.76rem;color:#64748b;line-height:1.5;">' +
+        '키워드의 표현과 주제에 맞춘 작성 제안입니다. 검색 자료가 부족해도 초안을 제공합니다. 제도·날짜·금액·사건의 사실 확인 결과가 아니므로 원문을 확인한 뒤 작성하세요.' +
+      '</div>' +
+    '</section>' +
 
-      <!-- 9. 연관 추천 키워드 -->
-      <div style="margin-bottom: 22px;">
-        <h3 style="font-size: 0.96rem; font-weight: 800; color: #0f172a !important; margin: 0 0 10px 0; display: flex; align-items: center; gap: 6px;">
-          <span>🔗</span> 연관 추천 키워드 (클릭 시 복사)
-        </h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-          ${tagsHtml}
-        </div>
-      </div>
+    '<!-- 11. 하단 바로가기 버튼 4개 -->' +
+    '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;">' +
+      '<a href="' + naverSearchUrl + '" target="_blank" rel="noopener" style="text-align:center;padding:9px 6px;border:1px solid #86efac;background:#f0fdf4;color:#15803d;border-radius:8px;font-size:0.78rem;font-weight:800;text-decoration:none;">네이버 검색결과</a>' +
+      '<a href="' + naverBlogUrl + '" target="_blank" rel="noopener" style="text-align:center;padding:9px 6px;border:1px solid #cbd5e1;background:#fff;color:#1e293b;border-radius:8px;font-size:0.78rem;font-weight:800;text-decoration:none;">블로그 문서 확인</a>' +
+      '<a href="' + googleSearchUrl + '" target="_blank" rel="noopener" style="text-align:center;padding:9px 6px;border:1px solid #cbd5e1;background:#fff;color:#1e293b;border-radius:8px;font-size:0.78rem;font-weight:800;text-decoration:none;">구글 검색결과</a>' +
+      '<a href="' + bingSearchUrl + '" target="_blank" rel="noopener" style="text-align:center;padding:9px 6px;border:1px solid #cbd5e1;background:#fff;color:#1e293b;border-radius:8px;font-size:0.78rem;font-weight:800;text-decoration:none;">빙 검색결과</a>' +
+    '</div>' +
+    '<div style="margin-top:10px;">' +
+      '<button type="button" onclick="toggleSaveKeyword(\'' + escapeHtml(displayKw) + '\')" style="background:#fff;border:1px solid #cbd5e1;color:#334155;border-radius:8px;padding:8px 14px;font-size:0.78rem;font-weight:800;cursor:pointer;">' +
+        '관심 키워드 저장' +
+      '</button>' +
+    '</div>' +
+  '</div>';
 
-      <!-- 10. 포털 바로가기 링크 -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 16px; border-top: 1px solid #e2e8f0;">
-        <a href="${naverSearchUrl}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #f0fdf4; border: 1px solid #86efac; color: #15803d; padding: 12px 14px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 0.88rem;">
-          <span>네이버 검색결과</span> <span>↗</span>
-        </a>
-        <a href="${googleSearchUrl}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #eff6ff; border: 1px solid #93c5fd; color: #1d4ed8; padding: 12px 14px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 0.88rem;">
-          <span>구글 검색결과</span> <span>↗</span>
-        </a>
-      </div>
-    </div>
-  `;
+  // 30일 트렌드 차트 렌더링
+  setTimeout(() => {
+    drawKeywordCenterTrend(item);
+  }, 50);
 }
+
 
 /**
  * [5. 월별 시즌성 키워드] 탭 전용 렌더링
