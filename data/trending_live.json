@@ -1,198 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-10-30T00:37:31.235Z",
-  "updatedAtKst": "2026. 10. 30. AM 9:37:31",
+  "updatedAt": "2026-10-30T09:37:57.162Z",
+  "updatedAtKst": "2026. 10. 30. PM 6:37:57",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "9월 산업활동 트리플 증가"
+        "keyword": "차예련 학폭 의혹 곤혹"
       },
       {
         "rank": 2,
-        "keyword": "최불암 기억해요"
+        "keyword": "故 최불암 추모합니다."
       },
       {
         "rank": 3,
-        "keyword": "김정은, 전시회 참관"
+        "keyword": "선관위 특검 투표지 보전"
       },
       {
         "rank": 4,
-        "keyword": "미국 이란 공격 준비"
+        "keyword": "인천공항 항공사 발권"
       },
       {
         "rank": 5,
-        "keyword": "바이낸스 해킹 피해"
+        "keyword": "KIA 이범호 감독 승부수다"
       },
       {
         "rank": 6,
-        "keyword": "이예원"
+        "keyword": "GS건설 아파트 개인정보 유출"
       },
       {
         "rank": 7,
-        "keyword": "압수수색"
+        "keyword": "자산"
       },
       {
         "rank": 8,
-        "keyword": "라가르드 ECB 사임"
+        "keyword": "부산 명지소각장 폐쇄"
       },
       {
         "rank": 9,
-        "keyword": "갤럭시 A18 LTE 출시"
+        "keyword": "바이낸스 해킹 8.4조원"
       },
       {
         "rank": 10,
-        "keyword": "메이저 리그 사커"
+        "keyword": "극한 직업"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "장모 아내 혐의로도 new"
+        "keyword": "포스코퓨처엠 72만톤 공급 new"
       },
       {
         "rank": 2,
-        "keyword": "경기버스 노사 합의 new"
+        "keyword": "특검 중앙선관위 압수수색 상승 2"
       },
       {
         "rank": 3,
-        "keyword": "유재석 하락 2"
+        "keyword": "명품 김기현 1심 new"
       },
       {
         "rank": 4,
-        "keyword": "학대 의혹 47만 new"
+        "keyword": "포항 박태하 감독과 new"
       },
       {
         "rank": 5,
-        "keyword": "구탱이형 故 김주혁 new"
+        "keyword": "G마켓 E쿠폰 무단 동일"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "9월 산업활동 트리플 증가"
+        "keyword": "선관위 특검 투표지 보전"
       },
       {
         "rank": 2,
-        "keyword": "코스피 3%대 급락"
+        "keyword": "부산 명지소각장 폐쇄"
       },
       {
         "rank": 3,
-        "keyword": "미국 이란 공격 준비"
+        "keyword": "DMZ 지뢰폭발 대응"
       },
       {
         "rank": 4,
-        "keyword": "라가르드 ECB 사임"
+        "keyword": "이재명 다문화가정 우선 배정"
       },
       {
         "rank": 5,
-        "keyword": "진성준 비자 거부"
+        "keyword": "바이낸스 해킹 8.4조원"
       },
       {
         "rank": 6,
-        "keyword": "미국 국가채무 GDP 100%"
+        "keyword": "E-7 비자 가족 초청"
       },
       {
         "rank": 7,
-        "keyword": "이재명 사우디 통화"
+        "keyword": "한미 국방장관 회담"
       },
       {
         "rank": 8,
-        "keyword": "스페인 고속열차 추돌"
+        "keyword": "한미일 외교장관 회동"
       },
       {
         "rank": 9,
-        "keyword": "SK플래닛 기프티콘 개인정보 유출"
+        "keyword": "G마켓 e쿠폰 핀번호 무단 사용"
       },
       {
         "rank": 10,
-        "keyword": "유정복 가상자산 신고 누락"
+        "keyword": "북한 해킹 AI 피싱"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "이예원"
+        "keyword": "자산"
       },
       {
         "rank": 2,
-        "keyword": "압수수색"
+        "keyword": "극한 직업"
       },
       {
         "rank": 3,
-        "keyword": "메이저 리그 사커"
+        "keyword": "생계"
       },
       {
         "rank": 4,
-        "keyword": "머스캣"
+        "keyword": "000660"
       },
       {
         "rank": 5,
-        "keyword": "구자철"
+        "keyword": "보안 취약점"
       },
       {
         "rank": 6,
-        "keyword": "브래드 갈링하우스"
+        "keyword": "009150"
       },
       {
         "rank": 7,
-        "keyword": "수도권 광역급행철도 c노선"
+        "keyword": "오산대"
       },
       {
         "rank": 8,
-        "keyword": "도경완"
+        "keyword": "김하성"
       },
       {
         "rank": 9,
-        "keyword": "인텔"
+        "keyword": "골프장"
       },
       {
         "rank": 10,
-        "keyword": "붉은사막"
+        "keyword": "new zealand vs india"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "최불암 별세"
+        "keyword": "나문희 최불암 작별 인사"
       },
       {
         "rank": 2,
-        "keyword": "김민자 배우"
+        "keyword": "차예련 학폭 의혹 부인"
       },
       {
         "rank": 3,
-        "keyword": "아주대병원 압수수색"
+        "keyword": "최불암 금관문화훈장 추서"
       },
       {
         "rank": 4,
-        "keyword": "유시민 재산"
+        "keyword": "특검 ���표지 보전 요청"
       },
       {
         "rank": 5,
-        "keyword": "인텔리빅스"
+        "keyword": "김기현 1심 무죄"
       },
       {
         "rank": 6,
-        "keyword": "엔비디아 네이버 3대 주주"
+        "keyword": "장기요양보험료 인상"
       },
       {
         "rank": 7,
-        "keyword": "블랙핑크 옥관문화훈장 수훈"
+        "keyword": "항공사 3곳 시스템 복구"
       },
       {
         "rank": 8,
-        "keyword": "원당역"
+        "keyword": "수사반장"
       },
       {
         "rank": 9,
-        "keyword": "7호선 장암역 운행 재개"
+        "keyword": "김혜자 나이"
       },
       {
         "rank": 10,
-        "keyword": "모레노 발탁"
+        "keyword": "햄버거 회동 무죄"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "“상습 폭행?” 차예련 측, 학폭 가해 의혹 전면 부인 [공식]",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261030/134940649/1",
+      "publishedAt": "수집 10. 30. 18:37 KST",
+      "publishedOrder": 1793353071337
+    },
+    {
+      "title": "이호선, 모친상 비보…“참 행복했다”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261030/134940425/1",
+      "publishedAt": "수집 10. 30. 18:37 KST",
+      "publishedOrder": 1793353071337
+    },
+    {
+      "title": "차예련, ‘85년생 여배우 학폭’ ���목에 즉각 부인…“사실무근”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261030/134940010/1",
+      "publishedAt": "수집 10. 30. 18:37 KST",
+      "publishedOrder": 1793353071337
+    },
+    {
+      "title": "43세 이세돌, 20대 딸 있었다…“기분 참 묘해” (백수 이세돌)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261030/134939909/1",
+      "publishedAt": "수집 10. 30. 18:37 KST",
+      "publishedOrder": 1793353071337
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 10. 30. 18:37 KST",
+      "publishedOrder": 1793353071069
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 10. 30. 18:37 KST",
+      "publishedOrder": 1793353071069
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 10. 30. 18:37 KST",
+      "publishedOrder": 1793353071069
+    },
+    {
+      "title": "차예련 측, \"뺨 때려 고막 찢어져\" 학폭 여배우 의혹에 \"사실무근\" [공식]",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/10/30/2026103015122356508",
+      "publishedAt": "수집 10. 30. 18:37 KST",
+      "publishedOrder": 1793353071069
+    }
+  ]
 }
