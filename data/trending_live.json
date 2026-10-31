@@ -1,28 +1,28 @@
 {
   "success": true,
-  "updatedAt": "2026-10-31T00:13:48.639Z",
-  "updatedAtKst": "2026. 10. 31. AM 9:13:48",
+  "updatedAt": "2026-10-31T09:02:14.011Z",
+  "updatedAtKst": "2026. 10. 31. PM 6:02:14",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "전원일기와 최불암 작별"
+        "keyword": "최불암 빈소 송승헌 방문"
       },
       {
         "rank": 2,
-        "keyword": "바이낸스 해킹 8.4조원"
+        "keyword": "샘 올트먼과 AI 논의"
       },
       {
         "rank": 3,
-        "keyword": "한미일 외교장관 회동"
+        "keyword": "미국 패트리엇 우크라이나 판매"
       },
       {
         "rank": 4,
-        "keyword": "차예련 학폭 논란"
+        "keyword": "차예련 학폭 저항"
       },
       {
         "rank": 5,
-        "keyword": "우주선"
+        "keyword": "노시환, MLB 포스팅 요청"
       },
       {
         "rank": 6,
@@ -30,131 +30,131 @@
       },
       {
         "rank": 7,
-        "keyword": "비핵화 의지 재확인"
+        "keyword": "이동욱 롯데 감독 가을야구 도전"
       },
       {
         "rank": 8,
-        "keyword": "직장폐쇄"
+        "keyword": "주영진"
       },
       {
         "rank": 9,
-        "keyword": "뉴욕증시 기술주 급락"
+        "keyword": "김주형"
       },
       {
         "rank": 10,
-        "keyword": "하지원, F1 선수에 푹 빠짐"
+        "keyword": "중국 제조업 PMI 위축"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "차예련 상승 1"
+        "keyword": "백지영 정석원 품은 new"
       },
       {
         "rank": 2,
-        "keyword": "최불암 하락 1"
+        "keyword": "유방암 3기 이제 모유수유 new"
       },
       {
         "rank": 3,
-        "keyword": "완전한 의지 재확인 상승 1"
+        "keyword": "코인 남편 11월 동일"
       },
       {
         "rank": 4,
-        "keyword": "트럼프 바이낸스 해킹 하락 1"
+        "keyword": "양홍원 홍대 클럽에서 new"
       },
       {
         "rank": 5,
-        "keyword": "AI 투자 뉴욕증시 new"
+        "keyword": "신세계 다시 불붙는 전쟁 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "바이낸스 해킹 8.4조원"
+        "keyword": "미국 패트리엇 우크라이나 판매"
       },
       {
         "rank": 2,
-        "keyword": "트럼프 이란 대화"
-      },
-      {
-        "rank": 3,
         "keyword": "유로존 3분기 성장"
       },
       {
+        "rank": 3,
+        "keyword": "미국 아프간인 추방"
+      },
+      {
         "rank": 4,
-        "keyword": "포스코 노사 임금 합의"
+        "keyword": "중국 제조업 PMI 위축"
       },
       {
         "rank": 5,
-        "keyword": "한미일 외교장관 회동"
+        "keyword": "캘리포니아 우편투표 개표 저지"
       },
       {
         "rank": 6,
-        "keyword": "미국 중간선거 사전투표"
+        "keyword": "이재명 순방 비판 반박"
       },
       {
         "rank": 7,
-        "keyword": "뉴욕증시 기술주 급락"
+        "keyword": "노시환 포스팅 요청"
       },
       {
         "rank": 8,
-        "keyword": "최불암 다큐 사연"
+        "keyword": "구글 우주 AI 데이터센터"
       },
       {
         "rank": 9,
-        "keyword": "한화디펜스 미해군 함정 수주"
+        "keyword": "북한 역도 세계신기록"
       },
       {
         "rank": 10,
-        "keyword": "유럽 핼러윈 시위"
+        "keyword": "최태원 샘 올트먼 회동"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "sk 사장단 인사"
+        "keyword": "현대이지웰"
       },
       {
         "rank": 2,
-        "keyword": "우주선"
+        "keyword": "농협"
       },
       {
         "rank": 3,
-        "keyword": "샌디스크"
+        "keyword": "pak vs sl"
       },
       {
         "rank": 4,
-        "keyword": "lcs"
+        "keyword": "노시환"
       },
       {
         "rank": 5,
-        "keyword": "직장폐쇄"
+        "keyword": "amd"
       },
       {
         "rank": 6,
-        "keyword": "테슬라"
+        "keyword": "가상자산"
       },
       {
         "rank": 7,
-        "keyword": "증여"
+        "keyword": "남중국해"
       },
       {
         "rank": 8,
-        "keyword": "실업급여"
+        "keyword": "hong kong vs pakistan"
       },
       {
         "rank": 9,
-        "keyword": "박서진"
+        "keyword": "주영진"
       },
       {
         "rank": 10,
-        "keyword": "이수현"
+        "keyword": "김주형"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "차예련 학폭 부인"
+        "keyword": "김민 계주 출전"
       },
       {
         "rank": 2,
@@ -162,94 +162,94 @@
       },
       {
         "rank": 3,
-        "keyword": "한미일 외교장관 北 비핵화"
+        "keyword": "노시환 포스팅 요청"
       },
       {
         "rank": 4,
-        "keyword": "꿀알바"
+        "keyword": "최태원 샘 올트먼 ��찬"
       },
       {
         "rank": 5,
-        "keyword": "김혜자 최불암 빈소 눈물"
+        "keyword": "임형주 최불암 장례 미사"
       },
       {
         "rank": 6,
-        "keyword": "할로윈데이"
+        "keyword": "카타르 이란 협상"
       },
       {
         "rank": 7,
-        "keyword": "콜 오브 듀티"
+        "keyword": "폴란드"
       },
       {
         "rank": 8,
-        "keyword": "하지원 F1 선수 관심"
+        "keyword": "꿀알바"
       },
       {
         "rank": 9,
-        "keyword": "전상현 2이닝 퍼펙트 세이브"
+        "keyword": "김영웅 실책"
       },
       {
         "rank": 10,
-        "keyword": "수사반장"
+        "keyword": "한국시리즈 경기일정"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "마크, 팬레터 읽다 뭉클…“자기 전 읽는 게 루틴, 팬들의 자부심 되고파”",
+      "title": "‘9세 연하♥’ 은지원 “2세가 고등학생 되면 난 이 세상에 없을 듯” (살림남)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261031/134942380/1",
-      "publishedAt": "수집 10. 31. 09:13 KST",
-      "publishedOrder": 1793405623915
+      "url": "https://sports.donga.com/ent/article/all/20261031/134942623/1",
+      "publishedAt": "수집 10. 31. 18:02 KST",
+      "publishedOrder": 1793437329883
     },
     {
-      "title": "김가연, 임요환과 6살 차이 예비사위에 꼼짝 못 해…“죄송합니다, 선생님”",
+      "title": "신민아, 발레 배우다 거울 보고 포기…“내 모습 보고 그만둬” (길연)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261031/134942409/1",
-      "publishedAt": "수집 10. 31. 09:13 KST",
-      "publishedOrder": 1793405623915
+      "url": "https://sports.donga.com/ent/article/all/20261031/134942602/1",
+      "publishedAt": "수집 10. 31. 18:02 KST",
+      "publishedOrder": 1793437329883
     },
     {
-      "title": "에이티즈, K팝 그룹 최초 덕수궁 무대…황태자 변신 (불후)",
+      "title": "백지영♥정석원, 결혼 13년 차 각방 고백…선우용여 “오늘부터 합방”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261031/134942370/1",
-      "publishedAt": "수집 10. 31. 09:13 KST",
-      "publishedOrder": 1793405623915
+      "url": "https://sports.donga.com/ent/article/all/20261031/134942564/1",
+      "publishedAt": "수집 10. 31. 18:02 KST",
+      "publishedOrder": 1793437329883
     },
     {
-      "title": "김원훈, 퇴사 후 복귀하자 백현진 오열…“뻔뻔한 사람 싫다” (직장인들3)",
+      "title": "아일릿, ‘체포하겠어’로 무대 장악…호루라기 응원까지 ‘찰떡’",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261031/134942344/1",
-      "publishedAt": "수집 10. 31. 09:13 KST",
-      "publishedOrder": 1793405623915
+      "url": "https://sports.donga.com/ent/article/all/20261031/134942589/1",
+      "publishedAt": "수집 10. 31. 18:02 KST",
+      "publishedOrder": 1793437329883
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 31. 09:13 KST",
-      "publishedOrder": 1793405623534
+      "publishedAt": "수집 10. 31. 18:02 KST",
+      "publishedOrder": 1793437328731
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 31. 09:13 KST",
-      "publishedOrder": 1793405623534
+      "publishedAt": "수집 10. 31. 18:02 KST",
+      "publishedOrder": 1793437328731
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 31. 09:13 KST",
-      "publishedOrder": 1793405623534
+      "publishedAt": "수집 10. 31. 18:02 KST",
+      "publishedOrder": 1793437328731
     },
     {
-      "title": "차예련 측, \"뺨 때려 고막 찢어져\" 학폭 여배우 의혹에 \"사실무근\" [공식]",
+      "title": "울릉도 여행비, 1박 2일에 162만원 나왔다...곽범 \"이렇게는 안 돼\" [때때때]",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/30/2026103015122356508",
-      "publishedAt": "수집 10. 31. 09:13 KST",
-      "publishedOrder": 1793405623534
+      "url": "https://www.starnewskorea.com/star/2026/10/30/2026103019592428585",
+      "publishedAt": "수집 10. 31. 18:02 KST",
+      "publishedOrder": 1793437328731
     }
   ]
 }
