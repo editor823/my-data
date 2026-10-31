@@ -1,84 +1,84 @@
 {
   "success": true,
-  "updatedAt": "2026-10-31T09:02:14.011Z",
-  "updatedAtKst": "2026. 10. 31. PM 6:02:14",
+  "updatedAt": "2026-10-31T18:54:16.299Z",
+  "updatedAtKst": "2026. 11. 1. AM 3:54:16",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "최불암 빈소 송승헌 방문"
+        "keyword": "트럼프 김정은 대화 준비"
       },
       {
         "rank": 2,
-        "keyword": "샘 올트먼과 AI 논의"
+        "keyword": "핼러윈 인파 이태원역 무정차"
       },
       {
         "rank": 3,
-        "keyword": "미국 패트리엇 우크라이나 판매"
+        "keyword": "미국 시간"
       },
       {
         "rank": 4,
-        "keyword": "차예련 학폭 저항"
+        "keyword": "故 최불암 빈소 조문객들 모여"
       },
       {
         "rank": 5,
-        "keyword": "노시환, MLB 포스팅 요청"
+        "keyword": "이강인 아틀레티코 선두 활약"
       },
       {
         "rank": 6,
-        "keyword": "유로존 3분기 성장"
+        "keyword": "차예련, 학폭 부인 중 추가 폭로"
       },
       {
         "rank": 7,
-        "keyword": "이동욱 롯데 감독 가을야구 도전"
+        "keyword": "1248회 로또 1등 15명 각 19억"
       },
       {
         "rank": 8,
-        "keyword": "주영진"
+        "keyword": "민주콩고 에볼라 사망"
       },
       {
         "rank": 9,
-        "keyword": "김주형"
+        "keyword": "김광규, 서울 연희동 이사"
       },
       {
         "rank": 10,
-        "keyword": "중국 제조업 PMI 위축"
+        "keyword": "임진택씨 모친상"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "백지영 정석원 품은 new"
+        "keyword": "1248회 로또 1등 동일"
       },
       {
         "rank": 2,
-        "keyword": "유방암 3기 이제 모유수유 new"
+        "keyword": "이란 최고지도자 상승 3"
       },
       {
         "rank": 3,
-        "keyword": "코인 남편 11월 동일"
+        "keyword": "어드레스 정렬 동일"
       },
       {
         "rank": 4,
-        "keyword": "양홍원 홍대 클럽에서 new"
+        "keyword": "100일의 거짓말 김유정 상승 2"
       },
       {
         "rank": 5,
-        "keyword": "신세계 다시 불붙는 전쟁 new"
+        "keyword": "임진택씨 모친상 하락 3"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "미국 패트리엇 우크라이나 판매"
+        "keyword": "트럼프 김정은 대화 준비"
       },
       {
         "rank": 2,
-        "keyword": "유로존 3분기 성장"
+        "keyword": "이란 지리적 제한 대응"
       },
       {
         "rank": 3,
-        "keyword": "미국 아프간인 추방"
+        "keyword": "민주콩고 에볼라 사망"
       },
       {
         "rank": 4,
@@ -86,170 +86,170 @@
       },
       {
         "rank": 5,
-        "keyword": "캘리포니아 우편투표 개표 저지"
+        "keyword": "이태원역 무정차 통과"
       },
       {
         "rank": 6,
-        "keyword": "이재명 순방 비판 반박"
+        "keyword": "미국 한국 의원 비자 문제"
       },
       {
         "rank": 7,
-        "keyword": "노시환 포스팅 요청"
+        "keyword": "트럼프 배당금 5000달러"
       },
       {
         "rank": 8,
-        "keyword": "구글 우주 AI 데이터센터"
+        "keyword": "피치 프랑스 신용등급 전망 하향"
       },
       {
         "rank": 9,
-        "keyword": "북한 역도 세계신기록"
+        "keyword": "애플 시총 1위 탈환"
       },
       {
         "rank": 10,
-        "keyword": "최태원 샘 올트먼 회동"
+        "keyword": "오픈AI 자금조달 목표 감축"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "현대이지웰"
+        "keyword": "트위치"
       },
       {
         "rank": 2,
-        "keyword": "농협"
+        "keyword": "ngoại hạng anh"
       },
       {
         "rank": 3,
-        "keyword": "pak vs sl"
+        "keyword": "twitch"
       },
       {
         "rank": 4,
-        "keyword": "노시환"
+        "keyword": "바이에른 대 도르트문트"
       },
       {
         "rank": 5,
-        "keyword": "amd"
+        "keyword": "헐 시티 대 입스위치"
       },
       {
         "rank": 6,
-        "keyword": "가상자산"
+        "keyword": "크리스타 파이크"
       },
       {
         "rank": 7,
-        "keyword": "남중국해"
+        "keyword": "npl"
       },
       {
         "rank": 8,
-        "keyword": "hong kong vs pakistan"
+        "keyword": "조현아"
       },
       {
         "rank": 9,
-        "keyword": "주영진"
+        "keyword": "jonas brothers"
       },
       {
         "rank": 10,
-        "keyword": "김주형"
+        "keyword": "맨시티"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "김민 계주 출전"
+        "keyword": "이태원역 무정차 통과"
       },
       {
         "rank": 2,
-        "keyword": "라이어"
+        "keyword": "이강인 골대 강타"
       },
       {
         "rank": 3,
-        "keyword": "노시환 포스팅 요청"
+        "keyword": "1248회 로또 당첨 번호"
       },
       {
         "rank": 4,
-        "keyword": "최태원 샘 올트먼 ��찬"
+        "keyword": "악뮤 첫 단독 콘서트"
       },
       {
         "rank": 5,
-        "keyword": "임형주 최불암 장례 미사"
+        "keyword": "장동윤 지구마불4 경비행기"
       },
       {
         "rank": 6,
-        "keyword": "카타르 이란 협상"
+        "keyword": "이승철 우즈 아버지"
       },
       {
         "rank": 7,
-        "keyword": "폴란드"
+        "keyword": "전원주 경도인지장애"
       },
       {
         "rank": 8,
-        "keyword": "꿀알바"
+        "keyword": "박진영 배우"
       },
       {
         "rank": 9,
-        "keyword": "김영웅 실책"
+        "keyword": "이태원 핼러윈 인파"
       },
       {
         "rank": 10,
-        "keyword": "한국시리즈 경기일정"
+        "keyword": "온라인 산사 60만명 방문"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "‘9세 연하♥’ 은지원 “2세가 고등학생 되면 난 이 세상에 없을 듯” (살림남)",
+      "title": "김동현, 100억 아파트 샀는데 32만원 날렸다…제주 여행 ‘대참사’",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261031/134942623/1",
-      "publishedAt": "수집 10. 31. 18:02 KST",
-      "publishedOrder": 1793437329883
+      "url": "https://sports.donga.com/ent/article/all/20261031/134942935/1",
+      "publishedAt": "수집 11. 01. 03:54 KST",
+      "publishedOrder": 1793472850352
     },
     {
-      "title": "신민아, 발레 배우다 거울 보고 포기…“내 모습 보고 그만둬” (길연)",
+      "title": "이현이, S전자 남편 “정상적인 엄마” 발언에 긁혔다…“빈정 상해” [SD톡톡]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261031/134942602/1",
-      "publishedAt": "수집 10. 31. 18:02 KST",
-      "publishedOrder": 1793437329883
+      "url": "https://sports.donga.com/ent/article/all/20261031/134942919/1",
+      "publishedAt": "수집 11. 01. 03:54 KST",
+      "publishedOrder": 1793472850352
     },
     {
-      "title": "백지영♥정석원, 결혼 13년 차 각방 고백…선우용여 “오늘부터 합방”",
+      "title": "김구라, 재산 300억설에 아들 그리 입 열었다…“진짜 안 쉬고 일해”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261031/134942564/1",
-      "publishedAt": "수집 10. 31. 18:02 KST",
-      "publishedOrder": 1793437329883
+      "url": "https://sports.donga.com/ent/article/all/20261031/134942926/1",
+      "publishedAt": "수집 11. 01. 03:54 KST",
+      "publishedOrder": 1793472850352
     },
     {
-      "title": "아일릿, ‘체포하겠어’로 무대 장악…호루라기 응원까지 ‘찰떡’",
+      "title": "장윤주, 남편 그림 실력에 돌직구…“이도 저도 아닌 매력”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261031/134942589/1",
-      "publishedAt": "수집 10. 31. 18:02 KST",
-      "publishedOrder": 1793437329883
+      "url": "https://sports.donga.com/ent/article/all/20261031/134942897/1",
+      "publishedAt": "수집 11. 01. 03:54 KST",
+      "publishedOrder": 1793472850352
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 10. 31. 18:02 KST",
-      "publishedOrder": 1793437328731
+      "publishedAt": "수집 11. 01. 03:54 KST",
+      "publishedOrder": 1793472849469
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 10. 31. 18:02 KST",
-      "publishedOrder": 1793437328731
+      "publishedAt": "수집 11. 01. 03:54 KST",
+      "publishedOrder": 1793472849469
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 10. 31. 18:02 KST",
-      "publishedOrder": 1793437328731
+      "publishedAt": "수집 11. 01. 03:54 KST",
+      "publishedOrder": 1793472849469
     },
     {
-      "title": "울릉도 여행비, 1박 2일에 162만원 나왔다...곽범 \"이렇게는 안 돼\" [때때때]",
+      "title": "故 최불암, 투병 중 MBC 제작진에 \"삶 정리하는 프로 만들어달라\" 직접 요청[스타이슈]",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/30/2026103019592428585",
-      "publishedAt": "수집 10. 31. 18:02 KST",
-      "publishedOrder": 1793437328731
+      "url": "https://www.starnewskorea.com/broadcast-show/2026/10/31/2026103108023340522",
+      "publishedAt": "수집 11. 01. 03:54 KST",
+      "publishedOrder": 1793472849469
     }
   ]
 }
