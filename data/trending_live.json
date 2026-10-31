@@ -1,255 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-10-31T18:54:16.299Z",
-  "updatedAtKst": "2026. 11. 1. AM 3:54:16",
+  "updatedAt": "2026-10-31T23:50:14.144Z",
+  "updatedAtKst": "2026. 11. 1. AM 8:50:14",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "트럼프 김정은 대화 준비"
+        "keyword": "김용건 최불암 빈소서 속사정 밝혀"
       },
       {
         "rank": 2,
-        "keyword": "핼러윈 인파 이태원역 무정차"
+        "keyword": "트럼프 김정은 대화 준비"
       },
       {
         "rank": 3,
-        "keyword": "미국 시간"
+        "keyword": "바이낸스 북한 탈취"
       },
       {
         "rank": 4,
-        "keyword": "故 최불암 빈소 조문객들 모여"
+        "keyword": "차예련, 학폭 부인 및 추가 폭로"
       },
       {
         "rank": 5,
-        "keyword": "이강인 아틀레티코 선두 활약"
+        "keyword": "100일의 거짓말"
       },
       {
         "rank": 6,
-        "keyword": "차예련, 학폭 부인 중 추가 폭로"
+        "keyword": "美 중간선거 임박 상황"
       },
       {
         "rank": 7,
-        "keyword": "1248회 로또 1등 15명 각 19억"
+        "keyword": "박서진"
       },
       {
         "rank": 8,
-        "keyword": "민주콩고 에볼라 사망"
+        "keyword": "이태원역 무정차 통과"
       },
       {
         "rank": 9,
-        "keyword": "김광규, 서울 연희동 이사"
+        "keyword": "사랑이 온다 OST 발매"
       },
       {
         "rank": 10,
-        "keyword": "임진택씨 모친상"
+        "keyword": "노소영"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "1248회 로또 1등 동일"
+        "keyword": "국민연금 7명은 60만원 new"
       },
       {
         "rank": 2,
-        "keyword": "이란 최고지도자 상승 3"
+        "keyword": "이강인 팀 내 평점 new"
       },
       {
         "rank": 3,
-        "keyword": "어드레스 정렬 동일"
+        "keyword": "전술탄도미사일 집속탄두 초토화 new"
       },
       {
         "rank": 4,
-        "keyword": "100일의 거짓말 김유정 상승 2"
+        "keyword": "9경기 무승 첼시 new"
       },
       {
         "rank": 5,
-        "keyword": "임진택씨 모친상 하락 3"
+        "keyword": "외모 인도 파워리프터 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "트럼프 김정은 대화 준비"
+        "keyword": "바이낸스 북한 탈취"
       },
       {
         "rank": 2,
-        "keyword": "이란 지리적 제한 대응"
+        "keyword": "트럼프 김정은 대화 준비"
       },
       {
         "rank": 3,
-        "keyword": "민주콩고 에볼라 사망"
+        "keyword": "이란 지리적 제한 대응"
       },
       {
         "rank": 4,
-        "keyword": "중국 제조업 PMI 위축"
-      },
-      {
-        "rank": 5,
         "keyword": "이태원역 무정차 통과"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "keyword": "미국 한국 의원 비자 문제"
       },
       {
+        "rank": 6,
+        "keyword": "캘리포니아 핼러윈 총격"
+      },
+      {
         "rank": 7,
-        "keyword": "트럼프 배당금 5000달러"
+        "keyword": "프랑스 주말 시위"
       },
       {
         "rank": 8,
-        "keyword": "피치 프랑스 신용등급 전망 하향"
+        "keyword": "중국 제조업 PMI 위축"
       },
       {
         "rank": 9,
-        "keyword": "애플 시총 1위 탈환"
+        "keyword": "민주콩고 에볼라 사망"
       },
       {
         "rank": 10,
-        "keyword": "오픈AI 자금조달 목표 감축"
+        "keyword": "미국 아프간인 추방"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "트위치"
+        "keyword": "이정영"
       },
       {
         "rank": 2,
-        "keyword": "ngoại hạng anh"
+        "keyword": "fc barcelona vs deportivo alavés standings"
       },
       {
         "rank": 3,
-        "keyword": "twitch"
+        "keyword": "눈 둘 데가 없네"
       },
       {
         "rank": 4,
-        "keyword": "바이에른 대 도르트문트"
+        "keyword": "대구날씨"
       },
       {
         "rank": 5,
-        "keyword": "헐 시티 대 입스위치"
+        "keyword": "샬럿 대 필라데피아"
       },
       {
         "rank": 6,
-        "keyword": "크리스타 파이크"
+        "keyword": "대한민국 축구 국가대표팀"
       },
       {
         "rank": 7,
-        "keyword": "npl"
+        "keyword": "박서진"
       },
       {
         "rank": 8,
-        "keyword": "조현아"
+        "keyword": "바이퍼"
       },
       {
         "rank": 9,
-        "keyword": "jonas brothers"
+        "keyword": "노소영"
       },
       {
         "rank": 10,
-        "keyword": "맨시티"
+        "keyword": "드라마"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "이태원역 무정차 통과"
+        "keyword": "오지명 최불암 애도"
       },
       {
         "rank": 2,
-        "keyword": "이강인 골대 강타"
+        "keyword": "일본 지진"
       },
       {
         "rank": 3,
-        "keyword": "1248회 로또 당첨 번호"
+        "keyword": "바이��스 가상자산 탈취"
       },
       {
         "rank": 4,
-        "keyword": "악뮤 첫 단독 콘서트"
+        "keyword": "jtbc 마라톤"
       },
       {
         "rank": 5,
-        "keyword": "장동윤 지구마불4 경비행기"
+        "keyword": "전원주 경도인지장애 고백"
       },
       {
         "rank": 6,
-        "keyword": "이승철 우즈 아버지"
+        "keyword": "악뮤 첫 단독 콘서트"
       },
       {
         "rank": 7,
-        "keyword": "전원주 경도인지장애"
+        "keyword": "이재명 농어촌기본소득"
       },
       {
         "rank": 8,
-        "keyword": "박진영 배우"
+        "keyword": "로또1248회 당첨 번호"
       },
       {
         "rank": 9,
-        "keyword": "이태원 핼러윈 인파"
+        "keyword": "프리미어리그 순위"
       },
       {
         "rank": 10,
-        "keyword": "온라인 산사 60만명 방문"
+        "keyword": "황희찬 공식 사과"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "김동현, 100억 아파트 샀는데 32만원 날렸다…제주 여행 ‘대참사’",
+      "title": "평행 세계서 만난 운명…엔하이픈, 2026년 관통한 ‘더 신’ 마침표",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261031/134942935/1",
-      "publishedAt": "수집 11. 01. 03:54 KST",
-      "publishedOrder": 1793472850352
+      "url": "https://sports.donga.com/ent/article/all/20261101/134943184/1",
+      "publishedAt": "수집 11. 01. 08:50 KST",
+      "publishedOrder": 1793490609640
     },
     {
-      "title": "이현이, S전자 남편 “정상적인 엄마” 발언에 긁혔다…“빈정 상해” [SD톡톡]",
+      "title": "50kg도 안 되는 이주빈, 이준도 못 연 통조림 단번에 ‘척’",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261031/134942919/1",
-      "publishedAt": "수집 11. 01. 03:54 KST",
-      "publishedOrder": 1793472850352
+      "url": "https://sports.donga.com/ent/article/all/20261101/134943212/1",
+      "publishedAt": "수집 11. 01. 08:50 KST",
+      "publishedOrder": 1793490609640
     },
     {
-      "title": "김구라, 재산 300억설에 아들 그리 입 열었다…“진짜 안 쉬고 일해”",
+      "title": "‘치이��와’ 250만 관객 돌파…‘더 퍼스트 슬램덩크’보다 빠르다",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261031/134942926/1",
-      "publishedAt": "수집 11. 01. 03:54 KST",
-      "publishedOrder": 1793472850352
+      "url": "https://sports.donga.com/ent/article/all/20261101/134943129/1",
+      "publishedAt": "수집 11. 01. 08:50 KST",
+      "publishedOrder": 1793490609640
     },
     {
-      "title": "장윤주, 남편 그림 실력에 돌직구…“이도 저도 아닌 매력”",
+      "title": "양치승, 사라다빵 가게 열더니 정호영에 “이젠 형”(사당귀)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261031/134942897/1",
-      "publishedAt": "수집 11. 01. 03:54 KST",
-      "publishedOrder": 1793472850352
+      "url": "https://sports.donga.com/ent/article/all/20261101/134943104/1",
+      "publishedAt": "수집 11. 01. 08:50 KST",
+      "publishedOrder": 1793490609640
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 01. 03:54 KST",
-      "publishedOrder": 1793472849469
+      "publishedAt": "수집 11. 01. 08:50 KST",
+      "publishedOrder": 1793490608541
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 01. 03:54 KST",
-      "publishedOrder": 1793472849469
+      "publishedAt": "수집 11. 01. 08:50 KST",
+      "publishedOrder": 1793490608541
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 01. 03:54 KST",
-      "publishedOrder": 1793472849469
+      "publishedAt": "수집 11. 01. 08:50 KST",
+      "publishedOrder": 1793490608541
     },
     {
-      "title": "故 최불암, 투병 중 MBC 제작진에 \"삶 정리하는 프로 만들어달라\" 직접 요청[스타이슈]",
+      "title": "김혜수, 고두심 부둥켜 안고 얼굴 푹..故 최불암 눈물로 배웅",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/broadcast-show/2026/10/31/2026103108023340522",
-      "publishedAt": "수집 11. 01. 03:54 KST",
-      "publishedOrder": 1793472849469
+      "url": "https://www.starnewskorea.com/star/2026/10/31/2026103111065049795",
+      "publishedAt": "수집 11. 01. 08:50 KST",
+      "publishedOrder": 1793490608541
     }
   ]
 }
