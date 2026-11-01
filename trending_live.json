@@ -1,7 +1,7 @@
 {
   "success": true,
-  "updatedAt": "2026-11-01T09:06:40.425Z",
-  "updatedAtKst": "2026. 11. 1. 오후 6:06:40",
+  "updatedAt": "2026-11-01T09:07:43.595Z",
+  "updatedAtKst": "2026. 11. 1. PM 6:07:43",
   "trending": {
     "naver": [
       {
@@ -42,7 +42,7 @@
       },
       {
         "rank": 10,
-        "keyword": "이예원, 4년 연속 우���!"
+        "keyword": "이예원, 4년 연속 우승!"
       }
     ],
     "nate": [
@@ -109,48 +109,7 @@
         "keyword": "울산 강원 역전승"
       }
     ],
-    "google": [
-      {
-        "rank": 1,
-        "keyword": "정석원"
-      },
-      {
-        "rank": 2,
-        "keyword": "강유미"
-      },
-      {
-        "rank": 3,
-        "keyword": "한국시리즈 예매"
-      },
-      {
-        "rank": 4,
-        "keyword": "india vs new zealand"
-      },
-      {
-        "rank": 5,
-        "keyword": "울산 hd fc 대 강원 fc 순위"
-      },
-      {
-        "rank": 6,
-        "keyword": "오타니 쇼헤이"
-      },
-      {
-        "rank": 7,
-        "keyword": "윤종훈"
-      },
-      {
-        "rank": 8,
-        "keyword": "oma vs pak"
-      },
-      {
-        "rank": 9,
-        "keyword": "탑"
-      },
-      {
-        "rank": 10,
-        "keyword": "카스트로"
-      }
-    ],
+    "google": [],
     "daum": [
       {
         "rank": 1,
@@ -192,64 +151,8 @@
         "rank": 10,
         "keyword": "백일섭 최불암 빈소"
       }
-    ]
+    ],
+    "googleError": "google trends HTTP 429"
   },
-  "entertainment": [
-    {
-      "title": "김연경 큰 실망…자존심 다 걸고 핑크스파이더스 맞대결",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261101/134944838/1",
-      "publishedAt": "수집 11. 01. 18:06 KST",
-      "publishedOrder": 1793523965682
-    },
-    {
-      "title": "천하의 김종국도 속수무책…김민종 압도적 피지컬 (런닝맨)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261101/134944858/1",
-      "publishedAt": "수집 11. 01. 18:06 KST",
-      "publishedOrder": 1793523965682
-    },
-    {
-      "title": "박하선, 6년만 ��디오 DJ 하차 “싫어져서 그만두는 거 아냐”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261101/134944950/1",
-      "publishedAt": "수집 11. 01. 18:06 KST",
-      "publishedOrder": 1793523965682
-    },
-    {
-      "title": "투바투의 서사·투어스의 4D VR… K팝의 극장 활용법",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261101/134944685/1",
-      "publishedAt": "수집 11. 01. 18:06 KST",
-      "publishedOrder": 1793523965682
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 01. 18:06 KST",
-      "publishedOrder": 1793523964464
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 01. 18:06 KST",
-      "publishedOrder": 1793523964464
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 01. 18:06 KST",
-      "publishedOrder": 1793523964464
-    },
-    {
-      "title": "故최불암 별세 9일전 모습 보니..\"오래도록 기억되길\" 슬픔 가득[스타이슈]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/31/2026103118455168339",
-      "publishedAt": "수집 11. 01. 18:06 KST",
-      "publishedOrder": 1793523964464
-    }
-  ]
+  "entertainment": []
 }
