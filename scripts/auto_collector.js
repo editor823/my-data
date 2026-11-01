@@ -244,6 +244,23 @@ async function collectShortContentsData() {
   } catch (e) {
     console.warn('  ⚠️ 실시간 숏텐츠 원본 갱신 실패:', e.message);
   }
+
+  // 5-2. 곧 뜰 숏텐츠 후보 (Predictions) 자동 수집 (유료키 권한 100% 해제)
+  const predictUrl = `https://www.boutique-info.com/api/keyword-center?action=getShortentsPredictions&paidAccessKey=AAAB4Z6KNMC6EYW5&_t=${ts}`;
+  try {
+    const pRes = await fetchJson(predictUrl, 15000);
+    if (pRes && pRes.success && Array.isArray(pRes.predictions)) {
+      const pJs = path.join(__dirname, '..', 'data', 'shortents_predictions.js');
+      fs.writeFileSync(pJs, `window.SHORTENTS_PREDICTIONS_DATA = ${JSON.stringify(pRes)};`, 'utf8');
+
+      const pJson = path.join(__dirname, '..', 'data', 'shortents_predictions.json');
+      fs.writeFileSync(pJson, JSON.stringify(pRes, null, 2), 'utf8');
+
+      console.log(`  ✅ 곧 뜰 숏텐츠 후보 동기화 완료 (총 ${pRes.predictions.length}건, 적중률 ${pRes.hitRate?.matched || 0}건)`);
+    }
+  } catch (e) {
+    console.warn('  ⚠️ 곧 뜰 숏텐츠 후보 원본 갱신 실패:', e.message);
+  }
 }
 
 // 6. 일일 수집 실행 메인 함수

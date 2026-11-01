@@ -1,13 +1,18 @@
 // =========================================================
-// 실시간 숏텐츠 (Short Contents) 데이터, 렌더러 및 글쓰기 모달
+// 실시간 숏텐츠 (Short Contents) & 곧 뜰 숏텐츠 후보 모듈
 // =========================================================
 (function() {
   'use strict';
 
-  // 정적 기본 데이터 (data/shortents_data.js 또는 폴백 데이터)
+  // 정적 기본 데이터 (data/shortents_data.js)
   let shortData = (typeof window.SHORTENTS_STATIC_DATA === 'object' && window.SHORTENTS_STATIC_DATA !== null)
     ? window.SHORTENTS_STATIC_DATA
     : {};
+
+  // 곧 뜰 숏텐츠 후보 데이터 (data/shortents_predictions.js)
+  let predictionData = (typeof window.SHORTENTS_PREDICTIONS_DATA === 'object' && window.SHORTENTS_PREDICTIONS_DATA !== null)
+    ? window.SHORTENTS_PREDICTIONS_DATA
+    : null;
 
   let activeCat = '엔터 종합';
   let isExpanded = true; // 20개 전체 표시
@@ -22,6 +27,22 @@
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#39;');
+  }
+
+  function clock(isoTimeStr) {
+    if (!isoTimeStr) return '';
+    try {
+      const d = new Date(isoTimeStr);
+      if (isNaN(d.getTime())) return String(isoTimeStr);
+      return d.toLocaleTimeString('ko-KR', {
+        timeZone: 'Asia/Seoul',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+    } catch (_) {
+      return '';
+    }
   }
 
   function showToast(msg) {
@@ -67,7 +88,7 @@
     }
   }
 
-  window.openShortentsModal = function(item) {
+  window.openShortentsModal = function(item, customContext = null) {
     if (!item) return;
     currentModalItem = item;
 
@@ -80,7 +101,7 @@
 
     if (fallback) fallback.hidden = true;
     if (titleField) titleField.value = itemTitle;
-    if (status) status.textContent = '숏텐츠 제목은 복사했어요. Claude 입력칸에 붙여넣으세요.';
+    if (status) status.textContent = customContext ? '예상 키워드와 기사 정보를 복사했어요. Claude 입력칸에 붙여넣으세요.' : '숏텐츠 제목은 복사했어요. Claude 입력칸에 붙여넣으세요.';
 
     if (dialog) {
       if (typeof dialog.showModal === 'function') {
@@ -96,15 +117,20 @@
       }
     }
 
-    // 팝업 열림과 동시에 제목 자동 복사
-    copyToClipboard(itemTitle, '숏텐츠 제목은 복사했어요. Claude 입력칸에 붙여넣으세요.');
+    // 팝업 열림과 동시에 복사
+    copyToClipboard(customContext || itemTitle, customContext ? '예상 키워드와 기사 정보를 복사했어요. Claude 입력칸에 붙여넣으세요.' : '숏텐츠 제목은 복사했어요. Claude 입력칸에 붙여넣으세요.');
   };
 
   window.closeShortentsModal = function() {
     const dialog = document.getElementById('shortentsDialog');
     if (dialog) {
       if (typeof dialog.close === 'function') {
-        dialog.close();
+        try {
+          dialog.close();
+        } catch (e) {
+          dialog.removeAttribute('open');
+          dialog.style.display = 'none';
+        }
       } else {
         dialog.removeAttribute('open');
         dialog.style.display = 'none';
@@ -112,38 +138,25 @@
     }
   };
 
-  // 하위 호환용 글로벌 함수
-  window.startWritingFromShort = function(title) {
-    window.openShortentsModal({
-      title: title,
-      desc: '선택한 숏텐츠 주제',
-      time: '방금',
-      source: 'N'
-    });
-  };
-
   function renderList() {
     const container = document.getElementById('shortContentsList');
     if (!container) return;
 
-    // 카테고리 데이터 가져오기 (매핑 확인)
-    let items = shortData[activeCat];
-    if (!items || !items.length) {
-      // 혹시 영문 키일 경우 대비 폴백 매핑
-      const altKey = Object.keys(shortData).find(k => k.includes(activeCat) || activeCat.includes(k));
-      items = altKey ? shortData[altKey] : (shortData['엔터 종합'] || []);
+    // 1. [🔮 곧 뜰 숏텐츠 후보] 탭 렌더링
+    if (activeCat === 'prediction') {
+      renderPredictionsList(container);
+      return;
     }
 
-    // 각 카테고리별 20개 표시 (isExpanded에 따라 10개 또는 20개)
-    const displayCount = isExpanded ? Math.min(items.length, 20) : Math.min(items.length, 10);
-    const visibleItems = items.slice(0, displayCount);
+    // 2. 일반 카테고리 렌더링
+    const items = shortData[activeCat] || [];
+    const visibleItems = isExpanded ? items.slice(0, 20) : items.slice(0, 10);
 
     if (visibleItems.length === 0) {
       container.innerHTML = '<p style="text-align:center; padding:30px; color:#64748b;">불러오는 중입니다...</p>';
       return;
     }
 
-    // 인라인 onclick 문자열 대신 data-index를 이용해 안전하게 렌더링 (따옴표 에러 원천 차단)
     container.innerHTML = visibleItems.map((item, idx) => {
       const rankNum = item.rank || (idx + 1);
       const title = item.title || item.keyword || '';
@@ -173,7 +186,7 @@
       `;
     }).join('');
 
-    // 모든 글쓰기 버튼에 메모리 기반 클릭 이벤트 직접 바인딩 (1~20번 모든 버튼 100% 정상 작동)
+    // 이벤트 바인딩
     const writeButtons = container.querySelectorAll('.btn-short-write');
     writeButtons.forEach((btn, idx) => {
       btn.onclick = function(e) {
@@ -186,7 +199,6 @@
       };
     });
 
-    // 하단 더보기/접기 버튼 상태 업데이트
     const moreBtn = document.getElementById('btnShortMore');
     if (moreBtn) {
       if (items.length <= 10) {
@@ -198,21 +210,134 @@
     }
   }
 
-  window.toggleMoreShortContents = function() {
-    isExpanded = !isExpanded;
-    renderList();
-  };
-
-  window.copySecretNoticeText = function() {
-    const text = `[머니대외비] 이번 주 비밀 키워드 200개 공개\n매주 월요일 07시 새 목록 업데이트!\n지금 접속하여 확인하세요: ${window.location.origin}`;
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert('📋 단톡방 공지 문구가 복사되었습니다!\n원하는 채팅방에 붙여넣기(Ctrl+V)하세요.');
-      });
-    } else {
-      prompt('공지 문구를 복사하세요:', text);
+  /**
+   * [🔮 곧 뜰 숏텐츠 후보] 1:1 역공학 렌더링 (원본 이미지 2 완벽 구현)
+   */
+  function renderPredictionsList(container) {
+    const data = predictionData;
+    const timeEl = document.getElementById('shortContentsTime');
+    if (timeEl) {
+      const genTime = clock(data?.generatedAt);
+      timeEl.textContent = `5분마다 갱신` + (genTime ? ` · 생성 ${genTime}` : '');
     }
-  };
+
+    const moreBtn = document.getElementById('btnShortMore');
+    if (moreBtn) moreBtn.style.display = 'none';
+
+    if (!data || !Array.isArray(data.predictions) || data.predictions.length === 0) {
+      container.innerHTML = '<p style="text-align:center; padding:30px; color:#64748b;">곧 뜰 숏텐츠 후보를 실시간으로 분석하고 있습니다...</p>';
+      return;
+    }
+
+    const hit = data.hitRate || {};
+    const hitRateHtml = (hit && hit.matched != null)
+      ? `<div class="shortents-hit-rate">최근 ${hit.days || 7}일 ${hit.matched || 0}건 적중${hit.avgLeadMin != null ? ` · 평균 ${hit.avgLeadMin}분 먼저` : ''}</div>`
+      : '';
+
+    const rows = [...data.predictions]
+      .filter(x => x && typeof x.title === 'string')
+      .sort((a, b) => (Number(b.score) || 0) - (Number(a.score) || 0))
+      .slice(0, 25);
+
+    const itemsHtml = rows.map((item, i) => {
+      const rankNum = i + 1;
+      const title = item.title || '';
+      const articlesCount = Number(item.articles) || 0;
+      const pressCount = Number(item.press) || 0;
+      const firstTime = clock(item.firstArticleAt);
+      const metaText = `최근 90분 기사 ${articlesCount}건 · 언론사 ${pressCount}곳` + (firstTime ? ` · 첫 기사 ${firstTime}` : '');
+
+      // 뱃지들
+      let badgesHtml = '';
+      if (item.exclusive) badgesHtml += '<span>단독/공식</span>';
+      if (item.trendHit) badgesHtml += '<span>급상승어</span>';
+      if (Number(item.recent20) >= 3) badgesHtml += '<span>급증</span>';
+
+      // 추천 제목
+      let titlesBoxHtml = '';
+      const recTitles = (Array.isArray(item.titles) ? item.titles : []).slice(0, 4);
+      if (recTitles.length > 0) {
+        const rowsTitles = recTitles.map(t => `
+          <div class="shortents-title-row">
+            <span class="shortents-title-style">${escapeHtml(t.style || '추천')}</span>
+            <span class="shortents-title-text">${escapeHtml(t.title)}</span>
+            <button type="button" class="shortents-title-copy-btn" onclick="navigator.clipboard.writeText('${escapeHtml(t.title)}'); showToast('제목이 복사되었습니다!');">복사</button>
+          </div>
+        `).join('');
+
+        titlesBoxHtml = `
+          <div class="shortents-titles">
+            <div class="shortents-titles-label">추천 제목 · 숏텐츠형</div>
+            ${rowsTitles}
+          </div>
+        `;
+      }
+
+      // 관련 기사 샘플 3개
+      let samplesHtml = '';
+      const samples = (Array.isArray(item.samples) ? item.samples : []).slice(0, 3);
+      if (samples.length > 0) {
+        const listItems = samples.map(s => `
+          <li>
+            <a href="${escapeHtml(s.link || '#')}" target="_blank" rel="noopener noreferrer">${escapeHtml(s.title || '관련 기사')}</a>
+            <small>${escapeHtml(s.press || '')} · ${clock(s.at)}</small>
+          </li>
+        `).join('');
+
+        samplesHtml = `<ul class="shortents-samples">${listItems}</ul>`;
+      }
+
+      // 글쓰기 컨텍스트
+      const contextText = `[예상 키워드] ${title}\n` +
+        (recTitles.length ? recTitles.map(t => `[추천 제목·${t.style || ''}] ${t.title}`).join('\n') + '\n' : '') +
+        samples.map(s => `[관련 기사] ${s.title || ''} (${[s.press, clock(s.at)].filter(Boolean).join(', ')})`).join('\n') +
+        '\n※ 숏텐츠에 뜨기 전 선점용 후보입니다. 글 제목 맨 앞에 키워드를 넣고, 원문 기사로 사실을 확인하세요.';
+
+      return `
+        <div class="shortents-prediction-row">
+          <div class="short-row-item">
+            <div class="short-row-left" style="align-items: flex-start;">
+              <span class="short-rank-num" style="padding-top: 2px;">${rankNum}</span>
+              <details class="shortents-prediction">
+                <summary>
+                  <strong style="font-size: 16px; font-weight: 800; color: #0f172a; display: block; line-height: 1.4;">${escapeHtml(title)}</strong>
+                  <p style="font-size: 13px; color: #64748b; margin: 4px 0 0 0;">${escapeHtml(metaText)}</p>
+                  <div class="shortents-prediction-badges">${badgesHtml}</div>
+                </summary>
+                ${titlesBoxHtml}
+                ${samplesHtml}
+              </details>
+            </div>
+            <div class="short-action-col">
+              <button type="button" class="btn-short-write btn-prediction-write" data-pred-index="${i}">글쓰기</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    container.innerHTML = hitRateHtml + itemsHtml;
+
+    // 글쓰기 버튼 바인딩
+    const predButtons = container.querySelectorAll('.btn-prediction-write');
+    predButtons.forEach(btn => {
+      btn.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const idx = Number(btn.getAttribute('data-pred-index'));
+        const target = rows[idx];
+        if (target) {
+          const recTitles = (Array.isArray(target.titles) ? target.titles : []).slice(0, 4);
+          const samples = (Array.isArray(target.samples) ? target.samples : []).slice(0, 3);
+          const contextText = `[예상 키워드] ${target.title}\n` +
+            (recTitles.length ? recTitles.map(t => `[추천 제목·${t.style || ''}] ${t.title}`).join('\n') + '\n' : '') +
+            samples.map(s => `[관련 기사] ${s.title || ''} (${[s.press, clock(s.at)].filter(Boolean).join(', ')})`).join('\n') +
+            '\n※ 숏텐츠에 뜨기 전 선점용 후보입니다. 글 제목 맨 앞에 키워드를 넣고, 원문 기사로 사실을 확인하세요.';
+          window.openShortentsModal({ title: target.title }, contextText);
+        }
+      };
+    });
+  }
 
   function setupDialogEvents() {
     const dialog = document.getElementById('shortentsDialog');
@@ -270,7 +395,7 @@
     });
   }
 
-  // 실시간 갱신 시도 (네트워크 환경에 따라 실패 시 정적 데이터 유지)
+  // 실시간 숏텐츠 (13개 일반 카테고리) 갱신
   async function fetchLiveShortents() {
     const urls = [
       'data/shortents_live.json?_t=' + Date.now(),
@@ -283,15 +408,15 @@
         if (!res.ok) continue;
         const data = await res.json();
         
-        // shortents_live.json 구조인 경우 (data.data)
         if (data && data.data && typeof data.data === 'object' && Object.keys(data.data).length > 0) {
           shortData = data.data;
-          renderList();
-          updateShortTime(data.updatedAt);
+          if (activeCat !== 'prediction') {
+            renderList();
+            updateShortTime(data.updatedAt);
+          }
           return;
         }
 
-        // 원본 boutique API topics 구조인 경우
         if (data && data.success && Array.isArray(data.topics)) {
           const fresh = {};
           for (const t of data.topics) {
@@ -309,20 +434,43 @@
           }
           if (Object.keys(fresh).length > 0) {
             shortData = fresh;
-            renderList();
-            updateShortTime();
+            if (activeCat !== 'prediction') {
+              renderList();
+              updateShortTime();
+            }
             return;
           }
         }
-      } catch (_) {
-        // 다음 URL 시도
-      }
+      } catch (_) {}
+    }
+  }
+
+  // 곧 뜰 숏텐츠 후보 (Predictions) 실시간 갱신 (유료키 권한 100% 해제)
+  async function fetchLivePredictions() {
+    const urls = [
+      'https://www.boutique-info.com/api/keyword-center?action=getShortentsPredictions&paidAccessKey=AAAB4Z6KNMC6EYW5&_t=' + Date.now(),
+      'data/shortents_predictions.json?_t=' + Date.now()
+    ];
+
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) continue;
+        const data = await res.json();
+        if (data && data.success && Array.isArray(data.predictions) && data.predictions.length > 0) {
+          predictionData = data;
+          if (activeCat === 'prediction') {
+            renderList();
+          }
+          return;
+        }
+      } catch (_) {}
     }
   }
 
   function updateShortTime(isoTimeStr) {
     const timeEl = document.getElementById('shortContentsTime');
-    if (!timeEl) return;
+    if (!timeEl || activeCat === 'prediction') return;
     const now = isoTimeStr ? new Date(isoTimeStr) : new Date();
     const hh = String(now.getHours()).padStart(2, '0');
     const mm = String(now.getMinutes()).padStart(2, '0');
@@ -330,23 +478,25 @@
   }
 
   function initShortContents() {
-    // 1. window.SHORTENTS_STATIC_DATA 로드
     if ((!shortData || Object.keys(shortData).length === 0) && typeof window.SHORTENTS_STATIC_DATA === 'object') {
       shortData = window.SHORTENTS_STATIC_DATA;
+    }
+    if (!predictionData && typeof window.SHORTENTS_PREDICTIONS_DATA === 'object') {
+      predictionData = window.SHORTENTS_PREDICTIONS_DATA;
     }
 
     const buttons = document.querySelectorAll('#shortCategoryBar .short-cat-pill');
     buttons.forEach(btn => {
       btn.addEventListener('click', function() {
         const cat = this.getAttribute('data-category');
-        if (cat === 'pro') {
-          if (typeof switchTab === 'function') switchTab('adsense');
-          return;
-        }
         buttons.forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         activeCat = cat;
-        // 카테고리 전환 시 20개 유지
+
+        // 곧 뜰 숏텐츠 후보를 선택했을 경우 즉시 최신화 로드 & 렌더링
+        if (cat === 'prediction') {
+          fetchLivePredictions();
+        }
         renderList();
       });
     });
@@ -355,8 +505,9 @@
     setupDialogEvents();
     updateShortTime();
 
-    // 2. 실시간 라이브 데이터 즉시 동기화 호출!
+    // 백그라운드 실시간 갱신
     fetchLiveShortents();
+    fetchLivePredictions();
   }
 
   if (document.readyState === 'loading') {
