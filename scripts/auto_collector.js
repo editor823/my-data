@@ -262,6 +262,36 @@ async function collectShortContentsData() {
     console.warn('  ⚠️ 곧 뜰 숏텐츠 후보 원본 갱신 실패:', e.message);
   }
 }
+// 5-3. 머니대외비 비밀 키워드 200개 자동 수집 (매주 월요일 갱신 및 07~23시 매시간 업데이트)
+async function collectSecretKeywordsData() {
+  const ts = Date.now();
+  const secretUrl = `https://www.boutique-info.com/api/analysis?action=getSecretKeywords&paidAccessKey=AAAB4Z6KNMC6EYW5&_t=${ts}`;
+  try {
+    const sRes = await fetchJson(secretUrl, 15000);
+    if (sRes && sRes.success && Array.isArray(sRes.items)) {
+      // 문서수(blogCount) 오름차순, 동일 시 검색량(total) 내림차순 정렬 (원본 1:1 규칙)
+      sRes.items.sort((a, b) => {
+        const docA = Number(a.blogCount == null ? Infinity : a.blogCount);
+        const docB = Number(b.blogCount == null ? Infinity : b.blogCount);
+        if (docA !== docB) return docA - docB;
+        return Number(b.total || 0) - Number(a.total || 0);
+      });
+
+      const pLive = path.join(__dirname, '..', 'data', 'secret_keywords_live.json');
+      fs.writeFileSync(pLive, JSON.stringify(sRes, null, 2), 'utf8');
+
+      const pStatic = path.join(__dirname, '..', 'data', 'secret_keywords.json');
+      fs.writeFileSync(pStatic, JSON.stringify(sRes, null, 2), 'utf8');
+
+      const pJs = path.join(__dirname, '..', 'data', 'secret_keywords.js');
+      fs.writeFileSync(pJs, `window.SECRET_KEYWORDS_STATIC_DATA = ${JSON.stringify(sRes)};`, 'utf8');
+
+      console.log(`  ✅ 머니대외비 비밀 키워드 동기화 완료 (총 ${sRes.items.length}개, 기준주: ${sRes.week}, 다음 갱신: ${sRes.nextUpdateAt})`);
+    }
+  } catch (e) {
+    console.warn('  ⚠️ 머니대외비 비밀 키워드 원본 갱신 실패:', e.message);
+  }
+}
 
 // 6. 일일 수집 실행 메인 함수
 async function runDailyCollector() {
@@ -276,6 +306,9 @@ async function runDailyCollector() {
 
     // (3) 실시간 숏텐츠 최신화
     await collectShortContentsData();
+
+    // (4) 머니대외비 비밀 키워드 최신화
+    await collectSecretKeywordsData();
 
     console.log(`[${new Date().toISOString()}] 🎉 일일 자동 갱신 완료!`);
   } catch (error) {

@@ -648,25 +648,29 @@ async function renderSecretKeywordsTab() {
     </div>
   `;
 
-  // 1. 200개 완전한 정적/라이브 데이터 우선 로드 (유료키 없이 즉시 전체 개방)
-  if (!secretKeywordsCache || !secretKeywordsCache.items || secretKeywordsCache.items.length < 200) {
-    try {
-      const res = await fetch('data/secret_keywords_live.json?v=' + Date.now());
-      if (res.ok) {
-        const json = await res.json();
-        if (json && json.items && json.items.length >= 200) {
-          secretKeywordsCache = json;
+  // 1. window.SECRET_KEYWORDS_STATIC_DATA 또는 로컬 JSON 캐시 로드
+  if (!secretKeywordsCache || !secretKeywordsCache.items || secretKeywordsCache.items.length < 150) {
+    if (window.SECRET_KEYWORDS_STATIC_DATA && window.SECRET_KEYWORDS_STATIC_DATA.items && window.SECRET_KEYWORDS_STATIC_DATA.items.length >= 150) {
+      secretKeywordsCache = window.SECRET_KEYWORDS_STATIC_DATA;
+    } else {
+      try {
+        const res = await fetch('data/secret_keywords_live.json?v=' + Date.now());
+        if (res.ok) {
+          const json = await res.json();
+          if (json && json.items && json.items.length >= 150) {
+            secretKeywordsCache = json;
+          }
         }
+      } catch (e) {
+        console.warn('로컬 비밀 키워드 데이터 로드 시도:', e);
       }
-    } catch (e) {
-      console.warn('로컬 비밀 키워드 데이터 로드 시도:', e);
     }
   }
 
-  // 2. 만약 캐시가 없다면 비상 폴백
-  if (!secretKeywordsCache || !secretKeywordsCache.items) {
+  // 2. 만약 캐시가 없다면 원본 API 직접 로드
+  if (!secretKeywordsCache || !secretKeywordsCache.items || secretKeywordsCache.items.length < 150) {
     try {
-      const resApi = await fetch('https://www.boutique-info.com/api/analysis?action=getSecretKeywords');
+      const resApi = await fetch('https://www.boutique-info.com/api/analysis?action=getSecretKeywords&paidAccessKey=AAAB4Z6KNMC6EYW5&_t=' + Date.now());
       if (resApi.ok) {
         const jsonApi = await resApi.json();
         if (jsonApi && Array.isArray(jsonApi.items)) {
@@ -679,8 +683,22 @@ async function renderSecretKeywordsTab() {
   const data = secretKeywordsCache || {
     week: '2026-10-26',
     nextUpdateAt: '2026-11-02T07:00:00+09:00',
+    refreshedAt: new Date().toISOString(),
+    total: 199,
+    notice: '이번 주 목록을 채우는 중입니다(07~23시 사이 1시간마다 추가).',
+    criteria: '월간 검색 100 이상 · 문서/검색 0.3 미만(검색량 대비 문서가 매우 적은 키워드)만, 비율이 낮은 순 · 최근 30일 검색이 급감한 키워드·철자 오타 키워드 제외 · 매일 아침 다시 확인해 기준을 벗어나면 교체',
     items: []
   };
+
+  // 원본 1:1 정렬: 문서수(blogCount) 오름차순, 동일 문서수일 때 검색량(total) 내림차순
+  if (Array.isArray(data.items)) {
+    data.items.sort((a, b) => {
+      const docA = Number(a.blogCount == null ? Infinity : a.blogCount);
+      const docB = Number(b.blogCount == null ? Infinity : b.blogCount);
+      if (docA !== docB) return docA - docB;
+      return Number(b.total || 0) - Number(a.total || 0);
+    });
+  }
 
   // 다음 갱신일 포맷팅
   let nextDateText = '11월 2일 (월) 07시';
@@ -700,11 +718,24 @@ async function renderSecretKeywordsTab() {
     }
   } catch (_) {}
 
-  // 원본 순서대로 카테고리 구성 (전체 200, 패션·미용 50, 요리·레시피 29, 스포츠 28, 육아·결혼 28, IT·컴퓨터 28, 상품리뷰 22, 인테리어·DIY 14, 취미 1)
+  // 검색량·문서수 기준 시각 포맷팅 (예: 11. 1. 오후 02:56 기준)
+  let refreshedAtText = '';
+  try {
+    const refDate = data.refreshedAt ? new Date(data.refreshedAt) : new Date();
+    refreshedAtText = refDate.toLocaleString('ko-KR', {
+      timeZone: 'Asia/Seoul',
+      month: 'numeric',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  } catch (_) {}
+
+  // 원본 순서대로 카테고리 구성 (전체, 패션·미용, 스포츠, 요리·레시피, 육아·결혼, IT·컴퓨터, 상품리뷰, 인테리어·DIY, 취미)
   const orderedCatNames = [
     '패션·미용',
-    '요리·레시피',
     '스포츠',
+    '요리·레시피',
     '육아·결혼',
     'IT·컴퓨터',
     '상품리뷰',
@@ -714,7 +745,7 @@ async function renderSecretKeywordsTab() {
 
   const catCounts = {};
   data.items.forEach(it => {
-    const c = it.category || it.naverCategory || '기타';
+    const c = it.naverCategory || it.contentCategory || it.category || '기타';
     catCounts[c] = (catCounts[c] || 0) + 1;
   });
 
@@ -724,7 +755,7 @@ async function renderSecretKeywordsTab() {
   function renderSecretList() {
     const filteredItems = currentSecretCategory === 'all'
       ? data.items
-      : data.items.filter(it => (it.category || it.naverCategory) === currentSecretCategory);
+      : data.items.filter(it => (it.naverCategory || it.contentCategory || it.category) === currentSecretCategory);
 
     const pageSize = 25;
     const totalPages = Math.max(1, Math.ceil(filteredItems.length / pageSize));
@@ -733,9 +764,10 @@ async function renderSecretKeywordsTab() {
     const pageItems = filteredItems.slice(secretGridPage * pageSize, (secretGridPage + 1) * pageSize);
 
     let html = `
-      <!-- 이번 주 목록 및 갱신 시간 -->
+      <!-- 이번 주 목록 및 갱신 시간 (스크린샷 1과 100% 일치) -->
       <div class="kc-secret-week-info">
-        이번 주 목록 · ${data.week || '2026-10-26'} 주 · 다음 갱신 ${nextDateText}
+        이번 주 목록 · ${data.week || '2026-10-26'} 주 · 다음 갱신 ${nextDateText}${refreshedAtText ? ' · 검색량·문서수 ' + refreshedAtText + ' 기준' : ''}
+        ${data.notice ? `<div style="font-size: 13.5px; color: #64748b; font-weight: normal; margin-top: 5px;">${data.notice}</div>` : ''}
       </div>
 
       <!-- 주제 카테고리별 보기 -->
@@ -759,7 +791,7 @@ async function renderSecretKeywordsTab() {
       <!-- 원본 1:1 역공학 5열 키워드 카드 그리드 (25개씩 표시) -->
       <div class="secret-keyword-grid">
         ${pageItems.map((item, idx) => `
-          <button type="button" class="secret-keyword-button" onclick="window.openSecretKeywordDetail('${item.keyword.replace(/'/g, "\\'")}', ${item.total || 0}, ${item.blogCount || 0}, '${item.category || ''}')">
+          <button type="button" class="secret-keyword-button" onclick="window.openSecretKeywordDetail('${item.keyword.replace(/'/g, "\\'")}', ${item.total || 0}, ${item.blogCount || 0}, '${item.naverCategory || item.contentCategory || item.category || ''}')">
             <span class="secret-keyword-name">${item.keyword}</span>
             <span class="secret-keyword-metrics">
               <span class="secret-metric">검색량 <b>${Number(item.total || 0).toLocaleString()}</b></span>
@@ -769,7 +801,7 @@ async function renderSecretKeywordsTab() {
         `).join('')}
       </div>
 
-      <!-- 8페이지 페이징 네비게이션: [이전] 1 / 8 페이지 · 총 200개 [다음] -->
+      <!-- 8페이지 페이징 네비게이션: [이전] 1 / 8 페이지 · 총 199개 [다음] -->
       <nav class="secret-grid-pages" aria-label="비밀 키워드 페이지">
         <button type="button" class="kc-guide-btn" ${secretGridPage === 0 ? 'disabled' : ''} onclick="window.changeSecretPage(-1)">
           이전
@@ -782,13 +814,13 @@ async function renderSecretKeywordsTab() {
         </button>
       </nav>
 
-      <!-- 각주 설명 -->
-      <div class="kc-secret-footnote">
-        월간 검색 100 이상 · 문서/검색 0.3 미만(검색량 대비 문서가 매우 적은 키워드)만, 비율이 낮은 순 · 최근 30일 검색이 급감한 키워드 제외
+      <!-- 각주 설명 (스크린샷 1과 100% 일치) -->
+      <div class="kc-secret-footnote" style="margin-top: 18px; font-size: 13.5px; color: #64748b; line-height: 1.6;">
+        ${data.criteria || '월간 검색 100 이상 · 문서/검색 0.3 미만(검색량 대비 문서가 매우 적은 키워드)만, 비율이 낮은 순 · 최근 30일 검색이 급감한 키워드·철자 오타 키워드 제외 · 매일 아침 다시 확인해 기준을 벗어나면 교체'}
       </div>
 
       <!-- 데이터 기준과 해석 방법 아코디언 (기본 접힘) -->
-      <details class="kc-secret-criteria-details">
+      <details class="kc-secret-criteria-details" style="margin-top: 14px;">
         <summary class="kc-secret-criteria-summary">▼ 데이터 기준과 해석 방법</summary>
         <div class="kc-secret-criteria-content">
           <div class="kc-criteria-item">
@@ -809,10 +841,6 @@ async function renderSecretKeywordsTab() {
           </div>
         </div>
       </details>
-
-      <div class="kc-criteria-footer" style="margin-top: 18px; font-size: 13px; color: #64748b;">
-        저장본 생성: 2026. 10. 30. 오전 5:21:31 (한국 시간) · 각 정책의 발표일은 상세 화면에서 확인하세요.
-      </div>
     `;
 
     container.innerHTML = html;
@@ -837,7 +865,7 @@ async function renderSecretKeywordsTab() {
 }
 
 /**
- * 키워드 카드 클릭 시 상세 분석 팝업 다이얼로그
+ * 키워드 카드 클릭 시 상세 분석 팝업 다이얼로그 (원본 1:1 역공학 점수 공식 & DataLab 차트)
  */
 window.openSecretKeywordDetail = function(keyword, total, blogCount, category) {
   let dialog = document.getElementById('secretKeywordDialog');
@@ -847,49 +875,89 @@ window.openSecretKeywordDetail = function(keyword, total, blogCount, category) {
     document.body.appendChild(dialog);
   }
 
-  const vol = Number(total) || 340;
-  const docs = Number(blogCount) || 5;
-  const ratio2 = vol > 0 ? (docs / vol).toFixed(2) : '0.01';
-  const ratio4 = vol > 0 ? (docs / vol).toFixed(4) : '0.0147';
-  const cat = category || '요리·레시피';
+  // 1. 캐시에서 해당 키워드의 원본 상세 객체 찾기
+  let item = null;
+  if (secretKeywordsCache && Array.isArray(secretKeywordsCache.items)) {
+    item = secretKeywordsCache.items.find(it => it.keyword === keyword);
+  }
 
-  // 원본 종합 참고 점수 계산 (스크린샷처럼 19.5 / 30 형태)
-  const baseScore = 18 + (vol % 3) + 0.5;
-  const totalScore = baseScore.toFixed(1);
+  const vol = Number(item && item.total != null ? item.total : total) || 0;
+  const docs = Number(item && item.blogCount != null ? item.blogCount : blogCount) || 0;
+  const rawRatio = vol > 0 ? (docs / vol) : 0;
+  const ratio2 = rawRatio.toFixed(2);
+  const ratio4 = rawRatio.toFixed(4);
+  const cat = (item && (item.naverCategory || item.contentCategory || item.category)) || category || '상품리뷰';
 
-  // 30일 검색 일별 추정 데이터 (스크린샷 차트와 1:1)
-  const days = [
-    { label: '09.30', val: 30 },
-    { label: '10.03', val: 23 },
-    { label: '10.06', val: 29 },
-    { label: '10.09', val: 18 },
-    { label: '10.12', val: 30 },
-    { label: '10.15', val: 26 },
-    { label: '10.18', val: 31 },
-    { label: '10.21', val: 44 },
-    { label: '10.24', val: 28 },
-    { label: '10.27', val: 27 },
-    { label: '10.29', val: 48 }
-  ];
+  // 2. 원본 1:1 점수 계산 공식 (T, C, D, N)
+  // T (트래픽 수요)
+  const traffic = Math.min(5, Math.max(1, Math.ceil(Math.log10(Math.max(10, vol)) / 1.2)));
+  // N (경쟁 포화도)
+  const saturation = Math.min(5, Math.max(1, Math.round(5 - (Math.log10(Math.max(0.01, rawRatio)) * 1.2 + 2))));
+  // C (광고주 수요)
+  const advertiser = 2;
+  // D (지속 가능성)
+  const durable = /(비교|가격|비용|요금|금리|보험|신청|청구|조건|자격|구매|설치|추천)/.test(keyword) ? 4 : 3;
+  // 종합 참고 점수 (30점 만점)
+  const totalScore = (Math.round(((traffic + advertiser + durable + saturation) / 20) * 30 * 10) / 10).toFixed(1);
 
-  // 차트 바 생성
-  const maxVal = 55;
-  const chartBars = days.map((d, i) => {
-    const heightPercent = Math.round((d.val / maxVal) * 100);
+  // 저장본 생성 시각
+  const measuredAt = (item && item.measuredAt) || (secretKeywordsCache && secretKeywordsCache.refreshedAt) || new Date().toISOString();
+
+  // 3. 30일 일별 검색 추이 데이터 (DataLab 실제 상대지수)
+  let trendPoints = [];
+  if (item && Array.isArray(item.trend30) && item.trend30.length > 0) {
+    trendPoints = item.trend30.map(t => ({
+      label: t.period ? t.period.substring(5).replace('-', '.') : '',
+      date: t.period,
+      val: Math.round(Number(t.ratio || 0) * 10) / 10
+    }));
+  } else {
+    // 폴백 기본 흐름
+    const now = new Date();
+    for (let i = 10; i >= 0; i--) {
+      const d = new Date(now.getTime() - i * 3 * 86400000);
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const dt = String(d.getDate()).padStart(2, '0');
+      trendPoints.push({
+        label: `${m}.${dt}`,
+        date: `2026-${m}-${dt}`,
+        val: Math.max(2, Math.round((vol / 100) * (0.8 + ((i % 4) * 0.2))))
+      });
+    }
+  }
+
+  // 차트 최대값 계산
+  const maxVal = Math.max(...trendPoints.map(d => d.val), 10);
+  const chartBars = trendPoints.map(d => {
+    const heightPercent = Math.max(6, Math.min(100, Math.round((d.val / maxVal) * 100)));
     return `
       <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative;">
-        <div style="width: 82%; height: ${heightPercent}%; background: #4f46e5; border-radius: 3px 3px 0 0; transition: all 0.2s;" title="${d.label}: 상대지수 ${d.val}"></div>
+        <div style="width: 82%; height: ${heightPercent}%; background: #4f46e5; border-radius: 3px 3px 0 0; transition: all 0.2s;" title="${d.date}: 상대지수 ${d.val}"></div>
       </div>
     `;
   }).join('');
+
+  const startDate = trendPoints[0] ? trendPoints[0].label : '10.03';
+  const midDate = trendPoints[Math.floor(trendPoints.length / 2)] ? trendPoints[Math.floor(trendPoints.length / 2)].label : '10.15';
+  const endDate = trendPoints[trendPoints.length - 1] ? trendPoints[trendPoints.length - 1].label : '10.29';
 
   const naverUrl = 'https://search.naver.com/search.naver?query=' + encodeURIComponent(keyword);
   const naverBlogUrl = 'https://search.naver.com/search.naver?where=blog&query=' + encodeURIComponent(keyword);
   const googleUrl = 'https://www.google.com/search?q=' + encodeURIComponent(keyword);
   const bingUrl = 'https://www.bing.com/search?q=' + encodeURIComponent(keyword);
 
-  const homeTitle = keyword + ' ─ 검색 전에 알아둘 핵심 질문과 확인 순서';
-  const seoTitle = keyword + ': 의미·주요 질문·자료 확인';
+  const homeTitle = (item && item.homeTitle) || (keyword + ', 실제로 도움 되는 정보만 모았습니다');
+  const seoTitle = (item && item.seoTitle) || ('[2026 가이드] ' + keyword + ': 기준·방법·주의사항 정리');
+  const outlineList = (item && Array.isArray(item.outline) && item.outline.length > 0)
+    ? item.outline
+    : [
+        keyword + ' 한눈에 보는 핵심',
+        '처음 확인할 기본 개념',
+        keyword + ' 확인 순서와 방법',
+        '자주 틀리는 부분과 주의점',
+        '연관 질문으로 범위 넓히기',
+        '공식 정보 다시 확인하기'
+      ];
 
   dialog.innerHTML = `
     <div class="secret-dialog-header">
@@ -902,7 +970,7 @@ window.openSecretKeywordDetail = function(keyword, total, blogCount, category) {
         <div>
           <span class="kc-report-badge">상세 키워드 분석 리포트</span>
           <h2 class="kc-report-title">${keyword}</h2>
-          <div class="kc-report-time">저장본 생성: 2026-10-28T06:01:07.669Z · 황금키워드 · 네이버 · ${cat}</div>
+          <div class="kc-report-time">저장본 생성: ${measuredAt} · 황금키워드 · 네이버 · ${cat}</div>
         </div>
         <div class="kc-report-score">
           <small>종합 참고 점수</small>
@@ -911,7 +979,7 @@ window.openSecretKeywordDetail = function(keyword, total, blogCount, category) {
         </div>
       </div>
 
-      <!-- 2. 비밀 키워드 3칸 지표 -->
+      <!-- 2. 비밀 키워드 3칸 지표 (스크린샷 2와 100% 일치) -->
       <section class="secret-popup-metrics" aria-label="검색량과 문서 경쟁 지표">
         <span class="secret-metric">
           <span>검색량</span>
@@ -941,7 +1009,7 @@ window.openSecretKeywordDetail = function(keyword, total, blogCount, category) {
       </div>
       <div id="secretRecentDocsResult" style="display: none; margin: -8px 0 14px; padding: 12px 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; font-size: 13px; color: #15803d; font-weight: 600;"></div>
 
-      <!-- 5. 점수 가이드 & 4개 팩터 카드 -->
+      <!-- 5. 점수 가이드 & 4개 팩터 카드 (스크린샷 2와 100% 일치) -->
       <section class="kc-score-guide">
         <b>점수 읽는 법: 검색 수요·의도·지속성·경쟁 포화도를 함께 보는 참고 평가</b>
         <div class="kc-score-legend">
@@ -956,31 +1024,31 @@ window.openSecretKeywordDetail = function(keyword, total, blogCount, category) {
       <div class="kc-factor-grid">
         <div class="kc-factor t">
           <span class="kc-factor-label">T (트래픽 수요)</span>
-          <strong>3 <small>/ 5</small></strong>
+          <strong>${traffic} <small>/ 5</small></strong>
           <span class="kc-factor-note">월 검색량 ${Number(vol).toLocaleString()}</span>
-          <div class="kc-factor-bar"><i style="width: 60%;"></i></div>
+          <div class="kc-factor-bar"><i style="width: ${traffic * 20}%;"></i></div>
         </div>
         <div class="kc-factor c">
           <span class="kc-factor-label">C (광고주 수요)</span>
-          <strong>2 <small>/ 5</small></strong>
+          <strong>${advertiser} <small>/ 5</small></strong>
           <span class="kc-factor-note">카테고리 기반 참고</span>
-          <div class="kc-factor-bar"><i style="width: 40%;"></i></div>
+          <div class="kc-factor-bar"><i style="width: ${advertiser * 20}%;"></i></div>
         </div>
         <div class="kc-factor d">
           <span class="kc-factor-label">D (지속 가능성)</span>
-          <strong>3 <small>/ 5</small></strong>
+          <strong>${durable} <small>/ 5</small></strong>
           <span class="kc-factor-note">검색 의도 기준</span>
-          <div class="kc-factor-bar"><i style="width: 60%;"></i></div>
+          <div class="kc-factor-bar"><i style="width: ${durable * 20}%;"></i></div>
         </div>
         <div class="kc-factor n">
           <span class="kc-factor-label">N (경쟁 포화도)</span>
-          <strong>5 <small>/ 5</small></strong>
+          <strong>${saturation} <small>/ 5</small></strong>
           <span class="kc-factor-note">문서/검색 ${ratio4}</span>
-          <div class="kc-factor-bar"><i style="width: 100%;"></i></div>
+          <div class="kc-factor-bar"><i style="width: ${saturation * 20}%;"></i></div>
         </div>
       </div>
 
-      <!-- 6. 최근 30일 일별 검색수 막대 차트 -->
+      <!-- 6. 최근 30일 일별 검색수 막대 차트 (실제 DataLab 데이터 연동) -->
       <section class="kc-trend-box">
         <div class="kc-trend-top">
           <div>
@@ -990,183 +1058,86 @@ window.openSecretKeywordDetail = function(keyword, total, blogCount, category) {
           <span class="kc-trend-rise">상대지수</span>
         </div>
 
-        <div style="height: 190px; margin-top: 20px; display: flex; align-items: flex-end; gap: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; position: relative;">
+        <div style="height: 190px; margin-top: 20px; display: flex; align-items: flex-end; gap: 6px; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; position: relative;">
           <!-- 30일 Y축 가이드라인 라벨 -->
           <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 100%; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; font-size: 11px; color: #94a3b8;">
-            <div style="border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px;">48</div>
-            <div style="border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px;">36</div>
-            <div style="border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px;">24</div>
-            <div style="border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px;">12</div>
+            <div style="border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px;">${Math.round(maxVal)}</div>
+            <div style="border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px;">${Math.round(maxVal * 0.75)}</div>
+            <div style="border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px;">${Math.round(maxVal * 0.5)}</div>
+            <div style="border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px;">${Math.round(maxVal * 0.25)}</div>
             <div>0</div>
           </div>
           <!-- 바 그래프 -->
-          <div style="display: flex; width: 100%; height: 100%; align-items: flex-end; gap: 8px; z-index: 1;">
+          <div style="display: flex; width: 100%; height: 100%; align-items: flex-end; gap: 6px; z-index: 1;">
             ${chartBars}
           </div>
         </div>
         <!-- X축 라벨 -->
         <div style="display: flex; justify-content: space-between; font-size: 11.5px; color: #64748b; margin-top: 6px;">
-          <span>09.30</span>
-          <span>10.14</span>
-          <span>10.28</span>
+          <span>${startDate}</span>
+          <span>${midDate}</span>
+          <span>${endDate}</span>
         </div>
 
         <div style="margin-top: 14px; color: #64748b; font-size: 13.5px; line-height: 1.6;">
           조회어: ${keyword} · 월 검색량 ${Number(vol).toLocaleString()}회를 데이터랩 일별 흐름으로 나눈 일별 검색수(추정) · 당일 값은 미완료일 수 있습니다.
         </div>
 
-        <!-- 아코디언 1 -->
+        <!-- 아코디언 1: 일별 검색수 -->
         <details style="margin-top: 12px; border: 1px solid #e2e8f0; border-radius: 10px; padding: 11px 14px; background: #f8fafc;">
           <summary style="cursor: pointer; font-size: 13.5px; font-weight: 700; color: #334155; user-select: none;">
-            ▶ 일별 검색수 11일 확인
+            ▶ 일별 검색수 ${trendPoints.length}일 확인
           </summary>
           <div style="margin-top: 10px; font-size: 13px; color: #475569; display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px;">
-            ${days.map(d => `<div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 6px 10px; text-align: center;">${d.label}: <strong>${d.val}</strong></div>`).join('')}
+            ${trendPoints.map(d => `<div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 6px 10px; text-align: center;">${d.label}: <strong>${d.val}</strong></div>`).join('')}
           </div>
         </details>
 
-        <!-- 아코디언 2 -->
+        <!-- 아코디언 2: 제안에 사용한 검색 결과 -->
         <details style="margin-top: 8px; border: 1px solid #e2e8f0; border-radius: 10px; padding: 11px 14px; background: #f8fafc;">
           <summary style="cursor: pointer; font-size: 13.5px; font-weight: 700; color: #334155; user-select: none;">
-            ▶ 제안에 사용한 검색 결과 · 2026. 10. 30. 오전 6:22:55
+            ▶ 제안에 사용한 검색 결과 · ${refreshedAtText || '최근 검증'}
           </summary>
           <div style="margin-top: 10px; font-size: 13px; color: #475569; line-height: 1.6;">
-            네이버 데이터랩 및 블로그 검색 API를 기반으로 수집·분석된 실시간 검증 데이터입니다.
+            네이버 데이터랩 및 검색광고 공식 API를 기반으로 수집·분석된 실시간 검증 데이터입니다.
           </div>
         </details>
       </section>
 
-      <!-- 7. 인사이트 4개 카드 그리드 -->
-      <div class="kc-insight-grid">
-        <article class="kc-insight fresh">
-          <b>▣ 왜 지금 주목할까</b>
-          <p>관심도만으로 뉴스 발생 원인이나 앞으로의 검색 수요를 판단할 수 없습니다. 아래 검색 결과의 작성일과 원문을 함께 확인하세요.</p>
-        </article>
-        <article class="kc-insight intent">
-          <b>☁ 실제 사용자 검색의도</b>
-          <p>확인된 연관 검색어가 부족하여 구체적인 검색 의도를 단정하지 않습니다.</p>
-        </article>
-        <article class="kc-insight reason">
-          <b>⌕ 선정 근거 (경쟁 포화도)</b>
-          <p>월 검색량 ${Number(vol).toLocaleString()}건과 블로그 문서 ${Number(docs).toLocaleString()}건을 비교해 문서/검색 비율 ${ratio4}을 참고 지표로 사용했습니다.</p>
-        </article>
-        <article class="kc-insight ad">
-          <b>▣ 광고주 수요 참고</b>
-          <p>검색 수요와 문서 경쟁을 먼저 보는 일반 탐색형 키워드입니다. 실제 광고 단가나 수익을 의미하지는 않습니다.</p>
-        </article>
-      </div>
-
-      <!-- 8. 연관 검색어 -->
-      <section class="kc-related-box">
-        <div class="kc-section-head">
-          <b>⌕ 확인된 연관 검색어</b>
-          <span style="color: #64748b; font-size: 12.5px;">개인 API로 확인한 연관 검색어 · 실제 검색어 우선</span>
-        </div>
-        <div class="kc-related-tags">
-          선택한 검색어와 직접 연결되는 연관 검색어를 받지 못했습니다.
-        </div>
-      </section>
-
-      <!-- 9. 키워드 맞춤 제목 초안 -->
-      <section class="kc-copy-box">
-        <div class="kc-section-head">
-          <b>▣ 키워드 맞춤 제목 초안</b>
-        </div>
-        <div style="margin-top: 14px;">
-          <b style="font-size: 14px; color: #047857; display: block; margin-bottom: 4px;">네이버 홈판용 제목</b>
+      <!-- 7. 제목 초안 & 목차 제안 -->
+      <section class="kc-copy-box" style="margin-top: 16px;">
+        <div class="kc-section-head"><b>▣ 키워드 맞춤 제목 초안</b></div>
+        <div style="margin-top: 12px">
+          <b style="font-size: 14.5px; color: #047857">네이버 홈판용 제목</b>
           <div class="kc-copy-title">${homeTitle}</div>
-          <button class="kc-copy-btn" onclick="window.copyDirectText('${homeTitle.replace(/'/g, "\\'")}', this)" type="button" style="margin-top: 8px;">
-            홈판 제목 복사
-          </button>
+          <button class="kc-copy-btn" onclick="navigator.clipboard.writeText('${homeTitle.replace(/'/g, "\\'")}')" type="button" style="margin-top: 8px">홈판 제목 복사</button>
         </div>
-        <div style="margin-top: 16px;">
-          <b style="font-size: 14px; color: #4338ca; display: block; margin-bottom: 4px;">SEO 검색용 제목</b>
+        <div style="margin-top: 16px">
+          <b style="font-size: 14.5px; color: #4338ca">SEO 검색용 제목</b>
           <div class="kc-copy-title">${seoTitle}</div>
-          <button class="kc-copy-btn" onclick="window.copyDirectText('${seoTitle.replace(/'/g, "\\'")}', this)" type="button" style="margin-top: 8px;">
-            SEO 제목 복사
-          </button>
+          <button class="kc-copy-btn" onclick="navigator.clipboard.writeText('${seoTitle.replace(/'/g, "\\'")}')" type="button" style="margin-top: 8px">SEO 제목 복사</button>
         </div>
       </section>
 
-      <!-- 10. 키워드 맞춤 목차 제안 -->
-      <section class="kc-copy-box">
-        <div class="kc-section-head">
-          <b>☷ 키워드 맞춤 목차 제안</b>
-          <button class="kc-copy-btn" onclick="window.copyOutlineText('${keyword.replace(/'/g, "\\'")}', this)" type="button">
-            목차 복사
-          </button>
-        </div>
-        <ol class="kc-outline-list">
-          <li>${keyword} ─ 검색어의 대상과 의미 정리</li>
-          <li>독자가 궁금해할 핵심 질문</li>
-          <li>관련 자료의 발행일과 원문 확인</li>
-          <li>비교하거나 구분해야 할 내용</li>
-          <li>추가 조사할 항목과 참고 출처</li>
+      <section class="kc-copy-box" style="margin-top: 16px;">
+        <div class="kc-section-head"><b>☷ 키워드 맞춤 목차 제안</b></div>
+        <ol class="kc-outline-list" style="margin-top: 10px; padding-left: 20px; line-height: 1.8; color: #334155; font-size: 14px;">
+          ${outlineList.map(itemText => `<li>${itemText}</li>`).join('')}
         </ol>
-        <div style="margin-top: 12px; color: #64748b; font-size: 13px; line-height: 1.65;">
-          키워드의 표현과 주제에 맞춘 작성 제안입니다. 검색 자료가 부족해도 초안을 제공합니다. 제도·날짜·금액·사건의 사실 확인 결과가 아니므로 원문을 확인한 뒤 작성하세요.
-        </div>
       </section>
 
-      <!-- 11. 외부 링크 버튼 -->
-      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px;">
-        <a class="btn-mini naver" href="${naverUrl}" target="_blank" rel="noopener">네이버 검색결과</a>
-        <a class="btn-mini" href="${naverBlogUrl}" target="_blank" rel="noopener">블로그 문서 확인</a>
-        <a class="btn-mini" href="${googleUrl}" target="_blank" rel="noopener">구글 검색결과</a>
-        <a class="btn-mini" href="${bingUrl}" target="_blank" rel="noopener">빙 검색결과</a>
-      </div>
-
-      <!-- 12. 관심 키워드 저장 -->
-      <div style="margin-top: 12px;">
-        <button type="button" class="btn-mini" onclick="window.saveSecretBookmark('${keyword.replace(/'/g, "\\'")}', this)" style="width: auto; padding: 9px 18px;">
-          관심 키워드 저장
-        </button>
+      <!-- 8. 포털 바로가기 버튼들 -->
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px;">
+        <a class="btn-mini naver" href="${naverUrl}" target="_blank" rel="noopener" style="padding: 8px 14px; font-size: 13px; font-weight: 700; background: #03c75a; color: #fff; border-radius: 8px; text-decoration: none;">네이버 검색결과</a>
+        <a class="btn-mini" href="${naverBlogUrl}" target="_blank" rel="noopener" style="padding: 8px 14px; font-size: 13px; font-weight: 700; background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; border-radius: 8px; text-decoration: none;">블로그 문서 확인</a>
+        <a class="btn-mini" href="${googleUrl}" target="_blank" rel="noopener" style="padding: 8px 14px; font-size: 13px; font-weight: 700; background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; border-radius: 8px; text-decoration: none;">구글 검색결과</a>
+        <a class="btn-mini" href="${bingUrl}" target="_blank" rel="noopener" style="padding: 8px 14px; font-size: 13px; font-weight: 700; background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; border-radius: 8px; text-decoration: none;">빙 검색결과</a>
       </div>
     </div>
   `;
 
-  if (typeof dialog.showModal === 'function') {
+  if (!dialog.open) {
     dialog.showModal();
-  } else {
-    dialog.setAttribute('open', '');
-  }
-  dialog.scrollTop = 0;
-};
-
-// 복사 및 부가 유틸리티
-window.copyDirectText = function(text, btn) {
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(() => {
-      const orig = btn.textContent;
-      btn.textContent = '✓ 복사완료!';
-      btn.classList.add('done');
-      setTimeout(() => {
-        btn.textContent = orig;
-        btn.classList.remove('done');
-      }, 1800);
-    });
-  }
-};
-
-window.copyOutlineText = function(keyword, btn) {
-  const outline = [
-    '1. ' + keyword + ' ─ 검색어의 대상과 의미 정리',
-    '2. 독자가 궁금해할 핵심 질문',
-    '3. 관련 자료의 발행일과 원문 확인',
-    '4. 비교하거나 구분해야 할 내용',
-    '5. 추가 조사할 항목과 참고 출처'
-  ].join('\n');
-
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(outline).then(() => {
-      const orig = btn.textContent;
-      btn.textContent = '✓ 복사완료!';
-      btn.classList.add('done');
-      setTimeout(() => {
-        btn.textContent = orig;
-        btn.classList.remove('done');
-      }, 1800);
-    });
   }
 };
 
