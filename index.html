@@ -90,7 +90,7 @@
           <span>이번 주 머니대외비 비밀 키워드 200개 공개 · 매주 월요일 07시 새 목록 · 다음 갱신 11월 2일 (월) 오전 7시</span>
         </div>
         <div class="secret-capsule-actions">
-          <button type="button" class="btn-capsule-green" onclick="switchTab('adsense')">보러 가기</button>
+          <button type="button" class="btn-capsule-green" onclick="openSecretKeywordsFromBanner()">보러 가기</button>
           <button type="button" class="btn-capsule-outline" onclick="copySecretNoticeText()">단톡방 공지 문구 복사</button>
         </div>
       </div>
@@ -663,22 +663,22 @@
       <!-- 2. 상단 2단 카테고리 필터 알약 탭 바 (이미지와 100% 동일) -->
       <div class="kc-pill-tabs-bar" id="kc-pill-tabs-bar">
         <div class="kc-pill-row">
-          <button type="button" class="kc-pill-btn kc-pill-1" data-type="type-1" onclick="switchKcTab('type-1')">✨ 1. 황금키워드 (20) · 매일</button>
-          <button type="button" class="kc-pill-btn kc-pill-2" data-type="type-2" onclick="switchKcTab('type-2')">📝 2. 제휴마케팅 키워드 (20) · 매일</button>
-          <button type="button" class="kc-pill-btn kc-pill-3" data-type="type-3" onclick="switchKcTab('type-3')">💰 3. 애드센스 키워드 (7) · 매일</button>
-          <button type="button" class="kc-pill-btn kc-pill-4" data-type="type-4" onclick="switchKcTab('type-4')">👾 4. 네이버 mate 키워드 (10) · 매일</button>
-          <button type="button" class="kc-pill-btn kc-pill-5 active" data-type="type-5" onclick="switchKcTab('type-5')">🟣 5. 홈판 실시간 키워드</button>
-          <button type="button" class="kc-pill-btn kc-pill-6" data-type="type-6" onclick="switchKcTab('type-6')">🏛️ 6. 월별 시즌성 키워드</button>
-          <button type="button" class="kc-pill-btn kc-pill-7" data-type="type-7" onclick="switchKcTab('type-7')">❓ 7. 지식iN Q&amp;A (20) · 3일 주기</button>
-          <button type="button" class="kc-pill-btn kc-pill-8" data-type="type-8" onclick="switchKcTab('type-8')">📢 8. 정책신호형 애드센스 키워드 · 저장본 기준</button>
+          <button type="button" class="kc-pill-btn kc-pill-5 active" data-type="type-5" onclick="switchKcTab('type-5')">🟢 1. 홈판 실시간 키워드</button>
+          <button type="button" class="kc-pill-btn kc-pill-secret" data-type="type-secret" onclick="switchKcTab('type-secret')">🔒 2. 머니대외비 비밀 키워드</button>
+          <button type="button" class="kc-pill-btn kc-pill-6" data-type="type-6" onclick="switchKcTab('type-6')">📅 3. 월별 시즌성 키워드</button>
+          <button type="button" class="kc-pill-btn kc-pill-1" data-type="type-1" onclick="switchKcTab('type-1')">✨ 4. 황금키워드 (20) · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-2" data-type="type-2" onclick="switchKcTab('type-2')">📝 5. 제휴마케팅 키워드 (20) · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-3" data-type="type-3" onclick="switchKcTab('type-3')">💰 6. 애드센스 키워드 (20) · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-4" data-type="type-4" onclick="switchKcTab('type-4')">👾 7. 네이버 mate 키워드 (10) · 매일</button>
+          <button type="button" class="kc-pill-btn kc-pill-7" data-type="type-7" onclick="switchKcTab('type-7')">❓ 8. 지식iN Q&amp;A (14) · 3일 주기</button>
         </div>
         <div class="kc-pill-row">
-          <button type="button" class="kc-pill-btn kc-pill-9" data-type="type-9" onclick="switchKcTab('type-9')">👑 9. 이번주 머니대외비 추천 애드센스 키워드 · 저장본 기준</button>
-          <button type="button" class="kc-pill-btn kc-pill-10" data-type="type-10" onclick="switchKcTab('type-10')">🔥 10. 바이럴숏폼 · 유튜브 실시간</button>
-          <button type="button" class="kc-pill-btn kc-pill-11" data-type="type-11" onclick="switchKcTab('type-11')">📁 11. 주제별 키워드 · 매일</button>
-          <button type="button" class="kc-pill-btn kc-pill-secret" data-type="type-secret" onclick="switchKcTab('type-secret')">🔒 머니대외비 비밀 키워드</button>
+          <button type="button" class="kc-pill-btn kc-pill-8" data-type="type-8" onclick="switchKcTab('type-8')">📢 9. 정책신호형 애드센스 키워드 · 저장본 기준</button>
+          <button type="button" class="kc-pill-btn kc-pill-9" data-type="type-9" onclick="switchKcTab('type-9')">👑 10. 이번주 머니대외비 추천 애드센스 키워드 · 저장본 기준</button>
+          <button type="button" class="kc-pill-btn kc-pill-10" data-type="type-10" onclick="switchKcTab('type-10')">🔥 11. 바이럴숏폼 · 유튜브 실시간</button>
+          <button type="button" class="kc-pill-btn kc-pill-11" data-type="type-11" onclick="switchKcTab('type-11')">📁 12. 주제별 키워드 · 매일</button>
           <button type="button" class="kc-pill-btn kc-pill-find" data-type="type-find" onclick="switchTab('keyword')">🔗 키워드 찾으러 가기</button>
-          <button type="button" class="kc-pill-btn kc-pill-excel" data-type="type-excel" onclick="switchKcTab('type-excel')">📊 엑셀 파일 대량 분석</button>
+          <button type="button" class="kc-pill-btn kc-pill-excel" data-type="type-excel" onclick="switchKcTab('type-excel')">📁 엑셀 파일 대량 분석</button>
         </div>
       </div>
 

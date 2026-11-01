@@ -178,3 +178,36 @@ function closeTab8VideoModal() {
 window.openTab8VideoModal = openTab8VideoModal;
 window.closeTab8VideoModal = closeTab8VideoModal;
 
+
+
+/**
+ * 홈 상단 배너 전용 편의 함수들
+ */
+function openSecretKeywordsFromBanner() {
+  if (typeof window.switchTab === 'function') {
+    window.switchTab('adsense');
+  }
+  setTimeout(() => {
+    if (typeof window.switchKcTab === 'function') {
+      window.switchKcTab('type-secret');
+    } else if (typeof window.switchAdsenseTab === 'function') {
+      window.switchAdsenseTab('type-secret');
+    }
+  }, 50);
+}
+
+function copySecretNoticeText() {
+  const text = "[머니대외비] 이번 주 비밀 키워드 200개 업데이트 완료!\n- 기준: 월간 검색 100 이상 · 문서/검색 0.3 미만 블루오션\n- 매주 월요일 07시 정기 갱신 (매일 1시간마다 누적 추가)\n지금 머니대외비에서 확인해보세요: " + window.location.origin + "/?page=keywordcenter";
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('단톡방 공지 문구가 복사되었습니다! 📋');
+    }).catch(() => {
+      prompt('아래 문구를 복사해 주세요:', text);
+    });
+  } else {
+    prompt('아래 문구를 복사해 주세요:', text);
+  }
+}
+
+window.openSecretKeywordsFromBanner = openSecretKeywordsFromBanner;
+window.copySecretNoticeText = copySecretNoticeText;
