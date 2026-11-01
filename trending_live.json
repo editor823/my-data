@@ -1,80 +1,80 @@
 {
   "success": true,
-  "updatedAt": "2026-11-01T09:18:06.467Z",
-  "updatedAtKst": "2026. 11. 1. PM 6:18:06",
+  "updatedAt": "2026-11-01T09:52:49.484Z",
+  "updatedAtKst": "2026. 11. 1. PM 6:52:49",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "삼성, 2년 만에 한국시리즈 진출."
+        "keyword": "삼성, KIA 꺾고 한국시리즈 진출"
       },
       {
         "rank": 2,
-        "keyword": "이재용, 일본 패키징 점검"
+        "keyword": "수원fc 대 안산 그리너스 fc 순위"
       },
       {
         "rank": 3,
-        "keyword": "이재명 다문화 정책 시정"
+        "keyword": "이예원 S-OIL 우승"
       },
       {
         "rank": 4,
-        "keyword": "바이낸스 북한 탈취"
+        "keyword": "이재용 일본 패키징 점검"
       },
       {
         "rank": 5,
-        "keyword": "유명 안무가 성폭행 징역 3년"
+        "keyword": "이재명 다문화 정책 시정"
       },
       {
         "rank": 6,
-        "keyword": "강유미"
+        "keyword": "바이낸스 북한 탈취"
       },
       {
         "rank": 7,
-        "keyword": "울산 hd fc 대 강원 fc 순위"
+        "keyword": "김혜수, 최불암 빈소 지켰다"
       },
       {
         "rank": 8,
-        "keyword": "경찰관 흉기 위협"
+        "keyword": "이스라엘 하마스 최후통첩"
       },
       {
         "rank": 9,
-        "keyword": "故 최불암 빈소 지킨 김혜수"
+        "keyword": "100일의 거짓말"
       },
       {
         "rank": 10,
-        "keyword": "이예원, 4년 연속 우승!"
+        "keyword": "정석원"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "마블런 코리아 2026 new"
+        "keyword": "삼성 한국시리즈 진출 동일"
       },
       {
         "rank": 2,
-        "keyword": "故 최불암 빈소 하락 2"
+        "keyword": "최불암 상승 13"
       },
       {
         "rank": 3,
-        "keyword": "김지찬 1타점 3루타 하락 2"
+        "keyword": "마블런 코리아 2026 상승 3"
       },
       {
         "rank": 4,
-        "keyword": "2위 결승골 안산 new"
+        "keyword": "이예원 챔피언십 우승 하락 1"
       },
       {
         "rank": 5,
-        "keyword": "바이낸스 출금 재개 하락 6"
+        "keyword": "100일의 거짓말 동일"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "이재명 다문화 정책 시정"
+        "keyword": "바이낸스 북한 탈취"
       },
       {
         "rank": 2,
-        "keyword": "바이낸스 북한 탈취"
+        "keyword": "이재명 다문화 정책 시정"
       },
       {
         "rank": 3,
@@ -86,130 +86,113 @@
       },
       {
         "rank": 5,
-        "keyword": "이재명 시정연설 슈퍼예산"
+        "keyword": "이스라엘 하마스 최후통첩"
       },
       {
         "rank": 6,
-        "keyword": "미국 중간선거 사전투표"
+        "keyword": "이재명 시정연설 슈퍼예산"
       },
       {
         "rank": 7,
-        "keyword": "불법사금융 특별단속"
+        "keyword": "미국 중간선거 사전투표"
       },
       {
         "rank": 8,
-        "keyword": "삼성 한국시리즈 진출"
+        "keyword": "최불암 빈소 조문"
       },
       {
         "rank": 9,
-        "keyword": "CXMT 4F2 D램 검증"
+        "keyword": "이재용 요코하마 패키징"
       },
       {
         "rank": 10,
         "keyword": "울산 강원 역전승"
       }
     ],
-    "google": [],
-    "daum": [
+    "google": [
       {
         "rank": 1,
-        "keyword": "손지창 직원 폭로"
+        "keyword": "ตรวจหวย"
       },
       {
         "rank": 2,
-        "keyword": "삼성 한국시리즈 진출"
+        "keyword": "persib bandung vs adhyaksa"
       },
       {
         "rank": 3,
-        "keyword": "KT 정조대왕 유니폼"
+        "keyword": "유학생"
       },
       {
         "rank": 4,
-        "keyword": "후라도 플레이오프 MVP"
+        "keyword": "수원fc 대 안산 그리너스 fc 순위"
       },
       {
         "rank": 5,
-        "keyword": "북한 집속탄 위력시험"
+        "keyword": "australia vs afghanistan"
       },
       {
         "rank": 6,
-        "keyword": "안무가"
+        "keyword": "정석원"
       },
       {
         "rank": 7,
-        "keyword": "이범호 감독 KS 진출 실패"
+        "keyword": "강유미"
       },
       {
         "rank": 8,
-        "keyword": "차정원 배우"
+        "keyword": "한국시리즈 예매"
       },
       {
         "rank": 9,
-        "keyword": "북한 가상자산 탈취"
+        "keyword": "india vs new zealand"
       },
       {
         "rank": 10,
-        "keyword": "백일섭 최불암 빈소"
+        "keyword": "울산 hd fc 대 강원 fc 순위"
       }
     ],
-    "googleError": "google trends HTTP 429"
+    "daum": [
+      {
+        "rank": 1,
+        "keyword": "아일릿 원희 손지창"
+      },
+      {
+        "rank": 2,
+        "keyword": "��무가"
+      },
+      {
+        "rank": 3,
+        "keyword": "울산 폐기물처리업체 화재"
+      },
+      {
+        "rank": 4,
+        "keyword": "배용준 렉서스 마스터즈 우승"
+      },
+      {
+        "rank": 5,
+        "keyword": "엄유신 조문"
+      },
+      {
+        "rank": 6,
+        "keyword": "북한 집속탄 위력시험"
+      },
+      {
+        "rank": 7,
+        "keyword": "이현중 런닝맨 키즈"
+      },
+      {
+        "rank": 8,
+        "keyword": "김민종 유도선수"
+      },
+      {
+        "rank": 9,
+        "keyword": "1248회 로또 당첨 번호"
+      },
+      {
+        "rank": 10,
+        "keyword": "삼성 후라도 KS행"
+      }
+    ]
   },
-  "entertainment": [
-    {
-      "title": "김연경 큰 실망…자존심 다 걸고 핑크스파이더스 맞대결",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261101/134944838/1",
-      "publishedAt": "수집 11. 01. 18:18 KST",
-      "publishedOrder": 1793524680627
-    },
-    {
-      "title": "천하의 김종국도 속수무책…김민종 압도적 피지컬 (런닝맨)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261101/134944858/1",
-      "publishedAt": "수집 11. 01. 18:18 KST",
-      "publishedOrder": 1793524680627
-    },
-    {
-      "title": "박하선, 6년만 라디오 DJ 하차 “싫어져서 그만두는 거 아냐”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261101/134944950/1",
-      "publishedAt": "수집 11. 01. 18:18 KST",
-      "publishedOrder": 1793524680627
-    },
-    {
-      "title": "투바투의 서사·투어스의 4D VR… K팝의 극장 활용법",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261101/134944685/1",
-      "publishedAt": "수집 11. 01. 18:18 KST",
-      "publishedOrder": 1793524680627
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 01. 18:17 KST",
-      "publishedOrder": 1793524679846
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 01. 18:17 KST",
-      "publishedOrder": 1793524679846
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 01. 18:17 KST",
-      "publishedOrder": 1793524679846
-    },
-    {
-      "title": "故최불암 별세 9일전 모습 보니..\"오래도록 기억되길\" 슬픔 가득[스타이슈]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/10/31/2026103118455168339",
-      "publishedAt": "수집 11. 01. 18:17 KST",
-      "publishedOrder": 1793524679846
-    }
-  ]
+  "entertainment": []
 }
