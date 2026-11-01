@@ -1,6 +1,6 @@
 {
   "success": true,
-  "generatedAt": "2026-11-01T09:06:01.216Z",
+  "generatedAt": "2026-11-01T09:16:02.225Z",
   "windowMin": 90,
   "notice": "기사 흐름으로 추정한 후보입니다. 글을 쓰기 전 원문 기사로 사실을 확인하세요.",
   "paid": true,
@@ -12,8 +12,8 @@
       "title": "손지창 사과",
       "titles": [
         {
-          "style": "인용형",
-          "title": "‘며느리 삼고파… 키 184cm’ 손지창 사과"
+          "style": "기사 요약형",
+          "title": "'오연수♥' 손지창, 연 매출 50억"
         },
         {
           "style": "기사 요약형",
@@ -33,15 +33,21 @@
       ],
       "event": "사과",
       "score": 52,
-      "articles": 9,
+      "articles": 10,
       "press": 6,
-      "recent20": 3,
+      "recent20": 2,
       "firstArticleAt": "2026-11-01T04:06:00.000Z",
-      "lastArticleAt": "2026-11-01T09:00:00.000Z",
+      "lastArticleAt": "2026-11-01T09:15:00.000Z",
       "trendHit": true,
       "exclusive": false,
       "inShortents": false,
       "samples": [
+        {
+          "title": "'오연수♥' 손지창, 연 매출 50억 '이벤트 업체 CEO'였다…\"협찬만 7천만...",
+          "press": "xportsnews.com",
+          "link": "https://www.xportsnews.com/article/2214088",
+          "at": "2026-11-01T09:15:00.000Z"
+        },
         {
           "title": "\"무례했다\" 아일릿, 손지창에 말실수 후 사과…\"곧 60인데\" ('사당귀') [...",
           "press": "tvreport.co.kr",
@@ -53,12 +59,6 @@
           "press": "mk.co.kr",
           "link": "https://www.mk.co.kr/article/12192955",
           "at": "2026-11-01T08:50:00.000Z"
-        },
-        {
-          "title": "‘오연수♥’ 손지창, 키 184㎝ 잘생긴 아들 자랑 “아일릿 원희 며느리...",
-          "press": "newsen.com",
-          "link": "https://www.newsen.com/news_view.php?uid=202611011615356110",
-          "at": "2026-11-01T08:47:00.000Z"
         }
       ]
     },
@@ -114,104 +114,95 @@
       ]
     },
     {
-      "id": "김연경|전역",
-      "title": "김연경 전역",
+      "id": "apec|1위",
+      "title": "APEC 1위",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘할 말 없어’ 김연경 전역"
+          "title": "‘강남 장애인 축제 한마당’ APEC 1위"
         },
         {
           "style": "기사 요약형",
-          "title": "\"할 말 없어\" 김연경, 결국 터졌다"
+          "title": "경주시, APEC 정상회의 1주년 기념관 개관"
         },
         {
           "style": "기사 요약형",
-          "title": "김연경 큰 실망…자존심 다 걸고 핑크스파이더스 맞대결"
+          "title": "경주 APEC 정상회의 1년, 기념관 개관·야간 러닝 등 축제"
         }
       ],
       "entities": [
-        "김연경"
+        "APEC"
       ],
-      "event": "전역",
-      "score": 27,
-      "articles": 5,
+      "event": "1위",
+      "score": 29,
+      "articles": 6,
       "press": 5,
-      "recent20": 1,
-      "firstArticleAt": "2026-10-31T23:13:00.000Z",
-      "lastArticleAt": "2026-11-01T09:00:00.000Z",
+      "recent20": 2,
+      "firstArticleAt": "2026-10-31T23:37:00.000Z",
+      "lastArticleAt": "2026-11-01T09:10:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "김연경 큰 실망…자존심 다 걸고 핑크스파이더스 맞대결",
-          "press": "sports.donga.com",
-          "link": "https://sports.donga.com/ent/article/all/20261101/134944838/1",
-          "at": "2026-11-01T09:00:00.000Z"
+          "title": "강남구의회 '강남 장애인 축제 한마당' 참석, 장애인과 비장애인이 함께...",
+          "press": "cnbizm.com",
+          "link": "https://www.cnbizm.com/news/articleView.html?idxno=319977",
+          "at": "2026-11-01T09:10:00.000Z"
         },
         {
-          "title": "김연경, 첫 직관부터 불호령…기대 이하 경기력에 “할 말이 없다” (신...",
-          "press": "mk.co.kr",
-          "link": "https://www.mk.co.kr/article/12192843",
-          "at": "2026-11-01T08:10:00.000Z"
+          "title": "경주시, APEC 정상회의 1주년 기념관 개관… 다채로운 보문호반 축제 열...",
+          "press": "eroun.net",
+          "link": "https://www.eroun.net/news/articleView.html?idxno=94018",
+          "at": "2026-11-01T09:04:00.000Z"
         },
         {
-          "title": "김연경, 불호령 포효..필승 원더독스vs핑크스파이더스 경기 어땠길래? ...",
-          "press": "starnewskorea.com",
-          "link": "https://www.starnewskorea.com/broadcast-show/2026/11/01/2026110117073493798",
-          "at": "2026-11-01T08:10:00.000Z"
+          "title": "대구, 25개 골목 상권 가을 축제 중… 시, 11월 말까지 골목상권 활성화...",
+          "press": "eroun.net",
+          "link": "https://www.eroun.net/news/articleView.html?idxno=94008",
+          "at": "2026-11-01T08:42:00.000Z"
         }
       ]
     },
     {
-      "id": "가을밤|콘서트",
-      "title": "가을밤 콘서트",
+      "id": "오세훈+이재명|1위",
+      "title": "오세훈 이재명 1위",
       "titles": [
         {
-          "style": "인용형",
-          "title": "‘가을밤의 콘서트’ 가을밤 콘서트"
+          "style": "기사 요약형",
+          "title": "오세훈 이재명 1위, 국민의힘, 이재명 정부 정상외교 예산 증액·821조"
         },
         {
           "style": "기사 요약형",
-          "title": "광주하남 카네기 총동문회, 창립 20주년 '가을밤의 콘서트'"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "가을밤 감성 적신 음악 한 잔"
+          "title": "오세훈 “이재명 정부, 사법부까지 발밑에 두려 해"
         }
       ],
       "entities": [
-        "가을밤"
+        "오세훈",
+        "이재명"
       ],
-      "event": "콘서트",
+      "event": "1위",
       "score": 26,
-      "articles": 4,
-      "press": 4,
-      "recent20": 2,
-      "firstArticleAt": "2026-10-31T22:32:00.000Z",
-      "lastArticleAt": "2026-11-01T08:56:00.000Z",
-      "trendHit": false,
+      "articles": 2,
+      "press": 2,
+      "recent20": 1,
+      "firstArticleAt": "2026-10-31T23:12:00.000Z",
+      "lastArticleAt": "2026-11-01T09:12:00.000Z",
+      "trendHit": true,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "가을밤 감성 적신 음악 한 잔…'낭만상회 가을장' 낭만으로 물들다",
-          "press": "cctoday.co.kr",
-          "link": "https://www.cctoday.co.kr/news/articleView.html?idxno=2239432",
-          "at": "2026-11-01T08:56:00.000Z"
+          "title": "국민의힘, 이재명 정부 정상외교 예산 증액·821조 예산안·대북 정책 비...",
+          "press": "tournews21.com",
+          "link": "https://www.tournews21.com/news/articleView.html?idxno=147184",
+          "at": "2026-11-01T09:12:00.000Z"
         },
         {
-          "title": "은행잎 물든 가을밤, 음악으로 이웃 잇다…구미 형곡2동 주민 한마당",
-          "press": "kyongbuk.co.kr",
-          "link": "https://www.kyongbuk.co.kr/news/articleView.html?idxno=4089224",
-          "at": "2026-11-01T08:54:00.000Z"
-        },
-        {
-          "title": "광양 덕례맥주페스티벌 성황… 7000여 명 찾아 가을밤 축제 만끽",
-          "press": "daily.hankooki.com",
-          "link": "https://daily.hankooki.com/news/articleView.html?idxno=1420481",
-          "at": "2026-11-01T08:34:00.000Z"
+          "title": "오세훈 “이재명 정부, 사법부까지 발밑에 두려 해…한동훈·장동혁 힘...",
+          "press": "seoul.co.kr",
+          "link": "https://www.seoul.co.kr/news/publicnews/2026/11/01/20261101500074?wlog_tag3=naver",
+          "at": "2026-11-01T08:23:00.000Z"
         }
       ]
     },
@@ -241,7 +232,7 @@
         "행복한"
       ],
       "event": "종영",
-      "score": 26,
+      "score": 24,
       "articles": 4,
       "press": 4,
       "recent20": 2,
@@ -292,10 +283,10 @@
         "앤더블"
       ],
       "event": "컴백",
-      "score": 24,
+      "score": 20,
       "articles": 4,
       "press": 4,
-      "recent20": 2,
+      "recent20": 0,
       "firstArticleAt": "2026-11-01T07:56:00.000Z",
       "lastArticleAt": "2026-11-01T08:48:00.000Z",
       "trendHit": false,
@@ -319,168 +310,6 @@
           "press": "mhnse.com",
           "link": "https://mhnse.com/news/articleView.html?idxno=1658134",
           "at": "2026-11-01T07:59:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "apec|1위",
-      "title": "APEC 1위",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘상권 회복’ APEC 1위"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "경주시, APEC 정상회의 1주년 기념관 개관"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "경주 APEC 정상회의 1년, 기념관 개관·야간 러닝 등 축제"
-        }
-      ],
-      "entities": [
-        "APEC"
-      ],
-      "event": "1위",
-      "score": 22,
-      "articles": 5,
-      "press": 4,
-      "recent20": 1,
-      "firstArticleAt": "2026-10-31T23:37:00.000Z",
-      "lastArticleAt": "2026-11-01T09:04:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "경주시, APEC 정상회의 1주년 기념관 개관… 다채로운 보문호반 축제 열...",
-          "press": "eroun.net",
-          "link": "https://www.eroun.net/news/articleView.html?idxno=94018",
-          "at": "2026-11-01T09:04:00.000Z"
-        },
-        {
-          "title": "대구, 25개 골목 상권 가을 축제 중… 시, 11월 말까지 골목상권 활성화...",
-          "press": "eroun.net",
-          "link": "https://www.eroun.net/news/articleView.html?idxno=94008",
-          "at": "2026-11-01T08:42:00.000Z"
-        },
-        {
-          "title": "경주 APEC 정상회의 1년, 기념관 개관·야간 러닝 등 축제",
-          "press": "newsis.com",
-          "link": "https://www.newsis.com/view/NISX20261101_0003849858",
-          "at": "2026-11-01T07:58:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "차예련+학폭|전역",
-      "title": "차예련 학폭 전역",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘팔로우는 ♥차예련 1명뿐’ 차예련 학폭 전역"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "차예련 학폭 의혹 터지자"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "차예련 학폭 전역, \"팔로우는 ♥차예련 1명뿐\""
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "핀란드, 구글 데이터센터 환경 훼손 의혹 수사"
-        }
-      ],
-      "entities": [
-        "차예련",
-        "학폭"
-      ],
-      "event": "전역",
-      "score": 20,
-      "articles": 4,
-      "press": 4,
-      "recent20": 0,
-      "firstArticleAt": "2026-10-30T05:50:00.000Z",
-      "lastArticleAt": "2026-11-01T08:36:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "“사기결혼 아닌지” 차예련 학폭 의혹에 ♥주상욱까지 불똥..SNS 난리 [...",
-          "press": "osen.co.kr",
-          "link": "http://www.osen.co.kr/article/G1112902269",
-          "at": "2026-11-01T08:36:00.000Z"
-        },
-        {
-          "title": "차예련 학폭 의혹 터지자… 주상욱 SNS에 몰려든 누리꾼들, 댓글 수위가...",
-          "press": "wikitree.co.kr",
-          "link": "https://www.wikitree.co.kr/articles/1170866",
-          "at": "2026-11-01T08:22:00.000Z"
-        },
-        {
-          "title": "핀란드, 구글 데이터센터 환경 훼손 의혹 수사…나무 40만그루 벌채 논...",
-          "press": "aitimes.com",
-          "link": "https://www.aitimes.com/news/articleView.html?idxno=216864",
-          "at": "2026-11-01T08:02:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "황정음|고백",
-      "title": "황정음 고백",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘나도 보고 싶어’ 황정음 고백"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "\"나도 보고 싶어\"..황정음, 9년 사귄 前남친 김용준 또"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "‘돌싱’ 황정음, 전 남친 김용준 또 소환? ‘우결’ 추억"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "“아들 돌반지까지 팔았다더니"
-        }
-      ],
-      "entities": [
-        "황정음"
-      ],
-      "event": "고백",
-      "score": 18,
-      "articles": 4,
-      "press": 4,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-01T00:06:00.000Z",
-      "lastArticleAt": "2026-11-01T08:07:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "\"나도 보고 싶어\"..황정음, 9년 사귄 前남친 김용준 또 공개 소환 [스타...",
-          "press": "starnewskorea.com",
-          "link": "https://www.starnewskorea.com/star/2026/11/01/2026110116475471598",
-          "at": "2026-11-01T08:07:00.000Z"
-        },
-        {
-          "title": "‘돌싱’ 황정음, 전 남친 김용준 또 소환? ‘우결’ 추억 꺼냈다가 발...",
-          "press": "newsen.com",
-          "link": "https://www.newsen.com/news_view.php?uid=202611011651511910",
-          "at": "2026-11-01T08:03:00.000Z"
-        },
-        {
-          "title": "“아들 돌반지까지 팔았다더니…” 황정음, ‘수입 0원’ 고백 후 이탈...",
-          "press": "sportsseoul.com",
-          "link": "https://www.sportsseoul.com/news/read/1645928?ref=naver",
-          "at": "2026-11-01T07:50:00.000Z"
         }
       ]
     },
@@ -541,89 +370,88 @@
       ]
     },
     {
-      "id": "편안한|근황",
-      "title": "편안한 근황",
+      "id": "유재석|종영",
+      "title": "유재석 종영",
       "titles": [
         {
           "style": "기사 요약형",
-          "title": "우주소녀 은서, 편안한 무드 속 근황"
+          "title": "유재석,엄청난 예능생태계 변화에도 굳건한 예"
         },
         {
           "style": "기사 요약형",
-          "title": "올가을 누구나 즐기는 편안한 공연"
+          "title": "유재석, 명절마다 소고기 돌리는 큰손..유리"
         }
       ],
       "entities": [
-        "편안한"
+        "유재석"
       ],
-      "event": "근황",
+      "event": "종영",
       "score": 16,
       "articles": 2,
       "press": 2,
       "recent20": 1,
-      "firstArticleAt": "2026-11-01T07:04:00.000Z",
-      "lastArticleAt": "2026-11-01T09:04:00.000Z",
+      "firstArticleAt": "2026-10-29T10:44:00.000Z",
+      "lastArticleAt": "2026-11-01T09:14:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "우주소녀 은서, 편안한 무드 속 근황…연극 무대까지 넓힌 행보",
-          "press": "topstarnews.net",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16265089",
-          "at": "2026-11-01T09:04:00.000Z"
+          "title": "유재석, 명절마다 소고기 돌리는 큰손..유리 \"프로 종영해도 보내, 사람...",
+          "press": "sportschosun.com",
+          "link": "https://www.sportschosun.com/entertainment/2026-11-01/202611010100006960000360",
+          "at": "2026-11-01T09:14:00.000Z"
         },
         {
-          "title": "올가을 누구나 즐기는 편안한 공연…11월 배리어프리 공연 두 편",
-          "press": "yeongnam.com",
-          "link": "https://www.yeongnam.com/web/view.php?key=20261101022086509",
-          "at": "2026-11-01T08:12:00.000Z"
+          "title": "[서병기의 문화인사이트]유재석,엄청난 예능생태계 변화에도 굳건한 예...",
+          "press": "inews24.com",
+          "link": "http://www.inews24.com/view/2021146",
+          "at": "2026-11-01T08:27:00.000Z"
         }
       ]
     },
     {
-      "id": "김나라+동성|결혼",
-      "title": "김나라 동성 결혼",
+      "id": "마블|수상",
+      "title": "마블 수상",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘킬잇 우승’ 김나라♥동성 결혼"
+          "title": "‘마블런 코리아 2026’ 마블 수상"
         },
         {
           "style": "기사 요약형",
-          "title": "'킬잇 우승' 김나라, 8년 열애 한 동성 연인과"
+          "title": "마블 히어로와 함께 달린 ‘마블런 코리아 2026’"
         },
         {
           "style": "기사 요약형",
-          "title": "'킬잇' 김나라, 오늘 동성 연인과 결혼"
+          "title": "‘내가 바로 마블 코스튬 수상자’"
         }
       ],
       "entities": [
-        "김나라",
-        "동성"
+        "마블"
       ],
-      "event": "결혼",
+      "event": "수상",
       "score": 16,
       "articles": 2,
       "press": 2,
       "recent20": 1,
-      "firstArticleAt": "2026-10-31T21:01:00.000Z",
-      "lastArticleAt": "2026-11-01T08:50:00.000Z",
+      "firstArticleAt": "2026-10-31T21:34:00.000Z",
+      "lastArticleAt": "2026-11-01T09:15:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "'킬잇 우승' 김나라, 8년 열애 한 동성 연인과 오늘(1일) 결혼.. \"허락 필...",
-          "press": "tvreport.co.kr",
-          "link": "https://www.tvreport.co.kr/star/article/1087536/",
-          "at": "2026-11-01T08:50:00.000Z"
+          "title": "[포토] 마블 히어로와 함께 달린 ‘마블런 코리아 2026’",
+          "press": "segye.com",
+          "link": "https://www.segye.com/newsView/20261101509761?OutUrl=naver",
+          "at": "2026-11-01T09:15:00.000Z"
         },
         {
-          "title": "'킬잇' 김나라, 오늘 동성 연인과 결혼",
-          "press": "newsis.com",
-          "link": "https://www.newsis.com/view/NISX20261101_0003849869",
-          "at": "2026-11-01T08:22:00.000Z"
+          "title": "‘내가 바로 마블 코스튬 수상자’",
+          "press": "sedaily.com",
+          "link": "https://www.sedaily.com/article/20108793?ref=naver",
+          "at": "2026-11-01T08:56:00.000Z"
         }
       ]
     },
@@ -683,6 +511,149 @@
       ]
     },
     {
+      "id": "돌입+안효섭|",
+      "title": "안효섭 돌입",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "안효섭 돌입, ‘파밀리아’ 안효섭 vs ‘엑셉시옹’ 장률, 서바이벌"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "안효섭, 대망의 요리 서바이벌 1라운드 돌입..장률과"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "안효섭 돌입, 여야, ‘821조’ 예산 정국 돌입"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "여야, ‘821조’ 예산 정국 돌입"
+        }
+      ],
+      "entities": [
+        "안효섭",
+        "돌입"
+      ],
+      "event": null,
+      "score": 15,
+      "articles": 3,
+      "press": 3,
+      "recent20": 1,
+      "firstArticleAt": "2026-10-31T22:04:00.000Z",
+      "lastArticleAt": "2026-11-01T09:05:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "‘파밀리아’ 안효섭 vs ‘엑셉시옹’ 장률, 서바이벌 1라운드 돌입 (파...",
+          "press": "isplus.com",
+          "link": "https://isplus.com/article/view/isp202611010145",
+          "at": "2026-11-01T09:05:00.000Z"
+        },
+        {
+          "title": "안효섭, 대망의 요리 서바이벌 1라운드 돌입..장률과 맞붙는다(파이널 ...",
+          "press": "osen.co.kr",
+          "link": "http://www.osen.co.kr/article/G1112902322",
+          "at": "2026-11-01T08:32:00.000Z"
+        },
+        {
+          "title": "여야, ‘821조’ 예산 정국 돌입…이 대통령, 2일 시정연설",
+          "press": "khan.co.kr",
+          "link": "https://www.khan.co.kr/article/202611011713001",
+          "at": "2026-11-01T08:13:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "차예련+학폭|결혼",
+      "title": "차예련 학폭 결혼",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘사기결혼 아닌지’ 차예련♥학폭 결혼"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "차예련 학폭 의혹 터지자"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "“사기결혼 아닌지” 차예련 학폭 의혹에 ♥주상욱까지"
+        }
+      ],
+      "entities": [
+        "차예련",
+        "학폭"
+      ],
+      "event": "결혼",
+      "score": 14,
+      "articles": 2,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-10-30T05:50:00.000Z",
+      "lastArticleAt": "2026-11-01T08:36:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "“사기결혼 아닌지” 차예련 학폭 의혹에 ♥주상욱까지 불똥..SNS 난리 [...",
+          "press": "osen.co.kr",
+          "link": "http://www.osen.co.kr/article/G1112902269",
+          "at": "2026-11-01T08:36:00.000Z"
+        },
+        {
+          "title": "차예련 학폭 의혹 터지자… 주상욱 SNS에 몰려든 누리꾼들, 댓글 수위가...",
+          "press": "wikitree.co.kr",
+          "link": "https://www.wikitree.co.kr/articles/1170866",
+          "at": "2026-11-01T08:22:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "편안한|근황",
+      "title": "편안한 근황",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "우주소녀 은서, 편안한 무드 속 근황"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "올가을 누구나 즐기는 편안한 공연"
+        }
+      ],
+      "entities": [
+        "편안한"
+      ],
+      "event": "근황",
+      "score": 14,
+      "articles": 2,
+      "press": 2,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-01T07:04:00.000Z",
+      "lastArticleAt": "2026-11-01T09:04:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "우주소녀 은서, 편안한 무드 속 근황…연극 무대까지 넓힌 행보",
+          "press": "topstarnews.net",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16265089",
+          "at": "2026-11-01T09:04:00.000Z"
+        },
+        {
+          "title": "올가을 누구나 즐기는 편안한 공연…11월 배리어프리 공연 두 편",
+          "press": "yeongnam.com",
+          "link": "https://www.yeongnam.com/web/view.php?key=20261101022086509",
+          "at": "2026-11-01T08:12:00.000Z"
+        }
+      ]
+    },
+    {
       "id": "남규리+씨야|콘서트",
       "title": "남규리 씨야 콘서트",
       "titles": [
@@ -729,155 +700,48 @@
       ]
     },
     {
-      "id": "배용준|콘서트",
-      "title": "배용준 콘서트",
+      "id": "김나라+동성|결혼",
+      "title": "김나라 동성 결혼",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘핀 25㎝ 붙인 샷으로 2억 챙겼다’ 배용준 콘서트"
+          "title": "‘킬잇 우승’ 김나라♥동성 결혼"
         },
         {
           "style": "기사 요약형",
-          "title": "배용준 콘서트, “핀 25㎝ 붙인 샷으로 2억 챙겼다”"
+          "title": "'킬잇 우승' 김나라, 8년 열애 한 동성 연인과"
         },
         {
           "style": "기사 요약형",
-          "title": "배용준, 렉서스 마스터스 극적인 연장 우승"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "“핀 25㎝ 붙인 샷으로 2억 챙겼다”"
+          "title": "'킬잇' 김나라, 오늘 동성 연인과 결혼"
         }
       ],
       "entities": [
-        "배용준"
+        "김나라",
+        "동성"
       ],
-      "event": "콘서트",
+      "event": "결혼",
       "score": 14,
       "articles": 2,
       "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-10-31T21:56:00.000Z",
-      "lastArticleAt": "2026-11-01T08:52:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "“핀 25㎝ 붙인 샷으로 2억 챙겼다”… 배용준, 통산 3승 달성",
-          "press": "kyeonggi.com",
-          "link": "https://www.kyeonggi.com/article/20261101580305",
-          "at": "2026-11-01T08:52:00.000Z"
-        },
-        {
-          "title": "배용준, 렉서스 마스터스 극적인 연장 우승...KPGA투어 통산 3승",
-          "press": "g-enews.com",
-          "link": "https://www.g-enews.com/view.php?ud=20261101151454702daecd3dad5_1",
-          "at": "2026-11-01T07:52:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "오세훈+장동혁|",
-      "title": "오세훈 장동혁",
-      "titles": [
-        {
-          "style": "기사 요약형",
-          "title": "오세훈 장동혁, 장동혁, 조기전대 승부 던지나"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "오세훈 장동혁, 오세훈 “이재명 정부, 사법부까지 발밑에 두려 해"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "장동혁, 조기전대 승부 던지나"
-        }
-      ],
-      "entities": [
-        "오세훈",
-        "장동혁"
-      ],
-      "event": null,
-      "score": 13,
-      "articles": 3,
-      "press": 3,
       "recent20": 0,
-      "firstArticleAt": "2026-10-31T21:00:00.000Z",
-      "lastArticleAt": "2026-11-01T08:32:00.000Z",
+      "firstArticleAt": "2026-10-31T21:01:00.000Z",
+      "lastArticleAt": "2026-11-01T08:50:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "장동혁, 조기전대 승부 던지나…오세훈·한동훈은 연대론",
-          "press": "hankyung.com",
-          "link": "https://www.hankyung.com/article/2026110185421",
-          "at": "2026-11-01T08:32:00.000Z"
+          "title": "'킬잇 우승' 김나라, 8년 열애 한 동성 연인과 오늘(1일) 결혼.. \"허락 필...",
+          "press": "tvreport.co.kr",
+          "link": "https://www.tvreport.co.kr/star/article/1087536/",
+          "at": "2026-11-01T08:50:00.000Z"
         },
         {
-          "title": "오세훈 “이재명 정부, 사법부까지 발밑에 두려 해…한동훈·장동혁 힘...",
-          "press": "seoul.co.kr",
-          "link": "https://www.seoul.co.kr/news/publicnews/2026/11/01/20261101500074?wlog_tag3=naver",
-          "at": "2026-11-01T08:23:00.000Z"
-        },
-        {
-          "title": "\"野 차기 대선 후보? 연말까지 큰 변화 있을 것\" 장동혁 국민의힘 대표...",
-          "press": "mbn.co.kr",
-          "link": "http://www.mbn.co.kr/pages/news/newsView.php?news_seq_no=5228358",
-          "at": "2026-11-01T08:02:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "권상우+손태영|",
-      "title": "권상우 손태영",
-      "titles": [
-        {
-          "style": "기사 요약형",
-          "title": "권상우♥손태영 딸, 11살 맞아?..올해 초등학교 졸업했는데"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "'권상우♥' 손태영, 아들 입시에 잠도 못 잔다"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "'권상우♥' 손태영, 뜻밖의 시집살이 고충"
-        }
-      ],
-      "entities": [
-        "권상우",
-        "손태영"
-      ],
-      "event": null,
-      "score": 12,
-      "articles": 3,
-      "press": 2,
-      "recent20": 0,
-      "firstArticleAt": "2026-10-31T23:31:00.000Z",
-      "lastArticleAt": "2026-11-01T08:46:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "권상우♥손태영 딸, 11살 맞아?..올해 초등학교 졸업했는데 대학생 같은...",
-          "press": "osen.co.kr",
-          "link": "http://www.osen.co.kr/article/G1112902369",
-          "at": "2026-11-01T08:46:00.000Z"
-        },
-        {
-          "title": "'권상우♥' 손태영, 아들 입시에 잠도 못 잔다…\"얼굴 푸석하고 탄력 떨...",
-          "press": "xportsnews.com",
-          "link": "https://www.xportsnews.com/article/2214083",
-          "at": "2026-11-01T08:40:00.000Z"
-        },
-        {
-          "title": "'권상우♥' 손태영, 뜻밖의 시집살이 고충…\"시어머니도 아니고 아들\" (...",
-          "press": "xportsnews.com",
-          "link": "https://www.xportsnews.com/article/2214077",
-          "at": "2026-11-01T08:12:00.000Z"
+          "title": "'킬잇' 김나라, 오늘 동성 연인과 결혼",
+          "press": "newsis.com",
+          "link": "https://www.newsis.com/view/NISX20261101_0003849869",
+          "at": "2026-11-01T08:22:00.000Z"
         }
       ]
     },
@@ -928,6 +792,107 @@
           "press": "tvreport.co.kr",
           "link": "https://www.tvreport.co.kr/breaking/article/1087526/",
           "at": "2026-11-01T07:57:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "배용준|콘서트",
+      "title": "배용준 콘서트",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘핀 25㎝ 붙인 샷으로 2억 챙겼다’ 배용준 콘서트"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "배용준 콘서트, “핀 25㎝ 붙인 샷으로 2억 챙겼다”"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "배용준, 렉서스 마스터스 극적인 연장 우승"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "“핀 25㎝ 붙인 샷으로 2억 챙겼다”"
+        }
+      ],
+      "entities": [
+        "배용준"
+      ],
+      "event": "콘서트",
+      "score": 12,
+      "articles": 2,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-10-31T21:56:00.000Z",
+      "lastArticleAt": "2026-11-01T08:52:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "“핀 25㎝ 붙인 샷으로 2억 챙겼다”… 배용준, 통산 3승 달성",
+          "press": "kyeonggi.com",
+          "link": "https://www.kyeonggi.com/article/20261101580305",
+          "at": "2026-11-01T08:52:00.000Z"
+        },
+        {
+          "title": "배용준, 렉서스 마스터스 극적인 연장 우승...KPGA투어 통산 3승",
+          "press": "g-enews.com",
+          "link": "https://www.g-enews.com/view.php?ud=20261101151454702daecd3dad5_1",
+          "at": "2026-11-01T07:52:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "권상우+손태영|",
+      "title": "권상우 손태영",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "권상우♥손태영 딸, 11살 맞아?..올해 초등학교 졸업했는데"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "'권상우♥' 손태영, 아들 입시에 잠도 못 잔다"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "'권상우♥' 손태영, 뜻밖의 시집살이 고충"
+        }
+      ],
+      "entities": [
+        "권상우",
+        "손태영"
+      ],
+      "event": null,
+      "score": 10,
+      "articles": 3,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-10-31T23:31:00.000Z",
+      "lastArticleAt": "2026-11-01T08:46:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "권상우♥손태영 딸, 11살 맞아?..올해 초등학교 졸업했는데 대학생 같은...",
+          "press": "osen.co.kr",
+          "link": "http://www.osen.co.kr/article/G1112902369",
+          "at": "2026-11-01T08:46:00.000Z"
+        },
+        {
+          "title": "'권상우♥' 손태영, 아들 입시에 잠도 못 잔다…\"얼굴 푸석하고 탄력 떨...",
+          "press": "xportsnews.com",
+          "link": "https://www.xportsnews.com/article/2214083",
+          "at": "2026-11-01T08:40:00.000Z"
+        },
+        {
+          "title": "'권상우♥' 손태영, 뜻밖의 시집살이 고충…\"시어머니도 아니고 아들\" (...",
+          "press": "xportsnews.com",
+          "link": "https://www.xportsnews.com/article/2214077",
+          "at": "2026-11-01T08:12:00.000Z"
         }
       ]
     },
@@ -1016,60 +981,17 @@
           "at": "2026-11-01T07:51:00.000Z"
         }
       ]
-    },
-    {
-      "id": "포항시개발자문위원연합회+화합|",
-      "title": "포항시개발자문위원연합회 화합",
-      "titles": [
-        {
-          "style": "기사 요약형",
-          "title": "포항시개발자문위원연합회 화합, 1천여 명 모여 주민 화합"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "1천여 명 모여 주민 화합"
-        }
-      ],
-      "entities": [
-        "포항시개발자문위원연합회",
-        "화합"
-      ],
-      "event": null,
-      "score": 8,
-      "articles": 2,
-      "press": 2,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-01T07:38:00.000Z",
-      "lastArticleAt": "2026-11-01T08:40:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "1천여 명 모여 주민 화합…포항시개발자문위원연합회, 가을음악제 개최",
-          "press": "eroun.net",
-          "link": "https://www.eroun.net/news/articleView.html?idxno=94011",
-          "at": "2026-11-01T08:40:00.000Z"
-        },
-        {
-          "title": "강남구의회, 장애인·비장애인 어우러진 화합의 장…800여명 축제 한마...",
-          "press": "biz.heraldcorp.com",
-          "link": "https://biz.heraldcorp.com/article/10921808?ref=naver",
-          "at": "2026-11-01T07:38:00.000Z"
-        }
-      ]
     }
   ],
   "alreadyShown": [
-    "최불암 결혼",
+    "최불암 별세",
     "이순실 도전",
     "연속 1위",
-    "댄스 1위",
-    "김유정 논란"
+    "댄스 1위"
   ],
   "hitRate": {
     "days": 7,
-    "predicted": 2700,
+    "predicted": 2701,
     "matched": 354,
     "avgLeadMin": 367,
     "recent": [

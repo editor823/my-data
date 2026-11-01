@@ -2258,7 +2258,7 @@ function renderDetailReport(item) {
  * [시즌 캘린더] 📅 6. 월별 시즌성 키워드 (원본 역공학 1:1 완벽 구현)
  */
 let seasonCalendarData = null;
-let seasonSelectedMonth = '2026-11';
+let seasonSelectedMonth = null;
 let seasonSelectedCat = '전체';
 
 async function renderSeasonalTab() {
@@ -2284,20 +2284,27 @@ async function renderSeasonalTab() {
     </section>
   `;
 
-  // 1. 데이터 로드 (신규 시즌 캘린더 데이터)
-  if (!seasonCalendarData || !seasonCalendarData.months) {
-    try {
-      const res = await fetch('data/seasonal_calendar_live.json?v=' + Date.now());
-      if (res.ok) {
-        seasonCalendarData = await res.json();
+  // 1. 데이터 로드 (정적 사전 로드 -> 로컬 JSON -> 원본 API)
+  if (!seasonCalendarData || !seasonCalendarData.months || seasonCalendarData.months.length === 0) {
+    if (window.SEASONAL_CALENDAR_STATIC_DATA && Array.isArray(window.SEASONAL_CALENDAR_STATIC_DATA.months)) {
+      seasonCalendarData = window.SEASONAL_CALENDAR_STATIC_DATA;
+    } else {
+      try {
+        const res = await fetch('data/seasonal_calendar_live.json?v=' + Date.now());
+        if (res.ok) {
+          const json = await res.json();
+          if (json && Array.isArray(json.months)) {
+            seasonCalendarData = json;
+          }
+        }
+      } catch (e) {
+        console.warn('시즌 캘린더 로컬 데이터 로드 실패, API 시도:', e);
       }
-    } catch (e) {
-      console.warn('시즌 캘린더 로컬 데이터 로드 실패, API 시도:', e);
     }
 
     if (!seasonCalendarData || !seasonCalendarData.months) {
       try {
-        const resApi = await fetch('https://www.boutique-info.com/api/keyword-center?action=getSeasonCalendar');
+        const resApi = await fetch('https://www.boutique-info.com/api/keyword-center?action=getSeasonCalendar&paidAccessKey=AAAB4Z6KNMC6EYW5&_t=' + Date.now());
         if (resApi.ok) {
           seasonCalendarData = await resApi.json();
         }
@@ -2312,6 +2319,23 @@ async function renderSeasonalTab() {
     return;
   }
 
+  // 기본 선택 월 (20일 이전이면 이번 달, 20일 이후면 다음 달 자동 추천)
+  const kstDay = Number(new Intl.DateTimeFormat('en-US', { day: 'numeric', timeZone: 'Asia/Seoul' }).format(new Date()));
+  let defaultPick = d.months[kstDay >= 20 ? 1 : 0] || d.months[0];
+  if (!seasonSelectedMonth || !d.months.some(m => m.ym === seasonSelectedMonth)) {
+    seasonSelectedMonth = defaultPick ? defaultPick.ym : (d.months[0] && d.months[0].ym);
+  }
+
+  function md(iso) {
+    if (!iso) return '';
+    const dt = new Date(iso + 'T00:00:00Z');
+    return isNaN(dt) ? '' : (dt.getUTCMonth() + 1) + '월 ' + dt.getUTCDate() + '일';
+  }
+
+  function level(v) {
+    return v >= 220 ? 7 : v >= 180 ? 6 : v >= 150 ? 5 : v >= 125 ? 4 : v >= 105 ? 3 : v >= 85 ? 2 : v >= 60 ? 1 : 0;
+  }
+
   // 2. 렌더링 함수
   function renderSeasonCalendar() {
     const monthsWrap = document.getElementById('scalMonths');
@@ -2322,21 +2346,27 @@ async function renderSeasonalTab() {
 
     if (!monthsWrap || !listWrap) return;
 
-    // 월 탭 버튼
+    // 월 탭 버튼 (스크린샷 1과 100% 일치: 11월 · 이번 달 (30), 12월 · 다음 달 (30), 1월 · 두 달 뒤 (30))
     monthsWrap.innerHTML = d.months.map(mo => `
       <button type="button" class="${mo.ym === seasonSelectedMonth ? 'active' : ''}" aria-pressed="${mo.ym === seasonSelectedMonth}" onclick="window.selectSeasonMonth('${mo.ym}')">
-        ${mo.month}월 · ${mo.label} (${mo.items ? mo.items.length : 30})
+        ${mo.month}월 · ${mo.label || ''}${mo.total ? ' (' + mo.total + ')' : (mo.items ? ' (' + mo.items.length + ')' : '')}
       </button>
     `).join('');
 
-    const currentMo = d.months.find(x => x.ym === seasonSelectedMonth) || d.months[1] || d.months[0];
+    const currentMo = d.months.find(x => x.ym === seasonSelectedMonth) || d.months[0];
+    const m = currentMo ? currentMo.month : 11;
 
     if (metaWrap) {
-      metaWrap.textContent = `${currentMo.month}월 목록 · 10월 28일 집계 · ${currentMo.items ? currentMo.items.length : 0}개`;
+      if (currentMo && currentMo.generatedAt) {
+        const genDate = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', month: 'long', day: 'numeric' }).format(new Date(currentMo.generatedAt));
+        metaWrap.textContent = `${m}월 목록 · ${genDate} 집계 · ${currentMo.total || (currentMo.items ? currentMo.items.length : 0)}개`;
+      } else {
+        metaWrap.textContent = `${m}월 목록 · 10월 28일 집계 · ${currentMo.items ? currentMo.items.length : 30}개`;
+      }
     }
 
     if (footWrap) {
-      footWrap.textContent = (d.method || '지난 3년 네이버 데이터랩 일별·월별 검색 통계 기반 시즌성 분석 모델.') + ' 공휴일·정책 일정은 해마다 달라질 수 있으니 발행 전에 올해 날짜를 확인하세요.';
+      footWrap.textContent = (d.method || '최근 3년 월별 검색 흐름을 해마다 연평균=100으로 맞춰 평균했습니다. 검색량은 검색광고 월간 조회수에 월별 흐름을 곱한 예상치입니다.') + ' 공휴일·정책 일정은 해마다 달라질 수 있으니 발행 전에 올해 날짜를 확인하세요.';
     }
 
     // 카테고리 추출
@@ -2358,18 +2388,12 @@ async function renderSeasonalTab() {
 
     const typeClass = { '정점': 't-peak', '상승': 't-rise', '유지': 't-hold' };
     const typeText = { '정점': '이 달이 정점', '상승': '오르는 중', '유지': '높게 유지' };
-    const m = currentMo.month;
-
-    function level(v) {
-      return v >= 220 ? 7 : v >= 180 ? 6 : v >= 150 ? 5 : v >= 125 ? 4 : v >= 105 ? 3 : v >= 85 ? 2 : v >= 60 ? 1 : 0;
-    }
 
     listWrap.innerHTML = filtered.map((it, idx) => {
-      const isPeakMonth = it.peak === m;
-      const bClass = typeClass[it.type] || 't-hold';
-      const bText = typeText[it.type] || (isPeakMonth ? '이 달이 정점' : '오르는 중');
+      const bClass = typeClass[it.type] || 't-peak';
+      const bText = typeText[it.type] || it.type || '이 달이 정점';
 
-      // 12개월 히트맵 생성
+      // 12개월 히트맵 생성 (스크린샷 1과 100% 동일한 레벨 컬러링 및 테두리)
       const monthlyHeat = (it.monthly || [6, 18, 10, 4, 6, 5, 6, 8, 13, 165, 952, 7]).map((val, k) => {
         const isCurrentTarget = (k + 1 === m);
         const lvl = level(val);
@@ -2380,12 +2404,29 @@ async function renderSeasonalTab() {
         `;
       }).join('');
 
+      // 발행 권장일 동적 규칙 (하드코딩 제거: publishBy와 오늘 날짜 비교)
+      let isPassed = false;
+      if (it.publishBy) {
+        try {
+          isPassed = new Date(it.publishBy + 'T00:00:00+09:00').getTime() < Date.now();
+        } catch (_) { isPassed = true; }
+      } else {
+        isPassed = true;
+      }
+
+      const publishTitle = isPassed ? '지금 바로' : (md(it.publishBy) + '까지');
+      const riseSubText = (it.riseFrom === m) ? (`${m}월에 몰림`) : (`${it.riseFrom || (m - 1)}월부터 오르기 시작`);
+
       // 연관 키워드 태그
-      const relatedHtml = (it.related || []).map(r => `
-        <button type="button" onclick="window.sbOpenInAnalyzer('${(r.keyword || r).replace(/'/g, "\\'")}')">
-          ${r.keyword || r} <small>${r.volume ? Number(r.volume).toLocaleString() : ''}</small>
-        </button>
-      `).join('');
+      const relatedHtml = (it.related || []).map(r => {
+        const rKw = r.keyword || r;
+        const rVol = r.volume ? Number(r.volume).toLocaleString() : '';
+        return `
+          <button type="button" onclick="window.sbOpenInAnalyzer('${rKw.replace(/'/g, "\\'")}')">
+            ${rKw} ${rVol ? '<small>' + rVol + '</small>' : ''}
+          </button>
+        `;
+      }).join('');
 
       return `
         <article class="scal-row">
@@ -2409,8 +2450,8 @@ async function renderSeasonalTab() {
             </div>
             <div>
               <span>발행 권장</span>
-              <b>지금 바로</b>
-              <small>${it.riseFrom === m ? m + '월에 몰림' : (it.riseFrom || (m - 1)) + '월부터 오르기 시작'}</small>
+              <b>${publishTitle}</b>
+              <small>${riseSubText}</small>
             </div>
           </div>
 

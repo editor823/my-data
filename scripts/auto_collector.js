@@ -293,6 +293,27 @@ async function collectSecretKeywordsData() {
   }
 }
 
+
+// 5-4. 월별 시즌성 키워드 (시즌 캘린더 이번달~두달뒤) 자동 수집
+async function collectSeasonalCalendarData() {
+  const ts = Date.now();
+  const seasonUrl = `https://www.boutique-info.com/api/keyword-center?action=getSeasonCalendar&paidAccessKey=AAAB4Z6KNMC6EYW5&_t=${ts}`;
+  try {
+    const sRes = await fetchJson(seasonUrl, 15000);
+    if (sRes && sRes.success && Array.isArray(sRes.months)) {
+      const pLive = path.join(__dirname, '..', 'data', 'seasonal_calendar_live.json');
+      fs.writeFileSync(pLive, JSON.stringify(sRes, null, 2), 'utf8');
+
+      const pJs = path.join(__dirname, '..', 'data', 'seasonal_calendar.js');
+      fs.writeFileSync(pJs, `window.SEASONAL_CALENDAR_STATIC_DATA = ${JSON.stringify(sRes)};`, 'utf8');
+
+      console.log(`  ✅ 시즌 캘린더 동기화 완료 (${sRes.months.length}개 월, 총 ${sRes.months.reduce((acc, m) => acc + (m.items ? m.items.length : 0), 0)}개 키워드)`);
+    }
+  } catch (e) {
+    console.warn('  ⚠️ 시즌 캘린더 원본 갱신 실패:', e.message);
+  }
+}
+
 // 6. 일일 수집 실행 메인 함수
 async function runDailyCollector() {
   try {
@@ -309,6 +330,9 @@ async function runDailyCollector() {
 
     // (4) 머니대외비 비밀 키워드 최신화
     await collectSecretKeywordsData();
+
+    // (5) 월별 시즌성 키워드 최신화
+    await collectSeasonalCalendarData();
 
     console.log(`[${new Date().toISOString()}] 🎉 일일 자동 갱신 완료!`);
   } catch (error) {
