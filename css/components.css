@@ -431,9 +431,12 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 2px;
   padding: 0;
   margin: 0;
+  height: 145px;
+  max-height: 145px;
+  overflow-y: auto;
 }
 
 .trending-item {

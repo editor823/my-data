@@ -190,9 +190,9 @@ body {
   transform: translateY(-2px);
 }
 
-/* 4. 실시간 급상승어 섹션 (카드 내부 및 행간 여유 공간 확장) */
+/* 4. 실시간 급상승어 섹션 (원본 사이트와 동일하게 5위까지 컴팩트 노출 및 스크롤) */
 .trending-section {
-  margin-bottom: 48px !important;
+  margin-bottom: 36px !important;
 }
 .trending-header {
   display: flex;
@@ -200,13 +200,13 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 16px !important;
+  margin-bottom: 12px !important;
 }
 .trending-header-title {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1.45rem !important;
+  font-size: 1.35rem !important;
   font-weight: 900 !important;
   color: #0f172a !important;
   letter-spacing: -0.02em;
@@ -214,22 +214,22 @@ body {
 .trending-grid {
   display: grid !important;
   grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-  gap: 14px !important;
+  gap: 10px !important;
 }
 .trending-portal-card {
   background: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
-  border-radius: 16px !important;
-  padding: 16px 14px 14px !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
-  min-height: 310px !important;
+  border-radius: 12px !important;
+  padding: 12px 10px 8px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+  min-height: auto !important;
 }
 .portal-title-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 10px !important;
-  margin-bottom: 8px !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 6px !important;
   border-bottom: 1px solid #f1f5f9 !important;
 }
 .portal-name-badge {
@@ -237,61 +237,96 @@ body {
   align-items: center;
   gap: 6px;
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 0.95rem !important;
 }
 .dot-indicator {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   display: inline-block;
 }
-.dot-naver { background: #03c75a; box-shadow: 0 0 8px rgba(3, 199, 90, 0.5); }
-.dot-nate { background: #ff3344; box-shadow: 0 0 8px rgba(255, 51, 68, 0.5); }
-.dot-zum { background: #8b5cf6; box-shadow: 0 0 8px rgba(139, 92, 246, 0.5); }
-.dot-google { background: #3b82f6; box-shadow: 0 0 8px rgba(59, 130, 246, 0.5); }
-.dot-daum { background: #f59e0b; box-shadow: 0 0 8px rgba(245, 158, 11, 0.5); }
+.dot-naver { background: #03c75a; box-shadow: 0 0 6px rgba(3, 199, 90, 0.4); }
+.dot-nate { background: #ff3344; box-shadow: 0 0 6px rgba(255, 51, 68, 0.4); }
+.dot-zum { background: #8b5cf6; box-shadow: 0 0 6px rgba(139, 92, 246, 0.4); }
+.dot-google { background: #3b82f6; box-shadow: 0 0 6px rgba(59, 130, 246, 0.4); }
+.dot-daum { background: #f59e0b; box-shadow: 0 0 6px rgba(245, 158, 11, 0.4); }
 .portal-goto-link {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: #64748b;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 2px;
 }
+.portal-goto-link:hover {
+  color: #0284c7;
+}
 .trending-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 4px 0 !important;
+  padding: 2px 0 !important;
+  height: 145px !important;
+  max-height: 145px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f8fafc;
 }
-.trending-list li {
-  padding: 6px 4px !important;
+.trending-list::-webkit-scrollbar {
+  width: 5px;
+}
+.trending-list::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 3px;
+}
+.trending-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+.trending-list::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+.trending-list li,
+.trending-item {
+  padding: 4px 4px !important;
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: 6px !important;
+  box-sizing: border-box;
 }
-.trending-list li .trend-rank {
-  font-size: 0.85rem !important;
+.trending-list li .trend-rank,
+.trend-rank {
+  font-size: 0.78rem !important;
   font-weight: 800 !important;
   color: #64748b !important;
-  width: 18px !important;
+  width: 16px !important;
   text-align: center !important;
+  flex-shrink: 0;
 }
-.trending-list li a {
-  font-size: 0.9rem !important;
+.trending-list li a,
+.trend-link {
+  font-size: 0.82rem !important;
   font-weight: 700 !important;
   color: #0f172a !important;
-  line-height: 1.4 !important;
+  line-height: 1.35 !important;
   text-decoration: none;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+.trending-list li a:hover,
+.trend-link:hover {
+  color: #0284c7 !important;
+  text-decoration: underline;
 }
 .trending-footer-bar {
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid #e2e8f0;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #f1f5f9;
 }
 
 /* 5. 실시간 숏텐츠 섹션 (넉넉한 패딩과 여유 공간) */
