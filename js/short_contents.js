@@ -164,18 +164,27 @@
       const time = item.time || item.date || '방금 전';
       const thumb = item.thumb || item.image || 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52"><rect width="52" height="52" fill="%23f1f5f9"/></svg>';
       const source = item.source || 'N';
+      const link = item.link || ('https://search.naver.com/search.naver?where=news&query=' + encodeURIComponent(title));
 
       return `
         <div class="short-row-item">
           <div class="short-row-left">
             <span class="short-rank-num">${rankNum}</span>
-            <img src="${thumb}" alt="${escapeHtml(title)}" width="52" height="52" class="short-thumb-img" loading="lazy" decoding="async" fetchpriority="low" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2252%22 height=%2252%22><rect width=%2252%22 height=%2252%22 fill=%22%23f1f5f9%22/></svg>'">
+            <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" class="short-thumb-link" title="네이버 기사/검색 바로가기">
+              <img src="${thumb}" alt="${escapeHtml(title)}" width="52" height="52" class="short-thumb-img" loading="lazy" decoding="async" fetchpriority="low" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2252%22 height=%2252%22><rect width=%2252%22 height=%2252%22 fill=%22%23f1f5f9%22/></svg>'">
+            </a>
             <div class="short-text-col">
-              <h4 class="short-item-title" title="${escapeHtml(title)}">${escapeHtml(title)}</h4>
-              <p class="short-item-desc" title="${escapeHtml(desc)}">${escapeHtml(desc)}</p>
+              <h4 class="short-item-title" title="${escapeHtml(title)}">
+                <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" class="short-title-link">${escapeHtml(title)}</a>
+              </h4>
+              <p class="short-item-desc" title="${escapeHtml(desc)}">
+                <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" class="short-desc-link">${escapeHtml(desc)}</a>
+              </p>
               <div class="short-item-meta">
                 <span>${escapeHtml(time)}</span>
-                <span class="naver-badge-icon">${escapeHtml(source)}</span>
+                <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;" title="네이버로 이동">
+                  <span class="naver-badge-icon">${escapeHtml(source)}</span>
+                </a>
               </div>
             </div>
           </div>
