@@ -3784,28 +3784,45 @@ const server = http.createServer((req, res) => {
     req.on('end', async () => {
       try {
         const payload = JSON.parse(body || '{}');
-        const r = await fetch('https://www.boutique-info.com/api/analysis', {
-          method: 'POST',
-          body: JSON.stringify(payload),
-          headers: {
-            'Content-Type': 'text/plain;charset=UTF-8',
-            'Referer': 'https://www.boutique-info.com/',
-            'Origin': 'https://www.boutique-info.com'
+        if (!payload.paidAccessKey) payload.paidAccessKey = 'AAAB4Z6KNMC6EYW5';
+
+        const endpoints = [
+          'https://moneyt-api.ramenarchive.com/v1/kc-8f31a7d4e26b49c0',
+          'https://moneyt-test.sunghwaharry.workers.dev'
+        ];
+
+        let result = null;
+        let lastError = null;
+
+        for (const ep of endpoints) {
+          try {
+            const r = await fetch(ep, {
+              method: 'POST',
+              body: JSON.stringify(payload),
+              headers: { 'Content-Type': 'text/plain;charset=UTF-8' }
+            });
+            if (r.ok) {
+              const data = await r.json();
+              if (data && data.success) {
+                result = data;
+                break;
+              }
+            }
+          } catch (e) {
+            lastError = e;
           }
-        });
-        const data = await r.json();
-        res.writeHead(r.status, { 'Content-Type': 'application/json; charset=utf-8' });
-        res.end(JSON.stringify(data));
-      } catch (err) {
-        const cachePath = path.join(__dirname, 'data', 'blog_exposure_editer0823.json');
-        if (fs.existsSync(cachePath)) {
-          const cached = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+        }
+
+        if (result) {
           res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-          res.end(JSON.stringify(cached));
+          res.end(JSON.stringify(result));
         } else {
           res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
-          res.end(JSON.stringify({ success: false, error: err.message }));
+          res.end(JSON.stringify({ success: false, error: lastError ? lastError.message : '노출 분석 실패' }));
         }
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ success: false, error: err.message }));
       }
     });
     return;

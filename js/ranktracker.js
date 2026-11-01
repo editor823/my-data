@@ -232,71 +232,75 @@
     if (cleanId.includes('blog.naver.com/')) {
       cleanId = cleanId.split('blog.naver.com/')[1].split('/')[0].split('?')[0];
     }
-    cleanId = cleanId.replace(/[^a-zA-Z0-9_-]/g, '');
+    cleanId = cleanId.replace(/[^a-zA-Z0-9_-]/g, '').toLowerCase();
+
+    // 유료 발급키 (기본 또는 공통 유료키 전달)
+    var paidKey = 'AAAB4Z6KNMC6EYW5';
+    try {
+      if (typeof window.kcSavedKey === 'function') paidKey = window.kcSavedKey() || paidKey;
+      else if (localStorage.getItem('moneytCommonPaidAccessKey')) paidKey = localStorage.getItem('moneytCommonPaidAccessKey');
+    } catch (_) {}
+
+    var requestPayload = {
+      action: 'analyzeBlogExposure',
+      blogUrl: blogUrl,
+      paidAccessKey: paidKey
+    };
 
     try {
       var payload = null;
 
-      // 1) editer0823 또는 기본 블로그 요청 시 사전 탑재된 벤치마크 데이터 우선 활용
-      if ((!cleanId || cleanId === 'editer0823') && window.DEFAULT_BLOG_EXPOSURE_PAYLOAD) {
-        payload = window.DEFAULT_BLOG_EXPOSURE_PAYLOAD;
-      }
-
-      // 2) 로컬 서버 프록시 /api/analysis 호출 시도
-      if (!payload) {
-        try {
-          var res = await fetch('/api/analysis', {
-            method: 'POST',
-            body: JSON.stringify({ action: 'analyzeBlogExposure', blogUrl: blogUrl }),
-            headers: { 'Content-Type': 'text/plain;charset=UTF-8' }
-          });
-          if (res.ok) {
-            var resJson = await res.json();
-            if (resJson && resJson.success && Array.isArray(resJson.rows) && resJson.rows.length > 0) {
-              payload = resJson;
-            }
-          }
-        } catch (e) {
-          console.warn('/api/analysis 프록시 연결 대기:', e);
+      // 1) 입력 블로그별 사전 로드 캐시 (즉각 응답 지원)
+      if (cleanId === 'youngclubs') {
+        if (window.YOUNGCLUBS_BLOG_EXPOSURE_PAYLOAD) {
+          payload = window.YOUNGCLUBS_BLOG_EXPOSURE_PAYLOAD;
+        } else {
+          try {
+            var yRes = await fetch('data/blog_exposure_youngclubs.json?v=' + Date.now());
+            if (yRes.ok) payload = await yRes.json();
+          } catch (_) {}
+        }
+      } else if (!cleanId || cleanId === 'editer0823') {
+        if (window.DEFAULT_BLOG_EXPOSURE_PAYLOAD) {
+          payload = window.DEFAULT_BLOG_EXPOSURE_PAYLOAD;
+        } else {
+          try {
+            var eRes = await fetch('data/blog_exposure_editer0823.json?v=' + Date.now());
+            if (eRes.ok) payload = await eRes.json();
+          } catch (_) {}
         }
       }
 
-      // 3) Cloudflare Worker 직접 호출 시도
+      // 2) 실제 원본 Cloudflare Worker API 직접 호출 (실시간 전체 측정 엔진)
       if (!payload) {
-        try {
-          var wRes = await fetch('https://moneyt-test.sunghwaharry.workers.dev', {
-            method: 'POST',
-            body: JSON.stringify({ action: 'analyzeBlogExposure', blogUrl: blogUrl }),
-            headers: { 'Content-Type': 'text/plain;charset=UTF-8' }
-          });
-          if (wRes.ok) {
-            var wJson = await wRes.json();
-            if (wJson && wJson.success && Array.isArray(wJson.rows) && wJson.rows.length > 0) {
-              payload = wJson;
+        var workerEndpoints = [
+          'https://moneyt-api.ramenarchive.com/v1/kc-8f31a7d4e26b49c0',
+          'https://moneyt-test.sunghwaharry.workers.dev',
+          '/api/analysis'
+        ];
+
+        for (var ep of workerEndpoints) {
+          try {
+            var res = await fetch(ep, {
+              method: 'POST',
+              body: JSON.stringify(requestPayload),
+              headers: { 'Content-Type': 'text/plain;charset=UTF-8' }
+            });
+            if (res.ok) {
+              var json = await res.json();
+              if (json && json.success && Array.isArray(json.rows) && json.rows.length > 0) {
+                payload = json;
+                break;
+              }
             }
+          } catch (netErr) {
+            console.warn('[RankTracker] Endpoint failure ' + ep + ':', netErr.message);
           }
-        } catch (we) {
-          console.warn('Worker 직접 호출 대기:', we);
         }
-      }
-
-      // 4) 로컬 json 파일 직접 로드 시도
-      if (!payload) {
-        try {
-          var fRes = await fetch('data/blog_exposure_editer0823.json');
-          if (fRes.ok) {
-            payload = await fRes.json();
-          }
-        } catch (fe) {}
-      }
-
-      // 5) 최종 fallback으로 사전 탑재 객체 사용
-      if (!payload && window.DEFAULT_BLOG_EXPOSURE_PAYLOAD) {
-        payload = window.DEFAULT_BLOG_EXPOSURE_PAYLOAD;
       }
 
       if (!payload || !payload.rows || !payload.rows.length) {
-        throw new Error('노출 추적 결과를 받지 못했습니다. 블로그 아이디를 다시 확인해 주세요.');
+        throw new Error('블로그 검색 결과를 조회하지 못했습니다. 네이버 블로그 아이디를 다시 확인해 주세요.');
       }
 
       applyExposurePayload(payload);
@@ -310,7 +314,6 @@
   }
   window.startBlogExposureAnalysis = startBlogExposureAnalysis;
 
-  // 화면 초기화 함수 (탭 진입 시 자동 호출)
   function initBlogExposure() {
     var tbody = document.getElementById('exposureTbody');
     if (!tbody) return;
