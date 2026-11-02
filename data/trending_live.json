@@ -1,283 +1,283 @@
 {
   "success": true,
-  "updatedAt": "2026-11-01T19:15:39.719Z",
-  "updatedAtKst": "2026. 11. 2. AM 4:15:39",
+  "updatedAt": "2026-11-02T00:00:20.763Z",
+  "updatedAtKst": "2026. 11. 2. AM 9:00:20",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "100일의 거짓말"
+        "keyword": "미국 중간선거 D-2"
       },
       {
         "rank": 2,
-        "keyword": "차예련 학폭 의혹, 주상욱 악플"
+        "keyword": "차예련 유튜브 댓글 삭제 해명"
       },
       {
         "rank": 3,
-        "keyword": "진성준 국방위원장 미국 출국"
+        "keyword": "청소년 도박 마약 자진신고"
       },
       {
         "rank": 4,
-        "keyword": "금호타이어 노동자 사망"
+        "keyword": "이재명 시정연설 슈퍼예산"
       },
       {
         "rank": 5,
-        "keyword": "이재명 다문화 정책 시정"
+        "keyword": "100일의 거짓말"
       },
       {
         "rank": 6,
-        "keyword": "킬리안 음바페"
+        "keyword": "비트코인 테슬라 보유량"
       },
       {
         "rank": 7,
-        "keyword": "소연, 조유민과 결혼 4년 만에 임신"
+        "keyword": "G마켓 개인정보 유출"
       },
       {
         "rank": 8,
-        "keyword": "경찰관 흉기 위협"
+        "keyword": "하베르츠 골, 아스널 1-0 리버풀 제압"
       },
       {
         "rank": 9,
-        "keyword": "로드FC 파이팅 포즈"
+        "keyword": "구미시"
       },
       {
         "rank": 10,
-        "keyword": "최불암 발인식 오늘 진행"
+        "keyword": "지소연"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "최불암 동일"
+        "keyword": "최불암 상승 1"
       },
       {
         "rank": 2,
-        "keyword": "진성준 국회 국방위원장 하락 4"
+        "keyword": "차예련 하락 1"
       },
       {
         "rank": 3,
-        "keyword": "최강창민 5살 붕어빵 상승 2"
+        "keyword": "100일의 거짓말 동일"
       },
       {
         "rank": 4,
-        "keyword": "파이널 테이블 하락 1"
+        "keyword": "비트코인 테슬라 보유량 동일"
       },
       {
         "rank": 5,
-        "keyword": "2호선 서초역 종합운동장역 new"
+        "keyword": "너에게 다이브 장세혁 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "이재명 다문화 정책 시정"
+        "keyword": "이재명 대통령 지지율"
       },
       {
         "rank": 2,
-        "keyword": "금호타이어 노동자 사망"
+        "keyword": "트럼프 이란 재공격"
       },
       {
         "rank": 3,
-        "keyword": "이재명 시정연설 슈퍼예산"
+        "keyword": "호르무즈 유조선 기뢰 폭발"
       },
       {
         "rank": 4,
-        "keyword": "이란 미국 자산 타격 경고"
+        "keyword": "청소년 도박 마약 자진신고"
       },
       {
         "rank": 5,
-        "keyword": "젤렌스키 러시아 종교시설"
+        "keyword": "이재명 시정연설 슈퍼예산"
       },
       {
         "rank": 6,
-        "keyword": "저PBR 기업 151곳 공개"
+        "keyword": "G마켓 개인정보 유출"
       },
       {
         "rank": 7,
-        "keyword": "최불암 빈소 조문"
+        "keyword": "방탄소년단 남미 투어"
       },
       {
         "rank": 8,
-        "keyword": "울산 강원 역전승"
+        "keyword": "신세경 악플러 실형"
       },
       {
         "rank": 9,
-        "keyword": "한국 의원 비자 문제"
+        "keyword": "플로리다 제트기 추락"
       },
       {
         "rank": 10,
-        "keyword": "KT-1 훈련기 충돌"
+        "keyword": "저PBR 기업 151곳 공개"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "킬리안 음바페"
+        "keyword": "중대범죄수사청"
       },
       {
         "rank": 2,
-        "keyword": "ลิเวอร์พูล พบ อาร์เซนอล"
+        "keyword": "카를로스 알카라스"
       },
       {
         "rank": 3,
-        "keyword": "레알마드리드"
+        "keyword": "휴고 칼데라노"
       },
       {
         "rank": 4,
-        "keyword": "liverpool vs arsenal"
+        "keyword": "비트코인"
       },
       {
         "rank": 5,
-        "keyword": "리버풀 대 아스널"
+        "keyword": "구미시"
       },
       {
         "rank": 6,
-        "keyword": "라치오"
+        "keyword": "지소연"
       },
       {
         "rank": 7,
-        "keyword": "расинг – реал мадрид"
+        "keyword": "klasemen liverpool vs arsenal"
       },
       {
         "rank": 8,
-        "keyword": "스타링크"
+        "keyword": "사학연금"
       },
       {
         "rank": 9,
-        "keyword": "racing santander vs madrid"
+        "keyword": "김호령"
       },
       {
         "rank": 10,
-        "keyword": "성유리"
+        "keyword": "파업"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "엄유신 조문"
+        "keyword": "정애연 모친 합가"
       },
       {
         "rank": 2,
-        "keyword": "김승수 박혜연 맞선"
+        "keyword": "신세경 악플러 징역 8개월"
       },
       {
         "rank": 3,
-        "keyword": "박은수 최불암"
+        "keyword": "이 대통령 지지율 36.9%"
       },
       {
         "rank": 4,
-        "keyword": "최강창민 아들 외모 공개"
+        "keyword": "플로리다 제트기 추락"
       },
       {
         "rank": 5,
-        "keyword": "윤종훈 한은서 결혼"
+        "keyword": "이재명 돼지 발언"
       },
       {
         "rank": 6,
-        "keyword": "베스티 완전체 음악방송"
+        "keyword": "최불암 영면"
       },
       {
         "rank": 7,
-        "keyword": "배우 정애연"
+        "keyword": "바이낸스"
       },
       {
         "rank": 8,
-        "keyword": "soop 배구단"
+        "keyword": "너에게 다이브 장세혁"
       },
       {
         "rank": 9,
-        "keyword": "너 말고 다른 연애 결말"
+        "keyword": "이호선 모친상 부의금 기부"
       },
       {
         "rank": 10,
-        "keyword": "런닝맨"
+        "keyword": "윤종훈 한은서 결혼"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "최강창민, 5살 子 유치원서 깜짝 행동…“아빠 노래 틀어주세요”",
+      "title": "플레이브, 전 세계 어린이 위해 1억 원 기부…“작게나마 도움 되길”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261102/134947330/1",
-      "publishedAt": "수집 11. 02. 04:15 KST",
-      "publishedOrder": 1793560539662
+      "url": "https://sports.donga.com/ent/article/all/20261102/134947939/1",
+      "publishedAt": "수집 11. 02. 09:00 KST",
+      "publishedOrder": 1793577620721
     },
     {
-      "title": "“1위 한번 찍었으면”…베스티, 13년 전 노래로 287만 뷰 돌파",
+      "title": "김윤석·구교환, 눈 덮인 기차역에서 맞붙었다…‘폭설’ 2차 스틸 공개",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261101/134947304/1",
-      "publishedAt": "수집 11. 02. 04:15 KST",
-      "publishedOrder": 1793560539662
+      "url": "https://sports.donga.com/ent/article/all/20261102/134947862/1",
+      "publishedAt": "수집 11. 02. 09:00 KST",
+      "publishedOrder": 1793577620721
     },
     {
-      "title": "서강준 “버스 운전면허도 있다”…15년 운전 경력 공개",
+      "title": "‘라이브+예능감’ 다 갖췄다…앤더블, 컴백 첫 주 종횡무진",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261101/134946720/1",
-      "publishedAt": "수집 11. 02. 04:15 KST",
-      "publishedOrder": 1793560539662
+      "url": "https://sports.donga.com/ent/article/all/20261102/134947817/1",
+      "publishedAt": "수집 11. 02. 09:00 KST",
+      "publishedOrder": 1793577620721
     },
     {
-      "title": "류이서, 임신 7주 차 유산 아픔 속 ♥전진과 결혼 6주년…“너무 행복했다”",
+      "title": "내연녀 잡으러 간 내연녀? 피부과 원장 불륜 반전 (탐비)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261101/134947292/1",
-      "publishedAt": "수집 11. 02. 04:15 KST",
-      "publishedOrder": 1793560539662
+      "url": "https://sports.donga.com/ent/article/all/20261102/134947870/1",
+      "publishedAt": "수집 11. 02. 09:00 KST",
+      "publishedOrder": 1793577620721
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 02. 04:15 KST",
-      "publishedOrder": 1793560539324
+      "publishedAt": "수집 11. 02. 09:00 KST",
+      "publishedOrder": 1793577620474
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 02. 04:15 KST",
-      "publishedOrder": 1793560539324
+      "publishedAt": "수집 11. 02. 09:00 KST",
+      "publishedOrder": 1793577620474
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 02. 04:15 KST",
-      "publishedOrder": 1793560539324
+      "publishedAt": "수집 11. 02. 09:00 KST",
+      "publishedOrder": 1793577620474
     },
     {
-      "title": "이순재 별세→나나 강도사건..'11월 괴담' 올해도 이어질까 '긴장' [스타이슈]",
+      "title": "김지원 '닥터X', 결국..시청률 내리막길",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/01/2026103016202296353",
-      "publishedAt": "수집 11. 02. 04:15 KST",
-      "publishedOrder": 1793560539324
+      "url": "https://www.starnewskorea.com/star/2026/11/01/2026110108595720605",
+      "publishedAt": "수집 11. 02. 09:00 KST",
+      "publishedOrder": 1793577620474
     },
     {
-      "title": "[강일홍의 클로즈업] 트롯가요계 '불편한 동거'...오디션 스타·소속사 '분쟁'",
+      "title": "‘계약결혼’ 강정환, 아내 제안 잇단 거절… 정유진 결국 눈물 보이나",
       "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9pMjc3X0daRUczWVZFU1gyYVhPNHhEb0xRSzBCZDZNU0t5VzFHRnJscXFFNGp0T2pBN2hNS2hTM3BSdXVwaHlHTHVCT0kyMlpkNy0zYWZ0aGdTTktH0gFXQVVfeXFMUHJuTWF1Qm1hT05aMEVyZFgwWGUxQXZkVUhGU05jOG1STGgwLUVfTlViMElrN3UzTnJXSWt3NFNIU204UHp6d1lMMWpvaC1MQWstSmNZMVhr?oc=5",
-      "publishedAt": "11. 02. 00:00 KST",
-      "publishedOrder": 1793545204000
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE83ZmU5dHdjX0w1UnUtekNZTGlDR2ZPYjRhdVVhVzhfWnFYYWpvTFVRY3NRNWN6eXZDcnhNdy0xbFpONzRaVUh2U1VoaDJfV2pHdDhzV1BrYllVVkdYZ0pYMVdxVk9zUlA5cmc?oc=5",
+      "publishedAt": "11. 02. 08:42 KST",
+      "publishedOrder": 1793576531000
     },
     {
-      "title": "티아라 소연, 결혼 4년 만에 아기 임신 발표",
+      "title": "'책 읽는 아이돌' 아이브 가을, EBS '교과서 속 문학' 합류",
       "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1fd0ZKeEtKUU40Q2dMWGJsTnYzZ25ObFFQSmpOcjlZTGlTZjVpN1pwa19GbGNVNnhtZDM4ckFDaUxTcTEwOGVSdVBQd2p4Y01EYkEwYVlMV3F6MXhMRnpuTDNsa1N4M0YxcjM3M2xwdHNJUQ?oc=5",
-      "publishedAt": "11. 01. 22:57 KST",
-      "publishedOrder": 1793541457000
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBNTVdXalhrLVpudjhSdi1pbWNEOXM1MmpuTHRiWTJ0dTl2ODExMFpKS2luZmlLRWVBcFRaVlVmWndYQzQzeGFxME5YWWJGRkV5dGk4MUFvMXFpVE1ndHJLaWFDZEU4MVlDa2EzdnBFOUJVcjJN?oc=5",
+      "publishedAt": "11. 02. 07:43 KST",
+      "publishedOrder": 1793572980000
     },
     {
-      "title": "윤종훈·한은서 결혼, 박기웅 진행·봉태규 축사",
+      "title": "'전역 후 첫 단독 콘서트' 김재환, '여백:餘白' 성료",
       "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBJaU0zdE5EazlKT1lnUDdGaUM2S1BNeFdPMEM1bDlDcTlONzh1TjNmRlBIdkpONlJHdnFqWFRUQnhpLWJkUmtYX0h1OUpVbm5uaThDUlpRdzZDTjhqckNaM3pad2lGX0NxQ0Zr?oc=5",
-      "publishedAt": "11. 01. 22:17 KST",
-      "publishedOrder": 1793539042000
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBDaFhMYVpHOXJwVjl0WGprV1k1RGVTQ1FBZUtyb2Y2WjR4RUN6TDFRN251NWlDZ1lHYThfeU00Y2RxZVc1UWhTTmNFWnBkbWlmNnAwUnNieDB5WnQtU01MMWg0el9DQk95M2UxOWVCdWYyRGFi?oc=5",
+      "publishedAt": "11. 02. 07:38 KST",
+      "publishedOrder": 1793572680000
     },
     {
-      "title": "'새신랑' 강균성 '어제 결혼…자랑하고 싶어 '아��� 형님' 출연\" &gt; 연예뉴스",
+      "title": "'솔로 20주년' 손호영, 5년 만의 단독 콘서트 'HORIZON' 성료… 신곡 무대 최초 공개",
       "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFB2clViV1ZSVG1Hc0xRVE5vTFFHOVNkQTY3cm5VbDkwcld5VGJYd094U1hrZEVhbGZPU0xQU2xVb25ZNGlOb09hTU10cmc5cXlxSmpOaFkzV21DNXdIMHdSWXN6b3JYYWp3ZHhNNVBjU3I?oc=5",
-      "publishedAt": "11. 01. 18:03 KST",
-      "publishedOrder": 1793523803000
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFB3SEVDY3JpVUhOd2UtNlFldWZHNENVaS1XakFKczV3TDF5ai1CazJ4ZFM3dE5BS3F5RGlEZ3BGWU9mR2VERFFSUUQ3bzhucVZEa25uQVprRU1EVG5mSFNwTWJZYUtzUGZLdnhiQTNEQnBLRDJy?oc=5",
+      "publishedAt": "11. 02. 07:11 KST",
+      "publishedOrder": 1793571060000
     }
   ]
 }
