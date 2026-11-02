@@ -519,6 +519,13 @@
     fetchLivePredictions();
   }
 
+  window.toggleMoreShortContents = function() {
+    isExpanded = !isExpanded;
+    renderList();
+    const btn = document.getElementById('btnShortMore');
+    if (btn) btn.textContent = isExpanded ? '접기 ▲' : '더보기 ▼';
+  };
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initShortContents);
   } else {

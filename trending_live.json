@@ -1,84 +1,84 @@
 {
   "success": true,
-  "updatedAt": "2026-11-02T10:13:21.327Z",
-  "updatedAtKst": "2026. 11. 2. PM 7:13:21",
+  "updatedAt": "2026-11-02T21:49:57.279Z",
+  "updatedAtKst": "2026. 11. 3. 오전 6:49:57",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "10월 판매 감소"
+        "keyword": "1호기 탑승자 정보 유출"
       },
       {
         "rank": 2,
-        "keyword": "낮과 밤은 서로에게"
+        "keyword": "김원효 심진화에 평생 명품백 선물"
       },
       {
         "rank": 3,
-        "keyword": "가덕도 신공항 공사비 증액"
+        "keyword": "이란 대통령 대화 권한 부여"
       },
       {
         "rank": 4,
-        "keyword": "차예련, 주상욱과의 결혼 이유는 울타리 필요"
+        "keyword": "국제유가 급락"
       },
       {
         "rank": 5,
-        "keyword": "삼성SDS 구미 AI 센터 착공"
+        "keyword": "맨체스터 유나이티드 복귀"
       },
       {
         "rank": 6,
-        "keyword": "현대 제네시스"
+        "keyword": "잠수함"
       },
       {
         "rank": 7,
-        "keyword": "대전 스토킹 살해 신상공개"
+        "keyword": "금융지주 회장 연임 강화"
       },
       {
         "rank": 8,
-        "keyword": "코스피 반등 마감"
+        "keyword": "차예련 주상욱 결혼 이유"
       },
       {
         "rank": 9,
-        "keyword": "홋카이도 닛폰햄 파이터스"
+        "keyword": "원자력 발전소"
       },
       {
         "rank": 10,
-        "keyword": "민재 첫 프로듀싱, 목표 이뤘다"
+        "keyword": "대전 스토킹 살해 신상공개"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "10월 판매 감소 new"
+        "keyword": "최불암 하락 1"
       },
       {
         "rank": 2,
-        "keyword": "낮과 밤은 서로에게 동일"
+        "keyword": "美 중간선거 new"
       },
       {
         "rank": 3,
-        "keyword": "차예련 new"
+        "keyword": "2026년 3일 상승 5"
       },
       {
         "rank": 4,
-        "keyword": "삼성SDS AI 데이터센터 상승 2"
+        "keyword": "강남 치과서 임플란트 new"
       },
       {
         "rank": 5,
-        "keyword": "싸이커스 민재 데뷔 new"
+        "keyword": "살해 정창성 선처 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "법치주의 지수 하락"
+        "keyword": "북한 해커 비트코인 탈취"
       },
       {
         "rank": 2,
-        "keyword": "가덕도 신공항 공사비 증액"
+        "keyword": "국제유가 급락"
       },
       {
         "rank": 3,
-        "keyword": "코스피 반등 마감"
+        "keyword": "금융지주 회장 연임 강화"
       },
       {
         "rank": 4,
@@ -86,198 +86,170 @@
       },
       {
         "rank": 5,
-        "keyword": "박항서 감독 인종차별"
+        "keyword": "미국 상원 경합주 여론조사"
       },
       {
         "rank": 6,
-        "keyword": "철원 육군 하사 사망"
+        "keyword": "박항서 감독 인종차별"
       },
       {
         "rank": 7,
-        "keyword": "호르무즈 유조선 기뢰 폭발"
+        "keyword": "트럼프 측근 선제사면"
       },
       {
         "rank": 8,
-        "keyword": "전자발찌 청와대 칼부림 예고"
+        "keyword": "김포아라 공공주택지구 주민의견"
       },
       {
         "rank": 9,
-        "keyword": "오세훈 시정연설"
+        "keyword": "노동교육 실태조사"
       },
       {
         "rank": 10,
-        "keyword": "한국시리즈 1차전 선발"
+        "keyword": "뉴욕증시 혼조 마감"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "김장훈"
+        "keyword": "빌라"
       },
       {
         "rank": 2,
-        "keyword": "신영우"
+        "keyword": "xrp 레저"
       },
       {
         "rank": 3,
-        "keyword": "현대 제네시스"
+        "keyword": "지소연"
       },
       {
         "rank": 4,
-        "keyword": "홋카이도 닛폰햄 파이터스"
+        "keyword": "농협"
       },
       {
         "rank": 5,
-        "keyword": "원익홀딩스"
+        "keyword": "낚시"
       },
       {
         "rank": 6,
-        "keyword": "박수현"
+        "keyword": "원자력 발전소"
       },
       {
         "rank": 7,
-        "keyword": "코스피"
+        "keyword": "잠수함"
       },
       {
         "rank": 8,
-        "keyword": "k리그"
+        "keyword": "교통망"
       },
       {
         "rank": 9,
-        "keyword": "고령화"
+        "keyword": "창신메모리테크놀로지"
       },
       {
         "rank": 10,
-        "keyword": "서울 지하철 7호선"
+        "keyword": "주차"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "정애연 김진근과 이혼"
+        "keyword": "김경란 아나운서"
       },
       {
         "rank": 2,
-        "keyword": "안민석 10대 교육 해법"
+        "keyword": "미국 중간선거"
       },
       {
         "rank": 3,
-        "keyword": "안무가"
+        "keyword": "정욱도 판사"
       },
       {
         "rank": 4,
-        "keyword": "제네시스 생산라인 중단"
+        "keyword": "차예련 학폭 부인"
       },
       {
         "rank": 5,
-        "keyword": "삼성SDS AI 데이터센터"
+        "keyword": "신천지 이만희 당원 가입"
       },
       {
         "rank": 6,
-        "keyword": "완성차 5사 10월 판매"
+        "keyword": "계약결혼"
       },
       {
         "rank": 7,
-        "keyword": "애경산업 3분기 매출"
+        "keyword": "호반그룹"
       },
       {
         "rank": 8,
-        "keyword": "보금자리론"
+        "keyword": "한진칼"
       },
       {
         "rank": 9,
-        "keyword": "조경태 이재명 대통령 악수"
+        "keyword": "존박 랩 현타"
       },
       {
         "rank": 10,
-        "keyword": "대군부인"
+        "keyword": "김혜수 최불암 빈소"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "‘다이너마이트’ 터뜨린 싸이커스, 음악의 원점을 타격하다",
+      "title": "‘지드래곤 열애설’ 이주연, 전남친 선물 아직도 간직…“뿌리면 그때 생각나”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261102/134952422/1",
-      "publishedAt": "수집 11. 02. 19:08 KST",
-      "publishedOrder": 1793614132063
+      "url": "https://sports.donga.com/ent/article/all/20261102/134954256/1",
+      "publishedAt": "수집 11. 03. 06:45 KST",
+      "publishedOrder": 1793655959827
     },
     {
-      "title": "레쥬, ‘골당TV X-라이브’ 2일 첫 선…오승아·조현영 게스트 출격",
+      "title": "세븐틴 승관, 입대 전 배우 도전 “인기만으로 연기하고 싶지 않아”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261102/134951887/1",
-      "publishedAt": "수집 11. 02. 19:08 KST",
-      "publishedOrder": 1793614132063
+      "url": "https://sports.donga.com/ent/article/all/20261102/134954001/1",
+      "publishedAt": "수집 11. 03. 06:45 KST",
+      "publishedOrder": 1793655959827
     },
     {
-      "title": "“열정 페이는 옛말”…연예 기획사 ‘이색 복지’ 바람",
+      "title": "“그냥 게이랑 놀아” 홍석천, ‘일라이와 이혼’ 지연수에 연애 금지령",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261102/134951188/1",
-      "publishedAt": "수집 11. 02. 19:08 KST",
-      "publishedOrder": 1793614132063
+      "url": "https://sports.donga.com/ent/article/all/20261102/134954154/1",
+      "publishedAt": "수집 11. 03. 06:45 KST",
+      "publishedOrder": 1793655959827
     },
     {
-      "title": "김용빈·손빈아→남승민… ‘미스터트롯3’ TOP7, 부산서 굿바이 콘서트 포문",
+      "title": "55세 고현정, 마른 다리에 건강 걱정 쏟아졌는데…“이번엔 잘 먹는 것 같아”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261102/134951063/1",
-      "publishedAt": "수집 11. 02. 19:08 KST",
-      "publishedOrder": 1793614132063
+      "url": "https://sports.donga.com/ent/article/all/20261102/134954044/1",
+      "publishedAt": "수집 11. 03. 06:45 KST",
+      "publishedOrder": 1793655959827
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 02. 19:08 KST",
-      "publishedOrder": 1793614131628
+      "publishedAt": "수집 11. 03. 06:45 KST",
+      "publishedOrder": 1793655959131
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 02. 19:08 KST",
-      "publishedOrder": 1793614131628
+      "publishedAt": "수집 11. 03. 06:45 KST",
+      "publishedOrder": 1793655959131
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 02. 19:08 KST",
-      "publishedOrder": 1793614131628
+      "publishedAt": "수집 11. 03. 06:45 KST",
+      "publishedOrder": 1793655959131
     },
     {
       "title": "'국민 아버지' 故최불암, 영면에 들었다..신현준·김혜수 오열[종합]",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/star/2026/11/02/2026110208203717965",
-      "publishedAt": "수집 11. 02. 19:08 KST",
-      "publishedOrder": 1793614131628
-    },
-    {
-      "title": "빅뱅, 케이팝 그룹 첫 아코르 입성…시드니 공연 성료",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBRdk1udUdJZng4VEhKdUdIQmFXekNzV3lua1l5ZGRmWWcwS0QxeTBEdGV6U2UzdWs1V29sdS1VRmItRFRTTmVNTngxUElVOWRsaDVtbzhMclBCYjZNc1dSMm53dE5kS1dLdmRqXw?oc=5",
-      "publishedAt": "11. 02. 17:54 KST",
-      "publishedOrder": 1793609642000
-    },
-    {
-      "title": "[포토] 싸이커스 컴백 무대, 신나는 퍼포먼스",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFA4Y1hUZS1BcmxVUW5EZ2p6cGJabXFZN3RjcG13bHI3NFdhend0SWZwMUs3Z3YwRUt6OTNNZzQ4T0J3bWpRdmhQLUZicTJhRFRjY0VmVWhqeWZKUWUzUzdfVm1WYmhrcWwwQldmUExHcmRwdnFX?oc=5",
-      "publishedAt": "11. 02. 17:09 KST",
-      "publishedOrder": 1793606940000
-    },
-    {
-      "title": "“열정 페이는 옛말”…연예 기획사 ‘이색 복지’ 바람",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1rM1dheGpGZDZwLW1xSUdDdmFVUEs2UjRwdnZvbVpqNXlSSHpfWm1odDRUT2ZJbUNTcFlZOG1OM3lVdEFWempFaFRVT2xwRU93YV8xOUdXaTRXUUNoYnNRYnp6eFZOb0lqck5hZWxB?oc=5",
-      "publishedAt": "11. 02. 16:01 KST",
-      "publishedOrder": 1793602869000
-    },
-    {
-      "title": "‘한류연예대상’ 황영웅이냐, 김용빈이냐…2.2%p 차 불꽃",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBJZmhrYkg2bFpaZG1yUFloYmNuT3ZqSWdkSVJtMlhRQ25Uc1JLTHFQWTZxQU05X2FxcVhuaEJaX2VfdFNzdHlVc2p0LVUyVU1tMFlHQU43bUFHMXk3R3fSAWNBVV95cUxPUVdBM0haTVJRVVlNZTRZa1ZpWkdkOVNiTUpickUtamU3bDBXLVdjYkFGeElDTDduY2owUGgtNGFhWWNvZUlQRHRHdXZNaG9vNkpqb1JMSk1SWFFmVmV6ZjYyenM?oc=5",
-      "publishedAt": "11. 02. 15:30 KST",
-      "publishedOrder": 1793601000000
+      "publishedAt": "수집 11. 03. 06:45 KST",
+      "publishedOrder": 1793655959131
     }
   ]
 }

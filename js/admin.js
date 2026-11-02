@@ -225,3 +225,86 @@ window.loadAdminMasterKeys = async function() {
     }
   }
 };
+
+// 상단 관리자 로그인 버튼 연결
+window.openAdminLogin = function() {
+  tryOpenAdminModal();
+};
+
+// API 설정 모달 제어 함수
+window.closeApiModal = function(type) {
+  const modalId = (type === 'paid') ? 'apiPaidModal' : 'apiUserModal';
+  const modal = document.getElementById(modalId);
+  if (modal) modal.style.display = 'none';
+};
+
+window.openApiModal = function(type) {
+  const modalId = (type === 'paid') ? 'apiPaidModal' : 'apiUserModal';
+  const modal = document.getElementById(modalId);
+  if (modal) modal.style.display = 'flex';
+};
+
+window.onNaverAuthTypeChange = function() {
+  const authType = document.getElementById('naverAuthType')?.value;
+  const desc = document.getElementById('naverAuthDesc');
+  if (desc) {
+    if (authType === 'hub') {
+      desc.textContent = '통합형은 X-NCP-APIGW-API-KEY-ID / X-NCP-APIGW-API-KEY 인증을 사용합니다. 검색광고 키는 별도로 계속 필요합니다.';
+    } else {
+      desc.textContent = '개발자센터 키는 X-Naver-Client-Id / X-Naver-Client-Secret 인증을 사용합니다.';
+    }
+  }
+};
+
+window.clearUserApiKeys = function() {
+  ['naverClientId', 'naverClientSecret', 'adCustomerId', 'adLicenseKey', 'adSecretKey'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  localStorage.removeItem('naver_client_id');
+  localStorage.removeItem('naver_client_secret');
+  localStorage.removeItem('naver_ad_customer_id');
+  localStorage.removeItem('naver_ad_license_key');
+  localStorage.removeItem('naver_ad_secret_key');
+  if (window.showToast) window.showToast('API 키 입력값이 초기화되었습니다.');
+  else alert('API 키 입력값이 초기화되었습니다.');
+};
+
+window.saveUserApiKeys = function() {
+  const cId = document.getElementById('naverClientId')?.value.trim() || '';
+  const cSec = document.getElementById('naverClientSecret')?.value.trim() || '';
+  const adCust = document.getElementById('adCustomerId')?.value.trim() || '';
+  const adLic = document.getElementById('adLicenseKey')?.value.trim() || '';
+  const adSec = document.getElementById('adSecretKey')?.value.trim() || '';
+
+  if (cId) localStorage.setItem('naver_client_id', cId);
+  if (cSec) localStorage.setItem('naver_client_secret', cSec);
+  if (adCust) localStorage.setItem('naver_ad_customer_id', adCust);
+  if (adLic) localStorage.setItem('naver_ad_license_key', adLic);
+  if (adSec) localStorage.setItem('naver_ad_secret_key', adSec);
+
+  window.closeApiModal('user');
+  if (window.showToast) window.showToast('API 키가 브라우저에 안전하게 저장되었습니다! 💾');
+  else alert('API 키가 브라우저에 안전하게 저장되었습니다!');
+};
+
+window.clearPaidKey = function() {
+  const input = document.getElementById('paidAccessKeyInput');
+  if (input) input.value = '';
+  localStorage.removeItem('paid_access_key');
+  if (window.showToast) window.showToast('유료 발급키가 삭제되었습니다.');
+  else alert('유료 발급키가 삭제되었습니다.');
+};
+
+window.savePaidKey = function() {
+  const input = document.getElementById('paidAccessKeyInput');
+  const val = input ? input.value.trim() : '';
+  if (!val) {
+    alert('발급받은 16자리 키를 입력해주세요.');
+    return;
+  }
+  localStorage.setItem('paid_access_key', val);
+  window.closeApiModal('paid');
+  if (window.showToast) window.showToast('유료 발급키가 성공적으로 등록되었습니다! 🔑');
+  else alert('유료 발급키가 성공적으로 등록되었습니다!');
+};
