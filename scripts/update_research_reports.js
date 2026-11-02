@@ -43,3 +43,4 @@ https.get('https://m.stock.naver.com/api/research/company?page=1&pageSize=25', {
     }
   });
 });
+

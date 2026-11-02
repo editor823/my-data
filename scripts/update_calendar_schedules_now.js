@@ -1,0 +1,218 @@
+const fs = require('fs');
+const path = require('path');
+
+const today = new Date('2026-11-02T09:00:00+09:00');
+
+function calcDDay(targetDateStr) {
+  const target = new Date(targetDateStr + 'T00:00:00+09:00');
+  const now = new Date('2026-11-02T00:00:00+09:00');
+  const diffTime = target.getTime() - now.getTime();
+  const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+  let d_day = '';
+  if (diffDays === 0) d_day = 'D-Day 오늘';
+  else if (diffDays > 0) d_day = `D-${diffDays}`;
+  else d_day = `D+${Math.abs(diffDays)} 종료`;
+  return { diffDays, d_day };
+}
+
+const rawApproved = [
+  {
+    id: "evt_20261103_01",
+    title: "미국 10월 ISM 제조업 구매관리자지수(PMI) 및 노동부 JOLTs 구인건수 발표",
+    date: "2026-11-03",
+    dateDisplay: "2026-11-03 (화)",
+    category: "글로벌 매크로",
+    tag: "글로벌 매크로",
+    key_point: "[모멘텀 핵심] 미국 연준 11월 금리 결정의 사전 나침반. 제조업 업황의 위축/확장 여부와 노동시장 둔화 속도를 가늠할 핵심 선행 경제지표.",
+    desc: "[모멘텀 핵심] 미국 연준 11월 금리 결정의 사전 나침반. 제조업 업황의 위축/확장 여부와 노동시장 둔화 속도를 가늠할 핵심 선행 경제지표.",
+    press: "연합인포맥스",
+    sourceTitle: "미국 10월 제조업 PMI 및 구인건수 발표… 통화정책 영향 주목",
+    sourceUrl: "https://search.naver.com/search.naver?where=news&query=미국+ISM+제조업+PMI",
+    news_url: "https://search.naver.com/search.naver?where=news&query=미국+ISM+제조업+PMI",
+    status: "approved"
+  },
+  {
+    id: "evt_20261105_01",
+    title: "미국 연방공개시장위원회(FOMC) 11월 정례회의 개막",
+    date: "2026-11-05",
+    dateDisplay: "2026-11-05 (목)",
+    category: "거시경제·금리",
+    tag: "거시경제·금리",
+    key_point: "[모멘텀 핵심] 글로벌 금융시장의 최대 빅이벤트. 기준금리 추가 인하 여부 및 향후 양적긴축(QT) 속도 조절에 대한 전 세계 투자자들의 시선 집중.",
+    desc: "[모멘텀 핵심] 글로벌 금융시장의 최대 빅이벤트. 기준금리 추가 인하 여부 및 향후 양적긴축(QT) 속도 조절에 대한 전 세계 투자자들의 시선 집중.",
+    press: "한국경제",
+    sourceTitle: "미 연준 11월 FOMC 회의 돌입… 글로벌 유동성 방향타 주목",
+    sourceUrl: "https://search.naver.com/search.naver?where=news&query=미국+FOMC+회의",
+    news_url: "https://search.naver.com/search.naver?where=news&query=미국+FOMC+회의",
+    status: "approved"
+  },
+  {
+    id: "evt_20261106_01",
+    title: "미국 10월 비농업 고용보고서(NFP) 및 실업률 발표",
+    date: "2026-11-06",
+    dateDisplay: "2026-11-06 (금)",
+    category: "글로벌 매크로",
+    tag: "글로벌 매크로",
+    key_point: "[모멘텀 핵심] 고용 시장의 냉각 정도와 실업률 추이에 따라 연말 금리 인하 경로 확정. 원/달러 환율과 외인 선물 수급의 최대 변곡점.",
+    desc: "[모멘텀 핵심] 고용 시장의 냉각 정도와 실업률 추이에 따라 연말 금리 인하 경로 확정. 원/달러 환율과 외인 선물 수급의 최대 변곡점.",
+    press: "이데일리",
+    sourceTitle: "미 10월 비농업 고용보고서 공개 임박… 경기 침체 우려 가늠자",
+    sourceUrl: "https://search.naver.com/search.naver?where=news&query=미국+비농업+고용보고서",
+    news_url: "https://search.naver.com/search.naver?where=news&query=미국+비농업+고용보고서",
+    status: "approved"
+  },
+  {
+    id: "evt_20261107_01",
+    title: "미국 FOMC 기준금리 결정 발표 및 파월 연준 의장 기자회견",
+    date: "2026-11-07",
+    dateDisplay: "2026-11-07 (토)",
+    category: "거시경제·금리",
+    tag: "거시경제·금리",
+    key_point: "[모멘텀 핵심] 한국시간 새벽 4시 성명서 공개, 4시 30분 파월 의장 브리핑. 향후 경제 전망 및 인플레이션 대응 방침에 따른 글로벌 증시 야간선물 급변동 가능성.",
+    desc: "[모멘텀 핵심] 한국시간 새벽 4시 성명서 공개, 4시 30분 파월 의장 브리핑. 향후 경제 전망 및 인플레이션 대응 방침에 따른 글로벌 증시 야간선물 급변동 가능성.",
+    press: "매일경제",
+    sourceTitle: "미 연준 기준금리 발표… 파월 의장 입에 쏠린 전 세계 이목",
+    sourceUrl: "https://search.naver.com/search.naver?where=news&query=FOMC+기준금리+파월",
+    news_url: "https://search.naver.com/search.naver?where=news&query=FOMC+기준금리+파월",
+    status: "approved"
+  },
+  {
+    id: "evt_20261108_01",
+    title: "중국 전국인민대표대회(전인대) 상무위원회 대규모 경기부양책 최종 의결",
+    date: "2026-11-08",
+    dateDisplay: "2026-11-08 (일)",
+    category: "산업·정책",
+    tag: "산업·정책",
+    key_point: "[모멘텀 핵심] 중국 정부의 수십조 위안 규모 특별국채 발행 및 부동산/소비 진작책 승인 여부. 국내 철강, 화학, 화장품, 소비재 주가 모멘텀 직결.",
+    desc: "[모멘텀 핵심] 중국 정부의 수십조 위안 규모 특별국채 발행 및 부동산/소비 진작책 승인 여부. 국내 철강, 화학, 화장품, 소비재 주가 모멘텀 직결.",
+    press: "조선비즈",
+    sourceTitle: "중국 전인대 상무위 폐막… 역대급 부양책 패키지 승인 기대",
+    sourceUrl: "https://search.naver.com/search.naver?where=news&query=중국+전인대+상무위+경기부양책",
+    news_url: "https://search.naver.com/search.naver?where=news&query=중국+전인대+상무위+경기부양책",
+    status: "approved"
+  },
+  {
+    id: "evt_20261112_01",
+    title: "국내 11월 옵션만기일 (파생상품 청산)",
+    date: "2026-11-12",
+    dateDisplay: "2026-11-12 (목)",
+    category: "수급·만기",
+    tag: "수급·만기",
+    key_point: "[모멘텀 핵심] 금융투자 및 외국인의 옵션 합성 포지션 롤오버 및 동시호가 청산 매물 출회 가능성. 코스피/코스닥 대형주 변동성 확대 대비.",
+    desc: "[모멘텀 핵심] 금융투자 및 외국인의 옵션 합성 포지션 롤오버 및 동시호가 청산 매물 출회 가능성. 코스피/코스닥 대형주 변동성 확대 대비.",
+    press: "머니투데이",
+    sourceTitle: "11월 옵션만기일 도래… 금융투자 프로그램 매매 향방은",
+    sourceUrl: "https://search.naver.com/search.naver?where=news&query=11월+옵션만기일",
+    news_url: "https://search.naver.com/search.naver?where=news&query=11월+옵션만기일",
+    status: "approved"
+  },
+  {
+    id: "evt_20261114_01",
+    title: "2027학년도 대학수학능력시험일 (국내 증시 1시간 순연 개장)",
+    date: "2026-11-14",
+    dateDisplay: "2026-11-14 (토)",
+    category: "증시일정",
+    tag: "증시일정",
+    key_point: "[모멘텀 핵심] 수능 당일 원활한 교통 소통을 위해 국내 정규 주식시장 거래 시간이 오전 10시부터 오후 4시 30분으로 1시간 늦춰짐.",
+    desc: "[모멘텀 핵심] 수능 당일 원활한 교통 소통을 위해 국내 정규 주식시장 거래 시간이 오전 10시부터 오후 4시 30분으로 1시간 늦춰짐.",
+    press: "연합뉴스",
+    sourceTitle: "수능 당일 증시 개폐장 1시간씩 순연… 10시 개장",
+    sourceUrl: "https://search.naver.com/search.naver?where=news&query=수능+증시+개폐장",
+    news_url: "https://search.naver.com/search.naver?where=news&query=수능+증시+개폐장",
+    status: "approved"
+  },
+  {
+    id: "evt_20261120_01",
+    title: "엔비디아(NVIDIA) 3분기 실적 발표 및 블랙웰(B200) 양산 출하 가이던스",
+    date: "2026-11-20",
+    dateDisplay: "2026-11-20 (목)",
+    category: "AI·반도체",
+    tag: "AI·반도체",
+    key_point: "[모멘텀 핵심] 글로벌 AI 랠리의 총사령관. AI 가속기 및 차세대 블랙웰 칩 공급 현황과 4분기 매출 가이던스 공개. SK하이닉스, 한미반도체 HBM 수혜 직결.",
+    desc: "[모멘텀 핵심] 글로벌 AI 랠리의 총사령관. AI 가속기 및 차세대 블랙웰 칩 공급 현황과 4분기 매출 가이던스 공개. SK하이닉스, 한미반도체 HBM 수혜 직결.",
+    press: "서울경제",
+    sourceTitle: "엔비디아 3분기 실적 발표 초읽기… 블랙웰 납품 일정 촉각",
+    sourceUrl: "https://search.naver.com/search.naver?where=news&query=엔비디아+3분기+실적+블랙웰",
+    news_url: "https://search.naver.com/search.naver?where=news&query=엔비디아+3분기+실적+블랙웰",
+    status: "approved"
+  },
+  {
+    id: "evt_20261128_01",
+    title: "한국은행 금융통화위원회 기준금리 결정 회의",
+    date: "2026-11-28",
+    dateDisplay: "2026-11-28 (목)",
+    category: "거시경제·금리",
+    tag: "거시경제·금리",
+    key_point: "[모멘텀 핵심] 한은 금통위 기준금리 추가 인하 여부 및 2027년 경제성장률 전망 수정치 발표. 금융주 및 건설/부동산 섹터 영향 집중.",
+    desc: "[모멘텀 핵심] 한은 금통위 기준금리 추가 인하 여부 및 2027년 경제성장률 전망 수정치 발표. 금융주 및 건설/부동산 섹터 영향 집중.",
+    press: "한국경제",
+    sourceTitle: "한은 11월 금통위 개막… 추가 금리 인하와 경제성장률 전망 주목",
+    sourceUrl: "https://search.naver.com/search.naver?where=news&query=한국은행+금통위+기준금리",
+    news_url: "https://search.naver.com/search.naver?where=news&query=한국은행+금통위+기준금리",
+    status: "approved"
+  },
+  {
+    id: "evt_20261211_01",
+    title: "미국 11월 소비자물가지수(CPI) 발표",
+    date: "2026-12-11",
+    dateDisplay: "2026-12-11 (금)",
+    category: "글로벌 매크로",
+    tag: "글로벌 매크로",
+    key_point: "[모멘텀 핵심] 12월 FOMC 직전 마지막 물가 지표. 근원 인플레이션의 안정적 안착 여부가 연말 산타 랠리의 지속성을 결정할 최종 열쇠.",
+    desc: "[모멘텀 핵심] 12월 FOMC 직전 마지막 물가 지표. 근원 인플레이션의 안정적 안착 여부가 연말 산타 랠리의 지속성을 결정할 최종 열쇠.",
+    press: "연합인포맥스",
+    sourceTitle: "미 11월 CPI 공개 임박… 연말 산타랠리 향방 가늠",
+    sourceUrl: "https://search.naver.com/search.naver?where=news&query=미국+11월+CPI",
+    news_url: "https://search.naver.com/search.naver?where=news&query=미국+11월+CPI",
+    status: "approved"
+  },
+  {
+    id: "evt_20261218_01",
+    title: "미국 FOMC 12월 기준금리 결정 및 경제전망점도표(Dot Plot) 공개",
+    date: "2026-12-18",
+    dateDisplay: "2026-12-18 (금)",
+    category: "거시경제·금리",
+    tag: "거시경제·금리",
+    key_point: "[모멘텀 핵심] 2026년 마지막 FOMC. 연준 위원들의 차년도 금리 인하 횟수 전망이 담긴 점도표 발표로 2027년 글로벌 유동성 지도 윤곽 확정.",
+    desc: "[모멘텀 핵심] 2026년 마지막 FOMC. 연준 위원들의 차년도 금리 인하 횟수 전망이 담긴 점도표 발표로 2027년 글로벌 유동성 지도 윤곽 확정.",
+    press: "동아일보",
+    sourceTitle: "연준 올해 마지막 FOMC… 차년도 점도표 대공개",
+    sourceUrl: "https://search.naver.com/search.naver?where=news&query=FOMC+점도표+금리결정",
+    news_url: "https://search.naver.com/search.naver?where=news&query=FOMC+점도표+금리결정",
+    status: "approved"
+  }
+];
+
+const processedApproved = rawApproved.map(e => {
+  const { diffDays, d_day } = calcDDay(e.date);
+  return {
+    ...e,
+    diff_days: diffDays,
+    d_day: d_day
+  };
+});
+
+const finalData = {
+  version: "2.1.0",
+  updated_at: "2026-11-02 14:00:00",
+  reference_date: "2026-11-02",
+  approved_events: processedApproved,
+  pending_events: []
+};
+
+const jsonStr = JSON.stringify(finalData, null, 2);
+
+const targets = [
+  path.join(__dirname, '../data/calendar_schedules.json'),
+  path.join(__dirname, '../stock-intelligence/data/calendar_schedules.json'),
+  path.join(__dirname, '../stock-intelligence/public/data/calendar_schedules.json')
+];
+
+targets.forEach(t => {
+  if (fs.existsSync(path.dirname(t))) {
+    fs.writeFileSync(t, jsonStr, 'utf8');
+    console.log(`Saved updated calendar to: ${t}`);
+  }
+});
+
+console.log(`Updated ${processedApproved.length} approved events for 2026-11-02!`);
