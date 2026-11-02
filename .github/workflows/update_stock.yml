@@ -35,6 +35,10 @@ jobs:
         continue-on-error: true
         run: node scripts/update_simple_channel_briefing.js
 
+      - name: 미국 11개 섹터 및 최신 시황 데이터 수집 및 갱신
+        continue-on-error: true
+        run: node scripts/update_us_market.js
+
       - name: 텔레그램 주식 브리핑 자동 발송
         continue-on-error: true
         env:

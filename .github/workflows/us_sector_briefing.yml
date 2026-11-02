@@ -27,7 +27,7 @@ jobs:
           pip install requests beautifulsoup4 yfinance
 
       - name: 미국 11개 섹터 및 외신 브리핑 수집 스크립트 실행
-        run: python scripts/fetch_us_sector.py
+        run: node scripts/update_us_market.js
 
       - name: 수집된 브리핑 데이터 자동 커밋 및 푸시
         run: |
