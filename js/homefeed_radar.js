@@ -88,6 +88,9 @@
 
   function subjectCard(item) {
     const card = el('article', 'hf-card hfr-card');
+    const safeSubj = (item.subject || '').replace(/\s+/g, '_');
+    card.id = 'hfr-card-' + safeSubj;
+    card.setAttribute('data-subject', item.subject || '');
 
     // 1. 배지 행
     const badges = el('div', 'hfr-chips');
@@ -311,11 +314,18 @@
 
     // 2. 오늘의 홈판 흐름 (Collapsible Details)
     const flowDetails = el('details', 'hfr-details');
-    flowDetails.append(el('summary', '', '▶ 오늘의 홈판 흐름'));
+    flowDetails.append(el('summary', '', '▼ 오늘의 홈판 흐름'));
     const flowContent = el('div');
 
     const flows = Array.isArray(d.flow) ? d.flow : [];
     const maxPosts = flows.reduce((m, x) => Math.max(m, Number(x.posts) || 0), 0) || 1;
+
+    // 기본 펼침 설정
+    flowDetails.open = true;
+    flowDetails.addEventListener('toggle', () => {
+      const sum = flowDetails.querySelector('summary');
+      if (sum) sum.textContent = flowDetails.open ? '▼ 오늘의 홈판 흐름' : '▶ 오늘의 홈판 흐름';
+    });
 
     flows.forEach(fl => {
       const row = el('div', 'hfr-flow-row');
@@ -330,6 +340,21 @@
 
       line.append(el('span', '', `${fmt(fl.channels)}채널 · ${fmt(fl.posts)}글`));
       row.append(line);
+
+      // 카테고리 바로 아래 이슈 작은 박스 3개씩 렌더링 (클릭 시 해당 카드로 바로 이동)
+      if (Array.isArray(fl.topSubjects) && fl.topSubjects.length > 0) {
+        const chipContainer = el('div', 'hfr-flow-subjects');
+        fl.topSubjects.slice(0, 3).forEach(ts => {
+          const chip = btn(`${ts.subject} · ${fmt(ts.channels)}`, () => {
+            navigateToSubject(ts.subject, fl.field);
+          }, 'hfr-flow-chip');
+          chip.setAttribute('type', 'button');
+          chip.title = `'${ts.subject}' 소재 카드로 바로 이동`;
+          chipContainer.append(chip);
+        });
+        row.append(chipContainer);
+      }
+
       flowContent.append(row);
     });
     flowDetails.append(flowContent);
@@ -368,6 +393,54 @@
 
     listing.append(filters, summary, grid, moreBox);
     hub.append(listing);
+
+    function navigateToSubject(subject, field) {
+      if (!subject) return;
+
+      // 1. 해당 카테고리로 필터 전환
+      if (field) {
+        state.field = field;
+      }
+
+      // 2. 해당 소재가 d.subjects 에 존재하는지 검색
+      const filtered = d.subjects.filter(x => !state.field || x.field === state.field);
+      let targetIdx = filtered.findIndex(x => x.subject === subject);
+      if (targetIdx === -1) {
+        targetIdx = filtered.findIndex(x =>
+          x.subject.replace(/\s+/g, '') === subject.replace(/\s+/g, '') ||
+          (x.commonTags && x.commonTags.some(t => t.includes(subject) || subject.includes(t))) ||
+          (x.keyword && x.keyword.suggest && x.keyword.suggest.some(s => s.includes(subject) || subject.includes(s)))
+        );
+      }
+
+      if (targetIdx !== -1) {
+        const foundSubject = filtered[targetIdx].subject;
+        // 한도보다 뒤에 위치하면 한도 확장
+        if (targetIdx >= state.limit) {
+          state.limit = targetIdx + 10;
+        }
+        renderList();
+
+        setTimeout(() => {
+          const safeSubj = (foundSubject || '').replace(/\s+/g, '_');
+          const targetEl = document.getElementById('hfr-card-' + safeSubj);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            targetEl.classList.remove('hfr-card-highlight');
+            void targetEl.offsetWidth; // trigger reflow
+            targetEl.classList.add('hfr-card-highlight');
+            setTimeout(() => targetEl.classList.remove('hfr-card-highlight'), 2500);
+          } else {
+            listing.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 80);
+      } else {
+        // 별도 카드가 없는 키워드는 즉시 키워드 분석기로 넘어가 자동 분석 실행!
+        if (typeof window.sbOpenInAnalyzer === 'function') {
+          window.sbOpenInAnalyzer(subject);
+        }
+      }
+    }
 
     function renderList() {
       filters.replaceChildren();
