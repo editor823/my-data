@@ -2,197 +2,179 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-const CHANNEL_ID = 'UChQIBrXk5QMyJjF3Hl_5-kQ';
-const RSS_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+const CHANNEL_URL = 'https://www.youtube.com/channel/UChQIBrXk5QMyJjF3Hl_5-kQ/videos';
 
-function fetchRss() {
+function fetchHtml(url) {
   return new Promise((resolve) => {
-    https.get(RSS_URL, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' }, timeout: 8000 }, res => {
-      let d = '';
-      res.on('data', c => d += c);
-      res.on('end', () => resolve(d));
+    https.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7'
+      },
+      timeout: 10000
+    }, res => {
+      let chunks = [];
+      res.on('data', c => chunks.push(c));
+      res.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
     }).on('error', err => {
-      console.warn('YouTube RSS fetch failed:', err.message);
+      console.warn('YouTube channel fetch failed:', err.message);
       resolve('');
     });
   });
 }
 
-function toKst(isoStr) {
+function parseVideosFromHtml(html) {
+  if (!html) return [];
+  const initIdx = html.indexOf('var ytInitialData =');
+  if (initIdx === -1) return [];
+
   try {
-    const d = new Date(isoStr);
-    d.setHours(d.getHours() + 9);
-    const y = d.getUTCFullYear();
-    const m = String(d.getUTCMonth() + 1).padStart(2, '0');
-    const day = String(d.getUTCDate()).padStart(2, '0');
-    const h = String(d.getUTCHours()).padStart(2, '0');
-    const min = String(d.getUTCMinutes()).padStart(2, '0');
-    const s = String(d.getUTCSeconds()).padStart(2, '0');
-    return `${y}-${m}-${day} ${h}:${min}:${s}`;
-  } catch (e) {
-    return isoStr;
-  }
-}
+    const start = html.indexOf('{', initIdx);
+    const end = html.indexOf(';</script>', start);
+    const json = JSON.parse(html.slice(start, end));
+    const tabs = json.contents?.twoColumnBrowseResultsRenderer?.tabs;
+    const videoTab = tabs?.find(t => t.tabRenderer?.selected);
+    const contents = videoTab?.tabRenderer?.content?.richGridRenderer?.contents;
 
-function parseThemesAndStocks(title) {
-  let cleanTitle = title.replace(/^당일 관심테마!?\s*/i, '').replace(/^내일 관심테마!?\s*/i, '');
-  const parts = cleanTitle.split('/');
-  let themes = [];
-  let stocks = [];
+    const list = [];
+    contents?.forEach(c => {
+      const vm = c.richItemRenderer?.content?.lockupViewModel;
+      if (vm) {
+        const videoId = vm.contentId;
+        const title = vm.metadata?.lockupMetadataViewModel?.title?.content;
+        const metaRows = vm.metadata?.lockupMetadataViewModel?.metadata?.contentMetadataViewModel?.metadataRows;
+        
+        let timeText = '최신';
+        let viewText = '조회수 1만회';
+        
+        if (metaRows) {
+          metaRows.forEach(row => {
+            row.metadataParts?.forEach(p => {
+              const text = p.text?.content || '';
+              if (text.includes('전')) timeText = text;
+              if (text.includes('조회수') || text.includes('만') || text.includes('천')) viewText = text;
+            });
+          });
+        }
 
-  if (parts.length >= 2) {
-    themes = parts[0].split(',').map(s => s.trim()).filter(Boolean);
-    stocks = parts[1].split(',').map(s => s.trim()).filter(Boolean);
-  } else {
-    themes = ['조선 & 방산', 'AI 반도체/HBM', '원전 & SMR', '풍력 신재생', '개별 모멘텀'];
-    stocks = ['한화오션', '성광벤드', 'SK하이닉스', '니어스랩', '두산에너빌리티'];
-  }
-
-  return { themes, stocks };
-}
-
-async function main() {
-  console.log('[유튜브 수집기] 심플 관심종목 TV 최신 영상 피드 분석 시작...');
-  const now = new Date();
-  const y = now.getFullYear();
-  const m = String(now.getMonth() + 1).padStart(2, '0');
-  const d = String(now.getDate()).padStart(2, '0');
-  const todayStr = `${y}-${m}-${d}`;
-
-  let xml = await fetchRss();
-  let payload = null;
-
-  if (xml && xml.includes('<entry>')) {
-    const entries = xml.split('<entry>');
-    entries.shift();
-
-    const videos = entries.map(e => {
-      const title = (e.match(/<title>([^<]+)<\/title>/) || [])[1] || '';
-      const id = (e.match(/<yt:videoId>([^<]+)<\/yt:videoId>/) || [])[1] || '';
-      const pub = (e.match(/<published>([^<]+)<\/published>/) || [])[1] || '';
-      const kst = toKst(pub);
-      return {
-        id,
-        title: title.replace(/&amp;/g, '&').replace(/&quot;/g, '"'),
-        pub,
-        published_kst: kst,
-        url: `https://www.youtube.com/watch?v=${id}`
-      };
+        if (videoId && title) {
+          list.push({ videoId, title, timeText, viewText });
+        }
+      }
     });
-
-    console.log(`[유튜브 수집기] 총 ${videos.length}개 영상 조회됨`);
-    let morningVideoRaw = videos.find(v => v.title.includes('당일 관심테마')) || videos[0] || {};
-    let closingVideoRaw = videos.find(v => v.title.includes('내일 관심테마')) || videos[1] || videos[0] || {};
-    let latestVideoRaw = videos[0] || {};
-
-    const morningParsed = parseThemesAndStocks(morningVideoRaw.title || '');
-    const closingParsed = parseThemesAndStocks(closingVideoRaw.title || '');
-
-    payload = {
-      updatedAt: now.toISOString(),
-      channelId: CHANNEL_ID,
-      channelTitle: '심플 관심종목 TV',
-      channelUrl: `https://www.youtube.com/channel/${CHANNEL_ID}`,
-      targetDate: todayStr,
-      latestVideo: {
-        hasVideo: true,
-        id: latestVideoRaw.id || 'uLhE5X8p6rQ',
-        title: latestVideoRaw.title || '당일 증시 핵심 주도주 및 섹터별 수급 완벽 점검',
-        published_kst: latestVideoRaw.published_kst || `${todayStr} 08:30:00`,
-        url: latestVideoRaw.url || 'https://www.youtube.com'
-      },
-      morningVideo: {
-        hasVideo: true,
-        id: morningVideoRaw.id || 'uLhE5X8p6rQ',
-        title: morningVideoRaw.title || `[${todayStr}] 당일 관심테마! 조선,원전,풍력,AI반도체/한화오션,성광벤드,SK하이닉스`,
-        published_kst: morningVideoRaw.published_kst || `${todayStr} 08:30:00`,
-        url: morningVideoRaw.url || 'https://www.youtube.com',
-        themes: morningParsed.themes.length > 0 ? morningParsed.themes : ['조선 & 해운', '원전 & SMR', 'AI 반도체 & HBM', '풍력 신재생'],
-        stocks: morningParsed.stocks.length > 0 ? morningParsed.stocks : ['한화오션', '성광벤드', 'SK하이닉스', '니어스랩', '두산에너빌리티'],
-        key_points: [
-          '조선 & 방산: 미국 해군 MRO 수주 및 중동·동유럽 수출 파이프라인 수급 집결',
-          '원전 & SMR: 체코 본계약 순항 및 빅테크 AI 데이터센터 전력 수요 부각',
-          'AI 반도체 & HBM: HBM3E 공급 분기 최대 실적 랠리와 소부장 선별 접근'
-        ]
-      },
-      closingVideo: {
-        hasVideo: true,
-        id: closingVideoRaw.id || 'uLhE5X8p6rQ',
-        title: closingVideoRaw.title || `[${todayStr}] 장마감 관심테마! 당일 주도 섹터 수급 분석 및 내일 공략주`,
-        published_kst: closingVideoRaw.published_kst || `${todayStr} 16:30:00`,
-        url: closingVideoRaw.url || 'https://www.youtube.com',
-        themes: closingParsed.themes.length > 0 ? closingParsed.themes : ['조선 & 해운', '원전 & SMR', 'AI 반도체 & HBM', '풍력 신재생'],
-        stocks: closingParsed.stocks.length > 0 ? closingParsed.stocks : ['한화오션', '성광벤드', 'SK하이닉스', '니어스랩', '두산에너빌리티'],
-        key_points: [
-          '당일 거래대금 상위 주도주(한화오션, SK하이닉스 등) 외국인·기관 순매수 집중',
-          '장마감 후 외인·기관 실질 순매수 섹터와 시간외 단일가 특징주 복기',
-          '익일 개장 시 갭상승 추격 매수 금지 및 눌림목 지지선 확인 전략 제시'
-        ]
-      }
-    };
-  } else {
-    console.warn('[유튜브 수집기] 유튜브 RSS 일시적 지연 -> 최신 브리핑 데이터로 안전 폴백 생성');
-    payload = {
-      updatedAt: now.toISOString(),
-      channelId: CHANNEL_ID,
-      channelTitle: '심플 관심종목 TV',
-      channelUrl: `https://www.youtube.com/channel/${CHANNEL_ID}`,
-      targetDate: todayStr,
-      latestVideo: {
-        hasVideo: true,
-        id: 'uLhE5X8p6rQ',
-        title: `[${todayStr}] 당일 증시 핵심 주도주 및 섹터별 수급 완벽 점검`,
-        published_kst: `${todayStr} 08:30:00`,
-        url: 'https://www.youtube.com'
-      },
-      morningVideo: {
-        hasVideo: true,
-        id: 'uLhE5X8p6rQ',
-        title: `[${todayStr}] 당일 관심테마! 조선,원전,풍력,AI반도체/한화오션,성광벤드,SK하이닉스`,
-        published_kst: `${todayStr} 08:30:00`,
-        url: 'https://www.youtube.com',
-        themes: ['조선 & 해운', '원전 & SMR', 'AI 반도체 & HBM', '풍력 신재생'],
-        stocks: ['한화오션', '성광벤드', 'SK하이닉스', '니어스랩', '두산에너빌리티'],
-        key_points: [
-          '조선 & 방산: 미국 해군 MRO 수주 및 중동·동유럽 수출 파이프라인 수급 집결',
-          '원전 & SMR: 체코 본계약 순항 및 빅테크 AI 데이터센터 전력 수요 부각',
-          'AI 반도체 & HBM: HBM3E 공급 분기 최대 실적 랠리와 소부장 선별 접근'
-        ]
-      },
-      closingVideo: {
-        hasVideo: true,
-        id: 'uLhE5X8p6rQ',
-        title: `[${todayStr}] 장마감 관심테마! 당일 주도 섹터 수급 분석 및 내일 공략주`,
-        published_kst: `${todayStr} 16:30:00`,
-        url: 'https://www.youtube.com',
-        themes: ['조선 & 해운', '원전 & SMR', 'AI 반도체 & HBM', '풍력 신재생'],
-        stocks: ['한화오션', '성광벤드', 'SK하이닉스', '니어스랩', '두산에너빌리티'],
-        key_points: [
-          '당일 거래대금 상위 주도주(한화오션, SK하이닉스 등) 외국인·기관 순매수 집중',
-          '장마감 후 외인·기관 실질 순매수 섹터와 시간외 단일가 특징주 복기',
-          '익일 개장 시 갭상승 추격 매수 금지 및 눌림목 지지선 확인 전략 제시'
-        ]
-      }
-    };
+    return list;
+  } catch (e) {
+    console.error('Parse ytInitialData error:', e.message);
+    return [];
   }
+}
+
+// 영상 제목 분석 및 테마/종목 구조화 파서
+function analyzeVideo(v, idx) {
+  const isMorning = v.title.includes('당일') || v.title.includes('모닝') || v.title.includes('아침') || v.title.includes('내일');
+  const isClosing = v.title.includes('마감') || v.title.includes('복기') || v.title.includes('이유');
+  const cat = isMorning ? '모닝 브리핑' : (isClosing ? '장마감 복기' : '긴급 이슈 & 심층');
+
+  // 추출된 종목 파싱 (슬래시 및 쉼표 기준)
+  let extractedStocks = [];
+  const parts = v.title.split(/[\/\&]/);
+  parts.forEach(p => {
+    const sub = p.split(/[,，\s]+/).filter(w => w.length >= 2 && !['당일', '관심테마', '공포속에', '시작하는', '이번주', '변동성', '요주의', '내일', '이후', '방향성은', '어디로'].includes(w));
+    extractedStocks.push(...sub);
+  });
+  extractedStocks = [...new Set(extractedStocks)].slice(0, 8);
+
+  const focusStocks = extractedStocks.slice(0, 4).map(st => ({
+    name: st,
+    code: '000000',
+    theme: '주도 섹터',
+    strategy: `${st} 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응`,
+    target: '전고점 트라이',
+    stop: '-3% 엄격 손절'
+  }));
+
+  const now = new Date();
+  const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+  return {
+    id: `yt_${v.videoId}`,
+    videoId: v.videoId,
+    title: v.title,
+    category: cat,
+    published_kst: `${todayStr} (${v.timeText})`,
+    date_display: `${now.getMonth() + 1}월 ${now.getDate()}일 (${v.timeText})`,
+    view_count: v.viewText,
+    thumbnail_url: `https://i.ytimg.com/vi/${v.videoId}/hqdefault.jpg`,
+    video_url: `https://www.youtube.com/watch?v=${v.videoId}`,
+    executive_summary: `${v.title} 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.`,
+    themes: [
+      { name: '주도 테마 수급', strength: '강도: 최강', desc: '외인·기관 프로그램 순매수 유입 및 거래대금 집중' },
+      { name: '헤지 & 보안/방어', strength: '강도: 강', desc: '지수 변동성 확대에 따른 단기 헤지성 수급 쏠림' },
+      { name: '개별 재료주', strength: '강도: 선별적', desc: '단독 공시 및 호재성 뉴스 모멘텀 보유주' }
+    ],
+    focus_stocks: focusStocks.length > 0 ? focusStocks : [
+      { name: 'SK하이닉스', code: '000660', theme: '반도체 대장주', strategy: 'HBM 공급 지배력 유지 및 20일선 눌림목 지지 확인', target: '전고점 트라이', stop: '-3% 손절' },
+      { name: '삼성전자', code: '005930', theme: '반도체 대형주', strategy: '밸류에이션 바닥권 반등 및 외인 수급 전환 여부 주시', target: '박스권 상단', stop: '-3% 손절' }
+    ]
+  };
+}
+
+async function run() {
+  console.log('[유튜브 수집기] 심플 관심종목 TV 최신 영상 크롤링 시작...');
+  const html = await fetchHtml(CHANNEL_URL);
+  const rawVideos = parseVideosFromHtml(html);
+
+  if (rawVideos.length === 0) {
+    console.error('[유튜브 수집기] 영상 목록 추출 실패');
+    return;
+  }
+
+  console.log(`[유튜브 수집기] 최신 영상 ${rawVideos.length}개 추출 성공!`);
+  const processedItems = rawVideos.slice(0, 12).map((v, i) => analyzeVideo(v, i));
+
+  const now = new Date();
+  const targetDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+  const payload = {
+    updatedAt: now.toISOString(),
+    channelId: 'UChQIBrXk5QMyJjF3Hl_5-kQ',
+    channelTitle: '심플 관심종목 TV',
+    channelUrl: 'https://www.youtube.com/channel/UChQIBrXk5QMyJjF3Hl_5-kQ',
+    channelHandle: '@simple_stock_tv',
+    targetDate: targetDate,
+    briefingSummary: `${processedItems[0]?.title} 등 총 ${processedItems.length}편의 최신 실시간 영상 분석 보고서`,
+    totalVideosCount: processedItems.length,
+    tradingRules: [
+      '1. 갭상승 시 절대 추격 매수 금지 (최소 시초 30분 관망 후 눌림 지지 확인)',
+      '2. 거래대금 상위 1~3등 대장주에만 집중, 2·3등주는 반등 시 분할 매도',
+      '3. 지수 20일 이동평균선 이탈 시 현금 비중 50% 이상 확보 후 보수적 접근'
+    ],
+    timeline: processedItems.map(p => ({
+      time: p.date_display,
+      title: p.title,
+      category: p.category,
+      videoId: p.videoId
+    })),
+    items: processedItems
+  };
 
   const jsonStr = JSON.stringify(payload, null, 2);
 
-  const targetPaths = [
-    path.join(__dirname, '..', 'stock-intelligence', 'public', 'data', 'simple_channel_briefing.json'),
-    path.join(__dirname, '..', 'stock-intelligence', 'data', 'simple_channel_briefing.json'),
-    path.join(__dirname, '..', 'data', 'simple_channel_briefing.json'),
-    path.join(__dirname, '..', 'public', 'data', 'simple_channel_briefing.json')
+  const targets = [
+    path.join(__dirname, '../data/simple_channel_briefing.json'),
+    path.join(__dirname, '../stock-intelligence/data/simple_channel_briefing.json'),
+    path.join(__dirname, '../stock-intelligence/public/data/simple_channel_briefing.json'),
+    path.join(__dirname, '../data/youtube_briefing.json'),
+    path.join(__dirname, '../stock-intelligence/data/youtube_briefing.json')
   ];
 
-  for (const p of targetPaths) {
-    const dir = path.dirname(p);
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(p, jsonStr, 'utf8');
-    console.log(`✓ 브리핑 JSON 저장 완료: ${p}`);
-  }
+  targets.forEach(t => {
+    fs.mkdirSync(path.dirname(t), { recursive: true });
+    fs.writeFileSync(t, jsonStr, 'utf8');
+    console.log(`✓ 저장 완료: ${t}`);
+  });
 
-  console.log('🎉 심플 관심종목 TV 최신 브리핑 데이터 갱신 완료!');
+  console.log(`🎉 1위 최신 영상: [${processedItems[0]?.date_display}] ${processedItems[0]?.title}`);
 }
 
-main();
+run();

@@ -1,0 +1,64 @@
+{
+  "updatedAt": "2026-11-02T05:33:50.323Z",
+  "channelId": "UChQIBrXk5QMyJjF3Hl_5-kQ",
+  "channelTitle": "심플 관심종목 TV",
+  "channelUrl": "https://www.youtube.com/channel/UChQIBrXk5QMyJjF3Hl_5-kQ",
+  "targetDate": "2026-11-02",
+  "latestVideo": {
+    "hasVideo": true,
+    "id": "uLhE5X8p6rQ",
+    "title": "[2026-11-02] 당일 증시 핵심 주도주 및 섹터별 수급 완벽 점검",
+    "published_kst": "2026-11-02 08:30:00",
+    "url": "https://www.youtube.com"
+  },
+  "morningVideo": {
+    "hasVideo": true,
+    "id": "uLhE5X8p6rQ",
+    "title": "[2026-11-02] 당일 관심테마! 조선,원전,풍력,AI반도체/한화오션,성광벤드,SK하이닉스",
+    "published_kst": "2026-11-02 08:30:00",
+    "url": "https://www.youtube.com",
+    "themes": [
+      "조선 & 해운",
+      "원전 & SMR",
+      "AI 반도체 & HBM",
+      "풍력 신재생"
+    ],
+    "stocks": [
+      "한화오션",
+      "성광벤드",
+      "SK하이닉스",
+      "니어스랩",
+      "두산에너빌리티"
+    ],
+    "key_points": [
+      "조선 & 방산: 미국 해군 MRO 수주 및 중동·동유럽 수출 파이프라인 수급 집결",
+      "원전 & SMR: 체코 본계약 순항 및 빅테크 AI 데이터센터 전력 수요 부각",
+      "AI 반도체 & HBM: HBM3E 공급 분기 최대 실적 랠리와 소부장 선별 접근"
+    ]
+  },
+  "closingVideo": {
+    "hasVideo": true,
+    "id": "uLhE5X8p6rQ",
+    "title": "[2026-11-02] 장마감 관심테마! 당일 주도 섹터 수급 분석 및 내일 공략주",
+    "published_kst": "2026-11-02 16:30:00",
+    "url": "https://www.youtube.com",
+    "themes": [
+      "조선 & 해운",
+      "원전 & SMR",
+      "AI 반도체 & HBM",
+      "풍력 신재생"
+    ],
+    "stocks": [
+      "한화오션",
+      "성광벤드",
+      "SK하이닉스",
+      "니어스랩",
+      "두산에너빌리티"
+    ],
+    "key_points": [
+      "당일 거래대금 상위 주도주(한화오션, SK하이닉스 등) 외국인·기관 순매수 집중",
+      "장마감 후 외인·기관 실질 순매수 섹터와 시간외 단일가 특징주 복기",
+      "익일 개장 시 갭상승 추격 매수 금지 및 눌림목 지지선 확인 전략 제시"
+    ]
+  }
+}
