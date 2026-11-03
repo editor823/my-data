@@ -1,283 +1,198 @@
 {
   "success": true,
-  "updatedAt": "2026-11-02T22:55:54.082Z",
-  "updatedAtKst": "2026. 11. 3. AM 7:55:54",
+  "updatedAt": "2026-11-03T10:14:44.038Z",
+  "updatedAtKst": "2026. 11. 3. PM 7:14:44",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "김여정, 바이낸스 사태 예의주시"
+        "keyword": "김민석 신천지 사과"
       },
       {
         "rank": 2,
-        "keyword": "이란 협상 기대에 유가 급락"
+        "keyword": "한학자 보석 취소"
       },
       {
         "rank": 3,
-        "keyword": "북한 해커 비트코인 탈취"
+        "keyword": "김자연 45세 결혼"
       },
       {
         "rank": 4,
-        "keyword": "맨체스터 유나이티드 복귀"
+        "keyword": "삼성 박진만 감독, 한국시리즈 준비"
       },
       {
         "rank": 5,
-        "keyword": "송준근 형 사망 충격"
+        "keyword": "헤수스 데 미겔"
       },
       {
         "rank": 6,
-        "keyword": "트럼프 중간선거 마지막 유세"
+        "keyword": "JTBC 매각 공고"
       },
       {
         "rank": 7,
-        "keyword": "안판석 감독, NG도 살렸다"
+        "keyword": "조작기소 특검법 당론 채택"
       },
       {
         "rank": 8,
-        "keyword": "쌍둥이"
+        "keyword": "한·튀르키예 정상 악수"
       },
       {
         "rank": 9,
-        "keyword": "팔란티어 주가"
+        "keyword": "제주항공 3분기 흑자전환"
       },
       {
         "rank": 10,
-        "keyword": "금융지주 회장 ���임 강화"
+        "keyword": "청년기본소득"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "美 중간선거 하락 2"
+        "keyword": "옆에서 숨만 쉬어도 상승 10"
       },
       {
         "rank": 2,
-        "keyword": "차예련 상승 1"
+        "keyword": "하이닉스 주가 new"
       },
       {
         "rank": 3,
-        "keyword": "최불암 하락 1"
+        "keyword": "민호 논란 사과 new"
       },
       {
         "rank": 4,
-        "keyword": "조정석 거미 노래 new"
+        "keyword": "삼성바이오에피스 테바와 계약 new"
       },
       {
         "rank": 5,
-        "keyword": "KT VS 삼성 하락 1"
+        "keyword": "발언하는 이재명 대통령 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "국제유가 급락"
+        "keyword": "서울양평 고속도로 재추진"
       },
       {
         "rank": 2,
-        "keyword": "북한 해커 비트코인 탈취"
+        "keyword": "카타르 미이란 협상 중재"
       },
       {
         "rank": 3,
-        "keyword": "트럼프 중간선거 마지막 유세"
+        "keyword": "이재명 청소년 SNS 제한"
       },
       {
         "rank": 4,
-        "keyword": "금융지주 회장 연임 강화"
+        "keyword": "한양증권 해킹 정보유출"
       },
       {
         "rank": 5,
-        "keyword": "뉴욕증시 혼조 마감"
+        "keyword": "10월 소비자물가 2.8%"
       },
       {
         "rank": 6,
-        "keyword": "김포아라 공공주택지구 주민의견"
+        "keyword": "국제유가 급락"
       },
       {
         "rank": 7,
-        "keyword": "국민연금 기초연금 역전"
+        "keyword": "미국 이란 케슘섬 공습"
       },
       {
         "rank": 8,
-        "keyword": "전한길 5·18 공소청 송치"
+        "keyword": "GTX 삼성역 철근 누락"
       },
       {
         "rank": 9,
-        "keyword": "브로드컴 삼성전자 갑질 과징금"
+        "keyword": "대한항공 에볼라 서약서"
       },
       {
         "rank": 10,
-        "keyword": "이란 대통령 대화 위기"
+        "keyword": "역삼동 연쇄방화 신상공개"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "옌스 카스트로프"
+        "keyword": "정하연"
       },
       {
         "rank": 2,
-        "keyword": "데포르티보 대 오사수나"
+        "keyword": "전북 대 조호르 fc"
       },
       {
         "rank": 3,
-        "keyword": "제네시스 gv90"
+        "keyword": "헤수스 데 미겔"
       },
       {
         "rank": 4,
-        "keyword": "더본코리아"
+        "keyword": "삼성 대 kt"
       },
       {
         "rank": 5,
-        "keyword": "애플 주가"
+        "keyword": "청년기본소득"
       },
       {
         "rank": 6,
-        "keyword": "newcastle vs everton"
+        "keyword": "지예은"
       },
       {
         "rank": 7,
-        "keyword": "이창동"
+        "keyword": "민호 마라톤"
       },
       {
         "rank": 8,
-        "keyword": "이자"
+        "keyword": "폴더 블 스마트 폰"
       },
       {
         "rank": 9,
-        "keyword": "중간선거 미국"
+        "keyword": "우리들의 발라드"
       },
       {
         "rank": 10,
-        "keyword": "thứ hạng của pakhtakor gặp al-nassr"
+        "keyword": "한재아"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "김경란 아나운서"
+        "keyword": "김현수 KS 도전"
       },
       {
         "rank": 2,
-        "keyword": "미국 중간선거"
+        "keyword": "튀르키예 원전 방산 협력"
       },
       {
         "rank": 3,
-        "keyword": "이강철 박진만 감독 맞대결"
+        "keyword": "한국시리즈 1차전"
       },
       {
         "rank": 4,
-        "keyword": "한동훈 빈소 조우"
+        "keyword": "민주당 조작기소 특검법"
       },
       {
         "rank": 5,
-        "keyword": "재혼 황후"
+        "keyword": "최원준 선두타자 안타"
       },
       {
         "rank": 6,
-        "keyword": "김여정 바이낸스 사태"
+        "keyword": "김자연 손영권 결혼"
       },
       {
         "rank": 7,
-        "keyword": "한학자 보석취소 검토"
+        "keyword": "미국 중간선거"
       },
       {
         "rank": 8,
-        "keyword": "트럼프 이란 합의 가능"
+        "keyword": "김민석 신천지 의혹 사과"
       },
       {
         "rank": 9,
-        "keyword": "대한항공"
+        "keyword": "김경란 최불암 빈소 눈물"
       },
       {
         "rank": 10,
-        "keyword": "한진칼"
+        "keyword": "한학자 보석 취소"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "양홍원, “현주야 사랑해” 2주 만에 삭제…불륜 의혹 후 달라진 SNS",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261103/134954688/1",
-      "publishedAt": "수집 11. 03. 07:55 KST",
-      "publishedOrder": 1793660154037
-    },
-    {
-      "title": "신민아, 19년 전 주지훈에 “그때 진짜 예뻤다”…지금은?",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261103/134954690/1",
-      "publishedAt": "수집 11. 03. 07:55 KST",
-      "publishedOrder": 1793660154037
-    },
-    {
-      "title": "“평�� 뛸 것” 이봉주, 투병 후 다시 달리는 이유 (시대목격)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261103/134954699/1",
-      "publishedAt": "수집 11. 03. 07:55 KST",
-      "publishedOrder": 1793660154037
-    },
-    {
-      "title": "배현성 금수저였네…차강윤·박윤호와 부정 입시 (대리수능)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261103/134954685/1",
-      "publishedAt": "수집 11. 03. 07:55 KST",
-      "publishedOrder": 1793660154037
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 03. 07:55 KST",
-      "publishedOrder": 1793660153156
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 03. 07:55 KST",
-      "publishedOrder": 1793660153156
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 03. 07:55 KST",
-      "publishedOrder": 1793660153156
-    },
-    {
-      "title": "'국민 아버지' 故최불암, 영면에 들었다..신현준·김혜수 오열[종합]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/02/2026110208203717965",
-      "publishedAt": "수집 11. 03. 07:55 KST",
-      "publishedOrder": 1793660153156
-    },
-    {
-      "title": "'남겨서' 이영자 \"연예인 되고 아버지께 배 사드려\"",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBJRUNqQ0d2Z05JbXJraUllOHNhNlRyNlplZGYxVlhWYkhEdHJodW9hd1RZVlIyMDRyZGcySjR6Q2xTTHJVY3ZqcE5vR21SWFN2M0k2TVk5c2tpSUpVWUJ5OF9Fc3RyMUVPRkJsamY4YjdHVHls?oc=5",
-      "publishedAt": "11. 03. 06:51 KST",
-      "publishedOrder": 1793656318000
-    },
-    {
-      "title": "“열정 페이는 옛말”…연예 기획사 ‘이색 복지’ 바람",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1rM1dheGpGZDZwLW1xSUdDdmFVUEs2UjRwdnZvbVpqNXlSSHpfWm1odDRUT2ZJbUNTcFlZOG1OM3lVdEFWempFaFRVT2xwRU93YV8xOUdXaTRXUUNoYnNRYnp6eFZOb0lqck5hZWxB?oc=5",
-      "publishedAt": "11. 02. 16:01 KST",
-      "publishedOrder": 1793602869000
-    },
-    {
-      "title": "‘한류연예대상’ 황영웅이냐, 김용빈이냐…2.2%p 차 불꽃",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBJZmhrYkg2bFpaZG1yUFloYmNuT3ZqSWdkSVJtMlhRQ25Uc1JLTHFQWTZxQU05X2FxcVhuaEJaX2VfdFNzdHlVc2p0LVUyVU1tMFlHQU43bUFHMXk3R3fSAWNBVV95cUxPUVdBM0haTVJRVVlNZTRZa1ZpWkdkOVNiTUpickUtamU3bDBXLVdjYkFGeElDTDduY2owUGgtNGFhWWNvZUlQRHRHdXZNaG9vNkpqb1JMSk1SWFFmVmV6ZjYyenM?oc=5",
-      "publishedAt": "11. 02. 15:30 KST",
-      "publishedOrder": 1793601000000
-    },
-    {
-      "title": "이재욱, 처절한 생계형 호러…'꿀알바' 韓 넷플릭스 1위",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1YQkFlNTdyRlRHTlFqRk9BX0VGRnNrdFBWU2puS2dfLUlMYTRSa3FmNEgwRkQ1WjRUYW04Y1FQSWxwcWdvcVl2WUZPYkt6XzhPYXp6X1hNbnBYZHFPVVY1c0Y3UUswOVhGaHc?oc=5",
-      "publishedAt": "11. 02. 14:30 KST",
-      "publishedOrder": 1793597447000
-    }
-  ]
+  "entertainment": []
 }
