@@ -1,70 +1,70 @@
 {
   "success": true,
-  "updatedAt": "2026-11-03T20:42:13.951Z",
-  "updatedAtKst": "2026. 11. 4. AM 5:42:13",
+  "updatedAt": "2026-11-04T00:57:51.833Z",
+  "updatedAtKst": "2026. 11. 4. AM 9:57:51",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "KT, 한국시리즈 1차전 승리"
+        "keyword": "미국 중간선거 운명 날"
       },
       {
         "rank": 2,
-        "keyword": "최수종 하희라 재혼 절대 안 돼"
+        "keyword": "김자연, 손영권과 결혼"
       },
       {
         "rank": 3,
-        "keyword": "유럽 여객기 폭파 위협"
+        "keyword": "로봇 글로벌 대토론회"
       },
       {
         "rank": 4,
-        "keyword": "미국 중간선거 투표"
+        "keyword": "카카오게임즈, 3분기 영업손실 263억"
       },
       {
         "rank": 5,
-        "keyword": "트럼프 이란 방공시설 타격"
+        "keyword": "러시아 우크라 구호센터 폭격"
       },
       {
         "rank": 6,
-        "keyword": "이재현, 2타점 적시타"
+        "keyword": "리센느 1위 싹쓸이"
       },
       {
         "rank": 7,
-        "keyword": "여순사건 국가배상 확정"
+        "keyword": "코리안 더비 뮌헨 김민재 승리"
       },
       {
         "rank": 8,
-        "keyword": "32기 영수, 몰카 논란 사과"
+        "keyword": "기상"
       },
       {
         "rank": 9,
-        "keyword": "JTBC 매각 공고"
+        "keyword": "제민 일보"
       },
       {
         "rank": 10,
-        "keyword": "영풍 MBK 경영협력계약"
+        "keyword": "SK하이닉스 장비 반입 보류"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "KT 1차전 승리 동일"
+        "keyword": "미국 중간선거 동일"
       },
       {
         "rank": 2,
-        "keyword": "연애박사 상승 11"
+        "keyword": "글로벌 최강국 대토론회 new"
       },
       {
         "rank": 3,
-        "keyword": "美 중간선거 하락 1"
+        "keyword": "리센느 1위 싹쓸이 상승 1"
       },
       {
         "rank": 4,
-        "keyword": "최수종 하희라 재혼 하락 1"
+        "keyword": "코리안 더비 뮌헨 상승 1"
       },
       {
         "rank": 5,
-        "keyword": "리센느 상승 19"
+        "keyword": "차예련 new"
       }
     ],
     "zum": [
@@ -74,182 +74,182 @@
       },
       {
         "rank": 2,
-        "keyword": "여순사건 국가배상 확정"
+        "keyword": "러시아 우크라 구호센터 폭격"
       },
       {
         "rank": 3,
-        "keyword": "트럼프 이란 방공시설 타격"
+        "keyword": "SK하이닉스 장비 반입 보류"
       },
       {
         "rank": 4,
-        "keyword": "JTBC 매각 공고"
+        "keyword": "윤석열 선거법 2심 선고"
       },
       {
         "rank": 5,
-        "keyword": "금융권 해킹 CEO 책임"
-      },
-      {
-        "rank": 6,
-        "keyword": "한학자 보석 취소"
-      },
-      {
-        "rank": 7,
         "keyword": "유럽 여객기 폭파 위협"
       },
       {
+        "rank": 6,
+        "keyword": "금융권 해킹 CEO 책임"
+      },
+      {
+        "rank": 7,
+        "keyword": "코스피 반도체주 상승"
+      },
+      {
         "rank": 8,
-        "keyword": "대한항공 에볼라 서약서"
+        "keyword": "삼성 갤럭시 버즈 청력 기능"
       },
       {
         "rank": 9,
-        "keyword": "호르무즈 유조선 기뢰"
+        "keyword": "쿠팡 3분기 영업손실"
       },
       {
         "rank": 10,
-        "keyword": "러시아 우크라 구호센터 폭격"
+        "keyword": "GS리테일 3분기 실적"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "정기예금"
+        "keyword": "정용진"
       },
       {
         "rank": 2,
-        "keyword": "빌라"
+        "keyword": "정년"
       },
       {
         "rank": 3,
-        "keyword": "기소"
+        "keyword": "권오중"
       },
       {
         "rank": 4,
-        "keyword": "아틀레티코 대 바이에른"
+        "keyword": "외환시장"
       },
       {
         "rank": 5,
-        "keyword": "맨유 대 로마"
+        "keyword": "여객선"
       },
       {
         "rank": 6,
-        "keyword": "바르셀로나 대 애스턴 빌라"
+        "keyword": "fc barcelona vs aston villa standings"
       },
       {
         "rank": 7,
-        "keyword": "고소영"
+        "keyword": "기상"
       },
       {
         "rank": 8,
-        "keyword": "lpga"
+        "keyword": "제민 일보"
       },
       {
         "rank": 9,
-        "keyword": "성리"
+        "keyword": "atlético madrid vs bayern munich standings"
       },
       {
         "rank": 10,
-        "keyword": "배추"
+        "keyword": "비행기"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "미국 중간선거"
+        "keyword": "한미반도체"
       },
       {
         "rank": 2,
-        "keyword": "리센느 음원차트 1위"
+        "keyword": "미국 중간선거"
       },
       {
         "rank": 3,
-        "keyword": "돌싱 n 모솔"
+        "keyword": "재혼 황후"
       },
       {
         "rank": 4,
-        "keyword": "이동휘 유재석 감기 사태"
+        "keyword": "이에스티"
       },
       {
         "rank": 5,
-        "keyword": "손영권 김자연 결혼"
+        "keyword": "소리새 김광석 별세"
       },
       {
         "rank": 6,
-        "keyword": "한학자 보석 취소"
+        "keyword": "김민석 사과"
       },
       {
         "rank": 7,
-        "keyword": "김남희 여성위원장 선출"
+        "keyword": "한국항공우주"
       },
       {
         "rank": 8,
-        "keyword": "최원태 조기 강판"
+        "keyword": "문무"
       },
       {
         "rank": 9,
-        "keyword": "틈만 나면"
+        "keyword": "리센느 음원 차트 1위"
       },
       {
         "rank": 10,
-        "keyword": "이강철 감독"
+        "keyword": "카카오게임즈 영업손실"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "‘엠블랙 출신’ 미르, 조카 대기업 광고에 매니저 자처…주말도 반납",
+      "title": "진선규, ♥박보경·절친 키스신에 질투 폭발?…“못 앉아 있겠더라”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261104/134961548/1",
-      "publishedAt": "수집 11. 04. 05:42 KST",
-      "publishedOrder": 1793738529605
+      "url": "https://sports.donga.com/ent/article/all/20261104/134962589/1",
+      "publishedAt": "수집 11. 04. 09:57 KST",
+      "publishedOrder": 1793753867044
     },
     {
-      "title": "‘재혼황후 왕자’ 이종석, ‘트로트 왕자’ 임영웅 의상에 꽂혔다",
+      "title": "악뮤 이수현 “반년간 맥 안 잡혀…30kg 감량 2년 넘게 걸렸다”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261103/134961531/1",
-      "publishedAt": "수집 11. 04. 05:42 KST",
-      "publishedOrder": 1793738529605
+      "url": "https://sports.donga.com/ent/article/all/20261104/134962559/1",
+      "publishedAt": "수집 11. 04. 09:57 KST",
+      "publishedOrder": 1793753867044
     },
     {
-      "title": "황보라, 몽클레어 5만 원에 팔자 손님도 의심…“진짜 맞다”",
+      "title": "34기 영철, 현숙에 사과하더니 영자에 여지…“빠빠이 아니잖아”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261103/134961482/1",
-      "publishedAt": "수집 11. 04. 05:42 KST",
-      "publishedOrder": 1793738529605
+      "url": "https://sports.donga.com/ent/article/all/20261104/134962486/1",
+      "publishedAt": "수집 11. 04. 09:57 KST",
+      "publishedOrder": 1793753867044
     },
     {
-      "title": "차예련, 학폭 의혹 부인했는데…이번엔 캐디 폭로 등장 “반말·짜증”[SD이슈]",
+      "title": "심혜진, 20년 만에 뱀파이어로 귀환…“다시 분장하니 세월 실감”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261103/134961524/1",
-      "publishedAt": "수집 11. 04. 05:42 KST",
-      "publishedOrder": 1793738529605
+      "url": "https://sports.donga.com/ent/article/all/20261104/134962433/1",
+      "publishedAt": "수집 11. 04. 09:57 KST",
+      "publishedOrder": 1793753867044
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 04. 05:42 KST",
-      "publishedOrder": 1793738527985
+      "publishedAt": "수집 11. 04. 09:57 KST",
+      "publishedOrder": 1793753866289
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 04. 05:42 KST",
-      "publishedOrder": 1793738527985
+      "publishedAt": "수집 11. 04. 09:57 KST",
+      "publishedOrder": 1793753866289
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 04. 05:42 KST",
-      "publishedOrder": 1793738527985
+      "publishedAt": "수집 11. 04. 09:57 KST",
+      "publishedOrder": 1793753866289
     },
     {
-      "title": "결혼 한달 전..'하정우♥' 차정원, 동성 결혼식 참석·시부 김용건, 故최불암 조문 NO [스타이슈]",
+      "title": "배나라♥한재아, 14일 옥수동 성당서 결혼 \"평생 함께 걷고파\"",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/03/2026110307231279746",
-      "publishedAt": "수집 11. 04. 05:42 KST",
-      "publishedOrder": 1793738527985
+      "url": "https://www.starnewskorea.com/star/2026/11/03/2026110313410857693",
+      "publishedAt": "수집 11. 04. 09:57 KST",
+      "publishedOrder": 1793753866289
     }
   ]
 }
