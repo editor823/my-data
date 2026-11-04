@@ -1,255 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-11-04T00:57:51.833Z",
-  "updatedAtKst": "2026. 11. 4. AM 9:57:51",
+  "updatedAt": "2026-11-04T10:06:06.070Z",
+  "updatedAtKst": "2026. 11. 4. PM 7:06:06",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "미국 중간선거 운명 날"
+        "keyword": "신촌 흉기 난동 교수 부상"
       },
       {
         "rank": 2,
-        "keyword": "김자연, 손영권과 결혼"
+        "keyword": "공공재개발 이재명 대통령"
       },
       {
         "rank": 3,
-        "keyword": "로봇 글로벌 대토론회"
+        "keyword": "박진만 감독, 원태인 투입 고려"
       },
       {
         "rank": 4,
-        "keyword": "카카오게임즈, 3분기 영업손실 263억"
+        "keyword": "코스피 하락 전환"
       },
       {
         "rank": 5,
-        "keyword": "러시아 우크라 구호센터 폭격"
+        "keyword": "조작기소 특검법 논란"
       },
       {
         "rank": 6,
-        "keyword": "리센느 1위 싹쓸이"
+        "keyword": "대학 총장"
       },
       {
         "rank": 7,
-        "keyword": "코리안 더비 뮌헨 김민재 승리"
+        "keyword": "트럼프 중간선거 발언"
       },
       {
         "rank": 8,
-        "keyword": "기상"
+        "keyword": "민호 마라톤 기록 반납"
       },
       {
         "rank": 9,
-        "keyword": "제민 일보"
+        "keyword": "백만장자"
       },
       {
         "rank": 10,
-        "keyword": "SK하이닉스 장비 반입 보류"
+        "keyword": "홍콩 ELS 과징금 3700억 확정"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "미국 중간선거 동일"
+        "keyword": "하이닉스 주가 new"
       },
       {
         "rank": 2,
-        "keyword": "글로벌 최강국 대토론회 new"
+        "keyword": "SK㈜ SK에코플랜트 완전 new"
       },
       {
         "rank": 3,
-        "keyword": "리센느 1위 싹쓸이 상승 1"
+        "keyword": "美 민주당 동일"
       },
       {
         "rank": 4,
-        "keyword": "코리안 더비 뮌헨 상승 1"
+        "keyword": "태영호 징역 3년 new"
       },
       {
         "rank": 5,
-        "keyword": "차예련 new"
+        "keyword": "하지수 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "미국 중간선거 투표"
+        "keyword": "코스피 하락 전환"
       },
       {
         "rank": 2,
-        "keyword": "러시아 우크라 구호센터 폭격"
+        "keyword": "트럼프 중간선거 발언"
       },
       {
         "rank": 3,
-        "keyword": "SK하이닉스 장비 반입 보류"
+        "keyword": "신촌 세브란스 흉기 난동"
       },
       {
         "rank": 4,
-        "keyword": "윤석열 선거법 2심 선고"
+        "keyword": "위험성평가 과태료 강화"
       },
       {
         "rank": 5,
-        "keyword": "유럽 여객기 폭파 위협"
+        "keyword": "지역의대 신설 확정"
       },
       {
         "rank": 6,
-        "keyword": "금융권 해킹 CEO 책임"
+        "keyword": "윤석열 선거법 2심 선고"
       },
       {
         "rank": 7,
-        "keyword": "코스피 반도체주 상승"
+        "keyword": "선관위 특검 압수수색"
       },
       {
         "rank": 8,
-        "keyword": "삼성 갤럭시 버즈 청력 기능"
+        "keyword": "러시아 우크라 구호센터 폭격"
       },
       {
         "rank": 9,
-        "keyword": "쿠팡 3분기 영업손실"
+        "keyword": "한진칼 최대주주 변경"
       },
       {
         "rank": 10,
-        "keyword": "GS리테일 3분기 실적"
+        "keyword": "고려아연 자사주 소각 액면분할"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "정용진"
+        "keyword": "이영표"
       },
       {
         "rank": 2,
-        "keyword": "정년"
+        "keyword": "전지윤"
       },
       {
         "rank": 3,
-        "keyword": "권오중"
+        "keyword": "테슬라"
       },
       {
         "rank": 4,
-        "keyword": "외환시장"
+        "keyword": "대학 총장"
       },
       {
         "rank": 5,
-        "keyword": "여객선"
+        "keyword": "백만장자"
       },
       {
         "rank": 6,
-        "keyword": "fc barcelona vs aston villa standings"
+        "keyword": "고영표"
       },
       {
         "rank": 7,
-        "keyword": "기상"
+        "keyword": "배그 아이브"
       },
       {
         "rank": 8,
-        "keyword": "제민 일보"
+        "keyword": "레미콘"
       },
       {
         "rank": 9,
-        "keyword": "atlético madrid vs bayern munich standings"
+        "keyword": "가덕도 신공항"
       },
       {
         "rank": 10,
-        "keyword": "비행기"
+        "keyword": "한국어"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "한미반도체"
+        "keyword": "고영표 한국시리즈 2차전"
       },
       {
         "rank": 2,
-        "keyword": "미국 중간선거"
+        "keyword": "한진칼 최대주주 변경"
       },
       {
         "rank": 3,
-        "keyword": "재혼 황후"
+        "keyword": "김보연 자식농사"
       },
       {
         "rank": 4,
-        "keyword": "이에스티"
+        "keyword": "이찬혁 하지수"
       },
       {
         "rank": 5,
-        "keyword": "소리새 김광석 별세"
+        "keyword": "윤석열 재판"
       },
       {
         "rank": 6,
-        "keyword": "김민석 사과"
+        "keyword": "신촌 세브란스병원 흉기 난동"
       },
       {
         "rank": 7,
-        "keyword": "한국항공우주"
+        "keyword": "레임덕 뜻"
       },
       {
         "rank": 8,
-        "keyword": "문무"
+        "keyword": "강호동 농협중앙회 회장"
       },
       {
         "rank": 9,
-        "keyword": "리센느 음원 차트 1위"
+        "keyword": "트럼프 공화당 참패"
       },
       {
         "rank": 10,
-        "keyword": "카카오게임즈 영업손실"
+        "keyword": "이만수 시포"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "진선규, ♥박보경·절친 키스신에 질투 폭발?…“못 앉아 있겠더라”",
+      "title": "비비안, 오늘(4일) 신곡 ‘너무 사랑스러운 사람’ 발매",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261104/134962589/1",
-      "publishedAt": "수집 11. 04. 09:57 KST",
-      "publishedOrder": 1793753867044
+      "url": "https://sports.donga.com/ent/article/all/20261104/134967719/1",
+      "publishedAt": "수집 11. 04. 19:06 KST",
+      "publishedOrder": 1793786760686
     },
     {
-      "title": "악뮤 이수현 “반년간 맥 안 잡혀…30kg 감량 2년 넘게 걸렸다”",
+      "title": "드래곤포니, 5일 ‘Calling back’ 발매…이별부터 첫 설렘까지",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261104/134962559/1",
-      "publishedAt": "수집 11. 04. 09:57 KST",
-      "publishedOrder": 1793753867044
+      "url": "https://sports.donga.com/ent/article/all/20261104/134967388/1",
+      "publishedAt": "수집 11. 04. 19:06 KST",
+      "publishedOrder": 1793786760686
     },
     {
-      "title": "34기 영철, 현숙에 사과하더니 영자에 여지…“빠빠이 아니잖아”",
+      "title": "560명만 초대…리센느, ‘팬심 100%’ 프라이빗 팬미팅",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261104/134962486/1",
-      "publishedAt": "수집 11. 04. 09:57 KST",
-      "publishedOrder": 1793753867044
+      "url": "https://sports.donga.com/ent/article/all/20261104/134966961/1",
+      "publishedAt": "수집 11. 04. 19:06 KST",
+      "publishedOrder": 1793786760686
     },
     {
-      "title": "심혜진, 20년 만에 뱀파이어로 귀환…“다시 분장하니 세월 실감”",
+      "title": "‘완전히 달라진 나’ 보여준 에일리…이번엔 버추얼 스트리머",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261104/134962433/1",
-      "publishedAt": "수집 11. 04. 09:57 KST",
-      "publishedOrder": 1793753867044
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 04. 09:57 KST",
-      "publishedOrder": 1793753866289
+      "url": "https://sports.donga.com/ent/article/all/20261104/134961781/1",
+      "publishedAt": "수집 11. 04. 19:06 KST",
+      "publishedOrder": 1793786760686
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 04. 09:57 KST",
-      "publishedOrder": 1793753866289
+      "publishedAt": "수집 11. 04. 19:05 KST",
+      "publishedOrder": 1793786759671
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 11. 04. 19:05 KST",
+      "publishedOrder": 1793786759671
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 04. 09:57 KST",
-      "publishedOrder": 1793753866289
+      "publishedAt": "수집 11. 04. 19:05 KST",
+      "publishedOrder": 1793786759671
     },
     {
-      "title": "배나라♥한재아, 14일 옥수동 성당서 결혼 \"평생 함께 걷고파\"",
+      "title": "송중기♥케이티, 두 자녀와 가족 나들이 목격담 보니..\"가정적인 아빠\"",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/03/2026110313410857693",
-      "publishedAt": "수집 11. 04. 09:57 KST",
-      "publishedOrder": 1793753866289
+      "url": "https://www.starnewskorea.com/star/2026/11/04/2026110410191531390",
+      "publishedAt": "수집 11. 04. 19:05 KST",
+      "publishedOrder": 1793786759671
     }
   ]
 }
