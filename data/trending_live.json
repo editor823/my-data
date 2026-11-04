@@ -1,80 +1,80 @@
 {
   "success": true,
-  "updatedAt": "2026-11-04T10:06:06.070Z",
-  "updatedAtKst": "2026. 11. 4. PM 7:06:06",
+  "updatedAt": "2026-11-04T20:58:58.247Z",
+  "updatedAtKst": "2026. 11. 5. AM 5:58:58",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "신촌 흉기 난동 교수 부상"
+        "keyword": "조작기소 특검법 법사위 통과"
       },
       {
         "rank": 2,
-        "keyword": "공공재개발 이재명 대통령"
+        "keyword": "삼성, 연장 12회 승리"
       },
       {
         "rank": 3,
-        "keyword": "박진만 감독, 원태인 투입 고려"
+        "keyword": "서인영 12월 26일 재혼"
       },
       {
         "rank": 4,
-        "keyword": "코스피 하락 전환"
+        "keyword": "슬라비아 프라하 대 아스널"
       },
       {
         "rank": 5,
-        "keyword": "조작기소 특검법 논란"
+        "keyword": "강호동 구속영장"
       },
       {
         "rank": 6,
-        "keyword": "대학 총장"
+        "keyword": "적시타 쳐낸 디아즈"
       },
       {
         "rank": 7,
-        "keyword": "트럼프 중간선거 발언"
+        "keyword": "에코프로"
       },
       {
         "rank": 8,
-        "keyword": "민호 마라톤 기록 반납"
+        "keyword": "신촌 세브란스 흉기 난동"
       },
       {
         "rank": 9,
-        "keyword": "백만장자"
+        "keyword": "역투하는 박영현"
       },
       {
         "rank": 10,
-        "keyword": "홍콩 ELS 과징금 3700억 확정"
+        "keyword": "이스라엘 부정선거 의혹"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "하이닉스 주가 new"
+        "keyword": "나는 솔로 상승 22"
       },
       {
         "rank": 2,
-        "keyword": "SK㈜ SK에코플랜트 완전 new"
+        "keyword": "100일의 거짓말 new"
       },
       {
         "rank": 3,
-        "keyword": "美 민주당 동일"
+        "keyword": "영평상 수상 동일"
       },
       {
         "rank": 4,
-        "keyword": "태영호 징역 3년 new"
+        "keyword": "아이비 브로드웨이 new"
       },
       {
         "rank": 5,
-        "keyword": "하지수 new"
+        "keyword": "집값 2차 가짜뉴스 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "코스피 하락 전환"
+        "keyword": "조작기소 특검법 법사위 통과"
       },
       {
         "rank": 2,
-        "keyword": "트럼프 중간선거 발언"
+        "keyword": "강호동 구속영장"
       },
       {
         "rank": 3,
@@ -82,174 +82,174 @@
       },
       {
         "rank": 4,
-        "keyword": "위험성평가 과태료 강화"
-      },
-      {
-        "rank": 5,
-        "keyword": "지역의대 신설 확정"
-      },
-      {
-        "rank": 6,
-        "keyword": "윤석열 선거법 2심 선고"
-      },
-      {
-        "rank": 7,
         "keyword": "선관위 특검 압수수색"
       },
       {
+        "rank": 5,
+        "keyword": "이스라엘 부정선거 의혹"
+      },
+      {
+        "rank": 6,
+        "keyword": "지역의대 신설 확정"
+      },
+      {
+        "rank": 7,
+        "keyword": "한국시리즈 2차전 시구"
+      },
+      {
         "rank": 8,
-        "keyword": "러시아 우크라 구호센터 폭격"
+        "keyword": "크렘린궁 트럼프 패배 반응"
       },
       {
         "rank": 9,
-        "keyword": "한진칼 최대주주 변경"
+        "keyword": "전남광주 시민의 날 지정"
       },
       {
         "rank": 10,
-        "keyword": "고려아연 자사주 소각 액면분할"
+        "keyword": "군수 AI 에이전트 개발 착수"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "이영표"
+        "keyword": "주가"
       },
       {
         "rank": 2,
-        "keyword": "전지윤"
+        "keyword": "이다해"
       },
       {
         "rank": 3,
-        "keyword": "테슬라"
+        "keyword": "한남더힐아파트"
       },
       {
         "rank": 4,
-        "keyword": "대학 총장"
+        "keyword": "택시"
       },
       {
         "rank": 5,
-        "keyword": "백만장자"
+        "keyword": "real madrid"
       },
       {
         "rank": 6,
-        "keyword": "고영표"
+        "keyword": "เฟแนร์บาห์เช พบ ลิเวอร์พูล"
       },
       {
         "rank": 7,
-        "keyword": "배그 아이브"
+        "keyword": "슬라비아 프라하 대 아스널"
       },
       {
         "rank": 8,
-        "keyword": "레미콘"
+        "keyword": "에코프로"
       },
       {
         "rank": 9,
-        "keyword": "가덕도 신공항"
+        "keyword": "라이프치히 대 맨 시티"
       },
       {
         "rank": 10,
-        "keyword": "한국어"
+        "keyword": "나영석"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "고영표 한국시리즈 2차전"
+        "keyword": "박지현 가수"
       },
       {
         "rank": 2,
-        "keyword": "한진칼 최대주주 변경"
+        "keyword": "안재욱 운동회 민원 일침"
       },
       {
         "rank": 3,
-        "keyword": "김보연 자식농사"
+        "keyword": "유병권 김수미"
       },
       {
         "rank": 4,
-        "keyword": "이찬혁 하지수"
+        "keyword": "정영주 동거인 고백"
       },
       {
         "rank": 5,
-        "keyword": "윤석열 재판"
+        "keyword": "미국 중간선거 결과"
       },
       {
         "rank": 6,
-        "keyword": "신촌 세브란스병원 흉기 난동"
+        "keyword": "엔믹스 릴리 모닝 루틴"
       },
       {
         "rank": 7,
-        "keyword": "레임덕 뜻"
+        "keyword": "하지수 이찬혁 스윙댄스"
       },
       {
         "rank": 8,
-        "keyword": "강호동 농협중앙회 회장"
+        "keyword": "포르투갈"
       },
       {
         "rank": 9,
-        "keyword": "트럼프 공화당 참패"
+        "keyword": "서인영 재혼"
       },
       {
         "rank": 10,
-        "keyword": "이만수 시포"
+        "keyword": "유선민중령"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "비비안, 오늘(4일) 신곡 ‘너무 사랑스러운 사람’ 발매",
+      "title": "장영란, 홍윤화·김민기 오뎅바서 골든벨 울렸다…“115만 원!”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261104/134967719/1",
-      "publishedAt": "수집 11. 04. 19:06 KST",
-      "publishedOrder": 1793786760686
+      "url": "https://sports.donga.com/ent/article/all/20261104/134968833/1",
+      "publishedAt": "수집 11. 05. 05:58 KST",
+      "publishedOrder": 1793825932219
     },
     {
-      "title": "드래곤포니, 5일 ‘Calling back’ 발매…이별부터 첫 설렘까지",
+      "title": "안재욱, 송은이 첫사랑 고백에 한숨 “그냥 동생이었다”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261104/134967388/1",
-      "publishedAt": "수집 11. 04. 19:06 KST",
-      "publishedOrder": 1793786760686
+      "url": "https://sports.donga.com/ent/article/all/20261104/134968639/1",
+      "publishedAt": "수집 11. 05. 05:58 KST",
+      "publishedOrder": 1793825932219
     },
     {
-      "title": "560명만 초대…리센느, ‘팬심 100%’ 프라이빗 팬미팅",
+      "title": "추성훈, 딸 추사랑 日 유치원 입시 위해 염색까지…“결국 국제학교”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261104/134966961/1",
-      "publishedAt": "수집 11. 04. 19:06 KST",
-      "publishedOrder": 1793786760686
+      "url": "https://sports.donga.com/ent/article/all/20261104/134968783/1",
+      "publishedAt": "수집 11. 05. 05:58 KST",
+      "publishedOrder": 1793825932219
     },
     {
-      "title": "‘완전히 달라진 나’ 보여준 에일리…이번엔 버추얼 스트리머",
+      "title": "신승태 오늘(5일) 생일…‘트롯픽’ 이벤트 주인공",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261104/134961781/1",
-      "publishedAt": "수집 11. 04. 19:06 KST",
-      "publishedOrder": 1793786760686
+      "url": "https://sports.donga.com/ent/article/all/20261102/134948579/2",
+      "publishedAt": "수집 11. 05. 05:58 KST",
+      "publishedOrder": 1793825932219
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 04. 19:05 KST",
-      "publishedOrder": 1793786759671
+      "publishedAt": "수집 11. 05. 05:58 KST",
+      "publishedOrder": 1793825931529
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 04. 19:05 KST",
-      "publishedOrder": 1793786759671
+      "publishedAt": "수집 11. 05. 05:58 KST",
+      "publishedOrder": 1793825931529
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 04. 19:05 KST",
-      "publishedOrder": 1793786759671
+      "publishedAt": "수집 11. 05. 05:58 KST",
+      "publishedOrder": 1793825931529
     },
     {
-      "title": "송중기♥케이티, 두 자녀와 가족 나들이 목격담 보니..\"가정적인 아빠\"",
+      "title": "이만기, 세쌍둥이 손주들에 특별한 선물..3개월간 제작한 서각 \"복 다 가져가길\"",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/04/2026110410191531390",
-      "publishedAt": "수집 11. 04. 19:05 KST",
-      "publishedOrder": 1793786759671
+      "url": "https://www.starnewskorea.com/star/2026/11/04/2026110411074494244",
+      "publishedAt": "수집 11. 05. 05:58 KST",
+      "publishedOrder": 1793825931529
     }
   ]
 }
