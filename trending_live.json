@@ -1,255 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-11-05T01:18:09.283Z",
-  "updatedAtKst": "2026. 11. 5. AM 10:18:09",
+  "updatedAt": "2026-11-05T09:59:49.954Z",
+  "updatedAtKst": "2026. 11. 5. PM 6:59:49",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "카카오 3분기 영업익 증가"
+        "keyword": "가상자산 과세 2년 유예"
       },
       {
         "rank": 2,
-        "keyword": "국제유가 급락"
+        "keyword": "최태원 SK그룹 회장"
       },
       {
         "rank": 3,
-        "keyword": "김민석 신천지 논란 공개"
+        "keyword": "오동운 공수처장 구형"
       },
       {
         "rank": 4,
-        "keyword": "장동혁 국민의힘 대표 참석"
+        "keyword": "쿠팡 개인정보 유출 과징금"
       },
       {
         "rank": 5,
-        "keyword": "황인범, 2분 만에 도움"
+        "keyword": "조작기소 특검법 상정"
       },
       {
         "rank": 6,
-        "keyword": "미국 중간선거로 요동치는 국제정세"
+        "keyword": "장동민"
       },
       {
         "rank": 7,
-        "keyword": "우이신설선 운행 지연"
+        "keyword": "나주 인공태양 연구시설 예타 통과"
       },
       {
         "rank": 8,
-        "keyword": "lg그룹"
+        "keyword": "언차일드 반가운 컴백"
       },
       {
         "rank": 9,
-        "keyword": "젠지"
+        "keyword": "넷마블 내년 신작 13종 출시"
       },
       {
         "rank": 10,
-        "keyword": "한지 유네스코 등재"
+        "keyword": "어벤져스 둠스데이"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "출근하는 조희대 대법원장 new"
+        "keyword": "안세영 코리아오픈 8강 동일"
       },
       {
         "rank": 2,
-        "keyword": "미국 중간선거 하락 1"
+        "keyword": "프리지아 법적 대응 상승 1"
       },
       {
         "rank": 3,
-        "keyword": "9월 역대 최대 new"
+        "keyword": "법원 개인정보 유출 new"
       },
       {
         "rank": 4,
-        "keyword": "신민아 이진욱 수목금 상승 5"
+        "keyword": "세계기록유산 아태 목록 동일"
       },
       {
         "rank": 5,
-        "keyword": "현대차 개발 인증 new"
+        "keyword": "넷마블 신작 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "코스피 하락 출발"
+        "keyword": "쿠팡 개인정보 유출 과징금"
       },
       {
         "rank": 2,
-        "keyword": "국제유가 급락"
+        "keyword": "단원고 4·16 아카이브 등재"
       },
       {
         "rank": 3,
-        "keyword": "소아 코로나19 접종"
+        "keyword": "나주 인공태양 연구시설 예타 통과"
       },
       {
         "rank": 4,
-        "keyword": "우이신설선 운행 지연"
+        "keyword": "오동운 공수처장 구형"
       },
       {
         "rank": 5,
-        "keyword": "17개월 딸 방임 사망"
+        "keyword": "청와대 한미동맹 입장"
       },
       {
         "rank": 6,
-        "keyword": "한지 유네스코 등재"
+        "keyword": "코스피 5%대 급락"
       },
       {
         "rank": 7,
-        "keyword": "미 민주당 압승 유가 급락"
+        "keyword": "헤그세스 탄핵소추"
       },
       {
         "rank": 8,
-        "keyword": "조작기소 특검법 법사위 통과"
+        "keyword": "기초연구 예산 확대"
       },
       {
         "rank": 9,
-        "keyword": "신촌 세브란스 흉기 난동"
+        "keyword": "소아 코로나19 접종"
       },
       {
         "rank": 10,
-        "keyword": "청해부대 임무 확대"
+        "keyword": "전자발찌 전 연인 살해"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "우주발사체"
+        "keyword": "하이닉스"
       },
       {
         "rank": 2,
-        "keyword": "lg그룹"
+        "keyword": "fifa u-17 여자 월드컵"
       },
       {
         "rank": 3,
-        "keyword": "디트로이트 대 필라데피아"
+        "keyword": "어벤져스 둠스데이"
       },
       {
         "rank": 4,
-        "keyword": "젠지"
+        "keyword": "장동민"
       },
       {
         "rank": 5,
-        "keyword": "한국대학신문"
+        "keyword": "시험"
       },
       {
         "rank": 6,
-        "keyword": "엔씨"
+        "keyword": "이동국"
       },
       {
         "rank": 7,
-        "keyword": "매일경제"
+        "keyword": "프리지아"
       },
       {
         "rank": 8,
-        "keyword": "보디빌더"
+        "keyword": "위험성"
       },
       {
         "rank": 9,
-        "keyword": "kia 타이거즈"
+        "keyword": "김태규"
       },
       {
         "rank": 10,
-        "keyword": "이혼 소송"
+        "keyword": "축제"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "청해부대 임무 확대"
+        "keyword": "아이비 영어 특훈"
       },
       {
         "rank": 2,
-        "keyword": "유병권 김수미 마지막 통화"
+        "keyword": "쿠팡 과징금 부과효력 유지"
       },
       {
         "rank": 3,
-        "keyword": "미국 중간선거 결과"
+        "keyword": "제이블랙 생활고"
       },
       {
         "rank": 4,
-        "keyword": "김보연 자녀 근황"
+        "keyword": "최태원 SK 지분 매각"
       },
       {
         "rank": 5,
-        "keyword": "카카오 자사주 매입 소각"
+        "keyword": "단원고 4.16아카이브 등재"
       },
       {
         "rank": 6,
-        "keyword": "금융권 정보 유출"
+        "keyword": "특전사 모델 워킹"
       },
       {
         "rank": 7,
-        "keyword": "김유정 의원"
+        "keyword": "옥주현 한남더힐 경매"
       },
       {
         "rank": 8,
-        "keyword": "금융권 보안 전수점검"
+        "keyword": "남대문 스카프 아저씨"
       },
       {
         "rank": 9,
-        "keyword": "삼전닉스 급락"
+        "keyword": "진쓰레블"
       },
       {
         "rank": 10,
-        "keyword": "재혼 황후"
+        "keyword": "국회 조작기소 특검법"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "이유진, ♥예비신부 차경은 공개…“김고은 닮았다” (동상이몽2)",
+      "title": "‘유퀴즈’ 하차 조세호, 유튜브로 전격 복귀…“반성 많이해” 사과 [DA클립]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261105/134970127/1",
-      "publishedAt": "수집 11. 05. 10:18 KST",
-      "publishedOrder": 1793841484032
+      "url": "https://sports.donga.com/ent/article/all/20261105/134974467/1",
+      "publishedAt": "수집 11. 05. 18:46 KST",
+      "publishedOrder": 1793871976861
     },
     {
-      "title": "노재원, ‘표학수의 섬뜩한 광기’로 영평상 트로피 품었다",
+      "title": "청개구리처럼 통통 튀는 언차일드, ‘팅팅’으로 컴백 [종합]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261105/134970004/1",
-      "publishedAt": "수집 11. 05. 10:18 KST",
-      "publishedOrder": 1793841484032
+      "url": "https://sports.donga.com/ent/article/all/20261105/134973902/1",
+      "publishedAt": "수집 11. 05. 18:46 KST",
+      "publishedOrder": 1793871976861
     },
     {
-      "title": "피원하모니, 콘서트 방불케 한 미니 10집 쇼케이스 성료",
+      "title": "이주승, 영화제 심사위원 됐다…단편영화 50편 심사 (나혼산)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261105/134969873/1",
-      "publishedAt": "수집 11. 05. 10:18 KST",
-      "publishedOrder": 1793841484032
+      "url": "https://sports.donga.com/ent/article/all/20261105/134973498/1",
+      "publishedAt": "수집 11. 05. 18:46 KST",
+      "publishedOrder": 1793871976861
     },
     {
-      "title": "이서진♥하지원 23년만에 “아프냐? 나도 아프다” (비서진)",
+      "title": "13년 역주행 신환 베스티, 주간 조회수 랭킹 1위[주간SD]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261105/134969836/1",
-      "publishedAt": "수집 11. 05. 10:18 KST",
-      "publishedOrder": 1793841484032
+      "url": "https://sports.donga.com/ent/article/all/20261105/134970505/1",
+      "publishedAt": "수집 11. 05. 18:46 KST",
+      "publishedOrder": 1793871976861
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 05. 10:18 KST",
-      "publishedOrder": 1793841482880
+      "publishedAt": "수집 11. 05. 18:46 KST",
+      "publishedOrder": 1793871970385
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 05. 10:18 KST",
-      "publishedOrder": 1793841482880
+      "publishedAt": "수집 11. 05. 18:46 KST",
+      "publishedOrder": 1793871970385
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 05. 10:18 KST",
-      "publishedOrder": 1793841482880
+      "publishedAt": "수집 11. 05. 18:46 KST",
+      "publishedOrder": 1793871970385
     },
     {
       "title": "브라질 핼러윈에 BTS 지민이? 유명 스트리머 분장 화제",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/star/2026/11/05/2026110507314228393",
-      "publishedAt": "수집 11. 05. 10:18 KST",
-      "publishedOrder": 1793841482880
+      "publishedAt": "수집 11. 05. 18:46 KST",
+      "publishedOrder": 1793871970385
     }
   ]
 }
