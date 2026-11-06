@@ -1,255 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-11-05T21:16:50.688Z",
-  "updatedAtKst": "2026. 11. 6. AM 6:16:50",
+  "updatedAt": "2026-11-06T10:02:53.527Z",
+  "updatedAtKst": "2026. 11. 6. PM 7:02:53",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "삼성, 11경기 만에 10승 타이"
+        "keyword": "조작기소 특검법 통과"
       },
       {
         "rank": 2,
-        "keyword": "김정관 장관 중국 방문"
+        "keyword": "김종철 경찰청장 제청사안"
       },
       {
         "rank": 3,
-        "keyword": "유럽 여객기 폭탄 위협"
+        "keyword": "이강철 감독 KT 상황 언급"
       },
       {
         "rank": 4,
-        "keyword": "영국 기준금리 인상"
+        "keyword": "이태현 KBS 사장 인사청문 재가"
       },
       {
         "rank": 5,
-        "keyword": "나나 탑 열애 악성 댓글"
+        "keyword": "정점식 원내대표 회의"
       },
       {
         "rank": 6,
-        "keyword": "장동현"
+        "keyword": "이용철 방사청장"
       },
       {
         "rank": 7,
-        "keyword": "이스라엘 연정 구성"
+        "keyword": "박지후"
       },
       {
         "rank": 8,
-        "keyword": "유로파리그"
+        "keyword": "강민호"
       },
       {
         "rank": 9,
-        "keyword": "윤석열 2심 선고"
+        "keyword": "강호동 구속영장 기각"
       },
       {
         "rank": 10,
-        "keyword": "미국 중간선거"
+        "keyword": "신현준 아내 회사, 서울시 특혜 의혹 반박"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "미국증시 new"
+        "keyword": "조작기소 특검법 통과 동일"
       },
       {
         "rank": 2,
-        "keyword": "KCC EASL 2연승 상승 5"
+        "keyword": "김종철 경찰청장 후보자 동일"
       },
       {
         "rank": 3,
-        "keyword": "줄은 찾는 외국인 new"
+        "keyword": "이강철 감독 동일"
       },
       {
         "rank": 4,
-        "keyword": "국가대표 4경기 구단 new"
+        "keyword": "금융시장 안정 간담회 동일"
       },
       {
         "rank": 5,
-        "keyword": "2026년 6일 상승 8"
+        "keyword": "신세계백화점 크리스마스 영상 상승 2"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "유럽 여객기 폭탄 위협"
+        "keyword": "국민의힘 특검 규탄대회"
       },
       {
         "rank": 2,
-        "keyword": "이스라엘 연정 구성"
+        "keyword": "정점식 원내대표 회의"
       },
       {
         "rank": 3,
-        "keyword": "윤석열 2심 선고"
+        "keyword": "긴급 시장상황점검회의"
       },
       {
         "rank": 4,
-        "keyword": "영국 기준금리 인상"
+        "keyword": "강호동 구속영장 기각"
       },
       {
         "rank": 5,
-        "keyword": "단원고 4·16 아카이브 등재"
+        "keyword": "내년 일자리 예산"
       },
       {
         "rank": 6,
-        "keyword": "뉴욕증시 급락"
+        "keyword": "조작기소 특검법 필리버스터"
       },
       {
         "rank": 7,
-        "keyword": "나주 인공태양 연구시설 예타 통과"
+        "keyword": "국토부 부동산 대책 수사"
       },
       {
         "rank": 8,
-        "keyword": "조슈아 웡 징역 10년"
+        "keyword": "이태현 KBS 사장 인사청문"
       },
       {
         "rank": 9,
-        "keyword": "전자발찌 전 연인 살해"
+        "keyword": "미국 이스라엘 군사원조"
       },
       {
         "rank": 10,
-        "keyword": "층간소음 기준 강화"
+        "keyword": "뉴욕증시 급락"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "lg에너지솔루션"
+        "keyword": "박지후"
       },
       {
         "rank": 2,
-        "keyword": "현대자동차"
+        "keyword": "강민호"
       },
       {
         "rank": 3,
-        "keyword": "농장"
+        "keyword": "kt 대 삼성"
       },
       {
         "rank": 4,
-        "keyword": "장동현"
+        "keyword": "가상자산"
       },
       {
         "rank": 5,
-        "keyword": "오타니 쇼헤이"
+        "keyword": "부산 불꽃축제"
       },
       {
         "rank": 6,
-        "keyword": "유로파리그"
+        "keyword": "어도어"
       },
       {
         "rank": 7,
-        "keyword": "잠수함"
+        "keyword": "005930"
       },
       {
         "rank": 8,
-        "keyword": "메가프로젝트"
+        "keyword": "스노클링"
       },
       {
         "rank": 9,
-        "keyword": "김도영"
+        "keyword": "구급차"
       },
       {
         "rank": 10,
-        "keyword": "해군사관학교"
+        "keyword": "코리아오픈 배드민턴"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "김세레나 성형 부작용 고백"
+        "keyword": "이승엽 한국시리즈 3차전"
       },
       {
         "rank": 2,
-        "keyword": "손정은 아나운서"
+        "keyword": "이주영 국회의원"
       },
       {
         "rank": 3,
-        "keyword": "나스닥 조정장 진입"
+        "keyword": "��미 라면축제"
       },
       {
         "rank": 4,
-        "keyword": "나나 탑 열애 인정"
+        "keyword": "강남3구 하락거래"
       },
       {
         "rank": 5,
-        "keyword": "알고리즘 ���"
+        "keyword": "이태현 인사청문요청안"
       },
       {
         "rank": 6,
-        "keyword": "옥주현 경매"
+        "keyword": "이용철 법무장관 후보자"
       },
       {
         "rank": 7,
-        "keyword": "최태원 롤러코스터 장세"
+        "keyword": "가능한 사랑"
       },
       {
         "rank": 8,
-        "keyword": "쿠칭 시티"
+        "keyword": "최인호 정무수석 내정"
       },
       {
         "rank": 9,
-        "keyword": "김태규 제명 촉구 결의안"
+        "keyword": "안덕수 국세청장 후보자"
       },
       {
         "rank": 10,
-        "keyword": "오빠생각"
+        "keyword": "한동훈 해명 요구"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "성시경, 하지원 추궁에 연상女와 연애 고백…“평생 안 만났다고는 못 해”",
+      "title": "최우식 승무원 갑질 논란 반박 “허위사실 유포 법적 조치” [전문]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261106/134975802/1",
-      "publishedAt": "수집 11. 06. 06:16 KST",
-      "publishedOrder": 1793913405997
+      "url": "https://sports.donga.com/ent/article/all/20261106/134981685/1",
+      "publishedAt": "수집 11. 06. 19:02 KST",
+      "publishedOrder": 1793959368342
     },
     {
-      "title": "한고은, 결혼 11년 차 남편 나이도 헷갈려…“1951년생이라고”",
+      "title": "“사칭 피싱 메일에 해킹” 정주리, 유튜브 활동 중단했던 이유",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261105/134975731/1",
-      "publishedAt": "수집 11. 06. 06:16 KST",
-      "publishedOrder": 1793913405997
+      "url": "https://sports.donga.com/ent/article/all/20261106/134981228/1",
+      "publishedAt": "수집 11. 06. 19:02 KST",
+      "publishedOrder": 1793959368342
     },
     {
-      "title": "허영생·탑, 16년·20년 팬심 무너졌다…“이제는 지친다” [SD이슈]",
+      "title": "빅컬쳐엔터 석현수 회장, 日 예능 출연…K팝으로 열고 불닭으로 달궜다[PS]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261106/134975784/1",
-      "publishedAt": "수집 11. 06. 06:16 KST",
-      "publishedOrder": 1793913405997
+      "url": "https://sports.donga.com/ent/article/all/20261106/134980717/1",
+      "publishedAt": "수집 11. 06. 19:02 KST",
+      "publishedOrder": 1793959368342
     },
     {
-      "title": "이지현, 중1 딸이 버린 옷 입는다…“멀쩡한데 아까워”",
+      "title": "인기 유튜버, 女 학대 생중계 논란…16년 전 파묘 (궁금한 이야기Y)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261105/134975699/1",
-      "publishedAt": "수집 11. 06. 06:16 KST",
-      "publishedOrder": 1793913405997
+      "url": "https://sports.donga.com/ent/article/all/20261106/134981087/1",
+      "publishedAt": "수집 11. 06. 19:02 KST",
+      "publishedOrder": 1793959368342
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 06. 06:16 KST",
-      "publishedOrder": 1793913405428
+      "publishedAt": "수집 11. 06. 19:02 KST",
+      "publishedOrder": 1793959367083
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 06. 06:16 KST",
-      "publishedOrder": 1793913405428
+      "publishedAt": "수집 11. 06. 19:02 KST",
+      "publishedOrder": 1793959367083
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 06. 06:16 KST",
-      "publishedOrder": 1793913405428
+      "publishedAt": "수집 11. 06. 19:02 KST",
+      "publishedOrder": 1793959367083
     },
     {
-      "title": "브라질 핼러윈에 BTS 지민이? 유명 스트리머 분장 화제",
+      "title": "방탄소년단 지민, 10월 글로벌 인스타그램 영향력 순위 톱5",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/05/2026110507314228393",
-      "publishedAt": "수집 11. 06. 06:16 KST",
-      "publishedOrder": 1793913405428
+      "url": "https://www.starnewskorea.com/star/2026/11/06/2026110607484663929",
+      "publishedAt": "수집 11. 06. 19:02 KST",
+      "publishedOrder": 1793959367083
     }
   ]
 }
