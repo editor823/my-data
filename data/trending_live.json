@@ -1,84 +1,84 @@
 {
   "success": true,
-  "updatedAt": "2026-11-06T10:02:53.527Z",
-  "updatedAtKst": "2026. 11. 6. PM 7:02:53",
+  "updatedAt": "2026-11-06T20:39:01.655Z",
+  "updatedAtKst": "2026. 11. 7. AM 5:39:01",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "조작기소 특검법 통과"
+        "keyword": "트럼프 백악관 비서실장 교체"
       },
       {
         "rank": 2,
-        "keyword": "김종철 경찰청장 제청사안"
+        "keyword": "삼성, 한국시리즈 3차전 승리!"
       },
       {
         "rank": 3,
-        "keyword": "이강철 감독 KT 상황 언급"
+        "keyword": "美 10월 고용 증가 16.5만명 실업률 하락"
       },
       {
         "rank": 4,
-        "keyword": "이태현 KBS 사장 인사청문 재가"
+        "keyword": "은평구 스토킹 살인 구속영장"
       },
       {
         "rank": 5,
-        "keyword": "정점식 원내대표 회의"
+        "keyword": "류효영 이태성에 호감"
       },
       {
         "rank": 6,
-        "keyword": "이용철 방사청장"
+        "keyword": "주가 대폭락"
       },
       {
         "rank": 7,
-        "keyword": "박지후"
+        "keyword": "국민의힘 특검 규탄대회"
       },
       {
         "rank": 8,
-        "keyword": "강민호"
+        "keyword": "어 도어"
       },
       {
         "rank": 9,
-        "keyword": "강호동 구속영장 기각"
+        "keyword": "이서진 다모 촬영 중 사고"
       },
       {
         "rank": 10,
-        "keyword": "신현준 아내 회사, 서울시 특혜 의혹 반박"
+        "keyword": "유럽 ��탄 협박"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "조작기소 특검법 통과 동일"
+        "keyword": "한국시리즈 3차전 승리 상승 1"
       },
       {
         "rank": 2,
-        "keyword": "김종철 경찰청장 후보자 동일"
+        "keyword": "美 10월 고용 동일"
       },
       {
         "rank": 3,
-        "keyword": "이강철 감독 동일"
+        "keyword": "류효영 이태성에 호감 동일"
       },
       {
         "rank": 4,
-        "keyword": "금융시장 안정 간담회 동일"
+        "keyword": "오늘도 이겼다 동일"
       },
       {
         "rank": 5,
-        "keyword": "신세계백화점 크리스마스 영상 상승 2"
+        "keyword": "이서진 다모 촬영 중 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "국민의힘 특검 규탄대회"
+        "keyword": "트럼프 백악관 비서실장 교체"
       },
       {
         "rank": 2,
-        "keyword": "정점식 원내대표 회의"
+        "keyword": "국민의힘 특검 규탄대회"
       },
       {
         "rank": 3,
-        "keyword": "긴급 시장상황점검회의"
+        "keyword": "은평구 스토킹 살인 구속영장"
       },
       {
         "rank": 4,
@@ -86,91 +86,91 @@
       },
       {
         "rank": 5,
-        "keyword": "내년 일자리 예산"
+        "keyword": "경기도 말라리아 감소"
       },
       {
         "rank": 6,
-        "keyword": "조작기소 특검법 필리버스터"
-      },
-      {
-        "rank": 7,
-        "keyword": "국토부 부동산 대책 수사"
-      },
-      {
-        "rank": 8,
         "keyword": "이태현 KBS 사장 인사청문"
       },
       {
+        "rank": 7,
+        "keyword": "미국 10월 고용"
+      },
+      {
+        "rank": 8,
+        "keyword": "고팍스 해킹 협박"
+      },
+      {
         "rank": 9,
-        "keyword": "미국 이스라엘 군사원조"
+        "keyword": "호르무즈 유조선 기뢰 충돌"
       },
       {
         "rank": 10,
-        "keyword": "뉴욕증시 급락"
+        "keyword": "러시아 우크라이나 발전소 공격"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "박지후"
+        "keyword": "주가 대폭락"
       },
       {
         "rank": 2,
-        "keyword": "강민호"
+        "keyword": "어 도어"
       },
       {
         "rank": 3,
-        "keyword": "kt 대 삼성"
+        "keyword": "농성"
       },
       {
         "rank": 4,
-        "keyword": "가상자산"
+        "keyword": "이강철"
       },
       {
         "rank": 5,
-        "keyword": "부산 불꽃축제"
+        "keyword": "임형주"
       },
       {
         "rank": 6,
-        "keyword": "어도어"
+        "keyword": "이승기"
       },
       {
         "rank": 7,
-        "keyword": "005930"
+        "keyword": "일론 머스크"
       },
       {
         "rank": 8,
-        "keyword": "스노클링"
+        "keyword": "t1 kc"
       },
       {
         "rank": 9,
-        "keyword": "구급차"
+        "keyword": "유튜버"
       },
       {
         "rank": 10,
-        "keyword": "코리아오픈 배드민턴"
+        "keyword": "강남"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "이승엽 한국시리즈 3차전"
+        "keyword": "류효영 이태성 고백"
       },
       {
         "rank": 2,
-        "keyword": "이주영 국회의원"
+        "keyword": "美 고용 증가"
       },
       {
         "rank": 3,
-        "keyword": "��미 라면축제"
+        "keyword": "샤이니 민호 철인 3종 경���"
       },
       {
         "rank": 4,
-        "keyword": "강남3구 하락거래"
+        "keyword": "신천지"
       },
       {
         "rank": 5,
-        "keyword": "이태현 인사청문요청안"
+        "keyword": "두번째 시그널 12월 7일 첫방"
       },
       {
         "rank": 6,
@@ -178,78 +178,21 @@
       },
       {
         "rank": 7,
-        "keyword": "가능한 사랑"
+        "keyword": "코리아 오픈 배드민턴 대회"
       },
       {
         "rank": 8,
-        "keyword": "최인호 정무수석 내정"
+        "keyword": "구미 라면축제"
       },
       {
         "rank": 9,
-        "keyword": "안덕수 국세청장 후보자"
+        "keyword": "가능한 사랑"
       },
       {
         "rank": 10,
-        "keyword": "한동훈 해명 요구"
+        "keyword": "조작기소 특검법"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "최우식 승무원 갑질 논란 반박 “허위사실 유포 법적 조치” [전문]",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261106/134981685/1",
-      "publishedAt": "수집 11. 06. 19:02 KST",
-      "publishedOrder": 1793959368342
-    },
-    {
-      "title": "“사칭 피싱 메일에 해킹” 정주리, 유튜브 활동 중단했던 이유",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261106/134981228/1",
-      "publishedAt": "수집 11. 06. 19:02 KST",
-      "publishedOrder": 1793959368342
-    },
-    {
-      "title": "빅컬쳐엔터 석현수 회장, 日 예능 출연…K팝으로 열고 불닭으로 달궜다[PS]",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261106/134980717/1",
-      "publishedAt": "수집 11. 06. 19:02 KST",
-      "publishedOrder": 1793959368342
-    },
-    {
-      "title": "인기 유튜버, 女 학대 생중계 논란…16년 전 파묘 (궁금한 이야기Y)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261106/134981087/1",
-      "publishedAt": "수집 11. 06. 19:02 KST",
-      "publishedOrder": 1793959368342
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 06. 19:02 KST",
-      "publishedOrder": 1793959367083
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 06. 19:02 KST",
-      "publishedOrder": 1793959367083
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 06. 19:02 KST",
-      "publishedOrder": 1793959367083
-    },
-    {
-      "title": "방탄소년단 지민, 10월 글로벌 인스타그램 영향력 순위 톱5",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/06/2026110607484663929",
-      "publishedAt": "수집 11. 06. 19:02 KST",
-      "publishedOrder": 1793959367083
-    }
-  ]
+  "entertainment": []
 }
