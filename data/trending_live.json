@@ -1,196 +1,196 @@
 {
   "success": true,
-  "updatedAt": "2026-11-06T20:39:01.655Z",
-  "updatedAtKst": "2026. 11. 7. AM 5:39:01",
+  "updatedAt": "2026-11-07T00:29:24.062Z",
+  "updatedAtKst": "2026. 11. 7. AM 9:29:24",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "트럼프 백악관 비서실장 교체"
+        "keyword": "미래에셋증권 해킹 정보유출"
       },
       {
         "rank": 2,
-        "keyword": "삼성, 한국시리즈 3차전 승리!"
+        "keyword": "트럼프 비서실장 교체"
       },
       {
         "rank": 3,
-        "keyword": "美 10월 고용 증가 16.5만명 실업률 하락"
+        "keyword": "테슬라 사이버트럭"
       },
       {
         "rank": 4,
-        "keyword": "은평구 스토킹 살인 구속영장"
+        "keyword": "이태성 마음 바뀌었다"
       },
       {
         "rank": 5,
-        "keyword": "류효영 이태성에 호감"
+        "keyword": "유연석, 옥자연 한잔할래?"
       },
       {
         "rank": 6,
-        "keyword": "주가 대폭락"
+        "keyword": "이용철 대장동 연루 검증"
       },
       {
         "rank": 7,
-        "keyword": "국민의힘 특검 규탄대회"
+        "keyword": "미국증시"
       },
       {
         "rank": 8,
-        "keyword": "어 도어"
+        "keyword": "의약품"
       },
       {
         "rank": 9,
-        "keyword": "이서진 다모 촬영 중 사고"
+        "keyword": "노동자"
       },
       {
         "rank": 10,
-        "keyword": "유럽 ��탄 협박"
+        "keyword": "국민의힘 특검 규탄대회"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "한국시리즈 3차전 승리 상승 1"
+        "keyword": "하이닉스 주��� 상승 3"
       },
       {
         "rank": 2,
-        "keyword": "美 10월 고용 동일"
+        "keyword": "100일의 거짓말 상승 1"
       },
       {
         "rank": 3,
-        "keyword": "류효영 이태성에 호감 동일"
+        "keyword": "민호 3종 모터 new"
       },
       {
         "rank": 4,
-        "keyword": "오늘도 이겼다 동일"
+        "keyword": "살인자 쇄도 고려 중 new"
       },
       {
         "rank": 5,
-        "keyword": "이서진 다모 촬영 중 new"
+        "keyword": "이용철 하락 3"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "트럼프 백악관 비서실장 교체"
+        "keyword": "미래에셋증권 해킹 정보유출"
       },
       {
         "rank": 2,
-        "keyword": "국민의힘 특검 규탄대회"
+        "keyword": "트럼프 백악관 비서실장 교체"
       },
       {
         "rank": 3,
-        "keyword": "은평구 스토킹 살인 구속영장"
-      },
-      {
-        "rank": 4,
-        "keyword": "강호동 구속영장 기각"
-      },
-      {
-        "rank": 5,
-        "keyword": "경기도 말라리아 감소"
-      },
-      {
-        "rank": 6,
-        "keyword": "이태현 KBS 사장 인사청문"
-      },
-      {
-        "rank": 7,
-        "keyword": "미국 10월 고용"
-      },
-      {
-        "rank": 8,
         "keyword": "고팍스 해킹 협박"
       },
       {
+        "rank": 4,
+        "keyword": "국민의힘 특검 규탄대회"
+      },
+      {
+        "rank": 5,
+        "keyword": "애리조나 민주당 3관왕"
+      },
+      {
+        "rank": 6,
+        "keyword": "서울 도심 집회 교통혼잡"
+      },
+      {
+        "rank": 7,
+        "keyword": "프랑스 긴축 예산안 부결"
+      },
+      {
+        "rank": 8,
+        "keyword": "러시아 우크라이나 발전소 공격"
+      },
+      {
         "rank": 9,
-        "keyword": "호르무즈 유조선 기뢰 충돌"
+        "keyword": "뉴욕증시 AI 반등"
       },
       {
         "rank": 10,
-        "keyword": "러시아 우크라이나 발전소 공격"
+        "keyword": "한-아세안 포럼"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "주가 대폭락"
+        "keyword": "공무원"
       },
       {
         "rank": 2,
-        "keyword": "어 도어"
+        "keyword": "문화일보"
       },
       {
         "rank": 3,
-        "keyword": "농성"
+        "keyword": "아들"
       },
       {
         "rank": 4,
-        "keyword": "이강철"
+        "keyword": "대한민국 농림축산식품부 장관"
       },
       {
         "rank": 5,
-        "keyword": "임형주"
+        "keyword": "테슬라 사이버트럭"
       },
       {
         "rank": 6,
-        "keyword": "이승기"
+        "keyword": "의약품"
       },
       {
         "rank": 7,
-        "keyword": "일론 머스크"
+        "keyword": "노동자"
       },
       {
         "rank": 8,
-        "keyword": "t1 kc"
+        "keyword": "기초 연구"
       },
       {
         "rank": 9,
-        "keyword": "유튜버"
+        "keyword": "아프리카"
       },
       {
         "rank": 10,
-        "keyword": "강남"
+        "keyword": "박민지"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "류효영 이태성 고백"
+        "keyword": "류효영 류화영 결혼식 눈물"
       },
       {
         "rank": 2,
-        "keyword": "美 고용 증가"
+        "keyword": "송재호 6주기"
       },
       {
         "rank": 3,
-        "keyword": "샤이니 민호 철인 3종 경���"
+        "keyword": "미래에셋증권 해킹"
       },
       {
         "rank": 4,
-        "keyword": "신천지"
+        "keyword": "이용철 법무장관 지명"
       },
       {
         "rank": 5,
-        "keyword": "두번째 시그널 12월 7일 첫방"
-      },
-      {
-        "rank": 6,
-        "keyword": "이용철 법무장관 후보자"
-      },
-      {
-        "rank": 7,
-        "keyword": "코리아 오픈 배드민턴 대회"
-      },
-      {
-        "rank": 8,
-        "keyword": "구미 라면축제"
-      },
-      {
-        "rank": 9,
         "keyword": "가능한 사랑"
       },
       {
+        "rank": 6,
+        "keyword": "민간인 산나물 채취"
+      },
+      {
+        "rank": 7,
+        "keyword": "입동"
+      },
+      {
+        "rank": 8,
+        "keyword": "사이버트럭"
+      },
+      {
+        "rank": 9,
+        "keyword": "남대문 스카프 아저씨"
+      },
+      {
         "rank": 10,
-        "keyword": "조작기소 특검법"
+        "keyword": "최준희 외모 차별"
       }
     ]
   },
