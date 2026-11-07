@@ -1,198 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-11-07T09:23:03.323Z",
-  "updatedAtKst": "2026. 11. 7. PM 6:23:03",
+  "updatedAt": "2026-11-07T19:09:56.888Z",
+  "updatedAtKst": "2026. 11. 8. AM 4:09:56",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "민주노총 2026 전국노동자대회"
+        "keyword": "부산 밤하늘 불꽃 향연"
       },
       {
         "rank": 2,
-        "keyword": "장찬희 4이닝 1실점 호투"
+        "keyword": "버디 퍼트 들어가라!"
       },
       {
         "rank": 3,
-        "keyword": "트럼프 백악관 비서실장 교체"
+        "keyword": "매디슨 황 방한 취소"
       },
       {
         "rank": 4,
-        "keyword": "박승규 2타점 2루타"
+        "keyword": "국민의힘 조작기소특검법 규탄 집회"
       },
       {
         "rank": 5,
-        "keyword": "나탈리 하프"
-      },
-      {
-        "rank": 6,
-        "keyword": "호르무즈 게슘섬 미사일"
-      },
-      {
-        "rank": 7,
         "keyword": "미래에셋증권 해킹 정보유출"
       },
       {
+        "rank": 6,
+        "keyword": "블루웨이브 쇼크 시총 증발"
+      },
+      {
+        "rank": 7,
+        "keyword": "김현철 유재석 축의금 환불 원해"
+      },
+      {
         "rank": 8,
-        "keyword": "장재인 반신마비 진단받다"
+        "keyword": "로또 1등 14명 당첨"
       },
       {
         "rank": 9,
-        "keyword": "혈당"
+        "keyword": "노팅엄 포레스트 대 맨 시티"
       },
       {
         "rank": 10,
-        "keyword": "광안리 상공에 뜬 블���이글스"
+        "keyword": "트럼프 백악관 비서실장 교체"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "박진만 감독 상승 9"
+        "keyword": "들어가라 버디 퍼트 하락 4"
       },
       {
         "rank": 2,
-        "keyword": "한국시리즈 동일"
+        "keyword": "폴란드 총기 사망 new"
       },
       {
         "rank": 3,
-        "keyword": "민주노총 2026 전국노동자대회 하락 1"
+        "keyword": "사랑이 온다 하락 2"
       },
       {
         "rank": 4,
-        "keyword": "광안리 상공에 뜬 블랙이글스 상승 1"
+        "keyword": "그것이 알고 싶다 new"
       },
       {
         "rank": 5,
-        "keyword": "장재인 반신마비 진단 하락 1"
+        "keyword": "피겨 이해인 동메달 상승 1"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "트럼프 백악관 비서실장 교체"
+        "keyword": "국민의힘 조작기소특검법 규탄 집회"
       },
       {
         "rank": 2,
-        "keyword": "호르무즈 게슘섬 미사일"
+        "keyword": "러우 종전 협상 공방"
       },
       {
         "rank": 3,
-        "keyword": "미래에셋증권 해킹 정보유출"
+        "keyword": "폴란드 크라쿠프 총기난사"
       },
       {
         "rank": 4,
-        "keyword": "은평구 스토킹 살인 구속영장"
+        "keyword": "북한 KN-23 미사일"
       },
       {
         "rank": 5,
-        "keyword": "블루웨이브 쇼크 시총 증발"
+        "keyword": "트럼프 백악관 비서실장 교체"
       },
       {
         "rank": 6,
-        "keyword": "미국 이란 핵 협상 중재안"
+        "keyword": "프랑스 긴축 예산안 부결"
       },
       {
         "rank": 7,
-        "keyword": "애리조나 민주당 3관왕"
-      },
-      {
-        "rank": 8,
         "keyword": "한국시리즈 4차전"
       },
       {
+        "rank": 8,
+        "keyword": "우리카드 개막 2연승"
+      },
+      {
         "rank": 9,
-        "keyword": "북한 태권도 유네스코 등재"
+        "keyword": "로또 1249회 당첨번호"
       },
       {
         "rank": 10,
-        "keyword": "포스코 노조 임금합의 부결"
+        "keyword": "세브란스병원 흉기난동 구속심사"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "하희라"
+        "keyword": "gta6"
       },
       {
         "rank": 2,
-        "keyword": "주권"
+        "keyword": "노팅엄 포레스트 대 맨 시티"
       },
       {
         "rank": 3,
-        "keyword": "나탈리 하프"
+        "keyword": "일본 지진"
       },
       {
         "rank": 4,
-        "keyword": "혈당"
+        "keyword": "이천수"
       },
       {
         "rank": 5,
-        "keyword": "김영철"
+        "keyword": "복권"
       },
       {
         "rank": 6,
-        "keyword": "수원 kt 대 대구 한국가스공사"
+        "keyword": "하정우"
       },
       {
         "rank": 7,
-        "keyword": "젠슨황"
+        "keyword": "mainz vs bayern"
       },
       {
         "rank": 8,
-        "keyword": "우규민"
+        "keyword": "김성우"
       },
       {
         "rank": 9,
-        "keyword": "맥도날드"
+        "keyword": "nepal premier league"
       },
       {
         "rank": 10,
-        "keyword": "류현인"
+        "keyword": "버밍엄 대 스완지 시티"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "류효영 이태성 호감 고백"
+        "keyword": "신기루 팬미팅"
       },
       {
         "rank": 2,
-        "keyword": "박승규 3타점"
+        "keyword": "김광진 매니저 재단 자제"
       },
       {
         "rank": 3,
-        "keyword": "부산 불꽃축제"
+        "keyword": "오승근 김자옥 결혼 제안"
       },
       {
         "rank": 4,
-        "keyword": "기안84 이주승 AI 여친"
+        "keyword": "1249회 로또 당첨 번호"
       },
       {
         "rank": 5,
-        "keyword": "포스코 노조 임금협상안 부결"
+        "keyword": "부산 불꽃축제"
       },
       {
         "rank": 6,
-        "keyword": "kgma"
+        "keyword": "아이비 시카고"
       },
       {
         "rank": 7,
-        "keyword": "전현무 계획 4"
+        "keyword": "화양연화 영화"
       },
       {
         "rank": 8,
-        "keyword": "장찬희 선발 호투"
+        "keyword": "전민기 여자 문제 폭로"
       },
       {
         "rank": 9,
-        "keyword": "가능한 사랑"
+        "keyword": "온수관"
       },
       {
         "rank": 10,
-        "keyword": "젠슨 황 소환장"
+        "keyword": "김소니아 코 부상 이탈"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "“수능 금지곡 됐으면 좋겠어요”…가수들도 탐내는 중독성의 훈장",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261107/134968740/1",
+      "publishedAt": "수집 11. 08. 04:09 KST",
+      "publishedOrder": 1794078591416
+    },
+    {
+      "title": "‘♥홍현희’ 제이쓴, 日서도 알아보는 유명세…“‘슈돌’ 출연까지 알아” 깜짝",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261107/134983837/1",
+      "publishedAt": "수집 11. 08. 04:09 KST",
+      "publishedOrder": 1794078591416
+    },
+    {
+      "title": "머라이어 캐리의 계절…사계절 맴도는 연금송",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261107/134968701/1",
+      "publishedAt": "수집 11. 08. 04:09 KST",
+      "publishedOrder": 1794078591416
+    },
+    {
+      "title": "루시, 싱글 ‘다시!’ 하이라이트 메들리 공개…청량·애틋 분위기",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261107/134983326/1",
+      "publishedAt": "수집 11. 08. 04:09 KST",
+      "publishedOrder": 1794078591416
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 11. 08. 04:09 KST",
+      "publishedOrder": 1794078590755
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 11. 08. 04:09 KST",
+      "publishedOrder": 1794078590755
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 11. 08. 04:09 KST",
+      "publishedOrder": 1794078590755
+    },
+    {
+      "title": "방탄소년단 정국, 7캐럿 다이아몬드 반지 환상 프러포즈..'그라프' 홀리데이 캠페인",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/11/07/2026110707380887084",
+      "publishedAt": "수집 11. 08. 04:09 KST",
+      "publishedOrder": 1794078590755
+    }
+  ]
 }

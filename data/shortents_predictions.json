@@ -1,6 +1,6 @@
 {
   "success": true,
-  "generatedAt": "2026-11-07T09:21:08.809Z",
+  "generatedAt": "2026-11-07T12:56:10.282Z",
   "windowMin": 90,
   "notice": "기사 흐름으로 추정한 후보입니다. 글을 쓰기 전 원문 기사로 사실을 확인하세요.",
   "paid": true,
@@ -8,969 +8,999 @@
   "lockedCount": 0,
   "predictions": [
     {
-      "id": "아이딧|수상",
-      "title": "아이딧 수상",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘플라이!’ 아이딧 수상"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "아이딧, 힙하게 날아올랐다 ‘플라이!’"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "아이딧, 베스트 댄스 퍼포먼스 수상"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "트리플에스,'24명 다같이 찾은 KGMA 나들이'"
-        }
-      ],
-      "entities": [
-        "아이딧"
-      ],
-      "event": "수상",
-      "score": 69,
-      "articles": 20,
-      "press": 3,
-      "recent20": 8,
-      "firstArticleAt": "2026-11-07T07:18:00.000Z",
-      "lastArticleAt": "2026-11-07T09:14:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "아이딧, 힙하게 날아올랐다 ‘플라이!’ [2026 KGMA]",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070172",
-          "at": "2026-11-07T09:14:00.000Z"
-        },
-        {
-          "title": "[포토]KGMA 찾은 트리플에스,트로피와 함께",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070205",
-          "at": "2026-11-07T09:12:00.000Z"
-        },
-        {
-          "title": "[포토]트리플에스,'24명 다같이 찾은 KGMA 나들이'",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070204",
-          "at": "2026-11-07T09:11:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "노조+포스코|",
-      "title": "포스코 노조",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘반대 51.69%’ 포스코 노조"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "포스코 노조, 포스코, 임금 잠정합의안 부결 '반대 51.69%'"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "포스코 노조, 포스코 노사 임금합의안 부결"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "포스코 노조, 찬반투표서 임금 잠정합의안 부결"
-        }
-      ],
-      "entities": [
-        "포스코",
-        "노조"
-      ],
-      "event": null,
-      "score": 57,
-      "articles": 9,
-      "press": 9,
-      "recent20": 6,
-      "firstArticleAt": "2026-11-07T07:48:00.000Z",
-      "lastArticleAt": "2026-11-07T09:16:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "포스코, 임금 잠정합의안 부결 '반대 51.69%'",
-          "press": "economist.co.kr",
-          "link": "https://economist.co.kr/article/view/ecn202611070010",
-          "at": "2026-11-07T09:16:00.000Z"
-        },
-        {
-          "title": "포스코 노사 임금합의안 부결…다시 원점으로",
-          "press": "ekn.kr",
-          "link": "https://www.ekn.kr/web/view.php?key=20261107021536695",
-          "at": "2026-11-07T09:16:00.000Z"
-        },
-        {
-          "title": "포스코 노조 임금 잠정합의안 부결…조합원 51.7% 반대",
-          "press": "inews24.com",
-          "link": "http://www.inews24.com/view/2023713",
-          "at": "2026-11-07T09:08:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "메이딘|수상",
-      "title": "메이딘 수상",
+      "id": "김응수|출연",
+      "title": "김응수 출연",
       "titles": [
         {
           "style": "기사 요약형",
-          "title": "'포토제닉상' 메이딘 \"멋진 상 받아 행복"
+          "title": "김응수, 절친 신동엽에 솔직"
         },
         {
           "style": "기사 요약형",
-          "title": "메이딘, 포토제닉 수상"
+          "title": "김응수 출연, “연기 스승으로서 큰 보람”"
         },
         {
           "style": "기사 요약형",
-          "title": "메이딘, 신나는 무대"
+          "title": "김응수, 스윙스 향한 애정 \"연기 가르친 스승으로서 큰 보람\""
         }
       ],
       "entities": [
-        "메이딘"
+        "김응수"
       ],
-      "event": "수상",
-      "score": 40,
-      "articles": 10,
-      "press": 2,
+      "event": "출연",
+      "score": 34,
+      "articles": 6,
+      "press": 4,
       "recent20": 0,
-      "firstArticleAt": "2026-11-07T07:23:00.000Z",
-      "lastArticleAt": "2026-11-07T09:01:00.000Z",
+      "firstArticleAt": "2026-11-07T01:08:00.000Z",
+      "lastArticleAt": "2026-11-07T12:27:00.000Z",
       "trendHit": true,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "[포토]메이딘, 신나는 무대",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070182",
-          "at": "2026-11-07T09:01:00.000Z"
+          "title": "“꼰대짓 하러 출연하는 줄” 김응수, 30년지기 신동엽 한방 먹였다 ‘...",
+          "press": "mk.co.kr",
+          "link": "https://www.mk.co.kr/article/12201536",
+          "at": "2026-11-07T12:27:00.000Z"
         },
         {
-          "title": "[포토] 메이딘, 포토제닉들의 무대",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070169",
-          "at": "2026-11-07T08:51:00.000Z"
+          "title": "김응수, 절친 신동엽에 솔직 \"'놀토' 왜 나와? 젊은 애들 있는 데서 꼰대...",
+          "press": "news1.kr",
+          "link": "https://www.news1.kr/entertain/broadcast-tv/6346551",
+          "at": "2026-11-07T12:24:00.000Z"
         },
         {
-          "title": "[포토] 메이딘, 신나는 리듬 속에",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070170",
-          "at": "2026-11-07T08:51:00.000Z"
+          "title": "“연기 스승으로서 큰 보람”… 김응수, 스윙스 문자에 사극 ‘광안’ ...",
+          "press": "mk.co.kr",
+          "link": "https://www.mk.co.kr/article/12201532",
+          "at": "2026-11-07T12:15:00.000Z"
         }
       ]
     },
     {
-      "id": "올데이+프로젝트|수상",
-      "title": "올데이 프로젝트 수상",
+      "id": "트레저|수상",
+      "title": "트레저 수상",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘베스트 아티스트’ 올데이 프로젝트 수상"
+          "title": "‘그랜드 송’ 트레저 수상"
         },
         {
           "style": "기사 요약형",
-          "title": "올데이 프로젝트, '베스트 아티스트' 수상"
+          "title": "트레저 수상, '그랜드 송'까지 4관왕"
         },
         {
           "style": "기사 요약형",
-          "title": "올데이 프로젝트, 베스트 아티스트 수상"
+          "title": "‘4관왕’ 트레저, 그랜드 송 트로피 들었다"
         }
       ],
       "entities": [
-        "올데이",
-        "프로젝트"
+        "트레저"
       ],
       "event": "수상",
-      "score": 30,
-      "articles": 6,
-      "press": 2,
-      "recent20": 4,
-      "firstArticleAt": "2026-11-07T08:52:00.000Z",
-      "lastArticleAt": "2026-11-07T09:18:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "[포토] 올데이 프로젝트, KGMA 무대에서 만나요",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070210",
-          "at": "2026-11-07T09:18:00.000Z"
-        },
-        {
-          "title": "[포토] 올데이 프로젝트, '베스트아티스트'의 무대",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070211",
-          "at": "2026-11-07T09:18:00.000Z"
-        },
-        {
-          "title": "[포토]올데이 프로젝트,'베스트 아티스트 수상'",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070198",
-          "at": "2026-11-07T09:08:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "미야오|수상",
-      "title": "미야오 수상",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘베스트 아티스트’ 미야오 수상"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "미야오, '베스트 아티스트' 수상"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "'베스트 아티스트' 미야오"
-        }
-      ],
-      "entities": [
-        "미야오"
-      ],
-      "event": "수상",
-      "score": 28,
+      "score": 24,
       "articles": 5,
       "press": 2,
-      "recent20": 4,
-      "firstArticleAt": "2026-11-07T04:29:00.000Z",
-      "lastArticleAt": "2026-11-07T09:10:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "[포토]'베스트 아티스트' 미야오",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070201",
-          "at": "2026-11-07T09:10:00.000Z"
-        },
-        {
-          "title": "[포토]미야오,'베스트 아티스트 수상'",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070200",
-          "at": "2026-11-07T09:09:00.000Z"
-        },
-        {
-          "title": "[포토]미야오, 베스트아티스트 수상",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070188",
-          "at": "2026-11-07T09:04:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "리센느+원이|수상",
-      "title": "원이 리센느 수상",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘베스트 아티스트’ 원이 리센느 수상"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "원이 리센느 수상, 리센느, '베스트 아티스트' 수상"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "고척돔에 뜬 리센느 원이, '아틀란티스 소녀'로 상큼 오프닝"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "리센느, '베스트 아티스트' 수상"
-        }
-      ],
-      "entities": [
-        "원이",
-        "리센느"
-      ],
-      "event": "수상",
-      "score": 25,
-      "articles": 6,
-      "press": 3,
       "recent20": 3,
-      "firstArticleAt": "2026-11-07T07:05:00.000Z",
-      "lastArticleAt": "2026-11-07T09:18:00.000Z",
+      "firstArticleAt": "2026-11-06T00:06:00.000Z",
+      "lastArticleAt": "2026-11-07T12:48:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "리센느, '베스트 아티스트' 수상…\"항상 열심히 무대할 것\"[2026 KGMA]",
-          "press": "edaily.co.kr",
-          "link": "https://www.edaily.co.kr/News/Read?newsId=03463686645643424&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article",
-          "at": "2026-11-07T09:18:00.000Z"
-        },
-        {
-          "title": "고척돔에 뜬 리센느 원이, '아틀란티스 소녀'로 상큼 오프닝[2026 KGMA]",
-          "press": "edaily.co.kr",
-          "link": "https://www.edaily.co.kr/News/Read?newsId=03407926645643424&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article",
-          "at": "2026-11-07T09:14:00.000Z"
-        },
-        {
-          "title": "[포토] 리센느, 베스트아티스트상 수상",
+          "title": "[포토]'기세'넘치는 트레저",
           "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070202",
-          "at": "2026-11-07T09:11:00.000Z"
+          "link": "https://isplus.com/article/view/isp202611070477",
+          "at": "2026-11-07T12:48:00.000Z"
+        },
+        {
+          "title": "[포토]'4관왕' 트레저,트로피4개와 함께",
+          "press": "isplus.com",
+          "link": "https://isplus.com/article/view/isp202611070475",
+          "at": "2026-11-07T12:47:00.000Z"
+        },
+        {
+          "title": "[포토]트레저,4관왕 달성",
+          "press": "isplus.com",
+          "link": "https://isplus.com/article/view/isp202611070474",
+          "at": "2026-11-07T12:46:00.000Z"
         }
       ]
     },
     {
-      "id": "삼성+안경|",
-      "title": "안경 삼성",
+      "id": "김현철+유재석|결혼",
+      "title": "유재석 김현철 결혼",
       "titles": [
         {
-          "style": "기사 요약형",
-          "title": "삼성 첫 AI 안경 출시 임박"
+          "style": "인용형",
+          "title": "‘유재석 보고 출연’ 유재석♥김현철 결혼"
         },
         {
           "style": "기사 요약형",
-          "title": "안경 삼성, 생애 첫 한국시리즈에서 타율 5할 맹타"
+          "title": "김현철 \"유재석 결혼식 축의금 50만원 냈지만 혜택 無"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "유재석♥김현철 결혼, \"유재석에 축의금 많이 냈는데 혜택 없어\""
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "이소라, 목소리 듣고도 안 믿겼다"
         }
       ],
       "entities": [
-        "안경",
-        "삼성"
+        "유재석",
+        "김현철"
       ],
-      "event": null,
-      "score": 24,
-      "articles": 2,
-      "press": 2,
-      "recent20": 2,
-      "firstArticleAt": "2026-11-07T03:42:00.000Z",
-      "lastArticleAt": "2026-11-07T09:19:00.000Z",
-      "trendHit": true,
+      "event": "결혼",
+      "score": 22,
+      "articles": 4,
+      "press": 4,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-07T11:12:00.000Z",
+      "lastArticleAt": "2026-11-07T12:41:00.000Z",
+      "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "생애 첫 한국시리즈에서 타율 5할 맹타 ... 삼성 박승규 “여자친구에게...",
-          "press": "chosun.com",
-          "link": "https://www.chosun.com/sports/baseball/2026/11/07/JGWT2B7CFBAMDD4IC673EO7OCM/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-          "at": "2026-11-07T09:19:00.000Z"
+          "title": "김현철, 유재석 결혼식 축의금 환불 원했는데 몇 배로 돌아왔다 “100 채...",
+          "press": "newsen.com",
+          "link": "https://www.newsen.com/news_view.php?uid=202611072056316110",
+          "at": "2026-11-07T12:41:00.000Z"
         },
         {
-          "title": "삼성 첫 AI 안경 출시 임박…젠틀몬스터·워비파커, 12일 예약 판매",
-          "press": "aitimes.com",
-          "link": "https://www.aitimes.com/news/articleView.html?idxno=217133",
-          "at": "2026-11-07T09:16:00.000Z"
+          "title": "김현철 \"유재석 결혼식 축의금 50만원 냈지만 혜택 無, 일부 환불 원해...",
+          "press": "sportschosun.com",
+          "link": "https://www.sportschosun.com/entertainment/2026-11-07/202611070100051810005169",
+          "at": "2026-11-07T12:35:00.000Z"
+        },
+        {
+          "title": "\"유재석에 축의금 많이 냈는데 혜택 없어\"…김현철, 환불 요청 (아형)",
+          "press": "xportsnews.com",
+          "link": "https://www.xportsnews.com/article/2216900",
+          "at": "2026-11-07T11:43:00.000Z"
         }
       ]
     },
     {
-      "id": "튜이드|수상",
-      "title": "튜이드 수상",
+      "id": "작가|입대",
+      "title": "작가 입대",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘첫 시상식 뜻깊어’ 튜이드 수상"
+          "title": "‘100일의 거짓말’ 작가 입대"
         },
         {
           "style": "기사 요약형",
-          "title": "튜이드 수상, 데뷔 3개월 만에 고척돔"
+          "title": "작가 입대, 입소문 타고 시청률 터진 드라마 ‘100일의 거짓말'"
         },
         {
           "style": "기사 요약형",
-          "title": "튜이드, IS 라이징스타 수상"
+          "title": "KBS '문무' vs JTBC 정도전 작가 '신의 구슬'"
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "튜이드, 'IS 라이징 스타' 수상 \"첫 시상식서 뜻깊은 상\""
+          "title": "재불 작가 목수정 \"프랑스 고교생 시위는 '교육 받을 권리'를"
         }
       ],
       "entities": [
-        "튜이드"
+        "작가"
       ],
-      "event": "수상",
-      "score": 24,
-      "articles": 7,
+      "event": "입대",
+      "score": 19,
+      "articles": 3,
+      "press": 3,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-07T06:31:00.000Z",
+      "lastArticleAt": "2026-11-07T12:54:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "[인터뷰] 재불 작가 목수정 \"프랑스 고교생 시위는 '교육 받을 권리'를 ...",
+          "press": "edupress.kr",
+          "link": "https://www.edupress.kr/news/articleView.html?idxno=30593",
+          "at": "2026-11-07T12:54:00.000Z"
+        },
+        {
+          "title": "입소문 타고 시청률 터진 드라마 ‘100일의 거짓말'…이거 쓴 작가, '이...",
+          "press": "wikitree.co.kr",
+          "link": "https://www.wikitree.co.kr/articles/1171866",
+          "at": "2026-11-07T12:30:00.000Z"
+        },
+        {
+          "title": "KBS '문무' vs JTBC 정도전 작가 '신의 구슬' 연말 사극 맞대결",
+          "press": "mediatoday.co.kr",
+          "link": "https://www.mediatoday.co.kr/news/articleView.html?idxno=338276",
+          "at": "2026-11-07T11:52:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "sns+영수|사과",
+      "title": "영수 SNS 사과",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘불륜 의혹’ 영수 SNS 사과"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "영수 SNS 사과, ‘불륜 의혹’ 양홍원, 멈추지 않는 SNS"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "영수 SNS 사과, 32기 영수 '몰카 논란' 사과 4일 만"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "‘불륜 의혹’ 양홍원, 멈추지 않는 SNS"
+        }
+      ],
+      "entities": [
+        "영수",
+        "SNS"
+      ],
+      "event": "사과",
+      "score": 18,
+      "articles": 4,
       "press": 2,
       "recent20": 0,
-      "firstArticleAt": "2026-11-07T04:36:00.000Z",
-      "lastArticleAt": "2026-11-07T08:49:00.000Z",
+      "firstArticleAt": "2026-11-07T10:52:00.000Z",
+      "lastArticleAt": "2026-11-07T12:36:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "데뷔 3개월 만에 고척돔…튜이드, 세련된 무대로 눈도장 [2026 KGMA]",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070147",
-          "at": "2026-11-07T08:49:00.000Z"
+          "title": "“SNS 끊어라” 박수홍 아내, 또 ‘돈 자랑’에 시끌…댓글창까지 불붙...",
+          "press": "sportsseoul.com",
+          "link": "https://www.sportsseoul.com/news/read/1647962?ref=naver",
+          "at": "2026-11-07T12:36:00.000Z"
         },
         {
-          "title": "[포토] 튜이드, 빛나는 퍼포먼스",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070156",
-          "at": "2026-11-07T08:44:00.000Z"
+          "title": "32기 영수 '몰카 논란' 사과 4일 만…국화, SNS 의미심장 메시지 \"신뢰\"",
+          "press": "sportschosun.com",
+          "link": "https://www.sportschosun.com/entertainment/2026-11-07/202611070100051790005168",
+          "at": "2026-11-07T12:15:00.000Z"
         },
         {
-          "title": "[포토] 튜이드, KGMA를 환하게",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070157",
-          "at": "2026-11-07T08:44:00.000Z"
+          "title": "“신뢰뿐이다” 국화, 32기 영수 ‘몰카’ 사과 나흘 만에 의미심장 SNS",
+          "press": "sportsseoul.com",
+          "link": "https://www.sportsseoul.com/news/read/1647959?ref=naver",
+          "at": "2026-11-07T12:02:00.000Z"
         }
       ]
     },
     {
-      "id": "앤더블|데뷔",
-      "title": "앤더블 데뷔",
+      "id": "구피+신동욱|근황",
+      "title": "구피신동욱 근황",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "구피 신동욱, 필리핀 사업 실패→돼지 농장 근무"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "구피 신동욱, 돼지농장서 일하는 근황 \"밥벌이 해야 되니까\""
+        },
+        {
+          "style": "기사 요약형",
+          "title": "구피 신동욱, 필리핀 사업 실패 후"
+        }
+      ],
+      "entities": [
+        "구피",
+        "신동욱"
+      ],
+      "event": "근황",
+      "score": 17,
+      "articles": 3,
+      "press": 3,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-06T21:06:00.000Z",
+      "lastArticleAt": "2026-11-07T12:50:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "구피 신동욱, 필리핀 사업 실패→돼지 농장 근무 “밥벌이해야” (알이...",
+          "press": "enews.imbc.com",
+          "link": "http://enews.imbc.com/News/RetrieveNewsInfo/523959",
+          "at": "2026-11-07T12:50:00.000Z"
+        },
+        {
+          "title": "구피 신동욱, 돼지농장서 일하는 근황 \"밥벌이 해야 되니까\"",
+          "press": "mydaily.co.kr",
+          "link": "https://www.mydaily.co.kr/page/view/2026110720133135300",
+          "at": "2026-11-07T11:34:00.000Z"
+        },
+        {
+          "title": "구피 신동욱, 필리핀 사업 실패 후…\"6만평 돼지 농장서 근무\"",
+          "press": "newsis.com",
+          "link": "https://www.newsis.com/view/NISX20261107_0003859013",
+          "at": "2026-11-07T11:33:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "한채영|논란",
+      "title": "한채영 논란",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘IS 라이징 스타’ 앤더블 데뷔"
+          "title": "‘당당하게 또 공개’ 한채영 논란"
         },
         {
           "style": "기사 요약형",
-          "title": "'IS 라이징 스타' 앤더블"
+          "title": "한채영, 달라진 얼굴 '당당하게 또 공개'..휴가 즐기는 중"
         },
         {
           "style": "기사 요약형",
-          "title": "앤더블, IS 라이징스타 주인공"
+          "title": "“얼굴 또 달라졌다” 한채영, 또 성형설 부른 사진 공개"
+        }
+      ],
+      "entities": [
+        "한채영"
+      ],
+      "event": "논란",
+      "score": 16,
+      "articles": 2,
+      "press": 2,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-07T01:24:00.000Z",
+      "lastArticleAt": "2026-11-07T12:55:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "한채영, 달라진 얼굴 '당당하게 또 공개'..휴가 즐기는 중",
+          "press": "spotvnews.co.kr",
+          "link": "https://www.spotvnews.co.kr/news/articleView.html?idxno=1018462",
+          "at": "2026-11-07T12:55:00.000Z"
+        },
+        {
+          "title": "“얼굴 또 달라졌다” 한채영, 또 성형설 부른 사진 공개…보정 논란까...",
+          "press": "sportsseoul.com",
+          "link": "https://www.sportsseoul.com/news/read/1647960?ref=naver",
+          "at": "2026-11-07T12:17:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "앤더블|수상",
+      "title": "앤더블 수상",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "앤더블, ‘라라라’ 후렴으로 고척돔 홀렸다"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "앤더블 '그랜드 아너스 초이스' 수상"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "앤더블, 데뷔 6개월 만에 ‘2026 KGMA’ 2관왕"
         }
       ],
       "entities": [
         "앤더블"
       ],
-      "event": "데뷔",
-      "score": 24,
-      "articles": 4,
-      "press": 4,
+      "event": "수상",
+      "score": 16,
+      "articles": 6,
+      "press": 2,
       "recent20": 0,
       "firstArticleAt": "2026-11-01T07:56:00.000Z",
-      "lastArticleAt": "2026-11-07T08:37:00.000Z",
+      "lastArticleAt": "2026-11-07T12:34:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "'IS 라이징 스타' 앤더블 \"데뷔 6개월 만에 신인상, 특별해\"[2026 KGMA]",
-          "press": "edaily.co.kr",
-          "link": "https://www.edaily.co.kr/News/Read?newsId=02994646645643424&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article",
-          "at": "2026-11-07T08:37:00.000Z"
-        },
-        {
-          "title": "앤더블, IS 라이징스타 주인공…“팬들이 보내준 마음 헛되지 않도록”...",
+          "title": "[포토]앤더블 리키, 강렬한 눈빛",
           "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070005",
-          "at": "2026-11-07T08:36:00.000Z"
+          "link": "https://isplus.com/article/view/isp202611070463",
+          "at": "2026-11-07T12:34:00.000Z"
         },
         {
-          "title": "앤더블, 비주얼·퍼포먼스 다 잡은 완벽 삼박자",
-          "press": "osen.co.kr",
-          "link": "http://www.osen.co.kr/article/G1112906069",
-          "at": "2026-11-07T08:26:00.000Z"
+          "title": "[포토]앤더블, 근사한 무대",
+          "press": "isplus.com",
+          "link": "https://isplus.com/article/view/isp202611070462",
+          "at": "2026-11-07T12:34:00.000Z"
+        },
+        {
+          "title": "[포토]앤더블, 즉석에서 펼치는 팬서비스",
+          "press": "isplus.com",
+          "link": "https://isplus.com/article/view/isp202611070436",
+          "at": "2026-11-07T12:23:00.000Z"
         }
       ]
     },
     {
-      "id": "누에라|수상",
-      "title": "누에라 수상",
+      "id": "등장인물|첫방송",
+      "title": "등장인물 첫방송",
       "titles": [
         {
-          "style": "인용형",
-          "title": "‘IS 루키’ 누에라 수상"
+          "style": "기사 요약형",
+          "title": "등장인물 첫방송, 대하사극 '문무' 베일 벗는다"
         },
         {
           "style": "기사 요약형",
-          "title": "누에라, IS 루키 수상"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "누에라, 'IS 루키' 수상"
+          "title": "'문무' 스페셜, 등장인물 김법민·연개소문·김춘추 등 캐릭터"
         }
       ],
       "entities": [
-        "누에라"
+        "등장인물"
+      ],
+      "event": "첫방송",
+      "score": 14,
+      "articles": 2,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-07T12:20:00.000Z",
+      "lastArticleAt": "2026-11-07T12:28:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "대하사극 '문무' 베일 벗는다… 등장인물 첫방송 언제?",
+          "press": "gukjenews.com",
+          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3745176",
+          "at": "2026-11-07T12:28:00.000Z"
+        },
+        {
+          "title": "'문무' 스페셜, 등장인물 김법민·연개소문·김춘추 등 캐릭터 소개",
+          "press": "enter.etoday.co.kr",
+          "link": "https://enter.etoday.co.kr/news/view/304899",
+          "at": "2026-11-07T12:20:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "에너지+전한|근황",
+      "title": "에너지 전한 근황",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘TEMPERATURE’ 에너지 전한 근황"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "에너지 전한 근황, 비투비 이민혁, 'TEMPERATURE' 질주 에너지"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "공공기관 이전, 에너지·우주·바이오 클러스터 조성 연계해야"
+        }
+      ],
+      "entities": [
+        "에너지",
+        "전한"
+      ],
+      "event": "근황",
+      "score": 14,
+      "articles": 2,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-07T12:12:00.000Z",
+      "lastArticleAt": "2026-11-07T12:24:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "공공기관 이전, 에너지·우주·바이오 클러스터 조성 연계해야",
+          "press": "jejumaeil.net",
+          "link": "https://www.jejumaeil.net/news/articleView.html?idxno=406463",
+          "at": "2026-11-07T12:24:00.000Z"
+        },
+        {
+          "title": "비투비 이민혁, 'TEMPERATURE' 질주 에너지…야간 거리에서 전한 근황",
+          "press": "topstarnews.net",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16270844",
+          "at": "2026-11-07T12:12:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "까지+크래비티|수상",
+      "title": "크래비티 까지 수상",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘베스트 아티스트’ 크래비티 까지 수상"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "크래비티, '베스트 아티스트'까지 수상"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "크래비티 까지 수상, 김의영, '나쁜놈'부터 '가요무대'까지"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "김의영, '나쁜놈'부터 '가요무대'까지"
+        }
+      ],
+      "entities": [
+        "크래비티",
+        "까지"
       ],
       "event": "수상",
-      "score": 20,
-      "articles": 5,
-      "press": 2,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-07T07:17:00.000Z",
-      "lastArticleAt": "2026-11-07T08:45:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "[포토]누에라, 폭발적인 무대",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070161",
-          "at": "2026-11-07T08:45:00.000Z"
-        },
-        {
-          "title": "[포토]누에라, 파워넘치는 무대",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070160",
-          "at": "2026-11-07T08:45:00.000Z"
-        },
-        {
-          "title": "[포토]누에라의 첫 무대",
-          "press": "isplus.com",
-          "link": "https://isplus.com/article/view/isp202611070159",
-          "at": "2026-11-07T08:45:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "모두+최불암|별세",
-      "title": "최불암 모두 별세",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘불후의 명곡’ 최불암 모두 별세"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "최불암 모두 별세, '불후의 명곡', 故최불암 추모"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "故 최불암=모두의 아버지"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "'불후의 명곡', 故최불암 추모"
-        }
-      ],
-      "entities": [
-        "최불암",
-        "모두"
-      ],
-      "event": "별세",
-      "score": 18,
-      "articles": 2,
-      "press": 2,
-      "recent20": 2,
-      "firstArticleAt": "2026-11-07T09:18:00.000Z",
-      "lastArticleAt": "2026-11-07T09:20:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "'불후의 명곡', 故최불암 추모 \"모두의 아버지..영원히 기억하겠습니다...",
-          "press": "osen.co.kr",
-          "link": "http://www.osen.co.kr/article/G1112906134",
-          "at": "2026-11-07T09:20:00.000Z"
-        },
-        {
-          "title": "故 최불암=모두의 아버지…제작진 \"영원히 기억하겠다\"('불후의 명곡')[...",
-          "press": "celuvmedia.com",
-          "link": "http://www.celuvmedia.com/article.php?aid=1794043057530521010",
-          "at": "2026-11-07T09:18:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "트로트|근황",
-      "title": "트로트 근황",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘서울깍쟁이도 가끔은’ 트로트 근황"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "트로트 가수 두리, '서울깍쟁이도 가끔은' 무대룩 공개"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "트로트 가수 박군, 통영 충렬여중 방문 근황"
-        }
-      ],
-      "entities": [
-        "트로트"
-      ],
-      "event": "근황",
-      "score": 15,
-      "articles": 3,
-      "press": 3,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-06T22:41:00.000Z",
-      "lastArticleAt": "2026-11-07T08:24:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "트로트 가수 두리, '서울깍쟁이도 가끔은' 무대룩 공개…북 치며 인사",
-          "press": "topstarnews.net",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16270714",
-          "at": "2026-11-07T08:24:00.000Z"
-        },
-        {
-          "title": "“미스터트롯이 트로트 살렸듯 이제는 만담 차례”...정영준 메타코메디...",
-          "press": "sedaily.com",
-          "link": "https://www.sedaily.com/article/20111219?ref=naver",
-          "at": "2026-11-07T08:11:00.000Z"
-        },
-        {
-          "title": "트로트 가수 박군, 통영 충렬여중 방문 근황… \"1학년 2반 쵝오\"",
-          "press": "jnilbo.com",
-          "link": "https://www.jnilbo.com/news/articleView.html?idxno=90000080476",
-          "at": "2026-11-07T07:59:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "스크린|데뷔",
-      "title": "스크린 데뷔",
-      "titles": [
-        {
-          "style": "기사 요약형",
-          "title": "스크린 데뷔, 로버트 패틴슨, 새 제임스 본드 되나"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "‘최종면접’ 배강희 “스크린 데뷔 신기..신승호 기세에 안"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "로버트 패틴슨, 새 제임스 본드 되나"
-        }
-      ],
-      "entities": [
-        "스크린"
-      ],
-      "event": "데뷔",
       "score": 14,
       "articles": 2,
       "press": 2,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-07T00:19:00.000Z",
-      "lastArticleAt": "2026-11-07T08:59:00.000Z",
+      "recent20": 1,
+      "firstArticleAt": "2026-11-07T11:30:00.000Z",
+      "lastArticleAt": "2026-11-07T12:40:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "[뮤:터뷰①]‘최종면접’ 배강희 “스크린 데뷔 신기..신승호 기세에 안...",
-          "press": "heraldmuse.com",
-          "link": "https://www.heraldmuse.com/article/10929303?ref=naver",
-          "at": "2026-11-07T08:59:00.000Z"
+          "title": "김의영, '나쁜놈'부터 '가요무대'까지…폭넓어진 음악 행보",
+          "press": "topstarnews.net",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16270853",
+          "at": "2026-11-07T12:40:00.000Z"
         },
         {
-          "title": "로버트 패틴슨, 새 제임스 본드 되나…'007' 스크린 테스트",
+          "title": "크래비티, '베스트 아티스트'까지 수상…3관왕 등극 영예[2026 KGMA]",
           "press": "edaily.co.kr",
-          "link": "https://www.edaily.co.kr/News/Read?newsId=03168486645643424&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article",
-          "at": "2026-11-07T08:51:00.000Z"
+          "link": "https://www.edaily.co.kr/News/Read?newsId=03752326645643424&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article",
+          "at": "2026-11-07T11:30:00.000Z"
         }
       ]
     },
     {
-      "id": "신정환|출연",
-      "title": "신정환 출연",
+      "id": "김영철+이지현|이혼",
+      "title": "김영철 이지현 이혼",
       "titles": [
         {
-          "style": "기사 요약형",
-          "title": "신정환, 복귀 욕심에 ‘아형’ 출연 전 김희철에 부탁"
+          "style": "인용형",
+          "title": "‘미용 실기 7번 낙방 후 합격’ 김영철♥이지현 이혼"
         },
         {
           "style": "기사 요약형",
-          "title": "신정환 '아형' 촬영 비화 \"녹화 전날 김희철에 전화"
+          "title": "김영철♥이지현 이혼, \"미용 실기 7번 낙방 후 합격\""
+        },
+        {
+          "style": "기사 요약형",
+          "title": "이혼 겪고 공황 온 이지현, 김영철"
         }
       ],
       "entities": [
-        "신정환"
+        "김영철",
+        "이지현"
       ],
-      "event": "출연",
+      "event": "이혼",
       "score": 14,
       "articles": 2,
       "press": 2,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-07T06:13:00.000Z",
-      "lastArticleAt": "2026-11-07T08:49:00.000Z",
+      "recent20": 1,
+      "firstArticleAt": "2026-11-07T11:48:00.000Z",
+      "lastArticleAt": "2026-11-07T12:52:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "신정환 '아형' 촬영 비화 \"녹화 전날 김희철에 전화...시원하게 공격해...",
-          "press": "tvreport.co.kr",
-          "link": "https://www.tvreport.co.kr/breaking/article/1089062/",
-          "at": "2026-11-07T08:49:00.000Z"
-        },
-        {
-          "title": "신정환, 복귀 욕심에 ‘아형’ 출연 전 김희철에 부탁 “애드리브 90% 내...",
+          "title": "이혼 겪고 공황 온 이지현, 김영철 “국내 최초 걸그룹 돌돌싱” 언급에...",
           "press": "newsen.com",
-          "link": "https://www.newsen.com/news_view.php?uid=202611071544212510",
-          "at": "2026-11-07T08:48:00.000Z"
+          "link": "https://www.newsen.com/news_view.php?uid=202611072056136110",
+          "at": "2026-11-07T12:52:00.000Z"
+        },
+        {
+          "title": "\"미용 실기 7번 낙방 후 합격\"… '아는 형님' 이지현, 싱글맘 두 번째 인...",
+          "press": "gukjenews.com",
+          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3745160",
+          "at": "2026-11-07T11:48:00.000Z"
         }
       ]
     },
     {
-      "id": "스타일|근황",
-      "title": "스타일 근황",
+      "id": "계류유산+김다영|임신",
+      "title": "김다영 계류유산 임신",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘MMA 스타일로 승리한다’ 스타일 근황"
+          "title": "‘배성재 아내’ 김다영♥계류유산 임신"
         },
         {
           "style": "기사 요약형",
-          "title": "SF9 영빈, 깔끔한 데님 스타일로 근황"
+          "title": "'배성재 아내' 김다영, 계류유산 아픔 공유"
         },
         {
           "style": "기사 요약형",
-          "title": "준비는 끝났다! \"MMA 스타일로 승리한다\"→'새신랑'"
+          "title": "'배성재♥' 김다영, 계류유산 고백 후 임신"
         }
       ],
       "entities": [
-        "스타일"
+        "김다영",
+        "계류유산"
       ],
-      "event": "근황",
+      "event": "임신",
       "score": 14,
       "articles": 2,
       "press": 2,
       "recent20": 0,
-      "firstArticleAt": "2026-11-07T04:50:00.000Z",
-      "lastArticleAt": "2026-11-07T08:38:00.000Z",
+      "firstArticleAt": "2026-11-07T11:14:00.000Z",
+      "lastArticleAt": "2026-11-07T12:18:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "준비는 끝났다! \"MMA 스타일로 승리한다\"→'새신랑' 고석현, UFC 3승째 재...",
-          "press": "mydaily.co.kr",
-          "link": "https://www.mydaily.co.kr/page/view/2026110716382816216",
-          "at": "2026-11-07T08:38:00.000Z"
+          "title": "'배성재 아내' 김다영, 계류유산 아픔 공유 \"나 때문 아닐까 자책말라\"",
+          "press": "stoo.com",
+          "link": "http://www.stoo.com/article.php?aid=109780493571",
+          "at": "2026-11-07T12:18:00.000Z"
         },
         {
-          "title": "SF9 영빈, 깔끔한 데님 스타일로 근황…10주년 활동 열기 잇는다",
-          "press": "topstarnews.net",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16270724",
-          "at": "2026-11-07T08:28:00.000Z"
+          "title": "'배성재♥' 김다영, 계류유산 고백 후 임신…\"절대 자책 말길\"",
+          "press": "mydaily.co.kr",
+          "link": "https://www.mydaily.co.kr/page/view/2026110720183273479",
+          "at": "2026-11-07T11:58:00.000Z"
         }
       ]
     },
     {
-      "id": "아이브|컴백",
-      "title": "아이브 컴백",
+      "id": "너무+스윙스|공개",
+      "title": "스윙스 너무 공개",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘2026 KGMA’ 아이브 컴백"
+          "title": "‘흙감자 같아’ 스윙스 너무 공개"
         },
         {
           "style": "기사 요약형",
-          "title": "아이브 리즈, 발렌티노에서 눈부신 존재감"
+          "title": "스윙스 \"처음엔 질색했던 밈, 지금은 너무 좋아.. 사람들"
         },
         {
-          "style": "기사 요약형",
-          "title": "아이브, '룩스 캔 킬'로 강렬 컴백"
+          "style": "설명형(둘째 줄)",
+          "title": "스윙스, 호위무사 역할인데 “흙감자 같아” 굴욕 ‘광안’"
         }
       ],
       "entities": [
-        "아이브"
+        "스윙스",
+        "너무"
       ],
-      "event": "컴백",
+      "event": "공개",
       "score": 12,
       "articles": 2,
       "press": 2,
       "recent20": 0,
-      "firstArticleAt": "2026-11-02T01:10:00.000Z",
-      "lastArticleAt": "2026-11-07T08:22:00.000Z",
+      "firstArticleAt": "2026-11-07T11:40:00.000Z",
+      "lastArticleAt": "2026-11-07T12:12:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "아이브 리즈, 발렌티노에서 눈부신 존재감…'2026 KGMA' 솔로 오프닝 예...",
-          "press": "topstarnews.net",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16270712",
-          "at": "2026-11-07T08:22:00.000Z"
+          "title": "스윙스 \"처음엔 질색했던 밈, 지금은 너무 좋아.. 사람들 행동·말투 바...",
+          "press": "tvreport.co.kr",
+          "link": "https://www.tvreport.co.kr/broadcast/article/1089092/",
+          "at": "2026-11-07T12:12:00.000Z"
         },
         {
-          "title": "아이브, '룩스 캔 킬'로 강렬 컴백…새 콘셉트에 시선 집중",
-          "press": "jnilbo.com",
-          "link": "https://www.jnilbo.com/news/articleView.html?idxno=90000080474",
-          "at": "2026-11-07T07:53:00.000Z"
+          "title": "스윙스, 호위무사 역할인데 “흙감자 같아” 굴욕 ‘광안’ 포스터 합성...",
+          "press": "newsen.com",
+          "link": "https://www.newsen.com/news_view.php?uid=202611072038471710",
+          "at": "2026-11-07T11:40:00.000Z"
         }
       ]
     },
     {
-      "id": "백지영+토로|",
-      "title": "백지영 토로",
+      "id": "권해효+하석진|",
+      "title": "권해효 하석진",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘옷 다 벗었는데 엉덩이 토닥토닥’ 백지영 토로"
+          "title": "‘사랑이 온다’ 권해효 하석진"
         },
         {
           "style": "기사 요약형",
-          "title": "백지영 토로, 백지영, 대중탕서 불편한 경험"
+          "title": "하석진, 권해효 대기업 회장 찬스로 레스토랑 대박 ("
         },
         {
           "style": "기사 요약형",
-          "title": "백지영 토로, \"옷 다 벗었는데 엉덩이 토닥토닥\" 백지영, 사우나서 겪은"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "백지영, 대중탕서 불편한 경험"
+          "title": "권해효 하석진, ‘사랑이 온다’ 진경, 하석진 향한 광기 폭발"
         }
       ],
       "entities": [
-        "백지영",
-        "토로"
+        "권해효",
+        "하석진"
       ],
       "event": null,
-      "score": 10,
+      "score": 12,
       "articles": 2,
       "press": 2,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-07T07:45:00.000Z",
-      "lastArticleAt": "2026-11-07T08:55:00.000Z",
+      "recent20": 1,
+      "firstArticleAt": "2026-11-07T11:42:00.000Z",
+      "lastArticleAt": "2026-11-07T12:50:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "백지영, 대중탕서 불편한 경험 \"옷 다 벗고 있는데 엉덩이 만지고 포옹...",
-          "press": "tvreport.co.kr",
-          "link": "https://www.tvreport.co.kr/breaking/article/1089064/",
-          "at": "2026-11-07T08:55:00.000Z"
+          "title": "‘사랑이 온다’ 진경, 하석진 향한 광기 폭발… 류승수 위로에 결국 ‘...",
+          "press": "sports.khan.co.kr",
+          "link": "https://sports.khan.co.kr/article/202611072149003?pt=nv",
+          "at": "2026-11-07T12:50:00.000Z"
         },
         {
-          "title": "\"옷 다 벗었는데 엉덩이 토닥토닥\" 백지영, 사우나서 겪은 고충 토로 (백...",
-          "press": "tvdaily.co.kr",
-          "link": "http://www.tvdaily.co.kr/read.php3?aid=17940401001808740002",
-          "at": "2026-11-07T08:31:00.000Z"
+          "title": "하석진, 권해효 대기업 회장 찬스로 레스토랑 대박 ('사랑이 온다')",
+          "press": "mhnse.com",
+          "link": "https://mhnse.com/news/articleView.html?idxno=1686510",
+          "at": "2026-11-07T12:09:00.000Z"
         }
       ]
     },
     {
-      "id": "영국+장인|",
-      "title": "장인 영국",
+      "id": "mc몽+유튜버|복귀",
+      "title": "MC몽 유튜버 복귀",
       "titles": [
         {
-          "style": "기사 요약형",
-          "title": "장인 영국, 돈 주고 계급산 장교가 지휘"
+          "style": "인용형",
+          "title": "‘일상 100% 공유’ MC몽 유튜버 복귀"
         },
         {
           "style": "기사 요약형",
-          "title": "영국 해리 왕자 장인, 아동 성학대물 소지 혐의로 체포"
+          "title": "MC몽, 유튜버로 복귀한다"
         },
         {
-          "style": "설명형(둘째 줄)",
-          "title": "돈 주고 계급산 장교가 지휘"
+          "style": "기사 요약형",
+          "title": "MC몽, 유튜버 활동 예고"
         }
       ],
       "entities": [
-        "장인",
-        "영국"
+        "MC몽",
+        "유튜버"
+      ],
+      "event": "복귀",
+      "score": 12,
+      "articles": 2,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-07T09:57:00.000Z",
+      "lastArticleAt": "2026-11-07T12:09:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "MC몽, 유튜버로 복귀한다…\"일상 100% 공유\"",
+          "press": "newsis.com",
+          "link": "https://www.newsis.com/view/NISX20261107_0003859039",
+          "at": "2026-11-07T12:09:00.000Z"
+        },
+        {
+          "title": "MC몽, 유튜버 활동 예고…\"유일무이한 유튜브 팀 찾는다\"",
+          "press": "mt.co.kr",
+          "link": "https://www.mt.co.kr/entertainment/2026/11/07/2026110720353116719",
+          "at": "2026-11-07T11:50:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "김신영+했더니|복귀",
+      "title": "김신영 했더니 복귀",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "‘30세’ 이찬원, 13세 연상 김신영 ‘우쭈쭈’했더니"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "“못하면 남이라도 해” 김신영 부캐 ‘다비 이모’ 탄생"
+        }
+      ],
+      "entities": [
+        "김신영",
+        "했더니"
+      ],
+      "event": "복귀",
+      "score": 12,
+      "articles": 2,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-07T11:30:00.000Z",
+      "lastArticleAt": "2026-11-07T12:08:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "‘30세’ 이찬원, 13세 연상 김신영 ‘우쭈쭈’했더니 돌아온 말 “나한...",
+          "press": "mk.co.kr",
+          "link": "https://www.mk.co.kr/article/12201531",
+          "at": "2026-11-07T12:08:00.000Z"
+        },
+        {
+          "title": "[불후의 명곡] “못하면 남이라도 해” 김신영 부캐 ‘다비 이모’ 탄생...",
+          "press": "kstar.kbs.co.kr",
+          "link": "https://kstar.kbs.co.kr/list_view.html?idx=414127",
+          "at": "2026-11-07T11:30:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "이해인+피겨|",
+      "title": "피겨이해인",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘트리플 악셀 성공’ 피겨 이해인"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "'트리플 악셀 성공' 피겨 이해인, 시즌 첫 그랑프리서 동메달"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "피겨 이해인, 시즌 첫 그랑프리서 역전 동메달"
+        }
+      ],
+      "entities": [
+        "피겨",
+        "이해인"
+      ],
+      "event": null,
+      "score": 12,
+      "articles": 2,
+      "press": 2,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-07T11:25:00.000Z",
+      "lastArticleAt": "2026-11-07T12:48:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "'트리플 악셀 성공' 피겨 이해인, 시즌 첫 그랑프리서 동메달",
+          "press": "newspim.com",
+          "link": "https://www.newspim.com/news/view/20261107000131",
+          "at": "2026-11-07T12:48:00.000Z"
+        },
+        {
+          "title": "피겨 이해인, 시즌 첫 그랑프리서 역전 동메달…트리플 악셀도 성공",
+          "press": "newsis.com",
+          "link": "https://www.newsis.com/view/NISX20261107_0003859018",
+          "at": "2026-11-07T12:19:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "부산+열창|",
+      "title": "부산 열창",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘락트 인’ 부산 열창"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "부산 열창, 누에라 ‘락트 인’ 열창"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "부산 열창, 김수찬, 부산·삼척 달군 무대"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "김수찬, 부산·삼척 달군 무대"
+        }
+      ],
+      "entities": [
+        "부산",
+        "열창"
       ],
       "event": null,
       "score": 10,
       "articles": 2,
       "press": 2,
       "recent20": 0,
-      "firstArticleAt": "2026-11-07T08:55:00.000Z",
-      "lastArticleAt": "2026-11-07T09:01:00.000Z",
+      "firstArticleAt": "2026-11-07T12:12:00.000Z",
+      "lastArticleAt": "2026-11-07T12:15:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "돈 주고 계급산 장교가 지휘... 영국 전쟁사에 남은 참사",
-          "press": "ohmynews.com",
-          "link": "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003277958&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news",
-          "at": "2026-11-07T09:01:00.000Z"
+          "title": "누에라 ‘락트 인’ 열창…고척돔 들썩 [2026 KGMA]",
+          "press": "isplus.com",
+          "link": "https://isplus.com/article/view/isp202611070014",
+          "at": "2026-11-07T12:15:00.000Z"
         },
         {
-          "title": "영국 해리 왕자 장인, 아동 성학대물 소지 혐의로 체포",
-          "press": "joongang.co.kr",
-          "link": "https://www.joongang.co.kr/article/25476612",
-          "at": "2026-11-07T08:55:00.000Z"
+          "title": "김수찬, 부산·삼척 달군 무대…'트롯챔피언' 질주 잇는 열창",
+          "press": "topstarnews.net",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16270843",
+          "at": "2026-11-07T12:12:00.000Z"
         }
       ]
     }
   ],
   "alreadyShown": [
-    "이찬원 케미",
-    "스승 결혼",
-    "박수홍 김다예 논란"
+    "영케이 수상",
+    "김유정 케미",
+    "유연석 서현진",
+    "리센느 수상"
   ],
   "hitRate": {
     "days": 7,
-    "predicted": 2954,
-    "matched": 410,
-    "avgLeadMin": 309,
+    "predicted": 2969,
+    "matched": 422,
+    "avgLeadMin": 324,
     "recent": [
       {
-        "title": "민호 기록 콘서트",
-        "matched_keyword": "민호 철인3종 모터 논란 기록 반납",
-        "lead_min": 295,
-        "matched_at": 1794042951795
+        "title": "유재석 김현철 결혼",
+        "matched_keyword": "김현철 유재석 축의금 비하인드",
+        "lead_min": 160,
+        "matched_at": 1794064851907
       },
       {
-        "title": "이찬원 케미",
-        "matched_keyword": "이찬원, 방송3사 개그맨과 행님아 커버",
-        "lead_min": 25,
-        "matched_at": 1794042951795
+        "title": "트레저 수상",
+        "matched_keyword": "영케이·트레저·리센느 그랜드상",
+        "lead_min": 190,
+        "matched_at": 1794060351803
       },
       {
-        "title": "박수홍 김다예 논란",
-        "matched_keyword": "박수홍 김다예, 딸 명품 신발 패딩",
-        "lead_min": 16335,
-        "matched_at": 1794042351809
+        "title": "권해효 하석진",
+        "matched_keyword": "권해효, 안희연 하석진 해결사",
+        "lead_min": 55,
+        "matched_at": 1794059151825
       },
       {
-        "title": "박수홍 명품 결혼",
-        "matched_keyword": "박수홍 김다예, 딸 명품 신발 패딩",
-        "lead_min": 65,
-        "matched_at": 1794042351809
+        "title": "앤더블 데뷔",
+        "matched_keyword": "앤더블 완벽 비주얼 퍼포먼스",
+        "lead_min": 260,
+        "matched_at": 1794056751800
       },
       {
-        "title": "박수홍 김다예",
-        "matched_keyword": "박수홍 김다예, 딸 명품 신발 패딩",
-        "lead_min": 35,
-        "matched_at": 1794042351809
+        "title": "앤더블 수상",
+        "matched_keyword": "앤더블 완벽 비주얼 퍼포먼스",
+        "lead_min": 70,
+        "matched_at": 1794056751800
       },
       {
-        "title": "출신 데뷔",
-        "matched_keyword": "정영주 며느리, 손예진 아역 출신",
-        "lead_min": 2890,
-        "matched_at": 1794039351822
+        "title": "이민정 이병헌 결혼",
+        "matched_keyword": "이민정 이병헌 14년 차 데이트",
+        "lead_min": 55,
+        "matched_at": 1794053751810
       },
       {
-        "title": "앞둔 전역",
-        "matched_keyword": "이강인 복귀 앞둔 아틀레티코 공격 한계",
-        "lead_min": 3035,
-        "matched_at": 1794039051801
+        "title": "이소라 거미",
+        "matched_keyword": "이소라 거미 미나미, 서울가요제 라인업",
+        "lead_min": 15,
+        "matched_at": 1794052551781
       },
       {
-        "title": "앞둔 데뷔",
-        "matched_keyword": "이강인 복귀 앞둔 아틀레티코 공격 한계",
-        "lead_min": 75,
-        "matched_at": 1794039051801
+        "title": "불후 근황",
+        "matched_keyword": "신동엽, 불후서 코미디 도전",
+        "lead_min": 90,
+        "matched_at": 1794050151783
       },
       {
-        "title": "제작진 사과",
-        "matched_keyword": "제작진도 숨긴 스포 치명적 드라마 TOP5",
-        "lead_min": 11675,
-        "matched_at": 1794037251791
+        "title": "불후 별세",
+        "matched_keyword": "신동엽, 불후서 코미디 도전",
+        "lead_min": 80,
+        "matched_at": 1794050151783
       },
       {
-        "title": "제작진 출연",
-        "matched_keyword": "제작진도 숨긴 스포 치명적 드라마 TOP5",
-        "lead_min": 430,
-        "matched_at": 1794037251791
+        "title": "양희 전유성 고백",
+        "matched_keyword": "양희은, 故 전유성 55년 우정",
+        "lead_min": 76,
+        "matched_at": 1794049551784
       }
     ]
   }
