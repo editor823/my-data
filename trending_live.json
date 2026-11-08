@@ -1,80 +1,16 @@
 {
   "success": true,
-  "updatedAt": "2026-11-07T19:09:56.888Z",
-  "updatedAtKst": "2026. 11. 8. AM 4:09:56",
+  "updatedAt": "2026-11-08T00:04:10.565Z",
+  "updatedAtKst": "2026. 11. 8. AM 9:04:10",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "부산 밤하늘 불꽃 향연"
+        "keyword": "트럼프 UFC 회장에 대변인 제안"
       },
       {
         "rank": 2,
-        "keyword": "버디 퍼트 들어가라!"
-      },
-      {
-        "rank": 3,
-        "keyword": "매디슨 황 방한 취소"
-      },
-      {
-        "rank": 4,
-        "keyword": "국민의힘 조작기소특검법 규탄 집회"
-      },
-      {
-        "rank": 5,
-        "keyword": "미래에셋증권 해킹 정보유출"
-      },
-      {
-        "rank": 6,
-        "keyword": "블루웨이브 쇼크 시총 증발"
-      },
-      {
-        "rank": 7,
-        "keyword": "김현철 유재석 축의금 환불 원해"
-      },
-      {
-        "rank": 8,
-        "keyword": "로또 1등 14명 당첨"
-      },
-      {
-        "rank": 9,
-        "keyword": "노팅엄 포레스트 대 맨 시티"
-      },
-      {
-        "rank": 10,
-        "keyword": "트럼프 백악관 비서실장 교체"
-      }
-    ],
-    "nate": [
-      {
-        "rank": 1,
-        "keyword": "들어가라 버디 퍼트 하락 4"
-      },
-      {
-        "rank": 2,
-        "keyword": "폴란드 총기 사망 new"
-      },
-      {
-        "rank": 3,
-        "keyword": "사랑이 온다 하락 2"
-      },
-      {
-        "rank": 4,
-        "keyword": "그것이 알고 싶다 new"
-      },
-      {
-        "rank": 5,
-        "keyword": "피겨 이해인 동메달 상승 1"
-      }
-    ],
-    "zum": [
-      {
-        "rank": 1,
-        "keyword": "국민의힘 조작기소특검법 규탄 집회"
-      },
-      {
-        "rank": 2,
-        "keyword": "러우 종전 협상 공방"
+        "keyword": "젠슨 황, 스파이 연인관계"
       },
       {
         "rank": 3,
@@ -82,174 +18,238 @@
       },
       {
         "rank": 4,
-        "keyword": "북한 KN-23 미사일"
+        "keyword": "100일의 거짓말"
       },
       {
         "rank": 5,
-        "keyword": "트럼프 백악관 비서실장 교체"
+        "keyword": "북한 KN-23 미사일"
       },
       {
         "rank": 6,
-        "keyword": "프랑스 긴축 예산안 부결"
+        "keyword": "아는 형님"
       },
       {
         "rank": 7,
-        "keyword": "한국시리즈 4차전"
+        "keyword": "국민의힘 조작기소특검법 규탄 집회"
       },
       {
         "rank": 8,
-        "keyword": "우리카드 개막 2연승"
+        "keyword": "수능 10일 전 점검과 리듬 관리"
       },
       {
         "rank": 9,
-        "keyword": "로또 1249회 당첨번호"
+        "keyword": "남구"
       },
       {
         "rank": 10,
-        "keyword": "세브란스병원 흉기난동 구속심사"
+        "keyword": "프랑스 고물가 시위 4주째"
+      }
+    ],
+    "nate": [
+      {
+        "rank": 1,
+        "keyword": "100일의 거짓말 동일"
+      },
+      {
+        "rank": 2,
+        "keyword": "트럼프 UFC 대변인 new"
+      },
+      {
+        "rank": 3,
+        "keyword": "송하예 조매력 오늘 결혼 new"
+      },
+      {
+        "rank": 4,
+        "keyword": "폴란드 6명 사망 하락 1"
+      },
+      {
+        "rank": 5,
+        "keyword": "뮌헨 마인츠 2-1 new"
+      }
+    ],
+    "zum": [
+      {
+        "rank": 1,
+        "keyword": "폴란드 크라쿠프 총기난사"
+      },
+      {
+        "rank": 2,
+        "keyword": "국민의힘 조작기소특검법 규탄 집회"
+      },
+      {
+        "rank": 3,
+        "keyword": "북한 KN-23 미사일"
+      },
+      {
+        "rank": 4,
+        "keyword": "프랑스 고물가 시위 4주째"
+      },
+      {
+        "rank": 5,
+        "keyword": "젠슨 황 딸 방한 취소"
+      },
+      {
+        "rank": 6,
+        "keyword": "바이낸스 해킹 CFO 교체"
+      },
+      {
+        "rank": 7,
+        "keyword": "챗GPT 국내 이용자 1800만"
+      },
+      {
+        "rank": 8,
+        "keyword": "젠슨 황 스파이 의혹"
+      },
+      {
+        "rank": 9,
+        "keyword": "우리카드 개막 2연승"
+      },
+      {
+        "rank": 10,
+        "keyword": "후티 사우디 공습"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "gta6"
+        "keyword": "세균"
       },
       {
         "rank": 2,
-        "keyword": "노팅엄 포레스트 대 맨 시티"
+        "keyword": "아는 형님"
       },
       {
         "rank": 3,
-        "keyword": "일본 지진"
+        "keyword": "남구"
       },
       {
         "rank": 4,
-        "keyword": "이천수"
+        "keyword": "로마 대 사수올로"
       },
       {
         "rank": 5,
-        "keyword": "복권"
+        "keyword": "박서진"
       },
       {
         "rank": 6,
-        "keyword": "하정우"
+        "keyword": "xrp 레저"
       },
       {
         "rank": 7,
-        "keyword": "mainz vs bayern"
+        "keyword": "중국인민은행"
       },
       {
         "rank": 8,
-        "keyword": "김성우"
+        "keyword": "inter miami vs charlotte"
       },
       {
         "rank": 9,
-        "keyword": "nepal premier league"
+        "keyword": "thứ hạng của nottingham forest gặp man city"
       },
       {
         "rank": 10,
-        "keyword": "버밍엄 대 스완지 시티"
+        "keyword": "토트넘 홋스퍼 fc"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "신기루 팬미팅"
+        "keyword": "최수종 나이"
       },
       {
         "rank": 2,
-        "keyword": "김광진 매니저 재단 자제"
-      },
-      {
-        "rank": 3,
-        "keyword": "오승근 김자옥 결혼 제안"
-      },
-      {
-        "rank": 4,
         "keyword": "1249회 로또 당첨 번호"
       },
       {
-        "rank": 5,
-        "keyword": "부산 불꽃축제"
-      },
-      {
-        "rank": 6,
-        "keyword": "아이비 시카고"
-      },
-      {
-        "rank": 7,
-        "keyword": "화양연화 영화"
-      },
-      {
-        "rank": 8,
+        "rank": 3,
         "keyword": "전민기 여자 문제 폭로"
       },
       {
-        "rank": 9,
+        "rank": 4,
+        "keyword": "젠슨 황 딸 방한 취소"
+      },
+      {
+        "rank": 5,
+        "keyword": "종휘 배구선수"
+      },
+      {
+        "rank": 6,
         "keyword": "온수관"
       },
       {
+        "rank": 7,
+        "keyword": "살림남"
+      },
+      {
+        "rank": 8,
+        "keyword": "ufc"
+      },
+      {
+        "rank": 9,
+        "keyword": "아는 형님"
+      },
+      {
         "rank": 10,
-        "keyword": "김소니아 코 부상 이탈"
+        "keyword": "김민재 선발 명단 제외"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "“수능 금지곡 됐으면 좋겠어요”…가수들도 탐내는 중독성의 훈장",
+      "title": "‘꿀알바’ 김민하, 액션부터 현실 남매 케미까지…폭넓은 연기 변주",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261107/134968740/1",
-      "publishedAt": "수집 11. 08. 04:09 KST",
-      "publishedOrder": 1794078591416
+      "url": "https://sports.donga.com/ent/article/all/20261108/134984329/1",
+      "publishedAt": "수집 11. 08. 09:04 KST",
+      "publishedOrder": 1794096245786
     },
     {
-      "title": "‘♥홍현희’ 제이쓴, 日서도 알아보는 유명세…“‘슈돌’ 출연까지 알아” 깜짝",
+      "title": "정미녀, ♥전민기 여사친 문제에 한숨…“차라리 사고 치면 갈라설 텐데”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261107/134983837/1",
-      "publishedAt": "수집 11. 08. 04:09 KST",
-      "publishedOrder": 1794078591416
+      "url": "https://sports.donga.com/ent/article/all/20261108/134984307/1",
+      "publishedAt": "수집 11. 08. 09:04 KST",
+      "publishedOrder": 1794096245786
     },
     {
-      "title": "머라이어 캐리의 계절…사계절 맴도는 연금송",
+      "title": "‘놀뭐’ 여우야→사쿠란보 리메이크…최예나가 타는 ‘레트로 타임머신’",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261107/134968701/1",
-      "publishedAt": "수집 11. 08. 04:09 KST",
-      "publishedOrder": 1794078591416
+      "url": "https://sports.donga.com/ent/article/all/20261108/134984251/1",
+      "publishedAt": "수집 11. 08. 09:04 KST",
+      "publishedOrder": 1794096245786
     },
     {
-      "title": "루시, 싱글 ‘다시!’ 하이라이트 메들리 공개…청량·애틋 분위기",
+      "title": "안주미, ‘궁전랜드’ 캐스팅…‘SNL 코리아’ 이어 시트콤 도전",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261107/134983326/1",
-      "publishedAt": "수집 11. 08. 04:09 KST",
-      "publishedOrder": 1794078591416
+      "url": "https://sports.donga.com/ent/article/all/20261108/134984289/1",
+      "publishedAt": "수집 11. 08. 09:04 KST",
+      "publishedOrder": 1794096245786
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 08. 04:09 KST",
-      "publishedOrder": 1794078590755
+      "publishedAt": "수집 11. 08. 09:04 KST",
+      "publishedOrder": 1794096245326
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 08. 04:09 KST",
-      "publishedOrder": 1794078590755
+      "publishedAt": "수집 11. 08. 09:04 KST",
+      "publishedOrder": 1794096245326
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 08. 04:09 KST",
-      "publishedOrder": 1794078590755
+      "publishedAt": "수집 11. 08. 09:04 KST",
+      "publishedOrder": 1794096245326
     },
     {
-      "title": "방탄소년단 정국, 7캐럿 다이아몬드 반지 환상 프러포즈..'그라프' 홀리데이 캠페인",
+      "title": "44세 송혜교, \"교복 지금 입어도 예뻐\" 공유 말에 발끈..\"작다고 그러는 것\"",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/07/2026110707380887084",
-      "publishedAt": "수집 11. 08. 04:09 KST",
-      "publishedOrder": 1794078590755
+      "url": "https://www.starnewskorea.com/star/2026/11/07/2026110713395114197",
+      "publishedAt": "수집 11. 08. 09:04 KST",
+      "publishedOrder": 1794096245326
     }
   ]
 }
