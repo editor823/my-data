@@ -1,255 +1,198 @@
 {
   "success": true,
-  "updatedAt": "2026-11-08T09:40:36.266Z",
-  "updatedAtKst": "2026. 11. 8. PM 6:40:36",
+  "updatedAt": "2026-11-08T19:13:41.727Z",
+  "updatedAtKst": "2026. 11. 9. AM 4:13:41",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "삼성 한국시리즈 우승"
+        "keyword": "與 종부세 14억 강력 요구"
       },
       {
         "rank": 2,
-        "keyword": "권동진 타구 얼굴 맞아"
-      },
-      {
-        "rank": 3,
-        "keyword": "김민석 민주당 대표"
-      },
-      {
-        "rank": 4,
-        "keyword": "서울교통공사 채용"
-      },
-      {
-        "rank": 5,
-        "keyword": "초등학교 입학생 감소"
-      },
-      {
-        "rank": 6,
-        "keyword": "이정효 감독의 다짐"
-      },
-      {
-        "rank": 7,
-        "keyword": "이승엽"
-      },
-      {
-        "rank": 8,
-        "keyword": "고병원성 조류인플루엔자 확산"
-      },
-      {
-        "rank": 9,
         "keyword": "100일의 거짓말"
       },
       {
+        "rank": 3,
+        "keyword": "유현조 챔피언십 우승"
+      },
+      {
+        "rank": 4,
+        "keyword": "테러리스트 김영빈 별세"
+      },
+      {
+        "rank": 5,
+        "keyword": "여자친구 살해한 20대"
+      },
+      {
+        "rank": 6,
+        "keyword": "서울 아파트 매물 증가"
+      },
+      {
+        "rank": 7,
+        "keyword": "홈플러스 자금난 회생 위기"
+      },
+      {
+        "rank": 8,
+        "keyword": "초등학교 입학생 감소"
+      },
+      {
+        "rank": 9,
+        "keyword": "권동진, 부상으로 이송"
+      },
+      {
         "rank": 10,
-        "keyword": "김우석"
+        "keyword": "숙희의 사랑이 온다 OST 공개"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "삼성 한국시리즈 우승 동일"
+        "keyword": "사우디 금융지구 피격 상승 2"
       },
       {
         "rank": 2,
-        "keyword": "권동진 동일"
+        "keyword": "김장훈 이소라와 열애설 상승 3"
       },
       {
         "rank": 3,
-        "keyword": "김민석 민주당 대표 동일"
+        "keyword": "권동진 하락 2"
       },
       {
         "rank": 4,
-        "keyword": "이정효 감독 동일"
+        "keyword": "사랑이 온다 하락 2"
       },
       {
         "rank": 5,
-        "keyword": "100일의 거짓말 new"
+        "keyword": "파이널 테이블 하락 1"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "초등학교 입학생 감소"
-      },
-      {
-        "rank": 2,
         "keyword": "서울 아파트 매물 증가"
       },
       {
-        "rank": 3,
-        "keyword": "고병원성 조류인플루엔자 확산"
-      },
-      {
-        "rank": 4,
+        "rank": 2,
         "keyword": "홈플러스 자금난 회생 위기"
       },
       {
+        "rank": 3,
+        "keyword": "서울대 총장 최해천 선출"
+      },
+      {
+        "rank": 4,
+        "keyword": "종부세 14억 적용"
+      },
+      {
         "rank": 5,
-        "keyword": "이스라엘 연정구성권"
+        "keyword": "고병원성 조류인플루엔자 확산"
       },
       {
         "rank": 6,
-        "keyword": "진성준 전작권 전환 합의"
+        "keyword": "이스라엘 연정구성권"
       },
       {
         "rank": 7,
-        "keyword": "미 민주당 우크라 지원"
+        "keyword": "트럼프 중간선거 후퇴"
       },
       {
         "rank": 8,
-        "keyword": "미 중간선거 투표율"
+        "keyword": "COP31 튀르키예 개막"
       },
       {
         "rank": 9,
-        "keyword": "폴란드 크라쿠프 총기난사"
+        "keyword": "다카이치 납북 문제"
       },
       {
         "rank": 10,
-        "keyword": "이란 탄도미사일 사거리 제한 해제"
+        "keyword": "청주 여자친구 살인"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "천안 시티 fc 대 부산 아이파크 순위"
+        "keyword": "sc 프라이부르크 대 우니온 베를린"
       },
       {
         "rank": 2,
-        "keyword": "스포츠"
+        "keyword": "베식타시 대 겐칠레르빌리이"
       },
       {
         "rank": 3,
-        "keyword": "서울교통공사 채용"
+        "keyword": "แมนยู พบ แอสตันวิลลา"
       },
       {
         "rank": 4,
-        "keyword": "이승엽"
+        "keyword": "man utd đấu với aston villa"
       },
       {
         "rank": 5,
-        "keyword": "김재서"
+        "keyword": "epl"
       },
       {
         "rank": 6,
-        "keyword": "김우석"
+        "keyword": "전력"
       },
       {
         "rank": 7,
-        "keyword": "권동진"
+        "keyword": "man utd vs aston villa"
       },
       {
         "rank": 8,
-        "keyword": "주권"
+        "keyword": "맨유 대 애스턴 빌라"
       },
       {
         "rank": 9,
-        "keyword": "우규민"
+        "keyword": "올리브영"
       },
       {
         "rank": 10,
-        "keyword": "공기업"
+        "keyword": "คริสตัลพาเลซ พบ ���ิเวอร์พูล"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "권동진 타구 병원 이송"
+        "keyword": "권동진 부상"
       },
       {
         "rank": 2,
-        "keyword": "원태인 우승 약속"
+        "keyword": "구자욱 롤렉스 시계 기대"
       },
       {
         "rank": 3,
-        "keyword": "구자욱 한국시리즈 MVP"
+        "keyword": "강민호 한국시리즈 첫 우승"
       },
       {
         "rank": 4,
-        "keyword": "���지적 집착 시점"
+        "keyword": "20대 여자친구 살해"
       },
       {
         "rank": 5,
-        "keyword": "김재서 게임 괴인 24시간"
+        "keyword": "블랙핑크 지수 WME 계약"
       },
       {
         "rank": 6,
-        "keyword": "강민호 우승 반지"
+        "keyword": "하효림 이나연"
       },
       {
         "rank": 7,
-        "keyword": "오세훈 사과 요구"
+        "keyword": "코어위브"
       },
       {
         "rank": 8,
-        "keyword": "김광진 매니저 허드렛일"
+        "keyword": "김장훈 국민연금 수령액"
       },
       {
         "rank": 9,
-        "keyword": "김민솔 3관왕"
+        "keyword": "at 마드리드"
       },
       {
         "rank": 10,
-        "keyword": "최해천 서울대 총장"
+        "keyword": "남대문 스카프 아저씨"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "엑소, 앙코르서 ‘Suffocate’ 최초 공개…“팬들 좋아할 거라 예상”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261108/134987323/1",
-      "publishedAt": "수집 11. 08. 18:40 KST",
-      "publishedOrder": 1794130832366
-    },
-    {
-      "title": "엑소, 앙코르 공연 마지막 날…“모아온 기 모두 불사르겠다”",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261108/134987207/1",
-      "publishedAt": "수집 11. 08. 18:40 KST",
-      "publishedOrder": 1794130832366
-    },
-    {
-      "title": "넷플릭스 글로벌 흥행 잇는다…조유리, ‘가능한 사랑’으로 2연타",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261108/134986122/1",
-      "publishedAt": "수집 11. 08. 18:40 KST",
-      "publishedOrder": 1794130832366
-    },
-    {
-      "title": "5세대 공세에도 굳건…아이브·에스파, 4세대 걸그룹이 쌓은 방파제",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261108/134985957/1",
-      "publishedAt": "수집 11. 08. 18:40 KST",
-      "publishedOrder": 1794130832366
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 08. 18:40 KST",
-      "publishedOrder": 1794130831419
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 08. 18:40 KST",
-      "publishedOrder": 1794130831419
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 08. 18:40 KST",
-      "publishedOrder": 1794130831419
-    },
-    {
-      "title": "이민정, 각선미 뽐낸 리즈 미모..♥이병헌과 밤 데이트 포착",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/08/2026110808363791335",
-      "publishedAt": "수집 11. 08. 18:40 KST",
-      "publishedOrder": 1794130831419
-    }
-  ]
+  "entertainment": []
 }
