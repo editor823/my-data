@@ -1,84 +1,84 @@
 {
   "success": true,
-  "updatedAt": "2026-11-08T19:13:41.727Z",
-  "updatedAtKst": "2026. 11. 9. AM 4:13:41",
+  "updatedAt": "2026-11-09T00:15:00.264Z",
+  "updatedAtKst": "2026. 11. 9. AM 9:15:00",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "與 종부세 14억 강력 요구"
+        "keyword": "젠슨황 불륜 조사"
       },
       {
         "rank": 2,
-        "keyword": "100일의 거짓말"
+        "keyword": "이강인 선제골 기점 역전패"
       },
       {
         "rank": 3,
-        "keyword": "유현조 챔피언십 우승"
+        "keyword": "이집트 열차 추돌"
       },
       {
         "rank": 4,
-        "keyword": "테러리스트 김영빈 별세"
+        "keyword": "100일의 거짓말"
       },
       {
         "rank": 5,
-        "keyword": "여자친구 살해한 20대"
+        "keyword": "JYP 오브더블루 론칭"
       },
       {
         "rank": 6,
-        "keyword": "서울 아파트 매물 증가"
+        "keyword": "종부세 14억 적용"
       },
       {
         "rank": 7,
-        "keyword": "홈플러스 자금난 회생 위기"
+        "keyword": "닥터x: 하얀 마피아의 시대"
       },
       {
         "rank": 8,
-        "keyword": "초등학교 입학생 감소"
+        "keyword": "트럼프 중간선거 후퇴"
       },
       {
         "rank": 9,
-        "keyword": "권동진, 부상으로 이송"
+        "keyword": "김재원 짜증내는 팬들"
       },
       {
         "rank": 10,
-        "keyword": "숙희의 사랑이 온다 OST 공개"
+        "keyword": "송중기"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "사우디 금융지구 피격 상승 2"
+        "keyword": "JYP 오브더블루 론칭 하락 2"
       },
       {
         "rank": 2,
-        "keyword": "김장훈 이소라와 열애설 상승 3"
+        "keyword": "비밀 유명 연예인과 new"
       },
       {
         "rank": 3,
-        "keyword": "권동진 하락 2"
+        "keyword": "김종철 경찰청장 후보자 상승 2"
       },
       {
         "rank": 4,
-        "keyword": "사랑이 온다 하락 2"
+        "keyword": "2도 쌀쌀 남부 제주 new"
       },
       {
         "rank": 5,
-        "keyword": "파이널 테이블 하락 1"
+        "keyword": "故 최성빈 생일날 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "서울 아파트 매물 증가"
+        "keyword": "JTBC 매각 공고"
       },
       {
         "rank": 2,
-        "keyword": "홈플러스 자금난 회생 위기"
+        "keyword": "수능 D-10 학습전략"
       },
       {
         "rank": 3,
-        "keyword": "서울대 총장 최해천 선출"
+        "keyword": "젠슨황 불륜 조사"
       },
       {
         "rank": 4,
@@ -86,113 +86,170 @@
       },
       {
         "rank": 5,
-        "keyword": "고병원성 조류인플루엔자 확산"
-      },
-      {
-        "rank": 6,
-        "keyword": "이스라엘 연정구성권"
-      },
-      {
-        "rank": 7,
         "keyword": "트럼프 중간선거 후퇴"
       },
       {
-        "rank": 8,
-        "keyword": "COP31 튀르키예 개막"
+        "rank": 6,
+        "keyword": "이집트 열차 추돌"
       },
       {
-        "rank": 9,
+        "rank": 7,
         "keyword": "다카이치 납북 문제"
       },
       {
+        "rank": 8,
+        "keyword": "100대 기업 여성임원"
+      },
+      {
+        "rank": 9,
+        "keyword": "TSMC 메모리 진출 부인"
+      },
+      {
         "rank": 10,
-        "keyword": "청주 여자친구 살인"
+        "keyword": "아틀레티코 바르셀로나"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "sc 프라이부르크 대 우니온 베를린"
+        "keyword": "노동법"
       },
       {
         "rank": 2,
-        "keyword": "베식타시 대 겐칠레르빌리이"
+        "keyword": "기영식"
       },
       {
         "rank": 3,
-        "keyword": "แมนยู พบ แอสตันวิลลา"
+        "keyword": "황유민"
       },
       {
         "rank": 4,
-        "keyword": "man utd đấu với aston villa"
+        "keyword": "수능날"
       },
       {
         "rank": 5,
-        "keyword": "epl"
+        "keyword": "할증"
       },
       {
         "rank": 6,
-        "keyword": "전력"
+        "keyword": "의약품"
       },
       {
         "rank": 7,
-        "keyword": "man utd vs aston villa"
+        "keyword": "t1"
       },
       {
         "rank": 8,
-        "keyword": "맨유 대 애스턴 빌라"
+        "keyword": "lck"
       },
       {
         "rank": 9,
-        "keyword": "올리브영"
+        "keyword": "이준호"
       },
       {
         "rank": 10,
-        "keyword": "คริสตัลพาเลซ พบ ���ิเวอร์พูล"
+        "keyword": "젠슨 황"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "권동진 부상"
+        "keyword": "황우석 UAE 국적 취득"
       },
       {
         "rank": 2,
-        "keyword": "구자욱 롤렉스 시계 기대"
+        "keyword": "아틀레티코 역전패"
       },
       {
         "rank": 3,
-        "keyword": "강민호 한국시리즈 첫 우승"
+        "keyword": "구자욱 삼성"
       },
       {
         "rank": 4,
-        "keyword": "20대 여자친구 살해"
+        "keyword": "권동진 부상"
       },
       {
         "rank": 5,
-        "keyword": "블랙핑크 지수 WME 계약"
+        "keyword": "이도 강의 중단 방송 활동"
       },
       {
         "rank": 6,
-        "keyword": "하효림 이나연"
+        "keyword": "민주당 종부세 공제"
       },
       {
         "rank": 7,
-        "keyword": "코어위브"
+        "keyword": "보경사 대웅전 화재"
       },
       {
         "rank": 8,
-        "keyword": "김장훈 국민연금 수령액"
+        "keyword": "소방의 날"
       },
       {
         "rank": 9,
-        "keyword": "at 마드리드"
+        "keyword": "장동혁 탄핵 언급"
       },
       {
         "rank": 10,
-        "keyword": "남대문 스카프 아저씨"
+        "keyword": "강민호 첫 우승"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "지예은, ♥바타 어깨에 찰싹…결혼 한 달 앞두고 달달한 일상",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261109/134989445/1",
+      "publishedAt": "수집 11. 09. 09:04 KST",
+      "publishedOrder": 1794182660580
+    },
+    {
+      "title": "조니 뎁부터 이안 맥켈런까지…‘스크루지: 크리스마스 캐럴’ 캐릭터 포스터 공개",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261109/134989453/1",
+      "publishedAt": "수집 11. 09. 09:04 KST",
+      "publishedOrder": 1794182660580
+    },
+    {
+      "title": "김설현, 비 쏟아져도 11.7km 완주…끝나자 또 빵집",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261109/134989419/1",
+      "publishedAt": "수집 11. 09. 09:04 KST",
+      "publishedOrder": 1794182660580
+    },
+    {
+      "title": "서울 달군 케플러, 아시아 4개 도시 팬콘 투어 본격 시동",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261109/134989354/1",
+      "publishedAt": "수집 11. 09. 09:04 KST",
+      "publishedOrder": 1794182660580
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 11. 09. 09:04 KST",
+      "publishedOrder": 1794182648904
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 11. 09. 09:04 KST",
+      "publishedOrder": 1794182648904
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 11. 09. 09:04 KST",
+      "publishedOrder": 1794182648904
+    },
+    {
+      "title": "하정우♥차정원, 결혼식 전 파리서 포착..예비 신혼 부부 허니문 '관심'[스타이슈]",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/11/08/2026110808575117418",
+      "publishedAt": "수집 11. 09. 09:04 KST",
+      "publishedOrder": 1794182648904
+    }
+  ]
 }
