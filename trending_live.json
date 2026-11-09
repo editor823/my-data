@@ -1,255 +1,158 @@
 {
   "success": true,
-  "updatedAt": "2026-11-09T00:15:00.264Z",
-  "updatedAtKst": "2026. 11. 9. AM 9:15:00",
+  "updatedAt": "2026-11-09T10:32:59.389Z",
+  "updatedAtKst": "2026. 11. 9. PM 7:32:59",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "젠슨황 불륜 조사"
+        "keyword": "젠슨 황 엔비디아 논란"
       },
       {
         "rank": 2,
-        "keyword": "이강인 선제골 기점 역전패"
+        "keyword": "삼성 현대차 원팀 결성"
       },
       {
         "rank": 3,
-        "keyword": "이집트 열차 추돌"
+        "keyword": "배민 쿠팡이츠 과징금"
       },
       {
         "rank": 4,
-        "keyword": "100일의 거짓말"
+        "keyword": "설경구의 사랑과 전도연"
       },
       {
         "rank": 5,
-        "keyword": "JYP 오브더블루 론칭"
+        "keyword": "가상자산"
       },
       {
         "rank": 6,
-        "keyword": "종부세 14억 적용"
+        "keyword": "가덕도신공항 실시설계 착수"
       },
       {
         "rank": 7,
-        "keyword": "닥터x: 하얀 마피아의 시대"
+        "keyword": "임광현 월급방위대 TF 설치"
       },
       {
         "rank": 8,
-        "keyword": "트럼프 중간선거 후퇴"
+        "keyword": "뉴진스 계약 보도 유감"
       },
       {
         "rank": 9,
-        "keyword": "김재원 짜증내는 팬들"
+        "keyword": "김부선"
       },
       {
         "rank": 10,
-        "keyword": "송중기"
+        "keyword": "이집트 열차 추돌"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "JYP 오브더블루 론칭 하락 2"
+        "keyword": "삼성 현대차 원팀 상승 1"
       },
       {
         "rank": 2,
-        "keyword": "비밀 유명 연예인과 new"
+        "keyword": "젠슨 황 엔비디아 상승 2"
       },
       {
         "rank": 3,
-        "keyword": "김종철 경찰청장 후보자 상승 2"
+        "keyword": "가능한 사랑 설경구 동일"
       },
       {
         "rank": 4,
-        "keyword": "2도 쌀쌀 남부 제주 new"
+        "keyword": "임광현 월급방위대 TF 상승 3"
       },
       {
         "rank": 5,
-        "keyword": "故 최성빈 생일날 new"
+        "keyword": "100일의 거짓말 상승 1"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "JTBC 매각 공고"
+        "keyword": "배민 쿠팡이츠 과징금"
       },
       {
         "rank": 2,
-        "keyword": "수능 D-10 학습전략"
+        "keyword": "앤트로픽 클로드 개인정보 유출"
       },
       {
         "rank": 3,
-        "keyword": "젠슨황 불륜 조사"
+        "keyword": "가덕도신공항 실시설계 착수"
       },
       {
         "rank": 4,
-        "keyword": "종부세 14억 적용"
-      },
-      {
-        "rank": 5,
-        "keyword": "트럼프 중간선거 후퇴"
-      },
-      {
-        "rank": 6,
         "keyword": "이집트 열차 추돌"
       },
       {
-        "rank": 7,
-        "keyword": "다카이치 납북 문제"
-      },
-      {
-        "rank": 8,
-        "keyword": "100대 기업 여성임원"
-      },
-      {
-        "rank": 9,
-        "keyword": "TSMC 메모리 진출 부인"
-      },
-      {
-        "rank": 10,
-        "keyword": "아틀레티코 바르셀로나"
-      }
-    ],
-    "google": [
-      {
-        "rank": 1,
-        "keyword": "노동법"
-      },
-      {
-        "rank": 2,
-        "keyword": "기영식"
-      },
-      {
-        "rank": 3,
-        "keyword": "황유민"
-      },
-      {
-        "rank": 4,
-        "keyword": "수능날"
-      },
-      {
         "rank": 5,
-        "keyword": "할증"
+        "keyword": "코스피 하락 마감"
       },
       {
         "rank": 6,
-        "keyword": "의약품"
+        "keyword": "젠슨황 불륜 조사"
       },
       {
         "rank": 7,
-        "keyword": "t1"
+        "keyword": "중국 미국 관세 유예 연장"
       },
       {
         "rank": 8,
-        "keyword": "lck"
+        "keyword": "김해 아내 살해 시도"
       },
       {
         "rank": 9,
-        "keyword": "이준호"
+        "keyword": "트럼프 이민정책 후퇴"
       },
       {
         "rank": 10,
-        "keyword": "젠슨 황"
+        "keyword": "보이스피싱 피해자 생계비 지원"
       }
     ],
+    "google": [],
     "daum": [
       {
         "rank": 1,
-        "keyword": "황우석 UAE 국적 취득"
+        "keyword": "지안 엄정욱 결혼"
       },
       {
         "rank": 2,
-        "keyword": "아틀레티코 역전패"
+        "keyword": "정부 헝가리 배터리 지원"
       },
       {
         "rank": 3,
-        "keyword": "구자욱 삼성"
+        "keyword": "부기우기"
       },
       {
         "rank": 4,
-        "keyword": "권동진 부상"
+        "keyword": "엄지원 삼성 우승 축하"
       },
       {
         "rank": 5,
-        "keyword": "이도 강의 중단 방송 활동"
+        "keyword": "생활의 달인"
       },
       {
         "rank": 6,
-        "keyword": "민주당 종부세 공제"
+        "keyword": "선관위 특검 투표지"
       },
       {
         "rank": 7,
-        "keyword": "보경사 대웅전 화재"
+        "keyword": "조계원 국회의원"
       },
       {
         "rank": 8,
-        "keyword": "소방의 날"
+        "keyword": "젠슨 황 부인"
       },
       {
         "rank": 9,
-        "keyword": "장동혁 탄핵 언급"
+        "keyword": "문무"
       },
       {
         "rank": 10,
-        "keyword": "강민호 첫 우승"
+        "keyword": "신승호 최종면접 존재감"
       }
-    ]
+    ],
+    "googleError": "google trends HTTP 429"
   },
-  "entertainment": [
-    {
-      "title": "지예은, ♥바타 어깨에 찰싹…결혼 한 달 앞두고 달달한 일상",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261109/134989445/1",
-      "publishedAt": "수집 11. 09. 09:04 KST",
-      "publishedOrder": 1794182660580
-    },
-    {
-      "title": "조니 뎁부터 이안 맥켈런까지…‘스크루지: 크리스마스 캐럴’ 캐릭터 포스터 공개",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261109/134989453/1",
-      "publishedAt": "수집 11. 09. 09:04 KST",
-      "publishedOrder": 1794182660580
-    },
-    {
-      "title": "김설현, 비 쏟아져도 11.7km 완주…끝나자 또 빵집",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261109/134989419/1",
-      "publishedAt": "수집 11. 09. 09:04 KST",
-      "publishedOrder": 1794182660580
-    },
-    {
-      "title": "서울 달군 케플러, 아시아 4개 도시 팬콘 투어 본격 시동",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261109/134989354/1",
-      "publishedAt": "수집 11. 09. 09:04 KST",
-      "publishedOrder": 1794182660580
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 09. 09:04 KST",
-      "publishedOrder": 1794182648904
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 09. 09:04 KST",
-      "publishedOrder": 1794182648904
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 09. 09:04 KST",
-      "publishedOrder": 1794182648904
-    },
-    {
-      "title": "하정우♥차정원, 결혼식 전 파리서 포착..예비 신혼 부부 허니문 '관심'[스타이슈]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/08/2026110808575117418",
-      "publishedAt": "수집 11. 09. 09:04 KST",
-      "publishedOrder": 1794182648904
-    }
-  ]
+  "entertainment": []
 }
