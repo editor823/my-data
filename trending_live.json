@@ -1,158 +1,198 @@
 {
   "success": true,
-  "updatedAt": "2026-11-09T23:38:17.968Z",
-  "updatedAtKst": "2026. 11. 10. AM 8:38:17",
+  "updatedAt": "2026-11-10T10:35:13.424Z",
+  "updatedAtKst": "2026. 11. 10. PM 7:35:13",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "김종철 경찰청장 후보자"
+        "keyword": "자격정지 곽명우 복귀"
       },
       {
         "rank": 2,
-        "keyword": "신아영과 젠슨 황의 포옹 재조명"
+        "keyword": "젠슨 황 불륜 스캔들 확산"
       },
       {
         "rank": 3,
-        "keyword": "압수수색"
+        "keyword": "이도 강의 중단 사과"
       },
       {
         "rank": 4,
-        "keyword": "대법관 격려금 예산 삭감"
+        "keyword": "국군사관학교 강신철 장관"
       },
       {
         "rank": 5,
-        "keyword": "김영희 연하 남편 문제多"
+        "keyword": "중국 무역흑자 1조달러"
       },
       {
         "rank": 6,
-        "keyword": "러시아 종전협상 유럽 참여 거부"
+        "keyword": "추미애 아들 수사 재개"
       },
       {
         "rank": 7,
-        "keyword": "우승 유현조 세계랭킹 상승"
+        "keyword": "곽상도 대장동 항소심 구형"
       },
       {
         "rank": 8,
-        "keyword": "뉴욕증시 급락 엔비디아 급락"
+        "keyword": "ai 버블"
       },
       {
         "rank": 9,
-        "keyword": "필라델피아 반도체 지수"
+        "keyword": "네이버 두나무 기업결합"
       },
       {
         "rank": 10,
-        "keyword": "이란 한국 호르무즈 파병 자제"
+        "keyword": "한진, 자사주 소각 결��"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "연애박사 하락 1"
+        "keyword": "국군사관학교 강신철 장관 동일"
       },
       {
         "rank": 2,
-        "keyword": "수능 일정 상승 3"
+        "keyword": "자격정지 곽명우 복귀 상승 1"
       },
       {
         "rank": 3,
-        "keyword": "메시 발롱도르 케인 new"
+        "keyword": "젠슨 황 상승 1"
       },
       {
         "rank": 4,
-        "keyword": "계약결혼 하락 1"
+        "keyword": "이도 강의 중단 하락 2"
       },
       {
         "rank": 5,
-        "keyword": "올해 주식으로 번 다 까먹었다 new"
+        "keyword": "한진 자사주 소각 동일"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "젠슨황 불륜 조사"
+        "keyword": "중국 무역흑자 1조달러"
       },
       {
         "rank": 2,
-        "keyword": "이란 전쟁 종식 모멘텀"
+        "keyword": "한덕수 석방 가능성"
       },
       {
         "rank": 3,
-        "keyword": "FDA 비만치료제 시력상실 경고"
-      },
-      {
-        "rank": 4,
-        "keyword": "헤그세스 탄핵소추 재발의"
-      },
-      {
-        "rank": 5,
-        "keyword": "대법관 격려금 예산 삭감"
-      },
-      {
-        "rank": 6,
-        "keyword": "앤트로픽 클로드 개인정보 유출"
-      },
-      {
-        "rank": 7,
-        "keyword": "러시아 종전협상 유럽 참여 거부"
-      },
-      {
-        "rank": 8,
-        "keyword": "트럼프 중간선거 부정선거론"
-      },
-      {
-        "rank": 9,
         "keyword": "가덕도신공항 실시설계 착수"
       },
       {
-        "rank": 10,
-        "keyword": "스페이스X 텍사스 투자"
-      }
-    ],
-    "google": [],
-    "daum": [
-      {
-        "rank": 1,
-        "keyword": "맹승지 개그우먼 은퇴"
-      },
-      {
-        "rank": 2,
-        "keyword": "신아영 젠슨 황 포옹 영상"
-      },
-      {
-        "rank": 3,
-        "keyword": "민주당 종부세 공제"
-      },
-      {
         "rank": 4,
-        "keyword": "유일무이 로맨스"
+        "keyword": "네이버 두나무 기업결합"
       },
       {
         "rank": 5,
-        "keyword": "젠슨 황 불륜 인정"
+        "keyword": "오세훈 남산 곤돌라 시행령"
       },
       {
         "rank": 6,
-        "keyword": "생활의 달인"
+        "keyword": "선관위 특검 계수기 압수수색"
       },
       {
         "rank": 7,
-        "keyword": "남대문 스카프 아저씨"
+        "keyword": "디지털자산 기본법"
       },
       {
         "rank": 8,
-        "keyword": "신애 솔비"
+        "keyword": "앤트로픽 클로드 개인정보 유출"
       },
       {
         "rank": 9,
-        "keyword": "계약결혼"
+        "keyword": "미군 항공기 이란 위협 철수"
       },
       {
         "rank": 10,
-        "keyword": "apbc"
+        "keyword": "금감원 회계감리 주기 단축"
       }
     ],
-    "googleError": "google trends HTTP 429"
+    "google": [
+      {
+        "rank": 1,
+        "keyword": "의사"
+      },
+      {
+        "rank": 2,
+        "keyword": "자주포"
+      },
+      {
+        "rank": 3,
+        "keyword": "9440"
+      },
+      {
+        "rank": 4,
+        "keyword": "ai 버블"
+      },
+      {
+        "rank": 5,
+        "keyword": "이선균"
+      },
+      {
+        "rank": 6,
+        "keyword": "정부"
+      },
+      {
+        "rank": 7,
+        "keyword": "조혜련"
+      },
+      {
+        "rank": 8,
+        "keyword": "젠슨 황 스캔들"
+      },
+      {
+        "rank": 9,
+        "keyword": "kfc 둠스데이"
+      },
+      {
+        "rank": 10,
+        "keyword": "재활용"
+      }
+    ],
+    "daum": [
+      {
+        "rank": 1,
+        "keyword": "곽상도 징역 18년 구형"
+      },
+      {
+        "rank": 2,
+        "keyword": "수능 날짜"
+      },
+      {
+        "rank": 3,
+        "keyword": "신현송 의장 ��임"
+      },
+      {
+        "rank": 4,
+        "keyword": "빼빼로 데이"
+      },
+      {
+        "rank": 5,
+        "keyword": "오드리아나 배구선수"
+      },
+      {
+        "rank": 6,
+        "keyword": "최태성 생활고"
+      },
+      {
+        "rank": 7,
+        "keyword": "soop"
+      },
+      {
+        "rank": 8,
+        "keyword": "공무원 소득공백"
+      },
+      {
+        "rank": 9,
+        "keyword": "한진 자사주 전량 소각"
+      },
+      {
+        "rank": 10,
+        "keyword": "임창정 아들 KPGA 프로 입회"
+      }
+    ]
   },
   "entertainment": []
 }
