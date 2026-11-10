@@ -1,198 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-11-10T10:35:13.424Z",
-  "updatedAtKst": "2026. 11. 10. PM 7:35:13",
+  "updatedAt": "2026-11-10T21:05:08.065Z",
+  "updatedAtKst": "2026. 11. 11. AM 6:05:08",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "자격정지 곽명우 복귀"
+        "keyword": "이유진, 장동윤 동서가 되다"
       },
       {
         "rank": 2,
-        "keyword": "젠슨 황 불륜 스캔들 확산"
+        "keyword": "젠슨 황 스캔들 파장 지속"
       },
       {
         "rank": 3,
-        "keyword": "이도 강의 중단 사과"
+        "keyword": "미국 이란 군사작전"
       },
       {
         "rank": 4,
-        "keyword": "국군사관학교 강신철 장관"
+        "keyword": "美 10월 CPI 0.4%↑"
       },
       {
         "rank": 5,
-        "keyword": "중국 무역흑자 1조달러"
+        "keyword": "우크라이나 종전 협상"
       },
       {
         "rank": 6,
-        "keyword": "추미애 아들 수사 재개"
+        "keyword": "A매치 앞두고 소집된 대표팀"
       },
       {
         "rank": 7,
-        "keyword": "곽상도 대장동 항소심 구형"
+        "keyword": "퇴직"
       },
       {
         "rank": 8,
-        "keyword": "ai 버블"
+        "keyword": "lng선"
       },
       {
         "rank": 9,
-        "keyword": "네이버 두나무 기업결합"
+        "keyword": "첫 홀 버디 성공!"
       },
       {
         "rank": 10,
-        "keyword": "한진, 자사주 소각 결��"
+        "keyword": "나의 유죄인간"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "국군사관학교 강신철 장관 동일"
+        "keyword": "노태우 비자금 의혹 상�� 2"
       },
       {
         "rank": 2,
-        "keyword": "자격정지 곽명우 복귀 상승 1"
+        "keyword": "첫 홀 버디 new"
       },
       {
         "rank": 3,
-        "keyword": "젠슨 황 상승 1"
+        "keyword": "조현 환담 합의 new"
       },
       {
         "rank": 4,
-        "keyword": "이도 강의 중단 하락 2"
+        "keyword": "앤트로픽 공모가 70~78달러 하락 2"
       },
       {
         "rank": 5,
-        "keyword": "한진 자사주 소각 동일"
+        "keyword": "나의 유죄인간 하락 4"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "중국 무역흑자 1조달러"
+        "keyword": "미국 이란 군사작전"
       },
       {
         "rank": 2,
-        "keyword": "한덕수 석방 가능성"
+        "keyword": "우크라이나 종전 협상"
       },
       {
         "rank": 3,
-        "keyword": "가덕도신공항 실시설계 착수"
+        "keyword": "미국 10월 소비자물가"
       },
       {
         "rank": 4,
-        "keyword": "네이버 두나무 기업결합"
+        "keyword": "연준 12월 금리 인상"
       },
       {
         "rank": 5,
-        "keyword": "오세훈 남산 곤돌라 시행령"
+        "keyword": "미이란 우라늄 합의"
       },
       {
         "rank": 6,
-        "keyword": "선관위 특검 계수기 압수수색"
+        "keyword": "네이버 두나무 기업결합"
       },
       {
         "rank": 7,
-        "keyword": "디지털자산 기본법"
+        "keyword": "선관위 특검 계수기 압수수색"
       },
       {
         "rank": 8,
-        "keyword": "앤트로픽 클로드 개인정보 유출"
+        "keyword": "가덕도신공항 실시설계 착수"
       },
       {
         "rank": 9,
-        "keyword": "미군 항공기 이란 위협 철수"
+        "keyword": "FDA 비만치료제 시력상실 경고"
       },
       {
         "rank": 10,
-        "keyword": "금감원 회계감리 주기 단축"
+        "keyword": "앤트로픽 클로드 개인정보 유출"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "의사"
+        "keyword": "타릭 스쿠발"
       },
       {
         "rank": 2,
-        "keyword": "자주포"
+        "keyword": "포스코"
       },
       {
         "rank": 3,
-        "keyword": "9440"
+        "keyword": "항공모함"
       },
       {
         "rank": 4,
-        "keyword": "ai 버블"
+        "keyword": "퇴직"
       },
       {
         "rank": 5,
-        "keyword": "이선균"
+        "keyword": "lng선"
       },
       {
         "rank": 6,
-        "keyword": "정부"
+        "keyword": "폴더블 스마트폰"
       },
       {
         "rank": 7,
-        "keyword": "조혜련"
+        "keyword": "사관학교"
       },
       {
         "rank": 8,
-        "keyword": "젠슨 황 스캔들"
+        "keyword": "대구광역시"
       },
       {
         "rank": 9,
-        "keyword": "kfc 둠스데이"
+        "keyword": "브래드 갈링하우스"
       },
       {
         "rank": 10,
-        "keyword": "재활용"
+        "keyword": "경찰"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "곽상도 징역 18년 구형"
+        "keyword": "차경은 동상이몽2 합류"
       },
       {
         "rank": 2,
-        "keyword": "수능 날짜"
+        "keyword": "장동윤 동서지간"
       },
       {
         "rank": 3,
-        "keyword": "신현송 의장 ��임"
+        "keyword": "최태성 아버지 사업 실패"
       },
       {
         "rank": 4,
-        "keyword": "빼빼로 데이"
+        "keyword": "신동 25㎏ 감량"
       },
       {
         "rank": 5,
-        "keyword": "오드리아나 배구선수"
+        "keyword": "남겨서 뭐하게"
       },
       {
         "rank": 6,
-        "keyword": "최태성 생활고"
+        "keyword": "한수아 카리나 집"
       },
       {
         "rank": 7,
-        "keyword": "soop"
-      },
-      {
-        "rank": 8,
-        "keyword": "공무원 소득공백"
-      },
-      {
-        "rank": 9,
         "keyword": "한진 자사주 전량 소각"
       },
       {
+        "rank": 8,
+        "keyword": "이도 강의 중단 논란 사과"
+      },
+      {
+        "rank": 9,
+        "keyword": "장동민 아내 신혼 초"
+      },
+      {
         "rank": 10,
-        "keyword": "임창정 아들 KPGA 프로 입회"
+        "keyword": "엔비디아"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "유연석, 트와이스 나연 사진 몰래 간직했다…“금전운 때문에”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261110/135003068/1",
+      "publishedAt": "수집 11. 11. 06:05 KST",
+      "publishedOrder": 1794344702216
+    },
+    {
+      "title": "정승제, 4살 의대반 비판하더니…“선행학습 제대로 하면 1살도 가능”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261110/135003022/1",
+      "publishedAt": "수집 11. 11. 06:05 KST",
+      "publishedOrder": 1794344702216
+    },
+    {
+      "title": "홍진경, 정승제에게만 알린 산티아고行…송은이 “우리는 몰랐다”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261110/135003011/1",
+      "publishedAt": "수집 11. 11. 06:05 KST",
+      "publishedOrder": 1794344702216
+    },
+    {
+      "title": "이민정, 왕빛나·이윤미·이소연과 골프 모임…“한 달 두 번 만나”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261110/135002796/1",
+      "publishedAt": "수집 11. 11. 06:05 KST",
+      "publishedOrder": 1794344702216
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 11. 11. 06:05 KST",
+      "publishedOrder": 1794344702175
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 11. 11. 06:05 KST",
+      "publishedOrder": 1794344702175
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 11. 11. 06:05 KST",
+      "publishedOrder": 1794344702175
+    },
+    {
+      "title": "\"50대 배달원 사망\" 박신영, 벌금 1500만원 이후 5년만에..'틱톡' 복귀 '논란'[★FOCUS]",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/11/10/2026111001174559469",
+      "publishedAt": "수집 11. 11. 06:05 KST",
+      "publishedOrder": 1794344702175
+    }
+  ]
 }
