@@ -1,76 +1,76 @@
 {
   "success": true,
-  "updatedAt": "2026-11-12T10:26:50.674Z",
-  "updatedAtKst": "2026. 11. 12. PM 7:26:50",
+  "updatedAt": "2026-11-12T21:38:54.328Z",
+  "updatedAtKst": "2026. 11. 13. AM 6:38:54",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "펄어비스 3분기 매출 증가"
+        "keyword": "젠슨 황 사임, 엔비디아 위기"
       },
       {
         "rank": 2,
-        "keyword": "여자축구, LA올림픽 예선 B조"
+        "keyword": "축구 대표팀, 내일 평가전"
       },
       {
         "rank": 3,
-        "keyword": "김승우, 절도 혐의 피소"
+        "keyword": "10월 수출물량 증가"
       },
       {
         "rank": 4,
-        "keyword": "성북 10대 살해 구속영장"
+        "keyword": "김태술 주식 수익률 75%"
       },
       {
         "rank": 5,
-        "keyword": "폭설 김윤석 구교환 전율 주목"
+        "keyword": "장례"
       },
       {
         "rank": 6,
-        "keyword": "젠슨 황 해임 논의"
+        "keyword": "플라이빗 해킹 정보유출"
       },
       {
         "rank": 7,
-        "keyword": "한강 벨트"
+        "keyword": "기현, 뜨거운 안녕 OST 출시"
       },
       {
         "rank": 8,
-        "keyword": "이재명 지방재정 자율성"
+        "keyword": "김승우 절도 논란"
       },
       {
         "rank": 9,
-        "keyword": "성시경 콘서트"
+        "keyword": "이재영"
       },
       {
         "rank": 10,
-        "keyword": "플라이빗 해킹 정보유출"
+        "keyword": "팀코리아 체코 원전 점검회의"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "김지호 잘츠부르크 이적 new"
+        "keyword": "황 엔비디아 CEO new"
       },
       {
         "rank": 2,
-        "keyword": "폭설 김윤석 구교환 하락 5"
+        "keyword": "축구 대표팀 평가전 동일"
       },
       {
         "rank": 3,
-        "keyword": "제주 감귤 첫 수출 new"
+        "keyword": "김태술 수익률 75% 상승 3"
       },
       {
         "rank": 4,
-        "keyword": "젠슨 황 하락 6"
+        "keyword": "뜨거운 안녕 하락 1"
       },
       {
         "rank": 5,
-        "keyword": "U-17 김현준 감독 new"
+        "keyword": "훈련 모레노 감독 동일"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "성북 10대 살해 구속영장"
+        "keyword": "10월 수출물량 증가"
       },
       {
         "rank": 2,
@@ -78,77 +78,77 @@
       },
       {
         "rank": 3,
-        "keyword": "이재명 지방재정 자율성"
+        "keyword": "팀코리아 체코 원전 점검회의"
       },
       {
         "rank": 4,
-        "keyword": "무인양품 카드정보 유출"
+        "keyword": "후티 사우디 송유관 공격"
       },
       {
         "rank": 5,
-        "keyword": "오산 원룸 시신 발견"
+        "keyword": "성북 10대 살해 구속영장"
       },
       {
         "rank": 6,
-        "keyword": "엔비디아 싱가포르 매출"
-      },
-      {
-        "rank": 7,
         "keyword": "방한 외국인 관광객 2000만명"
       },
       {
+        "rank": 7,
+        "keyword": "스타실드 속도 제한"
+      },
+      {
         "rank": 8,
-        "keyword": "조현 장관 방중 회담"
+        "keyword": "오산 원룸 시신 발견"
       },
       {
         "rank": 9,
-        "keyword": "군부대 상비약 허용"
+        "keyword": "문체부 미등록 기획사 수사"
       },
       {
         "rank": 10,
-        "keyword": "미국 상원 선거"
+        "keyword": "김승우 절도 피소"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "박충권"
+        "keyword": "italy vs france"
       },
       {
         "rank": 2,
-        "keyword": "한강 벨트"
+        "keyword": "서승재"
       },
       {
         "rank": 3,
-        "keyword": "성시경 콘서트"
+        "keyword": "진양곤"
       },
       {
         "rank": 4,
-        "keyword": "국제 a 매치"
+        "keyword": "장례"
       },
       {
         "rank": 5,
-        "keyword": "인벤"
+        "keyword": "이재영"
       },
       {
         "rank": 6,
-        "keyword": "035420"
+        "keyword": "삼성 우승 할인"
       },
       {
         "rank": 7,
-        "keyword": "pakistan vs sri lanka"
+        "keyword": "돔 경기장"
       },
       {
         "rank": 8,
-        "keyword": "이부진"
+        "keyword": "조선민주주의인민공화국"
       },
       {
         "rank": 9,
-        "keyword": "김승우"
+        "keyword": "물류"
       },
       {
         "rank": 10,
-        "keyword": "아르헨티나"
+        "keyword": "시청률"
       }
     ],
     "daum": [
@@ -158,39 +158,39 @@
       },
       {
         "rank": 2,
-        "keyword": "폭설 김윤석 질문"
+        "keyword": "정하나 배우"
       },
       {
         "rank": 3,
-        "keyword": "양모씨 징역 4년 구형"
+        "keyword": "황정리 별세"
       },
       {
         "rank": 4,
-        "keyword": "플라이빗 해킹"
+        "keyword": "박희승 국회의���"
       },
       {
         "rank": 5,
-        "keyword": "송재림 사망 2주기"
+        "keyword": "10월 수입물가 하락"
       },
       {
         "rank": 6,
-        "keyword": "권순찬 감독"
+        "keyword": "젠슨 황 엔비디아 CEO 사퇴"
       },
       {
         "rank": 7,
-        "keyword": "조이 크러쉬"
+        "keyword": "이세창 급성 맹장염"
       },
       {
         "rank": 8,
-        "keyword": "국민연금 엔비디아 손실"
+        "keyword": "김서아 부모님 사망 소식"
       },
       {
         "rank": 9,
-        "keyword": "축구 국가대표 일정"
+        "keyword": "공항철도"
       },
       {
         "rank": 10,
-        "keyword": "Ai 안경"
+        "keyword": "마운자로"
       }
     ]
   },
