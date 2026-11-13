@@ -39,5 +39,5 @@ jobs:
         run: |
           git config --global user.name 'KeywordBot'
           git config --global user.email 'bot@auto-collector.local'
-          git add js/adsense.js data/trending_live.json trending_live.json data/keyword_center_live.json keyword_center_live.json data/viral_shorts_live.json viral_shorts_live.json data/homefeed_radar_data.js data/shortents_data.js data/shortents_live.json data/shortents_predictions.js data/shortents_predictions.json js/live_domestic_news_seed.js js/live_domestic_news_seed.json data/live_domestic_news.json
+          git add js/adsense.js data/trending_live.json trending_live.json data/keyword_center_live.json keyword_center_live.json data/viral_shorts_live.json viral_shorts_live.json data/homefeed_radar_data.js data/shortents_data.js data/shortents_live.json data/shortents_predictions.js data/shortents_predictions.json js/live_domestic_news_seed.js js/live_domestic_news_seed.json data/live_domestic_news.json data/secret_keywords* secret_keywords* data/seasonal_calendar* seasonal_calendar*
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore(auto): live trending keywords & daily content update [skip ci]" && git push)

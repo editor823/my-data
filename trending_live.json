@@ -1,164 +1,164 @@
 {
   "success": true,
-  "updatedAt": "2026-11-12T21:38:54.328Z",
-  "updatedAtKst": "2026. 11. 13. AM 6:38:54",
+  "updatedAt": "2026-11-13T05:50:03.635Z",
+  "updatedAtKst": "2026. 11. 13. 오후 2:50:03",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "젠슨 황 사임, 엔비디아 위기"
+        "keyword": "젠슨 황 전격 사임"
       },
       {
         "rank": 2,
-        "keyword": "축구 대표팀, 내일 평가전"
+        "keyword": "이재룡, 술타기 부인"
       },
       {
         "rank": 3,
-        "keyword": "10월 수출물량 증가"
+        "keyword": "경찰, 이혜훈 부정청약 송치"
       },
       {
         "rank": 4,
-        "keyword": "김태술 주식 수익률 75%"
+        "keyword": "방한 외국인 관광객 2000만명"
       },
       {
         "rank": 5,
-        "keyword": "장례"
+        "keyword": "광교신도시"
       },
       {
         "rank": 6,
-        "keyword": "플라이빗 해킹 정보유출"
+        "keyword": "오세훈 조작기소 특검법 거부권"
       },
       {
         "rank": 7,
-        "keyword": "기현, 뜨거운 안녕 OST 출시"
+        "keyword": "KB캐피탈 개인정보 유출"
       },
       {
         "rank": 8,
-        "keyword": "김승우 절도 논란"
+        "keyword": "구글 고정밀지도 보안조건"
       },
       {
         "rank": 9,
-        "keyword": "이재영"
+        "keyword": "12차 석유 가격제 발표"
       },
       {
         "rank": 10,
-        "keyword": "팀코리아 체코 원전 점검회의"
+        "keyword": "오산시"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "황 엔비디아 CEO new"
+        "keyword": "젠슨 황 new"
       },
       {
         "rank": 2,
-        "keyword": "축구 대표팀 평가전 동일"
+        "keyword": "경찰 부정청약 송치 상승 3"
       },
       {
         "rank": 3,
-        "keyword": "김태술 수익률 75% 상승 3"
+        "keyword": "구자욱 에이전트 선임 동일"
       },
       {
         "rank": 4,
-        "keyword": "뜨거운 안녕 하락 1"
+        "keyword": "이재룡 술타기 부인 하락 2"
       },
       {
         "rank": 5,
-        "keyword": "훈련 모레노 감독 동일"
+        "keyword": "구글 지도 반출 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "10월 수출물량 증가"
+        "keyword": "구글 고정밀지도 보안조건"
       },
       {
         "rank": 2,
-        "keyword": "플라이빗 해킹 정보유출"
-      },
-      {
-        "rank": 3,
-        "keyword": "팀코리아 체코 원전 점검회의"
-      },
-      {
-        "rank": 4,
-        "keyword": "후티 사우디 송유관 공격"
-      },
-      {
-        "rank": 5,
-        "keyword": "성북 10대 살해 구속영장"
-      },
-      {
-        "rank": 6,
         "keyword": "방한 외국인 관광객 2000만명"
       },
       {
+        "rank": 3,
+        "keyword": "오세훈 조작기소 특검법 거부권"
+      },
+      {
+        "rank": 4,
+        "keyword": "KB캐피탈 개인정보 유출"
+      },
+      {
+        "rank": 5,
+        "keyword": "은평 전 연인 살해"
+      },
+      {
+        "rank": 6,
+        "keyword": "이재명 대통령 지지율 하락"
+      },
+      {
         "rank": 7,
-        "keyword": "스타실드 속도 제한"
+        "keyword": "이재명 아세안 정상회담"
       },
       {
         "rank": 8,
-        "keyword": "오산 원룸 시신 발견"
+        "keyword": "가짜 3.3 기획감독"
       },
       {
         "rank": 9,
-        "keyword": "문체부 미등록 기획사 수사"
+        "keyword": "후티 사우디 송유관 공격"
       },
       {
         "rank": 10,
-        "keyword": "김승우 절도 피소"
+        "keyword": "세브란스 흉기 난동"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "italy vs france"
+        "keyword": "개"
       },
       {
         "rank": 2,
-        "keyword": "서승재"
+        "keyword": "오산시"
       },
       {
         "rank": 3,
-        "keyword": "진양곤"
+        "keyword": "한국가스"
       },
       {
         "rank": 4,
-        "keyword": "장례"
+        "keyword": "박신영"
       },
       {
         "rank": 5,
-        "keyword": "이재영"
+        "keyword": "카카오워크"
       },
       {
         "rank": 6,
-        "keyword": "삼성 우승 할인"
+        "keyword": "비서"
       },
       {
         "rank": 7,
-        "keyword": "돔 경기장"
+        "keyword": "이더 리움"
       },
       {
         "rank": 8,
-        "keyword": "조선민주주의인민공화국"
+        "keyword": "우기"
       },
       {
         "rank": 9,
-        "keyword": "물류"
+        "keyword": "lpga"
       },
       {
         "rank": 10,
-        "keyword": "시청률"
+        "keyword": "공매도"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "김승우 절도 혐의 피소"
+        "keyword": "박수홍 친형부부 손배소"
       },
       {
         "rank": 2,
-        "keyword": "정하나 배우"
+        "keyword": "김승우 절도 혐의 피소"
       },
       {
         "rank": 3,
@@ -166,33 +166,36 @@
       },
       {
         "rank": 4,
-        "keyword": "박희승 국회의���"
+        "keyword": "구본현 구속"
       },
       {
         "rank": 5,
-        "keyword": "10월 수입물가 하락"
+        "keyword": "정진완 우리은행장 연임"
       },
       {
         "rank": 6,
-        "keyword": "젠슨 황 엔비디아 CEO 사퇴"
+        "keyword": "젠슨 황 자책"
       },
       {
         "rank": 7,
-        "keyword": "이세창 급성 맹장염"
+        "keyword": "ms 장애"
       },
       {
         "rank": 8,
-        "keyword": "김서아 부모님 사망 소식"
+        "keyword": "ai 안경"
       },
       {
         "rank": 9,
-        "keyword": "공항철도"
+        "keyword": "아이들 우기 하나의 중국"
       },
       {
         "rank": 10,
-        "keyword": "마운자로"
+        "keyword": "뜨거운 안녕"
       }
-    ]
+    ],
+    "googleError": "google trends HTTP 429",
+    "googleStale": true,
+    "googleAsOf": "2026-11-13T05:15:36.521Z"
   },
   "entertainment": []
 }

@@ -12,10 +12,43 @@
       "ym": "2026-11",
       "month": 11,
       "label": "이번 달",
-      "generatedAt": "2026-10-28T13:56:00.333Z",
+      "generatedAt": "2026-11-11T15:48:33.090Z",
       "total": 30,
       "lockedCount": 0,
       "items": [
+        {
+          "keyword": "블프 직구",
+          "cat": "자동차·IT",
+          "type": "정점",
+          "index": 1101,
+          "prevIndex": 31,
+          "peak": 11,
+          "riseFrom": 11,
+          "publishBy": "2026-10-18",
+          "years": 3,
+          "hits": 3,
+          "top3": 3,
+          "monthly": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            31,
+            1101,
+            68
+          ],
+          "volumeNow": 90,
+          "volumeExpected": 540,
+          "docs": 65495,
+          "related": [],
+          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 11.0배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
+          "score": 1536
+        },
         {
           "keyword": "빼빼로데이",
           "cat": "기념일·행사",
@@ -42,44 +75,44 @@
             952,
             7
           ],
-          "volumeNow": 24740,
-          "volumeExpected": 142740,
-          "docs": 632667,
+          "volumeNow": 155400,
+          "volumeExpected": 896610,
+          "docs": 661321,
           "related": [
             {
               "keyword": "빼빼로데이선물",
-              "volume": 5490
-            },
-            {
-              "keyword": "빼빼로데이이벤트",
-              "volume": 990
+              "volume": 48090
             },
             {
               "keyword": "빼빼로데이선물추천",
-              "volume": 590
+              "volume": 6260
             },
             {
-              "keyword": "빼빼로데이꽃",
-              "volume": 310
+              "keyword": "빼빼로데이이벤트",
+              "volume": 4420
             },
             {
               "keyword": "빼빼로데이선물세트",
-              "volume": 250
+              "volume": 3010
             },
             {
-              "keyword": "빼빼로데이꽃다발",
-              "volume": 200
+              "keyword": "여자친구빼빼로데이선물",
+              "volume": 2140
             },
             {
               "keyword": "어린이집빼빼로데이",
-              "volume": 190
+              "volume": 1740
             },
             {
-              "keyword": "빼빼로데이베이킹",
-              "volume": 160
+              "keyword": "빼빼로데이꽃",
+              "volume": 1660
+            },
+            {
+              "keyword": "빼빼로데이꽃다발",
+              "volume": 1240
             }
           ],
-          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 9.5배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
+          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 9.5배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다. 예상 검색 896,610회에 비해 블로그 문서(661,321건)가 적습니다.",
           "score": 1246
         },
         {
@@ -108,41 +141,41 @@
             855,
             230
           ],
-          "volumeNow": 3900,
-          "volumeExpected": 23400,
-          "docs": 111097,
+          "volumeNow": 5980,
+          "volumeExpected": 35880,
+          "docs": 120994,
           "related": [
             {
               "keyword": "수능디데이",
-              "volume": 151100
+              "volume": 130400
             },
             {
               "keyword": "수능일",
-              "volume": 54400
+              "volume": 128700
             },
             {
               "keyword": "수능시간표",
-              "volume": 48210
+              "volume": 74600
             },
             {
               "keyword": "2025수능",
-              "volume": 9640
-            },
-            {
-              "keyword": "2025수능등급컷",
-              "volume": 6050
+              "volume": 16260
             },
             {
               "keyword": "2025학년도수능등급컷",
-              "volume": 4020
+              "volume": 9230
             },
             {
-              "keyword": "수능기출",
-              "volume": 3510
+              "keyword": "2024학년도수능",
+              "volume": 9080
+            },
+            {
+              "keyword": "2025수능등급컷",
+              "volume": 8740
             },
             {
               "keyword": "2024수능",
-              "volume": 3470
+              "volume": 5740
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 8.6배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -174,44 +207,44 @@
             847,
             65
           ],
-          "volumeNow": 88300,
-          "volumeExpected": 389530,
-          "docs": 447292,
+          "volumeNow": 240900,
+          "volumeExpected": 1062720,
+          "docs": 478973,
           "related": [
             {
               "keyword": "블랙프라이데이기간",
-              "volume": 19000
-            },
-            {
-              "keyword": "한국블랙프라이데이",
-              "volume": 9010
+              "volume": 22980
             },
             {
               "keyword": "무신사블랙프라이데이",
-              "volume": 6270
+              "volume": 20330
             },
             {
-              "keyword": "미국블랙프라이데이",
-              "volume": 2520
+              "keyword": "한국블랙프라이데이",
+              "volume": 12470
             },
             {
               "keyword": "나이키블랙프라이데이",
-              "volume": 1920
+              "volume": 10120
+            },
+            {
+              "keyword": "미국블랙프라이데이",
+              "volume": 3820
             },
             {
               "keyword": "삼성전자블랙프라이데이",
-              "volume": 790
+              "volume": 3420
             },
             {
               "keyword": "LG블랙프라이데이",
-              "volume": 560
+              "volume": 2900
             },
             {
               "keyword": "블랙프라이데이세일",
-              "volume": 350
+              "volume": 1170
             }
           ],
-          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 8.5배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
+          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 8.5배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다. 예상 검색 1,062,720회에 비해 블로그 문서(478,973건)가 적습니다.",
           "score": 1075
         },
         {
@@ -240,41 +273,41 @@
             805,
             41
           ],
-          "volumeNow": 455300,
-          "volumeExpected": 2493310,
-          "docs": 7963696,
+          "volumeNow": 1036600,
+          "volumeExpected": 5676620,
+          "docs": 8088655,
           "related": [
             {
               "keyword": "수능디데이",
-              "volume": 151100
+              "volume": 130400
             },
             {
               "keyword": "수능일",
-              "volume": 54400
+              "volume": 128700
             },
             {
               "keyword": "수능시간표",
-              "volume": 48210
+              "volume": 74600
             },
             {
               "keyword": "수능일정",
-              "volume": 5000
+              "volume": 9100
             },
             {
               "keyword": "수능시험",
-              "volume": 4140
+              "volume": 8970
             },
             {
               "keyword": "수능등급컷",
-              "volume": 3900
+              "volume": 5980
             },
             {
               "keyword": "2024수능",
-              "volume": 3470
+              "volume": 5740
             },
             {
-              "keyword": "수능완성",
-              "volume": 3050
+              "keyword": "수능가채점표",
+              "volume": 4670
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 8.1배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -306,41 +339,41 @@
             738,
             354
           ],
-          "volumeNow": 3140,
-          "volumeExpected": 18840,
-          "docs": 429490,
+          "volumeNow": 7900,
+          "volumeExpected": 47400,
+          "docs": 452575,
           "related": [
             {
-              "keyword": "김장김치양념",
-              "volume": 3650
+              "keyword": "김장재료",
+              "volume": 9480
             },
             {
-              "keyword": "김장재료",
-              "volume": 2750
+              "keyword": "김장김치양념",
+              "volume": 7060
             },
             {
               "keyword": "김장20KG양념",
-              "volume": 960
-            },
-            {
-              "keyword": "김장키트",
-              "volume": 800
+              "volume": 2880
             },
             {
               "keyword": "김장속재료",
-              "volume": 740
+              "volume": 2420
             },
             {
               "keyword": "김장20포기양념",
-              "volume": 530
+              "volume": 1660
+            },
+            {
+              "keyword": "김장키트",
+              "volume": 1600
+            },
+            {
+              "keyword": "김장김치20KG",
+              "volume": 1210
             },
             {
               "keyword": "김장밀키트",
-              "volume": 520
-            },
-            {
-              "keyword": "김장김치담그는법",
-              "volume": 510
+              "volume": 1060
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 7.4배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -372,25 +405,29 @@
             790,
             178
           ],
-          "volumeNow": 290,
-          "volumeExpected": 1050,
-          "docs": 697870,
+          "volumeNow": 660,
+          "volumeExpected": 2380,
+          "docs": 746055,
           "related": [
             {
               "keyword": "김장매트",
-              "volume": 7390
+              "volume": 15010
             },
             {
               "keyword": "김장다라이",
-              "volume": 1240
+              "volume": 2650
             },
             {
               "keyword": "김장용품",
-              "volume": 370
+              "volume": 870
             },
             {
               "keyword": "김장용매트",
-              "volume": 200
+              "volume": 510
+            },
+            {
+              "keyword": "김장매트추천",
+              "volume": 110
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 7.9배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -422,44 +459,44 @@
             774,
             35
           ],
-          "volumeNow": 48940,
-          "volumeExpected": 218960,
-          "docs": 1024671,
+          "volumeNow": 306700,
+          "volumeExpected": 1372170,
+          "docs": 1057616,
           "related": [
             {
               "keyword": "빼빼로데이",
-              "volume": 24740
+              "volume": 155400
             },
             {
               "keyword": "빼빼로만들기",
-              "volume": 13560
-            },
-            {
-              "keyword": "빼빼로만들기키트",
-              "volume": 7980
+              "volume": 80800
             },
             {
               "keyword": "빼빼로데이선물",
-              "volume": 5490
+              "volume": 48090
+            },
+            {
+              "keyword": "빼빼로만들기키트",
+              "volume": 38310
             },
             {
               "keyword": "수제빼빼로",
-              "volume": 3940
+              "volume": 35180
+            },
+            {
+              "keyword": "빼빼로선물",
+              "volume": 16860
             },
             {
               "keyword": "빼빼로데이만들기",
-              "volume": 1990
+              "volume": 7470
             },
             {
               "keyword": "수제빼빼로주문",
-              "volume": 1090
-            },
-            {
-              "keyword": "빼빼로데이이벤트",
-              "volume": 990
+              "volume": 7010
             }
           ],
-          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 7.7배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
+          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 7.7배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다. 예상 검색 1,372,170회에 비해 블로그 문서(1,057,616건)가 적습니다.",
           "score": 975
         },
         {
@@ -488,41 +525,41 @@
             803,
             3
           ],
-          "volumeNow": 27030,
-          "volumeExpected": 70700,
-          "docs": 452894,
+          "volumeNow": 85600,
+          "volumeExpected": 223900,
+          "docs": 467944,
           "related": [
             {
               "keyword": "수능디데이",
-              "volume": 151100
+              "volume": 130400
             },
             {
               "keyword": "수능선물추천",
-              "volume": 7620
+              "volume": 24150
             },
             {
               "keyword": "수능초콜릿",
-              "volume": 5880
+              "volume": 17880
             },
             {
               "keyword": "수능응원선물",
-              "volume": 5550
+              "volume": 11690
             },
             {
               "keyword": "수능선물세트",
-              "volume": 2850
+              "volume": 10730
             },
             {
               "keyword": "수능찹쌀떡",
-              "volume": 2210
+              "volume": 7100
             },
             {
-              "keyword": "수능준비물",
-              "volume": 1680
+              "keyword": "고3수능선물",
+              "volume": 5250
             },
             {
               "keyword": "수능합격기원선물",
-              "volume": 1630
+              "volume": 5230
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 8.0배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -554,44 +591,44 @@
             734,
             30
           ],
-          "volumeNow": 12590,
-          "volumeExpected": 39490,
-          "docs": 46573,
+          "volumeNow": 33400,
+          "volumeExpected": 104770,
+          "docs": 51189,
           "related": [
             {
               "keyword": "알리광군제",
-              "volume": 14490
+              "volume": 42100
             },
             {
               "keyword": "알리익스프레스광군제",
-              "volume": 960
+              "volume": 1730
             },
             {
               "keyword": "광군제할인",
-              "volume": 140
+              "volume": 570
+            },
+            {
+              "keyword": "광군제알리",
+              "volume": 380
             },
             {
               "keyword": "타오바오",
-              "volume": 176000
+              "volume": 184600
             },
             {
               "keyword": "재택부업",
-              "volume": 12010
+              "volume": 12900
             },
             {
               "keyword": "재택알바",
-              "volume": 7010
+              "volume": 7240
             },
             {
               "keyword": "HSCODE",
-              "volume": 6620
-            },
-            {
-              "keyword": "HSCODE조회",
-              "volume": 6340
+              "volume": 7230
             }
           ],
-          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 7.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
+          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 7.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다. 예상 검색 104,770회에 비해 블로그 문서(51,189건)가 적습니다.",
           "score": 884
         },
         {
@@ -620,9 +657,9 @@
             727,
             53
           ],
-          "volumeNow": 190,
-          "volumeExpected": 640,
-          "docs": 1399648,
+          "volumeNow": 270,
+          "volumeExpected": 900,
+          "docs": 1423221,
           "related": [],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 7.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
           "score": 882
@@ -653,41 +690,41 @@
             722,
             11
           ],
-          "volumeNow": 10400,
-          "volumeExpected": 31550,
-          "docs": 118242,
+          "volumeNow": 19910,
+          "volumeExpected": 60400,
+          "docs": 123968,
           "related": [
             {
-              "keyword": "수능도시락통",
-              "volume": 4040
+              "keyword": "수능보온도시락",
+              "volume": 6050
             },
             {
-              "keyword": "수능보온도시락",
-              "volume": 3690
+              "keyword": "수능도시락통",
+              "volume": 5680
             },
             {
               "keyword": "수능도시락추천",
-              "volume": 470
+              "volume": 830
+            },
+            {
+              "keyword": "수능도시락배달",
+              "volume": 180
             },
             {
               "keyword": "보온도시락",
-              "volume": 32030
-            },
-            {
-              "keyword": "도시락통",
-              "volume": 23180
+              "volume": 48000
             },
             {
               "keyword": "써모스보온도시락",
-              "volume": 16640
+              "volume": 25520
+            },
+            {
+              "keyword": "도시락통",
+              "volume": 22390
             },
             {
               "keyword": "보온도시락통",
-              "volume": 10300
-            },
-            {
-              "keyword": "냉동도시락",
-              "volume": 9520
+              "volume": 11950
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 7.2배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -719,9 +756,9 @@
             734,
             26
           ],
-          "volumeNow": 12980,
-          "volumeExpected": 23240,
-          "docs": 229699,
+          "volumeNow": 24410,
+          "volumeExpected": 43700,
+          "docs": 296735,
           "related": [],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 7.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
           "score": 796
@@ -752,41 +789,41 @@
             566,
             242
           ],
-          "volumeNow": 8820,
-          "volumeExpected": 36440,
-          "docs": 1137649,
+          "volumeNow": 20340,
+          "volumeExpected": 84030,
+          "docs": 1167562,
           "related": [
             {
               "keyword": "김장",
-              "volume": 7660
-            },
-            {
-              "keyword": "전라도김장김치",
-              "volume": 1650
+              "volume": 14150
             },
             {
               "keyword": "김장김치10KG",
-              "volume": 320
+              "volume": 4940
             },
             {
-              "keyword": "김장김치주문",
-              "volume": 270
-            },
-            {
-              "keyword": "김장김치추천",
-              "volume": 270
-            },
-            {
-              "keyword": "김장김치가격",
-              "volume": 260
-            },
-            {
-              "keyword": "김장김치예약",
-              "volume": 250
+              "keyword": "전라도김장김치",
+              "volume": 3320
             },
             {
               "keyword": "김장김치20KG",
-              "volume": 130
+              "volume": 1210
+            },
+            {
+              "keyword": "김장김치가격",
+              "volume": 800
+            },
+            {
+              "keyword": "김장김치주문",
+              "volume": 550
+            },
+            {
+              "keyword": "김장김치추천",
+              "volume": 500
+            },
+            {
+              "keyword": "김장김치예약",
+              "volume": 330
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 5.7배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -818,41 +855,41 @@
             527,
             502
           ],
-          "volumeNow": 47000,
-          "volumeExpected": 235900,
-          "docs": 2738768,
+          "volumeNow": 122200,
+          "volumeExpected": 613330,
+          "docs": 2772938,
           "related": [
             {
               "keyword": "크리스마스장식",
-              "volume": 10480
+              "volume": 28640
             },
             {
               "keyword": "크리스마스조명",
-              "volume": 9350
-            },
-            {
-              "keyword": "크리스마스트리나무",
-              "volume": 6050
+              "volume": 13620
             },
             {
               "keyword": "크리스마스트리대여",
-              "volume": 5230
+              "volume": 11360
             },
             {
               "keyword": "크리스마스트리장식",
-              "volume": 5200
+              "volume": 10870
             },
             {
-              "keyword": "크리스마스트리조명",
-              "volume": 3920
+              "keyword": "크리스마스트리나무",
+              "volume": 9960
             },
             {
               "keyword": "크리스마스오너먼트",
-              "volume": 3520
+              "volume": 9650
+            },
+            {
+              "keyword": "크리스마스트리조명",
+              "volume": 7560
             },
             {
               "keyword": "크리스마스트리180",
-              "volume": 2940
+              "volume": 7460
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 5.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -884,44 +921,44 @@
             532,
             170
           ],
-          "volumeNow": 7390,
-          "volumeExpected": 28280,
-          "docs": 39134,
+          "volumeNow": 15010,
+          "volumeExpected": 57450,
+          "docs": 41502,
           "related": [
             {
               "keyword": "김장다라이",
-              "volume": 1240
+              "volume": 2650
             },
             {
               "keyword": "김장용품",
-              "volume": 370
+              "volume": 870
             },
             {
               "keyword": "김장준비",
-              "volume": 290
-            },
-            {
-              "keyword": "김장용매트",
-              "volume": 200
+              "volume": 660
             },
             {
               "keyword": "김장절임매트",
-              "volume": 180
+              "volume": 550
+            },
+            {
+              "keyword": "김장용매트",
+              "volume": 510
+            },
+            {
+              "keyword": "해피락김장매트",
+              "volume": 150
+            },
+            {
+              "keyword": "김장매트추천",
+              "volume": 110
             },
             {
               "keyword": "모기장",
-              "volume": 21000
-            },
-            {
-              "keyword": "수영가방",
-              "volume": 18460
-            },
-            {
-              "keyword": "지네",
-              "volume": 16690
+              "volume": 17950
             }
           ],
-          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 5.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
+          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 5.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다. 예상 검색 57,450회에 비해 블로그 문서(41,502건)가 적습니다.",
           "score": 629
         },
         {
@@ -950,41 +987,41 @@
             590,
             207
           ],
-          "volumeNow": 6260,
-          "volumeExpected": 11760,
-          "docs": 87471,
+          "volumeNow": 11370,
+          "volumeExpected": 21360,
+          "docs": 89046,
           "related": [
             {
               "keyword": "스키장",
-              "volume": 14600
-            },
-            {
-              "keyword": "곤지암스키장",
-              "volume": 3430
+              "volume": 22860
             },
             {
               "keyword": "스키장개장일",
-              "volume": 2880
+              "volume": 8170
+            },
+            {
+              "keyword": "곤지암스키장",
+              "volume": 5910
             },
             {
               "keyword": "스키장시즌권",
-              "volume": 2530
+              "volume": 2560
             },
             {
               "keyword": "실내스키장",
-              "volume": 1110
+              "volume": 1130
             },
             {
               "keyword": "스키장가격",
-              "volume": 600
-            },
-            {
-              "keyword": "스키장리프트",
-              "volume": 480
+              "volume": 1040
             },
             {
               "keyword": "스키장리조트",
-              "volume": 420
+              "volume": 640
+            },
+            {
+              "keyword": "스키장���프트",
+              "volume": 520
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 5.9배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -1016,9 +1053,9 @@
             512,
             88
           ],
-          "volumeNow": 230,
-          "volumeExpected": 1340,
-          "docs": 45527,
+          "volumeNow": 840,
+          "volumeExpected": 4890,
+          "docs": 48558,
           "related": [],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 5.1배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
           "score": 624
@@ -1049,41 +1086,41 @@
             459,
             351
           ],
-          "volumeNow": 2130,
-          "volumeExpected": 9400,
-          "docs": 763964,
+          "volumeNow": 3960,
+          "volumeExpected": 17480,
+          "docs": 803622,
           "related": [
             {
-              "keyword": "창문시트지",
-              "volume": 11250
+              "keyword": "창문방풍비닐",
+              "volume": 20880
             },
             {
               "keyword": "창문틈새막이",
-              "volume": 7970
+              "volume": 14310
             },
             {
-              "keyword": "창문방풍비닐",
-              "volume": 6390
-            },
-            {
-              "keyword": "창문바람막이",
-              "volume": 3760
+              "keyword": "창문시트지",
+              "volume": 10570
             },
             {
               "keyword": "창문뽁뽁이",
-              "volume": 3620
+              "volume": 6600
+            },
+            {
+              "keyword": "창문바람막이",
+              "volume": 6250
             },
             {
               "keyword": "창문외풍차단",
-              "volume": 2810
-            },
-            {
-              "keyword": "창문썬팅지",
-              "volume": 2090
+              "volume": 6060
             },
             {
               "keyword": "창문단열필름",
-              "volume": 2050
+              "volume": 3240
+            },
+            {
+              "keyword": "창문방풍",
+              "volume": 2640
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 4.6배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -1115,41 +1152,41 @@
             440,
             392
           ],
-          "volumeNow": 11910,
-          "volumeExpected": 40000,
-          "docs": 343086,
+          "volumeNow": 32950,
+          "volumeExpected": 110670,
+          "docs": 360633,
           "related": [
             {
               "keyword": "남성기모바지",
-              "volume": 4160
+              "volume": 12640
             },
             {
               "keyword": "남자기모바지",
-              "volume": 2480
+              "volume": 9080
             },
             {
               "keyword": "여성기모바지",
-              "volume": 2290
+              "volume": 7390
             },
             {
               "keyword": "여자기모바지",
-              "volume": 880
+              "volume": 4340
             },
             {
               "keyword": "바지",
-              "volume": 34570
+              "volume": 36400
             },
             {
-              "keyword": "양산",
-              "volume": 32690
+              "keyword": "작업복",
+              "volume": 33100
             },
             {
               "keyword": "자켓",
-              "volume": 32110
+              "volume": 31210
             },
             {
               "keyword": "조거팬츠",
-              "volume": 28200
+              "volume": 30000
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 4.4배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -1181,41 +1218,41 @@
             422,
             306
           ],
-          "volumeNow": 12120,
-          "volumeExpected": 35270,
-          "docs": 262747,
+          "volumeNow": 30200,
+          "volumeExpected": 87890,
+          "docs": 276758,
           "related": [
             {
               "keyword": "여성숏패딩",
-              "volume": 6060
+              "volume": 15480
             },
             {
               "keyword": "남자숏패딩",
-              "volume": 3330
+              "volume": 7640
             },
             {
               "keyword": "여자숏패딩",
-              "volume": 1400
+              "volume": 3770
             },
             {
               "keyword": "숏패딩추천",
-              "volume": 500
+              "volume": 1380
             },
             {
               "keyword": "커플숏패딩",
-              "volume": 100
+              "volume": 580
+            },
+            {
+              "keyword": "숏패딩여성",
+              "volume": 320
             },
             {
               "keyword": "경량패딩",
-              "volume": 303100
-            },
-            {
-              "keyword": "유니클로세일",
-              "volume": 178000
+              "volume": 532400
             },
             {
               "keyword": "노스페이스패딩",
-              "volume": 146300
+              "volume": 285100
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 4.2배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -1247,41 +1284,41 @@
             395,
             430
           ],
-          "volumeNow": 18110,
-          "volumeExpected": 88310,
-          "docs": 456899,
+          "volumeNow": 48220,
+          "volumeExpected": 235150,
+          "docs": 467448,
           "related": [
             {
               "keyword": "대방어철",
-              "volume": 17590
-            },
-            {
-              "keyword": "대방어회",
-              "volume": 2130
+              "volume": 29530
             },
             {
               "keyword": "대방어필렛",
-              "volume": 1910
+              "volume": 8490
+            },
+            {
+              "keyword": "대방어회",
+              "volume": 5660
             },
             {
               "keyword": "대방어가격",
-              "volume": 1740
+              "volume": 5500
             },
             {
               "keyword": "노량진대방어",
-              "volume": 880
+              "volume": 3180
             },
             {
               "keyword": "인천대방어",
-              "volume": 360
+              "volume": 1280
             },
             {
               "keyword": "인천대방어맛집",
-              "volume": 300
+              "volume": 1190
             },
             {
-              "keyword": "포항대방어",
-              "volume": 290
+              "keyword": "대방어시세",
+              "volume": 1160
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 4.0배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 12월 정점까지 계속 오르는 구간이라 미리 써 두면 오래 읽힙니다.",
@@ -1313,41 +1350,41 @@
             398,
             371
           ],
-          "volumeNow": 15990,
-          "volumeExpected": 53030,
-          "docs": 155713,
+          "volumeNow": 46020,
+          "volumeExpected": 152630,
+          "docs": 159285,
           "related": [
             {
               "keyword": "유니클로히트텍",
-              "volume": 15920
+              "volume": 46440
             },
             {
               "keyword": "유니클로히트텍세일",
-              "volume": 2680
+              "volume": 8510
             },
             {
               "keyword": "반팔히트텍",
-              "volume": 660
-            },
-            {
-              "keyword": "히트텍반팔",
-              "volume": 610
+              "volume": 1570
             },
             {
               "keyword": "유니클로히트텍바지",
-              "volume": 440
+              "volume": 1570
             },
             {
-              "keyword": "남성히트텍",
-              "volume": 280
+              "keyword": "히트텍반팔",
+              "volume": 1550
             },
             {
               "keyword": "히트텍상의",
-              "volume": 250
+              "volume": 690
             },
             {
               "keyword": "여성히트텍",
-              "volume": 240
+              "volume": 600
+            },
+            {
+              "keyword": "히트텍세일",
+              "volume": 590
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 4.0배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -1379,41 +1416,41 @@
             396,
             439
           ],
-          "volumeNow": 280,
-          "volumeExpected": 890,
-          "docs": 557610,
+          "volumeNow": 450,
+          "volumeExpected": 1430,
+          "docs": 571080,
           "related": [
             {
               "keyword": "겨울용타이어",
-              "volume": 280
+              "volume": 340
             },
             {
               "keyword": "타이어",
-              "volume": 70500
+              "volume": 76700
             },
             {
               "keyword": "타이어렌탈",
-              "volume": 14500
+              "volume": 14640
             },
             {
               "keyword": "타이어가격",
-              "volume": 12510
+              "volume": 12680
             },
             {
               "keyword": "타이어교체",
-              "volume": 12380
+              "volume": 12520
             },
             {
               "keyword": "윈터타이어",
-              "volume": 6280
+              "volume": 10620
             },
             {
               "keyword": "자동차타이어",
-              "volume": 5070
+              "volume": 5440
             },
             {
-              "keyword": "금호타이어렌탈",
-              "volume": 3040
+              "keyword": "윈터타이어교체시기",
+              "volume": 3840
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 4.0배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 12월 정점까지 계속 오르는 구간이라 미리 써 두면 오래 읽힙니다.",
@@ -1445,41 +1482,41 @@
             432,
             266
           ],
-          "volumeNow": 13630,
-          "volumeExpected": 24530,
-          "docs": 236257,
+          "volumeNow": 25550,
+          "volumeExpected": 45990,
+          "docs": 244618,
           "related": [
             {
               "keyword": "아기옷",
-              "volume": 29210
+              "volume": 29620
             },
             {
               "keyword": "아기바라클라바",
-              "volume": 11150
+              "volume": 26340
             },
             {
               "keyword": "아기경량패딩",
-              "volume": 9250
+              "volume": 12030
             },
             {
-              "keyword": "아기가디건",
-              "volume": 5350
+              "keyword": "아기장갑",
+              "volume": 9620
             },
             {
               "keyword": "아기목도리",
-              "volume": 4460
+              "volume": 9150
             },
             {
               "keyword": "아기어그",
-              "volume": 4300
+              "volume": 6790
             },
             {
               "keyword": "돌아기패딩",
-              "volume": 3420
+              "volume": 5570
             },
             {
               "keyword": "아기겨울신발",
-              "volume": 2980
+              "volume": 5570
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 4.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
@@ -1511,41 +1548,41 @@
             513,
             6
           ],
-          "volumeNow": 9970,
-          "volumeExpected": 8410,
-          "docs": 804424,
+          "volumeNow": 17130,
+          "volumeExpected": 14450,
+          "docs": 1059567,
           "related": [
             {
               "keyword": "내장산단풍",
-              "volume": 82170
-            },
-            {
-              "keyword": "설악산단풍",
-              "volume": 77500
+              "volume": 148200
             },
             {
               "keyword": "가을단풍명소",
-              "volume": 76800
+              "volume": 119400
             },
             {
-              "keyword": "단풍시기",
-              "volume": 33700
+              "keyword": "설악산단풍",
+              "volume": 60100
             },
             {
               "keyword": "주왕산단풍",
-              "volume": 23030
+              "volume": 33230
+            },
+            {
+              "keyword": "단풍시기",
+              "volume": 33000
             },
             {
               "keyword": "내장산단풍시기",
-              "volume": 13250
+              "volume": 16920
+            },
+            {
+              "keyword": "강천산단풍",
+              "volume": 15470
             },
             {
               "keyword": "단풍구경",
-              "volume": 7000
-            },
-            {
-              "keyword": "가을단풍",
-              "volume": 6940
+              "volume": 11260
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 5.1배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 10월 정점 뒤에도 검색이 높게 이어지는 달입니다.",
@@ -1577,41 +1614,41 @@
             369,
             442
           ],
-          "volumeNow": 17310,
-          "volumeExpected": 62010,
-          "docs": 1272551,
+          "volumeNow": 41870,
+          "volumeExpected": 150000,
+          "docs": 1295669,
           "related": [
             {
               "keyword": "캐시미어목도리",
-              "volume": 3150
+              "volume": 7620
             },
             {
               "keyword": "남자목도리",
-              "volume": 2530
-            },
-            {
-              "keyword": "쁘띠목도리",
-              "volume": 2210
+              "volume": 6900
             },
             {
               "keyword": "패딩목도리",
-              "volume": 1860
+              "volume": 6130
             },
             {
-              "keyword": "여자목도리",
-              "volume": 970
+              "keyword": "쁘띠목도리",
+              "volume": 5680
             },
             {
               "keyword": "겨울목도리",
-              "volume": 970
+              "volume": 3380
             },
             {
-              "keyword": "커플목도리",
-              "volume": 800
+              "keyword": "여자목도리",
+              "volume": 2940
             },
             {
-              "keyword": "목도리브랜드",
-              "volume": 790
+              "keyword": "니트목도리",
+              "volume": 2760
+            },
+            {
+              "keyword": "울목도리",
+              "volume": 2550
             }
           ],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 3.7배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 12월 정점까지 계속 오르는 구간이라 미리 써 두면 오래 읽힙니다.",
@@ -1643,44 +1680,44 @@
             360,
             370
           ],
-          "volumeNow": 133700,
-          "volumeExpected": 506650,
-          "docs": 398432,
+          "volumeNow": 319500,
+          "volumeExpected": 1210740,
+          "docs": 404654,
           "related": [
             {
               "keyword": "과메기철",
-              "volume": 32130
+              "volume": 42630
             },
             {
               "keyword": "구룡포과메기",
-              "volume": 11840
+              "volume": 31770
             },
             {
               "keyword": "청어과메기",
-              "volume": 4500
+              "volume": 11890
             },
             {
               "keyword": "포항구룡포과메기",
-              "volume": 3800
+              "volume": 8320
             },
             {
-              "keyword": "과메기제철",
-              "volume": 2900
+              "keyword": "과메기효능",
+              "volume": 7480
             },
             {
               "keyword": "포항과메기맛집",
-              "volume": 2790
-            },
-            {
-              "keyword": "햇과메기",
-              "volume": 2700
+              "volume": 6800
             },
             {
               "keyword": "과메기세트",
-              "volume": 2250
+              "volume": 6450
+            },
+            {
+              "keyword": "과메기맛집",
+              "volume": 6140
             }
           ],
-          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 3.6배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 12월 정점까지 계속 오르는 구간이라 미리 써 두면 오래 읽힙니다. 예상 검색 506,650회에 비해 블로그 문서(398,432건)가 적습니다.",
+          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 3.6배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 12월 정점까지 계속 오르는 구간이라 미리 써 두면 오래 읽힙니다. 예상 검색 1,210,740회에 비해 블로그 문서(404,654건)가 적습니다.",
           "score": 393
         },
         {
@@ -1709,9 +1746,9 @@
             486,
             32
           ],
-          "volumeNow": 3290,
-          "volumeExpected": 2510,
-          "docs": 199931,
+          "volumeNow": 2760,
+          "volumeExpected": 2110,
+          "docs": 254651,
           "related": [],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 4.9배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 10월 정점 뒤에도 검색이 높게 이어지는 달입니다.",
           "score": 386
@@ -1742,78 +1779,12 @@
             432,
             11
           ],
-          "volumeNow": 690,
-          "volumeExpected": 720,
-          "docs": 59602,
+          "volumeNow": 1000,
+          "volumeExpected": 1050,
+          "docs": 62689,
           "related": [],
           "reason": "최근 3년을 평균하면 11월 검색이 연평균의 4.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
           "score": 342
-        },
-        {
-          "keyword": "난방텐트",
-          "cat": "생활·살림",
-          "type": "정점",
-          "index": 364,
-          "prevIndex": 238,
-          "peak": 11,
-          "riseFrom": 10,
-          "publishBy": "2026-09-17",
-          "years": 3,
-          "hits": 3,
-          "top3": 3,
-          "monthly": [
-            138,
-            54,
-            27,
-            17,
-            14,
-            11,
-            9,
-            13,
-            37,
-            238,
-            364,
-            276
-          ],
-          "volumeNow": 27050,
-          "volumeExpected": 41370,
-          "docs": 179598,
-          "related": [
-            {
-              "keyword": "침대난방텐트",
-              "volume": 4070
-            },
-            {
-              "keyword": "사각난방텐트",
-              "volume": 3810
-            },
-            {
-              "keyword": "아기난방텐트",
-              "volume": 1780
-            },
-            {
-              "keyword": "원터치난방텐트",
-              "volume": 1230
-            },
-            {
-              "keyword": "1인용난방텐트",
-              "volume": 650
-            },
-            {
-              "keyword": "슈퍼싱글난방텐트",
-              "volume": 620
-            },
-            {
-              "keyword": "패밀리침대난방텐트",
-              "volume": 440
-            },
-            {
-              "keyword": "난방텐트퀸",
-              "volume": 420
-            }
-          ],
-          "reason": "최근 3년을 평균하면 11월 검색이 연평균의 3.6배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 11월이라 지금 쓰면 바로 읽힙니다.",
-          "score": 327
         }
       ]
     },
@@ -1821,7 +1792,7 @@
       "ym": "2026-12",
       "month": 12,
       "label": "다음 달",
-      "generatedAt": "2026-10-28T15:05:57.701Z",
+      "generatedAt": "2026-11-11T16:56:41.562Z",
       "total": 30,
       "lockedCount": 0,
       "items": [
@@ -1851,41 +1822,41 @@
             88,
             1081
           ],
-          "volumeNow": 100,
-          "volumeExpected": 600,
-          "docs": 38625,
+          "volumeNow": 300,
+          "volumeExpected": 1800,
+          "docs": 44269,
           "related": [
             {
               "keyword": "연말인사",
-              "volume": 110
+              "volume": 320
             },
             {
               "keyword": "지방쓰는법",
-              "volume": 13940
+              "volume": 14060
+            },
+            {
+              "keyword": "11월인사말",
+              "volume": 11290
             },
             {
               "keyword": "성혼선언문",
-              "volume": 10190
+              "volume": 9220
             },
             {
               "keyword": "엽서제작",
-              "volume": 6190
+              "volume": 6410
             },
             {
               "keyword": "문구사이트",
-              "volume": 5150
+              "volume": 5350
             },
             {
               "keyword": "인사말",
-              "volume": 5100
+              "volume": 4810
             },
             {
-              "keyword": "제사지방쓰는법",
-              "volume": 3300
-            },
-            {
-              "keyword": "엽서사이즈",
-              "volume": 2920
+              "keyword": "연하장",
+              "volume": 3770
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 10.8배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -1917,41 +1888,41 @@
             39,
             1046
           ],
-          "volumeNow": 1320,
-          "volumeExpected": 7920,
-          "docs": 140350,
+          "volumeNow": 1820,
+          "volumeExpected": 10920,
+          "docs": 141259,
           "related": [
             {
               "keyword": "동지",
-              "volume": 27080
+              "volume": 51280
             },
             {
               "keyword": "본죽",
-              "volume": 426800
+              "volume": 432700
             },
             {
               "keyword": "죽",
-              "volume": 22780
+              "volume": 23060
             },
             {
               "keyword": "장염에좋은음식",
-              "volume": 20380
+              "volume": 18840
             },
             {
               "keyword": "늙은호박죽",
-              "volume": 11740
-            },
-            {
-              "keyword": "단호박죽",
-              "volume": 10030
+              "volume": 13780
             },
             {
               "keyword": "팥효능",
-              "volume": 9900
+              "volume": 10970
+            },
+            {
+              "keyword": "단호박죽",
+              "volume": 10670
             },
             {
               "keyword": "팥죽",
-              "volume": 7930
+              "volume": 9680
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 10.5배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -1983,41 +1954,41 @@
             140,
             962
           ],
-          "volumeNow": 28760,
-          "volumeExpected": 172560,
-          "docs": 12029401,
+          "volumeNow": 54900,
+          "volumeExpected": 329400,
+          "docs": 12111304,
           "related": [
             {
               "keyword": "크리스마스장식",
-              "volume": 10480
+              "volume": 28640
             },
             {
               "keyword": "크리스마스리스",
-              "volume": 6470
+              "volume": 18720
             },
             {
               "keyword": "크리스마스트리대여",
-              "volume": 5230
+              "volume": 11360
             },
             {
               "keyword": "크리스마스트리장식",
-              "volume": 5200
+              "volume": 10870
             },
             {
               "keyword": "크리스마스선물",
-              "volume": 3910
+              "volume": 10560
             },
             {
               "keyword": "크리스마스소품",
-              "volume": 3390
+              "volume": 9600
             },
             {
               "keyword": "크리스마스트리180",
-              "volume": 2940
+              "volume": 7460
             },
             {
               "keyword": "크리스마스데이트",
-              "volume": 2770
+              "volume": 5220
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 9.6배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2049,41 +2020,41 @@
             189,
             971
           ],
-          "volumeNow": 3910,
-          "volumeExpected": 23460,
-          "docs": 3349084,
+          "volumeNow": 10560,
+          "volumeExpected": 63360,
+          "docs": 3380301,
           "related": [
             {
               "keyword": "크리스마스리스",
-              "volume": 6470
+              "volume": 18720
             },
             {
               "keyword": "크리스마스트리장식",
-              "volume": 5200
+              "volume": 10870
             },
             {
               "keyword": "크리스마스오너먼트",
-              "volume": 3520
+              "volume": 9650
             },
             {
               "keyword": "크리스마스소품",
-              "volume": 3390
+              "volume": 9600
             },
             {
               "keyword": "크리스마스데이트",
-              "volume": 2770
-            },
-            {
-              "keyword": "크리스마스용품",
-              "volume": 1400
+              "volume": 5220
             },
             {
               "keyword": "크리스마스선물추천",
-              "volume": 1050
+              "volume": 2930
+            },
+            {
+              "keyword": "크리스마스용품",
+              "volume": 2570
             },
             {
               "keyword": "크리스마스포토존",
-              "volume": 760
+              "volume": 1970
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 9.7배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2115,41 +2086,41 @@
             92,
             920
           ],
-          "volumeNow": 1970,
-          "volumeExpected": 11820,
-          "docs": 184387,
+          "volumeNow": 4190,
+          "volumeExpected": 25140,
+          "docs": 203599,
           "related": [
             {
               "keyword": "정동진해돋이",
-              "volume": 970
+              "volume": 1070
             },
             {
               "keyword": "부산해돋이명소",
-              "volume": 280
-            },
-            {
-              "keyword": "부산해돋이",
-              "volume": 240
+              "volume": 500
             },
             {
               "keyword": "동해해돋이명소",
-              "volume": 210
+              "volume": 340
+            },
+            {
+              "keyword": "부산해돋이",
+              "volume": 300
             },
             {
               "keyword": "동해해돋이",
-              "volume": 190
-            },
-            {
-              "keyword": "여수해돋이",
-              "volume": 150
+              "volume": 250
             },
             {
               "keyword": "해돋이여행",
-              "volume": 120
+              "volume": 210
+            },
+            {
+              "keyword": "여수해돋이",
+              "volume": 210
             },
             {
               "keyword": "속초가볼만한곳",
-              "volume": 102200
+              "volume": 84650
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 9.2배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2181,9 +2152,9 @@
             22,
             834
           ],
-          "volumeNow": 1250,
-          "volumeExpected": 7500,
-          "docs": 66326,
+          "volumeNow": 1550,
+          "volumeExpected": 9300,
+          "docs": 66781,
           "related": [],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 8.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
           "score": 1140
@@ -2214,41 +2185,41 @@
             130,
             851
           ],
-          "volumeNow": 27080,
-          "volumeExpected": 162480,
-          "docs": 1409506,
+          "volumeNow": 51280,
+          "volumeExpected": 307680,
+          "docs": 1417164,
           "related": [
             {
               "keyword": "동지팥죽",
-              "volume": 1320
+              "volume": 1820
             },
             {
               "keyword": "본죽",
-              "volume": 426800
+              "volume": 432700
             },
             {
               "keyword": "죽",
-              "volume": 22780
+              "volume": 23060
             },
             {
               "keyword": "늙은호박죽",
-              "volume": 11740
-            },
-            {
-              "keyword": "단호박죽",
-              "volume": 10030
+              "volume": 13780
             },
             {
               "keyword": "팥효능",
-              "volume": 9900
+              "volume": 10970
+            },
+            {
+              "keyword": "단호박죽",
+              "volume": 10670
             },
             {
               "keyword": "팥죽",
-              "volume": 7930
+              "volume": 9680
             },
             {
               "keyword": "호박죽",
-              "volume": 7450
+              "volume": 8190
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 8.5배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2280,41 +2251,41 @@
             275,
             805
           ],
-          "volumeNow": 4240,
-          "volumeExpected": 25440,
-          "docs": 612000,
+          "volumeNow": 10570,
+          "volumeExpected": 63420,
+          "docs": 627054,
           "related": [
             {
               "keyword": "크리스마스장식",
-              "volume": 10480
+              "volume": 28640
             },
             {
               "keyword": "크리스마스벽트리",
-              "volume": 2080
+              "volume": 6420
             },
             {
-              "keyword": "크리스마스포장지",
-              "volume": 550
+              "keyword": "초등학생크리스마스선물",
+              "volume": 1710
             },
             {
               "keyword": "크리스마스구디백",
-              "volume": 510
+              "volume": 1610
+            },
+            {
+              "keyword": "크리스마스포장지",
+              "volume": 1520
             },
             {
               "keyword": "크리스마스인형",
-              "volume": 480
+              "volume": 1390
             },
             {
               "keyword": "크리스마스키링",
-              "volume": 450
-            },
-            {
-              "keyword": "크리스마스DIY",
-              "volume": 450
+              "volume": 1090
             },
             {
               "keyword": "크리스마스카드만들기",
-              "volume": 310
+              "volume": 1080
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 8.1배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2346,41 +2317,41 @@
             197,
             687
           ],
-          "volumeNow": 150,
-          "volumeExpected": 900,
-          "docs": 858692,
+          "volumeNow": 170,
+          "volumeExpected": 1020,
+          "docs": 880121,
           "related": [
             {
               "keyword": "정시원서접수기간",
-              "volume": 3070
+              "volume": 3920
             },
             {
               "keyword": "정시컨설팅",
-              "volume": 1300
+              "volume": 1730
             },
             {
               "keyword": "정시가나다군",
-              "volume": 830
+              "volume": 1200
             },
             {
               "keyword": "정시합격예측",
-              "volume": 670
-            },
-            {
-              "keyword": "정시배치표",
-              "volume": 300
+              "volume": 850
             },
             {
               "keyword": "경기대정시등급",
-              "volume": 300
+              "volume": 410
             },
             {
               "keyword": "의대정시컷",
-              "volume": 300
+              "volume": 390
             },
             {
-              "keyword": "세종대정시등급",
-              "volume": 270
+              "keyword": "정시배치표",
+              "volume": 380
+            },
+            {
+              "keyword": "메가스터디정시합격예측",
+              "volume": 290
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 6.9배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2412,41 +2383,41 @@
             305,
             691
           ],
-          "volumeNow": 7670,
-          "volumeExpected": 46020,
-          "docs": 967144,
+          "volumeNow": 16990,
+          "volumeExpected": 101940,
+          "docs": 982756,
           "related": [
             {
               "keyword": "송년회장소",
-              "volume": 870
+              "volume": 2240
             },
             {
               "keyword": "송년회장소추천",
-              "volume": 260
+              "volume": 430
             },
             {
               "keyword": "연말송년회",
-              "volume": 210
-            },
-            {
-              "keyword": "기업송년회",
-              "volume": 160
+              "volume": 420
             },
             {
               "keyword": "송년회MC",
-              "volume": 140
-            },
-            {
-              "keyword": "회사송년회",
-              "volume": 130
-            },
-            {
-              "keyword": "서울송년회장소",
-              "volume": 120
+              "volume": 340
             },
             {
               "keyword": "송년회게임",
-              "volume": 110
+              "volume": 320
+            },
+            {
+              "keyword": "서울송년회장소",
+              "volume": 260
+            },
+            {
+              "keyword": "회사송년회",
+              "volume": 250
+            },
+            {
+              "keyword": "기업송년회",
+              "volume": 200
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 6.9배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2478,41 +2449,41 @@
             121,
             570
           ],
-          "volumeNow": 920,
-          "volumeExpected": 5520,
-          "docs": 274300,
+          "volumeNow": 2120,
+          "volumeExpected": 12720,
+          "docs": 278900,
           "related": [
             {
               "keyword": "신년회장소",
-              "volume": 330
-            },
-            {
-              "keyword": "10월행사",
-              "volume": 13490
+              "volume": 550
             },
             {
               "keyword": "송년회",
-              "volume": 7670
+              "volume": 16990
             },
             {
               "keyword": "크리스마스공연",
-              "volume": 4600
+              "volume": 10250
+            },
+            {
+              "keyword": "10월행사",
+              "volume": 4750
             },
             {
               "keyword": "레크레이션강사",
-              "volume": 2880
+              "volume": 4700
             },
             {
               "keyword": "연말공연",
-              "volume": 2110
+              "volume": 3300
             },
             {
-              "keyword": "개소식",
-              "volume": 1470
+              "keyword": "종무식",
+              "volume": 2490
             },
             {
-              "keyword": "발대식",
-              "volume": 1370
+              "keyword": "송년회장소",
+              "volume": 2240
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 5.7배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2544,16 +2515,16 @@
             126,
             531
           ],
-          "volumeNow": 113000,
-          "volumeExpected": 678000,
-          "docs": 115586,
+          "volumeNow": 162700,
+          "volumeExpected": 976200,
+          "docs": 121119,
           "related": [
             {
               "keyword": "고향사랑기부",
-              "volume": 9190
+              "volume": 13620
             }
           ],
-          "reason": "최근 3년을 평균하면 12월 검색이 연평균의 5.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다. 예상 검색 678,000회에 비해 블로그 문서(115,586건)가 적습니다.",
+          "reason": "최근 3년을 평균하면 12월 검색이 연평균의 5.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다. 예상 검색 976,200회에 비해 블로그 문서(121,119건)가 적습니다.",
           "score": 634
         },
         {
@@ -2582,41 +2553,41 @@
             59,
             503
           ],
-          "volumeNow": 1770,
-          "volumeExpected": 10620,
-          "docs": 128495,
+          "volumeNow": 2860,
+          "volumeExpected": 17160,
+          "docs": 131092,
           "related": [
             {
               "keyword": "태백눈꽃축제",
-              "volume": 1150
+              "volume": 1850
             },
             {
               "keyword": "태백산눈꽃축제",
-              "volume": 500
-            },
-            {
-              "keyword": "강원도눈꽃축제",
-              "volume": 110
+              "volume": 870
             },
             {
               "keyword": "덕유산눈꽃축제",
-              "volume": 100
+              "volume": 260
+            },
+            {
+              "keyword": "강원도눈꽃축제",
+              "volume": 210
+            },
+            {
+              "keyword": "겨울눈꽃축제",
+              "volume": 200
             },
             {
               "keyword": "강원도가볼만한곳",
-              "volume": 49890
+              "volume": 36220
             },
             {
               "keyword": "평창가볼만한곳",
-              "volume": 46200
+              "volume": 34580
             },
             {
               "keyword": "강원도축제",
-              "volume": 18960
-            },
-            {
-              "keyword": "전국가을축제",
-              "volume": 15800
+              "volume": 13160
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 5.0배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2648,41 +2619,41 @@
             69,
             479
           ],
-          "volumeNow": 3170,
-          "volumeExpected": 19020,
-          "docs": 553356,
+          "volumeNow": 6730,
+          "volumeExpected": 40380,
+          "docs": 557977,
           "related": [
             {
               "keyword": "눈썰매장리조트",
-              "volume": 350
-            },
-            {
-              "keyword": "경기도눈썰매장",
-              "volume": 170
+              "volume": 660
             },
             {
               "keyword": "눈썰매장개장",
-              "volume": 170
+              "volume": 480
             },
             {
-              "keyword": "자쿠지",
-              "volume": 18370
+              "keyword": "경기도눈썰매장",
+              "volume": 390
             },
             {
-              "keyword": "남강유등축제",
-              "volume": 18040
+              "keyword": "눈썰매장펜션",
+              "volume": 160
+            },
+            {
+              "keyword": "파주눈썰매장",
+              "volume": 140
             },
             {
               "keyword": "아기상어",
-              "volume": 17180
+              "volume": 16700
+            },
+            {
+              "keyword": "자쿠지",
+              "volume": 14590
             },
             {
               "keyword": "핑크퐁",
-              "volume": 14730
-            },
-            {
-              "keyword": "10월행사",
-              "volume": 13490
+              "volume": 13470
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 4.8배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1월 정점까지 계속 오르는 구간이라 미리 써 두면 오래 읽힙니다.",
@@ -2714,41 +2685,41 @@
             209,
             522
           ],
-          "volumeNow": 2950,
-          "volumeExpected": 17700,
-          "docs": 84836,
+          "volumeNow": 6310,
+          "volumeExpected": 37860,
+          "docs": 86565,
           "related": [
             {
-              "keyword": "오토바이스노우체인",
-              "volume": 240
-            },
-            {
               "keyword": "자동차스노우체인",
-              "volume": 110
+              "volume": 1000
             },
             {
-              "keyword": "미끄럼방지스프레이",
-              "volume": 1140
+              "keyword": "스노우체인추천",
+              "volume": 480
             },
             {
-              "keyword": "직물",
-              "volume": 1050
+              "keyword": "오토바이스노우체인",
+              "volume": 330
             },
             {
-              "keyword": "쇠사슬체인",
-              "volume": 810
+              "keyword": "직물스노우체인",
+              "volume": 210
             },
             {
-              "keyword": "열선시트",
-              "volume": 810
+              "keyword": "포터스노우체인",
+              "volume": 190
             },
             {
-              "keyword": "스프레이체인",
-              "volume": 520
+              "keyword": "우레탄스노우체인",
+              "volume": 170
             },
             {
-              "keyword": "타이어체인",
-              "volume": 500
+              "keyword": "차량용스노우체인",
+              "volume": 160
+            },
+            {
+              "keyword": "스노우체인스프레이",
+              "volume": 140
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 5.2배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2756,7 +2727,7 @@
         },
         {
           "keyword": "동파 방지",
-          "cat": "생활·살림",
+          "cat": "생활·��림",
           "type": "정점",
           "index": 479,
           "prevIndex": 195,
@@ -2780,41 +2751,41 @@
             195,
             479
           ],
-          "volumeNow": 660,
-          "volumeExpected": 3960,
-          "docs": 279089,
+          "volumeNow": 1040,
+          "volumeExpected": 6240,
+          "docs": 316697,
           "related": [
             {
-              "keyword": "동파방지열��",
-              "volume": 3900
+              "keyword": "동파방지열선",
+              "volume": 5730
             },
             {
               "keyword": "수도동파방지",
-              "volume": 310
+              "volume": 750
             },
             {
               "keyword": "수도동파방지열선",
-              "volume": 220
+              "volume": 440
             },
             {
               "keyword": "동파방지히터",
-              "volume": 180
-            },
-            {
-              "keyword": "배관동파방지",
-              "volume": 140
-            },
-            {
-              "keyword": "동파열선",
-              "volume": 110
+              "volume": 270
             },
             {
               "keyword": "화장실동파방지",
-              "volume": 100
+              "volume": 220
             },
             {
-              "keyword": "온풍기",
-              "volume": 46500
+              "keyword": "배관동파방지",
+              "volume": 170
+            },
+            {
+              "keyword": "동파열선",
+              "volume": 170
+            },
+            {
+              "keyword": "동파예방",
+              "volume": 130
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 4.8배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2846,41 +2817,41 @@
             352,
             475
           ],
-          "volumeNow": 2220,
-          "volumeExpected": 11590,
-          "docs": 217158,
+          "volumeNow": 5730,
+          "volumeExpected": 29910,
+          "docs": 223032,
           "related": [
             {
-              "keyword": "양털부츠",
-              "volume": 810
+              "keyword": "여성털부츠",
+              "volume": 1890
             },
             {
-              "keyword": "여성털부츠",
-              "volume": 390
+              "keyword": "양털부츠",
+              "volume": 1820
+            },
+            {
+              "keyword": "여자털부츠",
+              "volume": 1610
             },
             {
               "keyword": "어그부츠",
-              "volume": 36590
-            },
-            {
-              "keyword": "부츠",
-              "volume": 24500
-            },
-            {
-              "keyword": "롱부츠",
-              "volume": 20260
+              "volume": 75170
             },
             {
               "keyword": "방한화",
-              "volume": 17030
+              "volume": 40100
             },
             {
-              "keyword": "여성구두",
-              "volume": 16440
+              "keyword": "부츠",
+              "volume": 29750
             },
             {
-              "keyword": "사무실슬리퍼",
-              "volume": 16110
+              "keyword": "털슬리퍼",
+              "volume": 25810
+            },
+            {
+              "keyword": "롱부츠",
+              "volume": 25280
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 4.8배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2912,41 +2883,41 @@
             158,
             405
           ],
-          "volumeNow": 3030,
-          "volumeExpected": 8580,
-          "docs": 2149200,
+          "volumeNow": 2070,
+          "volumeExpected": 5860,
+          "docs": 2197079,
           "related": [
             {
               "keyword": "불빛축제",
-              "volume": 2970
+              "volume": 3000
             },
             {
               "keyword": "태안빛축제",
-              "volume": 2330
+              "volume": 1540
             },
             {
               "keyword": "태안불빛축제",
-              "volume": 780
+              "volume": 480
             },
             {
               "keyword": "10월축제",
-              "volume": 371300
-            },
-            {
-              "keyword": "가을축제",
-              "volume": 84300
+              "volume": 121000
             },
             {
               "keyword": "11월축제",
-              "volume": 42000
+              "volume": 107100
+            },
+            {
+              "keyword": "가을축제",
+              "volume": 42240
             },
             {
               "keyword": "전국축제",
-              "volume": 40600
+              "volume": 26970
             },
             {
               "keyword": "지역축제",
-              "volume": 28220
+              "volume": 21110
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 4.0배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -2978,41 +2949,41 @@
             256,
             423
           ],
-          "volumeNow": 340,
-          "volumeExpected": 2040,
-          "docs": 1310645,
+          "volumeNow": 710,
+          "volumeExpected": 4260,
+          "docs": 1354509,
           "related": [
             {
-              "keyword": "겨울여행지",
-              "volume": 7130
+              "keyword": "국내겨울여행지",
+              "volume": 10750
             },
             {
-              "keyword": "국내겨울여행지",
-              "volume": 5640
+              "keyword": "겨울여행지",
+              "volume": 9990
             },
             {
               "keyword": "겨울국내여행",
-              "volume": 2530
+              "volume": 3970
             },
             {
               "keyword": "겨울국내여행지추천",
-              "volume": 1790
-            },
-            {
-              "keyword": "국내겨울여행지추천",
-              "volume": 1400
+              "volume": 3040
             },
             {
               "keyword": "겨울여행지추천",
-              "volume": 1310
+              "volume": 1740
             },
             {
-              "keyword": "겨울국내여행지",
-              "volume": 1030
+              "keyword": "국내겨울여행지추천",
+              "volume": 1560
             },
             {
               "keyword": "국내겨울여행",
-              "volume": 990
+              "volume": 1370
+            },
+            {
+              "keyword": "강원도겨울여행",
+              "volume": 1370
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 4.2배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -3044,41 +3015,41 @@
             157,
             389
           ],
-          "volumeNow": 4730,
-          "volumeExpected": 28380,
-          "docs": 701663,
+          "volumeNow": 3560,
+          "volumeExpected": 21360,
+          "docs": 801185,
           "related": [
             {
               "keyword": "결로",
-              "volume": 8430
+              "volume": 6710
             },
             {
               "keyword": "결로현상",
-              "volume": 7090
-            },
-            {
-              "keyword": "결로방지단열재",
-              "volume": 4510
+              "volume": 5530
             },
             {
               "keyword": "결로방지페인트",
-              "volume": 2930
+              "volume": 3130
+            },
+            {
+              "keyword": "결로방지단열재",
+              "volume": 2800
             },
             {
               "keyword": "베란다결로방지",
-              "volume": 600
+              "volume": 750
             },
             {
               "keyword": "결로공사",
-              "volume": 520
+              "volume": 350
             },
             {
               "keyword": "제습기",
-              "volume": 57200
+              "volume": 61300
             },
             {
               "keyword": "템바보드",
-              "volume": 21640
+              "volume": 21950
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 3.9배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -3110,9 +3081,9 @@
             245,
             414
           ],
-          "volumeNow": 370,
-          "volumeExpected": 1630,
-          "docs": 609900,
+          "volumeNow": 600,
+          "volumeExpected": 2640,
+          "docs": 627297,
           "related": [],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 4.1배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
           "score": 399
@@ -3143,44 +3114,44 @@
             358,
             450
           ],
-          "volumeNow": 36590,
-          "volumeExpected": 136080,
-          "docs": 183047,
+          "volumeNow": 75170,
+          "volumeExpected": 279560,
+          "docs": 192871,
           "related": [
             {
+              "keyword": "UGG어그부츠",
+              "volume": 8040
+            },
+            {
               "keyword": "호주어그부츠",
-              "volume": 3910
+              "volume": 6190
             },
             {
               "keyword": "롱어그부츠",
-              "volume": 3030
-            },
-            {
-              "keyword": "UGG어그부츠",
-              "volume": 2750
+              "volume": 4980
             },
             {
               "keyword": "미국어그부츠",
-              "volume": 830
-            },
-            {
-              "keyword": "여성어그부츠",
-              "volume": 220
-            },
-            {
-              "keyword": "어그부츠숏",
-              "volume": 210
-            },
-            {
-              "keyword": "키높이어그부츠",
-              "volume": 200
+              "volume": 1230
             },
             {
               "keyword": "여자어그부츠",
-              "volume": 170
+              "volume": 900
+            },
+            {
+              "keyword": "여성어그부츠",
+              "volume": 690
+            },
+            {
+              "keyword": "어그부츠숏",
+              "volume": 600
+            },
+            {
+              "keyword": "키높이어그부츠",
+              "volume": 500
             }
           ],
-          "reason": "최근 3년을 평균하면 12월 검색이 연평균의 4.5배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
+          "reason": "최근 3년을 평균하면 12월 검색이 연평균의 4.5배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다. 예상 검색 279,560회에 비해 블로그 문서(192,871건)가 적습니다.",
           "score": 396
         },
         {
@@ -3209,41 +3180,41 @@
             26,
             335
           ],
-          "volumeNow": 1660,
-          "volumeExpected": 9960,
-          "docs": 529455,
+          "volumeNow": 3360,
+          "volumeExpected": 20160,
+          "docs": 535126,
           "related": [
             {
+              "keyword": "유치원졸업식꽃다발",
+              "volume": 810
+            },
+            {
               "keyword": "졸업식꽃",
-              "volume": 180
+              "volume": 300
+            },
+            {
+              "keyword": "초등학교졸업식꽃다발",
+              "volume": 100
             },
             {
               "keyword": "꽃다발",
-              "volume": 41730
+              "volume": 47570
             },
             {
               "keyword": "개운죽",
-              "volume": 10580
+              "volume": 10030
             },
             {
               "keyword": "안개꽃",
-              "volume": 9030
-            },
-            {
-              "keyword": "소나무분재",
-              "volume": 5090
+              "volume": 8650
             },
             {
               "keyword": "학예회꽃다발",
-              "volume": 3810
+              "volume": 6290
             },
             {
-              "keyword": "풍선꽃다발",
-              "volume": 3370
-            },
-            {
-              "keyword": "결혼축하선물",
-              "volume": 2700
+              "keyword": "소나무분재",
+              "volume": 5060
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 3.4배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1월 정점까지 계속 오르는 구간이라 미리 써 두면 오래 읽힙니다.",
@@ -3275,41 +3246,41 @@
             369,
             442
           ],
-          "volumeNow": 17310,
-          "volumeExpected": 74280,
-          "docs": 1272628,
+          "volumeNow": 41870,
+          "volumeExpected": 179680,
+          "docs": 1295727,
           "related": [
             {
               "keyword": "캐시미어목도리",
-              "volume": 3150
+              "volume": 7620
             },
             {
               "keyword": "남자목도리",
-              "volume": 2530
-            },
-            {
-              "keyword": "쁘띠목도리",
-              "volume": 2210
+              "volume": 6900
             },
             {
               "keyword": "패딩목도리",
-              "volume": 1860
+              "volume": 6130
             },
             {
-              "keyword": "여자목도리",
-              "volume": 970
+              "keyword": "쁘띠목도리",
+              "volume": 5680
             },
             {
               "keyword": "겨울목도리",
-              "volume": 970
+              "volume": 3380
             },
             {
-              "keyword": "커플목도리",
-              "volume": 800
+              "keyword": "여자목도리",
+              "volume": 2940
             },
             {
-              "keyword": "목도리브랜드",
-              "volume": 790
+              "keyword": "니트목도리",
+              "volume": 2760
+            },
+            {
+              "keyword": "울목도리",
+              "volume": 2550
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 4.4배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -3341,41 +3312,41 @@
             247,
             393
           ],
-          "volumeNow": 820,
-          "volumeExpected": 3500,
-          "docs": 710603,
+          "volumeNow": 1300,
+          "volumeExpected": 5550,
+          "docs": 723874,
           "related": [
             {
               "keyword": "겨울축제",
-              "volume": 5530
+              "volume": 6170
             },
             {
               "keyword": "겨울바다낚시",
-              "volume": 210
+              "volume": 360
+            },
+            {
+              "keyword": "겨울배낚시",
+              "volume": 150
             },
             {
               "keyword": "갑오징어에기",
-              "volume": 27780
+              "volume": 23240
             },
             {
               "keyword": "갑오징어채비",
-              "volume": 25080
+              "volume": 18080
             },
             {
               "keyword": "욕지도",
-              "volume": 21000
+              "volume": 17350
             },
             {
               "keyword": "에기",
-              "volume": 14320
+              "volume": 10660
             },
             {
               "keyword": "영목항",
-              "volume": 12420
-            },
-            {
-              "keyword": "인천쭈꾸미배낚시",
-              "volume": 10830
+              "volume": 8300
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 3.9배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -3407,41 +3378,41 @@
             396,
             439
           ],
-          "volumeNow": 280,
-          "volumeExpected": 980,
-          "docs": 557643,
+          "volumeNow": 450,
+          "volumeExpected": 1580,
+          "docs": 571105,
           "related": [
             {
               "keyword": "겨울용타이어",
-              "volume": 280
+              "volume": 340
             },
             {
               "keyword": "타이어",
-              "volume": 70500
+              "volume": 76700
             },
             {
               "keyword": "타이어렌탈",
-              "volume": 14500
+              "volume": 14640
             },
             {
               "keyword": "타이어가격",
-              "volume": 12510
+              "volume": 12680
             },
             {
               "keyword": "타이어교체",
-              "volume": 12380
+              "volume": 12520
             },
             {
               "keyword": "윈터타이어",
-              "volume": 6280
+              "volume": 10620
             },
             {
               "keyword": "자동차타이어",
-              "volume": 5070
+              "volume": 5440
             },
             {
-              "keyword": "금호타이어렌탈",
-              "volume": 3040
+              "keyword": "윈터타이어교체시기",
+              "volume": 3840
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 4.4배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -3473,41 +3444,41 @@
             170,
             358
           ],
-          "volumeNow": 4690,
-          "volumeExpected": 22690,
-          "docs": 456572,
+          "volumeNow": 7230,
+          "volumeExpected": 34980,
+          "docs": 463786,
           "related": [
             {
               "keyword": "스노우보드복",
-              "volume": 2390
+              "volume": 2980
             },
             {
               "keyword": "남자보드복",
-              "volume": 1410
-            },
-            {
-              "keyword": "어스투보드복",
-              "volume": 1030
+              "volume": 2230
             },
             {
               "keyword": "헬로우보드복",
-              "volume": 940
+              "volume": 1380
+            },
+            {
+              "keyword": "어스투보드복",
+              "volume": 1170
             },
             {
               "keyword": "686보드복",
-              "volume": 570
+              "volume": 780
             },
             {
               "keyword": "보드복바지",
-              "volume": 450
+              "volume": 720
             },
             {
               "keyword": "보드복브랜드",
-              "volume": 370
+              "volume": 490
             },
             {
               "keyword": "볼컴보드복",
-              "volume": 310
+              "volume": 420
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 3.6배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -3539,41 +3510,41 @@
             127,
             341
           ],
-          "volumeNow": 5290,
-          "volumeExpected": 22830,
-          "docs": 197211,
+          "volumeNow": 5530,
+          "volumeExpected": 23870,
+          "docs": 211310,
           "related": [
             {
               "keyword": "IRP계좌",
-              "volume": 31690
+              "volume": 31360
             },
             {
               "keyword": "IRP",
-              "volume": 16170
+              "volume": 16620
             },
             {
               "keyword": "IRP퇴직연금",
-              "volume": 15300
+              "volume": 15520
             },
             {
               "keyword": "IRP계좌개설",
-              "volume": 13020
+              "volume": 13060
             },
             {
               "keyword": "퇴직연금IRP",
-              "volume": 6550
+              "volume": 6560
             },
             {
               "keyword": "개인형IRP",
-              "volume": 3640
+              "volume": 3710
             },
             {
               "keyword": "퇴직금IRP계좌개설",
               "volume": 3560
             },
             {
-              "keyword": "개인형퇴직연금IRP",
-              "volume": 1620
+              "keyword": "연금저축IRP",
+              "volume": 1480
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 3.4배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -3605,41 +3576,41 @@
             395,
             430
           ],
-          "volumeNow": 18110,
-          "volumeExpected": 96140,
-          "docs": 456942,
+          "volumeNow": 48220,
+          "volumeExpected": 255980,
+          "docs": 467482,
           "related": [
             {
               "keyword": "대방어철",
-              "volume": 17590
-            },
-            {
-              "keyword": "대방어회",
-              "volume": 2130
+              "volume": 29530
             },
             {
               "keyword": "대방어필렛",
-              "volume": 1910
+              "volume": 8490
+            },
+            {
+              "keyword": "대방어회",
+              "volume": 5660
             },
             {
               "keyword": "대방어가격",
-              "volume": 1740
+              "volume": 5500
             },
             {
               "keyword": "노량진대방어",
-              "volume": 880
+              "volume": 3180
             },
             {
               "keyword": "인천대방어",
-              "volume": 360
+              "volume": 1280
             },
             {
               "keyword": "인천대방어맛집",
-              "volume": 300
+              "volume": 1190
             },
             {
-              "keyword": "포항대방어",
-              "volume": 290
+              "keyword": "대방어시세",
+              "volume": 1160
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 4.3배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1년 중 가장 많이 찾는 달이 12월이라 지금 쓰면 바로 읽힙니다.",
@@ -3671,13 +3642,13 @@
             75,
             320
           ],
-          "volumeNow": 2010,
-          "volumeExpected": 12060,
-          "docs": 571180,
+          "volumeNow": 2220,
+          "volumeExpected": 13320,
+          "docs": 580451,
           "related": [
             {
               "keyword": "아이스링크",
-              "volume": 3050
+              "volume": 3480
             }
           ],
           "reason": "최근 3년을 평균하면 12월 검색이 연평균의 3.2배입니다. 3년 중 3번 이 달에 평소보다 크게 올랐고, 3번은 그해 검색 상위 3개월에 들었습니다. 1월 정점까지 계속 오르는 구간이라 미리 써 두면 오래 읽힙니다.",

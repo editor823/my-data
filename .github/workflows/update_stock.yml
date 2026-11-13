@@ -23,9 +23,25 @@ jobs:
         with:
           node-version: 20
 
-      - name: 최신 주식 및 환율 데이터 수집
+      - name: 시장 판도 레이더 및 5대 테마 뉴스 수집
         continue-on-error: true
-        run: node scratch/fetch_boutique.js
+        run: node scripts/update_market_overview_radar.js
+
+      - name: 종목 심층 딥분석 11개 대장주 시세 및 공시 갱신
+        continue-on-error: true
+        run: node scripts/update_deep_research_live.js
+
+      - name: 최신 증권사 리포트 25건 수집
+        continue-on-error: true
+        run: node scripts/update_research_reports.js
+
+      - name: 주도 테마 타임라인 뉴스 누적 분류
+        continue-on-error: true
+        run: node scripts/theme_classifier.js
+
+      - name: 캘린더 D-Day 일정 최신화
+        continue-on-error: true
+        run: node scripts/update_calendar_schedules_now.js
 
       - name: 최신 증시 뉴스 100건 수집 및 시드 갱신
         continue-on-error: true
@@ -50,5 +66,5 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A data/ js/ scratch/
+          git add -A data/ js/ public/ stock-intelligence/
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update: stock indicators, news & YouTube briefing [skip ci]" && git push)

@@ -1,11 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
-const today = new Date('2026-11-02T09:00:00+09:00');
+const today = new Date();
 
 function calcDDay(targetDateStr) {
   const target = new Date(targetDateStr + 'T00:00:00+09:00');
-  const now = new Date('2026-11-02T00:00:00+09:00');
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
   const diffTime = target.getTime() - now.getTime();
   const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
   let d_day = '';

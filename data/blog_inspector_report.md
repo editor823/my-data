@@ -1,6 +1,6 @@
 # 블로그 자동화 허브 검수 보고서
 
-- 검사 시각: 2026. 11. 3. 오전 7:05:32
+- 검사 시각: 2026. 11. 13. 오후 2:55:06
 - 결과: ✅ 16  ⚠️ 0  ❌ 0
 
 ## 1. 필수 파일
@@ -11,7 +11,7 @@
 - ✅ JS 48개 문법 오류 없음
 ## 3. 데이터 파일
 
-- ✅ trending_live.json 정상 (항목 약 8개)
+- ✅ trending_live.json 정상 (항목 약 5개)
 - ✅ keyword_center_live.json 정상 (항목 약 15개)
 - ✅ viral_shorts_live.json 정상 (항목 약 40개)
 - ✅ seasonal-keywords.json 정상 (항목 약 12개)

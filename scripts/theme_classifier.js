@@ -444,3 +444,7 @@ if (typeof module !== 'undefined' && module.exports) {
   };
 }
 
+if (typeof require !== 'undefined' && require.main === module) {
+  runHierarchicalStockNewsPipeline();
+}
+
