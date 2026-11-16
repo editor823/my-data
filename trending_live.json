@@ -1,201 +1,198 @@
 {
   "success": true,
-  "updatedAt": "2026-11-13T05:50:03.635Z",
-  "updatedAtKst": "2026. 11. 13. 오후 2:50:03",
+  "updatedAt": "2026-11-16T05:23:11.166Z",
+  "updatedAtKst": "2026. 11. 16. PM 2:23:11",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "젠슨 황 전격 사임"
+        "keyword": "수능 AI 부정행위 대책 고심"
       },
       {
         "rank": 2,
-        "keyword": "이재룡, 술타기 부인"
+        "keyword": "한일 정상회담 마닐라"
       },
       {
         "rank": 3,
-        "keyword": "경찰, 이혜훈 부정청약 송치"
+        "keyword": "김유정의 100일 거짓말"
       },
       {
         "rank": 4,
-        "keyword": "방한 외국인 관광객 2000만명"
+        "keyword": "화학물질저감 우수제품 전시"
       },
       {
         "rank": 5,
-        "keyword": "광교신도시"
+        "keyword": "독립유공자 유해봉환식"
       },
       {
         "rank": 6,
-        "keyword": "오세훈 조작기소 특검법 거부권"
+        "keyword": "행정기관 이메일 해킹"
       },
       {
         "rank": 7,
-        "keyword": "KB캐피탈 개인정보 유출"
+        "keyword": "김민석 최고위 발언"
       },
       {
         "rank": 8,
-        "keyword": "구글 고정밀지도 보안조건"
+        "keyword": "주지훈, 독자 회사 설립"
       },
       {
         "rank": 9,
-        "keyword": "12차 석유 가격제 발표"
+        "keyword": "FA 선수 22명 공개"
       },
       {
         "rank": 10,
-        "keyword": "오산시"
+        "keyword": "JTBC 올림픽 중계권 해지"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "젠슨 황 new"
+        "keyword": "김민석 대표 new"
       },
       {
         "rank": 2,
-        "keyword": "경찰 부정청약 송치 상승 3"
+        "keyword": "호시한 영현 봉송 new"
       },
       {
         "rank": 3,
-        "keyword": "구자욱 에이전트 선임 동일"
+        "keyword": "고경표 동일"
       },
       {
         "rank": 4,
-        "keyword": "이재룡 술타기 부인 하락 2"
+        "keyword": "종이팩 분리배출 의무화 하락 2"
       },
       {
         "rank": 5,
-        "keyword": "구글 지도 반출 new"
+        "keyword": "모친상 조의금 90만원 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "구글 고정밀지도 보안조건"
+        "keyword": "한일 정상회담 마닐라"
       },
       {
         "rank": 2,
-        "keyword": "방한 외국인 관광객 2000만명"
+        "keyword": "독립유공자 유해봉환식"
       },
       {
         "rank": 3,
-        "keyword": "오세훈 조작기소 특검법 거부권"
+        "keyword": "행정기관 이메일 해킹"
       },
       {
         "rank": 4,
-        "keyword": "KB캐피탈 개인정보 유출"
+        "keyword": "사립대 반값 등록금"
       },
       {
         "rank": 5,
-        "keyword": "은평 전 연인 살해"
+        "keyword": "JTBC 올림픽 중계권 해지"
       },
       {
         "rank": 6,
-        "keyword": "이재명 대통령 지지율 하락"
+        "keyword": "미중러 정상회담"
       },
       {
         "rank": 7,
-        "keyword": "이재명 아세안 정상회담"
+        "keyword": "주택자산 격차 52배"
       },
       {
         "rank": 8,
-        "keyword": "가짜 3.3 기획감독"
+        "keyword": "사이버 성폭력 검거"
       },
       {
         "rank": 9,
-        "keyword": "후티 사우디 송유관 공격"
+        "keyword": "이란 미군기지 드론 공격"
       },
       {
         "rank": 10,
-        "keyword": "세브란스 흉기 난동"
+        "keyword": "부산 흉기 피습 구속"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "개"
+        "keyword": "배구"
       },
       {
         "rank": 2,
-        "keyword": "오산시"
+        "keyword": "개인정보"
       },
       {
         "rank": 3,
-        "keyword": "한국가스"
+        "keyword": "용인반도체클러스터"
       },
       {
         "rank": 4,
-        "keyword": "박신영"
+        "keyword": "건강 수명"
       },
       {
         "rank": 5,
-        "keyword": "카카오워크"
+        "keyword": "은행"
       },
       {
         "rank": 6,
-        "keyword": "비서"
+        "keyword": "hlb테라퓨틱스"
       },
       {
         "rank": 7,
-        "keyword": "이더 리움"
+        "keyword": "노동조합"
       },
       {
         "rank": 8,
-        "keyword": "우기"
+        "keyword": "노슬비"
       },
       {
         "rank": 9,
-        "keyword": "lpga"
+        "keyword": "삼성전기"
       },
       {
         "rank": 10,
-        "keyword": "공매도"
+        "keyword": "스카프 아저씨"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "박수홍 친형부부 손배소"
+        "keyword": "임현주 MBC 퇴사"
       },
       {
         "rank": 2,
-        "keyword": "김승우 절도 혐의 피소"
+        "keyword": "서수남 큰딸 사망"
       },
       {
         "rank": 3,
-        "keyword": "황정리 별세"
+        "keyword": "수능 AI 부정행위 대책"
       },
       {
         "rank": 4,
-        "keyword": "구본현 구속"
+        "keyword": "단추 카메라"
       },
       {
         "rank": 5,
-        "keyword": "정진완 우리은행장 연임"
+        "keyword": "강동연 연지 결혼"
       },
       {
         "rank": 6,
-        "keyword": "젠슨 황 자책"
+        "keyword": "리트 만점자"
       },
       {
         "rank": 7,
-        "keyword": "ms 장애"
+        "keyword": "최민희 사과"
       },
       {
         "rank": 8,
-        "keyword": "ai 안경"
+        "keyword": "이호선 교수 조의금 기부"
       },
       {
         "rank": 9,
-        "keyword": "아이들 우기 하나의 중국"
+        "keyword": "이재명 대통령 필리핀 도착"
       },
       {
         "rank": 10,
-        "keyword": "뜨거운 안녕"
+        "keyword": "고경표 만취 운전"
       }
-    ],
-    "googleError": "google trends HTTP 429",
-    "googleStale": true,
-    "googleAsOf": "2026-11-13T05:15:36.521Z"
+    ]
   },
   "entertainment": []
 }
