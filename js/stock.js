@@ -4220,7 +4220,7 @@ async function loadCalendarEventsFromStorage(forceRefresh = false) {
 
         const rawLocalApproved = localStorage.getItem('stock_calendar_approved_events');
         const localApproved = rawLocalApproved ? JSON.parse(rawLocalApproved) : [];
-        const userCustomEvents = localApproved.filter(e => e.id && e.id.startsWith('custom_evt_'));
+        const userCustomEvents = localApproved.filter(e => e.id && (e.id.startsWith('custom_evt_') || e.userApproved));
         const rejectedList = JSON.parse(localStorage.getItem('stock_calendar_rejected_events') || '[]');
 
         calendarApprovedEvents = [...userCustomEvents];
@@ -4232,7 +4232,7 @@ async function loadCalendarEventsFromStorage(forceRefresh = false) {
 
         calendarPendingEvents = [];
         pendingFromStatic.forEach(pEv => {
-          if (!rejectedList.includes(pEv.id)) {
+          if (!rejectedList.includes(pEv.id) && !calendarApprovedEvents.some(e => e.id === pEv.id)) {
             calendarPendingEvents.push(pEv);
           }
         });
@@ -4257,7 +4257,7 @@ async function loadCalendarEventsFromStorage(forceRefresh = false) {
 
         const rawLocalApproved = localStorage.getItem('stock_calendar_approved_events');
         const localApproved = rawLocalApproved ? JSON.parse(rawLocalApproved) : [];
-        const userCustomEvents = localApproved.filter(e => e.id && e.id.startsWith('custom_evt_'));
+        const userCustomEvents = localApproved.filter(e => e.id && (e.id.startsWith('custom_evt_') || e.userApproved));
         const rejectedList = JSON.parse(localStorage.getItem('stock_calendar_rejected_events') || '[]');
 
         calendarApprovedEvents = [...userCustomEvents];
@@ -4269,7 +4269,7 @@ async function loadCalendarEventsFromStorage(forceRefresh = false) {
 
         calendarPendingEvents = [];
         pendingFromApi.forEach(pEv => {
-          if (!rejectedList.includes(pEv.id)) {
+          if (!rejectedList.includes(pEv.id) && !calendarApprovedEvents.some(e => e.id === pEv.id)) {
             calendarPendingEvents.push(pEv);
           }
         });
@@ -4465,6 +4465,7 @@ function renderPendingEventsUI() {
 window.approvePendingEvent = function (index) {
   if (index < 0 || index >= calendarPendingEvents.length) return;
   const eventItem = calendarPendingEvents.splice(index, 1)[0];
+  eventItem.userApproved = true; // 새로고침 후에도 승인 상태 유지
   calendarApprovedEvents.push(eventItem);
 
   // 로컬스토리지 저장
@@ -4501,7 +4502,7 @@ window.rejectPendingEvent = function (index) {
 window.approveAllPendingEvents = function () {
   if (calendarPendingEvents.length === 0) return;
   const count = calendarPendingEvents.length;
-  calendarApprovedEvents.push(...calendarPendingEvents);
+  calendarApprovedEvents.push(...calendarPendingEvents.map(e => ({ ...e, userApproved: true })));
   calendarPendingEvents = [];
 
   localStorage.setItem('stock_calendar_pending_events', JSON.stringify([]));
