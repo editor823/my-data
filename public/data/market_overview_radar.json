@@ -1,15 +1,15 @@
 {
   "success": true,
-  "updated_at": "2026-11-16T05:27:17.097Z",
+  "updated_at": "2026-11-16T05:47:32.685Z",
   "market_overview": {
     "kospi": {
       "value": "2,680.50",
-      "change_rate": "-3.52%",
+      "change_rate": "-4%",
       "is_up": false
     },
     "kosdaq": {
       "value": "875.20",
-      "change_rate": "-4.11%",
+      "change_rate": "-4.61%",
       "is_up": false
     },
     "investor_trend": {
@@ -28,34 +28,34 @@
       "theme_id": "radar_488",
       "theme_name": "웹툰",
       "full_theme_name": "웹툰",
-      "change_rate": "+0.57%",
-      "composite_score": 63,
+      "change_rate": "+0.17%",
+      "composite_score": 61,
       "total_stocks_count": 14,
       "leader_stock": "엔키AX",
-      "leader_ratio": 21.05,
+      "leader_ratio": 18.73,
       "sub_leader_stock": "NHN",
       "other_stocks": [
+        "이스트에이드",
         "카카오",
-        "키다리스튜디오",
-        "이스트에이드"
+        "키다리스튜디오"
       ],
       "sub_stocks_top3": [
         {
           "name": "NHN",
-          "rate": "+3.5%"
+          "rate": "+2.6%"
+        },
+        {
+          "name": "이스트에이드",
+          "rate": "+2.2%"
         },
         {
           "name": "카카오",
-          "rate": "+2.4%"
-        },
-        {
-          "name": "키다리스튜디오",
-          "rate": "+1.6%"
+          "rate": "+2.0%"
         }
       ],
       "past_trigger_reason": "[속보 기사] 세코닉스·나무가 주가 급등…AI 스마트안경 관련주 강세 : 11위 엔키AX는 21.35% 오른 1천620원, 12위 뉴프렉스는 21.28% 상승한 3천590원을 기록했다. 뉴프렉스의 주가 상승 폭은 630원이다. 오전장 거래대금은 159억원으로 집계됐다. 13위 D...",
       "future_momentum": "웹툰 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 1670,
+      "trading_value_eok": 1743,
       "is_real_leading": true,
       "pullback_rate": "-25.0%",
       "ma5_recovered": false,
@@ -65,7 +65,7 @@
         "title": "세코닉스·나무가 주가 급등…AI 스마트안경 관련주 강세",
         "press": "증시 속보",
         "url": "http://www.kjdaily.com/article.php?aid=1794801375692360276",
-        "published_at": "2026-11-16T05:27:14.557Z"
+        "published_at": "2026-11-16T05:47:30.372Z"
       },
       "timeline": []
     },
@@ -73,34 +73,34 @@
       "theme_id": "radar_289",
       "theme_name": "증강현실",
       "full_theme_name": "증강현실(AR)",
-      "change_rate": "+1.59%",
-      "composite_score": 57,
+      "change_rate": "+1.92%",
+      "composite_score": 60,
       "total_stocks_count": 20,
-      "leader_stock": "세코닉스",
-      "leader_ratio": 29.83,
-      "sub_leader_stock": "나무가",
+      "leader_stock": "나무가",
+      "leader_ratio": 30,
+      "sub_leader_stock": "세코닉스",
       "other_stocks": [
         "사피엔반도체",
-        "포니링크",
-        "라온텍"
+        "라온텍",
+        "포니링크"
       ],
       "sub_stocks_top3": [
         {
-          "name": "나무가",
-          "rate": "+28.2%"
+          "name": "세코닉스",
+          "rate": "+29.8%"
         },
         {
           "name": "사피엔반도체",
-          "rate": "+10.3%"
+          "rate": "+13.5%"
         },
         {
-          "name": "포니링크",
-          "rate": "+5.4%"
+          "name": "라온텍",
+          "rate": "+6.4%"
         }
       ],
       "past_trigger_reason": "[속보 기사] 사피엔반도체, 차세대 디스플레이 마이크로LED 기술 부각에 11... : 동종목인 세코닉스, 나무가 등과 함께 증강현실(AR) 테마 전반의 강세를 이끄는 모습이다. 이날 주가 상승을 뒷받침하는 핵심 배경은 뚜렷한 실적 턴어라운드다. 사피엔반도체가 지난 12일 공시한 3분기 보고서...",
       "future_momentum": "증강현실 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 927,
+      "trading_value_eok": 979,
       "is_real_leading": true,
       "pullback_rate": "-25.0%",
       "ma5_recovered": false,
@@ -110,7 +110,7 @@
         "title": "[특징주] 사피엔반도체, 차세대 디스플레이 마이크로LED 기술 부각에 11...",
         "press": "증시 속보",
         "url": "https://www.widedaily.com/news/articleView.html?idxno=303807",
-        "published_at": "2026-11-16T05:27:14.951Z"
+        "published_at": "2026-11-16T05:47:30.745Z"
       },
       "timeline": []
     },
@@ -118,34 +118,34 @@
       "theme_id": "radar_165",
       "theme_name": "은행",
       "full_theme_name": "은행",
-      "change_rate": "+1.05%",
-      "composite_score": 57,
+      "change_rate": "+0.87%",
+      "composite_score": 56,
       "total_stocks_count": 11,
       "leader_stock": "케이뱅크",
       "leader_ratio": 2.83,
       "sub_leader_stock": "JB금융지주",
       "other_stocks": [
-        "하나금융지주",
         "카카오뱅크",
+        "하나금융지주",
         "KB금융"
       ],
       "sub_stocks_top3": [
         {
           "name": "JB금융지주",
-          "rate": "+2.2%"
-        },
-        {
-          "name": "하나금융지주",
-          "rate": "+1.4%"
+          "rate": "+2.0%"
         },
         {
           "name": "카카오뱅크",
           "rate": "+1.4%"
+        },
+        {
+          "name": "하나금융지주",
+          "rate": "+1.2%"
         }
       ],
       "past_trigger_reason": "[속보 기사] 워시 &quot;물가 너무 높다&quot; 반락 마감···은행 '된서리'·반도... : 케이 헤이그 글로벌 채권·유동성솔루션 최고투자책임자(CIO)는 \"12월 금리 인상도 확정적인 것은 아닐 것\"이라면서 \"연준이 현 단계에서 공격적인... 특징주로는 IBM이 반도체 사업부 앤더론이 미국 정부와...",
       "future_momentum": "은행 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 2564,
+      "trading_value_eok": 2735,
       "is_real_leading": false,
       "pullback_rate": "-25.0%",
       "ma5_recovered": false,
@@ -155,7 +155,7 @@
         "title": "[뉴욕증시] 워시 &quot;물가 너무 높다&quot; 반락 마감···은행 '된서리'·반도...",
         "press": "증시 속보",
         "url": "https://www.seoulfn.com/news/articleView.html?idxno=638167",
-        "published_at": "2026-11-16T05:27:15.416Z"
+        "published_at": "2026-11-16T05:47:31.175Z"
       },
       "timeline": []
     },
@@ -163,7 +163,7 @@
       "theme_id": "radar_234",
       "theme_name": "보안주",
       "full_theme_name": "보안주(물리)",
-      "change_rate": "+3.41%",
+      "change_rate": "+3.32%",
       "composite_score": 53,
       "total_stocks_count": 21,
       "leader_stock": "지슨",
@@ -181,16 +181,16 @@
         },
         {
           "name": "시선AI",
-          "rate": "+26.2%"
+          "rate": "+24.1%"
         },
         {
           "name": "DGI",
-          "rate": "+22.9%"
+          "rate": "+19.9%"
         }
       ],
       "past_trigger_reason": "[속보 기사] AI 시험부정 정부 대책 발표에 보안株 들썩…지슨 '상한가' : [사진=뉴스핌DB] 이날 오후 1시43분 기준 코스닥 시장에서 지슨은 전 거래일 대비 29.97% 오른 4640원에 거래되며 상한가를 기록하고 있다. 카티스도 29.33% 급등한 2425원에 거래 중이다. ...",
       "future_momentum": "보안주 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 286,
+      "trading_value_eok": 303,
       "is_real_leading": false,
       "pullback_rate": "-25.0%",
       "ma5_recovered": true,
@@ -200,7 +200,7 @@
         "title": "[특징주] AI 시험부정 정부 대책 발표에 보안株 들썩…지슨 '상한가'",
         "press": "증시 속보",
         "url": "https://www.newspim.com/news/view/20261116000809",
-        "published_at": "2026-11-16T05:27:15.816Z"
+        "published_at": "2026-11-16T05:47:31.569Z"
       },
       "timeline": []
     },
@@ -208,51 +208,51 @@
       "theme_id": "radar_41",
       "theme_name": "카메라모듈/부품",
       "full_theme_name": "카메라모듈/부품",
-      "change_rate": "+0.78%",
-      "composite_score": 51,
+      "change_rate": "+0.80%",
+      "composite_score": 53,
       "total_stocks_count": 27,
-      "leader_stock": "LK삼양",
-      "leader_ratio": 29.9,
-      "sub_leader_stock": "세코닉스",
+      "leader_stock": "나무가",
+      "leader_ratio": 30,
+      "sub_leader_stock": "LK삼양",
       "other_stocks": [
-        "나무가",
-        "퓨런티어",
-        "캠시스"
+        "세코닉스",
+        "캠시스",
+        "퓨런티어"
       ],
       "sub_stocks_top3": [
+        {
+          "name": "LK삼양",
+          "rate": "+29.9%"
+        },
         {
           "name": "세코닉스",
           "rate": "+29.8%"
         },
         {
-          "name": "나무가",
-          "rate": "+28.2%"
-        },
-        {
-          "name": "퓨런티어",
-          "rate": "+9.1%"
+          "name": "캠시스",
+          "rate": "+9.4%"
         }
       ],
-      "past_trigger_reason": "[속보 기사] 세코닉스, 'AI 첨단 부정행위' 파장에 광학·카메라 기술 부각... : 3D 센싱 카메라 모듈을 개발하는 나무가가 22.62% 급등세를 보이고 있으며, 카메라 렌즈 관련주인 LK삼양(+24.83%)과 AR 기기용 디스플레이 반도체를 개발하는 사피엔반도체(+7.40%) 등도 큰 ...",
+      "past_trigger_reason": "[속보 기사] 사피엔반도체, 차세대 디스플레이 마이크로LED 기술 부각에 11... : 동종목인 세코닉스, 나무가 등과 함께 증강현실(AR) 테마 전반의 강세를 이끄는 모습이다. 이날 주가 상승을 뒷받침하는 핵심 배경은 뚜렷한 실적 턴어라운드다. 사피엔반도체가 지난 12일 공시한 3분기 보고서...",
       "future_momentum": "카메라모듈/부품 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 852,
+      "trading_value_eok": 955,
       "is_real_leading": true,
       "pullback_rate": "-25.0%",
       "ma5_recovered": false,
-      "trigger_summary": "[특징주] 세코닉스, 'AI 첨단 부정행위' 파장에 광학·카메라 기술 부각...",
-      "today_rising_fact": "[속보 기사] 세코닉스, 'AI 첨단 부정행위' 파장에 광학·카메라 기술 부각... : 3D 센싱 카메라 모듈을 개발하는 나무가가 22.62% 급등세를 보이고 있으며, 카메라 렌즈 관련주인 LK삼양(+24.83%)과 AR 기기용 디스플레이 반도체를 개발하는 사피엔반도체(+7.40%) 등도 큰 ...",
+      "trigger_summary": "[특징주] 사피엔반도체, 차세대 디스플레이 마이크로LED 기술 부각에 11...",
+      "today_rising_fact": "[속보 기사] 사피엔반도체, 차세대 디스플레이 마이크로LED 기술 부각에 11... : 동종목인 세코닉스, 나무가 등과 함께 증강현실(AR) 테마 전반의 강세를 이끄는 모습이다. 이날 주가 상승을 뒷받침하는 핵심 배경은 뚜렷한 실적 턴어라운드다. 사피엔반도체가 지난 12일 공시한 3분기 보고서...",
       "top_article": {
-        "title": "[특징주] 세코닉스, 'AI 첨단 부정행위' 파장에 광학·카메라 기술 부각...",
+        "title": "[특징주] 사피엔반도체, 차세대 디스플레이 마이크로LED 기술 부각에 11...",
         "press": "증시 속보",
-        "url": "https://www.widedaily.com/news/articleView.html?idxno=303758",
-        "published_at": "2026-11-16T05:27:16.197Z"
+        "url": "https://www.widedaily.com/news/articleView.html?idxno=303807",
+        "published_at": "2026-11-16T05:47:31.833Z"
       },
       "timeline": []
     }
   ],
   "pullback_themes": [
     {
-      "theme_id": "pb_1794806836657_qc5f",
+      "theme_id": "pb_1794808052249_xoa5",
       "theme_name": "조선 및 조선기자재",
       "leader_stock": "한화오션",
       "pullback_rate": "-26.4%",
@@ -264,11 +264,11 @@
         "title": "[특징주] 외국인, 삼성전자 매매 방향 전환...기관, 삼성전자·와이씨·...",
         "press": "증시 속보",
         "url": "https://www.newstnt.com/news/articleView.html?idxno=728560",
-        "published_at": "2026-11-16T05:27:16.657Z"
+        "published_at": "2026-11-16T05:47:32.249Z"
       }
     },
     {
-      "theme_id": "pb_1794806837097_4tet",
+      "theme_id": "pb_1794808052685_kesq",
       "theme_name": "원자력발전 및 SMR",
       "leader_stock": "성광벤드",
       "pullback_rate": "-34.8%",
@@ -280,7 +280,7 @@
         "title": "'어닝쇼크' 성광벤드, 신저가 경신...목표가 4.3만원→4만원",
         "press": "증시 속보",
         "url": "https://www.mt.co.kr/stock/2026/11/09/2026110909275097483",
-        "published_at": "2026-11-16T05:27:17.097Z"
+        "published_at": "2026-11-16T05:47:32.685Z"
       }
     }
   ],
