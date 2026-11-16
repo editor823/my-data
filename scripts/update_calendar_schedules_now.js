@@ -193,10 +193,11 @@ const processedApproved = rawApproved.map(e => {
   };
 });
 
+const kstNow = new Date(Date.now() + 9 * 3600 * 1000).toISOString(); // KST 기준 실행 시각
 const finalData = {
   version: "2.1.0",
-  updated_at: "2026-11-02 14:00:00",
-  reference_date: "2026-11-02",
+  updated_at: kstNow.slice(0, 10) + ' ' + kstNow.slice(11, 19),
+  reference_date: kstNow.slice(0, 10),
   approved_events: processedApproved,
   pending_events: []
 };
@@ -216,5 +217,5 @@ targets.forEach(t => {
   }
 });
 
-console.log(`Updated ${processedApproved.length} approved events for 2026-11-02!`);
+console.log(`Updated ${processedApproved.length} approved events for ${finalData.reference_date}!`);
 
