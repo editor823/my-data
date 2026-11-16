@@ -196,8 +196,35 @@ function openSecretKeywordsFromBanner() {
   }, 50);
 }
 
+// 비밀 키워드 갱신 정보: 수집 데이터(window.SECRET_KEYWORDS_STATIC_DATA)를 기준으로 계산
+// 원본 일정: 2일마다 오전 7시(KST) 새 목록 100개 · 매일 아침 검색량·문서수 다시 확인
+const SECRET_REFRESH_INTERVAL_MS = 2 * 24 * 3600 * 1000;
+
+function getSecretKeywordInfo() {
+  const data = window.SECRET_KEYWORDS_STATIC_DATA || {};
+  const count = Number(data.total) || (Array.isArray(data.items) ? data.items.length : 0) || 100;
+  let next = data.nextUpdateAt ? Date.parse(data.nextUpdateAt) : NaN;
+  // 데이터가 늦게 반영돼 예정 시각이 지났으면 2일 주기로 다음 회차를 계산
+  if (!isNaN(next)) {
+    while (next <= Date.now()) next += SECRET_REFRESH_INTERVAL_MS;
+  }
+  return { count, next: isNaN(next) ? null : new Date(next) };
+}
+
+function formatKstNextUpdate(date) {
+  const kst = new Date(date.getTime() + 9 * 3600 * 1000); // UTC 메서드로 KST 값을 읽음
+  const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+  const h = kst.getUTCHours();
+  const hourText = h === 0 ? '오전 12시' : h < 12 ? `오전 ${h}시` : h === 12 ? '오후 12시' : `오후 ${h - 12}시`;
+  return `${kst.getUTCMonth() + 1}월 ${kst.getUTCDate()}일 (${dayNames[kst.getUTCDay()]}) ${hourText}`;
+}
+
 function copySecretNoticeText() {
-  const text = "[머니대외비] 이번 주 비밀 키워드 200개 업데이트 완료!\n- 기준: 월간 검색 100 이상 · 문서/검색 0.3 미만 블루오션\n- 매주 월요일 07시 정기 갱신 (매일 1시간마다 누적 추가)\n지금 머니대외비에서 확인해보세요: " + window.location.origin + "/?page=keywordcenter";
+  const { count } = getSecretKeywordInfo();
+  const text = `[머니대외비] 비밀 키워드 ${count}개 새 목록 업데이트 완료!
+- 기준: 월간 검색 100 이상 · 문서/검색 0.3 미만 블루오션
+- 2일마다 오전 7시 새 목록 ${count}개 (매일 아침 검색량·문서수 다시 확인)
+지금 머니대외비에서 확인해보세요: ` + window.location.origin + "/?page=keywordcenter";
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => {
       showToast('단톡방 공지 문구가 복사되었습니다! 📋');
@@ -209,22 +236,18 @@ function copySecretNoticeText() {
   }
 }
 
-// 상단 캡슐 배너: 다음 갱신일(다음 월요일 07:00 KST)을 자동 계산해 표시
+// 상단 캡슐 배너: 개수와 다음 갱신 시각을 실제 수집 데이터 기준으로 표시
 function updateSecretCapsuleNextDate() {
   const el = document.getElementById('secret-capsule-next');
   if (!el) return;
-  const KST = 9 * 3600 * 1000;
-  const nowKst = new Date(Date.now() + KST); // UTC 메서드로 KST 값을 읽음
-  const next = new Date(Date.UTC(nowKst.getUTCFullYear(), nowKst.getUTCMonth(), nowKst.getUTCDate(), 7));
-  let add = (1 - nowKst.getUTCDay() + 7) % 7; // 다음 월요일까지 일수
-  if (add === 0 && nowKst.getTime() >= next.getTime()) add = 7;
-  next.setUTCDate(next.getUTCDate() + add);
-  el.textContent = `이번 주 머니대외비 비밀 키워드 200개 공개 · 매주 월요일 07시 새 목록 · 다음 갱신 ${next.getUTCMonth() + 1}월 ${next.getUTCDate()}일 (월) 오전 7시`;
+  const { count, next } = getSecretKeywordInfo();
+  el.textContent = `머니대외비 비밀 키워드 ${count}개 공개 · 2일마다 오전 7시 새 목록` + (next ? ` · 다음 갱신 ${formatKstNextUpdate(next)}` : '');
 }
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', updateSecretCapsuleNextDate);
-} else {
+// data/secret_keywords.js 는 app.js 보다 뒤에 로드되므로(defer) DOMContentLoaded 시점에 실행
+if (document.readyState === 'complete') {
   updateSecretCapsuleNextDate();
+} else {
+  document.addEventListener('DOMContentLoaded', updateSecretCapsuleNextDate);
 }
 
 window.openSecretKeywordsFromBanner = openSecretKeywordsFromBanner;

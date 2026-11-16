@@ -262,7 +262,7 @@ async function collectShortContentsData() {
     console.warn('  ⚠️ 곧 뜰 숏텐츠 후보 원본 갱신 실패:', e.message);
   }
 }
-// 5-3. 머니대외비 비밀 키워드 200개 자동 수집 (매주 월요일 갱신 및 07~23시 매시간 업데이트)
+// 5-3. 머니대외비 비밀 키워드 100개 자동 수집 (2일마다 오전 7시 새 목록 · 매일 아침 검색량·문서수 재확인)
 async function collectSecretKeywordsData() {
   const ts = Date.now();
   const secretUrl = `https://www.boutique-info.com/api/analysis?action=getSecretKeywords&paidAccessKey=AAAB4Z6KNMC6EYW5&_t=${ts}`;
