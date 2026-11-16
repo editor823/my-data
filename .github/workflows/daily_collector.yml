@@ -4,15 +4,23 @@ on:
   push:
     paths:
       - 'scripts/auto_collector.js'
+      - 'scripts/check_keyword_freshness.js'
       - '.github/workflows/daily_collector.yml'
   schedule:
-    # 6시간마다 정기 자동 실행 (한국 시간 기준 06:00, 12:00, 18:00, 24:00 하루 4회 / UTC 21:00, 03:00, 09:00, 15:00)
-    - cron: '0 21,3,9,15 * * *'
+    # 3시간마다 매시 17분 실행 (하루 8회). GitHub는 정각에 몰린 예약 실행을 지연·누락시키므로 정각을 피하고,
+    # 일부 실행이 누락되더라도 하루 여러 번 갱신되도록 횟수를 늘림. (UTC 기준 → 한국시간 +9)
+    - cron: '17 */3 * * *'
   workflow_dispatch: # 관리자가 깃허브에서 수동으로 '지금 실행' 버튼을 누를 수도 있음
+
+# 같은 워크플로가 겹쳐 실행되지 않도록 직렬화 (앞 실행이 끝날 때까지 대기)
+concurrency:
+  group: daily-collector
+  cancel-in-progress: false
 
 jobs:
   collect-and-update:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: write
 
@@ -33,11 +41,53 @@ jobs:
           NAVER_AD_SECRET_KEY: ${{ secrets.NAVER_AD_SECRET_KEY }}
 
       - name: 증시 뉴스 시드 최신화 (js/live_domestic_news_seed.json 포함, 매일 갱신)
+        continue-on-error: true
         run: node scripts/update_live_domestic_news.js
 
       - name: 변경된 키워드 및 트렌드 데이터 자동 커밋 및 배포
         run: |
           git config --global user.name 'KeywordBot'
           git config --global user.email 'bot@auto-collector.local'
-          git add js/adsense.js data/trending_live.json trending_live.json data/keyword_center_live.json keyword_center_live.json data/viral_shorts_live.json viral_shorts_live.json data/homefeed_radar_data.js data/shortents_data.js data/shortents_live.json data/shortents_predictions.js data/shortents_predictions.json js/live_domestic_news_seed.js js/live_domestic_news_seed.json data/live_domestic_news.json data/secret_keywords.js data/secret_keywords.json data/secret_keywords_live.json data/seasonal_calendar.js data/seasonal_calendar_live.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(auto): live trending keywords & daily content update [skip ci]" && git push)
+          # 파일을 하나하나 나열하면 경로 하나만 틀려도 전체 커밋이 실패하므로 폴더 단위로 추가
+          git add -A data/ js/
+          # 루트에 있는 미러 파일 (존재하는 것만 추가)
+          for f in trending_live.json keyword_center_live.json viral_shorts_live.json; do
+            if [ -e "$f" ]; then git add -A -- "$f"; fi
+          done
+          if git diff --staged --quiet; then
+            echo "변경된 데이터 없음"
+            exit 0
+          fi
+          git commit -m "chore(auto): live trending keywords & daily content update [skip ci]"
+          # 다른 자동 수집(주식·미국 섹터)이 먼저 push한 경우를 대비해 최신 내용을 받아 재시도
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash -X theirs origin "${GITHUB_REF_NAME}" && git push origin HEAD:"${GITHUB_REF_NAME}" && exit 0
+            echo "push 재시도 ${i}/5..."
+            sleep $((i * 10))
+          done
+          echo "::error::5회 재시도 후에도 push 실패"
+          exit 1
+
+      - name: 데이터 신선도 검사 (오래된 데이터가 있으면 실패 처리)
+        run: node scripts/check_keyword_freshness.js --report freshness_report.txt
+
+      - name: 실패 시 텔레그램 알림
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "텔레그램 시크릿이 없어 알림을 건너뜁니다."
+            exit 0
+          fi
+          REPORT=""
+          [ -f freshness_report.txt ] && REPORT="$(cat freshness_report.txt)"
+          TEXT="🚨 [머니대외비] 블로그 키워드 자동 갱신 실패
+          ${REPORT}
+
+          실행 기록: ${RUN_URL}"
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${TEXT}" > /dev/null || true

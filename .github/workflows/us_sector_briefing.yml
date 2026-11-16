@@ -34,4 +34,16 @@ jobs:
           git config --global user.name 'USSectorBot'
           git config --global user.email 'bot@us-sector-briefing.local'
           git add data/us_sector_briefing.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "[Auto] Update Daily US Sector Briefing Data" && git push)
+          if git diff --staged --quiet; then
+            echo "변경된 데이터 없음"
+            exit 0
+          fi
+          git commit -m "[Auto] Update Daily US Sector Briefing Data"
+          # 다른 자동 수집이 먼저 push한 경우를 대비해 최신 내용을 받아 재시도
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash -X theirs origin "${GITHUB_REF_NAME}" && git push origin HEAD:"${GITHUB_REF_NAME}" && exit 0
+            echo "push 재시도 ${i}/5..."
+            sleep $((i * 10))
+          done
+          echo "::error::5회 재시도 후에도 push 실패"
+          exit 1
