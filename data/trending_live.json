@@ -1,7 +1,7 @@
 {
   "success": true,
-  "updatedAt": "2026-11-16T05:47:27.347Z",
-  "updatedAtKst": "2026. 11. 16. PM 2:47:27",
+  "updatedAt": "2026-11-16T05:59:09.796Z",
+  "updatedAtKst": "2026. 11. 16. PM 2:59:09",
   "trending": {
     "naver": [
       {
@@ -74,27 +74,27 @@
       },
       {
         "rank": 2,
-        "keyword": "철도 안전 종합대책"
+        "keyword": "수능 스마트기기 반납"
       },
       {
         "rank": 3,
-        "keyword": "테슬라 사이버캡 판매"
-      },
-      {
-        "rank": 4,
         "keyword": "조정식 개헌 로드맵"
       },
       {
+        "rank": 4,
+        "keyword": "철도 안전 종합대책"
+      },
+      {
         "rank": 5,
-        "keyword": "행정기관 이메일 해킹"
+        "keyword": "테슬라 사이버캡 판매"
       },
       {
         "rank": 6,
-        "keyword": "독립유공자 유해봉환식"
+        "keyword": "서울 집값 상승폭 둔화"
       },
       {
         "rank": 7,
-        "keyword": "미중러 정상회담"
+        "keyword": "주택자산 격차 52배"
       },
       {
         "rank": 8,
@@ -102,11 +102,11 @@
       },
       {
         "rank": 9,
-        "keyword": "JTBC 올림픽 중계권 해지"
+        "keyword": "미중러 정상회담"
       },
       {
         "rank": 10,
-        "keyword": "주택자산 격차 52배"
+        "keyword": "행정기관 이메일 해킹"
       }
     ],
     "google": [
@@ -162,94 +162,37 @@
       },
       {
         "rank": 3,
-        "keyword": "세무사 수석 부정행위"
+        "keyword": "정부 스마트기기 반납 추진"
       },
       {
         "rank": 4,
-        "keyword": "AI 커닝"
-      },
-      {
-        "rank": 5,
         "keyword": "서울 집값 상승폭 둔화"
       },
       {
+        "rank": 5,
+        "keyword": "전이경 총감독"
+      },
+      {
         "rank": 6,
-        "keyword": "강동연 연지 결혼"
-      },
-      {
-        "rank": 7,
-        "keyword": "최민희 사과"
-      },
-      {
-        "rank": 8,
         "keyword": "단추 카메라"
       },
       {
+        "rank": 7,
+        "keyword": "이호선 조의금 기부"
+      },
+      {
+        "rank": 8,
+        "keyword": "최민희 사과"
+      },
+      {
         "rank": 9,
-        "keyword": "리트 만점자"
+        "keyword": "AI 커닝 비상"
       },
       {
         "rank": 10,
-        "keyword": "전이경 총감독"
+        "keyword": "정부 현수막 단속"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "K팝 대세·버추얼 톱티어의 만남…라이즈·플레이브, 신곡 ‘로우키’ 30일 발표",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261116/135031554/1",
-      "publishedAt": "수집 11. 16. 14:47 KST",
-      "publishedOrder": 1794808042395
-    },
-    {
-      "title": "루시, 싱가포르서 앙코르 콘서트 피날레…뜨거운 교감",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261116/135031869/1",
-      "publishedAt": "수집 11. 16. 14:47 KST",
-      "publishedOrder": 1794808042395
-    },
-    {
-      "title": "오사카 도심 전체가 K팝 축제…‘2026 마마 어워즈’, D-4 카운트다운",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261116/135031448/1",
-      "publishedAt": "수집 11. 16. 14:47 KST",
-      "publishedOrder": 1794808042395
-    },
-    {
-      "title": "온유·성한빈부터 안유진까지…터치드 ‘Fallen Angel’ 챌린지 열풍",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261116/135031408/1",
-      "publishedAt": "수집 11. 16. 14:47 KST",
-      "publishedOrder": 1794808042395
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 16. 14:47 KST",
-      "publishedOrder": 1794808041596
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 16. 14:47 KST",
-      "publishedOrder": 1794808041596
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 16. 14:47 KST",
-      "publishedOrder": 1794808041596
-    },
-    {
-      "title": "김지민, 만삭 임산부가 태교여행서 운전..김준호 \"면허증 있지만 운전 한 적 없다\" [스타이슈]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/15/2026111517053493414",
-      "publishedAt": "수집 11. 16. 14:47 KST",
-      "publishedOrder": 1794808041596
-    }
-  ]
+  "entertainment": []
 }
