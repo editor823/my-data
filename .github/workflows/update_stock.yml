@@ -1,6 +1,9 @@
 name: Daily Stock Data Auto Update
 
 on:
+  push:
+    paths:
+      - '.github/workflows/update_stock.yml'
   schedule:
     # 월~금 한국 시간 16:30 (장마감 후 자동 실행)
     - cron: '30 7 * * 1-5'
@@ -66,5 +69,5 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A data/ js/ public/ stock-intelligence/
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update: stock indicators, news & YouTube briefing [skip ci]" && git push)
+          git add -A data/ js/ public/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update: stock indicators, news & YouTube briefing [skip ci]" && git pull --rebase --autostash && git push)
