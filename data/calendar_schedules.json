@@ -1,7 +1,7 @@
 {
   "version": "3.0.0",
-  "updated_at": "2026-11-16 14:47:43",
-  "reference_date": "2026-11-16",
+  "updated_at": "2026-11-17 02:13:33",
+  "reference_date": "2026-11-17",
   "approved_events": [
     {
       "id": "evt_20261112_krexp",
@@ -17,8 +17,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EC%98%B5%EC%85%98%EB%A7%8C%EA%B8%B0%EC%9D%BC",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%98%B5%EC%85%98%EB%A7%8C%EA%B8%B0%EC%9D%BC",
       "status": "approved",
-      "diff_days": -4,
-      "d_day": "D+4 종료"
+      "diff_days": -5,
+      "d_day": "D+5 종료"
     },
     {
       "id": "evt_20261117_nvda",
@@ -34,8 +34,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EC%97%94%EB%B9%84%EB%94%94%EC%95%84%203%EB%B6%84%EA%B8%B0%20%EC%8B%A4%EC%A0%81",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%97%94%EB%B9%84%EB%94%94%EC%95%84%203%EB%B6%84%EA%B8%B0%20%EC%8B%A4%EC%A0%81",
       "status": "approved",
-      "diff_days": 1,
-      "d_day": "D-1"
+      "diff_days": 0,
+      "d_day": "D-Day 오늘"
     },
     {
       "id": "evt_20261119_csat",
@@ -51,8 +51,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EC%88%98%EB%8A%A5%20%EC%A6%9D%EC%8B%9C%20%EA%B0%9C%EC%9E%A5%20%EC%8B%9C%EA%B0%84",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%88%98%EB%8A%A5%20%EC%A6%9D%EC%8B%9C%20%EA%B0%9C%EC%9E%A5%20%EC%8B%9C%EA%B0%84",
       "status": "approved",
-      "diff_days": 3,
-      "d_day": "D-3"
+      "diff_days": 2,
+      "d_day": "D-2"
     },
     {
       "id": "evt_20261126_bok",
@@ -68,8 +68,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%ED%95%9C%EA%B5%AD%EC%9D%80%ED%96%89%20%EA%B8%88%ED%86%B5%EC%9C%84%20%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%ED%95%9C%EA%B5%AD%EC%9D%80%ED%96%89%20%EA%B8%88%ED%86%B5%EC%9C%84%20%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC",
       "status": "approved",
-      "diff_days": 10,
-      "d_day": "D-10"
+      "diff_days": 9,
+      "d_day": "D-9"
     },
     {
       "id": "evt_20261201_krexport",
@@ -85,8 +85,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EC%88%98%EC%B6%9C%EC%9E%85%20%EB%8F%99%ED%96%A5%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EC%88%98%EC%B6%9C",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%88%98%EC%B6%9C%EC%9E%85%20%EB%8F%99%ED%96%A5%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EC%88%98%EC%B6%9C",
       "status": "approved",
-      "diff_days": 15,
-      "d_day": "D-15"
+      "diff_days": 14,
+      "d_day": "D-14"
     },
     {
       "id": "evt_20261204_usnfp",
@@ -102,8 +102,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20%EA%B3%A0%EC%9A%A9%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%B9%84%EB%86%8D%EC%97%85",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20%EA%B3%A0%EC%9A%A9%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%B9%84%EB%86%8D%EC%97%85",
       "status": "approved",
-      "diff_days": 18,
-      "d_day": "D-18"
+      "diff_days": 17,
+      "d_day": "D-17"
     },
     {
       "id": "evt_20261209_fomc",
@@ -119,8 +119,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=FOMC%20%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC%20%EA%B2%B0%EC%A0%95",
       "news_url": "https://search.naver.com/search.naver?where=news&query=FOMC%20%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC%20%EA%B2%B0%EC%A0%95",
       "status": "approved",
-      "diff_days": 23,
-      "d_day": "D-23"
+      "diff_days": 22,
+      "d_day": "D-22"
     },
     {
       "id": "evt_20261210_krexp",
@@ -136,8 +136,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EB%8F%99%EC%8B%9C%EB%A7%8C%EA%B8%B0%EC%9D%BC%20%EB%84%A4%20%EB%A7%88%EB%85%80%EC%9D%98%20%EB%82%A0",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EB%8F%99%EC%8B%9C%EB%A7%8C%EA%B8%B0%EC%9D%BC%20%EB%84%A4%20%EB%A7%88%EB%85%80%EC%9D%98%20%EB%82%A0",
       "status": "approved",
-      "diff_days": 24,
-      "d_day": "D-24"
+      "diff_days": 23,
+      "d_day": "D-23"
     },
     {
       "id": "evt_20261210_uscpi",
@@ -153,8 +153,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20CPI%20%EB%B0%9C%ED%91%9C",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20CPI%20%EB%B0%9C%ED%91%9C",
       "status": "approved",
-      "diff_days": 24,
-      "d_day": "D-24"
+      "diff_days": 23,
+      "d_day": "D-23"
     },
     {
       "id": "evt_20261218_usexp",
@@ -170,8 +170,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EC%BF%BC%EB%93%9C%EB%9F%AC%ED%94%8C%20%EC%9C%84%EC%B9%AD",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%BF%BC%EB%93%9C%EB%9F%AC%ED%94%8C%20%EC%9C%84%EC%B9%AD",
       "status": "approved",
-      "diff_days": 32,
-      "d_day": "D-32"
+      "diff_days": 31,
+      "d_day": "D-31"
     },
     {
       "id": "evt_20261230_krxclose",
@@ -187,8 +187,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EC%A6%9D%EC%8B%9C%20%ED%8F%90%EC%9E%A5%EC%9D%BC",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%A6%9D%EC%8B%9C%20%ED%8F%90%EC%9E%A5%EC%9D%BC",
       "status": "approved",
-      "diff_days": 44,
-      "d_day": "D-44"
+      "diff_days": 43,
+      "d_day": "D-43"
     },
     {
       "id": "evt_20270101_krexport",
@@ -204,8 +204,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EC%88%98%EC%B6%9C%EC%9E%85%20%EB%8F%99%ED%96%A5%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EC%88%98%EC%B6%9C",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%88%98%EC%B6%9C%EC%9E%85%20%EB%8F%99%ED%96%A5%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EC%88%98%EC%B6%9C",
       "status": "approved",
-      "diff_days": 46,
-      "d_day": "D-46"
+      "diff_days": 45,
+      "d_day": "D-45"
     },
     {
       "id": "evt_20270104_krxopen",
@@ -221,8 +221,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EC%A6%9D%EC%8B%9C%20%EA%B0%9C%EC%9E%A5%EC%9D%BC",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%A6%9D%EC%8B%9C%20%EA%B0%9C%EC%9E%A5%EC%9D%BC",
       "status": "approved",
-      "diff_days": 49,
-      "d_day": "D-49"
+      "diff_days": 48,
+      "d_day": "D-48"
     },
     {
       "id": "evt_20270108_usnfp",
@@ -238,8 +238,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20%EA%B3%A0%EC%9A%A9%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%B9%84%EB%86%8D%EC%97%85",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20%EA%B3%A0%EC%9A%A9%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%B9%84%EB%86%8D%EC%97%85",
       "status": "approved",
-      "diff_days": 53,
-      "d_day": "D-53"
+      "diff_days": 52,
+      "d_day": "D-52"
     },
     {
       "id": "evt_20270113_uscpi",
@@ -255,8 +255,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20CPI%20%EB%B0%9C%ED%91%9C",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20CPI%20%EB%B0%9C%ED%91%9C",
       "status": "approved",
-      "diff_days": 58,
-      "d_day": "D-58"
+      "diff_days": 57,
+      "d_day": "D-57"
     },
     {
       "id": "evt_20270114_krexp",
@@ -272,8 +272,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EC%98%B5%EC%85%98%EB%A7%8C%EA%B8%B0%EC%9D%BC",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%98%B5%EC%85%98%EB%A7%8C%EA%B8%B0%EC%9D%BC",
       "status": "approved",
-      "diff_days": 59,
-      "d_day": "D-59"
+      "diff_days": 58,
+      "d_day": "D-58"
     },
     {
       "id": "evt_20270114_bok",
@@ -289,8 +289,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%ED%95%9C%EA%B5%AD%EC%9D%80%ED%96%89%20%EA%B8%88%ED%86%B5%EC%9C%84%20%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%ED%95%9C%EA%B5%AD%EC%9D%80%ED%96%89%20%EA%B8%88%ED%86%B5%EC%9C%84%20%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC",
       "status": "approved",
-      "diff_days": 59,
-      "d_day": "D-59"
+      "diff_days": 58,
+      "d_day": "D-58"
     },
     {
       "id": "evt_20270127_fomc",
@@ -306,8 +306,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=FOMC%20%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC%20%EA%B2%B0%EC%A0%95",
       "news_url": "https://search.naver.com/search.naver?where=news&query=FOMC%20%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC%20%EA%B2%B0%EC%A0%95",
       "status": "approved",
-      "diff_days": 72,
-      "d_day": "D-72"
+      "diff_days": 71,
+      "d_day": "D-71"
     },
     {
       "id": "evt_20270201_krexport",
@@ -323,8 +323,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EC%88%98%EC%B6%9C%EC%9E%85%20%EB%8F%99%ED%96%A5%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EC%88%98%EC%B6%9C",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%88%98%EC%B6%9C%EC%9E%85%20%EB%8F%99%ED%96%A5%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EC%88%98%EC%B6%9C",
       "status": "approved",
-      "diff_days": 77,
-      "d_day": "D-77"
+      "diff_days": 76,
+      "d_day": "D-76"
     },
     {
       "id": "evt_20270205_usnfp",
@@ -340,8 +340,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20%EA%B3%A0%EC%9A%A9%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%B9%84%EB%86%8D%EC%97%85",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20%EA%B3%A0%EC%9A%A9%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%B9%84%EB%86%8D%EC%97%85",
       "status": "approved",
-      "diff_days": 81,
-      "d_day": "D-81"
+      "diff_days": 80,
+      "d_day": "D-80"
     },
     {
       "id": "evt_20270211_krexp",
@@ -357,8 +357,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EC%98%B5%EC%85%98%EB%A7%8C%EA%B8%B0%EC%9D%BC",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%98%B5%EC%85%98%EB%A7%8C%EA%B8%B0%EC%9D%BC",
       "status": "approved",
-      "diff_days": 87,
-      "d_day": "D-87"
+      "diff_days": 86,
+      "d_day": "D-86"
     },
     {
       "id": "evt_20270211_uscpi",
@@ -374,8 +374,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20CPI%20%EB%B0%9C%ED%91%9C",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20CPI%20%EB%B0%9C%ED%91%9C",
       "status": "approved",
-      "diff_days": 87,
-      "d_day": "D-87"
+      "diff_days": 86,
+      "d_day": "D-86"
     },
     {
       "id": "evt_20270225_bok",
@@ -391,8 +391,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%ED%95%9C%EA%B5%AD%EC%9D%80%ED%96%89%20%EA%B8%88%ED%86%B5%EC%9C%84%20%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%ED%95%9C%EA%B5%AD%EC%9D%80%ED%96%89%20%EA%B8%88%ED%86%B5%EC%9C%84%20%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC",
       "status": "approved",
-      "diff_days": 101,
-      "d_day": "D-101"
+      "diff_days": 100,
+      "d_day": "D-100"
     },
     {
       "id": "evt_20270301_krexport",
@@ -408,8 +408,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EC%88%98%EC%B6%9C%EC%9E%85%20%EB%8F%99%ED%96%A5%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EC%88%98%EC%B6%9C",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EC%88%98%EC%B6%9C%EC%9E%85%20%EB%8F%99%ED%96%A5%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EC%88%98%EC%B6%9C",
       "status": "approved",
-      "diff_days": 105,
-      "d_day": "D-105"
+      "diff_days": 104,
+      "d_day": "D-104"
     },
     {
       "id": "evt_20270305_usnfp",
@@ -425,8 +425,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20%EA%B3%A0%EC%9A%A9%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%B9%84%EB%86%8D%EC%97%85",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20%EA%B3%A0%EC%9A%A9%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%B9%84%EB%86%8D%EC%97%85",
       "status": "approved",
-      "diff_days": 109,
-      "d_day": "D-109"
+      "diff_days": 108,
+      "d_day": "D-108"
     },
     {
       "id": "evt_20270310_uscpi",
@@ -442,8 +442,8 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20CPI%20%EB%B0%9C%ED%91%9C",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EA%B5%AD%20CPI%20%EB%B0%9C%ED%91%9C",
       "status": "approved",
-      "diff_days": 114,
-      "d_day": "D-114"
+      "diff_days": 113,
+      "d_day": "D-113"
     },
     {
       "id": "evt_20270311_krexp",
@@ -459,8 +459,25 @@
       "sourceUrl": "https://search.naver.com/search.naver?where=news&query=%EB%8F%99%EC%8B%9C%EB%A7%8C%EA%B8%B0%EC%9D%BC%20%EB%84%A4%20%EB%A7%88%EB%85%80%EC%9D%98%20%EB%82%A0",
       "news_url": "https://search.naver.com/search.naver?where=news&query=%EB%8F%99%EC%8B%9C%EB%A7%8C%EA%B8%B0%EC%9D%BC%20%EB%84%A4%20%EB%A7%88%EB%85%80%EC%9D%98%20%EB%82%A0",
       "status": "approved",
-      "diff_days": 115,
-      "d_day": "D-115"
+      "diff_days": 114,
+      "d_day": "D-114"
+    },
+    {
+      "id": "evt_20270317_fomc",
+      "title": "미국 FOMC 기준금리 결정 및 연준 의장 기자회견 (경제전망·점도표 공개)",
+      "date": "2027-03-17",
+      "dateDisplay": "2027-03-17 (수)",
+      "category": "거시경제·금리",
+      "tag": "거시경제·금리",
+      "key_point": "[모멘텀 핵심] 03/16~03/17 정례회의. 결과는 한국시간 다음날 새벽 4시 발표. 분기 점도표로 향후 금리 경로 확인.",
+      "desc": "[모멘텀 핵심] 03/16~03/17 정례회의. 결과는 한국시간 다음날 새벽 4시 발표. 분기 점도표로 향후 금리 경로 확인.",
+      "press": "미국 연방준비제도",
+      "sourceTitle": "미국 FOMC 기준금리 결정 및 연준 의장 기자회견 (경제전망·점도표 공개)",
+      "sourceUrl": "https://search.naver.com/search.naver?where=news&query=FOMC%20%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC%20%EA%B2%B0%EC%A0%95",
+      "news_url": "https://search.naver.com/search.naver?where=news&query=FOMC%20%EA%B8%B0%EC%A4%80%EA%B8%88%EB%A6%AC%20%EA%B2%B0%EC%A0%95",
+      "status": "approved",
+      "diff_days": 120,
+      "d_day": "D-120"
     }
   ],
   "pending_events": []
