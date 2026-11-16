@@ -209,5 +209,23 @@ function copySecretNoticeText() {
   }
 }
 
+// 상단 캡슐 배너: 다음 갱신일(다음 월요일 07:00 KST)을 자동 계산해 표시
+function updateSecretCapsuleNextDate() {
+  const el = document.getElementById('secret-capsule-next');
+  if (!el) return;
+  const KST = 9 * 3600 * 1000;
+  const nowKst = new Date(Date.now() + KST); // UTC 메서드로 KST 값을 읽음
+  const next = new Date(Date.UTC(nowKst.getUTCFullYear(), nowKst.getUTCMonth(), nowKst.getUTCDate(), 7));
+  let add = (1 - nowKst.getUTCDay() + 7) % 7; // 다음 월요일까지 일수
+  if (add === 0 && nowKst.getTime() >= next.getTime()) add = 7;
+  next.setUTCDate(next.getUTCDate() + add);
+  el.textContent = `이번 주 머니대외비 비밀 키워드 200개 공개 · 매주 월요일 07시 새 목록 · 다음 갱신 ${next.getUTCMonth() + 1}월 ${next.getUTCDate()}일 (월) 오전 7시`;
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', updateSecretCapsuleNextDate);
+} else {
+  updateSecretCapsuleNextDate();
+}
+
 window.openSecretKeywordsFromBanner = openSecretKeywordsFromBanner;
 window.copySecretNoticeText = copySecretNoticeText;
