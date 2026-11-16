@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-11-13T05:50:54.481Z",
+  "updatedAt": "2026-11-16T05:27:32.486Z",
   "channelId": "UChQIBrXk5QMyJjF3Hl_5-kQ",
   "channelTitle": "심플 관심종목 TV",
   "channelUrl": "https://www.youtube.com/channel/UChQIBrXk5QMyJjF3Hl_5-kQ",
   "channelHandle": "@simple_stock_tv",
-  "targetDate": "2026-11-13",
-  "briefingSummary": "당일 관심테마! 젠슨황 사임! 이젠 앤트로픽 상장으로.../반도체,소부장,기판,보안,경영권/삼성전자,SK하이닉스,코리아써키트,심텍,주성엔지니어링,삼성전기,한진칼,티엘비,지니언스 등 총 12편의 최신 실시간 영상 분석 보고서",
+  "targetDate": "2026-11-16",
+  "briefingSummary": "당일 관심테마! 젠슨황 복귀 논의, 앤트로픽 상장등 중요한 한주 /반도체,소부장,기판,보안,경영권,스마트글라스/삼성전자,SK하이닉스,코리아써키트,심텍,지니언스,가온칩스,티엘비 등 총 12편의 최신 실시간 영상 분석 보고서",
   "totalVideosCount": 12,
   "tradingRules": [
     "1. 갭상승 시 절대 추격 매수 금지 (최소 시초 30분 관망 후 눌림 지지 확인)",
@@ -14,87 +14,402 @@
   ],
   "timeline": [
     {
-      "time": "11월 13일 (7시간 전)",
+      "time": "11월 16일 (7시간 전)",
+      "title": "당일 관심테마! 젠슨황 복귀 논의, 앤트로픽 상장등 중요한 한주 /반도체,소부장,기판,보안,경영권,스마트글라스/삼성전자,SK하이닉스,코리아써키트,심텍,지니언스,가온칩스,티엘비",
+      "category": "모닝 브리핑",
+      "videoId": "bfxokGeDp08"
+    },
+    {
+      "time": "11월 16일 (18시간 전)",
+      "title": "눌림에서 반등이 잘 나오는 종목들의 비밀 !! 눌림 종목선정의 핵심 요소 / 삭제 예정 영상 있을때 봐두세요",
+      "category": "긴급 이슈 & 심층",
+      "videoId": "Yd_huwKLDs8"
+    },
+    {
+      "time": "11월 16일 (18시간 전)",
+      "title": "남은 하반기 시황에 대한 생각 및 관심 업종 및 종목 정리",
+      "category": "긴급 이슈 & 심층",
+      "videoId": "JCQ2L-HPnX4"
+    },
+    {
+      "time": "11월 16일 (21시간 전)",
+      "title": "내일 관심테마! 이번주 증시 빅 이벤트들! 엔비디아,앤트로픽,APEC/반도체,소부장,기판,보안,경영권/삼성전자,SK하이닉스,코리아써키트,심텍,지니언스,가온칩스,티엘비",
+      "category": "모닝 브리핑",
+      "videoId": "RRtPeFkATCI"
+    },
+    {
+      "time": "11월 16일 (2일 전)",
+      "title": "세력,급등주매매에서 뻔한 투매 안맞는 팁 및 이용하는 방법 / 차후 삭제 예정 영상",
+      "category": "긴급 이슈 & 심층",
+      "videoId": "iwqetXqTDwk"
+    },
+    {
+      "time": "11월 16일 (3일 전)",
       "title": "당일 관심테마! 젠슨황 사임! 이젠 앤트로픽 상장으로.../반도체,소부장,기판,보안,경영권/삼성전자,SK하이닉스,코리아써키트,심텍,주성엔지니어링,삼성전기,한진칼,티엘비,지니언스",
       "category": "모닝 브리핑",
       "videoId": "T_lXGOVzY0w"
     },
     {
-      "time": "11월 13일 (22시간 전)",
+      "time": "11월 16일 (3일 전)",
       "title": "좀 회복하나싶었더니 들려오는 젠슨황 추가(?) 악재...쉬어가는 증시 / 반도체,소부장,보안,경영권분쟁 /삼성전자SK하이닉스,한진칼,삼성전기,JYP,코리아써키트,심텍,티엘비,주성",
       "category": "긴급 이슈 & 심층",
       "videoId": "JWKh_griocA"
     },
     {
-      "time": "11월 13일 (22시간 전)",
+      "time": "11월 16일 (3일 전)",
       "title": "반도체 오늘은 쉬웠던? 주의해야했던 관점 / 선반영+엔비디아 / 덕분에 시장흐름은 개별주 한진칼우",
       "category": "긴급 이슈 & 심층",
       "videoId": "LzB1DwqxCBA"
     },
     {
-      "time": "11월 13일 (1일 전)",
+      "time": "11월 16일 (4일 전)",
       "title": "당일 관심테마! 코어위브 실적 강세 및 앤트로픽 IPO 주문 폭주 ! /반도체,소부장,기판,로봇/삼성전자,SK하이닉스,코리아써키트,심텍,주성엔지니어링,삼성전기,한진칼,티엘비",
       "category": "모닝 브리핑",
       "videoId": "iK7drU3IOS0"
     },
     {
-      "time": "11월 13일 (1일 전)",
+      "time": "11월 16일 (4일 전)",
       "title": "직장인들이 눌림매매에서 큰 돈을 버는 방법 + 자리 / 단 한가지",
       "category": "긴급 이슈 & 심층",
       "videoId": "R2VbDbwveX8"
     },
     {
-      "time": "11월 13일 (1일 전)",
+      "time": "11월 16일 (4일 전)",
       "title": "내일 관심테마! 지수반등은 역시 반도체 & 소부장 !! 코스닥 승강제 ?? /반도체,소부장,기판,로봇/삼성전자,SK하이닉스,코리아써키트,심텍,주성엔지니어링,삼성전기,한진칼,티엘비",
       "category": "모닝 브리핑",
       "videoId": "yZ0W5qc659I"
     },
     {
-      "time": "11월 13일 (4일 전)",
+      "time": "11월 16일 (7일 전)",
       "title": "당일 관심테마! 젠슨황 불륜 시인 및 트럼프 밀착 기업들 조사 채비등 또 악재 /데이터센터,경영권분쟁,태양광/삼성전자,SK하이닉스,NAVER,한진칼,엘리스,혜인,지엔씨,한화솔루션",
       "category": "모닝 브리핑",
       "videoId": "HrEjwgyY7ik"
-    },
-    {
-      "time": "11월 13일 (4일 전)",
-      "title": "하락장의 기본! 장착해야 하는 개념 아홉 가지 / 비중을 늘리는 구간 / 반등은 언제 나올까 / 어떤 종목들 위주로 접근해야하는가",
-      "category": "긴급 이슈 & 심층",
-      "videoId": "huPWcS7Wkdo"
-    },
-    {
-      "time": "11월 13일 (4일 전)",
-      "title": "개인적으로 관심 & 매매하고있는 업종 및 관심종목 정리",
-      "category": "긴급 이슈 & 심층",
-      "videoId": "_pACFMPRyrs"
-    },
-    {
-      "time": "11월 13일 (4일 전)",
-      "title": "내일 관심테마! 여전히 쉽지않은 이번주. 젠슨황 악재?? 중동이슈는 지속 /데이터센터,반도체,경영권분쟁,보안/삼성전자,SK하이닉스,NAVER,한진칼,엘리스,혜인,삼성전기,지엔씨",
-      "category": "모닝 브리핑",
-      "videoId": "CmvomvZ759w"
-    },
-    {
-      "time": "11월 13일 (5일 전)",
-      "title": "앤트로픽 IPO 예상가치 큰 폭의 하락. 증시에 오히려 호재인 이유!",
-      "category": "장마감 복기",
-      "videoId": "1SIuBT7F-M4"
-    },
-    {
-      "time": "11월 13일 (6일 전)",
-      "title": "알아두면 써먹는 신고가 패턴매매, 오늘 시가 갭하락 매매 관점 / 시장이 겁먹는 좋은 포인트의 중첩. 선반영.단기낙폭과대.반등 한진칼삼성전기,심텍,로보티즈,코리아써키트 개인매매복기",
-      "category": "장마감 복기",
-      "videoId": "QHdztE64BTM"
     }
   ],
   "items": [
+    {
+      "id": "yt_bfxokGeDp08",
+      "videoId": "bfxokGeDp08",
+      "title": "당일 관심테마! 젠슨황 복귀 논의, 앤트로픽 상장등 중요한 한주 /반도체,소부장,기판,보안,경영권,스마트글라스/삼성전자,SK하이닉스,코리아써키트,심텍,지니언스,가온칩스,티엘비",
+      "category": "모닝 브리핑",
+      "published_kst": "2026-11-16 (7시간 전)",
+      "date_display": "11월 16일 (7시간 전)",
+      "view_count": "1만",
+      "thumbnail_url": "https://i.ytimg.com/vi/bfxokGeDp08/hqdefault.jpg",
+      "video_url": "https://www.youtube.com/watch?v=bfxokGeDp08",
+      "executive_summary": "당일 관심테마! 젠슨황 복귀 논의, 앤트로픽 상장등 중요한 한주 /반도체,소부장,기판,보안,경영권,스마트글라스/삼성전자,SK하이닉스,코리아써키트,심텍,지니언스,가온칩스,티엘비 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.",
+      "themes": [
+        {
+          "name": "주도 테마 수급",
+          "strength": "강도: 최강",
+          "desc": "외인·기관 프로그램 순매수 유입 및 거래대금 집중"
+        },
+        {
+          "name": "헤지 & 보안/방어",
+          "strength": "강도: 강",
+          "desc": "지수 변동성 확대에 따른 단기 헤지성 수급 쏠림"
+        },
+        {
+          "name": "개별 재료주",
+          "strength": "강도: 선별적",
+          "desc": "단독 공시 및 호재성 뉴스 모멘텀 보유주"
+        }
+      ],
+      "focus_stocks": [
+        {
+          "name": "관심테마!",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "관심테마! 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "젠슨황",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "젠슨황 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "복귀",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "복귀 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "논의",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "논의 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        }
+      ]
+    },
+    {
+      "id": "yt_Yd_huwKLDs8",
+      "videoId": "Yd_huwKLDs8",
+      "title": "눌림에서 반등이 잘 나오는 종목들의 비밀 !! 눌림 종목선정의 핵심 요소 / 삭제 예정 영상 있을때 봐두세요",
+      "category": "긴급 이슈 & 심층",
+      "published_kst": "2026-11-16 (18시간 전)",
+      "date_display": "11월 16일 (18시간 전)",
+      "view_count": "조회수 1만회",
+      "thumbnail_url": "https://i.ytimg.com/vi/Yd_huwKLDs8/hqdefault.jpg",
+      "video_url": "https://www.youtube.com/watch?v=Yd_huwKLDs8",
+      "executive_summary": "눌림에서 반등이 잘 나오는 종목들의 비밀 !! 눌림 종목선정의 핵심 요소 / 삭제 예정 영상 있을때 봐두세요 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.",
+      "themes": [
+        {
+          "name": "주도 테마 수급",
+          "strength": "강도: 최강",
+          "desc": "외인·기관 프로그램 순매수 유입 및 거래대금 집중"
+        },
+        {
+          "name": "헤지 & 보안/방어",
+          "strength": "강도: 강",
+          "desc": "지수 변동성 확대에 따른 단기 헤지성 수급 쏠림"
+        },
+        {
+          "name": "개별 재료주",
+          "strength": "강도: 선별적",
+          "desc": "단독 공시 및 호재성 뉴스 모멘텀 보유주"
+        }
+      ],
+      "focus_stocks": [
+        {
+          "name": "눌림에서",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "눌림에서 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "반등이",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "반등이 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "나오는",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "나오는 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "종목들의",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "종목들의 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        }
+      ]
+    },
+    {
+      "id": "yt_JCQ2L-HPnX4",
+      "videoId": "JCQ2L-HPnX4",
+      "title": "남은 하반기 시황에 대한 생각 및 관심 업종 및 종목 정리",
+      "category": "긴급 이슈 & 심층",
+      "published_kst": "2026-11-16 (18시간 전)",
+      "date_display": "11월 16일 (18시간 전)",
+      "view_count": "조회수 1만회",
+      "thumbnail_url": "https://i.ytimg.com/vi/JCQ2L-HPnX4/hqdefault.jpg",
+      "video_url": "https://www.youtube.com/watch?v=JCQ2L-HPnX4",
+      "executive_summary": "남은 하반기 시황에 대한 생각 및 관심 업종 및 종목 정리 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.",
+      "themes": [
+        {
+          "name": "주도 테마 수급",
+          "strength": "강도: 최강",
+          "desc": "외인·기관 프로그램 순매수 유입 및 거래대금 집중"
+        },
+        {
+          "name": "헤지 & 보안/방어",
+          "strength": "강도: 강",
+          "desc": "지수 변동성 확대에 따른 단기 헤지성 수급 쏠림"
+        },
+        {
+          "name": "개별 재료주",
+          "strength": "강도: 선별적",
+          "desc": "단독 공시 및 호재성 뉴스 모멘텀 보유주"
+        }
+      ],
+      "focus_stocks": [
+        {
+          "name": "남은",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "남은 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "하반기",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "하반기 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "시황에",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "시황에 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "대한",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "대한 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        }
+      ]
+    },
+    {
+      "id": "yt_RRtPeFkATCI",
+      "videoId": "RRtPeFkATCI",
+      "title": "내일 관심테마! 이번주 증시 빅 이벤트들! 엔비디아,앤트로픽,APEC/반도체,소부장,기판,보안,경영권/삼성전자,SK하이닉스,코리아써키트,심텍,지니언스,가온칩스,티엘비",
+      "category": "모닝 브리핑",
+      "published_kst": "2026-11-16 (21시간 전)",
+      "date_display": "11월 16일 (21시간 전)",
+      "view_count": "1.8만",
+      "thumbnail_url": "https://i.ytimg.com/vi/RRtPeFkATCI/hqdefault.jpg",
+      "video_url": "https://www.youtube.com/watch?v=RRtPeFkATCI",
+      "executive_summary": "내일 관심테마! 이번주 증시 빅 이벤트들! 엔비디아,앤트로픽,APEC/반도체,소부장,기판,보안,경영권/삼성전자,SK하이닉스,코리아써키트,심텍,지니언스,가온칩스,티엘비 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.",
+      "themes": [
+        {
+          "name": "주도 테마 수급",
+          "strength": "강도: 최강",
+          "desc": "외인·기관 프로그램 순매수 유입 및 거래대금 집중"
+        },
+        {
+          "name": "헤지 & 보안/방어",
+          "strength": "강도: 강",
+          "desc": "지수 변동성 확대에 따른 단기 헤지성 수급 쏠림"
+        },
+        {
+          "name": "개별 재료주",
+          "strength": "강도: 선별적",
+          "desc": "단독 공시 및 호재성 뉴스 모멘텀 보유주"
+        }
+      ],
+      "focus_stocks": [
+        {
+          "name": "관심테마!",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "관심테마! 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "증시",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "증시 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "이벤트들!",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "이벤트들! 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "엔비디아",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "엔비디아 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        }
+      ]
+    },
+    {
+      "id": "yt_iwqetXqTDwk",
+      "videoId": "iwqetXqTDwk",
+      "title": "세력,급등주매매에서 뻔한 투매 안맞는 팁 및 이용하는 방법 / 차후 삭제 예정 영상",
+      "category": "긴급 이슈 & 심층",
+      "published_kst": "2026-11-16 (2일 전)",
+      "date_display": "11월 16일 (2일 전)",
+      "view_count": "조회수 1만회",
+      "thumbnail_url": "https://i.ytimg.com/vi/iwqetXqTDwk/hqdefault.jpg",
+      "video_url": "https://www.youtube.com/watch?v=iwqetXqTDwk",
+      "executive_summary": "세력,급등주매매에서 뻔한 투매 안맞는 팁 및 이용하는 방법 / 차후 삭제 예정 영상 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.",
+      "themes": [
+        {
+          "name": "주도 테마 수급",
+          "strength": "강도: 최강",
+          "desc": "외인·기관 프로그램 순매수 유입 및 거래대금 집중"
+        },
+        {
+          "name": "헤지 & 보안/방어",
+          "strength": "강도: 강",
+          "desc": "지수 변동성 확대에 따른 단기 헤지성 수급 쏠림"
+        },
+        {
+          "name": "개별 재료주",
+          "strength": "강도: 선별적",
+          "desc": "단독 공시 및 호재성 뉴스 모멘텀 보유주"
+        }
+      ],
+      "focus_stocks": [
+        {
+          "name": "세력",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "세력 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "급등주매매에서",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "급등주매매에서 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "뻔한",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "뻔한 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        },
+        {
+          "name": "투매",
+          "code": "000000",
+          "theme": "주도 섹터",
+          "strategy": "투매 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
+          "target": "전고점 트라이",
+          "stop": "-3% 엄격 손절"
+        }
+      ]
+    },
     {
       "id": "yt_T_lXGOVzY0w",
       "videoId": "T_lXGOVzY0w",
       "title": "당일 관심테마! 젠슨황 사임! 이젠 앤트로픽 상장으로.../반도체,소부장,기판,보안,경영권/삼성전자,SK하이닉스,코리아써키트,심텍,주성엔지니어링,삼성전기,한진칼,티엘비,지니언스",
       "category": "모닝 브리핑",
-      "published_kst": "2026-11-13 (7시간 전)",
-      "date_display": "11월 13일 (7시간 전)",
-      "view_count": "1.1만",
+      "published_kst": "2026-11-16 (3일 전)",
+      "date_display": "11월 16일 (3일 전)",
+      "view_count": "1.4만",
       "thumbnail_url": "https://i.ytimg.com/vi/T_lXGOVzY0w/hqdefault.jpg",
       "video_url": "https://www.youtube.com/watch?v=T_lXGOVzY0w",
       "executive_summary": "당일 관심테마! 젠슨황 사임! 이젠 앤트로픽 상장으로.../반도체,소부장,기판,보안,경영권/삼성전자,SK하이닉스,코리아써키트,심텍,주성엔지니어링,삼성전기,한진칼,티엘비,지니언스 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.",
@@ -155,9 +470,9 @@
       "videoId": "JWKh_griocA",
       "title": "좀 회복하나싶었더니 들려오는 젠슨황 추가(?) 악재...쉬어가는 증시 / 반도체,소부장,보안,경영권분쟁 /삼성전자SK하이닉스,한진칼,삼성전기,JYP,코리아써키트,심텍,티엘비,주성",
       "category": "긴급 이슈 & 심층",
-      "published_kst": "2026-11-13 (22시간 전)",
-      "date_display": "11월 13일 (22시간 전)",
-      "view_count": "1.1만",
+      "published_kst": "2026-11-16 (3일 전)",
+      "date_display": "11월 16일 (3일 전)",
+      "view_count": "1.2만",
       "thumbnail_url": "https://i.ytimg.com/vi/JWKh_griocA/hqdefault.jpg",
       "video_url": "https://www.youtube.com/watch?v=JWKh_griocA",
       "executive_summary": "좀 회복하나싶었더니 들려오는 젠슨황 추가(?) 악재...쉬어가는 증시 / 반도체,소부장,보안,경영권분쟁 /삼성전자SK하이닉스,한진칼,삼성전기,JYP,코리아써키트,심텍,티엘비,주성 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.",
@@ -218,8 +533,8 @@
       "videoId": "LzB1DwqxCBA",
       "title": "반도체 오늘은 쉬웠던? 주의해야했던 관점 / 선반영+엔비디아 / 덕분에 시장흐름은 개별주 한진칼우",
       "category": "긴급 이슈 & 심층",
-      "published_kst": "2026-11-13 (22시간 전)",
-      "date_display": "11월 13일 (22시간 전)",
+      "published_kst": "2026-11-16 (3일 전)",
+      "date_display": "11월 16일 (3일 전)",
       "view_count": "조회수 1만회",
       "thumbnail_url": "https://i.ytimg.com/vi/LzB1DwqxCBA/hqdefault.jpg",
       "video_url": "https://www.youtube.com/watch?v=LzB1DwqxCBA",
@@ -281,8 +596,8 @@
       "videoId": "iK7drU3IOS0",
       "title": "당일 관심테마! 코어위브 실적 강세 및 앤트로픽 IPO 주문 폭주 ! /반도체,소부장,기판,로봇/삼성전자,SK하이닉스,코리아써키트,심텍,주성엔지니어링,삼성전기,한진칼,티엘비",
       "category": "모닝 브리핑",
-      "published_kst": "2026-11-13 (1일 전)",
-      "date_display": "11월 13일 (1일 전)",
+      "published_kst": "2026-11-16 (4일 전)",
+      "date_display": "11월 16일 (4일 전)",
       "view_count": "1만",
       "thumbnail_url": "https://i.ytimg.com/vi/iK7drU3IOS0/hqdefault.jpg",
       "video_url": "https://www.youtube.com/watch?v=iK7drU3IOS0",
@@ -344,8 +659,8 @@
       "videoId": "R2VbDbwveX8",
       "title": "직장인들이 눌림매매에서 큰 돈을 버는 방법 + 자리 / 단 한가지",
       "category": "긴급 이슈 & 심층",
-      "published_kst": "2026-11-13 (1일 전)",
-      "date_display": "11월 13일 (1일 전)",
+      "published_kst": "2026-11-16 (4일 전)",
+      "date_display": "11월 16일 (4일 전)",
       "view_count": "조회수 1만회",
       "thumbnail_url": "https://i.ytimg.com/vi/R2VbDbwveX8/hqdefault.jpg",
       "video_url": "https://www.youtube.com/watch?v=R2VbDbwveX8",
@@ -407,8 +722,8 @@
       "videoId": "yZ0W5qc659I",
       "title": "내일 관심테마! 지수반등은 역시 반도체 & 소부장 !! 코스닥 승강제 ?? /반도체,소부장,기판,로봇/삼성전자,SK하이닉스,코리아써키트,심텍,주성엔지니어링,삼성전기,한진칼,티엘비",
       "category": "모닝 브리핑",
-      "published_kst": "2026-11-13 (1일 전)",
-      "date_display": "11월 13일 (1일 전)",
+      "published_kst": "2026-11-16 (4일 전)",
+      "date_display": "11월 16일 (4일 전)",
       "view_count": "1.3만",
       "thumbnail_url": "https://i.ytimg.com/vi/yZ0W5qc659I/hqdefault.jpg",
       "video_url": "https://www.youtube.com/watch?v=yZ0W5qc659I",
@@ -470,8 +785,8 @@
       "videoId": "HrEjwgyY7ik",
       "title": "당일 관심테마! 젠슨황 불륜 시인 및 트럼프 밀착 기업들 조사 채비등 또 악재 /데이터센터,경영권분쟁,태양광/삼성전자,SK하이닉스,NAVER,한진칼,엘리스,혜인,지엔씨,한화솔루션",
       "category": "모닝 브리핑",
-      "published_kst": "2026-11-13 (4일 전)",
-      "date_display": "11월 13일 (4일 전)",
+      "published_kst": "2026-11-16 (7일 전)",
+      "date_display": "11월 16일 (7일 전)",
       "view_count": "2.2만",
       "thumbnail_url": "https://i.ytimg.com/vi/HrEjwgyY7ik/hqdefault.jpg",
       "video_url": "https://www.youtube.com/watch?v=HrEjwgyY7ik",
@@ -523,321 +838,6 @@
           "code": "000000",
           "theme": "주도 섹터",
           "strategy": "시인 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        }
-      ]
-    },
-    {
-      "id": "yt_huPWcS7Wkdo",
-      "videoId": "huPWcS7Wkdo",
-      "title": "하락장의 기본! 장착해야 하는 개념 아홉 가지 / 비중을 늘리는 구간 / 반등은 언제 나올까 / 어떤 종목들 위주로 접근해야하는가",
-      "category": "긴급 이슈 & 심층",
-      "published_kst": "2026-11-13 (4일 전)",
-      "date_display": "11월 13일 (4일 전)",
-      "view_count": "조회수 1만회",
-      "thumbnail_url": "https://i.ytimg.com/vi/huPWcS7Wkdo/hqdefault.jpg",
-      "video_url": "https://www.youtube.com/watch?v=huPWcS7Wkdo",
-      "executive_summary": "하락장의 기본! 장착해야 하는 개념 아홉 가지 / 비중을 늘리는 구간 / 반등은 언제 나올까 / 어떤 종목들 위주로 접근해야하는가 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.",
-      "themes": [
-        {
-          "name": "주도 테마 수급",
-          "strength": "강도: 최강",
-          "desc": "외인·기관 프로그램 순매수 유입 및 거래대금 집중"
-        },
-        {
-          "name": "헤지 & 보안/방어",
-          "strength": "강도: 강",
-          "desc": "지수 변동성 확대에 따른 단기 헤지성 수급 쏠림"
-        },
-        {
-          "name": "개별 재료주",
-          "strength": "강도: 선별적",
-          "desc": "단독 공시 및 호재성 뉴스 모멘텀 보유주"
-        }
-      ],
-      "focus_stocks": [
-        {
-          "name": "하락장의",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "하락장의 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "기본!",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "기본! 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "장착해야",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "장착해야 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "하는",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "하는 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        }
-      ]
-    },
-    {
-      "id": "yt__pACFMPRyrs",
-      "videoId": "_pACFMPRyrs",
-      "title": "개인적으로 관심 & 매매하고있는 업종 및 관심종목 정리",
-      "category": "긴급 이슈 & 심층",
-      "published_kst": "2026-11-13 (4일 전)",
-      "date_display": "11월 13일 (4일 전)",
-      "view_count": "조회수 1만회",
-      "thumbnail_url": "https://i.ytimg.com/vi/_pACFMPRyrs/hqdefault.jpg",
-      "video_url": "https://www.youtube.com/watch?v=_pACFMPRyrs",
-      "executive_summary": "개인적으로 관심 & 매매하고있는 업종 및 관심종목 정리 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.",
-      "themes": [
-        {
-          "name": "주도 테마 수급",
-          "strength": "강도: 최강",
-          "desc": "외인·기관 프로그램 순매수 유입 및 거래대금 집중"
-        },
-        {
-          "name": "헤지 & 보안/방어",
-          "strength": "강도: 강",
-          "desc": "지수 변동성 확대에 따른 단기 헤지성 수급 쏠림"
-        },
-        {
-          "name": "개별 재료주",
-          "strength": "강도: 선별적",
-          "desc": "단독 공시 및 호재성 뉴스 모멘텀 보유주"
-        }
-      ],
-      "focus_stocks": [
-        {
-          "name": "개인적으로",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "개인적으로 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "관심",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "관심 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "매매하고있는",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "매매하고있는 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "업종",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "업종 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        }
-      ]
-    },
-    {
-      "id": "yt_CmvomvZ759w",
-      "videoId": "CmvomvZ759w",
-      "title": "내일 관심테마! 여전히 쉽지않은 이번주. 젠슨황 악재?? 중동이슈는 지속 /데이터센터,반도체,경영권분쟁,보안/삼성전자,SK하이닉스,NAVER,한진칼,엘리스,혜인,삼성전기,지엔씨",
-      "category": "모닝 브리핑",
-      "published_kst": "2026-11-13 (4일 전)",
-      "date_display": "11월 13일 (4일 전)",
-      "view_count": "2.5만",
-      "thumbnail_url": "https://i.ytimg.com/vi/CmvomvZ759w/hqdefault.jpg",
-      "video_url": "https://www.youtube.com/watch?v=CmvomvZ759w",
-      "executive_summary": "내일 관심테마! 여전히 쉽지않은 이번주. 젠슨황 악재?? 중동이슈는 지속 /데이터센터,반도체,경영권분쟁,보안/삼성전자,SK하이닉스,NAVER,한진칼,엘리스,혜인,삼성전기,지엔씨 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.",
-      "themes": [
-        {
-          "name": "주도 테마 수급",
-          "strength": "강도: 최강",
-          "desc": "외인·기관 프로그램 순매수 유입 및 거래대금 집중"
-        },
-        {
-          "name": "헤지 & 보안/방어",
-          "strength": "강도: 강",
-          "desc": "지수 변동성 확대에 따른 단기 헤지성 수급 쏠림"
-        },
-        {
-          "name": "개별 재료주",
-          "strength": "강도: 선별적",
-          "desc": "단독 공시 및 호재성 뉴스 모멘텀 보유주"
-        }
-      ],
-      "focus_stocks": [
-        {
-          "name": "관심테마!",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "관심테마! 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "여전히",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "여전히 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "쉽지않은",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "쉽지않은 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "이번주.",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "이번주. 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        }
-      ]
-    },
-    {
-      "id": "yt_1SIuBT7F-M4",
-      "videoId": "1SIuBT7F-M4",
-      "title": "앤트로픽 IPO 예상가치 큰 폭의 하락. 증시에 오히려 호재인 이유!",
-      "category": "장마감 복기",
-      "published_kst": "2026-11-13 (5일 전)",
-      "date_display": "11월 13일 (5일 전)",
-      "view_count": "1.8만",
-      "thumbnail_url": "https://i.ytimg.com/vi/1SIuBT7F-M4/hqdefault.jpg",
-      "video_url": "https://www.youtube.com/watch?v=1SIuBT7F-M4",
-      "executive_summary": "앤트로픽 IPO 예상가치 큰 폭의 하락. 증시에 오히려 호재인 이유! 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.",
-      "themes": [
-        {
-          "name": "주도 테마 수급",
-          "strength": "강도: 최강",
-          "desc": "외인·기관 프로그램 순매수 유입 및 거래대금 집중"
-        },
-        {
-          "name": "헤지 & 보안/방어",
-          "strength": "강도: 강",
-          "desc": "지수 변동성 확대에 따른 단기 헤지성 수급 쏠림"
-        },
-        {
-          "name": "개별 재료주",
-          "strength": "강도: 선별적",
-          "desc": "단독 공시 및 호재성 뉴스 모멘텀 보유주"
-        }
-      ],
-      "focus_stocks": [
-        {
-          "name": "앤트로픽",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "앤트로픽 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "IPO",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "IPO 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "예상가치",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "예상가치 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "폭의",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "폭의 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        }
-      ]
-    },
-    {
-      "id": "yt_QHdztE64BTM",
-      "videoId": "QHdztE64BTM",
-      "title": "알아두면 써먹는 신고가 패턴매매, 오늘 시가 갭하락 매매 관점 / 시장이 겁먹는 좋은 포인트의 중첩. 선반영.단기낙폭과대.반등 한진칼삼성전기,심텍,로보티즈,코리아써키트 개인매매복기",
-      "category": "장마감 복기",
-      "published_kst": "2026-11-13 (6일 전)",
-      "date_display": "11월 13일 (6일 전)",
-      "view_count": "조회수 1만회",
-      "thumbnail_url": "https://i.ytimg.com/vi/QHdztE64BTM/hqdefault.jpg",
-      "video_url": "https://www.youtube.com/watch?v=QHdztE64BTM",
-      "executive_summary": "알아두면 써먹는 신고가 패턴매매, 오늘 시가 갭하락 매매 관점 / 시장이 겁먹는 좋은 포인트의 중첩. 선반영.단기낙폭과대.반등 한진칼삼성전기,심텍,로보티즈,코리아써키트 개인매매복기 관련하여 변동성 장세 속에서 섣부른 추격 매수를 자제하고, 확실한 수급 쏠림과 핵심 재료를 보유한 대장주 중심의 분할 대응 권고.",
-      "themes": [
-        {
-          "name": "주도 테마 수급",
-          "strength": "강도: 최강",
-          "desc": "외인·기관 프로그램 순매수 유입 및 거래대금 집중"
-        },
-        {
-          "name": "헤지 & 보안/방어",
-          "strength": "강도: 강",
-          "desc": "지수 변동성 확대에 따른 단기 헤지성 수급 쏠림"
-        },
-        {
-          "name": "개별 재료주",
-          "strength": "강도: 선별적",
-          "desc": "단독 공시 및 호재성 뉴스 모멘텀 보유주"
-        }
-      ],
-      "focus_stocks": [
-        {
-          "name": "알아두면",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "알아두면 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "써먹는",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "써먹는 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "신고가",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "신고가 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
-          "target": "전고점 트라이",
-          "stop": "-3% 엄격 손절"
-        },
-        {
-          "name": "패턴매매",
-          "code": "000000",
-          "theme": "주도 섹터",
-          "strategy": "패턴매매 핵심 수급 쏠림 및 눌림목 지지 여부 추적 대응",
           "target": "전고점 트라이",
           "stop": "-3% 엄격 손절"
         }

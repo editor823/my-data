@@ -1,16 +1,16 @@
 {
   "success": true,
-  "updated_at": "2026-11-13T05:51:21.515Z",
+  "updated_at": "2026-11-16T05:27:17.097Z",
   "market_overview": {
     "kospi": {
       "value": "2,680.50",
-      "change_rate": "-0.95%",
+      "change_rate": "-3.52%",
       "is_up": false
     },
     "kosdaq": {
       "value": "875.20",
-      "change_rate": "+0.8%",
-      "is_up": true
+      "change_rate": "-4.11%",
+      "is_up": false
     },
     "investor_trend": {
       "kospi": {
@@ -25,250 +25,250 @@
   },
   "top_themes": [
     {
-      "theme_id": "radar_556",
-      "theme_name": "뉴로모픽 반도체",
-      "full_theme_name": "뉴로모픽 반도체",
-      "change_rate": "+6.36%",
-      "composite_score": 99,
-      "total_stocks_count": 7,
-      "leader_stock": "오픈엣지테크놀로지",
-      "leader_ratio": 29.87,
-      "sub_leader_stock": "에이직랜드",
+      "theme_id": "radar_488",
+      "theme_name": "웹툰",
+      "full_theme_name": "웹툰",
+      "change_rate": "+0.57%",
+      "composite_score": 63,
+      "total_stocks_count": 14,
+      "leader_stock": "엔키AX",
+      "leader_ratio": 21.05,
+      "sub_leader_stock": "NHN",
       "other_stocks": [
-        "자람테크놀로지",
-        "네패스아크",
-        "네패스"
+        "카카오",
+        "키다리스튜디오",
+        "이스트에이드"
       ],
       "sub_stocks_top3": [
         {
-          "name": "에이직랜드",
-          "rate": "+9.1%"
+          "name": "NHN",
+          "rate": "+3.5%"
         },
         {
-          "name": "자람테크놀로지",
-          "rate": "+5.3%"
+          "name": "카카오",
+          "rate": "+2.4%"
         },
         {
-          "name": "네패스아크",
-          "rate": "+2.0%"
-        }
-      ],
-      "past_trigger_reason": "[속보 기사] 에이직랜드, 국내 유일 TSMC 파트너 경쟁력 재확인…'AI 수혜' ... : 이날 가온칩스, 오픈엣지테크놀로지 등 시스템반도체 및 뉴로모픽 반도체 관련주들이 일제히 랠리를 펼치는 가운데 에이직랜드 역시 뚜렷한 매수세가 유입되며 거래대금 11.1억 원을 기록하고 있다. 주가 상승의 기...",
-      "future_momentum": "뉴로모픽 반도체 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 20775,
-      "is_real_leading": true,
-      "pullback_rate": "-25.0%",
-      "ma5_recovered": true,
-      "trigger_summary": "[특징주] 에이직랜드, 국내 유일 TSMC 파트너 경쟁력 재확인…'AI 수혜' ...",
-      "today_rising_fact": "[속보 기사] 에이직랜드, 국내 유일 TSMC 파트너 경쟁력 재확인…'AI 수혜' ... : 이날 가온칩스, 오픈엣지테크놀로지 등 시스템반도체 및 뉴로모픽 반도체 관련주들이 일제히 랠리를 펼치는 가운데 에이직랜드 역시 뚜렷한 매수세가 유입되며 거래대금 11.1억 원을 기록하고 있다. 주가 상승의 기...",
-      "top_article": {
-        "title": "[특징주] 에이직랜드, 국내 유일 TSMC 파트너 경쟁력 재확인…'AI 수혜' ...",
-        "press": "증시 속보",
-        "url": "https://www.widedaily.com/news/articleView.html?idxno=303690",
-        "published_at": "2026-11-13T05:51:20.469Z"
-      },
-      "timeline": []
-    },
-    {
-      "theme_id": "radar_547",
-      "theme_name": "CXL",
-      "full_theme_name": "CXL(컴퓨트익스프레스링크)",
-      "change_rate": "+5.80%",
-      "composite_score": 99,
-      "total_stocks_count": 13,
-      "leader_stock": "오픈엣지테크놀로지",
-      "leader_ratio": 29.87,
-      "sub_leader_stock": "퀄리타스반도체",
-      "other_stocks": [
-        "오킨스전자",
-        "엑시콘",
-        "티엘비"
-      ],
-      "sub_stocks_top3": [
-        {
-          "name": "퀄리타스반도체",
-          "rate": "+15.8%"
-        },
-        {
-          "name": "오킨스전자",
-          "rate": "+13.7%"
-        },
-        {
-          "name": "엑시콘",
-          "rate": "+6.7%"
-        }
-      ],
-      "past_trigger_reason": "[속보 기사] 에이직랜드, 국내 유일 TSMC 파트너 경쟁력 재확인…'AI 수혜' ... : 이날 가온칩스, 오픈엣지테크놀로지 등 시스템반도체 및 뉴로모픽 반도체 관련주들이 일제히 랠리를 펼치는 가운데 에이직랜드 역시 뚜렷한 매수세가 유입되며 거래대금 11.1억 원을 기록하고 있다. 주가 상승의 기...",
-      "future_momentum": "CXL 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 2787,
-      "is_real_leading": true,
-      "pullback_rate": "-25.0%",
-      "ma5_recovered": true,
-      "trigger_summary": "[특징주] 에이직랜드, 국내 유일 TSMC 파트너 경쟁력 재확인…'AI 수혜' ...",
-      "today_rising_fact": "[속보 기사] 에이직랜드, 국내 유일 TSMC 파트너 경쟁력 재확인…'AI 수혜' ... : 이날 가온칩스, 오픈엣지테크놀로지 등 시스템반도체 및 뉴로모픽 반도체 관련주들이 일제히 랠리를 펼치는 가운데 에이직랜드 역시 뚜렷한 매수세가 유입되며 거래대금 11.1억 원을 기록하고 있다. 주가 상승의 기...",
-      "top_article": {
-        "title": "[특징주] 에이직랜드, 국내 유일 TSMC 파트너 경쟁력 재확인…'AI 수혜' ...",
-        "press": "증시 속보",
-        "url": "https://www.widedaily.com/news/articleView.html?idxno=303690",
-        "published_at": "2026-11-13T05:51:20.532Z"
-      },
-      "timeline": []
-    },
-    {
-      "theme_id": "radar_178",
-      "theme_name": "전선",
-      "full_theme_name": "전선",
-      "change_rate": "+4.17%",
-      "composite_score": 83,
-      "total_stocks_count": 8,
-      "leader_stock": "KBI메탈",
-      "leader_ratio": 20,
-      "sub_leader_stock": "일진전기",
-      "other_stocks": [
-        "LS에코에너지",
-        "대원전선",
-        "가온전선"
-      ],
-      "sub_stocks_top3": [
-        {
-          "name": "일진전기",
-          "rate": "+5.2%"
-        },
-        {
-          "name": "LS에코에너지",
-          "rate": "+3.8%"
-        },
-        {
-          "name": "대원전선",
+          "name": "키다리스튜디오",
           "rate": "+1.6%"
         }
       ],
-      "past_trigger_reason": "[속보 기사] KBI메탈, 3분기 누적 영업익 390% 폭증 '역대 최대' 실적에 14%대... : KBI메탈이 구리 가격 상승과 전력망 사업 밸류체인 구축 효과로 3분기 만에 지난해 연간 실적을 뛰어넘는 역대 최대 실적을 달성했다는 소식에 장중 14%대 급등세를 나타내고 있다. 13일 오전 11시 28분...",
-      "future_momentum": "전선 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 1790,
-      "is_real_leading": true,
-      "pullback_rate": "-25.0%",
-      "ma5_recovered": true,
-      "trigger_summary": "[특징주] KBI메탈, 3분기 누적 영업익 390% 폭증 '역대 최대' 실적에 14%대...",
-      "today_rising_fact": "[속보 기사] KBI메탈, 3분기 누적 영업익 390% 폭증 '역대 최대' 실적에 14%대... : KBI메탈이 구리 가격 상승과 전력망 사업 밸류체인 구축 효과로 3분기 만에 지난해 연간 실적을 뛰어넘는 역대 최대 실적을 달성했다는 소식에 장중 14%대 급등세를 나타내고 있다. 13일 오전 11시 28분...",
-      "top_article": {
-        "title": "[특징주] KBI메탈, 3분기 누적 영업익 390% 폭증 '역대 최대' 실적에 14%대...",
-        "press": "증시 속보",
-        "url": "https://www.widedaily.com/news/articleView.html?idxno=303695",
-        "published_at": "2026-11-13T05:51:20.740Z"
-      },
-      "timeline": []
-    },
-    {
-      "theme_id": "radar_184",
-      "theme_name": "수자원",
-      "full_theme_name": "수자원(양적/질적 개선)",
-      "change_rate": "+1.71%",
-      "composite_score": 79,
-      "total_stocks_count": 27,
-      "leader_stock": "금호건설",
-      "leader_ratio": 29.9,
-      "sub_leader_stock": "비츠로시스",
-      "other_stocks": [
-        "삼성E&A",
-        "GS건설",
-        "뉴보텍"
-      ],
-      "sub_stocks_top3": [
-        {
-          "name": "비츠로시스",
-          "rate": "+8.6%"
-        },
-        {
-          "name": "삼성E&A",
-          "rate": "+4.4%"
-        },
-        {
-          "name": "GS건설",
-          "rate": "+4.3%"
-        }
-      ],
-      "past_trigger_reason": "[속보 기사] 금호건설, 7000억원 수주에 호실적.. '상한가' : 금호건설 13일 오전 상한가를 기록하고 있다. 약 7000억 원 규모의 신규 계약을 확보한 데 이어 올해 3분기와 4분기 영업이익이 증가한 것으로 알려지면서 매수세가 집중되고 있다. 한국거래소에 따르면, 금...",
-      "future_momentum": "수자원 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 3443,
+      "past_trigger_reason": "[속보 기사] 세코닉스·나무가 주가 급등…AI 스마트안경 관련주 강세 : 11위 엔키AX는 21.35% 오른 1천620원, 12위 뉴프렉스는 21.28% 상승한 3천590원을 기록했다. 뉴프렉스의 주가 상승 폭은 630원이다. 오전장 거래대금은 159억원으로 집계됐다. 13위 D...",
+      "future_momentum": "웹툰 밸류체인 실질 공급 계약 및 후속 수주 기대감",
+      "trading_value_eok": 1670,
       "is_real_leading": true,
       "pullback_rate": "-25.0%",
       "ma5_recovered": false,
-      "trigger_summary": "[특징주] 금호건설, 7000억원 수주에 호실적.. '상한가'",
-      "today_rising_fact": "[속보 기사] 금호건설, 7000억원 수주에 호실적.. '상한가' : 금호건설 13일 오전 상한가를 기록하고 있다. 약 7000억 원 규모의 신규 계약을 확보한 데 이어 올해 3분기와 4분기 영업이익이 증가한 것으로 알려지면서 매수세가 집중되고 있다. 한국거래소에 따르면, 금...",
+      "trigger_summary": "세코닉스·나무가 주가 급등…AI 스마트안경 관련주 강세",
+      "today_rising_fact": "[속보 기사] 세코닉스·나무가 주가 급등…AI 스마트안경 관련주 강세 : 11위 엔키AX는 21.35% 오른 1천620원, 12위 뉴프렉스는 21.28% 상승한 3천590원을 기록했다. 뉴프렉스의 주가 상승 폭은 630원이다. 오전장 거래대금은 159억원으로 집계됐다. 13위 D...",
       "top_article": {
-        "title": "[특징주] 금호건설, 7000억원 수주에 호실적.. '상한가'",
+        "title": "세코닉스·나무가 주가 급등…AI 스마트안경 관련주 강세",
         "press": "증시 속보",
-        "url": "https://www.g-enews.com/view.php?ud=20261113102356421244093b5d4e_1",
-        "published_at": "2026-11-13T05:51:20.921Z"
+        "url": "http://www.kjdaily.com/article.php?aid=1794801375692360276",
+        "published_at": "2026-11-16T05:27:14.557Z"
       },
       "timeline": []
     },
     {
-      "theme_id": "radar_608",
-      "theme_name": "반도체 기판",
-      "full_theme_name": "반도체 기판(FC-BGA/PCB/MLB 등)",
-      "change_rate": "+3.10%",
-      "composite_score": 77,
-      "total_stocks_count": 14,
-      "leader_stock": "다원넥스뷰",
-      "leader_ratio": 13.76,
-      "sub_leader_stock": "인텍플러스",
+      "theme_id": "radar_289",
+      "theme_name": "증강현실",
+      "full_theme_name": "증강현실(AR)",
+      "change_rate": "+1.59%",
+      "composite_score": 57,
+      "total_stocks_count": 20,
+      "leader_stock": "세코닉스",
+      "leader_ratio": 29.83,
+      "sub_leader_stock": "나무가",
       "other_stocks": [
-        "이수페타시스",
-        "티엘비",
-        "기가비스"
+        "사피엔반도체",
+        "포니링크",
+        "라온텍"
       ],
       "sub_stocks_top3": [
         {
-          "name": "인텍플러스",
-          "rate": "+12.9%"
+          "name": "나무가",
+          "rate": "+28.2%"
         },
         {
-          "name": "이수페타시스",
-          "rate": "+5.7%"
+          "name": "사피엔반도체",
+          "rate": "+10.3%"
         },
         {
-          "name": "티엘비",
-          "rate": "+5.6%"
+          "name": "포니링크",
+          "rate": "+5.4%"
         }
       ],
-      "past_trigger_reason": "[속보 기사] 코스닥 반도체 장비株, 장초반 '불기둥' : 같은 업종내 코스닥 업체로 로체시스템즈(14.00%), 다원넥스뷰(14.25%), 와이씨(11.76%), 싸이맥스((10.19%) 등도 이 시각 현재 두 자릿수 강세를 나타내고 있다. 이날 반도체 장비 업체...",
-      "future_momentum": "반도체 기판 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 5198,
+      "past_trigger_reason": "[속보 기사] 사피엔반도체, 차세대 디스플레이 마이크로LED 기술 부각에 11... : 동종목인 세코닉스, 나무가 등과 함께 증강현실(AR) 테마 전반의 강세를 이끄는 모습이다. 이날 주가 상승을 뒷받침하는 핵심 배경은 뚜렷한 실적 턴어라운드다. 사피엔반도체가 지난 12일 공시한 3분기 보고서...",
+      "future_momentum": "증강현실 밸류체인 실질 공급 계약 및 후속 수주 기대감",
+      "trading_value_eok": 927,
       "is_real_leading": true,
       "pullback_rate": "-25.0%",
-      "ma5_recovered": true,
-      "trigger_summary": "코스닥 반도체 장비株, 장초반 '불기둥'",
-      "today_rising_fact": "[속보 기사] 코스닥 반도체 장비株, 장초반 '불기둥' : 같은 업종내 코스닥 업체로 로체시스템즈(14.00%), 다원넥스뷰(14.25%), 와이씨(11.76%), 싸이맥스((10.19%) 등도 이 시각 현재 두 자릿수 강세를 나타내고 있다. 이날 반도체 장비 업체...",
+      "ma5_recovered": false,
+      "trigger_summary": "[특징주] 사피엔반도체, 차세대 디스플레이 마이크로LED 기술 부각에 11...",
+      "today_rising_fact": "[속보 기사] 사피엔반도체, 차세대 디스플레이 마이크로LED 기술 부각에 11... : 동종목인 세코닉스, 나무가 등과 함께 증강현실(AR) 테마 전반의 강세를 이끄는 모습이다. 이날 주가 상승을 뒷받침하는 핵심 배경은 뚜렷한 실적 턴어라운드다. 사피엔반도체가 지난 12일 공시한 3분기 보고서...",
       "top_article": {
-        "title": "코스닥 반도체 장비株, 장초반 '불기둥'",
+        "title": "[특징주] 사피엔반도체, 차세대 디스플레이 마이크로LED 기술 부각에 11...",
         "press": "증시 속보",
-        "url": "https://www.mt.co.kr/stock/2026/11/13/2026111310083877397",
-        "published_at": "2026-11-13T05:51:21.108Z"
+        "url": "https://www.widedaily.com/news/articleView.html?idxno=303807",
+        "published_at": "2026-11-16T05:27:14.951Z"
+      },
+      "timeline": []
+    },
+    {
+      "theme_id": "radar_165",
+      "theme_name": "은행",
+      "full_theme_name": "은행",
+      "change_rate": "+1.05%",
+      "composite_score": 57,
+      "total_stocks_count": 11,
+      "leader_stock": "케이뱅크",
+      "leader_ratio": 2.83,
+      "sub_leader_stock": "JB금융지주",
+      "other_stocks": [
+        "하나금융지주",
+        "카카오뱅크",
+        "KB금융"
+      ],
+      "sub_stocks_top3": [
+        {
+          "name": "JB금융지주",
+          "rate": "+2.2%"
+        },
+        {
+          "name": "하나금융지주",
+          "rate": "+1.4%"
+        },
+        {
+          "name": "카카오뱅크",
+          "rate": "+1.4%"
+        }
+      ],
+      "past_trigger_reason": "[속보 기사] 워시 &quot;물가 너무 높다&quot; 반락 마감···은행 '된서리'·반도... : 케이 헤이그 글로벌 채권·유동성솔루션 최고투자책임자(CIO)는 \"12월 금리 인상도 확정적인 것은 아닐 것\"이라면서 \"연준이 현 단계에서 공격적인... 특징주로는 IBM이 반도체 사업부 앤더론이 미국 정부와...",
+      "future_momentum": "은행 밸류체인 실질 공급 계약 및 후속 수주 기대감",
+      "trading_value_eok": 2564,
+      "is_real_leading": false,
+      "pullback_rate": "-25.0%",
+      "ma5_recovered": false,
+      "trigger_summary": "[뉴욕증시] 워시 &quot;물가 너무 높다&quot; 반락 마감···은행 '된서리'·반도...",
+      "today_rising_fact": "[속보 기사] 워시 &quot;물가 너무 높다&quot; 반락 마감···은행 '된서리'·반도... : 케이 헤이그 글로벌 채권·유동성솔루션 최고투자책임자(CIO)는 \"12월 금리 인상도 확정적인 것은 아닐 것\"이라면서 \"연준이 현 단계에서 공격적인... 특징주로는 IBM이 반도체 사업부 앤더론이 미국 정부와...",
+      "top_article": {
+        "title": "[뉴욕증시] 워시 &quot;물가 너무 높다&quot; 반락 마감···은행 '된서리'·반도...",
+        "press": "증시 속보",
+        "url": "https://www.seoulfn.com/news/articleView.html?idxno=638167",
+        "published_at": "2026-11-16T05:27:15.416Z"
+      },
+      "timeline": []
+    },
+    {
+      "theme_id": "radar_234",
+      "theme_name": "보안주",
+      "full_theme_name": "보안주(물리)",
+      "change_rate": "+3.41%",
+      "composite_score": 53,
+      "total_stocks_count": 21,
+      "leader_stock": "지슨",
+      "leader_ratio": 29.97,
+      "sub_leader_stock": "카티스",
+      "other_stocks": [
+        "시선AI",
+        "DGI",
+        "인콘"
+      ],
+      "sub_stocks_top3": [
+        {
+          "name": "카티스",
+          "rate": "+29.9%"
+        },
+        {
+          "name": "시선AI",
+          "rate": "+26.2%"
+        },
+        {
+          "name": "DGI",
+          "rate": "+22.9%"
+        }
+      ],
+      "past_trigger_reason": "[속보 기사] AI 시험부정 정부 대책 발표에 보안株 들썩…지슨 '상한가' : [사진=뉴스핌DB] 이날 오후 1시43분 기준 코스닥 시장에서 지슨은 전 거래일 대비 29.97% 오른 4640원에 거래되며 상한가를 기록하고 있다. 카티스도 29.33% 급등한 2425원에 거래 중이다. ...",
+      "future_momentum": "보안주 밸류체인 실질 공급 계약 및 후속 수주 기대감",
+      "trading_value_eok": 286,
+      "is_real_leading": false,
+      "pullback_rate": "-25.0%",
+      "ma5_recovered": true,
+      "trigger_summary": "[특징주] AI 시험부정 정부 대책 발표에 보안株 들썩…지슨 '상한가'",
+      "today_rising_fact": "[속보 기사] AI 시험부정 정부 대책 발표에 보안株 들썩…지슨 '상한가' : [사진=뉴스핌DB] 이날 오후 1시43분 기준 코스닥 시장에서 지슨은 전 거래일 대비 29.97% 오른 4640원에 거래되며 상한가를 기록하고 있다. 카티스도 29.33% 급등한 2425원에 거래 중이다. ...",
+      "top_article": {
+        "title": "[특징주] AI 시험부정 정부 대책 발표에 보안株 들썩…지슨 '상한가'",
+        "press": "증시 속보",
+        "url": "https://www.newspim.com/news/view/20261116000809",
+        "published_at": "2026-11-16T05:27:15.816Z"
+      },
+      "timeline": []
+    },
+    {
+      "theme_id": "radar_41",
+      "theme_name": "카메라모듈/부품",
+      "full_theme_name": "카메라모듈/부품",
+      "change_rate": "+0.78%",
+      "composite_score": 51,
+      "total_stocks_count": 27,
+      "leader_stock": "LK삼양",
+      "leader_ratio": 29.9,
+      "sub_leader_stock": "세코닉스",
+      "other_stocks": [
+        "나무가",
+        "퓨런티어",
+        "캠시스"
+      ],
+      "sub_stocks_top3": [
+        {
+          "name": "세코닉스",
+          "rate": "+29.8%"
+        },
+        {
+          "name": "나무가",
+          "rate": "+28.2%"
+        },
+        {
+          "name": "퓨런티어",
+          "rate": "+9.1%"
+        }
+      ],
+      "past_trigger_reason": "[속보 기사] 세코닉스, 'AI 첨단 부정행위' 파장에 광학·카메라 기술 부각... : 3D 센싱 카메라 모듈을 개발하는 나무가가 22.62% 급등세를 보이고 있으며, 카메라 렌즈 관련주인 LK삼양(+24.83%)과 AR 기기용 디스플레이 반도체를 개발하는 사피엔반도체(+7.40%) 등도 큰 ...",
+      "future_momentum": "카메라모듈/부품 밸류체인 실질 공급 계약 및 후속 수주 기대감",
+      "trading_value_eok": 852,
+      "is_real_leading": true,
+      "pullback_rate": "-25.0%",
+      "ma5_recovered": false,
+      "trigger_summary": "[특징주] 세코닉스, 'AI 첨단 부정행위' 파장에 광학·카메라 기술 부각...",
+      "today_rising_fact": "[속보 기사] 세코닉스, 'AI 첨단 부정행위' 파장에 광학·카메라 기술 부각... : 3D 센싱 카메라 모듈을 개발하는 나무가가 22.62% 급등세를 보이고 있으며, 카메라 렌즈 관련주인 LK삼양(+24.83%)과 AR 기기용 디스플레이 반도체를 개발하는 사피엔반도체(+7.40%) 등도 큰 ...",
+      "top_article": {
+        "title": "[특징주] 세코닉스, 'AI 첨단 부정행위' 파장에 광학·카메라 기술 부각...",
+        "press": "증시 속보",
+        "url": "https://www.widedaily.com/news/articleView.html?idxno=303758",
+        "published_at": "2026-11-16T05:27:16.197Z"
       },
       "timeline": []
     }
   ],
   "pullback_themes": [
     {
-      "theme_id": "pb_1794549081311_7n15",
+      "theme_id": "pb_1794806836657_qc5f",
       "theme_name": "조선 및 조선기자재",
       "leader_stock": "한화오션",
       "pullback_rate": "-26.4%",
       "ma5_recovered": true,
       "period_range": "최근 1.5개월 (기준봉 상단 지지선)",
-      "past_trigger_reason": "[속보 기사] 외국인 '한온시스템·두산에너빌리티', 기관 '삼성전자·대한... : 이어 한화솔루션, 동원파츠, 팬오션(028670), SK이노베이션(096770) 순이었다. 오전 11시 11분에는 팬오션이 순매도 1위로 이동했고, 한화솔루션은 2위를 유지했다. 롯데관광개발은 3위, HMM...",
+      "past_trigger_reason": "[속보 기사] 외국인, 삼성전자 매매 방향 전환...기관, 삼성전자·와이씨·... : 11시 4분 삼성전자우(005935)와 삼성E&amp;A(028050)가 이름을 올렸으나, 11시 7분에는 한화오션(042660)과 BNK금융지주(138930)가 해당 순위를 차지했다. 기관 순매도에서는 영...",
       "future_momentum": "글로벌 신조선가 지수 연중 최고치 경신 및 LNG 운반선·친환경 컨테이너선 후속 대량 수주 기대감",
       "top_article": {
-        "title": "[특징주] 외국인 '한온시스템·두산에너빌리티', 기관 '삼성전자·대한...",
+        "title": "[특징주] 외국인, 삼성전자 매매 방향 전환...기관, 삼성전자·와이씨·...",
         "press": "증시 속보",
-        "url": "https://www.newstnt.com/news/articleView.html?idxno=727642",
-        "published_at": "2026-11-13T05:51:21.311Z"
+        "url": "https://www.newstnt.com/news/articleView.html?idxno=728560",
+        "published_at": "2026-11-16T05:27:16.657Z"
       }
     },
     {
-      "theme_id": "pb_1794549081515_3663",
+      "theme_id": "pb_1794806837097_4tet",
       "theme_name": "원자력발전 및 SMR",
       "leader_stock": "성광벤드",
       "pullback_rate": "-34.8%",
@@ -280,7 +280,7 @@
         "title": "'어닝쇼크' 성광벤드, 신저가 경신...목표가 4.3만원→4만원",
         "press": "증시 속보",
         "url": "https://www.mt.co.kr/stock/2026/11/09/2026110909275097483",
-        "published_at": "2026-11-13T05:51:21.515Z"
+        "published_at": "2026-11-16T05:27:17.097Z"
       }
     }
   ],
