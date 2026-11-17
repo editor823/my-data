@@ -6,12 +6,12 @@
     "badge": "인도 사상최대 IPO",
     "badgeColor": "#38bdf8",
     "oneLine": "인도 법인 사상 최대 4.5조원 IPO 자금 유입 및 하이브리드 중심 분기 최대 영업이익 질주.",
-    "currentPrice": "258,500원",
-    "changeRate": "-2.64%",
+    "currentPrice": "257,000원",
+    "changeRate": "-3.20%",
     "rateType": "down",
-    "marketCap": "52조 5,961억원",
+    "marketCap": "52조 2,909억원",
     "foreignRate": "23.96%",
-    "perPbr": "PER 8.42배 · PBR 0.55배 · ROE 18.5%",
+    "perPbr": "PER 8.37배 · PBR 0.55배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -65,11 +65,11 @@
     ],
     "articles": [
       {
-        "title": "벤츠·포르쉐 본고장 독일 게임사들, 韓 시장 두드리는 이유 [현장+]",
-        "media": "블로터",
-        "time": "11월 17일",
+        "title": "테슬라 “獨 공장 증설… 사이버캡 100만대 생산”",
+        "media": "조선일보",
+        "time": "11월 18일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/293/0000093384"
+        "link": "https://n.news.naver.com/mnews/article/023/0004010177"
       }
     ],
     "events": [
@@ -94,12 +94,12 @@
     "badge": "양극재 풀체인 1위",
     "badgeColor": "#10b981",
     "oneLine": "폐배터리 리사이클-전구체-리튬-양극재를 아우르는 클로즈드 루프 에코시스템 독점력.",
-    "currentPrice": "68,400원",
-    "changeRate": "-2.01%",
+    "currentPrice": "67,400원",
+    "changeRate": "-3.44%",
     "rateType": "down",
-    "marketCap": "9조 2,871억원",
+    "marketCap": "9조 1,513억원",
     "foreignRate": "17.68%",
-    "perPbr": "PER 66.02배 · PBR 4.16배 · ROE 18.5%",
+    "perPbr": "PER 65.06배 · PBR 4.09배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -153,11 +153,11 @@
     ],
     "articles": [
       {
-        "title": "5000선 공방 벌이는 코스피…외인 1조원 '팔자'",
-        "media": "이데일리",
+        "title": "&quot;천장 뚫던 코스피 어디로&quot; 5000선마저 붕괴… 9개월여 만에 최저 수준",
+        "media": "대전일보",
         "time": "11월 17일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/018/0006411104"
+        "link": "https://n.news.naver.com/mnews/article/656/0000192698"
       }
     ],
     "events": [
@@ -182,12 +182,12 @@
     "badge": "K2 전차 폴란드 2차",
     "badgeColor": "#f59e0b",
     "oneLine": "폴란드 K2 흑표 전차 2차 10조원 본계약 체결 가시화 및 루마니아 차기 전차 도입 유력.",
-    "currentPrice": "66,300원",
-    "changeRate": "-5.29%",
+    "currentPrice": "66,100원",
+    "changeRate": "-5.57%",
     "rateType": "down",
-    "marketCap": "7조 2,361억원",
+    "marketCap": "7조 2,143억원",
     "foreignRate": "39.14%",
-    "perPbr": "PER 8.96배 · PBR 2.12배 · ROE 18.5%",
+    "perPbr": "PER 8.93배 · PBR 2.12배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -208,6 +208,11 @@
       "point": "고부가가치 주력 제품군 판매 확대 및 글로벌 수주 파이프라인 가동으로 구조적 이익 레벨업."
     },
     "disclosures": [
+      {
+        "date": "2026-11-17",
+        "title": "현대로템(주) (정정)단일판매ㆍ공급계약체결",
+        "tag": "주요계약"
+      },
       {
         "date": "2026-10-21",
         "title": "현대로템(주) 단일판매ㆍ공급계약체결",
@@ -232,20 +237,15 @@
         "date": "2026-10-19",
         "title": "현대로템(주) 자기주식 취득 결정",
         "tag": "정기공시"
-      },
-      {
-        "date": "2026-10-19",
-        "title": "현대로템(주) 연결재무제표기준영업(잠정)실적(공정공시)",
-        "tag": "실적공시"
       }
     ],
     "articles": [
       {
-        "title": "차 안팔리는데…현대차 노조, 법 시행도 전에 &quot;정년 65세&quot; 주장",
-        "media": "머니투데이",
+        "title": "현대로템, 서산에 항공우주시험장 제2시험동 준공",
+        "media": "KBS",
         "time": "11월 17일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/008/0005442268"
+        "link": "https://n.news.naver.com/mnews/article/056/0012295887"
       }
     ],
     "events": [
@@ -270,12 +270,12 @@
     "badge": "FLNG 세계 1위",
     "badgeColor": "#38bdf8",
     "oneLine": "글로벌 FLNG(부유식 LNG 설비) 점유율 80% 독점 및 카타르 LNG선 고선가 랠리 수혜.",
-    "currentPrice": "16,020원",
-    "changeRate": "-4.07%",
+    "currentPrice": "15,840원",
+    "changeRate": "-5.15%",
     "rateType": "down",
-    "marketCap": "14조 976억원",
+    "marketCap": "13조 9,392억원",
     "foreignRate": "28.73%",
-    "perPbr": "PER 24.95배 · PBR 2.87배 · ROE 18.5%",
+    "perPbr": "PER 24.67배 · PBR 2.84배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -329,11 +329,11 @@
     ],
     "articles": [
       {
-        "title": "‘삼전닉스’ 이틀째 던진 ‘상위 1%’…마이크로컨텍솔은 순매수 1위...",
-        "media": "서울경제",
+        "title": "다 던진 줄 알았는데… 외국인 '줍줍'도 부지런히",
+        "media": "파이낸셜뉴스",
         "time": "11월 17일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/011/0004683059"
+        "link": "https://n.news.naver.com/mnews/article/014/0005605691"
       }
     ],
     "events": [
@@ -358,12 +358,12 @@
     "badge": "글로벌 D램 1위",
     "badgeColor": "#38bdf8",
     "oneLine": "엔비디아 HBM3E 12단 퀄 테스트 통과 및 CXL·유리기판 등 차세대 AI 반도체 전방위 공세.",
-    "currentPrice": "191,400원",
-    "changeRate": "-2.74%",
+    "currentPrice": "189,800원",
+    "changeRate": "-3.56%",
     "rateType": "down",
-    "marketCap": "1,118조 9,777억원",
+    "marketCap": "1,109조 6,237억원",
     "foreignRate": "46.00%",
-    "perPbr": "PER 8.59배 · PBR 2.22배 · ROE 18.5%",
+    "perPbr": "PER 8.51배 · PBR 2.21배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -417,11 +417,11 @@
     ],
     "articles": [
       {
-        "title": "부인했던 순환금융이 젠슨 황 복귀 주장 근거됐다",
-        "media": "조선일보",
-        "time": "11월 17일",
+        "title": "9달 만에 5천선 붕괴…이젠 AI가 악재됐다",
+        "media": "SBS",
+        "time": "11월 18일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/023/0004010094"
+        "link": "https://n.news.naver.com/mnews/article/055/0001403766"
       }
     ],
     "events": [
@@ -452,12 +452,12 @@
     "badge": "코스닥 시총 1위",
     "badgeColor": "#f472b6",
     "oneLine": "머크(MSD) 면역항암제 키트루다 SC 독점 계약. 연간 조 단위 로열티 수취 임박.",
-    "currentPrice": "174,100원",
-    "changeRate": "+1.40%",
+    "currentPrice": "172,800원",
+    "changeRate": "+0.64%",
     "rateType": "up",
-    "marketCap": "12조 1,270억원",
+    "marketCap": "12조 364억원",
     "foreignRate": "16.95%",
-    "perPbr": "PER 63.68배 · PBR 22.77배 · ROE 18.5%",
+    "perPbr": "PER 63.20배 · PBR 22.60배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -511,11 +511,11 @@
     ],
     "articles": [
       {
-        "title": "5000선 공방 벌이는 코스피…외인 1조원 '팔자'",
-        "media": "이데일리",
+        "title": "비만약에 뜨거운 관심 … 런던서 K바이오 세일즈",
+        "media": "매일경제",
         "time": "11월 17일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/018/0006411104"
+        "link": "https://n.news.naver.com/mnews/article/009/0005765055"
       }
     ],
     "events": [
@@ -540,12 +540,12 @@
     "badge": "HBM4 세계 1위",
     "badgeColor": "#38bdf8",
     "oneLine": "엔비디아 HBM 점유율 1위 독점 공급자. 16단 HBM4 및 유리기판 양산 주도.",
-    "currentPrice": "1,105,000원",
-    "changeRate": "-1.34%",
+    "currentPrice": "1,100,000원",
+    "changeRate": "-1.79%",
     "rateType": "down",
-    "marketCap": "781조 130억원",
+    "marketCap": "777조 4,790억원",
     "foreignRate": "49.45%",
-    "perPbr": "PER 4.93배 · PBR 2.99배 · ROE 18.5%",
+    "perPbr": "PER 4.90배 · PBR 2.98배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -599,11 +599,11 @@
     ],
     "articles": [
       {
-        "title": "부인했던 순환금융이 젠슨 황 복귀 주장 근거됐다",
-        "media": "조선일보",
-        "time": "11월 17일",
+        "title": "9달 만에 5천선 붕괴…이젠 AI가 악재됐다",
+        "media": "SBS",
+        "time": "11월 18일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/023/0004010094"
+        "link": "https://n.news.naver.com/mnews/article/055/0001403766"
       }
     ],
     "events": [
@@ -634,12 +634,12 @@
     "badge": "경구용 인슐린 독점",
     "badgeColor": "#f472b6",
     "oneLine": "아일리아 바이오시밀러 및 경구용 GLP-1 비만/당뇨 치료제 글로벌 독점 공급.",
-    "currentPrice": "162,700원",
-    "changeRate": "-1.93%",
+    "currentPrice": "160,300원",
+    "changeRate": "-3.38%",
     "rateType": "down",
-    "marketCap": "3조 8,165억원",
+    "marketCap": "3조 7,602억원",
     "foreignRate": "2.39%",
-    "perPbr": "PER 214.64배 · PBR 12.59배 · ROE 18.5%",
+    "perPbr": "PER 211.48배 · PBR 12.41배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -693,11 +693,11 @@
     ],
     "articles": [
       {
-        "title": "5000선 공방 벌이는 코스피…외인 1조원 '팔자'",
-        "media": "이데일리",
+        "title": "&quot;천장 뚫던 코스피 어디로&quot; 5000선마저 붕괴… 9개월여 만에 최저 수준",
+        "media": "대전일보",
         "time": "11월 17일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/018/0006411104"
+        "link": "https://n.news.naver.com/mnews/article/656/0000192698"
       }
     ],
     "events": [
@@ -722,12 +722,12 @@
     "badge": "체코 원전 주기기",
     "badgeColor": "#10b981",
     "oneLine": "체코 24조원 원전 주기기 독점 공급 및 미국 뉴스케일파워 SMR 파운드리 수주 본격화.",
-    "currentPrice": "42,850원",
-    "changeRate": "-4.57%",
+    "currentPrice": "42,150원",
+    "changeRate": "-6.12%",
     "rateType": "down",
-    "marketCap": "27조 4,480억원",
+    "marketCap": "26조 9,997억원",
     "foreignRate": "22.11%",
-    "perPbr": "PER 151.41배 · PBR 3.36배 · ROE 18.5%",
+    "perPbr": "PER 148.94배 · PBR 3.30배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -781,11 +781,11 @@
     ],
     "articles": [
       {
-        "title": "연말 영·호남서 1만8992가구 분양 예정…전년 대비 물량 급증",
-        "media": "매일경제",
+        "title": "체코 원전 규제기관, 한국의 두코바니 품질관리 현장 첫 점검…“계약...",
+        "media": "부산일보",
         "time": "11월 17일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/009/0005764857"
+        "link": "https://n.news.naver.com/mnews/article/082/0001407677"
       }
     ],
     "events": [
@@ -810,12 +810,12 @@
     "badge": "삼성 피지컬 AI",
     "badgeColor": "#f59e0b",
     "oneLine": "삼성전자 피지컬 AI 휴머노이드 투입 가시화 및 양팔 로봇 로봇자동화 라인 공급.",
-    "currentPrice": "337,000원",
-    "changeRate": "-6.00%",
+    "currentPrice": "340,500원",
+    "changeRate": "-5.02%",
     "rateType": "down",
-    "marketCap": "6조 5,378억원",
+    "marketCap": "6조 6,057억원",
     "foreignRate": "5.72%",
-    "perPbr": "PER 3,829.55배 · PBR 49.20배 · ROE 18.5%",
+    "perPbr": "PER 3,869.32배 · PBR 49.72배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -869,11 +869,11 @@
     ],
     "articles": [
       {
-        "title": "5000선 공방 벌이는 코스피…외인 1조원 '팔자'",
-        "media": "이데일리",
+        "title": "&quot;천장 뚫던 코스피 어디로&quot; 5000선마저 붕괴… 9개월여 만에 최저 수준",
+        "media": "대전일보",
         "time": "11월 17일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/018/0006411104"
+        "link": "https://n.news.naver.com/mnews/article/656/0000192698"
       }
     ],
     "events": [
@@ -898,12 +898,12 @@
     "badge": "K9·천무 동유럽 수출",
     "badgeColor": "#f59e0b",
     "oneLine": "K9 자주포 및 다연장 로켓 천무 폴란드·루마니아 2차 실행계약 및 인적분할 가치 재평가.",
-    "currentPrice": "615,000원",
-    "changeRate": "-5.24%",
+    "currentPrice": "618,000원",
+    "changeRate": "-4.78%",
     "rateType": "down",
-    "marketCap": "31조 7,115억원",
+    "marketCap": "31조 8,662억원",
     "foreignRate": "44.95%",
-    "perPbr": "PER 15.34배 · PBR 2.64배 · ROE 18.5%",
+    "perPbr": "PER 15.41배 · PBR 2.65배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -957,11 +957,11 @@
     ],
     "articles": [
       {
-        "title": "직주근접 브랜드 대단지 ‘창원 센트럴 아이파크’ 보류지 등 32세대 ...",
-        "media": "디지털타임스",
+        "title": "회사 기밀도 빼갈라…AI 안경에 산업현장도 전전긍긍",
+        "media": "국제신문",
         "time": "11월 17일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/029/0003059551"
+        "link": "https://n.news.naver.com/mnews/article/658/0000161551"
       }
     ],
     "events": [
