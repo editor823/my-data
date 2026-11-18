@@ -1,198 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-11-17T21:04:14.207Z",
-  "updatedAtKst": "2026. 11. 18. AM 6:04:14",
+  "updatedAt": "2026-11-18T02:57:36.378Z",
+  "updatedAtKst": "2026. 11. 18. AM 11:57:36",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "젠슨 황 엔비디아 복귀 의향"
+        "keyword": "수능 AI 부정행위 대책 논의"
       },
       {
         "rank": 2,
-        "keyword": "경북 상주 3.6 지진 발생"
+        "keyword": "고액 체납자 공개"
       },
       {
         "rank": 3,
-        "keyword": "이재명 APEC 출국"
+        "keyword": "코스피 5천선 회복"
       },
       {
         "rank": 4,
-        "keyword": "오세훈 결승골, 모레노호 1-0 승리"
+        "keyword": "삼천당제약"
       },
       {
         "rank": 5,
-        "keyword": "AI 부정행위 세무사 조사 종료"
+        "keyword": "고경표 음주 불편 최소화"
       },
       {
         "rank": 6,
-        "keyword": "아이폰"
+        "keyword": "탄약"
       },
       {
         "rank": 7,
-        "keyword": "조작기소 특검법 국무회의"
+        "keyword": "김종철 경찰청장 인사청문회"
       },
       {
         "rank": 8,
-        "keyword": "백신"
+        "keyword": "K리그 이달의 수상자 발표"
       },
       {
         "rank": 9,
-        "keyword": "여에스더 홍혜걸 합방 32년 만에"
+        "keyword": "변요한"
       },
       {
         "rank": 10,
-        "keyword": "경찰"
+        "keyword": "노란우산 개인정보 유출"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "중국 이재명 대통령 상승 2"
+        "keyword": "최지훈 4년 계약 new"
       },
       {
         "rank": 2,
-        "keyword": "나의 유죄인간 동일"
+        "keyword": "엔비디아 호실적에 상승 1"
       },
       {
         "rank": 3,
-        "keyword": "DAMEX 2026서 new"
+        "keyword": "젠슨 황 new"
       },
       {
         "rank": 4,
-        "keyword": "트럼프 투자 알래스카 new"
+        "keyword": "조태용 징역 확정 new"
       },
       {
         "rank": 5,
-        "keyword": "노유민 가슴 응급실 new"
+        "keyword": "KIA 일구대상 수상 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "경북 상주 지진"
+        "keyword": "수능 부정행위 법제화"
       },
       {
         "rank": 2,
-        "keyword": "조작기소 특검법 국무회의"
+        "keyword": "김종철 경찰청장 인사청문회"
       },
       {
         "rank": 3,
-        "keyword": "이재명 APEC 출국"
+        "keyword": "북미 정상회담 준비"
       },
       {
         "rank": 4,
-        "keyword": "KB증권 베트남 출금 사고"
+        "keyword": "조태용 전 국정원장 실형 확정"
       },
       {
         "rank": 5,
-        "keyword": "조국 일본 입국 거부"
+        "keyword": "수능 수험표 배부"
       },
       {
         "rank": 6,
-        "keyword": "쿼드 정상회의"
+        "keyword": "수능 위급재난문자 불시 발송"
       },
       {
         "rank": 7,
-        "keyword": "김정은 APEC 푸틴 회담"
+        "keyword": "APEC 정상회의 개막"
       },
       {
         "rank": 8,
-        "keyword": "세무사 시험 고득점자 급증"
+        "keyword": "수능 필기구 반입 기준 변경"
       },
       {
         "rank": 9,
-        "keyword": "수능 효력정지 가처분 신청"
+        "keyword": "국토부 건설사 안전 점검"
       },
       {
         "rank": 10,
-        "keyword": "호르무즈 유조선 폭발"
+        "keyword": "노란우산 개인정보 유출"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "wales vs portugal"
+        "keyword": "삼전닉스"
       },
       {
         "rank": 2,
-        "keyword": "김장"
+        "keyword": "한화 이글스"
       },
       {
         "rank": 3,
-        "keyword": "아이폰"
+        "keyword": "혼인"
       },
       {
         "rank": 4,
-        "keyword": "백신"
+        "keyword": "정치"
       },
       {
         "rank": 5,
-        "keyword": "경찰"
+        "keyword": "국제 a매치"
       },
       {
         "rank": 6,
-        "keyword": "국제 통화 기금"
+        "keyword": "광화문 빵 축제"
       },
       {
         "rank": 7,
-        "keyword": "gta6"
+        "keyword": "삼천당제약"
       },
       {
         "rank": 8,
-        "keyword": "애플"
+        "keyword": "교육청"
       },
       {
         "rank": 9,
-        "keyword": "엔비디아 실적"
+        "keyword": "수험표"
       },
       {
         "rank": 10,
-        "keyword": "데블스플랜3"
+        "keyword": "탄약"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "오세훈 선제골"
+        "keyword": "김혜윤 대학 불합격 오열"
       },
       {
         "rank": 2,
-        "keyword": "경북 상주 3.6 지진"
+        "keyword": "최지훈 SSG 잔류"
       },
       {
         "rank": 3,
-        "keyword": "미스틱"
+        "keyword": "조태용 징역 확정"
       },
       {
         "rank": 4,
-        "keyword": "신천지"
+        "keyword": "추경호 1심 선고"
       },
       {
         "rank": 5,
-        "keyword": "엔비디아 실적발표"
+        "keyword": "AI 커�� 대책"
       },
       {
         "rank": 6,
-        "keyword": "정우영 축구선수"
+        "keyword": "김종철 후보자 인사청문회"
       },
       {
         "rank": 7,
-        "keyword": "노유민 가슴 통증 응급실"
+        "keyword": "이정재 대주주"
       },
       {
         "rank": 8,
-        "keyword": "정호연 본드걸 후보"
+        "keyword": "상주 지진"
       },
       {
         "rank": 9,
-        "keyword": "최교진 교육부 장관"
+        "keyword": "에이엘로봇"
       },
       {
         "rank": 10,
-        "keyword": "리트 시험"
+        "keyword": "이진우 계약 해지"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "‘사운드:트랙’ 강애심, 노래 이야기하다 울컥…“처음 듣고 계속 울었다”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261118/135045417/1",
+      "publishedAt": "수집 11. 18. 11:57 KST",
+      "publishedOrder": 1794970652430
+    },
+    {
+      "title": "장원영, 디즈니 공주가 현실로…홍콩 홀린 비주얼 [DAY컷]",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261118/135045277/1",
+      "publishedAt": "수집 11. 18. 11:57 KST",
+      "publishedOrder": 1794970652430
+    },
+    {
+      "title": "김명민, 데뷔 30년 만에 첫 예능…뉴질랜드 이민 결심까지 (유퀴즈)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261118/135045019/1",
+      "publishedAt": "수집 11. 18. 11:57 KST",
+      "publishedOrder": 1794970652430
+    },
+    {
+      "title": "오상욱♥하루카 토요다, 열애설 다시 점화…日 데이트 인증?",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261118/135044966/1",
+      "publishedAt": "수집 11. 18. 11:57 KST",
+      "publishedOrder": 1794970652430
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 11. 18. 11:57 KST",
+      "publishedOrder": 1794970651476
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 11. 18. 11:57 KST",
+      "publishedOrder": 1794970651476
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 11. 18. 11:57 KST",
+      "publishedOrder": 1794970651476
+    },
+    {
+      "title": "방탄소년단 지민·로버트 패틴슨, 숨겨진 매력의 '섹시 아이콘'..보그재팬 조명",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/11/18/2026111807401992709",
+      "publishedAt": "수집 11. 18. 11:57 KST",
+      "publishedOrder": 1794970651476
+    }
+  ]
 }
