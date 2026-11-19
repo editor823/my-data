@@ -2,7 +2,8 @@
  * 키워드 분석기 (js/keyword.js)
  * - 네이버 / 구글 분리 검색 완벽 지원
  * - 직접 만든 Worker(worker/keyword-worker.mjs)에서 데이터를 받아 화면에 보여줍니다.
- * - 월 검색량 / 블로그 문서수 / 경쟁도 / 상위글 평균 나이 / 뉴스 / 상위 블로그 / 연관 키워드 표
+ * - 월 검색량 / 문서수 / 경쟁도 / 발행 추천·기회지수 / 검색 추이 / 월 발행량 / 성별·연령 / 뉴스 / 상위 블로그 / 연관 키워드 표
+ * - 검색 추이·성별·연령은 /api/keyword/insight (네이버 데이터랩 키가 있을 때)
  */
 (function () {
   'use strict';
@@ -52,15 +53,16 @@
   }
 
   /* ---------- 화면 조각 ---------- */
-  function card(label, value, sub) {
+  function card(label, value, sub, tip) {
     var c = el('div', 'kw-card');
+    if (tip) c.title = tip;
     c.appendChild(el('div', 'kw-card-k', label));
     c.appendChild(el('div', 'kw-card-v', value));
     if (sub) c.appendChild(el('div', 'kw-card-s', sub));
     return c;
   }
-  function section(title, sub) {
-    var s = el('div', 'kw-sec');
+  function section(title, sub, cls) {
+    var s = el('div', 'kw-sec' + (cls ? ' ' + cls : ''));
     s.appendChild(el('h3', 'kw-sec-t', title));
     if (sub) s.appendChild(el('p', 'kw-sec-s', sub));
     return s;
@@ -68,6 +70,17 @@
   function showMessage(msg, isError) {
     var box = $('kwResult'); box.textContent = '';
     box.appendChild(el('div', isError ? 'kw-msg kw-err' : 'kw-msg', msg));
+  }
+  function short(n) {
+    if (n == null || !isFinite(n)) return '-';
+    if (n >= 100000000) return (n / 100000000).toFixed(1).replace(/\.0$/, '') + '억';
+    if (n >= 10000) return (n / 10000).toFixed(n >= 100000 ? 0 : 1).replace(/\.0$/, '') + '만';
+    return fmt(n);
+  }
+  function analyzeLink(kw, cls) {
+    var b = el('button', cls || 'kw-link', kw); b.type = 'button';
+    b.onclick = function () { $('kwInput').value = kw; analyze(kw); };
+    return b;
   }
 
   function ageHint(days) {
@@ -77,46 +90,78 @@
     return '보통';
   }
 
+  var GRADE_TIP = '발행 추천 = 월 검색량 ÷ 최근 30일 동안 제목에 키워드가 들어간 글 수\n'
+    + 'S: 검색 1,000 이상 · 글 1개당 검색 50회 이상\nA: 검색 300 이상 · 글 1개당 20회 이상\nB: 검색 100 이상 · 글 1개당 5회 이상\nC: 그 밖';
+  var OPP_TIP = '기회지수(0~100) = 검색량 35% + 최근 글 대비 검색 여유 65%\n검색이 많고 최근 글이 적을수록 높습니다.';
+  var LEVEL_TIP = '최근 30일 제목 포함 글 기준\n초보자: 10개 이하 · 중급자: 50개 이하 · 상급자: 200개 이하 · 고수: 그 이상';
+
+  function gradeBadge(g, tip) {
+    var b = el('span', 'kw-grade kw-grade-' + (g || 'none'), g || '-');
+    b.title = tip || GRADE_TIP;
+    return b;
+  }
+  function recentText(n, approx) {
+    if (n == null) return '-';
+    return (approx && n > 0 ? '약 ' : '') + fmt(n) + '개';
+  }
+
+  function verdict(d) {
+    var g = d.grade;
+    if (!d.total) return '검색량이 거의 없는 키워드예요. 연관 키워드 표에서 검색이 있는 표현을 골라 보세요.';
+    if (g === 'S') return '검색에 비해 최근 글이 적어요. 지금 쓰기 좋은 키워드입니다.';
+    if (g === 'A') return '검색이 꾸준하고 경쟁이 아직 버틸 만해요. 제목 앞쪽에 키워드를 그대로 넣어 써 보세요.';
+    if (g === 'B') return '최근 글이 많은 편이에요. 아래 연관 키워드 중 S·A 등급으로 좁혀 쓰는 걸 추천합니다.';
+    return '최근 글이 검색보다 많아요. 메인 키워드 대신 세부 키워드(연관 키워드)로 쓰세요.';
+  }
+
   function render(d) {
     current = d;
+    insightState = { keyword: d.keyword, data: null, loading: true, error: null };
     var box = $('kwResult'); box.textContent = '';
-    var isGoogle = (d.engine === 'google' || currentEngine === 'google');
+    var isGoogle = d.engine === 'google';
 
     var head = el('div', 'kw-head');
     head.appendChild(el('h2', 'kw-title', '“' + d.keyword + '” 분석 결과'));
-    
-    // 네이버 / 구글 기준 배지
-    if (isGoogle) {
-      head.appendChild(el('span', 'kw-badge kw-google', '구글 기준'));
-    } else {
-      head.appendChild(el('span', 'kw-badge', '네이버 기준'));
-    }
-
+    head.appendChild(el('span', 'kw-badge', '네이버 기준'));
+    if (isGoogle) head.appendChild(el('span', 'kw-badge kw-google', '연관 키워드: 구글 검색창'));
     if (d.golden) head.appendChild(el('span', 'kw-badge kw-gold', '💎 황금 후보'));
     box.appendChild(head);
 
     var cards = el('div', 'kw-cards');
-    cards.appendChild(card('월 검색량', fmt(d.total), 'PC ' + fmt(d.pc) + ' · 모바일 ' + fmt(d.mobile)));
-    
-    // 문서수 카드: 네이버는 블로그 문서수, 구글은 웹 문서수
-    if (isGoogle) {
-      cards.appendChild(card('웹 문서수', fmt(d.blogCount || d.webCount), '구글 검색결과 누적'));
-      cards.appendChild(card('경쟁도', d.competition || '보통', d.ratio == null ? '' : '문서/검색 ' + d.ratio));
-    } else {
-      cards.appendChild(card('블로그 문서수', fmt(d.blogCount), '네이버 블로그 누적'));
-      cards.appendChild(card('경쟁도', d.competition || '보통', d.ratio == null ? '' : '문서/검색 ' + d.ratio));
-    }
-    cards.appendChild(card('상위글 평균 나이', d.avgAgeDays == null ? '12일' : d.avgAgeDays + '일', ageHint(d.avgAgeDays || 12)));
+    cards.appendChild(card('월 검색량', fmt(d.total), 'PC ' + fmt(d.pc) + ' · 모바일 ' + fmt(d.mobile), '네이버 검색광고 기준 최근 30일 검색수'));
+    cards.appendChild(card('블로그 문서수', fmt(d.blogCount), '네이버 블로그 누적'));
+    cards.appendChild(card('경쟁도', d.competition || '-', d.ratio == null ? '' : '문서/검색 ' + d.ratio, '누적 문서수 ÷ 월 검색량 (1 미만 낮음 · 5 미만 보통 · 20 미만 높음)'));
+    cards.appendChild(card('상위글 평균 나이', d.avgAgeDays == null ? '-' : d.avgAgeDays + '일', ageHint(d.avgAgeDays)));
     box.appendChild(cards);
 
-    var cols = el('div', 'kw-cols');
+    // 판정 줄: 발행 추천 · 기회지수 · 최근 30일 제목 포함 글
+    var vd = el('div', 'kw-verdict kw-verdict-' + (d.grade || 'C'));
+    var vl = el('div', 'kw-verdict-l');
+    vl.appendChild(el('span', 'kw-verdict-k', '발행 추천'));
+    vl.appendChild(gradeBadge(d.grade));
+    var opp = el('span', 'kw-verdict-opp', '기회지수 ' + (d.opportunity == null ? '-' : d.opportunity)); opp.title = OPP_TIP;
+    vl.appendChild(opp);
+    var rc = el('span', 'kw-verdict-rc', '최근 30일 제목 포함 글 ' + recentText(d.recent30, d.recentApprox));
+    rc.title = '최근 30일 동안 제목에 “' + d.keyword + '”가 들어간 블로그 글 수 (최신 글 표본에서 어림)';
+    vl.appendChild(rc);
+    vd.appendChild(vl);
+    vd.appendChild(el('p', 'kw-verdict-t', verdict(d)));
+    box.appendChild(vd);
 
-    // 1. 뉴스 / 관련 이슈
+    // 1행: 검색 추이 | 연관 키워드 요약
+    var row1 = el('div', 'kw-row kw-row-2');
+    var trend = section('📈 검색 추이', '월 검색량 ' + fmt(d.total) + '회를 데이터랩 흐름으로 나눈 추정 검색수입니다.', 'kw-trend');
+    trend.appendChild(el('div', 'kw-trend-body', null)).id = 'kwTrendBody';
+    row1.appendChild(trend);
+    row1.appendChild(buildRelSide(d));
+    box.appendChild(row1);
+
+    // 2행: 뉴스 | 블로그 상위 | 월별 발행량 + 성별·연령
+    var row2 = el('div', 'kw-row kw-row-3');
     var newsSec = section('📰 왜 검색될까?', '최신 뉴스로 검색 이유를 확인하세요.');
     var newsList = Array.isArray(d.news) ? d.news : [];
-    if (!newsList.length) {
-      newsSec.appendChild(el('p', 'kw-empty', '관련 최신 뉴스가 없습니다.'));
-    } else {
+    if (!newsList.length) newsSec.appendChild(el('p', 'kw-empty', '관련 최신 뉴스가 없습니다.'));
+    else {
       var nl = el('ul', 'kw-list');
       newsList.forEach(function (n) {
         var li = el('li'); var a = el('a', null, n.title);
@@ -127,41 +172,264 @@
       });
       newsSec.appendChild(nl);
     }
-    cols.appendChild(newsSec);
+    row2.appendChild(newsSec);
 
-    // 2. 상위 10개 글 목록 (네이버 블로그 또는 구글 검색 웹문서)
-    var blogSecTitle = isGoogle ? '🌐 구글 검색 상위 10개' : '📝 블로그 상위 10개';
-    var blogSecSub = isGoogle ? '구글 검색 결과 상단에 랭크된 웹 문서입니다.' : '네이버 검색 결과 상단에 보이는 블로그 글입니다.';
-    var blogSec = section(blogSecTitle, blogSecSub);
     var blogList = Array.isArray(d.blogTop) ? d.blogTop : [];
-    if (!blogList.length) {
-      blogSec.appendChild(el('p', 'kw-empty', '조회된 상위 문서가 없습니다.'));
-    } else {
+    var blogSec = section('📝 블로그 상위 10개', d.avgAgeDays == null ? '네이버 검색 결과 상단의 블로그 글' : '평균 ' + d.avgAgeDays + '일 전 작성');
+    if (!blogList.length) blogSec.appendChild(el('p', 'kw-empty', '조회된 상위 문서가 없습니다.'));
+    else {
       var bl = el('ol', 'kw-list kw-ol');
       blogList.forEach(function (b) {
         var li = el('li'); var a = el('a', null, b.title);
         a.href = b.link; a.target = '_blank'; a.rel = 'noopener noreferrer';
         li.appendChild(a);
-        li.appendChild(el('span', 'kw-meta', (b.blogger || '웹사이트') + (b.ageDays == null ? '' : ' · ' + b.ageDays + '일 전')));
+        li.appendChild(el('span', 'kw-meta', (b.blogger || '') + (b.ageDays == null ? '' : ' · ' + b.ageDays + '일 전')));
         bl.appendChild(li);
       });
       blogSec.appendChild(bl);
     }
-    cols.appendChild(blogSec);
-    box.appendChild(cols);
+    row2.appendChild(blogSec);
+
+    var side = el('div', 'kw-side');
+    side.appendChild(buildPublish(d));
+    var demo = section('👥 성별 · 연령 분포', '데이터랩 기준 키워드 비교 추정 · 최근 30일', 'kw-demo');
+    demo.querySelector('.kw-sec-t').appendChild(el('span', 'kw-est', '추정'));
+    demo.appendChild(el('div', null, null)).id = 'kwDemoBody';
+    side.appendChild(demo);
+    row2.appendChild(side);
+    box.appendChild(row2);
 
     box.appendChild(buildRelated(d));
+    renderInsight();
   }
+
+  function buildRelSide(d) {
+    var sec = section('🔗 연관 키워드', '검색량 많은 순 · 누르면 바로 분석', 'kw-relside');
+    var list = (d.related || []).slice().sort(function (a, b) { return b.total - a.total; });
+    if (!list.length) { sec.appendChild(el('p', 'kw-empty', '연관 키워드가 없습니다.')); return sec; }
+    var ul = el('ul', 'kw-relside-list');
+    list.forEach(function (r) {
+      var li = el('li');
+      li.appendChild(analyzeLink(r.keyword, 'kw-relside-k'));
+      li.appendChild(el('span', 'kw-relside-v', fmt(r.total) + '회'));
+      li.appendChild(el('span', 'kw-relside-d', r.blogCount == null ? '' : '문서 ' + short(r.blogCount)));
+      ul.appendChild(li);
+    });
+    sec.appendChild(ul);
+    return sec;
+  }
+
+  function buildPublish(d) {
+    var p = d.publish;
+    var sec = section('🗓️ 월별 블로그 발행량', p ? '최근 글 최대 ' + fmt(p.sample) + '개 기준' : '');
+    if (!p) { sec.appendChild(el('p', 'kw-empty', '발행 데이터를 가져오지 못했습니다.')); return sec; }
+    var big = el('div', 'kw-pub');
+    big.appendChild(el('div', 'kw-pub-v', (p.method === 'all' ? '' : '약 ') + fmt(p.perMonth) + '개/월' + (p.method === 'lowerBound' ? ' 이상' : '')));
+    var how = p.method === 'all' ? '전체 글 중 최근 30일에 올라온 글 수'
+      : p.method === 'fullDays' ? '최근 ' + fmt(p.sample) + '개 글 중 ' + p.days + '일 동안 하루 평균 ' + fmt(p.perDay) + '개 발행'
+      : '오늘 올라온 글로 어림 (하루 약 ' + fmt(p.perDay) + '개)';
+    big.appendChild(el('div', 'kw-pub-s', how));
+    sec.appendChild(big);
+    var pm = p.perMonth;
+    var msg = pm >= 3000 ? '발행 경쟁이 매우 치열한 키워드예요. 세부 키워드(연관 키워드)로 좁혀 쓰는 걸 추천합니다.'
+      : pm >= 600 ? '꾸준히 글이 올라오는 키워드예요. 상위 글과 다른 각도(질문·비교·후기)로 차별화하세요.'
+      : pm >= 100 ? '발행량이 보통이에요. 정확한 정보로 쓰면 자리를 잡을 수 있습니다.'
+      : '새 글이 거의 없어요. 검색이 있다면 선점하기 좋은 키워드입니다.';
+    sec.appendChild(el('p', 'kw-pub-msg', msg));
+    return sec;
+  }
+
+  /* ---------- 데이터랩 (검색 추이 · 성별 · 연령) ---------- */
+  var insightState = null;
+  var trendMode = '30';
+
+  function insightUrl(kw) {
+    var h = location.hostname;
+    var base = (h === 'localhost' || h === '127.0.0.1') ? '' : KEYWORD_WORKER_URL.replace(/\/$/, '');
+    return base + '/api/keyword/insight?q=' + encodeURIComponent(kw);
+  }
+
+  function loadInsight(kw) {
+    fetch(insightUrl(kw)).then(function (r) { return r.json(); }).then(function (j) {
+      if (!insightState || insightState.keyword !== kw) return;
+      insightState.loading = false;
+      if (!j.success) insightState.error = j.error || '데이터랩 조회 실패';
+      else insightState.data = j;
+      renderInsight();
+    }).catch(function () {
+      if (!insightState || insightState.keyword !== kw) return;
+      insightState.loading = false; insightState.error = '데이터랩에 연결하지 못했습니다.';
+      renderInsight();
+    });
+  }
+
+  function setupNotice() {
+    var w = el('div', 'kw-setup');
+    w.appendChild(el('b', null, '네이버 데이터랩 키를 연결하면 보입니다'));
+    var ol = el('ol');
+    ['developers.naver.com → Application 등록 → 사용 API에서 「데이터랩(검색어트렌드)」 선택',
+      '발급된 Client ID / Secret을 Worker Secret에 등록: NAVER_DATALAB_CLIENT_ID, NAVER_DATALAB_CLIENT_SECRET',
+      '로컬에서 쓸 때는 .env.local 에 같은 이름으로 추가'].forEach(function (t) { ol.appendChild(el('li', null, t)); });
+    w.appendChild(ol);
+    return w;
+  }
+
+  function renderInsight() {
+    var tb = $('kwTrendBody'); var db = $('kwDemoBody');
+    if (!tb || !db || !insightState || !current) return;
+    tb.textContent = ''; db.textContent = '';
+    if (insightState.loading) { tb.appendChild(el('p', 'kw-empty', '검색 추이를 불러오는 중…')); db.appendChild(el('p', 'kw-empty', '불러오는 중…')); return; }
+    if (insightState.error) { tb.appendChild(el('p', 'kw-empty', insightState.error)); db.appendChild(el('p', 'kw-empty', insightState.error)); return; }
+    var ins = insightState.data;
+    if (!ins.available) { tb.appendChild(setupNotice()); db.appendChild(el('p', 'kw-empty', '데이터랩 키를 연결하면 성별·연령 분포가 보입니다.')); return; }
+    renderTrend(tb, ins);
+    renderDemo(db, ins);
+  }
+
+  // 데이터랩 일별 비율 → 월 검색량에 맞춘 추정 검색수
+  function trendSeries(ins, total, mode) {
+    var daily = ins.daily || [];
+    if (!daily.length) return [];
+    var last30 = daily.slice(-30);
+    var base = last30.reduce(function (s, x) { return s + x.ratio; }, 0) || 1;
+    var unit = total / base;
+    if (mode === '30') return last30.map(function (x) { return { label: x.date.slice(5).replace('-', '.'), v: Math.round(x.ratio * unit) }; });
+    var out = [];
+    for (var end = daily.length; end - 30 >= 0 && out.length < 12; end -= 30) {
+      var blk = daily.slice(end - 30, end);
+      out.unshift({ label: blk[blk.length - 1].date.slice(5).replace('-', '.'), v: Math.round(blk.reduce(function (s, x) { return s + x.ratio; }, 0) * unit) });
+    }
+    return out;
+  }
+
+  function pct(a, b) { return b ? Math.round(((a - b) / b) * 100) : null; }
+  function cmpPill(label, p) {
+    if (p == null) return null;
+    var cls = p > 0 ? 'up' : p < 0 ? 'down' : '';
+    return el('span', 'kw-cmp ' + cls, label + ' ' + (p > 0 ? '▲ ' : p < 0 ? '▼ ' : '') + Math.abs(p) + '%');
+  }
+
+  function renderTrend(tb, ins) {
+    var tabs = el('div', 'kw-seg');
+    [['30', '30일'], ['365', '1년']].forEach(function (t) {
+      var b = el('button', 'kw-seg-btn' + (trendMode === t[0] ? ' active' : ''), t[1]); b.type = 'button';
+      b.onclick = function () { trendMode = t[0]; renderInsight(); };
+      tabs.appendChild(b);
+    });
+    tb.appendChild(tabs);
+    var series = trendSeries(ins, current.total, trendMode);
+    if (series.length < 2) { tb.appendChild(el('p', 'kw-empty', '데이터랩에 이 키워드의 추이 데이터가 없습니다.')); return; }
+    tb.appendChild(lineChart(series, trendMode === '30' ? '회/일' : '회/30일'));
+    var cmps = el('div', 'kw-cmps');
+    var d30 = trendSeries(ins, current.total, '30').map(function (x) { return x.v; });
+    var sum = function (a) { return a.reduce(function (s, v) { return s + v; }, 0); };
+    if (d30.length >= 30) {
+      [cmpPill('최근 7일 vs 이전 7일', pct(sum(d30.slice(-7)), sum(d30.slice(-14, -7)))),
+        cmpPill('후반 15일 vs 전반 15일', pct(sum(d30.slice(-15)), sum(d30.slice(0, 15))))].forEach(function (p) { if (p) cmps.appendChild(p); });
+    }
+    var yr = trendSeries(ins, current.total, '365');
+    if (yr.length >= 12) {
+      var peak = yr.reduce(function (m, x) { return x.v > m.v ? x : m; }, yr[0]);
+      cmps.appendChild(el('span', 'kw-cmp', '1년 중 가장 많이 찾은 30일: ' + peak.label + '까지 (' + short(peak.v) + '회)'));
+    }
+    tb.appendChild(cmps);
+  }
+
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  function svg(tag, attrs) {
+    var n = document.createElementNS(SVGNS, tag);
+    Object.keys(attrs || {}).forEach(function (k) { n.setAttribute(k, attrs[k]); });
+    return n;
+  }
+  function lineChart(series, unit) {
+    var W = 640, H = 240, L = 46, R = 12, T = 12, B = 28;
+    var max = Math.max.apply(null, series.map(function (x) { return x.v; })) || 1;
+    var nice = Math.ceil(max / 4) * 4;
+    var x = function (i) { return L + (i * (W - L - R)) / (series.length - 1); };
+    var y = function (v) { return T + (H - T - B) * (1 - v / nice); };
+    var root = svg('svg', { viewBox: '0 0 ' + W + ' ' + H, class: 'kw-chart', role: 'img', 'aria-label': '검색 추이 그래프' });
+    for (var g = 0; g <= 4; g++) {
+      var gv = (nice / 4) * g;
+      root.appendChild(svg('line', { x1: L, x2: W - R, y1: y(gv), y2: y(gv), class: 'kw-grid' }));
+      var t = svg('text', { x: L - 6, y: y(gv) + 4, class: 'kw-axis', 'text-anchor': 'end' }); t.textContent = short(Math.round(gv)); root.appendChild(t);
+    }
+    var pts = series.map(function (p, i) { return x(i) + ',' + y(p.v); });
+    root.appendChild(svg('polygon', { points: L + ',' + y(0) + ' ' + pts.join(' ') + ' ' + x(series.length - 1) + ',' + y(0), class: 'kw-area' }));
+    root.appendChild(svg('polyline', { points: pts.join(' '), class: 'kw-line' }));
+    var step = Math.max(1, Math.round(series.length / 6));
+    series.forEach(function (p, i) {
+      var c = svg('circle', { cx: x(i), cy: y(p.v), r: 3.2, class: 'kw-dot' });
+      var tt = svg('title', {}); tt.textContent = p.label + ' · ' + fmt(p.v) + unit; c.appendChild(tt);
+      root.appendChild(c);
+      if (i % step === 0 || i === series.length - 1) {
+        var lt = svg('text', { x: x(i), y: H - 8, class: 'kw-axis', 'text-anchor': 'middle' }); lt.textContent = p.label; root.appendChild(lt);
+      }
+    });
+    var wrap = el('div', 'kw-chart-wrap'); wrap.appendChild(root);
+    return wrap;
+  }
+
+  function renderDemo(db, ins) {
+    if (!ins.gender && !ins.ages) { db.appendChild(el('p', 'kw-empty', '검색이 적어 성별·연령 데이터가 없습니다.')); return; }
+    if (ins.gender) {
+      db.appendChild(el('div', 'kw-demo-k', '성별'));
+      var bar = el('div', 'kw-gbar');
+      var m = el('div', 'kw-gbar-m'); m.style.width = ins.gender.male + '%';
+      var f = el('div', 'kw-gbar-f'); f.style.width = ins.gender.female + '%';
+      bar.appendChild(m); bar.appendChild(f); db.appendChild(bar);
+      var lg = el('div', 'kw-glabel');
+      lg.appendChild(el('span', 'm', '남성 ' + ins.gender.male + '%'));
+      lg.appendChild(el('span', 'f', '여성 ' + ins.gender.female + '%'));
+      db.appendChild(lg);
+    }
+    if (ins.ages) {
+      db.appendChild(el('div', 'kw-demo-k', '연령'));
+      var mx = Math.max.apply(null, ins.ages.map(function (a) { return a.pct; })) || 1;
+      var bars = el('div', 'kw-abars');
+      ins.ages.forEach(function (a) {
+        var col = el('div', 'kw-abar' + (a.pct === mx ? ' top' : ''));
+        col.appendChild(el('span', 'kw-abar-v', a.pct + '%'));
+        var fill = el('div', 'kw-abar-f'); fill.style.height = Math.max(2, (a.pct / mx) * 100) + '%';
+        var holder = el('div', 'kw-abar-h'); holder.appendChild(fill); col.appendChild(holder);
+        col.appendChild(el('span', 'kw-abar-k', a.label));
+        bars.appendChild(col);
+      });
+      db.appendChild(bars);
+    }
+    db.appendChild(el('p', 'kw-note', '※ 네이버는 성별·연령 실제 비율을 공개하지 않아, 「' + ins.anchor + '」와 비교해 추정한 값입니다. 경향 참고용으로 보세요.'));
+  }
+
+  /* ---------- 연관 키워드 표 ---------- */
+  var oppOnly = false;
+  var sortKey = null;
+  var sortDir = -1;
+  var COLS = [
+    { k: 'rank', t: '순위' },
+    { k: 'keyword', t: '키워드' },
+    { k: 'total', t: '총 검색량', n: true },
+    { k: 'blogCount', t: '블로그 문서수', n: true },
+    { k: 'recent30', t: '최근 30일 발행', n: true, tip: '최근 30일 동안 제목에 키워드가 들어간 블로그 글 수 (최신 100개 표본, "약"은 비율로 어림)' },
+    { k: 'grade', t: '발행 추천', tip: GRADE_TIP },
+    { k: 'opportunity', t: '기회지수', n: true, tip: OPP_TIP },
+    { k: 'ratio', t: '문서/검색', n: true, tip: '누적 문서수 ÷ 월 검색량' },
+    { k: 'level', t: '경쟁 수준', tip: LEVEL_TIP },
+  ];
+  var GRADE_ORDER = { S: 4, A: 3, B: 2, C: 1 };
+  var LEVEL_ORDER = { '초보자': 4, '중급자': 3, '상급자': 2, '고수': 1 };
 
   function buildRelated(d) {
     var sec = el('div', 'kw-sec kw-related');
     var top = el('div', 'kw-rel-top');
-    var isGoogle = (d.engine === 'google' || currentEngine === 'google');
-    var count = (d.related || []).length;
-    top.appendChild(el('h3', 'kw-sec-t', '📊 “' + d.keyword + '” ' + (isGoogle ? '구글 연관 검색어' : '연관 키워드') + ' (' + count + '개)'));
+    var rel = d.related || [];
+    top.appendChild(el('h3', 'kw-sec-t', '📊 “' + d.keyword + '” ' + (d.engine === 'google' ? '구글 연관 검색어' : '연관 키워드') + ' (' + rel.length + '개)'));
 
     var tools = el('div', 'kw-tools');
-    var lab = el('label', 'kw-golden-label');
+    var lab1 = el('label', 'kw-filter');
+    var cb1 = document.createElement('input'); cb1.type = 'checkbox'; cb1.checked = oppOnly;
+    cb1.onchange = function () { oppOnly = cb1.checked; fillRows(); };
+    lab1.appendChild(cb1); lab1.appendChild(document.createTextNode(' ⭐ 기회지수 50점 이상'));
+    tools.appendChild(lab1);
+    var lab = el('label', 'kw-filter kw-golden-label');
     var cb = document.createElement('input'); cb.type = 'checkbox'; cb.checked = goldenOnly;
     cb.onchange = function () { goldenOnly = cb.checked; fillRows(); };
     lab.appendChild(cb); lab.appendChild(document.createTextNode(' 💎 황금 후보만 (문서/검색 0.3 미만)'));
@@ -172,55 +440,104 @@
     top.appendChild(tools);
     sec.appendChild(top);
 
+    var cnt = { S: 0, A: 0, B: 0, C: 0 };
+    rel.forEach(function (r) { if (r.grade) cnt[r.grade]++; });
+    var sum = el('div', 'kw-relsum');
+    var st = el('div', 'kw-relsum-t');
+    st.appendChild(el('b', null, '바로 쓰기 좋은 키워드 · S ' + cnt.S + '개 · A ' + cnt.A + '개'));
+    st.appendChild(el('span', null, ' (B ' + cnt.B + ' · C ' + cnt.C + ')'));
+    sum.appendChild(st);
+    sum.appendChild(el('p', null, '발행 추천 = 월 검색량 ÷ 최근 30일 동안 제목에 키워드가 들어간 글 수. 검색은 많고 최근 글이 적을수록 S에 가깝습니다. 표 머리글을 누르면 정렬되고, 마우스를 올리면 기준이 보입니다.'));
+    sec.appendChild(sum);
+
     var wrap = el('div', 'kw-table-wrap');
     var table = el('table', 'kw-table');
     var thead = document.createElement('thead'); var tr = document.createElement('tr');
-    var docColName = isGoogle ? '웹 문서수' : '블로그 문서수';
-    ['순위', '키워드', '총 검색량', docColName, '문서/검색', '경쟁도'].forEach(function (t) { tr.appendChild(el('th', null, t)); });
+    COLS.forEach(function (c) {
+      var th = el('th', c.n ? 'n' : null, c.t);
+      if (c.tip) th.title = c.tip;
+      if (c.k !== 'rank') {
+        th.className = (th.className ? th.className + ' ' : '') + 'sortable';
+        th.onclick = function () {
+          if (sortKey === c.k) sortDir = -sortDir; else { sortKey = c.k; sortDir = c.k === 'keyword' ? 1 : -1; }
+          fillRows();
+        };
+      }
+      tr.appendChild(th);
+    });
     thead.appendChild(tr); table.appendChild(thead);
     var tbody = document.createElement('tbody'); tbody.id = 'kwRows'; table.appendChild(tbody);
     wrap.appendChild(table); sec.appendChild(wrap);
-    sec.appendChild(el('p', 'kw-note', '※ 검색량이 10 미만인 키워드는 5로 계산합니다. ' + (isGoogle ? '구글 검색 쿼리 기준 지표입니다.' : '네이버 검색량 상위 연관 키워드를 분석합니다.')));
+    sec.appendChild(el('p', 'kw-note', '※ 검색량이 10 미만인 키워드는 5로 계산합니다. 검색량은 네이버 검색광고 기준'
+      + (d.engine === 'google' ? ', 키워드 목록은 구글 검색창 연관 검색어입니다.' : '이고, 광고 연관어가 부족하면 네이버·구글 검색창 연관 검색어로 채웁니다.')));
     setTimeout(fillRows, 0);
     return sec;
+  }
+
+  function sortVal(r, k) {
+    if (k === 'grade') return GRADE_ORDER[r.grade] || 0;
+    if (k === 'level') return LEVEL_ORDER[r.level] || 0;
+    if (k === 'keyword') return r.keyword;
+    return r[k] == null ? -1 : r[k];
   }
 
   function fillRows() {
     var tbody = $('kwRows'); if (!tbody || !current) return;
     tbody.textContent = '';
-    var rows = (current.related || []).filter(function (r) { return !goldenOnly || r.golden; });
+    var rows = (current.related || []).filter(function (r) {
+      return (!goldenOnly || r.golden) && (!oppOnly || (r.opportunity || 0) >= 50);
+    });
+    if (sortKey) {
+      rows = rows.slice().sort(function (a, b) {
+        var va = sortVal(a, sortKey), vb = sortVal(b, sortKey);
+        if (typeof va === 'string') return sortDir * va.localeCompare(vb, 'ko');
+        return sortDir * (va - vb);
+      });
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('#tab-keyword .kw-table th.sortable'), function (th, i) {
+      var c = COLS[i + 1];
+      th.classList.toggle('sorted', c.k === sortKey);
+      th.setAttribute('data-dir', c.k === sortKey ? (sortDir > 0 ? '▲' : '▼') : '');
+    });
     if (!rows.length) {
-      var tr0 = document.createElement('tr'); var td0 = el('td', 'kw-empty', '조건에 맞는 키워드가 없습니다.'); td0.colSpan = 6;
+      var tr0 = document.createElement('tr'); var td0 = el('td', 'kw-empty', '조건에 맞는 키워드가 없습니다.'); td0.colSpan = COLS.length;
       tr0.appendChild(td0); tbody.appendChild(tr0); return;
     }
     rows.forEach(function (r, i) {
       var tr = document.createElement('tr');
-      tr.appendChild(el('td', 'c', String(i + 1)));
-      var tdK = document.createElement('td'); var b = el('button', 'kw-link', r.keyword); b.type = 'button';
-      b.onclick = function () { $('kwInput').value = r.keyword; analyze(r.keyword); };
-      tdK.appendChild(b);
+      tr.appendChild(el('td', 'c rk', String(i + 1)));
+      var tdK = document.createElement('td');
+      tdK.appendChild(analyzeLink(r.keyword));
       if (r.golden) tdK.appendChild(el('span', 'kw-gold-mini', '💎 황금'));
       tr.appendChild(tdK);
-      tr.appendChild(el('td', 'n', fmt(r.total)));
-      tr.appendChild(el('td', 'n', r.blogCount == null ? '-' : fmt(r.blogCount)));
-      tr.appendChild(el('td', 'n', r.ratio == null ? '-' : String(r.ratio)));
-      tr.appendChild(el('td', 'c', r.competition));
+      tr.appendChild(el('td', 'n b', fmt(r.total) + (r.under10 ? ' (일부 10 미만)' : '')));
+      tr.appendChild(el('td', 'n mute', r.blogCount == null ? '-' : fmt(r.blogCount)));
+      var tdR = el('td', 'n b', recentText(r.recent30, r.recentApprox));
+      tr.appendChild(tdR);
+      var tdG = el('td', 'c'); tdG.appendChild(gradeBadge(r.grade,
+        r.grade ? GRADE_TIP + '\n\n이 키워드: 월 ' + fmt(r.total) + '회 ÷ 최근 글 ' + fmt(Math.max(1, r.recent30)) + '개 = 글 1개당 ' + fmt(Math.round(r.total / Math.max(1, r.recent30))) + '회' : '')); tr.appendChild(tdG);
+      var tdO = el('td', 'n'); var ob = el('span', 'kw-opp' + ((r.opportunity || 0) >= 70 ? ' hi' : (r.opportunity || 0) >= 50 ? ' mid' : ''), r.opportunity == null ? '-' : String(r.opportunity));
+      ob.title = OPP_TIP; tdO.appendChild(ob); tr.appendChild(tdO);
+      tr.appendChild(el('td', 'n mute', r.ratio == null ? '-' : r.ratio.toFixed ? r.ratio.toFixed(2) : String(r.ratio)));
+      var tdL = el('td', 'c'); var lv = el('span', 'kw-level kw-level-' + ({ '초보자': 1, '중급자': 2, '상급자': 3, '고수': 4 }[r.level] || 0), r.level || '-');
+      lv.title = LEVEL_TIP; tdL.appendChild(lv); tr.appendChild(tdL);
       tbody.appendChild(tr);
     });
   }
 
   function downloadCsv(d) {
-    var isGoogle = (d.engine === 'google' || currentEngine === 'google');
-    var docName = isGoogle ? '웹문서수' : '블로그문서수';
-    var lines = [['키워드', 'PC', '모바일', '총검색량', docName, '문서/검색', '경쟁도']];
-    lines.push([d.keyword, d.pc, d.mobile, d.total, d.blogCount, d.ratio, d.competition]);
-    (d.related || []).forEach(function (r) { lines.push([r.keyword, r.pc, r.mobile, r.total, r.blogCount == null ? '' : r.blogCount, r.ratio == null ? '' : r.ratio, r.competition]); });
-    var csv = '\uFEFF' + lines.map(function (row) {
+    var lines = [['키워드', 'PC', '모바일', '총검색량', '블로그문서수', '최근30일발행', '발행추천', '기회지수', '문서/검색', '경쟁수준', '출처']];
+    lines.push([d.keyword, d.pc, d.mobile, d.total, d.blogCount, d.recent30, d.grade, d.opportunity, d.ratio, '', '메인']);
+    (d.related || []).forEach(function (r) {
+      lines.push([r.keyword, r.pc, r.mobile, r.total, r.blogCount, r.recent30, r.grade, r.opportunity, r.ratio, r.level,
+        { ad: '검색광고', naver: '네이버 자동완성', google: '구글 자동완성' }[r.source] || '']);
+    });
+    var csv = '﻿' + lines.map(function (row) {
       return row.map(function (v) { return '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"'; }).join(',');
     }).join('\r\n');
     var a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
-    a.download = d.keyword + '_' + (isGoogle ? '구글' : '네이버') + '_키워드분석.csv';
+    a.download = d.keyword + '_키워드분석.csv';
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
   }
 
@@ -234,127 +551,19 @@
 
     running = true;
     var btn = $('kwGo'); btn.disabled = true; btn.textContent = '분석 중…';
-    var engineLabel = currentEngine === 'google' ? '구글' : '네이버';
-    showMessage('🔎 ' + engineLabel + ' 기준으로 “' + kw + '” 분석 중입니다. 3~7초 정도 걸려요.', false);
+    showMessage('🔎 “' + kw + '” 분석 중입니다. 검색량·최근 발행·연관 키워드까지 모으느라 5~10초 걸려요.', false);
 
     try {
-      var url = base + '?q=' + encodeURIComponent(kw) + '&engine=' + currentEngine;
-      var res = await fetch(url).catch(function () { return null; });
-      var data = null;
-      if (res && res.ok) {
-        data = await res.json().catch(function () { return null; });
-      }
-
-      // 만약 워커 응답이 없거나 실패한 경우, 사용자 경험을 위해 지능형 포맷팅으로 전환
-      if (!data || !data.success) {
-        var hash = Array.from(kw).reduce(function (acc, char) { return acc + char.charCodeAt(0); }, 0);
-        var isG = (currentEngine === 'google');
-        var mockTotal = isG ? ((hash * 23) % 85000) + 1200 : ((hash * 19) % 120000) + 2400;
-        var mockPc = Math.round(mockTotal * (isG ? 0.45 : 0.25));
-        var mockMo = mockTotal - mockPc;
-        var mockDocs = isG ? ((hash * 89) % 2500000) + 15000 : ((hash * 13) % 450000) + 800;
-        var mockRatio = mockTotal > 0 ? (mockDocs / mockTotal).toFixed(2) : '1.50';
-
-        data = {
-          success: true,
-          engine: currentEngine,
-          keyword: kw,
-          total: mockTotal,
-          pc: mockPc,
-          mobile: mockMo,
-          blogCount: mockDocs,
-          webCount: mockDocs,
-          ratio: mockRatio,
-          competition: Number(mockRatio) < 0.3 ? '매우 낮음' : (Number(mockRatio) < 1.0 ? '보통' : '치열'),
-          golden: Number(mockRatio) < 0.3,
-          avgAgeDays: (hash % 25) + 5,
-          news: [
-            {
-              title: kw + ' 관련 최신 트렌드 및 시장 분석 리포트',
-              link: isG ? 'https://www.google.com/search?q=' + encodeURIComponent(kw) : 'https://search.naver.com/search.naver?where=news&query=' + encodeURIComponent(kw),
-              pubDate: new Date().toISOString()
-            },
-            {
-              title: kw + ' 실사용자 후기 및 주목할 점 총정리',
-              link: isG ? 'https://www.google.com/search?q=' + encodeURIComponent(kw) : 'https://search.naver.com/search.naver?where=news&query=' + encodeURIComponent(kw),
-              pubDate: new Date(Date.now() - 86400000 * 2).toISOString()
-            }
-          ],
-          blogTop: [
-            {
-              title: kw + ' 총정리 가이드 및 핵심 요약',
-              link: isG ? 'https://www.google.com/search?q=' + encodeURIComponent(kw) : 'https://search.naver.com/search.naver?where=blog&query=' + encodeURIComponent(kw),
-              blogger: isG ? '전문 웹진 블로그' : '네이버 공식 블로그',
-              ageDays: 3
-            },
-            {
-              title: kw + ' 직접 알아보고 정리한 필수 체크리스트',
-              link: isG ? 'https://www.google.com/search?q=' + encodeURIComponent(kw) : 'https://search.naver.com/search.naver?where=blog&query=' + encodeURIComponent(kw),
-              blogger: isG ? 'IT/라이프 포럼' : '인플루언서 블로그',
-              ageDays: 9
-            }
-          ],
-          related: [
-            {
-              keyword: kw + ' 추천',
-              total: Math.round(mockTotal * 0.45),
-              pc: Math.round(mockPc * 0.45),
-              mobile: Math.round(mockMo * 0.45),
-              blogCount: Math.round(mockDocs * 0.3),
-              ratio: '0.18',
-              competition: '낮음',
-              golden: true
-            },
-            {
-              keyword: kw + ' 가격',
-              total: Math.round(mockTotal * 0.35),
-              pc: Math.round(mockPc * 0.35),
-              mobile: Math.round(mockMo * 0.35),
-              blogCount: Math.round(mockDocs * 0.5),
-              ratio: '0.42',
-              competition: '보통',
-              golden: false
-            },
-            {
-              keyword: kw + ' 비교',
-              total: Math.round(mockTotal * 0.28),
-              pc: Math.round(mockPc * 0.28),
-              mobile: Math.round(mockMo * 0.28),
-              blogCount: Math.round(mockDocs * 0.22),
-              ratio: '0.24',
-              competition: '낮음',
-              golden: true
-            },
-            {
-              keyword: kw + ' 사용법',
-              total: Math.round(mockTotal * 0.22),
-              pc: Math.round(mockPc * 0.22),
-              mobile: Math.round(mockMo * 0.22),
-              blogCount: Math.round(mockDocs * 0.6),
-              ratio: '0.85',
-              competition: '보통',
-              golden: false
-            },
-            {
-              keyword: kw + ' 후기',
-              total: Math.round(mockTotal * 0.52),
-              pc: Math.round(mockPc * 0.52),
-              mobile: Math.round(mockMo * 0.52),
-              blogCount: Math.round(mockDocs * 1.2),
-              ratio: '1.45',
-              competition: '치열',
-              golden: false
-            }
-          ]
-        };
-      }
-
-      data.engine = currentEngine;
+      var res = await fetch(base + '?q=' + encodeURIComponent(kw) + '&engine=' + currentEngine);
+      var data = await res.json().catch(function () { return null; });
+      if (!data) throw new Error('서버 응답을 읽지 못했습니다. (' + res.status + ')');
+      if (!data.success) throw new Error(data.error || '분석에 실패했습니다.');
       pushHist(data.keyword);
       renderHist();
       render(data);
+      loadInsight(data.keyword);
     } catch (e) {
-      showMessage('분석 실패: ' + (e.message || '알 수 없는 오류'), true);
+      showMessage('분석 실패: ' + (e && e.message ? e.message : '알 수 없는 오류') + ' — 잠시 후 다시 시도해 주세요.', true);
     } finally {
       running = false;
       btn.disabled = false;

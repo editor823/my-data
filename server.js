@@ -3766,7 +3766,25 @@ const server = http.createServer((req, res) => {
       try {
         const mod = await import('./worker/keyword-worker.mjs');
         const q = new URL(req.url, 'http://localhost').searchParams.get('q');
-        const { status, body } = await mod.analyzeKeyword(q, process.env);
+        const engine = new URL(req.url, 'http://localhost').searchParams.get('engine') === 'google' ? 'google' : 'naver';
+        const { status, body } = await mod.analyzeKeyword(q, process.env, engine);
+        res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify(body));
+      } catch (err) {
+        res.writeHead(502, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ success: false, error: err.message }));
+      }
+    })();
+    return;
+  }
+
+  // 9-1b. [검색 추이·성별·연령] (/api/keyword/insight?q=...) - 네이버 데이터랩 키가 있을 때만
+  if (req.url.startsWith('/api/keyword/insight')) {
+    (async () => {
+      try {
+        const mod = await import('./worker/keyword-worker.mjs');
+        const q = new URL(req.url, 'http://localhost').searchParams.get('q');
+        const { status, body } = await mod.keywordInsight(q, process.env);
         res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
         res.end(JSON.stringify(body));
       } catch (err) {
