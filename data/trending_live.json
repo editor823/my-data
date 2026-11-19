@@ -1,160 +1,12 @@
 {
   "success": true,
-  "updatedAt": "2026-11-19T02:38:46.945Z",
-  "updatedAtKst": "2026. 11. 19. AM 11:38:46",
+  "updatedAt": "2026-11-19T10:27:20.711Z",
+  "updatedAtKst": "2026. 11. 19. PM 7:27:20",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "이진우 리트 만점자 신변 우려"
-      },
-      {
-        "rank": 2,
-        "keyword": "발언하는 국민의힘 대표"
-      },
-      {
-        "rank": 3,
-        "keyword": "2027 수능 시험 당일"
-      },
-      {
-        "rank": 4,
-        "keyword": "주식 거래시간"
-      },
-      {
-        "rank": 5,
-        "keyword": "허구연 총재 3연임 확정"
-      },
-      {
-        "rank": 6,
-        "keyword": "전역"
-      },
-      {
-        "rank": 7,
-        "keyword": "금융투자협회"
-      },
-      {
-        "rank": 8,
-        "keyword": "최저주거기준 개정"
-      },
-      {
-        "rank": 9,
-        "keyword": "미국 아세안 북한 비핵화"
-      },
-      {
-        "rank": 10,
-        "keyword": "APEC 정상회담"
-      }
-    ],
-    "nate": [
-      {
-        "rank": 1,
-        "keyword": "리트 만점자 이���우 동일"
-      },
-      {
-        "rank": 2,
-        "keyword": "발언하는 장동혁 대표 동일"
-      },
-      {
-        "rank": 3,
-        "keyword": "주식 거래시간 상승 1"
-      },
-      {
-        "rank": 4,
-        "keyword": "허구연 총재 3연임 하락 1"
-      },
-      {
-        "rank": 5,
-        "keyword": "APEC 정상회의 new"
-      }
-    ],
-    "zum": [
-      {
-        "rank": 1,
-        "keyword": "수능 위급재난문자 불시 발송"
-      },
-      {
-        "rank": 2,
-        "keyword": "김창민 감독 살해 선고"
-      },
-      {
-        "rank": 3,
-        "keyword": "주택공급 3법 처리 촉구"
-      },
-      {
-        "rank": 4,
-        "keyword": "리트 만점자 수사"
-      },
-      {
-        "rank": 5,
-        "keyword": "수능 금속탐지기 도입"
-      },
-      {
-        "rank": 6,
-        "keyword": "최저주거기준 개정"
-      },
-      {
-        "rank": 7,
-        "keyword": "해수부 UNEP 해양총회 협력"
-      },
-      {
-        "rank": 8,
-        "keyword": "수능 가방 복도 보관"
-      },
-      {
-        "rank": 9,
-        "keyword": "투썸플레이스 공정위 조사"
-      },
-      {
-        "rank": 10,
-        "keyword": "송도 발코니 붕괴 조사 연장"
-      }
-    ],
-    "google": [
-      {
-        "rank": 1,
-        "keyword": "전역"
-      },
-      {
-        "rank": 2,
-        "keyword": "금융투자협회"
-      },
-      {
-        "rank": 3,
-        "keyword": "이혼"
-      },
-      {
-        "rank": 4,
-        "keyword": "네이버뉴스"
-      },
-      {
-        "rank": 5,
-        "keyword": "한국교육과정평가원"
-      },
-      {
-        "rank": 6,
-        "keyword": "시즌2"
-      },
-      {
-        "rank": 7,
-        "keyword": "전도연"
-      },
-      {
-        "rank": 8,
-        "keyword": "올랜도 대 필라데피아"
-      },
-      {
-        "rank": 9,
-        "keyword": "정치"
-      },
-      {
-        "rank": 10,
-        "keyword": "nginx"
-      }
-    ],
-    "daum": [
-      {
-        "rank": 1,
-        "keyword": "이진우 실종신고"
+        "keyword": "한덕수 대법원 선고"
       },
       {
         "rank": 2,
@@ -162,35 +14,183 @@
       },
       {
         "rank": 3,
-        "keyword": "남태현 징역 1년"
+        "keyword": "미중러 정상회담"
       },
       {
         "rank": 4,
-        "keyword": "수능 부정행위 적발"
+        "keyword": "이진우 수사 계속한다"
       },
       {
         "rank": 5,
-        "keyword": "홍나영 이혼 발표"
+        "keyword": "임원 승진 소식"
       },
       {
         "rank": 6,
-        "keyword": "최수린 아들 메기남 등장"
+        "keyword": "사건"
       },
       {
         "rank": 7,
-        "keyword": "리트 시험"
+        "keyword": "시험장"
       },
       {
         "rank": 8,
-        "keyword": "한덕수 선고"
+        "keyword": "슬픈 열대 김명민, 영어 대사와 액션 연습"
       },
       {
         "rank": 9,
-        "keyword": "추경호 1심 무죄"
+        "keyword": "박찬종 의원 별세 시신 기증"
       },
       {
         "rank": 10,
-        "keyword": "경찰 수험생 긴급 수송"
+        "keyword": "서울지하철 노조 준법투쟁"
+      }
+    ],
+    "nate": [
+      {
+        "rank": 1,
+        "keyword": "트럼프 ��진핑 푸틴 new"
+      },
+      {
+        "rank": 2,
+        "keyword": "박찬종 동일"
+      },
+      {
+        "rank": 3,
+        "keyword": "성폭행 강지환 근황 new"
+      },
+      {
+        "rank": 4,
+        "keyword": "조작기소 특검법 공포에 new"
+      },
+      {
+        "rank": 5,
+        "keyword": "단죄 무죄에 국힘 new"
+      }
+    ],
+    "zum": [
+      {
+        "rank": 1,
+        "keyword": "미중러 정상회담"
+      },
+      {
+        "rank": 2,
+        "keyword": "미중 정상회담"
+      },
+      {
+        "rank": 3,
+        "keyword": "한덕수 대법원 파기환송"
+      },
+      {
+        "rank": 4,
+        "keyword": "수능 스마트안경 부정행위"
+      },
+      {
+        "rank": 5,
+        "keyword": "서울지하철 노조 준법투쟁"
+      },
+      {
+        "rank": 6,
+        "keyword": "수능 현장 분위기"
+      },
+      {
+        "rank": 7,
+        "keyword": "재경위 예산안 의결"
+      },
+      {
+        "rank": 8,
+        "keyword": "전주대 개인정보 유출"
+      },
+      {
+        "rank": 9,
+        "keyword": "수능 휴대전화 퇴실"
+      },
+      {
+        "rank": 10,
+        "keyword": "수능 부정행위 시험지 보관"
+      }
+    ],
+    "google": [
+      {
+        "rank": 1,
+        "keyword": "국어 시험지"
+      },
+      {
+        "rank": 2,
+        "keyword": "셀트리온"
+      },
+      {
+        "rank": 3,
+        "keyword": "fifa 랭킹"
+      },
+      {
+        "rank": 4,
+        "keyword": "lg디스플레이"
+      },
+      {
+        "rank": 5,
+        "keyword": "sri lanka vs pakistan"
+      },
+      {
+        "rank": 6,
+        "keyword": "사건"
+      },
+      {
+        "rank": 7,
+        "keyword": "시험장"
+      },
+      {
+        "rank": 8,
+        "keyword": "수능 답지"
+      },
+      {
+        "rank": 9,
+        "keyword": "수능 등급컷"
+      },
+      {
+        "rank": 10,
+        "keyword": "라미란"
+      }
+    ],
+    "daum": [
+      {
+        "rank": 1,
+        "keyword": "한덕수 선고"
+      },
+      {
+        "rank": 2,
+        "keyword": "박찬종 별세"
+      },
+      {
+        "rank": 3,
+        "keyword": "이진우 사망 제적 예정"
+      },
+      {
+        "rank": 4,
+        "keyword": "김건희 징역 4년 확정"
+      },
+      {
+        "rank": 5,
+        "keyword": "오경미 대법관"
+      },
+      {
+        "rank": 6,
+        "keyword": "김명민 스크린 복귀"
+      },
+      {
+        "rank": 7,
+        "keyword": "조국혁신당 조희대 탄핵 촉구"
+      },
+      {
+        "rank": 8,
+        "keyword": "한국 수출 1조달러"
+      },
+      {
+        "rank": 9,
+        "keyword": "2027 수능"
+      },
+      {
+        "rank": 10,
+        "keyword": "노시환 포스팅"
       }
     ]
   },
