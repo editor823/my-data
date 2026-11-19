@@ -1,16 +1,16 @@
 {
   "success": true,
-  "updatedAt": "2026-11-19T10:27:20.711Z",
-  "updatedAtKst": "2026. 11. 19. PM 7:27:20",
+  "updatedAt": "2026-11-19T11:52:20.301Z",
+  "updatedAtKst": "2026. 11. 19. PM 8:52:20",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "한덕수 대법원 선고"
+        "keyword": "수능 부정행위자 98명"
       },
       {
         "rank": 2,
-        "keyword": "수능 시간표"
+        "keyword": "대법 한덕수 파기환송"
       },
       {
         "rank": 3,
@@ -18,143 +18,143 @@
       },
       {
         "rank": 4,
-        "keyword": "이진우 수사 계속한다"
+        "keyword": "이진우 수사 계속 진행"
       },
       {
         "rank": 5,
-        "keyword": "임원 승진 소식"
+        "keyword": "김다현"
       },
       {
         "rank": 6,
-        "keyword": "사건"
+        "keyword": "비상 의총 참석 김민석"
       },
       {
         "rank": 7,
-        "keyword": "시험장"
+        "keyword": "성폭행 유죄 강지환 근황 공개"
       },
       {
         "rank": 8,
-        "keyword": "슬픈 열대 김명민, 영어 대사와 액션 연습"
+        "keyword": "데프트"
       },
       {
         "rank": 9,
-        "keyword": "박찬종 의원 별세 시신 기증"
+        "keyword": "하이파이브 이상민 감독"
       },
       {
         "rank": 10,
-        "keyword": "서울지하철 노조 준법투쟁"
+        "keyword": "롯데타운 크리스마스 마켓"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "트럼프 ��진핑 푸틴 new"
+        "keyword": "강지환 동일"
       },
       {
         "rank": 2,
-        "keyword": "박찬종 동일"
+        "keyword": "롯데타운 크리스마스 마켓 동일"
       },
       {
         "rank": 3,
-        "keyword": "성폭행 강지환 근황 new"
+        "keyword": "미중러 정상 new"
       },
       {
         "rank": 4,
-        "keyword": "조작기소 특검법 공포에 new"
+        "keyword": "수출 1조 달러 4번째 new"
       },
       {
         "rank": 5,
-        "keyword": "단죄 무죄에 국힘 new"
+        "keyword": "루이스 킹 하락 1"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "미중러 정상회담"
+        "keyword": "조희대 대법원장 탄핵"
       },
       {
         "rank": 2,
-        "keyword": "미중 정상회담"
+        "keyword": "미중러 정상회담"
       },
       {
         "rank": 3,
-        "keyword": "한덕수 대법원 파기환송"
+        "keyword": "국가자격시험 부정행위 제재"
       },
       {
         "rank": 4,
-        "keyword": "수능 스마트안경 부정행위"
-      },
-      {
-        "rank": 5,
-        "keyword": "서울지하철 노조 준법투쟁"
-      },
-      {
-        "rank": 6,
         "keyword": "수능 현장 분위기"
       },
       {
+        "rank": 5,
+        "keyword": "변호사시험 AI 부정행위 전수조사"
+      },
+      {
+        "rank": 6,
+        "keyword": "수능 스마트안경 부정행위"
+      },
+      {
         "rank": 7,
-        "keyword": "재경위 예산안 의결"
+        "keyword": "크림대교 공격"
       },
       {
         "rank": 8,
-        "keyword": "전주대 개인정보 유출"
+        "keyword": "이재명 대통령 귀국"
       },
       {
         "rank": 9,
-        "keyword": "수능 휴대전화 퇴실"
+        "keyword": "수능 시험장 와이파이 차단"
       },
       {
         "rank": 10,
-        "keyword": "수능 부정행위 시험지 보관"
+        "keyword": "재경위 예산안 의결"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "국어 시험지"
+        "keyword": "한진칼"
       },
       {
         "rank": 2,
-        "keyword": "셀트리온"
+        "keyword": "한국수력원자력"
       },
       {
         "rank": 3,
-        "keyword": "fifa 랭킹"
+        "keyword": "이지영"
       },
       {
         "rank": 4,
-        "keyword": "lg디스플레이"
+        "keyword": "강지환"
       },
       {
         "rank": 5,
-        "keyword": "sri lanka vs pakistan"
+        "keyword": "김다현"
       },
       {
         "rank": 6,
-        "keyword": "사건"
+        "keyword": "데프트"
       },
       {
         "rank": 7,
-        "keyword": "시험장"
+        "keyword": "수원 kt 대 서울 sk"
       },
       {
         "rank": 8,
-        "keyword": "수능 답지"
+        "keyword": "bangladesh vs south africa"
       },
       {
         "rank": 9,
-        "keyword": "수능 등급컷"
+        "keyword": "안양 정관장 대 부산 kcc"
       },
       {
         "rank": 10,
-        "keyword": "라미란"
+        "keyword": "수험표 할인"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "한덕수 선고"
+        "keyword": "수능 등급컷"
       },
       {
         "rank": 2,
@@ -162,11 +162,11 @@
       },
       {
         "rank": 3,
-        "keyword": "이진우 사망 제적 예정"
+        "keyword": "조희대 대법원장 탄핵 추진"
       },
       {
         "rank": 4,
-        "keyword": "김건희 징역 4년 확정"
+        "keyword": "강지환 틱톡커 변신"
       },
       {
         "rank": 5,
@@ -174,23 +174,23 @@
       },
       {
         "rank": 6,
-        "keyword": "김명민 스크린 복귀"
+        "keyword": "김건희 징역 4년 확정"
       },
       {
         "rank": 7,
-        "keyword": "조국혁신당 조희대 탄핵 촉구"
-      },
-      {
-        "rank": 8,
-        "keyword": "한국 수출 1조달러"
-      },
-      {
-        "rank": 9,
         "keyword": "2027 수능"
       },
       {
+        "rank": 8,
+        "keyword": "한덕수 징역 15년 파기환송"
+      },
+      {
+        "rank": 9,
+        "keyword": "남태현 음주운전 실형"
+      },
+      {
         "rank": 10,
-        "keyword": "노시환 포스팅"
+        "keyword": "다카이치 고립"
       }
     ]
   },
