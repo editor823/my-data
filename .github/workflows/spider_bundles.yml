@@ -1,0 +1,69 @@
+name: Spider Keyword Bundles (거미줄치기 추천 묶음 사흘마다 갱신)
+
+on:
+  schedule:
+    # 매일 한국시간 오전 6시 37분 실행. 스크립트가 마지막 생성 후 72시간이 지났을 때만 새로 만듭니다.
+    # (실행이 하루 누락되어도 다음 날 바로 따라잡도록 매일 확인)
+    - cron: '37 21 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: '사흘이 안 지났어도 지금 새로 만들기'
+        type: boolean
+        default: false
+
+concurrency:
+  group: spider-bundles
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node.js 환경 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 추천 묶음 생성
+        run: node scripts/update_spider_bundles.mjs ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+        env:
+          NAVER_AD_CUSTOMER_ID: ${{ secrets.NAVER_AD_CUSTOMER_ID }}
+          NAVER_AD_ACCESS_LICENSE: ${{ secrets.NAVER_AD_ACCESS_LICENSE }}
+          NAVER_AD_SECRET_KEY: ${{ secrets.NAVER_AD_SECRET_KEY }}
+
+      - name: 변경 사항 커밋
+        run: |
+          git config --global user.name 'KeywordBot'
+          git config --global user.email 'bot@auto-collector.local'
+          git add data/spider_bundles.json data/spider_bundles.js
+          if git diff --staged --quiet; then
+            echo "변경된 묶음 없음"
+            exit 0
+          fi
+          git commit -m "chore(auto): spider keyword bundles refresh [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash -X theirs origin "${GITHUB_REF_NAME}" && git push origin HEAD:"${GITHUB_REF_NAME}" && exit 0
+            echo "push 재시도 ${i}/5..."
+            sleep $((i * 10))
+          done
+          echo "::error::5회 재시도 후에도 push 실패"
+          exit 1
+
+      - name: 실패 시 텔레그램 알림
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then exit 0; fi
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=🚨 [머니대외비] 거미줄치기 추천 묶음 갱신 실패 ${RUN_URL}" > /dev/null || true

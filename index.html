@@ -21,11 +21,13 @@
   <!-- 서브 탭 및 부가 컴포넌트 스타일시트 비동기 로드 (초기 렌더링 차단 제거) -->
   <link rel="preload" href="css/components.css?v=20261004_blog_light_guide" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="css/keyword.css?v=20261029_own1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="css/spider.css?v=20261119_v1" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="css/homefeed_radar.css?v=20261029_secret_v2" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" as="style" crossorigin onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="css/components.css?v=20261004_blog_light_guide">
     <link rel="stylesheet" href="css/keyword.css?v=20261029_own1">
+    <link rel="stylesheet" href="css/spider.css?v=20261119_v1">
     <link rel="stylesheet" href="css/homefeed_radar.css?v=20261029_secret_v2">
   </noscript>
 
@@ -65,6 +67,7 @@
         <li><button class="nav-btn" data-tab="ranktracker">블로그 노출 추적</button></li>
         <li><button class="nav-btn" data-tab="prompt">글쓰기프롬프트</button></li>
         <li><button class="nav-btn" data-tab="external">외부유입글생성</button></li>
+        <li><button class="nav-btn" data-tab="spider">🕸️ 거미줄치기</button></li>
         <li><button class="nav-btn" data-tab="converter">이미지변환기</button></li>
         <li><button class="nav-btn" data-tab="imggen">🎨 AI 이미지 생성기</button></li>
         <li><a href="https://my-data-stock.pages.dev" target="_blank" rel="noopener noreferrer" class="nav-btn" style="color: #0284c7; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center;">📈 주식분석센터 ↗</a></li>
@@ -2324,6 +2327,70 @@
     </section>
 
     <!-- [TAB 6] 이미지 변환기 화면 (머니대외비 1:1 완벽 구현) -->
+    <!-- [TAB] 거미줄치기 키워드 생성 (js/spider.js 가 결과를 그립니다) -->
+    <section id="tab-spider" class="tab-section">
+      <div class="sp-wrap">
+        <div class="sp-card">
+          <h1 class="sp-title">거미줄치기 키워드 생성하기</h1>
+          <p class="sp-desc">
+            <b>메인 키워드</b>를 넣으면 사람들이 <b>지식iN에 실제로 물어본 질문</b>과 네이버·구글 검색창의 연관 검색어를 모아,
+            메인 글(A 계정)로 이어 줄 <b>연결 글 키워드</b>를 만듭니다.
+            <b>B 계정</b>에는 검색창 연관 검색어, <b>C 계정</b>에는 지식iN 질문에서 뽑은 키워드가 최대 7개씩 들어가고, 남는 것은 예비로 갑니다.
+          </p>
+          <details class="sp-how">
+            <summary>거미줄 구조가 뭔가요?</summary>
+            <div class="sp-how-body">
+              <p><b>A 계정</b>에는 신청 방법·금액·조건을 모두 정리한 메인 글을 씁니다. <b>B·C 계정</b>에는 거기서 갈라지는 좁은 질문 하나만 다룬 짧은 글을 씁니다.</p>
+              <p>작은 질문 글은 경쟁이 약해서 먼저 노출됩니다. 그 글을 읽은 사람이 전체 내용을 보러 A의 메인 글로 넘어오도록 <b>링크 1개</b>를 넣습니다. 작은 글이 길목을 잡고, 메인 글이 손님을 받는 구조입니다.</p>
+            </div>
+          </details>
+
+          <form id="spForm" class="sp-form" role="search">
+            <input id="spInput" class="sp-input" type="search" placeholder="예: 자동차세 연납" autocomplete="off" maxlength="30">
+            <button id="spGo" class="sp-go" type="submit">키워드 뽑기</button>
+          </form>
+          <div id="spHist" class="sp-hist"></div>
+
+          <div class="sp-rules">
+            <div class="sp-rules-t">꼭 지켜 주세요</div>
+            <ol>
+              <li>최대 7개까지 보여 드리지만, 한 계정에는 한 세트에서 <b>3~4개까지만</b> 골라 쓰세요. 한 계정에 몰아 쓰면 구글·네이버에서 스팸으로 분류될 수 있습니다.</li>
+              <li>같은 날 여러 글을 한꺼번에 올리지 말고 날짜를 나눠 올리세요.</li>
+              <li>메인 글로 가는 링크는 글 하나에 <b>1개만</b> 넣으세요.</li>
+              <li>검색량과 문서 수는 재지 않은 목록입니다. 쓰기 전에 키워드분석기로 확인해 보세요.</li>
+            </ol>
+          </div>
+
+          <div id="spResult" class="sp-result"></div>
+
+          <p class="sp-note">
+            지식iN 키워드는 질문 제목에서 낱말을 골라 만든 것이라 말이 어색할 수 있습니다. <b>질문 보기</b>를 누르면 지식iN 원문이 새 창으로 열리니,
+            원래 질문을 보고 글 제목은 자연스럽게 다듬어 쓰세요. 결과는 누를 때마다 그 시점의 검색창과 지식iN에서 새로 가져옵니다.
+            상위 노출이나 수익을 보장하지 않습니다.
+          </p>
+        </div>
+
+        <div class="sp-card">
+          <div class="sp-rec-head">
+            <div>
+              <h2 class="sp-sub">사흘마다 바뀌는 추천 묶음</h2>
+              <p class="sp-desc">최근 정부 정책·지원금 뉴스에서 <b>신청이나 지급 일정이 있어 앞으로 검색이 붙을 주제</b>를 골라 메인 키워드와 연결 키워드를 묶어 두었습니다. 누르면 바로 세트가 열립니다.</p>
+            </div>
+            <span id="spRecStamp" class="sp-stamp"></span>
+          </div>
+          <div id="spRec" class="sp-rec"></div>
+          <details class="sp-how">
+            <summary>데이터 기준과 해석 방법</summary>
+            <div class="sp-how-body">
+              <p><b>주제 고르기</b>: 최근 7일 정책·지원금 뉴스 제목에서 신청·접수·지급 표현이 있는 정책 이름을 뽑고, 기사가 2건 이상이면서 네이버 자동완성에 연관 검색어가 3개 이상 붙는 것만 남깁니다. 월 검색량(네이버 검색광고 기준) 순으로 10개를 고릅니다.</p>
+              <p><b>보충 주제</b>: 뉴스에서 10개가 안 되면, 해마다 신청 일정이 있는 정책으로 채우고 "상시 주제"로 표시합니다.</p>
+              <p><b>일정 힌트</b>는 기사 제목에 적힌 날짜를 그대로 옮긴 것입니다. 금액·날짜·조건은 반드시 공식 발표에서 다시 확인하세요.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section id="tab-converter" class="tab-section">
       <div class="conv-container-card">
         
@@ -2880,6 +2947,8 @@
   <script defer src="js/prompt.js?v=20261002_clean_single_btn"></script>
   <script defer src="js/admin.js?v=20260914_final"></script>
   <script defer src="js/external.js?v=20260914_final"></script>
+  <script defer src="data/spider_bundles.js?v=20261119_v1"></script>
+  <script defer src="js/spider.js?v=20261119_v1"></script>
   <script defer src="js/converter.js?v=20260926_soft_warm_light"></script>
   <script defer src="js/imggen.js?v=20260915_imagen3_v2_fallback"></script>
   <script defer src="data/blog_exposure_editer0823.js?v=20261029_v1"></script>

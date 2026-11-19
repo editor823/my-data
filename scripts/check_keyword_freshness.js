@@ -21,6 +21,8 @@ const CHECKS = [
   { name: '곧 뜰 숏텐츠 후보', file: 'data/shortents_predictions.json', fields: ['generatedAt', 'updatedAt'], maxAgeHours: 36, level: 'fail' },
   { name: '키워드센터', file: 'data/keyword_center_live.json', fields: ['generatedAt', 'updatedAt'], maxAgeHours: 36, level: 'fail' },
   { name: '비밀 키워드', file: 'data/secret_keywords_live.json', fields: ['refreshedAt', 'generatedAt'], maxAgeHours: 36, level: 'fail' },
+  // 거미줄치기 추천 묶음은 사흘(72시간)마다 갱신 → 하루 여유를 두고 경고만
+  { name: '거미줄치기 추천 묶음', file: 'data/spider_bundles.json', fields: ['generatedAt'], maxAgeHours: 96, level: 'warn' },
   // 시즌 캘린더는 월별(months[]) 항목마다 generatedAt 이 있어 가장 최근 값을 사용
   { name: '시즌 캘린더', file: 'data/seasonal_calendar_live.json', fields: ['generatedAt', 'updatedAt'], maxAgeHours: 24 * 14, level: 'warn',
     getTs: d => (Array.isArray(d.months) ? d.months.map(m => m && m.generatedAt).filter(Boolean).sort().pop() : null) }

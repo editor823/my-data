@@ -172,6 +172,13 @@ body {
   flex-wrap: nowrap;
 }
 
+/* 넓은 화면: 메뉴가 늘어도 페이지 밖으로 넘치지 않게 (여백 축소 + 넘치면 메뉴 안에서만 가로 스크롤) */
+@media (min-width: 1101px) {
+  .nav-menu { gap: 2px; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+  .nav-menu::-webkit-scrollbar { display: none; }
+  .nav-menu .nav-btn { padding: 7px 9px; }
+}
+
 .nav-btn {
   background: transparent;
   border: 1px solid transparent;

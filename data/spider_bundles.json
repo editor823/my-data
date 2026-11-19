@@ -1,0 +1,1056 @@
+{
+  "generatedAt": "2026-11-19T09:41:27.023Z",
+  "nextRefreshAt": "2026-11-22T09:41:27.023Z",
+  "refreshHours": 72,
+  "newsScanned": 198,
+  "topics": [
+    {
+      "keyword": "에너지바우처",
+      "origin": "news",
+      "volume": 74900,
+      "articleCount": 4,
+      "schedule": "",
+      "news": [
+        {
+          "title": "보일러 켜기 전 확인할 난방비 지원…에너지바우처 신청은 연말까지",
+          "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBmQVFYeEtQN1p3eThtVlZKcDFBbGdZcXhjaUZTbHBsSzgwREpNVEtGSi1jbzlQbnFNZDVtU242M3BDQ3hqdEpZZzAwRF93VzJ6VHQtWlpsd25TLVNpcGFxUUhHekVZUVRX?oc=5",
+          "source": "CBC뉴스",
+          "pubDate": "Sun, 15 Nov 2026 15:00:00 GMT"
+        },
+        {
+          "title": "2026 에너지바우처 겨울 난방비 지원: 신청 조건·금액과 등유·LPG 추가 지원",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBGdkt2LVNfNWFmN3J0N3YxdmhmdDNxS01CbGp0SDFIa3lSYzh4MHI2TW1pZlJZdFNlRzUwcXNRRjBkczkyb0NQY0dzUnYwNWhZOU1kVTRn?oc=5",
+          "source": "고향사랑기부제 위기브",
+          "pubDate": "Mon, 16 Nov 2026 03:06:35 GMT"
+        },
+        {
+          "title": "복지 사각지대 줄이는 '에너지바우처 찾아드림 서비스' 도입··· 난방비 현금 지원하는 '사전 현금지급'도 신설",
+          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPdFR4dllTZHAtcUhGREVwVmVOWlk4dkgxX2NVczRoUU5KR29BalZpMUVzUzdTTnVUVU5JVGRsREF6RDNFRTBMc2Vxel9rYmJEeFZZZkR3eTFzLWRHMUZKU2cxelVIXzNPTGJGNEZnSEc3UnFjeHZLZ3dlY3luVDlhX3o0NjBKNkdmajJKLWVn?oc=5",
+          "source": "Naver Blog",
+          "pubDate": "Tue, 17 Nov 2026 01:01:26 GMT"
+        }
+      ],
+      "b": [
+        {
+          "keyword": "에너지바우처 대상",
+          "source": "naver"
+        },
+        {
+          "keyword": "에너지바우처 신청",
+          "source": "google"
+        },
+        {
+          "keyword": "에너지바우처 잔액조회",
+          "source": "naver"
+        },
+        {
+          "keyword": "에너지바우처 자격",
+          "source": "google"
+        },
+        {
+          "keyword": "에너지바우처 사용처",
+          "source": "naver"
+        },
+        {
+          "keyword": "에너지바우처 잔액조회 방법",
+          "source": "google"
+        },
+        {
+          "keyword": "부산 에너지바우처",
+          "source": "naver"
+        }
+      ],
+      "c": [
+        {
+          "keyword": "에너지바우처 문화누리카드",
+          "source": "kin",
+          "question": "에너지바우처와 문화누리카드",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=6100101&docId=495906866"
+        },
+        {
+          "keyword": "에너지바우처 중증장애인 차상위",
+          "source": "kin",
+          "question": "중증장애인 차상위도 에너지바우처 주나요",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=6100101&docId=495865619"
+        },
+        {
+          "keyword": "에너지바우처 기초생활수급자",
+          "source": "kin",
+          "question": "기초생활수급자 에너지바우처",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=6100101&docId=495893379"
+        },
+        {
+          "keyword": "에너지바우처 부정사용",
+          "source": "kin",
+          "question": "에너지바우처 부정사용, 에너지이용권을 돈 받고 팔거나 빌려주면 어떤 불이익이 있나요?",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60215&docId=495998129"
+        },
+        {
+          "keyword": "에너지바우처 사용 기간",
+          "source": "kin",
+          "question": "에너지바우처 사용 기간과 방법, 어렵지 않나요?",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=1001010201&docId=495911198"
+        },
+        {
+          "keyword": "에너지바우처 난방긴급바우처",
+          "source": "kin",
+          "question": "긴급생계비 에너지바우처 및 난방긴급바우처",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=6100101&docId=495963930"
+        }
+      ],
+      "spare": [
+        {
+          "keyword": "에너지바우처 고객번호",
+          "source": "naver"
+        },
+        {
+          "keyword": "에너지바우처 잔액 확인",
+          "source": "google"
+        },
+        {
+          "keyword": "임산부 에너지바우처",
+          "source": "naver"
+        },
+        {
+          "keyword": "에너지바우처 홈페이지",
+          "source": "google"
+        },
+        {
+          "keyword": "에너지바우처 사용방법",
+          "source": "naver"
+        },
+        {
+          "keyword": "에너지바우처 신청 방법",
+          "source": "google"
+        }
+      ],
+      "counts": {
+        "total": 19,
+        "kin": 6
+      }
+    },
+    {
+      "keyword": "장애인스포츠강좌이용권",
+      "origin": "news",
+      "volume": 22930,
+      "articleCount": 2,
+      "schedule": "27일까지",
+      "news": [
+        {
+          "title": "‘스포츠의 즐거움, 차별 없이 누린다’ 태안군, 27일까지 장애인스포츠강좌이용권 신청 접수",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9ZTTM0VEtISUo2bUxUN2JKaUk4ejVYazlRSXhoa1BQcDhtbktUbmJFRHRMTDR3Yy1EckJVOTA0VG5IV1RjOXBXRzI3bUFDN2F2bEI3TEJ3?oc=5",
+          "source": "뉴스21 통신",
+          "pubDate": "Thu, 19 Nov 2026 09:21:49 GMT"
+        },
+        {
+          "title": "충남 태안군, 2027년 장애인스포츠강좌이용권 신청 접수…27일 마감",
+          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1PZUU3S21TWGIzWTdXT0djRW9qZlFtV2M5Tll1U205anVYRlQtSGM5RXF0Smt4YUtScUdMTFFtbkhrUlJXTUREeE5iNjM0a25LZ2VOYWZIWmFNeVBBd05zZ3A2SG40ZVlXckFIOFNB?oc=5",
+          "source": "뉴스홈(newshome)",
+          "pubDate": "Thu, 19 Nov 2026 00:41:32 GMT"
+        }
+      ],
+      "b": [
+        {
+          "keyword": "장애인스포츠강좌이용권 신청",
+          "source": "naver"
+        },
+        {
+          "keyword": "장애인스포츠강좌이용권 홈페이지",
+          "source": "google"
+        },
+        {
+          "keyword": "장애인스포츠강좌이용권 사용처",
+          "source": "naver"
+        },
+        {
+          "keyword": "장애인스포츠강좌이용권 가맹시설",
+          "source": "google"
+        },
+        {
+          "keyword": "장애인스포츠강좌이용권 가맹점",
+          "source": "google"
+        },
+        {
+          "keyword": "장애인스포츠강좌이용권 결제",
+          "source": "naver"
+        },
+        {
+          "keyword": "장애인스포츠강좌이용권 사용방법",
+          "source": "naver"
+        }
+      ],
+      "c": [
+        {
+          "keyword": "장애인스포츠강좌이용권 카드발급 절차문",
+          "source": "kin",
+          "question": "(장애인)스포츠강좌이용권 카드발급 절차문의",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60105&docId=494364242"
+        },
+        {
+          "keyword": "장애인스포츠강좌이용권 신청 방법",
+          "source": "kin",
+          "question": "장애인스포츠강좌이용권 신청 방법",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60105&docId=493659148"
+        },
+        {
+          "keyword": "장애인스포츠강좌이용권 자유수영문",
+          "source": "kin",
+          "question": "장애인 스포츠 강좌이용권 자유수영문의",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=100201&docId=432363680"
+        },
+        {
+          "keyword": "장애인스포츠강좌이용권 지원사업 신청",
+          "source": "kin",
+          "question": "2020년 장애인 스포츠강좌이용권 지원사업 신청 안내",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60105&docId=362030933"
+        }
+      ],
+      "spare": [
+        {
+          "keyword": "장애인스포츠강좌이용권 신청기간",
+          "source": "google"
+        },
+        {
+          "keyword": "장애인스포츠강좌이용권 카드",
+          "source": "google"
+        },
+        {
+          "keyword": "장애인스포츠강좌이용권 카드발급",
+          "source": "naver"
+        },
+        {
+          "keyword": "국민체육진흥공단 장애인스포츠강좌이용권",
+          "source": "google"
+        },
+        {
+          "keyword": "2026년 장애인스포츠강좌이용권",
+          "source": "google"
+        }
+      ],
+      "counts": {
+        "total": 16,
+        "kin": 4
+      }
+    },
+    {
+      "keyword": "학자금대출",
+      "origin": "news",
+      "volume": 18860,
+      "articleCount": 2,
+      "schedule": "",
+      "news": [
+        {
+          "title": "[한입신문 장학브리핑] 11월 셋째 주.. 학자금대출 17일 신청 접수 마감, 장학금과 겨울 기숙사 일정 확인",
+          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1ubGhDbGtzMFFkWmdCZmYwRFQ2SDk3ZFFGR2J1dDhlTmdxYmdRanBVN2c0TFZnNGoxMVpOd2JYa3cybmJITW02dEFmRWhsemNRazRrUDhpVm12S1kyWXg1UGdsaVRSOG85Zmc?oc=5",
+          "source": "한입신문",
+          "pubDate": "Sun, 15 Nov 2026 06:59:33 GMT"
+        },
+        {
+          "title": "서울 학자금대출 신용회복 지원 20일 마감",
+          "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1Jd0RLVEpvekVxSkhnZ2xEc2ItaGdjbUF6ZVptaWlZSkpKWFlBaGNJb0s3b2FkVGZVd2luSlhKWk9NT2MtNmZsWHNXVDdlWDJvMVdsOTNILV9Sbm1FQnUyelVVNEE1QQ?oc=5",
+          "source": "비건뉴스",
+          "pubDate": "Thu, 19 Nov 2026 00:49:59 GMT"
+        }
+      ],
+      "b": [
+        {
+          "keyword": "2학기학자금대출",
+          "source": "naver"
+        },
+        {
+          "keyword": "학자금대출 이자",
+          "source": "google"
+        },
+        {
+          "keyword": "학자금대출성적",
+          "source": "naver"
+        },
+        {
+          "keyword": "학자금대출 신청기간",
+          "source": "google"
+        },
+        {
+          "keyword": "학자금대출 상환",
+          "source": "google"
+        },
+        {
+          "keyword": "학자금대출받는법",
+          "source": "naver"
+        },
+        {
+          "keyword": "학자금대출 조건",
+          "source": "google"
+        }
+      ],
+      "c": [
+        {
+          "keyword": "학자금대출 생활비",
+          "source": "kin",
+          "question": "학자금 대출 생활비",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=4010504&docId=495965537"
+        },
+        {
+          "keyword": "학자금대출 장학금",
+          "source": "kin",
+          "question": "국가 장학금, 학자금 대출 관련 질문",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=4010504&docId=495810662"
+        },
+        {
+          "keyword": "학자금대출 휴학생",
+          "source": "kin",
+          "question": "휴학생 학자금대출",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=4010504&docId=495512327"
+        },
+        {
+          "keyword": "학자금대출 납부",
+          "source": "kin",
+          "question": "학자금 대출 납부",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=4010504&docId=495959715"
+        },
+        {
+          "keyword": "학자금대출 심사 기간",
+          "source": "kin",
+          "question": "대학원 등록금 학자금 대출 심사 기간 및 납부일?",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=4010504&docId=494082319"
+        }
+      ],
+      "spare": [
+        {
+          "keyword": "학자금대출취업후상환",
+          "source": "naver"
+        },
+        {
+          "keyword": "학자금대출 생활비대출",
+          "source": "google"
+        },
+        {
+          "keyword": "저축은행학자금대출",
+          "source": "naver"
+        },
+        {
+          "keyword": "학자금대출 기간",
+          "source": "google"
+        },
+        {
+          "keyword": "대학원학자금대출",
+          "source": "naver"
+        },
+        {
+          "keyword": "학자금대출 금리",
+          "source": "google"
+        }
+      ],
+      "counts": {
+        "total": 18,
+        "kin": 5
+      }
+    },
+    {
+      "keyword": "심리상담 바우처",
+      "origin": "news",
+      "volume": 1680,
+      "articleCount": 4,
+      "schedule": "",
+      "news": [
+        {
+          "title": "예산 소진 전 신청하세요, 「정신건강 심리상담 바우처 사업」이용자 모집",
+          "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE13YWtVZWs2ZGhpZFlTTXkyTEptbWxhSnJqU190eFd0bGNNWXFnbU1vaV81ZDlMa3dwMHBfdmJWZllMendqaVBhNWZqNTNfMG44YjJsd013U1lwNTVJQkxqUXZlVDJOSTJvc1hIM01wR3o?oc=5",
+          "source": "포인트경남",
+          "pubDate": "Tue, 17 Nov 2026 03:06:53 GMT"
+        },
+        {
+          "title": "거제시, 정신건강 심리상담 바우처 이용자 모집…예산 소진 시까지",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9OOEpYc3ZLcXJaNUJuUkU2MGxDdWVUSkh6MHU0UEtXM3hzSEktOERBOGpZQkhyaXhoMmQxU3dyNldsT0NUNmlSMnBjNFhjUGF3ZF9waXhkdTJWYVJWM1pfNGtpdVBFM1VhN3Y0?oc=5",
+          "source": "새거제신문",
+          "pubDate": "Tue, 17 Nov 2026 03:42:37 GMT"
+        },
+        {
+          "title": "거제시, 정신건강 심리상담 바우처 사업 신청 안내…1인당 최대 64만원 지원",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAzN3RCcXgtMnByc1hfVlpYV29qUjIwTXBLd0hvQUVYQkxrWmJFXzFILXF4TG90WkhzamR4dlF5UklqbVZSSXdIczRKUzd5NmhRcFFUNkk5UUFWc1NVOXNGVnpKNmIzQzhfNWVV?oc=5",
+          "source": "한국사회복지저널",
+          "pubDate": "Tue, 17 Nov 2026 04:36:22 GMT"
+        }
+      ],
+      "b": [
+        {
+          "keyword": "정신건강 심리상담 바우처",
+          "source": "naver"
+        },
+        {
+          "keyword": "심리상담 바우처 2026",
+          "source": "google"
+        },
+        {
+          "keyword": "심리상담 바우처 신청",
+          "source": "naver"
+        },
+        {
+          "keyword": "심리상담 바우처 사업",
+          "source": "google"
+        },
+        {
+          "keyword": "심리상담 바우처 기관",
+          "source": "naver"
+        },
+        {
+          "keyword": "심리상담 바우처 사용처",
+          "source": "naver"
+        },
+        {
+          "keyword": "심리상담 바우처 디시",
+          "source": "google"
+        }
+      ],
+      "c": [
+        {
+          "keyword": "심리상담 바우처 정신건강",
+          "source": "kin",
+          "question": "정신건강 심리상담 바우처",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=1130&docId=495026481"
+        },
+        {
+          "keyword": "심리상담 바우처 의뢰서 발급",
+          "source": "kin",
+          "question": "정신건강 심리상담 바우처 의뢰서 발급 방법",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60105&docId=494440528"
+        },
+        {
+          "keyword": "심리상담 바우처 국민행복카드 빌급",
+          "source": "kin",
+          "question": "심리상담 바우처 국민행복카드 빌급 후 돈 바로 들어오나요??",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=40104&docId=494690940"
+        },
+        {
+          "keyword": "심리상담 바우처 사업 신청",
+          "source": "kin",
+          "question": "정신건강 심리상담 바우처사업 신청 방법",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60105&docId=494215804"
+        },
+        {
+          "keyword": "심리상담 바우처 본인부담률 변경",
+          "source": "kin",
+          "question": "정신건강 심리상담 바우처 본인부담률 변경",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60105&docId=493512008"
+        },
+        {
+          "keyword": "심리상담 바우처 초과금액 결제",
+          "source": "kin",
+          "question": "정신건강 심리상담 바우처 초과금액 결제 계좌이체",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=709&docId=492090299"
+        },
+        {
+          "keyword": "심리상담 바우처 국민행복카드 우리카드",
+          "source": "kin",
+          "question": "심리상담 바우처 국민행복카드 우리카드 되나요?",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=6100401&docId=493291397"
+        }
+      ],
+      "spare": [
+        {
+          "keyword": "심리상담 바우처 카드 발급",
+          "source": "naver"
+        },
+        {
+          "keyword": "심리상담 바우처 사업 2026",
+          "source": "google"
+        },
+        {
+          "keyword": "심리상담 바우처 인천",
+          "source": "naver"
+        },
+        {
+          "keyword": "심리상담 바우처 신청 방법",
+          "source": "google"
+        },
+        {
+          "keyword": "심리상담 바우처 가격",
+          "source": "naver"
+        },
+        {
+          "keyword": "심리상담 바우처 후기",
+          "source": "google"
+        }
+      ],
+      "counts": {
+        "total": 20,
+        "kin": 7
+      }
+    },
+    {
+      "keyword": "복지급여",
+      "origin": "news",
+      "volume": 830,
+      "articleCount": 9,
+      "schedule": "4일까지",
+      "news": [
+        {
+          "title": "복지급여 '신청주의 개선' 새로운 이름 공모…내달 4일까지 접수",
+          "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE4zTnJxbUlfS05KMl9YQnBWOGZQekl5bXZsTlNhY2FyczA0ZDVvZkNaZ2t3NHZNU3I1VXM4V2VERmdVVFlqRmRvMm1JdE1pT1k0ZUJMMlpWOWZ2TTI1?oc=5",
+          "source": "뉴스1",
+          "pubDate": "Thu, 19 Nov 2026 03:00:00 GMT"
+        },
+        {
+          "title": "아동수당 자동지급 등 복지급여 신청 절차 바뀐다…복지부, 새 정책 이름 공모",
+          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBBMkc2WmI3QkNOdUtELWdJb2Jubkc3VEVOanFWR20yMF95ZW5YaU9QbVB6eFNPOXhCczhxLUY1NEl1SHhiS01nMktQTDJydW13NGMzYm5SbVRpUlI1dWJ0NTBpcTB4d3ZTbEhRN053?oc=5",
+          "source": "간호사신문",
+          "pubDate": "Thu, 19 Nov 2026 05:38:55 GMT"
+        },
+        {
+          "title": "'복지급여 신청주의 개선 정책' 새 이름, 다음 달 4일까지 공모",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5QR2d6eXp6NzFwMk5MZHNQUjJPU1laZGlOaXhkS1pxNVNhMVd3ME0wTGRaY0x3V01WbjRWTm9wREZpanMtXzBzdlh5OXNxeE9GV2pidFdSM1hmNm_SAWBBVV95cUxNZHJsZS1UeENXVkc5amNmank0UDc5SjRVeTV5QUtHRkdwXzVXSjhJWkhHSEhzblZuUnlYQW9MODNEZ0FvM1pSREZRUnVjWHFvNW5CY2xJNmw2c25xSkxJWUM?oc=5",
+          "source": "연합뉴스",
+          "pubDate": "Thu, 19 Nov 2026 03:00:09 GMT"
+        }
+      ],
+      "b": [
+        {
+          "keyword": "복지급여 신청",
+          "source": "naver"
+        },
+        {
+          "keyword": "복지급여란",
+          "source": "google"
+        },
+        {
+          "keyword": "복지급여 대상자",
+          "source": "naver"
+        },
+        {
+          "keyword": "복지급여 계좌변경",
+          "source": "google"
+        },
+        {
+          "keyword": "복지 급여 종류",
+          "source": "naver"
+        },
+        {
+          "keyword": "복지급여계좌변경신청서",
+          "source": "google"
+        },
+        {
+          "keyword": "복지급여 뜻",
+          "source": "naver"
+        }
+      ],
+      "c": [
+        {
+          "keyword": "복지급여 총한",
+          "source": "kin",
+          "question": "복지급여총한도",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=6100103&docId=495994042"
+        },
+        {
+          "keyword": "복지급여 궁금한점 질문드려",
+          "source": "kin",
+          "question": "복지급여 관련 궁금한점 질문드려요",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60804&docId=495992675"
+        },
+        {
+          "keyword": "복지급여 복지로 조회가안됨",
+          "source": "kin",
+          "question": "복지로에서 조회가안됨 생계급여",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=6100101&docId=496012762"
+        },
+        {
+          "keyword": "복지급여 복지로 주거급여",
+          "source": "kin",
+          "question": "복지로에 주거급여 계좌변경신청",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=6100101&docId=495538289"
+        },
+        {
+          "keyword": "복지급여 지원단",
+          "source": "kin",
+          "question": "한부모가족 복지급여 지원단가",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60105&docId=494872502"
+        },
+        {
+          "keyword": "복지급여 생계급여 신청현황",
+          "source": "kin",
+          "question": "생계급여 복지로 신청현황",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60804&docId=495236462"
+        },
+        {
+          "keyword": "복지급여 사회복지공무원",
+          "source": "kin",
+          "question": "사회복지공무원 되면 장점",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=40612&docId=495964709"
+        }
+      ],
+      "spare": [
+        {
+          "keyword": "복지급여 자격",
+          "source": "naver"
+        },
+        {
+          "keyword": "복지급여 생계급여지급",
+          "source": "kin",
+          "question": "생계급여지급",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=6100101&docId=495966750"
+        },
+        {
+          "keyword": "복지급여변경신청",
+          "source": "naver"
+        },
+        {
+          "keyword": "복지급여 재가복지센터 무급",
+          "source": "kin",
+          "question": "재가복지센터 무급 계산법",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=40604&docId=495984087"
+        },
+        {
+          "keyword": "복지급여 신청주의 개선을 위한 연구",
+          "source": "google"
+        },
+        {
+          "keyword": "복지급여 금액",
+          "source": "naver"
+        }
+      ],
+      "counts": {
+        "total": 20,
+        "kin": 9
+      }
+    },
+    {
+      "keyword": "꿈키움 바우처",
+      "origin": "news",
+      "volume": 130,
+      "articleCount": 3,
+      "schedule": "",
+      "news": [
+        {
+          "title": "고성군, '청소년 꿈키움 바우처 신규대상자 사전발급 신청하세요!'",
+          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE80cGpkVHZnSWhza1dIVGxaT2RZNUpyN0dLYjFHeVVhSHZYNmVsZXpPUWNrQXlrOEJjVVBSRjVSdHpQaDVBV0pQLXBXQm16QzNfV19aV0NlcTlvLTlFSW9RandlYkdRUHhIWUE?oc=5",
+          "source": "Queen 이코노미퀸",
+          "pubDate": "Thu, 19 Nov 2026 08:41:47 GMT"
+        },
+        {
+          "title": "경남 고성군, 2027년 청소년 꿈키움 바우처 카드 신청 받아",
+          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5JcUl2aklvRTRCU0ZrX0UtRjh6Y3MxaDhXQjZBSl9Sd3dTbklEUVptVUdja3BNWlppZkp4UXBTbEhYWjEyaWJSSlRGaGp0eUlIbG5iYlU0UlF2V0M1TW0xaHJpWFRyUjJzRzNtLUVn?oc=5",
+          "source": "국제뉴스",
+          "pubDate": "Thu, 19 Nov 2026 05:16:07 GMT"
+        },
+        {
+          "title": "고성군, 13세 청소년 338명 대상 2027년 꿈키움 바우처 사전발급 신청 안내",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBrdjF1MGJCaURaVVFVYUVCcm90WVJkMXZPcnI3dWFWWE5ndmhUSExPNGFkXzZmTEQyY0k1R3daQmZfR0lKczk0VjBWc08yejg2TGF3QUdrT2dmZDlRZnEtdXBHUWxIMDFFUHZZ?oc=5",
+          "source": "한국사회복지저널",
+          "pubDate": "Thu, 19 Nov 2026 06:00:28 GMT"
+        }
+      ],
+      "b": [
+        {
+          "keyword": "꿈키움 바우처 고성",
+          "source": "naver"
+        },
+        {
+          "keyword": "꿈키움 바우처카드 잔액조회",
+          "source": "google"
+        },
+        {
+          "keyword": "꿈키움바우처카드",
+          "source": "naver"
+        },
+        {
+          "keyword": "꿈키움바우처 잔액조회",
+          "source": "naver"
+        },
+        {
+          "keyword": "꿈키움바우처 사용처",
+          "source": "naver"
+        },
+        {
+          "keyword": "거창 꿈키움 바우처",
+          "source": "google"
+        },
+        {
+          "keyword": "꿈키움바우처카드 가맹점",
+          "source": "naver"
+        }
+      ],
+      "c": [],
+      "spare": [
+        {
+          "keyword": "거창 꿈키움 바우처 카드",
+          "source": "google"
+        },
+        {
+          "keyword": "청소년 꿈키움 바우처 카드",
+          "source": "google"
+        },
+        {
+          "keyword": "청소년 꿈키움 바우처",
+          "source": "google"
+        },
+        {
+          "keyword": "고성 꿈키움 바우처",
+          "source": "google"
+        },
+        {
+          "keyword": "경남 고성 꿈키움 바우처",
+          "source": "google"
+        }
+      ],
+      "counts": {
+        "total": 12,
+        "kin": 0
+      }
+    },
+    {
+      "keyword": "민생안정지원금",
+      "origin": "news",
+      "volume": 10,
+      "articleCount": 4,
+      "schedule": "12월 31일",
+      "news": [
+        {
+          "title": "강릉시 민생안정지원금 14만5000명 신청…신청률 70% 돌파",
+          "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5XdVRiX00wazdPTWpMQUVRZ0dfRHMzYWdra1ZzZHhJaU9nUk9KdkNidTVmN2hwRWVRcDFlLXNDVnZDbW1DanVzYlMyV2VYdl81NnJOdQ?oc=5",
+          "source": "뉴스1",
+          "pubDate": "Thu, 19 Nov 2026 01:25:45 GMT"
+        },
+        {
+          "title": "강릉시 민생안정지원금 약 14만 명 수령, 신청률 70% 돌파!",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNVFF5Qm9FMl9ESGI1QjdraDdpRk1Oc2VTV0c1OTRtVHNoaVhxNWw2V1YzYkd0WUE2b2luenZsMTBMcERJN2J1V2RPOWtweXlUV0V0d3VHUWRodUJTbkY1Z3U1Y0t2WnNEaGtLTTVtX0tGb1JPS0Rmb3Vvb0tUMDVaWWFRamdwTHhYTWpvNkZXTlk4NEluSnY3cQ?oc=5",
+          "source": "미디어투데이",
+          "pubDate": "Wed, 18 Nov 2026 22:21:00 GMT"
+        },
+        {
+          "title": "강릉 민생안정지원금 신청률 70% 넘어…12월 31일 마감",
+          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE91eVNFeU5ERi1oWWJsUGJJbnYxbzdTTFczM1RpTm5LWkNwdzByamg5VjBVOGFBcFhUZnAxVFV1SWtVb2NtMUY5N3hoZGhJYi11VlZmVXUzbGk0X2stQUl1VDJ4QVBnT3p3cEE?oc=5",
+          "source": "강릉넷TV",
+          "pubDate": "Thu, 19 Nov 2026 07:11:31 GMT"
+        }
+      ],
+      "b": [
+        {
+          "keyword": "강릉 민생안정지원금",
+          "source": "naver"
+        },
+        {
+          "keyword": "민생안정지원금 신청",
+          "source": "google"
+        },
+        {
+          "keyword": "강릉시 민생안정지원금",
+          "source": "naver"
+        },
+        {
+          "keyword": "민생안정지원금 서울",
+          "source": "google"
+        },
+        {
+          "keyword": "강릉 민생안정지원금 신청",
+          "source": "naver"
+        },
+        {
+          "keyword": "민생안정지원금 지역",
+          "source": "google"
+        },
+        {
+          "keyword": "민생안정지원금 2026",
+          "source": "google"
+        }
+      ],
+      "c": [
+        {
+          "keyword": "민생안정지원금 신청 유의해야",
+          "source": "kin",
+          "question": "민생안정지원금 신청 시 유의해야 할 점, 놓치기 쉬운 부분은 무엇인가요?",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=40604&docId=492191049"
+        },
+        {
+          "keyword": "민생안정지원금 편의점",
+          "source": "kin",
+          "question": "편의점에서 민생안정지원금으로 살 만한 추천 상품이 있나요?",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=601&docId=494129719"
+        },
+        {
+          "keyword": "민생안정지원금 어디서",
+          "source": "kin",
+          "question": "민생안정 지원금으로 어디서 쓸 수 있나요?",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=601&docId=494129668"
+        },
+        {
+          "keyword": "민생안정지원금 경상남 고성군",
+          "source": "kin",
+          "question": "경상남도 고성군 민생안정지원금 어떻게,어디서 받나요?",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=121012&docId=487354358"
+        }
+      ],
+      "spare": [
+        {
+          "keyword": "민생안정지원금 사용",
+          "source": "naver"
+        },
+        {
+          "keyword": "민생안정지원금 부산",
+          "source": "google"
+        },
+        {
+          "keyword": "민생안정지원금 사용처",
+          "source": "naver"
+        },
+        {
+          "keyword": "민생안정지원금 2차",
+          "source": "google"
+        },
+        {
+          "keyword": "민생안정지원금 조건",
+          "source": "naver"
+        },
+        {
+          "keyword": "민생안정지원금 인천",
+          "source": "naver"
+        }
+      ],
+      "counts": {
+        "total": 17,
+        "kin": 4
+      }
+    },
+    {
+      "keyword": "근로장려금",
+      "origin": "seed",
+      "volume": 90300,
+      "articleCount": 0,
+      "schedule": "",
+      "news": [],
+      "b": [
+        {
+          "keyword": "2026 근로장려금",
+          "source": "naver"
+        },
+        {
+          "keyword": "근로장려금신청",
+          "source": "naver"
+        },
+        {
+          "keyword": "근로장려금 기준",
+          "source": "naver"
+        },
+        {
+          "keyword": "근로장려금 조건",
+          "source": "google"
+        },
+        {
+          "keyword": "근로장려금 지급일",
+          "source": "google"
+        },
+        {
+          "keyword": "근로장려금 대상",
+          "source": "naver"
+        },
+        {
+          "keyword": "근로장려금 지급액 조회",
+          "source": "google"
+        }
+      ],
+      "c": [
+        {
+          "keyword": "근로장려금 세대",
+          "source": "kin",
+          "question": "근로장려금 세대질문",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60804&docId=495902121"
+        },
+        {
+          "keyword": "근로장려금 12월",
+          "source": "kin",
+          "question": "12월 근로장려금",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60802&docId=495725767"
+        },
+        {
+          "keyword": "근로장려금 상반기",
+          "source": "kin",
+          "question": "상반기 근로장려금",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60804&docId=495860985"
+        },
+        {
+          "keyword": "근로장려금 미성년자",
+          "source": "kin",
+          "question": "근로장려금 미성년자",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=60802&docId=495949062"
+        },
+        {
+          "keyword": "근로장려금 반기",
+          "source": "kin",
+          "question": "근로 장려금 반기",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=6100103&docId=495935896"
+        },
+        {
+          "keyword": "근로장려금 제외대상",
+          "source": "kin",
+          "question": "근로장려금 제외대상",
+          "link": "https://kin.naver.com/qna/detail.naver?dirId=40403&docId=495916898"
+        }
+      ],
+      "spare": [
+        {
+          "keyword": "근로장려금 신청 기간",
+          "source": "google"
+        },
+        {
+          "keyword": "근로장려금 조건 확인",
+          "source": "google"
+        },
+        {
+          "keyword": "2026 근로장려금 상반기",
+          "source": "naver"
+        },
+        {
+          "keyword": "근로장려금 신청방법",
+          "source": "naver"
+        },
+        {
+          "keyword": "근로장려금 금액",
+          "source": "google"
+        },
+        {
+          "keyword": "근로장려금 조회",
+          "source": "google"
+        }
+      ],
+      "counts": {
+        "total": 19,
+        "kin": 6
+      }
+    },
+    {
+      "keyword": "문화누리카드",
+      "origin": "seed",
+      "volume": 133100,
+      "articleCount": 0,
+      "schedule": "",
+      "news": [],
+      "b": [
+        {
+          "keyword": "문화누리카드 사용처",
+          "source": "naver"
+        },
+        {
+          "keyword": "문화누리카드 홈페이지",
+          "source": "google"
+        },
+        {
+          "keyword": "문화누리카드 잔액조회",
+          "source": "naver"
+        },
+        {
+          "keyword": "문화누리카드 잔액",
+          "source": "google"
+        },
+        {
+          "keyword": "문화누리카드 온라인",
+          "source": "naver"
+        },
+        {
+          "keyword": "문화누리카드 음식점",
+          "source": "google"
+        },
+        {
+          "keyword": "문화누리카드 가맹점",
+          "source": "naver"
+        }
+      ],
+      "c": [],
+      "spare": [
+        {
+          "keyword": "문화누리카드 온라인 사용법",
+          "source": "google"
+        },
+        {
+          "keyword": "문화누리카드 신청",
+          "source": "naver"
+        },
+        {
+          "keyword": "문화누리카드 사용처 오프라인",
+          "source": "google"
+        },
+        {
+          "keyword": "문화누리카드 충전",
+          "source": "naver"
+        },
+        {
+          "keyword": "문화누리카드 사용처 추천",
+          "source": "google"
+        },
+        {
+          "keyword": "문화누리카드 사용기간",
+          "source": "naver"
+        }
+      ],
+      "counts": {
+        "total": 13,
+        "kin": 0
+      }
+    },
+    {
+      "keyword": "국민내일배움카드",
+      "origin": "seed",
+      "volume": 38600,
+      "articleCount": 0,
+      "schedule": "",
+      "news": [],
+      "b": [
+        {
+          "keyword": "국민내일배움카드 신청",
+          "source": "naver"
+        },
+        {
+          "keyword": "국민내일배움카드 사용처",
+          "source": "naver"
+        },
+        {
+          "keyword": "국민내일배움카드 자격",
+          "source": "google"
+        },
+        {
+          "keyword": "국민내일배움카드 신청방법",
+          "source": "google"
+        },
+        {
+          "keyword": "국민내일배움카드 교육",
+          "source": "naver"
+        },
+        {
+          "keyword": "국민내일배움카드 학원",
+          "source": "naver"
+        },
+        {
+          "keyword": "국민내일배움카드 훈련과정",
+          "source": "google"
+        }
+      ],
+      "c": [],
+      "spare": [
+        {
+          "keyword": "국민내일배움카드 사용방법",
+          "source": "naver"
+        },
+        {
+          "keyword": "국민내일배움카드 사용법",
+          "source": "google"
+        },
+        {
+          "keyword": "국민내일배움카드 지원대상",
+          "source": "google"
+        },
+        {
+          "keyword": "국민내일배움카드 내용",
+          "source": "naver"
+        },
+        {
+          "keyword": "국민내일배움카드 발급",
+          "source": "google"
+        },
+        {
+          "keyword": "국민내일배움카드 대상",
+          "source": "naver"
+        }
+      ],
+      "counts": {
+        "total": 13,
+        "kin": 0
+      }
+    }
+  ]
+}

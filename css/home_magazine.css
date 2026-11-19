@@ -18,6 +18,10 @@ body {
   padding: 0 20px !important;
   height: 62px !important;
 }
+/* 메뉴 버튼이 많아 넓은 화면에서는 메뉴 줄만 더 넓게 씁니다 (본문 폭 1180px은 그대로) */
+@media (min-width: 1101px) {
+  .site-nav .nav-container { max-width: 1520px !important; }
+}
 
 /* 메인 컨테이너 최대 너비 1180px 고정 및 좌우 시원한 여백 확보 */
 .main-content {

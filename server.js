@@ -3777,6 +3777,23 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 9-2. [거미줄치기 키워드 세트] (/api/spider?q=...) - worker/spider-core.mjs 와 같은 코드를 사용합니다.
+  if (req.url.startsWith('/api/spider')) {
+    (async () => {
+      try {
+        const mod = await import('./worker/spider-core.mjs');
+        const q = new URL(req.url, 'http://localhost').searchParams.get('q');
+        const { status, body } = await mod.buildSpiderSet(q);
+        res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify(body));
+      } catch (err) {
+        res.writeHead(502, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ success: false, error: err.message }));
+      }
+    })();
+    return;
+  }
+
   // 10. [블로그 실시간 노출 분석 프록시] (/api/analysis)
   if (req.url.startsWith('/api/analysis')) {
     let body = '';

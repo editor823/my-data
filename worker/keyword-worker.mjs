@@ -2,11 +2,14 @@
  * 키워드 분석 Worker (worker/keyword-worker.mjs)
  * - 본인 네이버 API 키로만 동작합니다 (남의 서버 사용 X).
  * - Cloudflare Worker 와 로컬 server.js 가 같은 코드를 같이 씁니다.
+ * - /api/keyword : 키워드 분석,  /api/spider : 거미줄치기 키워드 세트 (spider-core.mjs)
  *
  * 필요한 비밀 값(환경변수 / Worker Secret):
  *   NAVER_AD_CUSTOMER_ID, NAVER_AD_ACCESS_LICENSE, NAVER_AD_SECRET_KEY  (검색광고 API: 검색량·연관키워드)
  *   NAVER_HUB_CLIENT_ID,  NAVER_HUB_CLIENT_SECRET                       (API HUB: 블로그 문서수·상위글·뉴스)
  */
+
+import { buildSpiderSet } from './spider-core.mjs';
 
 const ALLOWED_ORIGINS = [
   'https://editor823.github.io',
@@ -169,6 +172,16 @@ export default {
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
 
     const url = new URL(request.url);
+    const json = { ...cors, 'Content-Type': 'application/json; charset=utf-8' };
+    // 거미줄치기 키워드 세트 (/api/spider?q=)
+    if (url.pathname === '/api/spider') {
+      try {
+        const { status, body } = await buildSpiderSet(url.searchParams.get('q'));
+        return new Response(JSON.stringify(body), { status, headers: { ...json, 'Cache-Control': 'public, max-age=600' } });
+      } catch (err) {
+        return new Response(JSON.stringify({ success: false, error: err.message || '키워드를 가져오지 못했습니다.' }), { status: 502, headers: json });
+      }
+    }
     if (url.pathname !== '/api/keyword') {
       return new Response(JSON.stringify({ success: false, error: 'not found' }), { status: 404, headers: { ...cors, 'Content-Type': 'application/json; charset=utf-8' } });
     }
