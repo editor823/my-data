@@ -2,13 +2,25 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-// 1. 네이버 뉴스 검색 API 호출 함수
+// 네이버 키는 코드에 적지 않고 환경변수 또는 .env.local / .env 의 NAVER_HUB_CLIENT_ID / NAVER_HUB_CLIENT_SECRET 에서 읽습니다.
+function readEnvKey(name) {
+  if (process.env[name]) return process.env[name];
+  for (const file of ['.env.local', '.env']) {
+    try {
+      const m = fs.readFileSync(path.join(__dirname, '..', file), 'utf8').match(new RegExp('^' + name + '=(.*)$', 'm'));
+      if (m) return m[1].trim().replace(/^["']|["']$/g, '');
+    } catch (_) { /* 파일 없음 */ }
+  }
+  return '';
+}
+
+// 1. 네이버 뉴스 검색 API 호출 함수 (NAVER API HUB)
 function searchNaverNews(keyword, sort = 'date', display = 30) {
   return new Promise((resolve) => {
-    const url = 'https://openapi.naver.com/v1/search/news.json?query=' + encodeURIComponent(keyword) + '&display=' + display + '&sort=' + sort;
+    const url = 'https://naverapihub.apigw.ntruss.com/search/v1/news?query=' + encodeURIComponent(keyword) + '&display=' + display + '&sort=' + sort;
     const headers = {
-      'X-Naver-Client-Id': '2iKHyyPOqriPMIsahHYt',
-      'X-Naver-Client-Secret': 'CgG2dPHGrT'
+      'X-NCP-APIGW-API-KEY-ID': readEnvKey('NAVER_HUB_CLIENT_ID'),
+      'X-NCP-APIGW-API-KEY': readEnvKey('NAVER_HUB_CLIENT_SECRET'),
     };
     https.get(url, { headers, timeout: 6000 }, (res) => {
       let d = '';
