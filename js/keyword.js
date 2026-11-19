@@ -267,8 +267,8 @@
     var w = el('div', 'kw-setup');
     w.appendChild(el('b', null, '네이버 데이터랩 키를 연결하면 보입니다'));
     var ol = el('ol');
-    ['developers.naver.com → Application 등록 → 사용 API에서 「데이터랩(검색어트렌드)」 선택',
-      '발급된 Client ID / Secret을 Worker Secret에 등록: NAVER_DATALAB_CLIENT_ID, NAVER_DATALAB_CLIENT_SECRET',
+    ['NAVER API HUB(네이버 클라우드 플랫폼)에서 「검색어 트렌드」 이용 신청',
+      'HUB 키를 Worker Secret에 등록: NAVER_HUB_CLIENT_ID, NAVER_HUB_CLIENT_SECRET (검색 API와 같은 키)',
       '로컬에서 쓸 때는 .env.local 에 같은 이름으로 추가'].forEach(function (t) { ol.appendChild(el('li', null, t)); });
     w.appendChild(ol);
     return w;

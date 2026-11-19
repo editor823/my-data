@@ -326,17 +326,25 @@ const AGE_GROUPS = [
 ];
 
 
+// 네이버가 데이터랩 신규 이용을 NAVER API HUB로 옮겨서, HUB 키(검색 API와 같은 키)를 먼저 씁니다.
+// HUB 키가 없을 때만 예전 개발자센터(openapi.naver.com) 키로 호출합니다.
+const hasHubKeys = (env) => !!(env.NAVER_HUB_CLIENT_ID && env.NAVER_HUB_CLIENT_SECRET);
+const hasLegacyDatalabKeys = (env) => !!(env.NAVER_DATALAB_CLIENT_ID && env.NAVER_DATALAB_CLIENT_SECRET);
+
 async function datalab(body, env) {
-  const res = await fetch('https://openapi.naver.com/v1/datalab/search', {
+  const hub = hasHubKeys(env);
+  const res = await fetch(hub ? 'https://naverapihub.apigw.ntruss.com/search-trend/v1/search' : 'https://openapi.naver.com/v1/datalab/search', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Naver-Client-Id': env.NAVER_DATALAB_CLIENT_ID,
-      'X-Naver-Client-Secret': env.NAVER_DATALAB_CLIENT_SECRET,
-    },
+    headers: hub
+      ? { 'Content-Type': 'application/json', 'X-NCP-APIGW-API-KEY-ID': env.NAVER_HUB_CLIENT_ID, 'X-NCP-APIGW-API-KEY': env.NAVER_HUB_CLIENT_SECRET }
+      : { 'Content-Type': 'application/json', 'X-Naver-Client-Id': env.NAVER_DATALAB_CLIENT_ID, 'X-Naver-Client-Secret': env.NAVER_DATALAB_CLIENT_SECRET },
     body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error(`데이터랩 API 오류 (${res.status})`);
+  if (!res.ok) {
+    let detail = '';
+    try { const e = await res.json(); detail = [e.errorCode, e.errorMessage].filter(Boolean).join(' '); } catch (_) { /* 본문 없음 */ }
+    throw new Error(`데이터랩 API 오류 (${res.status}${detail ? ` · ${detail}` : ''})`);
+  }
   return res.json();
 }
 
@@ -351,7 +359,7 @@ function shareVsAnchor(json) {
 export async function keywordInsight(rawKeyword, env) {
   const keyword = String(rawKeyword || '').trim().replace(/\s+/g, ' ');
   if (!keyword) return { status: 400, body: { success: false, error: '키워드를 입력해 주세요.' } };
-  if (!env.NAVER_DATALAB_CLIENT_ID || !env.NAVER_DATALAB_CLIENT_SECRET) {
+  if (!hasHubKeys(env) && !hasLegacyDatalabKeys(env)) {
     return { status: 200, body: { success: true, available: false, keyword } };
   }
   const end = Date.now() - DAY; // 데이터랩은 어제까지
