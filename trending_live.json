@@ -1,196 +1,196 @@
 {
   "success": true,
-  "updatedAt": "2026-11-19T11:52:20.301Z",
-  "updatedAtKst": "2026. 11. 19. PM 8:52:20",
+  "updatedAt": "2026-11-19T20:47:30.130Z",
+  "updatedAtKst": "2026. 11. 20. AM 5:47:30",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "수능 부정행위자 98명"
+        "keyword": "수능 부정행위 적발 현황"
       },
       {
         "rank": 2,
-        "keyword": "대법 한덕수 파기환송"
+        "keyword": "고위공직자 재산공개"
       },
       {
         "rank": 3,
-        "keyword": "미중러 정상회담"
+        "keyword": "푸틴 얄타회담 발언"
       },
       {
         "rank": 4,
-        "keyword": "이진우 수사 계속 진행"
+        "keyword": "대한항공 3연패 탈출"
       },
       {
         "rank": 5,
-        "keyword": "김다현"
+        "keyword": "트럼프 아시아 순방 귀국"
       },
       {
         "rank": 6,
-        "keyword": "비상 의총 참석 김민석"
+        "keyword": "이진우 입학 논란"
       },
       {
         "rank": 7,
-        "keyword": "성폭행 유죄 강지환 근황 공개"
+        "keyword": "아내 출산 다큐 상영"
       },
       {
         "rank": 8,
-        "keyword": "데프트"
+        "keyword": "천위페이"
       },
       {
         "rank": 9,
-        "keyword": "하이파이브 이상민 감독"
+        "keyword": "웹툰"
       },
       {
         "rank": 10,
-        "keyword": "롯데타운 크리스마스 마켓"
+        "keyword": "대법, 한덕수 파기환송"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "강지환 동일"
+        "keyword": "이진우 상승 2"
       },
       {
         "rank": 2,
-        "keyword": "롯데타운 크리스마스 마켓 동일"
+        "keyword": "조희대 탄핵 채택 new"
       },
       {
         "rank": 3,
-        "keyword": "미중러 정상 new"
+        "keyword": "대한항공 3연패 탈출 하락 1"
       },
       {
         "rank": 4,
-        "keyword": "수출 1조 달러 4번째 new"
+        "keyword": "수능 부정행위 적발 하락 3"
       },
       {
         "rank": 5,
-        "keyword": "루이스 킹 하락 1"
+        "keyword": "아내 출산 다큐 하락 1"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "조희대 대법원장 탄핵"
+        "keyword": "푸틴 얄타회담 발언"
       },
       {
         "rank": 2,
-        "keyword": "미중러 정상회담"
+        "keyword": "트럼프 아시아 순방 귀국"
       },
       {
         "rank": 3,
-        "keyword": "국가자격시험 부정행위 제재"
+        "keyword": "고위공직자 재산공개"
       },
       {
         "rank": 4,
-        "keyword": "수능 현장 분위기"
+        "keyword": "미중러 정상회담"
       },
       {
         "rank": 5,
-        "keyword": "변호사시험 AI 부정행위 전수조사"
-      },
-      {
-        "rank": 6,
         "keyword": "수능 스마트안경 부정행위"
       },
       {
+        "rank": 6,
+        "keyword": "서울지하철 노조 준법투쟁"
+      },
+      {
         "rank": 7,
-        "keyword": "크림대교 공격"
+        "keyword": "이승기 어린이병원 기부"
       },
       {
         "rank": 8,
-        "keyword": "이재명 대통령 귀국"
+        "keyword": "송도 발코니 붕괴 조사 연장"
       },
       {
         "rank": 9,
-        "keyword": "수능 시험장 와이파이 차단"
+        "keyword": "한국 수출 1조달러 돌파"
       },
       {
         "rank": 10,
-        "keyword": "재경위 예산안 의결"
+        "keyword": "민주유공자법 필리버스터"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "한진칼"
+        "keyword": "천위페이"
       },
       {
         "rank": 2,
-        "keyword": "한국수력원자력"
+        "keyword": "웹툰"
       },
       {
         "rank": 3,
-        "keyword": "이지영"
+        "keyword": "amd"
       },
       {
         "rank": 4,
-        "keyword": "강지환"
+        "keyword": "플라비오 코볼리"
       },
       {
         "rank": 5,
-        "keyword": "김다현"
+        "keyword": "엔화"
       },
       {
         "rank": 6,
-        "keyword": "데프트"
+        "keyword": "kt wiz"
       },
       {
         "rank": 7,
-        "keyword": "수원 kt 대 서울 sk"
+        "keyword": "습관"
       },
       {
         "rank": 8,
-        "keyword": "bangladesh vs south africa"
+        "keyword": "회계사"
       },
       {
         "rank": 9,
-        "keyword": "안양 정관장 대 부산 kcc"
+        "keyword": "프로게이머"
       },
       {
         "rank": 10,
-        "keyword": "수험표 할인"
+        "keyword": "박하나"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "수능 등급컷"
+        "keyword": "차정원 하정우 반려견"
       },
       {
         "rank": 2,
-        "keyword": "박찬종 별세"
+        "keyword": "김대두 17명 살해"
       },
       {
         "rank": 3,
-        "keyword": "조희대 대법원장 탄핵 추진"
+        "keyword": "김휘강 재산공개"
       },
       {
         "rank": 4,
-        "keyword": "강지환 틱톡커 변신"
+        "keyword": "한덕수 내란혐의 파기환송"
       },
       {
         "rank": 5,
-        "keyword": "오경미 대법관"
+        "keyword": "박찬종 별세"
       },
       {
         "rank": 6,
-        "keyword": "김건희 징역 4년 확정"
+        "keyword": "수능 난이도"
       },
       {
         "rank": 7,
-        "keyword": "2027 수능"
+        "keyword": "앤트로픽 나스닥 상장"
       },
       {
         "rank": 8,
-        "keyword": "한덕수 징역 15년 파기환송"
+        "keyword": "미미미누 영상 비공개 처리"
       },
       {
         "rank": 9,
-        "keyword": "남태현 음주운전 실형"
+        "keyword": "오경미 대법관"
       },
       {
         "rank": 10,
-        "keyword": "다카이치 고립"
+        "keyword": "mbc 대학가요제"
       }
     ]
   },
