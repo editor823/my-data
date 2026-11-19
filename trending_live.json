@@ -1,196 +1,196 @@
 {
   "success": true,
-  "updatedAt": "2026-11-18T20:40:52.604Z",
-  "updatedAtKst": "2026. 11. 19. AM 5:40:52",
+  "updatedAt": "2026-11-19T02:38:46.945Z",
+  "updatedAtKst": "2026. 11. 19. AM 11:38:46",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "수능 한파 대비 대책"
+        "keyword": "이진우 리트 만점자 신변 우려"
       },
       {
         "rank": 2,
-        "keyword": "부정행위 TF 가동"
+        "keyword": "발언하는 국민의힘 대표"
       },
       {
         "rank": 3,
-        "keyword": "칸터 맥컬러 삼성 LG 격파"
+        "keyword": "2027 수능 시험 당일"
       },
       {
         "rank": 4,
-        "keyword": "승리 아내와 공항 포착"
+        "keyword": "주식 거래시간"
       },
       {
         "rank": 5,
-        "keyword": "미국 하원의장 제프리스"
+        "keyword": "허구연 총재 3연임 확정"
       },
       {
         "rank": 6,
-        "keyword": "삼전 닉스"
+        "keyword": "전역"
       },
       {
         "rank": 7,
-        "keyword": "한화오션"
+        "keyword": "금융투자협회"
       },
       {
         "rank": 8,
-        "keyword": "이재명 APEC CEO 서밋 연설"
+        "keyword": "최저주거기준 개정"
       },
       {
         "rank": 9,
-        "keyword": "김성환 장관 양자면담"
+        "keyword": "미국 아세안 북한 비핵화"
       },
       {
         "rank": 10,
-        "keyword": "경주한수원 창단 첫 우승"
+        "keyword": "APEC 정상회담"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "수�� 부정행위 가동 상승 1"
+        "keyword": "리트 만점자 이���우 동일"
       },
       {
         "rank": 2,
-        "keyword": "칸터 삼성 LG 상승 1"
+        "keyword": "발언하는 장동혁 대표 동일"
       },
       {
         "rank": 3,
-        "keyword": "승리 아내와 포착 상승 1"
+        "keyword": "주식 거래시간 상승 1"
       },
       {
         "rank": 4,
-        "keyword": "김성환 장관 양자면담 new"
+        "keyword": "허구연 총재 3연임 하락 1"
       },
       {
         "rank": 5,
-        "keyword": "경주한수원 창단 우승 동일"
+        "keyword": "APEC 정상회의 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "수능 한파 대비 대책"
+        "keyword": "수능 위급재난문자 불시 발송"
       },
       {
         "rank": 2,
-        "keyword": "이재명 APEC CEO 서밋 연설"
+        "keyword": "김창민 감독 살해 선고"
       },
       {
         "rank": 3,
-        "keyword": "미국 하원의장 제프리스"
+        "keyword": "주택공급 3법 처리 촉구"
       },
       {
         "rank": 4,
-        "keyword": "자바 보안 취약점"
-      },
-      {
-        "rank": 5,
         "keyword": "리트 만점자 수사"
       },
       {
+        "rank": 5,
+        "keyword": "수능 금속탐지기 도입"
+      },
+      {
         "rank": 6,
-        "keyword": "김건희 한덕수 선고 생중계"
+        "keyword": "최저주거기준 개정"
       },
       {
         "rank": 7,
-        "keyword": "누리호 5차 발사 결과 검토"
+        "keyword": "해수부 UNEP 해양총회 협력"
       },
       {
         "rank": 8,
-        "keyword": "트럼프 푸틴 악수"
+        "keyword": "수능 가방 복도 보관"
       },
       {
         "rank": 9,
-        "keyword": "조국 일본 입국 거부"
+        "keyword": "투썸플레이스 공정위 조사"
       },
       {
         "rank": 10,
-        "keyword": "시진핑 다카이치 악수"
+        "keyword": "송도 발코니 붕괴 조사 연장"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "삼전 닉스"
+        "keyword": "전역"
       },
       {
         "rank": 2,
-        "keyword": "한화오션"
+        "keyword": "금융투자협회"
       },
       {
         "rank": 3,
-        "keyword": "자영업"
+        "keyword": "이혼"
       },
       {
         "rank": 4,
-        "keyword": "김정은"
+        "keyword": "네이버뉴스"
       },
       {
         "rank": 5,
-        "keyword": "승리"
+        "keyword": "한국교육과정평가원"
       },
       {
         "rank": 6,
-        "keyword": "한화생명"
+        "keyword": "시즌2"
       },
       {
         "rank": 7,
-        "keyword": "한화"
+        "keyword": "전도연"
       },
       {
         "rank": 8,
-        "keyword": "기인"
+        "keyword": "올랜도 대 필라데피아"
       },
       {
         "rank": 9,
-        "keyword": "한화생명 e스포츠"
+        "keyword": "정치"
       },
       {
         "rank": 10,
-        "keyword": "흰수마자"
+        "keyword": "nginx"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "수능 시간표"
+        "keyword": "이진우 실종신고"
       },
       {
         "rank": 2,
-        "keyword": "최수린 아들 메기남"
+        "keyword": "수능 시간표"
       },
       {
         "rank": 3,
-        "keyword": "승리 아내 공항 포착"
+        "keyword": "남태현 징역 1년"
       },
       {
         "rank": 4,
-        "keyword": "추경호 1심 무죄"
+        "keyword": "수능 부정행위 적발"
       },
       {
         "rank": 5,
-        "keyword": "��적 정재형 뉴욕 여행"
+        "keyword": "홍나영 이혼 발표"
       },
       {
         "rank": 6,
-        "keyword": "한성진 부장판사"
+        "keyword": "최수린 아들 메기남 등장"
       },
       {
         "rank": 7,
-        "keyword": "리트 만점자 이진우"
+        "keyword": "리트 시험"
       },
       {
         "rank": 8,
-        "keyword": "나는 솔로 34기"
+        "keyword": "한덕수 선고"
       },
       {
         "rank": 9,
-        "keyword": "김명민 예능 출연"
+        "keyword": "추경호 1심 무죄"
       },
       {
         "rank": 10,
-        "keyword": "apec 정상회의"
+        "keyword": "경찰 수험생 긴급 수송"
       }
     ]
   },
