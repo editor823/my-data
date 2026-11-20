@@ -1,96 +1,96 @@
 {
   "success": true,
-  "updatedAt": "2026-11-19T20:47:30.130Z",
-  "updatedAtKst": "2026. 11. 20. AM 5:47:30",
+  "updatedAt": "2026-11-20T02:24:22.966Z",
+  "updatedAtKst": "2026. 11. 20. AM 11:24:22",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "수능 부정행위 적발 현황"
+        "keyword": "조희대 탄핵 추진"
       },
       {
         "rank": 2,
-        "keyword": "고위공직자 재산공개"
+        "keyword": "삼성전자, 전영현·노태문 유지"
       },
       {
         "rank": 3,
-        "keyword": "푸틴 얄타회담 발언"
+        "keyword": "지하철 2호선 운행"
       },
       {
         "rank": 4,
-        "keyword": "대한항공 3연패 탈출"
+        "keyword": "코스피 급락 시작"
       },
       {
         "rank": 5,
-        "keyword": "트럼프 아시아 순방 귀국"
+        "keyword": "이진우로 탈락 고소 준비"
       },
       {
         "rank": 6,
-        "keyword": "이진우 입학 논란"
+        "keyword": "물수리"
       },
       {
         "rank": 7,
-        "keyword": "아내 출산 다큐 상영"
+        "keyword": "경기도교육청"
       },
       {
         "rank": 8,
-        "keyword": "천위페이"
+        "keyword": "이강인 AFC 2연속 수상"
       },
       {
         "rank": 9,
-        "keyword": "웹툰"
+        "keyword": "금감원 가상자산 보안 점검"
       },
       {
         "rank": 10,
-        "keyword": "대법, 한덕수 파기환송"
+        "keyword": "논현동"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "이진우 상승 2"
+        "keyword": "조희대 탄핵 추진 동일"
       },
       {
         "rank": 2,
-        "keyword": "조희대 탄핵 채택 new"
+        "keyword": "삼성전자 사장 승진 동일"
       },
       {
         "rank": 3,
-        "keyword": "대한항공 3연패 탈출 하락 1"
+        "keyword": "카카오 김범수 무죄 new"
       },
       {
         "rank": 4,
-        "keyword": "수능 부정행위 적발 하락 3"
+        "keyword": "김민석 대표 상승 3"
       },
       {
         "rank": 5,
-        "keyword": "아내 출산 다큐 하락 1"
+        "keyword": "이진우 하락 2"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "푸틴 얄타회담 발언"
+        "keyword": "유엔 전자정부평가 1위"
       },
       {
         "rank": 2,
-        "keyword": "트럼프 아시아 순방 귀국"
+        "keyword": "조희대 대법원장 탄핵"
       },
       {
         "rank": 3,
-        "keyword": "고위공직자 재산공개"
+        "keyword": "이재명 대통령 지지율 40%"
       },
       {
         "rank": 4,
-        "keyword": "미중러 정상회담"
+        "keyword": "한국 수출 1조달러 돌파"
       },
       {
         "rank": 5,
-        "keyword": "수능 스마트안경 부정행위"
+        "keyword": "15세 소녀 살해 구속송치"
       },
       {
         "rank": 6,
-        "keyword": "서울지하철 노조 준법투쟁"
+        "keyword": "트럼프 이란 추가공습"
       },
       {
         "rank": 7,
@@ -98,101 +98,158 @@
       },
       {
         "rank": 8,
-        "keyword": "송도 발코니 붕괴 조사 연장"
+        "keyword": "외국인 국내 주식 순매도"
       },
       {
         "rank": 9,
-        "keyword": "한국 수출 1조달러 돌파"
+        "keyword": "푸틴 얄타회담 발언"
       },
       {
         "rank": 10,
-        "keyword": "민주유공자법 필리버스터"
+        "keyword": "고려아연 원아시아 펀드 의혹"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "천위페이"
+        "keyword": "검찰"
       },
       {
         "rank": 2,
-        "keyword": "웹툰"
+        "keyword": "샌안토니오 대 la 클리퍼스"
       },
       {
         "rank": 3,
-        "keyword": "amd"
+        "keyword": "fc 포항 스틸러스"
       },
       {
         "rank": 4,
-        "keyword": "플라비오 코볼리"
+        "keyword": "정부"
       },
       {
         "rank": 5,
-        "keyword": "엔화"
+        "keyword": "영장"
       },
       {
         "rank": 6,
-        "keyword": "kt wiz"
+        "keyword": "물수리"
       },
       {
         "rank": 7,
-        "keyword": "습관"
+        "keyword": "경기도교육청"
       },
       {
         "rank": 8,
-        "keyword": "회계사"
+        "keyword": "논현동"
       },
       {
         "rank": 9,
-        "keyword": "프로게이머"
+        "keyword": "이의리"
       },
       {
         "rank": 10,
-        "keyword": "박하나"
+        "keyword": "유니클로"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "차정원 하정우 반려견"
+        "keyword": "제갈성렬 19살 연하 재혼"
       },
       {
         "rank": 2,
-        "keyword": "김대두 17명 살해"
+        "keyword": "김범수 2심 무죄"
       },
       {
         "rank": 3,
-        "keyword": "김휘강 재산공개"
-      },
-      {
-        "rank": 4,
-        "keyword": "한덕수 내란혐의 파기환송"
-      },
-      {
-        "rank": 5,
         "keyword": "박찬종 별세"
       },
       {
-        "rank": 6,
+        "rank": 4,
+        "keyword": "수능 등급컷"
+      },
+      {
+        "rank": 5,
         "keyword": "수능 난이도"
       },
       {
+        "rank": 6,
+        "keyword": "수능 만점 점수"
+      },
+      {
         "rank": 7,
-        "keyword": "앤트로픽 나스닥 상장"
+        "keyword": "하나에어로 다이내믹스"
       },
       {
         "rank": 8,
-        "keyword": "미미미누 영상 비공개 처리"
+        "keyword": "황상준 메모리사업부장"
       },
       {
         "rank": 9,
-        "keyword": "오경미 대법관"
+        "keyword": "수험생 부정행위 적발"
       },
       {
         "rank": 10,
-        "keyword": "mbc 대학가요제"
+        "keyword": "이재근 회장 선임"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "곽튜브, 히말라야서 산소호흡기까지…촬영 중단 위기 (지구마불)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261120/135059465/1",
+      "publishedAt": "수집 11. 20. 11:24 KST",
+      "publishedOrder": 1795141458439
+    },
+    {
+      "title": "곽튜브, 산소호흡기 신세… 촬영 중단 위기 (지구마불4)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261120/135059379/1",
+      "publishedAt": "수집 11. 20. 11:24 KST",
+      "publishedOrder": 1795141458439
+    },
+    {
+      "title": "솔비, ♥��규한과 첫 키스때 ‘이것’까지…깔끔함이 이 정도였어? (미우새)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261120/135059275/1",
+      "publishedAt": "수집 11. 20. 11:24 KST",
+      "publishedOrder": 1795141458439
+    },
+    {
+      "title": "김요한, 오연희 자정마다 강제 귀가…숨겨둔 ‘큰 그림’ (신랑수업)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261120/135059077/1",
+      "publishedAt": "수집 11. 20. 11:24 KST",
+      "publishedOrder": 1795141458439
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 11. 20. 11:24 KST",
+      "publishedOrder": 1795141457253
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 11. 20. 11:24 KST",
+      "publishedOrder": 1795141457253
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 11. 20. 11:24 KST",
+      "publishedOrder": 1795141457253
+    },
+    {
+      "title": "[속보] '리트 만점자' 이진우, 결국 사망..\"심폐소생술 하기 늦었던 상태\"",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/11/19/2026111915173984341",
+      "publishedAt": "수집 11. 20. 11:24 KST",
+      "publishedOrder": 1795141457253
+    }
+  ]
 }
