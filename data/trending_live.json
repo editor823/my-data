@@ -1,158 +1,198 @@
 {
   "success": true,
-  "updatedAt": "2026-11-20T11:54:05.330Z",
-  "updatedAtKst": "2026. 11. 20. PM 8:54:05",
+  "updatedAt": "2026-11-20T20:30:36.958Z",
+  "updatedAtKst": "2026. 11. 21. AM 5:30:36",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "김종철 경찰청장 임명 재가"
+        "keyword": "이해란 삼성생명 단독 1위!"
       },
       {
         "rank": 2,
-        "keyword": "마이 케이팝 스타 수상한"
+        "keyword": "2026년 11월 21일 운세"
       },
       {
         "rank": 3,
-        "keyword": "포스코 노사 임금교섭 합의"
+        "keyword": "민주유공자법 국회 통과"
       },
       {
         "rank": 4,
-        "keyword": "이진우 수능 부정행위"
+        "keyword": "트럼프 우크라 지원 중단 압박"
       },
       {
         "rank": 5,
-        "keyword": "시진핑 APEC 연쇄 회담"
+        "keyword": "장나라의 굿파트너2 첫방 등장"
       },
       {
         "rank": 6,
-        "keyword": "하남 아기 시신 유기 구속"
+        "keyword": "공사 생도 퇴교 사건"
       },
       {
         "rank": 7,
-        "keyword": "컬리 개인정보 유출"
+        "keyword": "성북 10대 피의자 아들 성범죄 기소"
       },
       {
         "rank": 8,
-        "keyword": "2026 KBL 신인 드래프트"
+        "keyword": "한파"
       },
       {
         "rank": 9,
-        "keyword": "초과근무"
+        "keyword": "컬리 개인정보 유출"
       },
       {
         "rank": 10,
-        "keyword": "조희대 탄핵 속도 낸다"
+        "keyword": "프랑스 러시아 방문 조건"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "김종철 경찰청장 재가 상승 1"
+        "keyword": "이해란 삼성생명 단독 동일"
       },
       {
         "rank": 2,
-        "keyword": "제1회 마이 케이팝 new"
+        "keyword": "트럼프 데이터센터 세금 상승 4"
       },
       {
         "rank": 3,
-        "keyword": "포스코 노사 임금교섭 동일"
+        "keyword": "엔하이픈 2026 마마 new"
       },
       {
         "rank": 4,
-        "keyword": "이진우 상승 1"
+        "keyword": "굿파트너 동일"
       },
       {
         "rank": 5,
-        "keyword": "팬스 초이스 수상 상승 2"
+        "keyword": "한국전력 5년 만에 상승 2"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "시진핑 APEC 연쇄 회담"
+        "keyword": "미 무역대표 301조 조사"
       },
       {
         "rank": 2,
-        "keyword": "푸틴 키이우 교량 공격"
+        "keyword": "미중 AI 군사 결정 합의"
       },
       {
         "rank": 3,
-        "keyword": "권종필 구속 기소"
+        "keyword": "엔비디아 H200 수출 허용"
       },
       {
         "rank": 4,
-        "keyword": "하남 아기 시신 유기 구속"
+        "keyword": "서울지하철 노조 준법투쟁"
       },
       {
         "rank": 5,
-        "keyword": "컬리 개인정보 유출"
+        "keyword": "민주유공자법 국회 통과"
       },
       {
         "rank": 6,
-        "keyword": "15세 소녀 살해 구속송치"
+        "keyword": "컬리 개인정보 유출"
       },
       {
         "rank": 7,
-        "keyword": "김종철 경찰청장 임명"
+        "keyword": "공시가격 현실화율 동결"
       },
       {
         "rank": 8,
-        "keyword": "미중 군사 소통 채널"
+        "keyword": "프랑스 러시아 방문 조건"
       },
       {
         "rank": 9,
-        "keyword": "고려아연 원아시아 펀드 의혹"
+        "keyword": "트럼프 우크라 지원 중단 압박"
       },
       {
         "rank": 10,
-        "keyword": "공시가격 현실화율 동결"
+        "keyword": "푸틴 키이우 교량 공격"
       }
     ],
-    "google": [],
+    "google": [
+      {
+        "rank": 1,
+        "keyword": "한파"
+      },
+      {
+        "rank": 2,
+        "keyword": "알아흘리 사우디 대 알나스르"
+      },
+      {
+        "rank": 3,
+        "keyword": "riemann hypothesis"
+      },
+      {
+        "rank": 4,
+        "keyword": "변상 일"
+      },
+      {
+        "rank": 5,
+        "keyword": "fear and greed"
+      },
+      {
+        "rank": 6,
+        "keyword": "india a cricket team vs nepal national cricket team standings"
+      },
+      {
+        "rank": 7,
+        "keyword": "의·치의학교육입문검사"
+      },
+      {
+        "rank": 8,
+        "keyword": "리만가설 증명"
+      },
+      {
+        "rank": 9,
+        "keyword": "세계사 2 번"
+      },
+      {
+        "rank": 10,
+        "keyword": "공포지수"
+      }
+    ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "굿파트너"
+        "keyword": "연준 유아차 선물"
       },
       {
         "rank": 2,
-        "keyword": "푸른길"
+        "keyword": "김종국 소속사 사무실"
       },
       {
         "rank": 3,
-        "keyword": "컬리 개인정보 유출"
+        "keyword": "강지환 틱톡 계정 삭제"
       },
       {
         "rank": 4,
-        "keyword": "정철원 임지열 트레이드"
+        "keyword": "나혼산"
       },
       {
         "rank": 5,
-        "keyword": "언니만 따라와"
+        "keyword": "김신영 수영복 자태 공개"
       },
       {
         "rank": 6,
-        "keyword": "김민 산불 진화"
+        "keyword": "김정영 배우"
       },
       {
         "rank": 7,
-        "keyword": "김건희 실형 확정"
+        "keyword": "엔하이픈 2026 MAMA 대상"
       },
       {
         "rank": 8,
-        "keyword": "튜이드 MAMA 출격"
+        "keyword": "굿파트너 2"
       },
       {
         "rank": 9,
-        "keyword": "진학사"
+        "keyword": "리센느 원이 약속"
       },
       {
         "rank": 10,
-        "keyword": "백성현 논산시장 당선무효형"
+        "keyword": "gta6"
       }
-    ],
-    "googleError": "google trends HTTP 429"
+    ]
   },
   "entertainment": []
 }
