@@ -17,6 +17,15 @@
       "timeline": [
         {
           "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-20",
+          "news_title": "삼성전자·SK하이닉스 거래 24.78% 급감…상위 50종목도 위축",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795144275692970276",
+          "press": "광주매일신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
           "target_stock": "LIG넥스원",
           "date": "2026-11-19",
           "news_title": "미중러 정상회담에도 반도체·관세 합의 없었다…삼성전자·SK하이닉스...",
@@ -316,249 +325,10 @@
       ]
     },
     {
-      "theme_id": "ai_dc_ess",
-      "theme_name": "AI데이터센터 - ESS(에너지저장장치, BESS)",
-      "category": "AI 데이터센터 인프라",
-      "today_change_rate": "+5.60%",
-      "today_score": 94,
-      "lead_stocks": [
-        "서진시스템",
-        "한화솔루션",
-        "LS머트리얼즈",
-        "신성에스티"
-      ],
-      "risks_summary": "중국산 LFP 기반 초저가 ESS 배터리 컨테이너 덤핑 공세 및 배터리 화재 안전성 우려",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "머니S",
-          "news_title": "[호재] AI 데이터센터 UPS·피크저감용 BESS 설치 의무화… 서진시스템 메가와트 수주 질주",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=서진시스템+ESS+BESS",
-          "summary": "글로벌 빅테크의 무정전 전원장치(UPS) 및 재생에너지 연계 BESS 캐비닛 공급 계약 확대"
-        },
-        {
-          "date": "2026-10-31",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "더구루",
-          "news_title": "[⚠️ 덤핑 악재] CATL·BYD 북미·유럽 시장 ESS 판가 20% 인하 공세… K-배터리 수주전 격화",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=중국+ESS+덤핑+CATL+판가인하",
-          "summary": "중국 배터리 기업들의 공급과잉 물량이 해외 ESS 프로젝트로 유입되며 마진율 방어 부담 가중"
-        },
-        {
-          "date": "2026-10-30",
-          "stage": "DART 공시",
-          "impact_type": "GOOD",
-          "is_dart": true,
-          "press": "DART 전자공시",
-          "news_title": "[공시] 서진시스템, 글로벌 ESS 선도기업향 대용량 배터리 팩 케이스 1,420억원 공급",
-          "news_url": "https://dart.fss.or.kr/dsab007/main.do?autoSearch=true&textCrpNm=서진시스템",
-          "summary": "미국 및 유럽 신재생 에너지 프로젝트용 알루미늄 다이캐스팅 케이스 대량 납품"
-        }
-      ]
-    },
-    {
-      "theme_id": "power_grid_expansion",
-      "theme_name": "전기 전력망 & AI 초고압 송전",
-      "category": "인프라",
-      "today_change_rate": "+5.40%",
-      "today_score": 94,
-      "lead_stocks": [
-        "LS ELECTRIC",
-        "효성중공업",
-        "제룡전기",
-        "일진전기"
-      ],
-      "risks_summary": "미국 대선 이후 인프라 투자(IRA) 법안 보조금 재검토 노이즈 및 현지 생산 규제",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "매일경제",
-          "news_title": "[호재] 한전 56조 송배전망 투자 계획 가동… 고전압직류송전(HVDC) 국가기간망 발주",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=HVDC+국가기간망+초고압송전+LSELECTRIC",
-          "summary": "서해안 에너지고속도로 사업 본격화로 대형 변전소 및 전력기기 EPC 기업 동반 수혜"
-        },
-        {
-          "date": "2026-10-31",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "머니투데이",
-          "news_title": "[⚠️ 정책 리스크] 美 정부 전력망 보안 규제 강화… 외산 통신 모듈 탑재 변압기 검증 강화",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=미국+전력망+보안규제+변압기",
-          "summary": "미국 내 사이버 안보 인증 미취득 시 수주 물품 통관 및 납품 지연 리스크 주의"
-        }
-      ]
-    },
-    {
-      "theme_id": "nuclear_smr_power",
-      "theme_name": "원전 르네상스 & SMR 소형원자로",
-      "category": "원자력",
-      "today_change_rate": "+5.10%",
-      "today_score": 94,
-      "lead_stocks": [
-        "두산에너빌리티",
-        "우진엔텍",
-        "한신기계",
-        "일진파워"
-      ],
-      "risks_summary": "SMR 최초 상용 호기 인허가 규제 지연 및 발전 단가 상승에 따른 경제성 논란",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "서울경제",
-          "news_title": "[호재] 美 뉴스케일 파워 1호 SMR 기공식 확정… 두산에너빌리티 단조 원자로 압력용기 선적",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=SMR+두산에너빌리티+우진엔텍",
-          "summary": "글로벌 빅테크의 24/7 무탄소 전력원 채택으로 차세대 SMR 파운드리 수주 본격화"
-        },
-        {
-          "date": "2026-10-31",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "이데일리",
-          "news_title": "[⚠️ 규제 리스크] 미국 원자력규제위원회(NRC) SMR 설계변경 안전성 재심사 착수 소식",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=SMR+NRC+인허가지연+안전성논란",
-          "summary": "안전성 심사 장기화로 첫 상업운전 시점이 1년 지연될 경우 초기 설치 단가 상승 우려"
-        }
-      ]
-    },
-    {
-      "theme_id": "ai_dc_network",
-      "theme_name": "AI데이터센터 - 초고속 네트워크 & 광통신",
-      "category": "AI 데이터센터 인프라",
-      "today_change_rate": "+5.30%",
-      "today_score": 93,
-      "lead_stocks": [
-        "옵티코어",
-        "대한광통신",
-        "오이솔루션",
-        "쏠리드"
-      ],
-      "risks_summary": "해외 통신사 5G CAPEX 축소 장기화 및 광트랜시버 글로벌 단가 인하 경쟁 압박",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "매일경제",
-          "news_title": "[호재] AI 클러스터 병목 해소… 800G·1.6T 광트랜시버 및 초저손실 광케이블 공급 본격화",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=옵티코어+광트랜시버+AI데이터센터",
-          "summary": "AI 서버 간 데이터 전송 지연을 줄이기 위한 광통신 모듈 수요가 전년 대비 140% 급증"
-        },
-        {
-          "date": "2026-10-31",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "이데일리",
-          "news_title": "[⚠️ 악재 주의] 북미 주요 통신사 기지국 설비투자 축소… 전통 통신장비 부문 적자 지속",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=통신장비+CAPEX+축소+적자",
-          "summary": "데이터센터향 매출 발생 전까지 기존 5G 무선 통신장비 매출 급감으로 일부 후발 벤더 유동성 압박"
-        },
-        {
-          "date": "2026-10-30",
-          "stage": "증권사 리포트",
-          "impact_type": "GOOD",
-          "is_report": true,
-          "press": "키움증권",
-          "news_title": "[리포트] 옵티코어, 북미 빅테크 AI 데이터센터향 400G/800G 광엔진 퀄테스트 통과",
-          "news_url": "https://finance.naver.com/research/company_list.naver?keyword=옵티코어",
-          "summary": "투자의견: Buy(신규) | 목표주가 상향 | 4분기 북미 직수출 전환으로 영업이익률 18% 달성 전망"
-        }
-      ]
-    },
-    {
-      "theme_id": "custom_1789721514159",
-      "theme_name": "원전",
-      "category": "에너지",
-      "today_change_rate": "+4.40%",
-      "today_score": 93,
-      "lead_stocks": [
-        "두산에너빌리티",
-        "우진엔텍",
-        "비에이치아이",
-        "한신기계"
-      ],
-      "risks_summary": "웨스팅하우스(WEC) 지재권 분쟁 소송 노이즈 및 체코 본계약 체결 과정의 정치적 변수",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "조선일보",
-          "news_title": "[호재] 체코 두코바니 24조 원전 본계약 협상 순항… 11월 실사단 방한 예정",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=두산에너빌리티+체코원전+본계약",
-          "summary": "체코 정부 고위 관계자 방한 및 한수원-두산에너빌리티 공급망 최종 실사 착수"
-        },
-        {
-          "date": "2026-10-31",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "중앙일보",
-          "news_title": "[⚠️ 지재권 악재] 美 웨스팅하우스(WEC), 한국형 원전 수출 항소 유지… 지재권 로열티 협상 난항",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=원전+웨스팅하우스+지재권+소송+항소",
-          "summary": "미국 법무부 및 상무부의 원전 기술 수출 통제 승인 절차 지연 시 본계약 서명 시점 순연 리스크"
-        },
-        {
-          "date": "2026-10-30",
-          "stage": "증권사 리포트",
-          "impact_type": "GOOD",
-          "is_report": true,
-          "press": "NH투자증권",
-          "news_title": "[리포트] 두산에너빌리티, 체코 원전 주기기 2조원 제작 독점 확정 및 뉴스케일 SMR 착공",
-          "news_url": "https://finance.naver.com/research/company_list.naver?keyword=두산에너빌리티",
-          "summary": "투자의견: Buy(유지) | 목표주가 32,000원 | 글로벌 대형 원전 및 SMR 수주 파이프라인 가동"
-        }
-      ]
-    },
-    {
-      "theme_id": "db_theme_1789557211351",
-      "theme_name": "원자력_원전 > 원자력 원전",
-      "category": "원자력",
-      "today_change_rate": "+4.40%",
-      "today_score": 93,
-      "lead_stocks": [
-        "두산에너빌리티",
-        "우진엔텍",
-        "비에이치아이"
-      ],
-      "risks_summary": "원전 수출국 간 금융지원 조건 경쟁 심화 및 환율 변동성 리스크",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "한국경제",
-          "news_title": "[호재] 한국-체코 원전 동맹 가동… 원전 계측제어 및 정비 솔루션 기업 동반 진출",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=우진엔텍+원전계측제어+체코진출",
-          "summary": "대장주: 두산에너빌리티, 우진엔텍 | 유럽 원전 르네상스 국면에서 K-원전 시공·정비 생태계 부각"
-        },
-        {
-          "date": "2026-10-30",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "뉴스1",
-          "news_title": "[⚠️ 금융조건 리스크] 유럽 환경단체 및 프랑스 전력공사(EDF) 이의제기 소송 제기",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=체코원전+EDF+소송+이의제기",
-          "summary": "탈락 경쟁사들의 유럽연합(EU) 반독점 및 정부보조금 규정 위반 제소로 인한 노이즈 발생"
-        }
-      ]
-    },
-    {
       "theme_id": "robot_ai",
       "theme_name": "로봇용 액추에이터 & 피지컬 AI",
       "category": "로봇/AI",
-      "today_score": 93,
+      "today_score": 95,
       "today_change_rate": "+3.90%",
       "today_trading_volume": "5,400억",
       "lead_stocks": [
@@ -569,6 +339,33 @@
       ],
       "today_reason": "빅테크 제조 라인 내 휴머노이드 투입 및 정밀 감속기 부품 국산화 양산 납품 본격화",
       "timeline": [
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-20",
+          "news_title": "로봇주 동반 급락…앤트로픽 상장에도 기술주 한파, 코스피 4900도 붕괴...",
+          "news_url": "https://www.cbci.co.kr/news/articleView.html?idxno=629021",
+          "press": "CBC뉴스",
+          "impact": "단기 조정"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-20",
+          "news_title": "\"로봇·수소 초광역특구 전북 지정\"…도의회, 촉구 건의안",
+          "news_url": "https://www.newsis.com/view/NISX20261120_0003876520",
+          "press": "뉴시스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-20",
+          "news_title": "순천시, 문화콘텐츠 페어·로봇 페스타·시민화합 행사 20~21일 개최",
+          "news_url": "https://www.pressian.com/pages/articles/2026112012501770746?utm_source=naver&utm_medium=search",
+          "press": "프레시안",
+          "impact": "모멘텀 지속"
+        },
         {
           "theme": "로봇용 액추에이터 & 피지컬 AI",
           "target_stock": "뉴로메카",
@@ -914,6 +711,245 @@
       ]
     },
     {
+      "theme_id": "ai_dc_ess",
+      "theme_name": "AI데이터센터 - ESS(에너지저장장치, BESS)",
+      "category": "AI 데이터센터 인프라",
+      "today_change_rate": "+5.60%",
+      "today_score": 94,
+      "lead_stocks": [
+        "서진시스템",
+        "한화솔루션",
+        "LS머트리얼즈",
+        "신성에스티"
+      ],
+      "risks_summary": "중국산 LFP 기반 초저가 ESS 배터리 컨테이너 덤핑 공세 및 배터리 화재 안전성 우려",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "머니S",
+          "news_title": "[호재] AI 데이터센터 UPS·피크저감용 BESS 설치 의무화… 서진시스템 메가와트 수주 질주",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=서진시스템+ESS+BESS",
+          "summary": "글로벌 빅테크의 무정전 전원장치(UPS) 및 재생에너지 연계 BESS 캐비닛 공급 계약 확대"
+        },
+        {
+          "date": "2026-10-31",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "더구루",
+          "news_title": "[⚠️ 덤핑 악재] CATL·BYD 북미·유럽 시장 ESS 판가 20% 인하 공세… K-배터리 수주전 격화",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=중국+ESS+덤핑+CATL+판가인하",
+          "summary": "중국 배터리 기업들의 공급과잉 물량이 해외 ESS 프로젝트로 유입되며 마진율 방어 부담 가중"
+        },
+        {
+          "date": "2026-10-30",
+          "stage": "DART 공시",
+          "impact_type": "GOOD",
+          "is_dart": true,
+          "press": "DART 전자공시",
+          "news_title": "[공시] 서진시스템, 글로벌 ESS 선도기업향 대용량 배터리 팩 케이스 1,420억원 공급",
+          "news_url": "https://dart.fss.or.kr/dsab007/main.do?autoSearch=true&textCrpNm=서진시스템",
+          "summary": "미국 및 유럽 신재생 에너지 프로젝트용 알루미늄 다이캐스팅 케이스 대량 납품"
+        }
+      ]
+    },
+    {
+      "theme_id": "power_grid_expansion",
+      "theme_name": "전기 전력망 & AI 초고압 송전",
+      "category": "인프라",
+      "today_change_rate": "+5.40%",
+      "today_score": 94,
+      "lead_stocks": [
+        "LS ELECTRIC",
+        "효성중공업",
+        "제룡전기",
+        "일진전기"
+      ],
+      "risks_summary": "미국 대선 이후 인프라 투자(IRA) 법안 보조금 재검토 노이즈 및 현지 생산 규제",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "매일경제",
+          "news_title": "[호재] 한전 56조 송배전망 투자 계획 가동… 고전압직류송전(HVDC) 국가기간망 발주",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=HVDC+국가기간망+초고압송전+LSELECTRIC",
+          "summary": "서해안 에너지고속도로 사업 본격화로 대형 변전소 및 전력기기 EPC 기업 동반 수혜"
+        },
+        {
+          "date": "2026-10-31",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "머니투데이",
+          "news_title": "[⚠️ 정책 리스크] 美 정부 전력망 보안 규제 강화… 외산 통신 모듈 탑재 변압기 검증 강화",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=미국+전력망+보안규제+변압기",
+          "summary": "미국 내 사이버 안보 인증 미취득 시 수주 물품 통관 및 납품 지연 리스크 주의"
+        }
+      ]
+    },
+    {
+      "theme_id": "nuclear_smr_power",
+      "theme_name": "원전 르네상스 & SMR 소형원자로",
+      "category": "원자력",
+      "today_change_rate": "+5.10%",
+      "today_score": 94,
+      "lead_stocks": [
+        "두산에너빌리티",
+        "우진엔텍",
+        "한신기계",
+        "일진파워"
+      ],
+      "risks_summary": "SMR 최초 상용 호기 인허가 규제 지연 및 발전 단가 상승에 따른 경제성 논란",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "서울경제",
+          "news_title": "[호재] 美 뉴스케일 파워 1호 SMR 기공식 확정… 두산에너빌리티 단조 원자로 압력용기 선적",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=SMR+두산에너빌리티+우진엔텍",
+          "summary": "글로벌 빅테크의 24/7 무탄소 전력원 채택으로 차세대 SMR 파운드리 수주 본격화"
+        },
+        {
+          "date": "2026-10-31",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "이데일리",
+          "news_title": "[⚠️ 규제 리스크] 미국 원자력규제위원회(NRC) SMR 설계변경 안전성 재심사 착수 소식",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=SMR+NRC+인허가지연+안전성논란",
+          "summary": "안전성 심사 장기화로 첫 상업운전 시점이 1년 지연될 경우 초기 설치 단가 상승 우려"
+        }
+      ]
+    },
+    {
+      "theme_id": "ai_dc_network",
+      "theme_name": "AI데이터센터 - 초고속 네트워크 & 광통신",
+      "category": "AI 데이터센터 인프라",
+      "today_change_rate": "+5.30%",
+      "today_score": 93,
+      "lead_stocks": [
+        "옵티코어",
+        "대한광통신",
+        "오이솔루션",
+        "쏠리드"
+      ],
+      "risks_summary": "해외 통신사 5G CAPEX 축소 장기화 및 광트랜시버 글로벌 단가 인하 경쟁 압박",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "매일경제",
+          "news_title": "[호재] AI 클러스터 병목 해소… 800G·1.6T 광트랜시버 및 초저손실 광케이블 공급 본격화",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=옵티코어+광트랜시버+AI데이터센터",
+          "summary": "AI 서버 간 데이터 전송 지연을 줄이기 위한 광통신 모듈 수요가 전년 대비 140% 급증"
+        },
+        {
+          "date": "2026-10-31",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "이데일리",
+          "news_title": "[⚠️ 악재 주의] 북미 주요 통신사 기지국 설비투자 축소… 전통 통신장비 부문 적자 지속",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=통신장비+CAPEX+축소+적자",
+          "summary": "데이터센터향 매출 발생 전까지 기존 5G 무선 통신장비 매출 급감으로 일부 후발 벤더 유동성 압박"
+        },
+        {
+          "date": "2026-10-30",
+          "stage": "증권사 리포트",
+          "impact_type": "GOOD",
+          "is_report": true,
+          "press": "키움증권",
+          "news_title": "[리포트] 옵티코어, 북미 빅테크 AI 데이터센터향 400G/800G 광엔진 퀄테스트 통과",
+          "news_url": "https://finance.naver.com/research/company_list.naver?keyword=옵티코어",
+          "summary": "투자의견: Buy(신규) | 목표주가 상향 | 4분기 북미 직수출 전환으로 영업이익률 18% 달성 전망"
+        }
+      ]
+    },
+    {
+      "theme_id": "custom_1789721514159",
+      "theme_name": "원전",
+      "category": "에너지",
+      "today_change_rate": "+4.40%",
+      "today_score": 93,
+      "lead_stocks": [
+        "두산에너빌리티",
+        "우진엔텍",
+        "비에이치아이",
+        "한신기계"
+      ],
+      "risks_summary": "웨스팅하우스(WEC) 지재권 분쟁 소송 노이즈 및 체코 본계약 체결 과정의 정치적 변수",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "조선일보",
+          "news_title": "[호재] 체코 두코바니 24조 원전 본계약 협상 순항… 11월 실사단 방한 예정",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=두산에너빌리티+체코원전+본계약",
+          "summary": "체코 정부 고위 관계자 방한 및 한수원-두산에너빌리티 공급망 최종 실사 착수"
+        },
+        {
+          "date": "2026-10-31",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "중앙일보",
+          "news_title": "[⚠️ 지재권 악재] 美 웨스팅하우스(WEC), 한국형 원전 수출 항소 유지… 지재권 로열티 협상 난항",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=원전+웨스팅하우스+지재권+소송+항소",
+          "summary": "미국 법무부 및 상무부의 원전 기술 수출 통제 승인 절차 지연 시 본계약 서명 시점 순연 리스크"
+        },
+        {
+          "date": "2026-10-30",
+          "stage": "증권사 리포트",
+          "impact_type": "GOOD",
+          "is_report": true,
+          "press": "NH투자증권",
+          "news_title": "[리포트] 두산에너빌리티, 체코 원전 주기기 2조원 제작 독점 확정 및 뉴스케일 SMR 착공",
+          "news_url": "https://finance.naver.com/research/company_list.naver?keyword=두산에너빌리티",
+          "summary": "투자의견: Buy(유지) | 목표주가 32,000원 | 글로벌 대형 원전 및 SMR 수주 파이프라인 가동"
+        }
+      ]
+    },
+    {
+      "theme_id": "db_theme_1789557211351",
+      "theme_name": "원자력_원전 > 원자력 원전",
+      "category": "원자력",
+      "today_change_rate": "+4.40%",
+      "today_score": 93,
+      "lead_stocks": [
+        "두산에너빌리티",
+        "우진엔텍",
+        "비에이치아이"
+      ],
+      "risks_summary": "원전 수출국 간 금융지원 조건 경쟁 심화 및 환율 변동성 리스크",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "한국경제",
+          "news_title": "[호재] 한국-체코 원전 동맹 가동… 원전 계측제어 및 정비 솔루션 기업 동반 진출",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=우진엔텍+원전계측제어+체코진출",
+          "summary": "대장주: 두산에너빌리티, 우진엔텍 | 유럽 원전 르네상스 국면에서 K-원전 시공·정비 생태계 부각"
+        },
+        {
+          "date": "2026-10-30",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "뉴스1",
+          "news_title": "[⚠️ 금융조건 리스크] 유럽 환경단체 및 프랑스 전력공사(EDF) 이의제기 소송 제기",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=체코원전+EDF+소송+이의제기",
+          "summary": "탈락 경쟁사들의 유럽연합(EU) 반독점 및 정부보조금 규정 위반 제소로 인한 노이즈 발생"
+        }
+      ]
+    },
+    {
       "theme_id": "custom_1789557355183",
       "theme_name": "로봇",
       "category": "미래 신성장",
@@ -1000,86 +1036,6 @@
           "news_title": "[⚠️ 원가 악재] 구리 가격 급등으로 전선업계 원자재 매입 부담 증가… 중소 전선사 한계 직면",
           "news_url": "https://search.naver.com/search.naver?where=news&query=전선업계+구리가격+운전자본부담",
           "summary": "원가 상승분 판가 반영 시차로 인해 일부 중소 전선업체 단기 영업현금흐름 악화 가능성"
-        }
-      ]
-    },
-    {
-      "theme_id": "smr_nuclear",
-      "theme_name": "체코 30조 원전 & 소형 SMR/전력망",
-      "category": "정책/원전/전력",
-      "today_score": 92,
-      "today_change_rate": "+4.85%",
-      "today_trading_volume": "7,600억",
-      "lead_stocks": [
-        "두산에너빌리티",
-        "한신기계",
-        "우진엔텍",
-        "일진파워"
-      ],
-      "today_reason": "체코 두코바니 30조 원전 10월 본계약 기대감 및 AI 데이터센터 전력난 해소용 SMR 수요 폭증",
-      "timeline": [
-        {
-          "theme": "체코 30조 원전 & 소형 SMR/전력망",
-          "target_stock": "한화에어로스페이스",
-          "date": "2026-11-19",
-          "news_title": "경남도, SMR·제조AX·방산 '삼각 성장엔진' 가동",
-          "news_url": "https://www.industrynews.co.kr/news/articleView.html?idxno=89910",
-          "press": "인더스트리뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "체코 30조 원전 & 소형 SMR/전력망",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-18",
-          "news_title": "경남도, 원전 수출부터 기술창업까지…지역경제 성장판 넓힌다",
-          "news_url": "https://www.industrynews.co.kr/news/articleView.html?idxno=89814",
-          "press": "인더스트리뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "체코 30조 원전 & 소형 SMR/전력망",
-          "target_stock": "일진파워",
-          "date": "2026-11-17",
-          "news_title": "LS ELECTRIC·효성중공업·HD현대일렉트릭 하락…전력기기주 숨 고르기",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=504758",
-          "press": "핀포인트뉴스",
-          "impact": "단기 조정"
-        },
-        {
-          "theme": "체코 30조 원전 & 소형 SMR/전력망",
-          "target_stock": "일진파워",
-          "date": "2026-11-17",
-          "news_title": "[이넷뉴스 브랜드평판] 두산에너빌리티, 원자력발전 상장기업 11월 1위·...",
-          "news_url": "https://www.enetnews.co.kr/news/articleView.html?idxno=56403",
-          "press": "이넷뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "체코 30조 원전 & 소형 SMR/전력망",
-          "target_stock": "한화에어로스페이스",
-          "date": "2026-11-16",
-          "news_title": "경남도, 재난 초기대응부터 원전 수출·관광·축산 안전까지 현장 정책...",
-          "news_url": "https://www.kukinews.com/article/view/kuk202611160284",
-          "press": "쿠키뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "체코 30조 원전 & 소형 SMR/전력망",
-          "target_stock": "한화에어로스페이스",
-          "date": "2026-11-16",
-          "news_title": "경남도, SMR 세계시장 공략·재난안전망 강화 '투트랙'",
-          "news_url": "https://www.industrynews.co.kr/news/articleView.html?idxno=89641",
-          "press": "인더스트리뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "체코 30조 원전 & 소형 SMR/전력망",
-          "target_stock": "한화에어로스페이스",
-          "date": "2026-11-16",
-          "news_title": "북미시장 영향력 확대하는 HD현대  함정부터 전력망 에너지까지 공략",
-          "news_url": "http://www.smedaily.co.kr/news/articleView.html?idxno=366200",
-          "press": "중소기업신문",
-          "impact": "모멘텀 지속"
         }
       ]
     },
@@ -1190,289 +1146,10 @@
       ]
     },
     {
-      "theme_id": "ai_dc_cloud",
-      "theme_name": "AI데이터센터 - 클라우드 및 운영 소프트웨어 (CSP / MSP)",
-      "category": "AI 데이터센터 인프라",
-      "today_change_rate": "+3.85%",
-      "today_score": 89,
-      "lead_stocks": [
-        "삼성에스디에스",
-        "포스코DX",
-        "현대오토에버",
-        "솔트룩스"
-      ],
-      "risks_summary": "기업들의 AI 도입 ROI(투자수익률) 회수 지연 및 생성형 AI 소프트웨어 구독 단가 인하 경쟁",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "디지털데일리",
-          "news_title": "[호재] 기업용 생성형 AI 플랫폼 구축 수요 폭증… 삼성SDS·포스코DX 클라우드 매출 35% 급증",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=삼성에스디에스+클라우드+AI",
-          "summary": "제조 및 금융권 프라이빗 거대언어모델(LLM) 인프라 전환 프로젝트가 본격 수익화 구간 진입"
-        },
-        {
-          "date": "2026-10-30",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "지디넷코리아",
-          "news_title": "[⚠️ 수익성 악재] 오픈소스 AI 모델 범람… 거대 LLM 소프트웨어 라이선스 단가 하락 압박",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=오픈소스+LLM+단가인하+소프트웨어",
-          "summary": "메타 라마4 등 고성능 오픈소스 배포로 인해 자체 구축 소프트웨어 솔루션의 고마진 유지 불확실성 증대"
-        }
-      ]
-    },
-    {
-      "theme_id": "radar_584",
-      "theme_name": "스페이스X",
-      "category": "우주항공",
-      "today_change_rate": "+4.20%",
-      "today_score": 89,
-      "lead_stocks": [
-        "센서뷰",
-        "와이제이링크",
-        "에이치브이엠",
-        "켄코아에어로스페이스"
-      ],
-      "risks_summary": "발사체 시험 발사 일정 연기 및 기술 결함 발생 시 급격한 주가 변동성",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "이데일리",
-          "news_title": "[호재] 美 스페이스X 스타십 차기 발사 카운트다운… 국내 우주 밸류체인 부품사 급등",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=스페이스X+스타십+센서뷰+와이제이링크",
-          "summary": "초고주파 케이블 및 위성용 SMT 단독 공급 협의 소식에 매수세 유입"
-        },
-        {
-          "date": "2026-10-31",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "서울경제",
-          "news_title": "[⚠️ 변동성 리스크] FAA(미국연방항공청) 환경영향평가 지연으로 스타십 상용화 일정 3개월 순연",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=스페이스X+FAA+발사연기+리스크",
-          "summary": "단기 기대감 소멸 시 관련 테마주들의 차익 매물 출회 및 거래량 급감 주의"
-        }
-      ]
-    },
-    {
-      "theme_id": "radar_200",
-      "theme_name": "우주항공산업",
-      "category": "우주항공",
-      "today_change_rate": "+3.80%",
-      "today_score": 89,
-      "lead_stocks": [
-        "한국항공우주",
-        "한화에어로스페이스",
-        "켄코아에어로스페이스"
-      ],
-      "risks_summary": "군수용 헬기·전투기 납기 지연 배상금(지체상금) 청구 및 환율 급변동 리스크",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "시장 판도 레이더",
-          "news_title": "[호재] K-방산 및 민간 우주로켓 고체연료 엔진 양산 승인 소식에 상승",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=한국항공우주+한화에어로스페이스+우주항공",
-          "summary": "대장주: 한국항공우주, 한화에어로스페이스 | 방산과 우주항공 복합 모멘텀 장착"
-        },
-        {
-          "date": "2026-10-31",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "헤럴드경제",
-          "news_title": "[⚠️ 공급망 악재] 항공용 티타늄 및 특수합금 수급 불안정으로 납기 지연 우려",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=항공우주+티타늄+원자재수급난",
-          "summary": "글로벌 항공기 부품 공급망 지연으로 단기 생산 지연 및 원가율 상승 가능성 주의"
-        }
-      ]
-    },
-    {
-      "theme_id": "ai_dc_epc",
-      "theme_name": "AI데이터센터 - 부동산, 인프라 개발 & 건설 (EPC)",
-      "category": "AI 데이터센터 인프라",
-      "today_change_rate": "+3.20%",
-      "today_score": 88,
-      "lead_stocks": [
-        "현대건설",
-        "한미글로벌",
-        "삼성E&A",
-        "GS건설"
-      ],
-      "risks_summary": "고금리 장기화에 따른 PF 자금 조달 비용 상승 및 지자체 데이터센터 건축 인허가 규제 강화",
-      "timeline": [
-        {
-          "date": "2026-11-01",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "아시아경제",
-          "news_title": "[호재] 하이퍼스케일 AI 데이터센터 EPC 착공 급증… 현대건설·한미글로벌 수혜",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=현대건설+데이터센터+EPC",
-          "summary": "고난도 특수 엔지니어링 설계를 요하는 AI 데이터센터 신축 발주 확대로 수주 마진 개선"
-        },
-        {
-          "date": "2026-10-29",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "건설경제",
-          "news_title": "[⚠️ 지자체 규제 악재] 수도권 데이터센터 전력 계통 포화… 한전 신규 수전 계약 거부 속출",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=데이터센터+전력포화+한전+수전거부",
-          "summary": "전력 다소비 시설에 대한 수도권 입지 규제 강화로 신규 착공 일정이 6개월~1년 순연될 위기"
-        }
-      ]
-    },
-    {
-      "theme_id": "custom_1789701132438",
-      "theme_name": "우주항공",
-      "category": "항공우주",
-      "today_change_rate": "+3.50%",
-      "today_score": 88,
-      "lead_stocks": [
-        "한국항공우주",
-        "한화시스템",
-        "제노코",
-        "인텔리안테크"
-      ],
-      "risks_summary": "정부 R&D 예산 삭감 노이즈 및 저궤도 위성 안테나 글로벌 재고 조정",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "한국경제",
-          "news_title": "[호재] 우주항공청, 2027년 달착륙선 및 초소형 군집위성 발사 프로젝트 본궤도",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=한국항공우주+한화시스템+군집위성",
-          "summary": "민간 주도 우주산업(뉴 스페이스) 육성책 발표로 방산·항공 대형주 매수세 유입"
-        },
-        {
-          "date": "2026-10-29",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "머니투데이",
-          "news_title": "[⚠️ 실적 리스크] 원웹(OneWeb) 발사 일정 지연으로 지상국 위성 안테나 매출 인식 이연",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=위성안테나+원웹+매출이연+실적쇼크",
-          "summary": "글로벌 통신위성 발사체 공급 부족에 따른 납품 일정 순연으로 단기 분기 실적 일시적 둔화"
-        }
-      ]
-    },
-    {
-      "theme_id": "radar_373",
-      "theme_name": "5G",
-      "category": "통신",
-      "today_change_rate": "+4.10%",
-      "today_score": 87,
-      "lead_stocks": [
-        "이노인스트루먼트",
-        "우리로",
-        "대한광통신",
-        "우리넷"
-      ],
-      "risks_summary": "통신 3사 무선 설비투자 정체 및 6G 상용화 시점 지연으로 단기 실적 모멘텀 공백",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "시장 판도 레이더",
-          "news_title": "[호재] 5G 특화망(이음5G) 스마트팩토리 확대 및 통신장비 교체 수요 유입",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=이노인스트루먼트+5G+통신장비",
-          "summary": "대장주: 이노인스트루먼트 | 산업용 5G 융합 솔루션 도입 확대로 거래대금 급증"
-        },
-        {
-          "date": "2026-10-31",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "디지털타임스",
-          "news_title": "[⚠️ 실적 악재] 국내 통신 3사 CAPEX 전년비 12% 축소… 5G 중계기 부품사 3분기 실적 쇼크",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=통신3사+CAPEX+축소+실적쇼크",
-          "summary": "가입자 포화에 따른 인프라 투자 정체로 일부 통신장비 협력업체 영업이익 적자 전환"
-        }
-      ]
-    },
-    {
-      "theme_id": "hair_loss_insurance",
-      "theme_name": "탈모 치료 건강보험 적용 검토",
-      "category": "정책/바이오",
-      "today_change_rate": "+4.10%",
-      "today_score": 87,
-      "lead_stocks": [
-        "바이오니아",
-        "현대약품",
-        "TS트릴리온",
-        "인벤티지랩"
-      ],
-      "risks_summary": "건강보험 재정 건전성 악화로 인한 실제 급여화 무산 또는 본인부담금 과다 책정 리스크",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "국회 의정속보",
-          "news_title": "[호재] 국회 보건복지위, 청년층 탈모 치료제 급여화 법안 공청회 개최 소식에 급등",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=탈모+건강보험+적용+바이오니아",
-          "summary": "대장주: 현대약품, 바이오니아 | 정책 추진 기대감으로 관련 치료제주 수급 유입"
-        },
-        {
-          "date": "2026-10-31",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "메디컬타임즈",
-          "news_title": "[⚠️ 정책 무산 리스크] 건보공단, 연간 재정 소요액 3천억 부담 난색… 건보 적용 백지화 가능성",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=탈모치료+건강보험+적용+무산+재정부담",
-          "summary": "생명 직결 질환 우선 원칙과의 형평성 논란으로 국회 최종 법안 통과 불확실성 상존"
-        }
-      ]
-    },
-    {
-      "theme_id": "radar_92",
-      "theme_name": "통신장비",
-      "category": "통신",
-      "today_change_rate": "+3.40%",
-      "today_score": 86,
-      "lead_stocks": [
-        "쏠리드",
-        "에이스테크",
-        "케이엠더블유",
-        "RFHIC"
-      ],
-      "risks_summary": "해외 통신사 5G 기지국 투자 축소 및 적자 누적, GaN 반도체 벤더 수주 지연",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "시장 판도 레이더",
-          "news_title": "[호재] 방산용 레이더 및 군 전술통신망 장비 공급 확대로 통신장비사 턴어라운드",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=RFHIC+쏠리드+통신장비+방산",
-          "summary": "대장주: 쏠리드, RFHIC | 무선 통신 부진을 방산 질화갈륨(GaN) 전력증폭기 수주로 상쇄"
-        },
-        {
-          "date": "2026-10-30",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "비즈니스워치",
-          "news_title": "[⚠️ 적자 악재] 케이엠더블유 등 전통 필터·안테나 벤더 영업손실 지속… 재무건전성 경고",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=케이엠더블유+영업적자+재무리스크",
-          "summary": "글로벌 통신장비사향 직납 물량 감소로 고정비 부담 지속, 유상증자 가능성 주의 필요"
-        }
-      ]
-    },
-    {
       "theme_id": "defense_k",
       "theme_name": "K-방산 수출 & 자주포/미사일",
       "category": "방산/항공",
-      "today_score": 85,
+      "today_score": 91,
       "today_change_rate": "+2.80%",
       "today_trading_volume": "4,500억",
       "lead_stocks": [
@@ -1483,6 +1160,33 @@
       ],
       "today_reason": "루마니아·폴란드 후속 탄약운반차 및 전차 2차 실행계약 연내 체결 임박에 따른 수주 랠리",
       "timeline": [
+        {
+          "theme": "K-방산 수출 & 자주포/미사일",
+          "target_stock": "현대로템",
+          "date": "2026-11-20",
+          "news_title": "[뉴스락 특별기획] 인사사고에 뇌물까지…K-방산 전성시대의 이면",
+          "news_url": "http://www.newslock.co.kr/news/articleView.html?idxno=140317",
+          "press": "뉴스락",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "K-방산 수출 & 자주포/미사일",
+          "target_stock": "LIG넥스원",
+          "date": "2026-11-20",
+          "news_title": "[수출 1조 달러 돌파 ③] 반도체 다음은···방산·조선·뷰티·푸드 \"우...",
+          "news_url": "https://www.seoulfn.com/news/articleView.html?idxno=643397",
+          "press": "서울파이낸스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "K-방산 수출 & 자주포/미사일",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-20",
+          "news_title": "거침없는 질주 한화그릅 방산계열, 글로벌 '톱10' 가려면",
+          "news_url": "https://www.mt.co.kr/politics/2026/11/20/2026112011323792899",
+          "press": "머니투데이",
+          "impact": "모멘텀 지속"
+        },
         {
           "theme": "K-방산 수출 & 자주포/미사일",
           "target_stock": "한화에어로스페이스",
@@ -1675,6 +1379,365 @@
       ]
     },
     {
+      "theme_id": "ai_dc_cloud",
+      "theme_name": "AI데이터센터 - 클라우드 및 운영 소프트웨어 (CSP / MSP)",
+      "category": "AI 데이터센터 인프라",
+      "today_change_rate": "+3.85%",
+      "today_score": 89,
+      "lead_stocks": [
+        "삼성에스디에스",
+        "포스코DX",
+        "현대오토에버",
+        "솔트룩스"
+      ],
+      "risks_summary": "기업들의 AI 도입 ROI(투자수익률) 회수 지연 및 생성형 AI 소프트웨어 구독 단가 인하 경쟁",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "디지털데일리",
+          "news_title": "[호재] 기업용 생성형 AI 플랫폼 구축 수요 폭증… 삼성SDS·포스코DX 클라우드 매출 35% 급증",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=삼성에스디에스+클라우드+AI",
+          "summary": "제조 및 금융권 프라이빗 거대언어모델(LLM) 인프라 전환 프로젝트가 본격 수익화 구간 진입"
+        },
+        {
+          "date": "2026-10-30",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "지디넷코리아",
+          "news_title": "[⚠️ 수익성 악재] 오픈소스 AI 모델 범람… 거대 LLM 소프트웨어 라이선스 단가 하락 압박",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=오픈소스+LLM+단가인하+소프트웨어",
+          "summary": "메타 라마4 등 고성능 오픈소스 배포로 인해 자체 구축 소프트웨어 솔루션의 고마진 유지 불확실성 증대"
+        }
+      ]
+    },
+    {
+      "theme_id": "radar_584",
+      "theme_name": "스페이스X",
+      "category": "우주항공",
+      "today_change_rate": "+4.20%",
+      "today_score": 89,
+      "lead_stocks": [
+        "센서뷰",
+        "와이제이링크",
+        "에이치브이엠",
+        "켄코아에어로스페이스"
+      ],
+      "risks_summary": "발사체 시험 발사 일정 연기 및 기술 결함 발생 시 급격한 주가 변동성",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "이데일리",
+          "news_title": "[호재] 美 스페이스X 스타십 차기 발사 카운트다운… 국내 우주 밸류체인 부품사 급등",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=스페이스X+스타십+센서뷰+와이제이링크",
+          "summary": "초고주파 케이블 및 위성용 SMT 단독 공급 협의 소식에 매수세 유입"
+        },
+        {
+          "date": "2026-10-31",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "서울경제",
+          "news_title": "[⚠️ 변동성 리스크] FAA(미국연방항공청) 환경영향평가 지연으로 스타십 상용화 일정 3개월 순연",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=스페이스X+FAA+발사연기+리스크",
+          "summary": "단기 기대감 소멸 시 관련 테마주들의 차익 매물 출회 및 거래량 급감 주의"
+        }
+      ]
+    },
+    {
+      "theme_id": "radar_200",
+      "theme_name": "우주항공산업",
+      "category": "우주항공",
+      "today_change_rate": "+3.80%",
+      "today_score": 89,
+      "lead_stocks": [
+        "한국항공우주",
+        "한화에어로스페이스",
+        "켄코아에어로스페이스"
+      ],
+      "risks_summary": "군수용 헬기·전투기 납기 지연 배상금(지체상금) 청구 및 환율 급변동 리스크",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "시장 판도 레이더",
+          "news_title": "[호재] K-방산 및 민간 우주로켓 고체연료 엔진 양산 승인 소식에 상승",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=한국항공우주+한화에어로스페이스+우주항공",
+          "summary": "대장주: 한국항공우주, 한화에어로스페이스 | 방산과 우주항공 복합 모멘텀 장착"
+        },
+        {
+          "date": "2026-10-31",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "헤럴드경제",
+          "news_title": "[⚠️ 공급망 악재] 항공용 티타늄 및 특수합금 수급 불안정으로 납기 지연 우려",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=항공우주+티타늄+원자재수급난",
+          "summary": "글로벌 항공기 부품 공급망 지연으로 단기 생산 지연 및 원가율 상승 가능성 주의"
+        }
+      ]
+    },
+    {
+      "theme_id": "smr_nuclear",
+      "theme_name": "체코 30조 원전 & 소형 SMR/전력망",
+      "category": "정책/원전/전력",
+      "today_score": 88,
+      "today_change_rate": "+4.85%",
+      "today_trading_volume": "7,600억",
+      "lead_stocks": [
+        "두산에너빌리티",
+        "한신기계",
+        "우진엔텍",
+        "일진파워"
+      ],
+      "today_reason": "체코 두코바니 30조 원전 10월 본계약 기대감 및 AI 데이터센터 전력난 해소용 SMR 수요 폭증",
+      "timeline": [
+        {
+          "theme": "체코 30조 원전 & 소형 SMR/전력망",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-19",
+          "news_title": "경남도, SMR·제조AX·방산 '삼각 성장엔진' 가동",
+          "news_url": "https://www.industrynews.co.kr/news/articleView.html?idxno=89910",
+          "press": "인더스트리뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "체코 30조 원전 & 소형 SMR/전력망",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-18",
+          "news_title": "경남도, 원전 수출부터 기술창업까지…지역경제 성장판 넓힌다",
+          "news_url": "https://www.industrynews.co.kr/news/articleView.html?idxno=89814",
+          "press": "인더스트리뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "체코 30조 원전 & 소형 SMR/전력망",
+          "target_stock": "일진파워",
+          "date": "2026-11-17",
+          "news_title": "LS ELECTRIC·효성중공업·HD현대일렉트릭 하락…전력기기주 숨 고르기",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=504758",
+          "press": "핀포인트뉴스",
+          "impact": "단기 조정"
+        },
+        {
+          "theme": "체코 30조 원전 & 소형 SMR/전력망",
+          "target_stock": "일진파워",
+          "date": "2026-11-17",
+          "news_title": "[이넷뉴스 브랜드평판] 두산에너빌리티, 원자력발전 상장기업 11월 1위·...",
+          "news_url": "https://www.enetnews.co.kr/news/articleView.html?idxno=56403",
+          "press": "이넷뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "체코 30조 원전 & 소형 SMR/전력망",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-16",
+          "news_title": "경남도, 재난 초기대응부터 원전 수출·관광·축산 안전까지 현장 정책...",
+          "news_url": "https://www.kukinews.com/article/view/kuk202611160284",
+          "press": "쿠키뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "체코 30조 원전 & 소형 SMR/전력망",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-16",
+          "news_title": "경남도, SMR 세계시장 공략·재난안전망 강화 '투트랙'",
+          "news_url": "https://www.industrynews.co.kr/news/articleView.html?idxno=89641",
+          "press": "인더스트리뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "체코 30조 원전 & 소형 SMR/전력망",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-16",
+          "news_title": "북미시장 영향력 확대하는 HD현대  함정부터 전력망 에너지까지 공략",
+          "news_url": "http://www.smedaily.co.kr/news/articleView.html?idxno=366200",
+          "press": "중소기업신문",
+          "impact": "모멘텀 지속"
+        }
+      ]
+    },
+    {
+      "theme_id": "ai_dc_epc",
+      "theme_name": "AI데이터센터 - 부동산, 인프라 개발 & 건설 (EPC)",
+      "category": "AI 데이터센터 인프라",
+      "today_change_rate": "+3.20%",
+      "today_score": 88,
+      "lead_stocks": [
+        "현대건설",
+        "한미글로벌",
+        "삼성E&A",
+        "GS건설"
+      ],
+      "risks_summary": "고금리 장기화에 따른 PF 자금 조달 비용 상승 및 지자체 데이터센터 건축 인허가 규제 강화",
+      "timeline": [
+        {
+          "date": "2026-11-01",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "아시아경제",
+          "news_title": "[호재] 하이퍼스케일 AI 데이터센터 EPC 착공 급증… 현대건설·한미글로벌 수혜",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=현대건설+데이터센터+EPC",
+          "summary": "고난도 특수 엔지니어링 설계를 요하는 AI 데이터센터 신축 발주 확대로 수주 마진 개선"
+        },
+        {
+          "date": "2026-10-29",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "건설경제",
+          "news_title": "[⚠️ 지자체 규제 악재] 수도권 데이터센터 전력 계통 포화… 한전 신규 수전 계약 거부 속출",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=데이터센터+전력포화+한전+수전거부",
+          "summary": "전력 다소비 시설에 대한 수도권 입지 규제 강화로 신규 착공 일정이 6개월~1년 순연될 위기"
+        }
+      ]
+    },
+    {
+      "theme_id": "custom_1789701132438",
+      "theme_name": "우주항공",
+      "category": "항공우주",
+      "today_change_rate": "+3.50%",
+      "today_score": 88,
+      "lead_stocks": [
+        "한국항공우주",
+        "한화시스템",
+        "제노코",
+        "인텔리안테크"
+      ],
+      "risks_summary": "정부 R&D 예산 삭감 노이즈 및 저궤도 위성 안테나 글로벌 재고 조정",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "한국경제",
+          "news_title": "[호재] 우주항공청, 2027년 달착륙선 및 초소형 군집위성 발사 프로젝트 본궤도",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=한국항공우주+한화시스템+군집위성",
+          "summary": "민간 주도 우주산업(뉴 스페이스) 육성책 발표로 방산·항공 대형주 매수세 유입"
+        },
+        {
+          "date": "2026-10-29",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "머니투데이",
+          "news_title": "[⚠️ 실적 리스크] 원웹(OneWeb) 발사 일정 지연으로 지상국 위성 안테나 매출 인식 이연",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=위성안테나+원웹+매출이연+실적쇼크",
+          "summary": "글로벌 통신위성 발사체 공급 부족에 따른 납품 일정 순연으로 단기 분기 실적 일시적 둔화"
+        }
+      ]
+    },
+    {
+      "theme_id": "radar_373",
+      "theme_name": "5G",
+      "category": "통신",
+      "today_change_rate": "+4.10%",
+      "today_score": 87,
+      "lead_stocks": [
+        "이노인스트루먼트",
+        "우리로",
+        "대한광통신",
+        "우리넷"
+      ],
+      "risks_summary": "통신 3사 무선 설비투자 정체 및 6G 상용화 시점 지연으로 단기 실적 모멘텀 공백",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "시장 판도 레이더",
+          "news_title": "[호재] 5G 특화망(이음5G) 스마트팩토리 확대 및 통신장비 교체 수요 유입",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=이노인스트루먼트+5G+통신장비",
+          "summary": "대장주: 이노인스트루먼트 | 산업용 5G 융합 솔루션 도입 확대로 거래대금 급증"
+        },
+        {
+          "date": "2026-10-31",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "디지털타임스",
+          "news_title": "[⚠️ 실적 악재] 국내 통신 3사 CAPEX 전년비 12% 축소… 5G 중계기 부품사 3분기 실적 쇼크",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=통신3사+CAPEX+축소+실적쇼크",
+          "summary": "가입자 포화에 따른 인프라 투자 정체로 일부 통신장비 협력업체 영업이익 적자 전환"
+        }
+      ]
+    },
+    {
+      "theme_id": "hair_loss_insurance",
+      "theme_name": "탈모 치료 건강보험 적용 검토",
+      "category": "정책/바이오",
+      "today_change_rate": "+4.10%",
+      "today_score": 87,
+      "lead_stocks": [
+        "바이오니아",
+        "현대약품",
+        "TS트릴리온",
+        "인벤티지랩"
+      ],
+      "risks_summary": "건강보험 재정 건전성 악화로 인한 실제 급여화 무산 또는 본인부담금 과다 책정 리스크",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "국회 의정속보",
+          "news_title": "[호재] 국회 보건복지위, 청년층 탈모 치료제 급여화 법안 공청회 개최 소식에 급등",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=탈모+건강보험+적용+바이오니아",
+          "summary": "대장주: 현대약품, 바이오니아 | 정책 추진 기대감으로 관련 치료제주 수급 유입"
+        },
+        {
+          "date": "2026-10-31",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "메디컬타임즈",
+          "news_title": "[⚠️ 정책 무산 리스크] 건보공단, 연간 재정 소요액 3천억 부담 난색… 건보 적용 백지화 가능성",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=탈모치료+건강보험+적용+무산+재정부담",
+          "summary": "생명 직결 질환 우선 원칙과의 형평성 논란으로 국회 최종 법안 통과 불확실성 상존"
+        }
+      ]
+    },
+    {
+      "theme_id": "radar_92",
+      "theme_name": "통신장비",
+      "category": "통신",
+      "today_change_rate": "+3.40%",
+      "today_score": 86,
+      "lead_stocks": [
+        "쏠리드",
+        "에이스테크",
+        "케이엠더블유",
+        "RFHIC"
+      ],
+      "risks_summary": "해외 통신사 5G 기지국 투자 축소 및 적자 누적, GaN 반도체 벤더 수주 지연",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "시장 판도 레이더",
+          "news_title": "[호재] 방산용 레이더 및 군 전술통신망 장비 공급 확대로 통신장비사 턴어라운드",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=RFHIC+쏠리드+통신장비+방산",
+          "summary": "대장주: 쏠리드, RFHIC | 무선 통신 부진을 방산 질화갈륨(GaN) 전력증폭기 수주로 상쇄"
+        },
+        {
+          "date": "2026-10-30",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "비즈니스워치",
+          "news_title": "[⚠️ 적자 악재] 케이엠더블유 등 전통 필터·안테나 벤더 영업손실 지속… 재무건전성 경고",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=케이엠더블유+영업적자+재무리스크",
+          "summary": "글로벌 통신장비사향 직납 물량 감소로 고정비 부담 지속, 유상증자 가능성 주의 필요"
+        }
+      ]
+    },
+    {
       "theme_id": "radar_269",
       "theme_name": "LED장비",
       "category": "IT부품",
@@ -1739,7 +1802,7 @@
       "theme_id": "battery_solid",
       "theme_name": "2차전지 전고체 & 실리콘 음극재",
       "category": "2차전지/소재",
-      "today_score": 82,
+      "today_score": 80,
       "today_change_rate": "+3.40%",
       "today_trading_volume": "5,200억",
       "lead_stocks": [
@@ -1771,5 +1834,5 @@
       ]
     }
   ],
-  "last_updated": "2026-11-19T16:41:05.654Z"
+  "last_updated": "2026-11-20T04:09:54.475Z"
 }
