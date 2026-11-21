@@ -1,198 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-11-21T11:22:46.023Z",
-  "updatedAtKst": "2026. 11. 21. PM 8:22:46",
+  "updatedAt": "2026-11-21T19:26:46.701Z",
+  "updatedAtKst": "2026. 11. 22. AM 4:26:46",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "이재명 탈옥법 규탄대회"
+        "keyword": "22일 첫차 정상 운행"
       },
       {
         "rank": 2,
-        "keyword": "수원 삼성, 승격과 우승 확정"
+        "keyword": "문무 내부 갈등 심화"
       },
       {
         "rank": 3,
-        "keyword": "FBI 범죄정보망 해킹"
+        "keyword": "추성훈 은퇴 리벤 패배"
       },
       {
         "rank": 4,
-        "keyword": "호르무즈 유조선 피격"
+        "keyword": "진천 전자발찌 도주"
       },
       {
         "rank": 5,
-        "keyword": "클로드 리만 가설 증명"
+        "keyword": "호르무즈 유조선 피격"
       },
       {
         "rank": 6,
-        "keyword": "트럼프 한반도 논의"
+        "keyword": "ITZY 채령 폭식 경험"
       },
       {
         "rank": 7,
-        "keyword": "추성훈 은퇴전 팬들로 들썩"
+        "keyword": "수능 부정 신고 포상금"
       },
       {
         "rank": 8,
-        "keyword": "김종국"
+        "keyword": "조희대 대법원장 탄핵"
       },
       {
         "rank": 9,
-        "keyword": "이란 추가공격 압박"
+        "keyword": "로또 1등 14명 각 20억 당첨"
       },
       {
         "rank": 10,
-        "keyword": "파워리프팅"
+        "keyword": "푸른길 형사들의 만남"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "22일 첫차부터 운행 new"
+        "keyword": "굿파트너 2 상승 1"
       },
       {
         "rank": 2,
-        "keyword": "코르티스 데뷔 대상 동일"
+        "keyword": "100일의 거짓말 상승 17"
       },
       {
         "rank": 3,
-        "keyword": "추성훈 상승 1"
+        "keyword": "추성훈 리벤에 격투기 하락 1"
       },
       {
         "rank": 4,
-        "keyword": "수원 삼성 우승 new"
+        "keyword": "채령 동일"
       },
       {
         "rank": 5,
-        "keyword": "울산 전통시장 방문 new"
+        "keyword": "문무 하락 2"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "트럼프 한반도 논의"
-      },
-      {
-        "rank": 2,
         "keyword": "호르무즈 유조선 피격"
       },
       {
+        "rank": 2,
+        "keyword": "수능 부정 신고 포상금"
+      },
+      {
         "rank": 3,
-        "keyword": "FBI 범죄정보망 해킹"
-      },
-      {
-        "rank": 4,
-        "keyword": "소정리역 화물열차 탈선"
-      },
-      {
-        "rank": 5,
-        "keyword": "구글 인도네시아 유튜브 삭제"
-      },
-      {
-        "rank": 6,
-        "keyword": "인도네시아 규모 6.8 지진"
-      },
-      {
-        "rank": 7,
-        "keyword": "클로드 리만 가설 증명"
-      },
-      {
-        "rank": 8,
         "keyword": "이란 추가공격 압박"
       },
       {
+        "rank": 4,
+        "keyword": "EU 빅테크 디지털세"
+      },
+      {
+        "rank": 5,
+        "keyword": "대만 공매도 규제"
+      },
+      {
+        "rank": 6,
+        "keyword": "FBI 범죄정보망 해킹"
+      },
+      {
+        "rank": 7,
+        "keyword": "인도네시아 규모 6.8 지진"
+      },
+      {
+        "rank": 8,
+        "keyword": "일본 한국 친근감 여론조사"
+      },
+      {
         "rank": 9,
-        "keyword": "유엔 킬러로봇 규제"
+        "keyword": "최태원 AI 인재 플랫폼"
       },
       {
         "rank": 10,
-        "keyword": "수능 부정 신고 포상금"
+        "keyword": "트럼프 한반도 논의"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "로이킴"
+        "keyword": "newcastle vs arsenal"
       },
       {
         "rank": 2,
-        "keyword": "최백호"
+        "keyword": "아스날"
       },
       {
         "rank": 3,
-        "keyword": "강원 fc 대 대전 하나 시티즌 순위"
+        "keyword": "psg"
       },
       {
         "rank": 4,
-        "keyword": "김종국"
+        "keyword": "뉴캐슬 대 아스널"
       },
       {
         "rank": 5,
-        "keyword": "파워리프팅"
+        "keyword": "nice vs psg"
       },
       {
         "rank": 6,
-        "keyword": "k리그1"
+        "keyword": "เชลซี พบ ลีดส์"
       },
       {
         "rank": 7,
-        "keyword": "삼성 엑시노스"
+        "keyword": "como vs cagliari"
       },
       {
         "rank": 8,
-        "keyword": "빅뱅 마마"
+        "keyword": "권순우"
       },
       {
         "rank": 9,
-        "keyword": "중일 관계"
+        "keyword": "엑셀방송"
       },
       {
         "rank": 10,
-        "keyword": "england vs australia"
+        "keyword": "채령"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "경비지도사"
+        "keyword": "코르티스 MAMA 대상 수상"
       },
       {
         "rank": 2,
-        "keyword": "코레일 경부선 일반열차"
+        "keyword": "1251회 로또 당첨 번호"
       },
       {
         "rank": 3,
-        "keyword": "유노윤호 와일드카드 합류"
+        "keyword": "추성훈 은퇴전 패배"
       },
       {
         "rank": 4,
-        "keyword": "추성훈 은퇴경기"
+        "keyword": "손정의 SK하이닉스"
       },
       {
         "rank": 5,
-        "keyword": "수험생들 교육장관 사퇴"
+        "keyword": "아이오아이 재결합"
       },
       {
         "rank": 6,
-        "keyword": "정은지 앙코르 콘서트 개최"
+        "keyword": "굿파트너 2"
       },
       {
         "rank": 7,
-        "keyword": "권정열 존박 쟁탈전"
+        "keyword": "채령 자매"
       },
       {
         "rank": 8,
-        "keyword": "최성수 불후의 명곡 막내"
+        "keyword": "경비지도사"
       },
       {
         "rank": 9,
-        "keyword": "푸른길"
+        "keyword": "리센느 원이 무명"
       },
       {
         "rank": 10,
-        "keyword": "호르무즈 유조선 피격"
+        "keyword": "존박 파트너 쟁탈전"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "강재준, ♥이은형과 동반 입덧 고백…“산부인과서 사람들이 이상하게 봐”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261121/135065239/1",
+      "publishedAt": "수집 11. 22. 04:26 KST",
+      "publishedOrder": 1795289201767
+    },
+    {
+      "title": "강재준, 37kg 뺐다가 19kg 요요…‘요요 선배’ 김신영도 한마디",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261121/135065232/1",
+      "publishedAt": "수집 11. 22. 04:26 KST",
+      "publishedOrder": 1795289201767
+    },
+    {
+      "title": "추성훈, 51세 은퇴전서 판정패…♥추사랑 눈물에 “이번엔 용돈 없다”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261121/135065225/1",
+      "publishedAt": "수집 11. 22. 04:26 KST",
+      "publishedOrder": 1795289201767
+    },
+    {
+      "title": "한가인, 올리비아 핫세 판박이…감탄 나오는 공주 미모 [DA★]",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261121/135065051/1",
+      "publishedAt": "수집 11. 22. 04:26 KST",
+      "publishedOrder": 1795289201767
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 11. 22. 04:26 KST",
+      "publishedOrder": 1795289200686
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 11. 22. 04:26 KST",
+      "publishedOrder": 1795289200686
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 11. 22. 04:26 KST",
+      "publishedOrder": 1795289200686
+    },
+    {
+      "title": "'이지훈♥' 아야네, 출산 3일전..한파에 여름 원피스 입고 마지막 데이트",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/11/21/2026112107041763558",
+      "publishedAt": "수집 11. 22. 04:26 KST",
+      "publishedOrder": 1795289200686
+    }
+  ]
 }
