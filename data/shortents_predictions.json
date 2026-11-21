@@ -1,6 +1,6 @@
 {
   "success": true,
-  "generatedAt": "2026-11-20T12:55:43.213Z",
+  "generatedAt": "2026-11-21T02:25:41.411Z",
   "windowMin": 90,
   "notice": "기사 흐름으로 추정한 후보입니다. 글을 쓰기 전 원문 기사로 사실을 확인하세요.",
   "paid": true,
@@ -8,1275 +8,1599 @@
   "lockedCount": 0,
   "predictions": [
     {
-      "id": "김요한+오연희|결혼",
-      "title": "김요한 오연희 결혼",
+      "id": "코레일|1위",
+      "title": "코레일 1위",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘미역국 직접 끓여’ 김요한♥오연희 결혼"
+          "title": "‘천안∼대전 구간 버스로 연계 수송’ 코레일 1위"
         },
         {
           "style": "기사 요약형",
-          "title": "\"미역국 직접 끓여\" 김요한, ♥오연희 생일 위해 서프라이즈"
+          "title": "코레일, 운행 중지된 천안~대전 구간 버스 연계 수송"
         },
         {
           "style": "기사 요약형",
-          "title": "\"♥김요한과 미래 꿈 꿔\" 오연희, 진지하게"
-        }
-      ],
-      "entities": [
-        "김요한",
-        "오연희"
-      ],
-      "event": "결혼",
-      "score": 58,
-      "articles": 9,
-      "press": 6,
-      "recent20": 4,
-      "firstArticleAt": "2026-11-20T01:32:00.000Z",
-      "lastArticleAt": "2026-11-20T12:51:00.000Z",
-      "trendHit": true,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "'공개 연애' 김요한, ♥오연희에 명품 가방 선물···생일 선물이 결혼...",
-          "press": "osen.co.kr",
-          "link": "http://www.osen.co.kr/article/G1112913049",
-          "at": "2026-11-20T12:51:00.000Z"
-        },
-        {
-          "title": "41살 김요한, 30살 여친♥ 생일에 '루이비통 백' 선물…\"충분히 받아도...",
-          "press": "sportschosun.com",
-          "link": "https://www.sportschosun.com/entertainment/2026-11-20/202611200100131710012464",
-          "at": "2026-11-20T12:51:00.000Z"
-        },
-        {
-          "title": "김요한, 여친 오연희 첫 생일에 목 리본+미역국 이벤트…'결혼' 언급하...",
-          "press": "mhnse.com",
-          "link": "https://mhnse.com/news/articleView.html?idxno=1705182",
-          "at": "2026-11-20T12:46:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "강지환|복귀",
-      "title": "강지환 복귀",
-      "titles": [
-        {
-          "style": "기사 요약형",
-          "title": "강지환 복귀, 7년 만에 라이브 켰지만"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "‘성폭행 유죄’ 강지환, 틱톡 복귀 시동 걸었지만"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "‘성범죄 유죄’ 강지환, 뜨개질 하며 복귀?"
+          "title": "코레일 \"천안~조치원~대전·서대전 구간 버스 연계 수송\""
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "‘성범죄 전력’ 강지환, 틱톡서 쫓겨났다"
+          "title": "코레일 “천안∼대전 구간 버스로 연계 수송”"
         }
       ],
       "entities": [
-        "강지환"
+        "코레일"
       ],
-      "event": "복귀",
-      "score": 47,
-      "articles": 5,
-      "press": 5,
-      "recent20": 4,
-      "firstArticleAt": "2026-11-19T07:46:00.000Z",
-      "lastArticleAt": "2026-11-20T12:52:00.000Z",
-      "trendHit": true,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "7년 만에 라이브 켰지만…강지환, 이틀 만에 틱톡서 ‘퇴출’",
-          "press": "mk.co.kr",
-          "link": "https://www.mk.co.kr/article/12214987",
-          "at": "2026-11-20T12:52:00.000Z"
-        },
-        {
-          "title": "‘성폭행 유죄’ 강지환, 틱톡 복귀 시동 걸었지만…‘하루 만에’ 퇴출",
-          "press": "donga.com",
-          "link": "https://www.donga.com/news/Society/article/all/20261120/135063902/1",
-          "at": "2026-11-20T12:47:00.000Z"
-        },
-        {
-          "title": "‘성범죄 유죄’ 강지환, 뜨개질 하며 복귀?…하루 만에 “영구 삭제”...",
-          "press": "seoul.co.kr",
-          "link": "https://www.seoul.co.kr/news/society/2026/11/20/20261120500340?wlog_tag3=naver",
-          "at": "2026-11-20T12:43:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "이주연+전현무|결별",
-      "title": "이주연 전현무 결별",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘동시에 전 남친과 이별’ 이주연♥전현무 결별"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "전현무 \"이주연, 걸그룹 출신 중 제일 자기관리 안 해\""
-        },
-        {
-          "style": "기사 요약형",
-          "title": "이주연♥전현무 결별, 이주연-레이나, 급격히 친해진 이유"
-        }
-      ],
-      "entities": [
-        "이주연",
-        "전현무"
-      ],
-      "event": "결별",
-      "score": 40,
-      "articles": 6,
-      "press": 6,
-      "recent20": 3,
-      "firstArticleAt": "2026-11-20T00:56:00.000Z",
-      "lastArticleAt": "2026-11-20T12:54:00.000Z",
+      "event": "1위",
+      "score": 95,
+      "articles": 13,
+      "press": 13,
+      "recent20": 13,
+      "firstArticleAt": "2026-11-21T01:04:00.000Z",
+      "lastArticleAt": "2026-11-21T02:24:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "이주연·레이나, 나란히 이별 겪었다…\"속 시끄러울 때 같이 여행 가\" (...",
-          "press": "xportsnews.com",
-          "link": "https://www.xportsnews.com/article/2221629",
-          "at": "2026-11-20T12:54:00.000Z"
+          "title": "코레일, 운행 중지된 천안~대전 구간 버스 연계 수송",
+          "press": "mbn.mk.co.kr",
+          "link": "http://mbn.mk.co.kr/pages/news/newsView.php?category=mbn00006&news_seq_no=5232128",
+          "at": "2026-11-21T02:24:00.000Z"
         },
         {
-          "title": "전현무 \"이주연, 걸그룹 출신 중 제일 자기관리 안 해\"",
-          "press": "news1.kr",
-          "link": "https://www.news1.kr/entertain/broadcast-tv/6361375",
-          "at": "2026-11-20T12:50:00.000Z"
+          "title": "[속보]코레일 \"천안~조치원~대전·서대전 구간 버스 연계 수송\"",
+          "press": "view.asiae.co.kr",
+          "link": "https://view.asiae.co.kr/article/2026112111224825610",
+          "at": "2026-11-21T02:22:00.000Z"
         },
         {
-          "title": "이주연, 전현무에 ‘전현무계획4’ 출연 청탁 “부모님 애청자라‥이슈...",
-          "press": "newsen.com",
-          "link": "https://www.newsen.com/news_view.php?uid=202611202009076110",
-          "at": "2026-11-20T12:46:00.000Z"
+          "title": "[속보] 코레일, 천안∼조치원∼대전·서대전 구간 버스 연계수송",
+          "press": "segye.com",
+          "link": "https://www.segye.com/newsView/20261121503773?OutUrl=naver",
+          "at": "2026-11-21T02:22:00.000Z"
         }
       ]
     },
     {
-      "id": "김혜윤|이혼",
-      "title": "김혜윤 이혼",
+      "id": "멜라니아+트럼프|",
+      "title": "멜라니아 트럼프",
       "titles": [
         {
           "style": "기사 요약형",
-          "title": "김혜윤, '굿파트너2'의 든든한 새 파트너"
+          "title": "멜라니아 트럼프, 멜라니아 새 다큐 공개"
         },
         {
           "style": "기사 요약형",
-          "title": "김혜윤, 당차고 야무진 파이팅"
+          "title": "멜라니아 트럼프, 트럼프 \"중국에 구형 칩만 판매"
         },
         {
           "style": "기사 요약형",
-          "title": "장나라·김혜윤 워맨스 '굿파트너2', 이혼 넘어 가족 이야기"
+          "title": "멜라니아 트럼프, 트럼프 “생화학무기” 들먹이더니"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "멜라니아 새 다큐 공개"
         }
       ],
       "entities": [
-        "김혜윤"
+        "멜라니아",
+        "트럼프"
       ],
-      "event": "이혼",
+      "event": null,
+      "score": 45,
+      "articles": 7,
+      "press": 7,
+      "recent20": 5,
+      "firstArticleAt": "2026-11-21T01:44:00.000Z",
+      "lastArticleAt": "2026-11-21T02:20:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "멜라니아 새 다큐 공개...\"트럼프 주변에 '예스맨' 너무 많아\"",
+          "press": "ytn.co.kr",
+          "link": "https://www.ytn.co.kr/_ln/0104_202611211120143016",
+          "at": "2026-11-21T02:20:00.000Z"
+        },
+        {
+          "title": "신선 그 자체 씬 스틸러! 너무 미워하진 마~ 빌런계 샛별 ★",
+          "press": "obsnews.co.kr",
+          "link": "https://www.obsnews.co.kr/news/articleView.html?idxno=1544438",
+          "at": "2026-11-21T02:19:00.000Z"
+        },
+        {
+          "title": "멜라니아 새 다큐 공개…“트럼프 주변에 ‘예스맨’ 너무 많아”",
+          "press": "news.kbs.co.kr",
+          "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8719110&ref=A",
+          "at": "2026-11-21T02:18:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "차가원+회사|계약",
+      "title": "차가원 회사 계약",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘정산금 3억+이자 지급하라’ 차가원 회사 계약"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "비비지, 차가원 회사 분쟁서 승소"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "비비지, 차가원 회사 상대 승소"
+        }
+      ],
+      "entities": [
+        "차가원",
+        "회사"
+      ],
+      "event": "계약",
+      "score": 44,
+      "articles": 9,
+      "press": 8,
+      "recent20": 2,
+      "firstArticleAt": "2026-11-21T00:00:00.000Z",
+      "lastArticleAt": "2026-11-21T02:24:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "비비지, 차가원 회사 분쟁서 승소 \"정산금 3억+이자 지급하라\"",
+          "press": "tvreport.co.kr",
+          "link": "https://www.tvreport.co.kr/star/article/1092626/",
+          "at": "2026-11-21T02:24:00.000Z"
+        },
+        {
+          "title": "비비지, 차가원 회사 상대 승소...법원 \"정산금 3억+이자 지급하라\"",
+          "press": "spotvnews.co.kr",
+          "link": "https://www.spotvnews.co.kr/news/articleView.html?idxno=1021085",
+          "at": "2026-11-21T02:13:00.000Z"
+        },
+        {
+          "title": "걸그룹 비비지, 차가원 회사 전속계약 분쟁 1심 승소",
+          "press": "ytn.co.kr",
+          "link": "https://www.ytn.co.kr/_ln/0103_202611211055518511",
+          "at": "2026-11-21T01:55:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "애니+흥행|1위",
+      "title": "애니흥행 1위",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "애니 흥행 1위, 김윤석, '폭설'로 2연속 '흥행 실패' 만회 도전"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "애니 흥행 1위, '치이카와' 300만 명 돌파"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "애니 흥행 1위, 먼작귀 ‘치이카와’ 300만명 돌파"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "‘먼작귀’ 열풍 ‘치이카와’ 300만 돌파"
+        }
+      ],
+      "entities": [
+        "애니",
+        "흥행"
+      ],
+      "event": "1위",
       "score": 37,
       "articles": 7,
-      "press": 3,
-      "recent20": 6,
-      "firstArticleAt": "2026-11-16T23:08:00.000Z",
-      "lastArticleAt": "2026-11-20T12:54:00.000Z",
+      "press": 7,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-20T23:44:00.000Z",
+      "lastArticleAt": "2026-11-21T02:03:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "김혜윤, '굿파트너2'의 든든한 새 파트너",
-          "press": "sports.hankooki.com",
-          "link": "https://sports.hankooki.com/news/articleView.html?idxno=6943978",
-          "at": "2026-11-20T12:54:00.000Z"
+          "title": "'치이카와' 300만 명 돌파…'토이 스토리 5' 꺾고 올해 애니 흥행 1위",
+          "press": "yonhapnewstv.co.kr",
+          "link": "http://www.yonhapnewstv.co.kr/news/AKR20261121110248XXD",
+          "at": "2026-11-21T02:03:00.000Z"
         },
         {
-          "title": "김혜윤, 당차고 야무진 파이팅",
-          "press": "sports.hankooki.com",
-          "link": "https://sports.hankooki.com/news/articleView.html?idxno=6943972",
-          "at": "2026-11-20T12:44:00.000Z"
+          "title": "먼작귀 ‘치이카와’ 300만명 돌파…‘토이 스토리 5’ 넘어 애니 흥행...",
+          "press": "khan.co.kr",
+          "link": "https://www.khan.co.kr/article/202611211100021",
+          "at": "2026-11-21T02:00:00.000Z"
         },
         {
-          "title": "장나라·김혜윤 워맨스 '굿파트너2', 이혼 넘어 가족 이야기 [종합]",
-          "press": "bntnews.co.kr",
-          "link": "https://www.bntnews.co.kr/article/view/bnt202611200230",
-          "at": "2026-11-20T12:42:00.000Z"
+          "title": "‘먼작귀’ 열풍 ‘치이카와’ 300만 돌파…올해 애니 흥행 1위",
+          "press": "hani.co.kr",
+          "link": "https://www.hani.co.kr/arti/culture/culture_general/1288426.html",
+          "at": "2026-11-21T01:58:00.000Z"
         }
       ]
     },
     {
-      "id": "에너지|논란",
-      "title": "에너지 논란",
+      "id": "경부선+화물열차|",
+      "title": "경부선 화물열차",
       "titles": [
         {
-          "style": "인용형",
-          "title": "‘대종상의 날’ 에너지 논란"
+          "style": "기사 요약형",
+          "title": "경부선 화물열차, 화물열차 탈선 여파"
         },
         {
           "style": "기사 요약형",
-          "title": "에너지 논란, 전원주, '대종상의 날' 포토월서 양손 엄지 척"
+          "title": "주말 경부선 화물열차 탈선"
         },
         {
           "style": "기사 요약형",
-          "title": "농민단체, 에너지 개발정책 비판..초광역특구법 철회 촉구"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "전원주, '대종상의 날' 포토월서 양손 엄지 척"
+          "title": "경부선 화물열차 탈선, 천안~대전 일반열차 중단"
         }
       ],
       "entities": [
-        "에너지"
+        "경부선",
+        "화물열차"
       ],
-      "event": "논란",
-      "score": 28,
-      "articles": 3,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-20T10:08:00.000Z",
-      "lastArticleAt": "2026-11-20T12:38:00.000Z",
+      "event": null,
+      "score": 36,
+      "articles": 4,
+      "press": 4,
+      "recent20": 3,
+      "firstArticleAt": "2026-11-20T22:12:00.000Z",
+      "lastArticleAt": "2026-11-21T02:22:00.000Z",
       "trendHit": true,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "[포토] 전원주, '대종상의 날' 포토월서 양손 엄지 척…변함없는 에너지",
-          "press": "thepowernews.co.kr",
-          "link": "https://www.thepowernews.co.kr/view.php?ud=2026112021345168522d6fc79969_7",
-          "at": "2026-11-20T12:38:00.000Z"
+          "title": "화물열차 탈선 여파…광주발 용산행 일반열차 운행 중단",
+          "press": "yna.co.kr",
+          "link": "https://www.yna.co.kr/view/AKR20261121029400054?input=1195m",
+          "at": "2026-11-21T02:22:00.000Z"
         },
         {
-          "title": "농민단체, 에너지 개발정책 비판..초광역특구법 철회 촉구",
-          "press": "andongmbc.co.kr",
-          "link": "http://andongmbc.co.kr/adboard/NewsView85858",
-          "at": "2026-11-20T12:34:00.000Z"
+          "title": "화물열차 탈선…천안~대전 열차 운행 중단, 버스 연계수송",
+          "press": "news.bbsi.co.kr",
+          "link": "https://news.bbsi.co.kr/news/articleView.html?idxno=4119965",
+          "at": "2026-11-21T02:14:00.000Z"
         },
         {
-          "title": "오전 라] 농민단체,에너지 개발정책 비판..초광역특구법 철회 촉구",
-          "press": "andongmbc.co.kr",
-          "link": "http://andongmbc.co.kr/adboard/NewsView85867",
-          "at": "2026-11-20T12:34:00.000Z"
+          "title": "주말 경부선 화물열차 탈선…천안~대전 구간 대체 버스 투입",
+          "press": "joongang.co.kr",
+          "link": "https://www.joongang.co.kr/article/25480682",
+          "at": "2026-11-21T02:09:00.000Z"
         }
       ]
     },
     {
-      "id": "이세돌|고소",
-      "title": "이세돌 고소",
+      "id": "나경원+코스피|결혼",
+      "title": "나경원 코스피 결혼",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘예능 하는 아들 애처로워’ 이세돌 고소"
+          "title": "‘李정권, 국민 돈 물어내라’ 나경원♥코스피 결혼"
         },
         {
           "style": "기사 요약형",
-          "title": "이세돌, 방송 최초 母 공개..\"예능 하는 아들 애처로워\""
+          "title": "나경원♥코스피 결혼, 코스피 4900선 붕괴에"
         },
         {
           "style": "기사 요약형",
-          "title": "이세돌 고소, \"고소공포증 없어도 무섭다\""
+          "title": "나경원♥코스피 결혼, 나경원 \"주식 폭락, 결혼 ·은퇴자금 반토막"
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "‘백수’ 이세돌, 母와 최초 동반 출연"
+          "title": "코스피 4900선 붕괴에"
+        }
+      ],
+      "entities": [
+        "나경원",
+        "코스피"
+      ],
+      "event": "결혼",
+      "score": 36,
+      "articles": 8,
+      "press": 8,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-20T23:38:00.000Z",
+      "lastArticleAt": "2026-11-21T01:54:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "나경원 \"국민 자산 무너진 날 李대통령은 대장동 변호…무책임 바닥 없...",
+          "press": "dailian.co.kr",
+          "link": "https://www.dailian.co.kr/news/view/1717983/?sc=Naver",
+          "at": "2026-11-21T01:54:00.000Z"
+        },
+        {
+          "title": "코스피 4900선 붕괴에…나경원 \"李정권, 국민 돈 물어내라\"",
+          "press": "sisajournal.com",
+          "link": "https://www.sisajournal.com/news/articleView.html?idxno=394864",
+          "at": "2026-11-21T01:49:00.000Z"
+        },
+        {
+          "title": "나경원 \"주식 폭락, 결혼 ·은퇴자금 반토막...李정권, 국민 돈 물어내라...",
+          "press": "fnnews.com",
+          "link": "https://www.fnnews.com/news/202611211013306194",
+          "at": "2026-11-21T01:40:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "유연석+폭주|",
+      "title": "유연석 폭주",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "'라이어' 유연석, 본색 드러내며 폭주"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "유연석의 폭주가 시작됐다 ('라이어')"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "유연석 폭주, 유연석, 체포에도 웃더니"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "유연석, 또 체포되더니 왜 밖에 있나"
+        }
+      ],
+      "entities": [
+        "유연석",
+        "폭주"
+      ],
+      "event": null,
+      "score": 33,
+      "articles": 10,
+      "press": 7,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-21T00:36:00.000Z",
+      "lastArticleAt": "2026-11-21T02:16:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "'라이어' 유연석, 본색 드러내며 폭주",
+          "press": "bntnews.co.kr",
+          "link": "https://www.bntnews.co.kr/article/view/bnt202611210126",
+          "at": "2026-11-21T02:16:00.000Z"
+        },
+        {
+          "title": "유연석의 폭주가 시작됐다 ('라이어')",
+          "press": "tvreport.co.kr",
+          "link": "https://www.tvreport.co.kr/broadcast/article/1092622/",
+          "at": "2026-11-21T02:01:00.000Z"
+        },
+        {
+          "title": "유연석, 체포에도 웃더니…본색 드러내며 폭주 “절체절명 위기” (라이...",
+          "press": "mk.co.kr",
+          "link": "https://www.mk.co.kr/article/12215194",
+          "at": "2026-11-21T01:41:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "가인|복귀",
+      "title": "가인 복귀",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘확 달라진 눈매’ 가인 복귀"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "가인, 프로포폴 파문 후 7년 만에 본격 활동 재개"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "브아걸 가인, 또렷한 쌍꺼풀 '확 달라진 눈매'"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "7년 공백 깬 가인, 쌍꺼풀 생겼네? 확 달라진 얼굴 '깜짝'"
+        }
+      ],
+      "entities": [
+        "가인"
+      ],
+      "event": "복귀",
+      "score": 27,
+      "articles": 5,
+      "press": 5,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-20T14:30:00.000Z",
+      "lastArticleAt": "2026-11-21T02:25:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "7년 공백 깬 가인, 쌍꺼풀 생겼네? 확 달라진 얼굴 '깜짝'",
+          "press": "sportschosun.com",
+          "link": "https://www.sportschosun.com/entertainment/2026-11-21/202611210100132800012542",
+          "at": "2026-11-21T02:25:00.000Z"
+        },
+        {
+          "title": "가인, 프로포폴 파문 후 7년 만에 본격 활동 재개",
+          "press": "news.jtbc.co.kr",
+          "link": "https://news.jtbc.co.kr/article/NB12329164?influxDiv=NAVER",
+          "at": "2026-11-21T01:40:00.000Z"
+        },
+        {
+          "title": "브아걸 가인, 또렷한 쌍꺼풀 '확 달라진 눈매'",
+          "press": "mediafine.co.kr",
+          "link": "https://www.mediafine.co.kr/news/articleView.html?idxno=95648",
+          "at": "2026-11-21T01:38:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "신민아|1위",
+      "title": "신민아 1위",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘재혼 황후’ 신민아 1위"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "신민아, '재혼 황후'서 비주얼 전성기"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "'재혼 황후' 하도권, 신민아·이세영 앞 '극과 극' 온도 차"
+        }
+      ],
+      "entities": [
+        "신민아"
+      ],
+      "event": "1위",
+      "score": 25,
+      "articles": 5,
+      "press": 5,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-16T21:52:00.000Z",
+      "lastArticleAt": "2026-11-21T01:55:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "신민아, '재혼 황후'서 비주얼 전성기…우아한 황후 변신에 전 세계 '심...",
+          "press": "spotvnews.co.kr",
+          "link": "https://www.spotvnews.co.kr/news/articleView.html?idxno=1021084",
+          "at": "2026-11-21T01:55:00.000Z"
+        },
+        {
+          "title": "'재혼 황후' 하도권, 신민아·이세영 앞 '극과 극' 온도 차",
+          "press": "stoo.com",
+          "link": "http://www.stoo.com/article.php?aid=110019776759",
+          "at": "2026-11-21T01:48:00.000Z"
+        },
+        {
+          "title": "'재혼 황후' 45개국 1위, K-로맨스 판타지 신드롬...신민아·주지훈·이종...",
+          "press": "nc.press",
+          "link": "https://www.nc.press/news/articleView.html?idxno=631553",
+          "at": "2026-11-21T01:34:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "유명작+혐의|고소",
+      "title": "유명작 혐의 고소",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "佛 유명작가 우엘벡, 드파르디외와 집단성폭행 혐의 피소"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "佛 유명작가 우엘벡, 배우 드파르디외와 함께 집단성폭행 혐의"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "유명작 혐의 고소, 장윤정 모친, 3100만원 사기 혐의 항소심서 눈물"
+        }
+      ],
+      "entities": [
+        "유명작",
+        "혐의"
+      ],
+      "event": "고소",
+      "score": 21,
+      "articles": 3,
+      "press": 3,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-21T01:30:00.000Z",
+      "lastArticleAt": "2026-11-21T02:18:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "佛 유명작가 우엘벡, 드파르디외와 집단성폭행 혐의 피소",
+          "press": "nocutnews.co.kr",
+          "link": "https://www.nocutnews.co.kr/news/6610508?utm_source=naver&utm_medium=article&utm_campaign=20261121111824",
+          "at": "2026-11-21T02:18:00.000Z"
+        },
+        {
+          "title": "장윤정 모친, 3100만원 사기 혐의 항소심서 눈물…검찰은 징역 1년 6개월...",
+          "press": "tenasia.co.kr",
+          "link": "https://www.tenasia.co.kr/article/2026112112624",
+          "at": "2026-11-21T01:50:00.000Z"
+        },
+        {
+          "title": "佛 유명작가 우엘벡, 배우 드파르디외와 함께 집단성폭행 혐의 피소",
+          "press": "yna.co.kr",
+          "link": "https://www.yna.co.kr/view/AKR20261121024200009?input=1195m",
+          "at": "2026-11-21T01:30:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "곽민선+송민규|임신",
+      "title": "송민규 곽민선 임신",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘최초 공개, 임신 중’ 송민규♥곽민선 임신"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "\"최초 공개, 임신 중\" 송민규♥곽민선, 내년 4월 아들"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "송민규♥곽민선, 깜짝 2세 소식 공개!"
+        }
+      ],
+      "entities": [
+        "송민규",
+        "곽민선"
+      ],
+      "event": "임신",
+      "score": 21,
+      "articles": 2,
+      "press": 2,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-21T01:37:00.000Z",
+      "lastArticleAt": "2026-11-21T02:24:00.000Z",
+      "trendHit": false,
+      "exclusive": true,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "\"최초 공개, 임신 중\" 송민규♥곽민선, 내년 4월 아들 부모 된다",
+          "press": "sportschosun.com",
+          "link": "https://www.sportschosun.com/entertainment/2026-11-21/202611210100132780012541",
+          "at": "2026-11-21T02:24:00.000Z"
+        },
+        {
+          "title": "[공식] 송민규♥곽민선, 깜짝 2세 소식 공개!…“내년 4월 아들 출산, 태...",
+          "press": "sports.khan.co.kr",
+          "link": "https://sports.khan.co.kr/article/202611211036003?pt=nv",
+          "at": "2026-11-21T01:37:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "유명|이혼",
+      "title": "유명 이혼",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘영화 촬영 중 여 배우 집단 성폭행’ 유명 이혼"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "“영화 촬영 중 여 배우 집단 성폭행”···유명 배우"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "유명 이혼, \"아내 위해 살 것\""
+        }
+      ],
+      "entities": [
+        "유명"
+      ],
+      "event": "이혼",
+      "score": 19,
+      "articles": 3,
+      "press": 3,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-20T16:36:00.000Z",
+      "lastArticleAt": "2026-11-21T01:52:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "“영화 촬영 중 여 배우 집단 성폭행”···유명 배우 드파르디외·소설...",
+          "press": "khan.co.kr",
+          "link": "https://www.khan.co.kr/article/202611211052001",
+          "at": "2026-11-21T01:52:00.000Z"
+        },
+        {
+          "title": "\"아내 위해 살 것\"…유명 男감독, 돌연 '은퇴' 선언→'로맨스 스캠 피해...",
+          "press": "tvreport.co.kr",
+          "link": "https://www.tvreport.co.kr/entertainment/article/1092616/",
+          "at": "2026-11-21T01:46:00.000Z"
+        },
+        {
+          "title": "'24세 연하와 이혼' 유명 男 배우 , 홀로 두 아들 양육→18세 장남 근황에...",
+          "press": "mhnse.com",
+          "link": "https://mhnse.com/news/articleView.html?idxno=1704986",
+          "at": "2026-11-21T01:31:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "오리콘+투모로우바이투게더|1위",
+      "title": "투모로우바이투게더 오리콘 1위",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘PERFECT STORM’ 투모로우바이투게더 오리콘 1위"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "투모로우바이투게더 오리콘 1위, 투모로우바이투게더, 미니 9집"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "투모로우바이투게더, 오리콘 1위 재탈환"
+        }
+      ],
+      "entities": [
+        "투모로우바이투게더",
+        "오리콘"
+      ],
+      "event": "1위",
+      "score": 19,
+      "articles": 3,
+      "press": 3,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-19T00:58:00.000Z",
+      "lastArticleAt": "2026-11-21T01:58:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "투모로우바이투게더, 미니 9집 'PERFECT STORM'으로 日 오리콘 차트 1위 ...",
+          "press": "stardailynews.co.kr",
+          "link": "https://www.stardailynews.co.kr/news/articleView.html?idxno=602770",
+          "at": "2026-11-21T01:58:00.000Z"
+        },
+        {
+          "title": "투모로우바이투게더, 오리콘 1위 재탈환…MAMA '팬스 초이스' 수상",
+          "press": "mhnse.com",
+          "link": "https://mhnse.com/news/articleView.html?idxno=1705467",
+          "at": "2026-11-21T01:39:00.000Z"
+        },
+        {
+          "title": "투모로우바이투게더, 日 오리콘 데일리 앨범 1위 재등극",
+          "press": "topstarnews.net",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16281980",
+          "at": "2026-11-21T01:36:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "mv+웬디|공개",
+      "title": "웬디 MV 공개",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘Before Sunrise’ 웬디 MV 공개"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "웬디, ‘Before Sunrise’ MV 티저"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "웬디 MV 공개, 웬디, 23일 미니 4집 'Gleam Hour' 발매"
+        }
+      ],
+      "entities": [
+        "웬디",
+        "MV"
+      ],
+      "event": "공개",
+      "score": 19,
+      "articles": 4,
+      "press": 3,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-21T00:28:00.000Z",
+      "lastArticleAt": "2026-11-21T01:50:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "웬디, ‘Before Sunrise’ MV 티저…감각적인 영상미",
+          "press": "enter.etoday.co.kr",
+          "link": "https://enter.etoday.co.kr/news/view/305562",
+          "at": "2026-11-21T01:50:00.000Z"
+        },
+        {
+          "title": "스트레이 키즈 'Christmas EveL' MV, 유튜브 2억 뷰 돌파…통산 10번째 기...",
+          "press": "cbci.co.kr",
+          "link": "https://www.cbci.co.kr/news/articleView.html?idxno=629377",
+          "at": "2026-11-21T01:48:00.000Z"
+        },
+        {
+          "title": "웬디, 23일 미니 4집 'Gleam Hour' 발매…타이틀곡 'Before Sunrise' MV 티저...",
+          "press": "cbci.co.kr",
+          "link": "https://www.cbci.co.kr/news/articleView.html?idxno=629369",
+          "at": "2026-11-21T01:36:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "이종석|1위",
+      "title": "이종석 1위",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘재혼 황후’ 이종석 1위"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "이종석, ‘재혼 황후’ 공개 후 팔로워 60만 증가"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "하인리 왕자 전세계 홀렸다‥이종석 SNS 팔로워 60만 급증"
+        }
+      ],
+      "entities": [
+        "이종석"
+      ],
+      "event": "1위",
+      "score": 18,
+      "articles": 4,
+      "press": 4,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-20T15:48:00.000Z",
+      "lastArticleAt": "2026-11-21T01:55:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "이종석, ‘재혼 황후’ 공개 후 팔로워 60만 증가…글로벌 인기",
+          "press": "mk.co.kr",
+          "link": "https://www.mk.co.kr/article/12215200",
+          "at": "2026-11-21T01:55:00.000Z"
+        },
+        {
+          "title": "하인리 왕자 전세계 홀렸다‥이종석 SNS 팔로워 60만 급증",
+          "press": "newsen.com",
+          "link": "https://www.newsen.com/news_view.php?uid=202611211013426310",
+          "at": "2026-11-21T01:21:00.000Z"
+        },
+        {
+          "title": "이종석, '재혼 황후' 효과 톡톡…인스타그램 팔로워 60만 명 늘었다",
+          "press": "celuvmedia.com",
+          "link": "http://www.celuvmedia.com/article.php?aid=1795223619531309006",
+          "at": "2026-11-21T01:20:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "콘셉트+키라스|컴백",
+      "title": "키라스 콘셉트 컴백",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘OVER U’ 키라스 콘셉트 컴백"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "키라스, 치어리딩 콘셉트"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "'26일 컴백 ' 키라스, 치어리딩 콘셉트 새 앨범"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "KIIRAS, 치어리딩 콘셉트 신보 'OVER U'로 컴백"
+        }
+      ],
+      "entities": [
+        "키라스",
+        "콘셉트"
+      ],
+      "event": "컴백",
+      "score": 17,
+      "articles": 3,
+      "press": 3,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-21T01:08:00.000Z",
+      "lastArticleAt": "2026-11-21T01:56:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "'26일 컴백 ' 키라스, 치어리딩 콘셉트 새 앨범 'OVER U' 콘셉트 포토 공...",
+          "press": "stardailynews.co.kr",
+          "link": "https://www.stardailynews.co.kr/news/articleView.html?idxno=602769",
+          "at": "2026-11-21T01:56:00.000Z"
+        },
+        {
+          "title": "키라스, 치어리딩 콘셉트",
+          "press": "bntnews.co.kr",
+          "link": "https://www.bntnews.co.kr/article/view/bnt202611210125",
+          "at": "2026-11-21T01:54:00.000Z"
+        },
+        {
+          "title": "KIIRAS, 치어리딩 콘셉트 신보 'OVER U'로 컴백 예고",
+          "press": "topstarnews.net",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16281964",
+          "at": "2026-11-21T01:08:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "김유정+김현주|",
+      "title": "김유정 김현주",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘100일의 거짓말’ 김유정 김현주"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "‘100일의 거짓말’ 김유정·김현주 취조실 삼자대면"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "김유정 김현주, 김유정에 총 겨눈 진선규"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "김유정에 총 겨눈 진선규"
+        }
+      ],
+      "entities": [
+        "김유정",
+        "김현주"
+      ],
+      "event": null,
+      "score": 17,
+      "articles": 3,
+      "press": 3,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-21T00:10:00.000Z",
+      "lastArticleAt": "2026-11-21T02:24:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "‘100일의 거짓말’ 김유정·김현주 취조실 삼자대면…진선규가 꺼내는...",
+          "press": "wikitree.co.kr",
+          "link": "https://www.wikitree.co.kr/articles/1176512",
+          "at": "2026-11-21T02:24:00.000Z"
+        },
+        {
+          "title": "김유정에 총 겨눈 진선규…김현주까지 삼자대면 ‘긴장감 최고조’",
+          "press": "sportsworldi.com",
+          "link": "https://www.sportsworldi.com/newsView/20261121503420",
+          "at": "2026-11-21T01:31:00.000Z"
+        },
+        {
+          "title": "'100일의 거짓말' 김유정·김현주·진선규, 한 자리에…일촉즉발 위기감",
+          "press": "news1.kr",
+          "link": "https://www.news1.kr/entertain/broadcast-tv/6361541",
+          "at": "2026-11-21T01:29:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "황성빈|출연",
+      "title": "황성빈 출연",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "넷플릭스 ‘푸른길’ 황성빈 인범 역, 선배 형사 김석과"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "황성빈, 넷플릭스 '푸른길' 출연"
+        }
+      ],
+      "entities": [
+        "황성빈"
+      ],
+      "event": "출연",
+      "score": 16,
+      "articles": 2,
+      "press": 2,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-20T22:36:00.000Z",
+      "lastArticleAt": "2026-11-21T02:16:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "넷플릭스 ‘푸른길’ 황성빈 인범 역, 선배 형사 김석과 미묘한 선후배...",
+          "press": "wikitree.co.kr",
+          "link": "https://www.wikitree.co.kr/articles/1176511",
+          "at": "2026-11-21T02:16:00.000Z"
+        },
+        {
+          "title": "황성빈, 넷플릭스 '푸른길' 출연… 형사팀 막내 인범 역",
+          "press": "newscj.com",
+          "link": "https://www.newscj.com/news/articleView.html?idxno=3450822",
+          "at": "2026-11-21T01:44:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "곽선영+이민기|복귀",
+      "title": "이민기 곽선영 복귀",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "이민기 곽선영 복귀, '놀토' 이민기, 2년 만에 예능 복귀"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "이민기·곽선영, '놀라운 토요일' 출격"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "'크래시2' 이민기·곽선영, '놀토' 첫 출격"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "'놀토' 이민기, 2년 만에 예능 복귀"
+        }
+      ],
+      "entities": [
+        "이민기",
+        "곽선영"
+      ],
+      "event": "복귀",
+      "score": 15,
+      "articles": 3,
+      "press": 3,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-21T01:04:00.000Z",
+      "lastArticleAt": "2026-11-21T02:00:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "'놀토' 이민기, 2년 만에 예능 복귀…녹화 중 돌연 자리 이탈?",
+          "press": "hansbiz.co.kr",
+          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=885770",
+          "at": "2026-11-21T02:00:00.000Z"
+        },
+        {
+          "title": "이민기·곽선영, '놀라운 토요일' 출격…애피타이저 게임부터 팀전 받쓰...",
+          "press": "topstarnews.net",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16281970",
+          "at": "2026-11-21T01:20:00.000Z"
+        },
+        {
+          "title": "'크래시2' 이민기·곽선영, '놀토' 첫 출격…김동현과 뜻밖의 인연 공개",
+          "press": "slist.kr",
+          "link": "https://www.slist.kr/news/articleView.html?idxno=783631",
+          "at": "2026-11-21T01:04:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "딘딘+문세윤|",
+      "title": "문세윤 딘딘",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘군기 좀 잡아야’ 문세윤 딘딘"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "문세윤·딘딘, 막내 이기택에 고개 숙였다"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "문세윤 딘딘, “군기 좀 잡아야” 김종민→문세윤, 뉴비 이용진 이기택에"
+        }
+      ],
+      "entities": [
+        "문세윤",
+        "딘딘"
+      ],
+      "event": null,
+      "score": 15,
+      "articles": 3,
+      "press": 3,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-21T01:38:00.000Z",
+      "lastArticleAt": "2026-11-21T01:56:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "문세윤·딘딘, 막내 이기택에 고개 숙였다…무슨 일? (1박 2일)",
+          "press": "mk.co.kr",
+          "link": "https://www.mk.co.kr/article/12215201",
+          "at": "2026-11-21T01:56:00.000Z"
+        },
+        {
+          "title": "‘1박 2일’ 문세윤·딘딘, 이기택 앞에 엎드렸다",
+          "press": "enter.etoday.co.kr",
+          "link": "https://enter.etoday.co.kr/news/view/305560",
+          "at": "2026-11-21T01:42:00.000Z"
+        },
+        {
+          "title": "“군기 좀 잡아야” 김종민→문세윤, 뉴비 이용진 이기택에 뿔났나(1박...",
+          "press": "newsen.com",
+          "link": "https://www.newsen.com/news_view.php?uid=202611211030416310",
+          "at": "2026-11-21T01:38:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "이세돌|종영",
+      "title": "이세돌 종영",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘백수 이세돌’ 이세돌 종영"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "'백수 이세돌' 최종회 시청률 1.9%"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "'백수 이세돌' 마지막 복기"
         }
       ],
       "entities": [
         "이세돌"
       ],
-      "event": "고소",
-      "score": 28,
-      "articles": 6,
-      "press": 4,
+      "event": "종영",
+      "score": 14,
+      "articles": 2,
+      "press": 2,
       "recent20": 1,
       "firstArticleAt": "2026-11-18T21:00:00.000Z",
-      "lastArticleAt": "2026-11-20T12:48:00.000Z",
+      "lastArticleAt": "2026-11-21T02:16:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "'백수 이세돌' 이세돌, 멘토들과 마을회관 재정비...타일 작업에 초집중",
-          "press": "slist.kr",
-          "link": "https://www.slist.kr/news/articleView.html?idxno=783529",
-          "at": "2026-11-20T12:48:00.000Z"
+          "title": "'백수 이세돌' 최종회 시청률 1.9%…전주 대비 상승",
+          "press": "topstarnews.net",
+          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16282025",
+          "at": "2026-11-21T02:16:00.000Z"
         },
         {
-          "title": "이세돌, 방송 최초 母 공개..\"예능 하는 아들 애처로워\" 눈시울 [백수이...",
-          "press": "starnewskorea.com",
-          "link": "https://www.starnewskorea.com/broadcast-show/2026/11/20/2026112021231631887",
-          "at": "2026-11-20T12:34:00.000Z"
-        },
-        {
-          "title": "이세돌, 한상진X최다니엘과 고향 찾아...어머니, 애정담은 \"똥강아지\" 애...",
-          "press": "slist.kr",
-          "link": "https://www.slist.kr/news/articleView.html?idxno=783528",
-          "at": "2026-11-20T12:34:00.000Z"
+          "title": "'백수 이세돌' 마지막 복기... 고향 비금도서 구슬땀",
+          "press": "kstar.kbs.co.kr",
+          "link": "https://kstar.kbs.co.kr/list_view.html?idx=415221",
+          "at": "2026-11-21T00:57:00.000Z"
         }
       ]
     },
     {
-      "id": "야노시호+추성훈|결혼",
-      "title": "야노시호 추성훈 결혼",
+      "id": "뮤지컬|콘서트",
+      "title": "뮤지컬 콘서트",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘내 탓인가 싶었다’ 야노시호♥추성훈 결혼"
+          "title": "‘뮤지컬 거장’ 뮤지컬 콘서트"
         },
         {
           "style": "기사 요약형",
-          "title": "야노시호♥추성훈, 15분짜리 결혼식 영상 공개"
+          "title": "안양시, 뮤지컬 갈라 콘서트"
         },
         {
           "style": "기사 요약형",
-          "title": "야노시호 \"남편 추성훈 경기 패배, 내 탓인가 싶어 엄청 우울"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "야노시호, 16년 전 추성훈 패배에 죄책감"
+          "title": "‘뮤지컬 거장’ 앤드루 로이드 웨버 첫 내한"
         }
       ],
       "entities": [
-        "야노시호",
-        "추성훈"
+        "뮤지컬"
       ],
-      "event": "결혼",
-      "score": 26,
-      "articles": 4,
-      "press": 4,
-      "recent20": 2,
-      "firstArticleAt": "2026-11-20T10:33:00.000Z",
-      "lastArticleAt": "2026-11-20T12:46:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "야노시호 \"남편 추성훈 경기 패배, 내 탓인가 싶어 엄청 우울...마음 상...",
-          "press": "joynews24.com",
-          "link": "http://www.joynews24.com/view/2028856",
-          "at": "2026-11-20T12:46:00.000Z"
-        },
-        {
-          "title": "야노시호, 과거 ♥추성훈 경기 패배에 자책…\"내가 식단 관리 했는데\" (...",
-          "press": "xportsnews.com",
-          "link": "https://www.xportsnews.com/article/2221619",
-          "at": "2026-11-20T12:37:00.000Z"
-        },
-        {
-          "title": "야노시호, 16년 전 추성훈 패배에 죄책감…\"내 탓인가 싶었다\"",
-          "press": "mydaily.co.kr",
-          "link": "https://www.mydaily.co.kr/page/view/2026112020495657956",
-          "at": "2026-11-20T12:12:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "cl+신세계|공개",
-      "title": "신세계 CL 공개",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘K-POP 여왕’ 신세계 CL 공개"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "'K-POP 여왕' CL과 '신세계 공주' 애니 콜라보 성사"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "신세계家 올데프 애니, 2NE1 보고 꿈 키웠는데‥CL과"
-        }
-      ],
-      "entities": [
-        "신세계",
-        "CL"
-      ],
-      "event": "공개",
-      "score": 24,
-      "articles": 4,
-      "press": 4,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-20T11:35:00.000Z",
-      "lastArticleAt": "2026-11-20T12:39:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "'K-POP 여왕' CL과 '신세계 공주' 애니 콜라보 성사",
-          "press": "mhnse.com",
-          "link": "https://mhnse.com/news/articleView.html?idxno=1705178",
-          "at": "2026-11-20T12:39:00.000Z"
-        },
-        {
-          "title": "이래서 레전드…CL, 신곡 최초 공개→투애니원 히트곡 소환에 '떼창' 터...",
-          "press": "spotvnews.co.kr",
-          "link": "https://www.spotvnews.co.kr/news/articleView.html?idxno=1021018",
-          "at": "2026-11-20T12:28:00.000Z"
-        },
-        {
-          "title": "신세계家 올데프 애니, 2NE1 보고 꿈 키웠는데‥CL과 마침내 컬래버[2026...",
-          "press": "newsen.com",
-          "link": "https://www.newsen.com/news_view.php?uid=202611201729112510",
-          "at": "2026-11-20T12:27:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "김가연+홍석천|결혼",
-      "title": "김가연 홍석천 결혼",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘멱살 잡을 뻔’ 김가연♥홍석천 결혼"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "김가연♥임요환, 비공개 결혼식인데 홍석천 라방 켜"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "'임요환♥' 김가연, 결혼식서 홍석천 멱살 잡을 뻔"
-        }
-      ],
-      "entities": [
-        "김가연",
-        "홍석천"
-      ],
-      "event": "결혼",
-      "score": 19,
-      "articles": 3,
-      "press": 3,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-20T11:55:00.000Z",
-      "lastArticleAt": "2026-11-20T12:47:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "김가연♥임요환, 비공개 결혼식인데 홍석천 라방 켜… “멱살 잡을 뻔”...",
-          "press": "sports.khan.co.kr",
-          "link": "https://sports.khan.co.kr/article/202611202146003?pt=nv",
-          "at": "2026-11-20T12:47:00.000Z"
-        },
-        {
-          "title": "'임요환♥' 김가연, 결혼식서 홍석천 멱살 잡을 뻔…\"자기 SNS로 라이브...",
-          "press": "xportsnews.com",
-          "link": "https://www.xportsnews.com/article/2221611",
-          "at": "2026-11-20T12:00:00.000Z"
-        },
-        {
-          "title": "홍석천, 비공개 결혼 식 '라방'으로 유출 \"안 보여줄 거면 뭐하러 초대해...",
-          "press": "sportschosun.com",
-          "link": "https://www.sportschosun.com/entertainment/2026-11-20/202611200100131540012452",
-          "at": "2026-11-20T11:55:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "김세|고소",
-      "title": "김세 고소",
-      "titles": [
-        {
-          "style": "기사 요약형",
-          "title": "'가세연' 김세의, 또 명예훼손 재판행"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "김세의 '명예훼손·모욕' 또 기소"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "'가세연' 김세의, 김수현·쯔양 이어 또 기소"
-        }
-      ],
-      "entities": [
-        "김세"
-      ],
-      "event": "고소",
-      "score": 19,
-      "articles": 3,
-      "press": 3,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-20T11:01:00.000Z",
-      "lastArticleAt": "2026-11-20T12:27:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "'가세연' 김세의, 또 명예훼손 재판행…은현장·전광훈 등 피해자 13명",
-          "press": "nocutnews.co.kr",
-          "link": "https://www.nocutnews.co.kr/news/6610474?utm_source=naver&utm_medium=article&utm_campaign=20261120212617",
-          "at": "2026-11-20T12:27:00.000Z"
-        },
-        {
-          "title": "김세의 '명예훼손·모욕' 또 기소...피해자 13명",
-          "press": "ytn.co.kr",
-          "link": "https://www.ytn.co.kr/_ln/0103_202611202115139118",
-          "at": "2026-11-20T12:15:00.000Z"
-        },
-        {
-          "title": "'가세연' 김세의, 김수현·쯔양 이어 또 기소…'장사의 신' 등 피해자만...",
-          "press": "mt.co.kr",
-          "link": "https://www.mt.co.kr/society/2026/11/20/2026112020513452615",
-          "at": "2026-11-20T12:06:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "엔하이픈+트레저|해체",
-      "title": "엔하이픈 트레저 해체",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘2026 MAMA’ 엔하이픈 트레저 해체"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "엔하이픈 트레저 해체, 엔하이픈, 대상 받고 폭풍 오열"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "엔하이픈 트레저 해체, '2026 MAMA' 1일차 성료"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "'2026 MAMA' 1일차 성료"
-        }
-      ],
-      "entities": [
-        "엔하이픈",
-        "트레저"
-      ],
-      "event": "해체",
-      "score": 18,
-      "articles": 2,
-      "press": 2,
-      "recent20": 2,
-      "firstArticleAt": "2026-11-20T12:44:00.000Z",
-      "lastArticleAt": "2026-11-20T12:52:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "엔하이픈, 대상 받고 폭풍 오열…에반 탈퇴 겪고 \"망한 거 아니냐고 했...",
-          "press": "xportsnews.com",
-          "link": "https://www.xportsnews.com/article/2221627",
-          "at": "2026-11-20T12:52:00.000Z"
-        },
-        {
-          "title": "'2026 MAMA' 1일차 성료…엔하이픈·트레저 2관왕",
-          "press": "stoo.com",
-          "link": "http://www.stoo.com/article.php?aid=110017854650",
-          "at": "2026-11-20T12:44:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "변호사+장나라|이혼",
-      "title": "장나라 변호사 이혼",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘이혼 전쟁’ 장나라♥변호사 이혼"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "장나라, 기품 있는 차은경 변호사"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "장나라♥변호사 이혼, 불륜 남편은 재혼했다"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "불륜 남편은 재혼했다"
-        }
-      ],
-      "entities": [
-        "장나라",
-        "변호사"
-      ],
-      "event": "이혼",
-      "score": 16,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-20T06:55:00.000Z",
-      "lastArticleAt": "2026-11-20T12:46:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "장나라, 기품 있는 차은경 변호사",
-          "press": "sports.hankooki.com",
-          "link": "https://sports.hankooki.com/news/articleView.html?idxno=6943973",
-          "at": "2026-11-20T12:46:00.000Z"
-        },
-        {
-          "title": "불륜 남편은 재혼했다…돌싱役 장나라, 2년 만에 '이혼 전쟁' 재개 ('굿...",
-          "press": "tenasia.co.kr",
-          "link": "https://www.tenasia.co.kr/article/2026112002764",
-          "at": "2026-11-20T12:00:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "리트+만점자|별세",
-      "title": "리트만점자 별세",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘의혹 검증이 인생 심판으로’ 리트 만점자 별세"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "리트 만점자의 비극"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "리트 만점자 별세, \"웃을 기분이 아니다\""
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "\"웃을 기분이 아니다\""
-        }
-      ],
-      "entities": [
-        "리트",
-        "만점자"
-      ],
-      "event": "별세",
-      "score": 16,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-15T22:15:00.000Z",
-      "lastArticleAt": "2026-11-20T12:38:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "리트 만점자의 비극...\"의혹 검증이 인생 심판으로\"",
-          "press": "ytn.co.kr",
-          "link": "https://www.ytn.co.kr/_ln/0106_202611202138189301",
-          "at": "2026-11-20T12:38:00.000Z"
-        },
-        {
-          "title": "\"웃을 기분이 아니다\"…리트 만점자 사망 후 입 연 미미미누",
-          "press": "hankyung.com",
-          "link": "https://www.hankyung.com/article/2026112009547",
-          "at": "2026-11-20T12:13:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "여자+재혼|근황",
-      "title": "재혼 여자 근황",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘여자 연예 인’ 재혼 여자 근황"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "재혼 여자 근황, 50세에도 여전한 우아함"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "재혼 여자 근황, 아이브, '베스트 여자 그룹' 수상"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "50세에도 여전한 우아함"
-        }
-      ],
-      "entities": [
-        "재혼",
-        "여자"
-      ],
-      "event": "근황",
+      "event": "콘서트",
       "score": 14,
       "articles": 2,
       "press": 2,
       "recent20": 0,
-      "firstArticleAt": "2026-11-20T11:36:00.000Z",
-      "lastArticleAt": "2026-11-20T12:26:00.000Z",
+      "firstArticleAt": "2026-11-08T13:00:00.000Z",
+      "lastArticleAt": "2026-11-21T01:40:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "50세에도 여전한 우아함…재혼 후 밝은 근황 전한 '여자 연예 인'",
-          "press": "wikitree.co.kr",
-          "link": "https://www.wikitree.co.kr/articles/1175924",
-          "at": "2026-11-20T12:26:00.000Z"
+          "title": "안양시, 뮤지컬 갈라 콘서트 '라라라(Live, Love, Life)' 공연",
+          "press": "kihoilbo.co.kr",
+          "link": "https://www.kihoilbo.co.kr/news/articleView.html?idxno=3041607",
+          "at": "2026-11-21T01:40:00.000Z"
         },
         {
-          "title": "아이브, '베스트 여자 그룹' 수상…\"좋은 영향력 전할 것\" [2026 MAMA AWARDS...",
-          "press": "xportsnews.com",
-          "link": "https://www.xportsnews.com/article/2221623",
-          "at": "2026-11-20T12:26:00.000Z"
+          "title": "‘뮤지컬 거장’ 앤드루 로이드 웨버 첫 내한… “‘오페라의 유령’ 4...",
+          "press": "kstar.kbs.co.kr",
+          "link": "https://kstar.kbs.co.kr/list_view.html?idx=415261",
+          "at": "2026-11-21T01:31:00.000Z"
         }
       ]
     },
     {
-      "id": "보령+전어회|",
-      "title": "보령 전어회",
+      "id": "박지윤+최동석|",
+      "title": "최동석 박지윤",
       "titles": [
         {
-          "style": "기사 요약형",
-          "title": "'전현무계획4' 보령 대천항 대하찜·전어회·꽃게 먹방→밴댕이"
+          "style": "인용형",
+          "title": "‘최동석이 양육비 안 줬다’ 최동석 박지윤"
         },
         {
           "style": "기사 요약형",
-          "title": "'전현무계획4' 보령 대천항 전어구이·전어회·꽃게탕 맛집"
+          "title": "최동석 \"박지윤 부정행위 지적한 것, 악플 NO\"..공소청에"
         },
         {
           "style": "기사 요약형",
-          "title": "보령 전어회, '전현무계획4' 보령 아욱국 백반 맛집 탐방"
+          "title": "“최동석이 양육비 안 줬다” vs “박지윤이 내 돈 거부했다”"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "“포르노보다 걸린 박지윤” 악플러 최동석, ‘몰카’ 폭로전까지"
         }
       ],
       "entities": [
-        "보령",
-        "전어회"
+        "최동석",
+        "박지윤"
       ],
       "event": null,
       "score": 14,
       "articles": 3,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-20T07:42:00.000Z",
-      "lastArticleAt": "2026-11-20T12:46:00.000Z",
+      "press": 3,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-15T00:52:00.000Z",
+      "lastArticleAt": "2026-11-21T01:22:00.000Z",
       "trendHit": false,
-      "exclusive": false,
+      "exclusive": true,
       "inShortents": false,
       "samples": [
         {
-          "title": "'전현무계획4' 보령 대천항 대하찜·전어회·꽃게 먹방→밴댕이 조림 맛...",
-          "press": "enter.etoday.co.kr",
-          "link": "https://enter.etoday.co.kr/news/view/305540",
-          "at": "2026-11-20T12:46:00.000Z"
+          "title": "[단독]최동석 \"박지윤 부정행위 지적한 것, 악플 NO\"..공소청에 반박 의...",
+          "press": "starnewskorea.com",
+          "link": "https://www.starnewskorea.com/star/2026/11/21/2026112109393625492",
+          "at": "2026-11-21T01:22:00.000Z"
         },
         {
-          "title": "'전현무계획4' 보령 대천항 전어구이·전어회·꽃게탕 맛집 위치는? \"느...",
-          "press": "topstarnews.net",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16277344",
-          "at": "2026-11-20T12:26:00.000Z"
+          "title": "“최동석이 양육비 안 줬다” vs “박지윤이 내 돈 거부했다”…‘상간...",
+          "press": "biz.heraldcorp.com",
+          "link": "https://biz.heraldcorp.com/article/10944526?ref=naver",
+          "at": "2026-11-21T01:02:00.000Z"
         },
         {
-          "title": "'전현무계획4' 보령 아욱국 백반 맛집 탐방",
-          "press": "enter.etoday.co.kr",
-          "link": "https://enter.etoday.co.kr/news/view/305538",
-          "at": "2026-11-20T12:18:00.000Z"
+          "title": "“포르노보다 걸린 박지윤” 악플러 최동석, ‘몰카’ 폭로전까지…자...",
+          "press": "sportsseoul.com",
+          "link": "https://www.sportsseoul.com/news/read/1651305?ref=naver",
+          "at": "2026-11-21T01:02:00.000Z"
         }
       ]
     },
     {
-      "id": "혐의|고소",
-      "title": "혐의 고소",
+      "id": "극장판+애니|1위",
+      "title": "극장판 애니 1위",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘허위사실공표 혐의’ 혐의 고소"
+          "title": "‘작고 귀여운 녀석’ 극장판 애니 1위"
         },
         {
           "style": "기사 요약형",
-          "title": "경찰, '허위사실공표 혐의' 권익현 부안군수 송치"
+          "title": "극장판 애니 1위, ‘작고 귀여운 녀석’이 일냈다"
         },
         {
           "style": "기사 요약형",
-          "title": "’성당서 지지 호소' 천기옥 울산동구청장, 선거법 위반 혐의"
-        }
-      ],
-      "entities": [
-        "혐의"
-      ],
-      "event": "고소",
-      "score": 14,
-      "articles": 2,
-      "press": 2,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-16T21:55:00.000Z",
-      "lastArticleAt": "2026-11-20T12:30:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "경찰, '허위사실공표 혐의' 권익현 부안군수 송치",
-          "press": "jtv.co.kr",
-          "link": "https://jtv.co.kr/news/article.php?id=72232",
-          "at": "2026-11-20T12:30:00.000Z"
-        },
-        {
-          "title": "’성당서 지지 호소' 천기옥 울산동구청장, 선거법 위반 혐의 송치",
-          "press": "yna.co.kr",
-          "link": "https://www.yna.co.kr/view/AKR20261120176300057?input=1195m",
-          "at": "2026-11-20T12:14:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "고지용|고소",
-      "title": "고지용 고소",
-      "titles": [
-        {
-          "style": "기사 요약형",
-          "title": "고지용, 전처 허양임과 면접교섭 소송 마무리"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "'이혼' 고지용, 법적 다툼 끝내고 새 출발"
-        }
-      ],
-      "entities": [
-        "고지용"
-      ],
-      "event": "고소",
-      "score": 14,
-      "articles": 2,
-      "press": 2,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-20T05:24:00.000Z",
-      "lastArticleAt": "2026-11-20T12:20:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "고지용, 전처 허양임과 면접교섭 소송 마무리…아들 만난다",
-          "press": "newsis.com",
-          "link": "https://www.newsis.com/view/NISX20261120_0003877453",
-          "at": "2026-11-20T12:20:00.000Z"
-        },
-        {
-          "title": "'이혼' 고지용, 법적 다툼 끝내고 새 출발…子 승재 만난다 \"만감 교차\"",
-          "press": "tenasia.co.kr",
-          "link": "https://www.tenasia.co.kr/article/2026112009134",
-          "at": "2026-11-20T12:17:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "김종국+깜짝|임신",
-      "title": "김종국 깜짝 임신",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘월세만 2억 원’ 김종국♥깜짝 임신"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "김종국♥깜짝 임신, \"월세만 2억 원\""
+          "title": "극장판 애니 1위, '극장판 치이카와' 300만 돌파"
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "\"월세만 2억 원\""
+          "title": "'극장판 치이카와' 300만 돌파"
         }
       ],
       "entities": [
-        "김종국",
-        "깜짝"
+        "극장판",
+        "애니"
       ],
-      "event": "임신",
+      "event": "1위",
+      "score": 14,
+      "articles": 2,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-20T23:44:00.000Z",
+      "lastArticleAt": "2026-11-21T02:00:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "‘작고 귀여운 녀석’이 일냈다…‘치이카와’ 300만 돌파, 올해 애니 흥...",
+          "press": "mk.co.kr",
+          "link": "https://www.mk.co.kr/article/12215202",
+          "at": "2026-11-21T02:00:00.000Z"
+        },
+        {
+          "title": "'극장판 치이카와' 300만 돌파…올해 애니 1위",
+          "press": "jnilbo.com",
+          "link": "https://www.jnilbo.com/news/articleView.html?idxno=90000085132",
+          "at": "2026-11-21T02:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "농담+유재석|콘서트",
+      "title": "유재석 농담 콘서트",
+      "titles": [
+        {
+          "style": "인용형",
+          "title": "‘요즘 후배들 나보다 어려…유재석은 ’ 유재석 농담 콘서트"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "유재석 농담 콘서트, 2005년생 투어스 도훈 \"요즘 후배들 나보다 어려"
+        },
+        {
+          "style": "기사 요약형",
+          "title": "유재석 농담 콘서트, \" 연예 인들 자숙하러 오기 좋다\""
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "2005년생 투어스 도훈 \"요즘 후배들 나보다 어려"
+        }
+      ],
+      "entities": [
+        "유재석",
+        "농담"
+      ],
+      "event": "콘서트",
       "score": 12,
       "articles": 2,
       "press": 2,
       "recent20": 0,
-      "firstArticleAt": "2026-11-20T04:05:00.000Z",
-      "lastArticleAt": "2026-11-20T12:02:00.000Z",
+      "firstArticleAt": "2026-11-21T01:15:00.000Z",
+      "lastArticleAt": "2026-11-21T01:52:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "50살 김종국·48살 은지원, 누구보다 간절한 2세..\"아이 없으면 안 모여...",
+          "title": "2005년생 투어스 도훈 \"요즘 후배들 나보다 어려…유재석은 '위인'\"",
+          "press": "news1.kr",
+          "link": "https://www.news1.kr/entertain/broadcast-tv/6361551",
+          "at": "2026-11-21T01:52:00.000Z"
+        },
+        {
+          "title": "\" 연예 인들 자숙하러 오기 좋다\"… 유재석의 뼈 있는 농담, 최근 방송가...",
+          "press": "mhnse.com",
+          "link": "https://mhnse.com/news/articleView.html?idxno=1705457",
+          "at": "2026-11-21T01:15:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "구교환|1위",
+      "title": "구교환 1위",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "김윤석·구교환 '폭설', 3일째 박스오피스 1위"
+        }
+      ],
+      "entities": [
+        "구교환"
+      ],
+      "event": "1위",
+      "score": 12,
+      "articles": 2,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-20T23:24:00.000Z",
+      "lastArticleAt": "2026-11-21T02:03:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "약속의 구교환 [인터뷰]",
+          "press": "tvdaily.co.kr",
+          "link": "http://www.tvdaily.co.kr/read.php3?aid=17952264001810699008",
+          "at": "2026-11-21T02:03:00.000Z"
+        },
+        {
+          "title": "김윤석·구교환 '폭설', 3일째 박스오피스 1위…누적 18만명↑ [Nbox]",
+          "press": "news1.kr",
+          "link": "https://www.news1.kr/entertain/movie/6361498",
+          "at": "2026-11-21T01:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "고경표+박보검|음주운전",
+      "title": "고경표 박보검 음주운전",
+      "titles": [
+        {
+          "style": "기사 요약형",
+          "title": "고경표 박보검 음주운전, ‘음주운전’ 고경표 완벽하게 지웠다"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "‘음주운전’ 고경표 완벽하게 지웠다"
+        }
+      ],
+      "entities": [
+        "고경표",
+        "박보검"
+      ],
+      "event": "음주운전",
+      "score": 12,
+      "articles": 2,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-20T14:00:00.000Z",
+      "lastArticleAt": "2026-11-21T01:50:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "‘음주운전’ 고경표 완벽하게 지웠다…박보검·이상이 투샷 완성 ‘보...",
           "press": "osen.co.kr",
-          "link": "http://www.osen.co.kr/article/G1112913019",
-          "at": "2026-11-20T12:02:00.000Z"
+          "link": "http://www.osen.co.kr/article/G1112913143",
+          "at": "2026-11-21T01:50:00.000Z"
         },
         {
-          "title": "\"월세만 2억 원\"...김종국 소속사 클래스에 이서진도 깜짝 (비서진)",
-          "press": "xportsnews.com",
-          "link": "https://www.xportsnews.com/article/2221551",
-          "at": "2026-11-20T11:54:00.000Z"
+          "title": "'음주운전' 고경표 사라진 '보검 매직컬2' 홍보 영상…박보검·이상이만...",
+          "press": "news1.kr",
+          "link": "https://www.news1.kr/entertain/broadcast-tv/6361519",
+          "at": "2026-11-21T01:19:00.000Z"
         }
       ]
     },
     {
-      "id": "감성|근황",
-      "title": "감성 근황",
+      "id": "김혜수+영어|",
+      "title": "김혜수 영어",
       "titles": [
         {
           "style": "인용형",
-          "title": "‘트롯 왕자’ 감성 근황"
+          "title": "‘2026 마마’ 김혜수 영어"
         },
         {
           "style": "기사 요약형",
-          "title": "감성 근황, '트롯 왕자' 박지현, 전람회 '꿈속에서' 재해석"
+          "title": "김혜수 영어, 김혜수, MAMA서 미모만 뽐낸 게 아니다"
         },
         {
           "style": "기사 요약형",
-          "title": "감성 근황, 소유, 바르셀로나 거울 앞 시선"
+          "title": "김혜수 영어, 김혜수, ‘2026 마마’ 수놓은 드레스 자태"
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "소유, 바르셀로나 거울 앞 시선"
+          "title": "김혜수, MAMA서 미모만 뽐낸 게 아니다"
         }
       ],
       "entities": [
-        "감성"
-      ],
-      "event": "근황",
-      "score": 12,
-      "articles": 3,
-      "press": 2,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-18T12:02:00.000Z",
-      "lastArticleAt": "2026-11-20T12:09:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "'트롯 왕자' 박지현, 전람회 '꿈속에서' 재해석… 발라드 감성도 통했다",
-          "press": "mhnse.com",
-          "link": "https://mhnse.com/news/articleView.html?idxno=1705165",
-          "at": "2026-11-20T12:09:00.000Z"
-        },
-        {
-          "title": "소유, 바르셀로나 거울 앞 시선…'Off Hours'로 이어가는 감성",
-          "press": "topstarnews.net",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16281734",
-          "at": "2026-11-20T11:42:00.000Z"
-        },
-        {
-          "title": "NCT 윈윈, LP 들고 포즈…감성 가득 근황",
-          "press": "topstarnews.net",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16281732",
-          "at": "2026-11-20T11:42:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "경고+심부전|",
-      "title": "심부전 경고",
-      "titles": [
-        {
-          "style": "기사 요약형",
-          "title": "심부전 경고, '명의' 윤종찬 교수의 심부전 치료법"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "심부전 경고, 단순한 숨가쁨 아니다"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "단순한 숨가쁨 아니다"
-        }
-      ],
-      "entities": [
-        "심부전",
-        "경고"
+        "김혜수",
+        "영어"
       ],
       "event": null,
-      "score": 12,
+      "score": 10,
       "articles": 2,
       "press": 2,
       "recent20": 1,
-      "firstArticleAt": "2026-11-20T12:02:00.000Z",
-      "lastArticleAt": "2026-11-20T12:54:00.000Z",
+      "firstArticleAt": "2026-11-21T01:14:00.000Z",
+      "lastArticleAt": "2026-11-21T02:16:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "'명의' 윤종찬 교수의 심부전 치료법",
-          "press": "bntnews.co.kr",
-          "link": "https://www.bntnews.co.kr/article/view/bnt202611200233",
-          "at": "2026-11-20T12:54:00.000Z"
+          "title": "김혜수, MAMA서 미모만 뽐낸 게 아니다…영어·일본어 진행까지",
+          "press": "sports.khan.co.kr",
+          "link": "https://sports.khan.co.kr/article/202611211115003?pt=nv",
+          "at": "2026-11-21T02:16:00.000Z"
         },
         {
-          "title": "단순한 숨가쁨 아니다…심부전의 경고 (EBS 명의)",
-          "press": "wikitree.co.kr",
-          "link": "https://www.wikitree.co.kr/articles/1176430",
-          "at": "2026-11-20T12:20:00.000Z"
+          "title": "김혜수, ‘2026 마마’ 수놓은 드레스 자태…유창한 영어·일본어 진행까...",
+          "press": "isplus.com",
+          "link": "https://isplus.com/article/view/isp202611210012",
+          "at": "2026-11-21T01:14:00.000Z"
         }
       ]
     },
     {
-      "id": "서지영+이지혜|",
-      "title": "이지혜 서지영",
+      "id": "김기리+문지인|",
+      "title": "문지인 김기리",
       "titles": [
         {
-          "style": "인용형",
-          "title": "‘그 친구에겐 큰 부담’ 이지혜 서지영"
+          "style": "기사 요약형",
+          "title": "'문지인♥' 김기리, 아들 100일 맞아 1000만원 기부"
         },
         {
           "style": "기사 요약형",
-          "title": "이지혜, 서지영과 '샵' 재결합 가능성 언급⋯"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "이지혜 서지영, 핑클·쥬얼리는 재결합하는데"
+          "title": "\"드디어 아들 공개\" 김기리♥문지인, 붕어빵 子"
         }
       ],
       "entities": [
-        "이지혜",
-        "서지영"
+        "문지인",
+        "김기리"
       ],
       "event": null,
       "score": 10,
       "articles": 2,
       "press": 2,
       "recent20": 0,
-      "firstArticleAt": "2026-11-20T07:29:00.000Z",
-      "lastArticleAt": "2026-11-20T12:26:00.000Z",
+      "firstArticleAt": "2026-11-21T01:45:00.000Z",
+      "lastArticleAt": "2026-11-21T02:03:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "이지혜, 서지영과 '샵' 재결합 가능성 언급⋯“그 친구에겐 큰 부담”",
-          "press": "etoday.co.kr",
-          "link": "https://www.etoday.co.kr/news/view/2651131",
-          "at": "2026-11-20T12:26:00.000Z"
+          "title": "'문지인♥' 김기리, 아들 100일 맞아 1000만원 기부…\"생명이가 인사를 ...",
+          "press": "mydaily.co.kr",
+          "link": "https://www.mydaily.co.kr/page/view/2026112110440178721",
+          "at": "2026-11-21T02:03:00.000Z"
         },
         {
-          "title": "핑클·쥬얼리는 재결합하는데…이지혜, 서지영과 화해했지만 \"엄청난 스...",
-          "press": "tenasia.co.kr",
-          "link": "https://www.tenasia.co.kr/article/2026112008834",
-          "at": "2026-11-20T12:11:00.000Z"
+          "title": "\"드디어 아들 공개\" 김기리♥문지인, 붕어빵 子 자랑..1000만원 통큰 기...",
+          "press": "sportschosun.com",
+          "link": "https://www.sportschosun.com/entertainment/2026-11-21/202611210100132680012533",
+          "at": "2026-11-21T01:45:00.000Z"
         }
       ]
     },
     {
-      "id": "류효영+이태성|",
-      "title": "류효영 이태성",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘오늘 나에게 납치됐다’ 류효영 이태성"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "“오늘 나에게 납치됐다” 류효영, ♥이태성에 직진"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "‘신랑수업2’ 류효영, 이태성과 문경 데이트"
-        }
-      ],
-      "entities": [
-        "류효영",
-        "이태성"
-      ],
-      "event": null,
-      "score": 10,
-      "articles": 2,
-      "press": 2,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-19T01:12:00.000Z",
-      "lastArticleAt": "2026-11-20T12:08:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "“오늘 나에게 납치됐다” 류효영, ♥이태성에 직진…‘첫 키스’ 추억...",
-          "press": "enews.imbc.com",
-          "link": "http://enews.imbc.com/News/RetrieveNewsInfo/525536",
-          "at": "2026-11-20T12:08:00.000Z"
-        },
-        {
-          "title": "‘신랑수업2’ 류효영, 이태성과 문경 데이트",
-          "press": "enter.etoday.co.kr",
-          "link": "https://enter.etoday.co.kr/news/view/305521",
-          "at": "2026-11-20T12:02:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "충격|고백",
-      "title": "충격 고백",
+      "id": "만의+채령|",
+      "title": "채령 만의",
       "titles": [
         {
           "style": "기사 요약형",
-          "title": "충격 고백, 그리, 여친과 '동상이몽' 언급하더니"
+          "title": "채령 만의, '전참시' 채령·이채연, 찜질방서 터진 폭로전"
         },
         {
           "style": "기사 요약형",
-          "title": "충격 고백, 강수정, 12살 아들 오냐오냐 키웠더니..\"경찰 부를수도\""
+          "title": "채령 만의, ITZY 채령, 솔로곡 'Lovesick'으로 매력 폭발"
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "그리, 여친과 '동상이몽' 언급하더니"
+          "title": "'전참시' 채령·이채연, 찜질방서 터진 폭로전"
         }
       ],
       "entities": [
-        "충격"
-      ],
-      "event": "고백",
-      "score": 10,
-      "articles": 2,
-      "press": 2,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-20T06:20:00.000Z",
-      "lastArticleAt": "2026-11-20T11:32:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "강수정, 12살 아들 오냐오냐 키웠더니..\"경찰 부를수도\" 충격 고백[스타...",
-          "press": "starnewskorea.com",
-          "link": "https://www.starnewskorea.com/star/2026/11/20/2026112020241510366",
-          "at": "2026-11-20T11:32:00.000Z"
-        },
-        {
-          "title": "그리, 여친과 '동상이몽' 언급하더니…\"나 살 진짜 쪘다\" 충격 (김그리)",
-          "press": "xportsnews.com",
-          "link": "https://www.xportsnews.com/article/2221612",
-          "at": "2026-11-20T11:27:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "윤해영+장서희|",
-      "title": "장서희 윤해영",
-      "titles": [
-        {
-          "style": "인용형",
-          "title": "‘넌 윤해영·유태웅 딸 아냐’ 장서희 윤해영"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "장서희, 주새벽에 경고 “넌 윤해영·유태웅 딸 아냐”"
-        },
-        {
-          "style": "기사 요약형",
-          "title": "장서희, 유태웅과 불륜 이어 윤해영에 갑질 누명"
-        }
-      ],
-      "entities": [
-        "장서희",
-        "윤해영"
+        "채령",
+        "만의"
       ],
       "event": null,
-      "score": 6,
+      "score": 8,
       "articles": 2,
       "press": 2,
       "recent20": 0,
-      "firstArticleAt": "2026-11-20T11:18:00.000Z",
-      "lastArticleAt": "2026-11-20T11:48:00.000Z",
+      "firstArticleAt": "2026-11-21T01:10:00.000Z",
+      "lastArticleAt": "2026-11-21T02:00:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "장서희, 주새벽에 경고 “넌 윤해영·유태웅 딸 아냐” (‘욕망의 덫’...",
-          "press": "celuvmedia.com",
-          "link": "http://www.celuvmedia.com/article.php?aid=1795175204531298006",
-          "at": "2026-11-20T11:48:00.000Z"
+          "title": "ITZY 채령, 솔로곡 'Lovesick'으로 매력 폭발…7년 만의 홀로서기 성공적...",
+          "press": "jnilbo.com",
+          "link": "https://www.jnilbo.com/news/articleView.html?idxno=90000085089",
+          "at": "2026-11-21T02:00:00.000Z"
         },
         {
-          "title": "장서희, 유태웅과 불륜 이어 윤해영에 갑질 누명...\"둘 다 망가뜨려야\"...",
-          "press": "tvreport.co.kr",
-          "link": "https://www.tvreport.co.kr/broadcast/article/1092560/",
-          "at": "2026-11-20T11:47:00.000Z"
+          "title": "'전참시' 채령·이채연, 찜질방서 터진 폭로전…母와 눈물의 통화?",
+          "press": "hansbiz.co.kr",
+          "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=885762",
+          "at": "2026-11-21T01:10:00.000Z"
         }
       ]
     }
   ],
   "alreadyShown": [
-    "등장 출연",
+    "연속 수상",
     "리센느 수상",
-    "아파트 별세"
+    "김민 열애",
+    "장나라 김혜윤 복귀",
+    "강지환 틱톡 복귀",
+    "CL 컴백",
+    "맥컬리 컬킨 복귀",
+    "김신영 데뷔",
+    "계획 결혼"
   ],
   "hitRate": {
     "days": 7,
-    "predicted": 2873,
-    "matched": 427,
-    "avgLeadMin": 329,
+    "predicted": 2884,
+    "matched": 425,
+    "avgLeadMin": 339,
     "recent": [
       {
-        "title": "없는 1위",
-        "matched_keyword": "쓴맛 없는 생강청, 천연 감기약 생강차 만들기",
-        "lead_min": 360,
-        "matched_at": 1795196122347
+        "title": "강지환 고영욱 복귀",
+        "matched_keyword": "강지환 고영욱 틱톡 영구퇴출",
+        "lead_min": 814,
+        "matched_at": 1795226722341
       },
       {
-        "title": "에너지 논란",
-        "matched_keyword": "장나라 김혜윤, 굿파트너2 에너지",
-        "lead_min": 295,
-        "matched_at": 1795196122347
+        "title": "김신영 데뷔",
+        "matched_keyword": "김신영 수영복 공개 논란",
+        "lead_min": 3005,
+        "matched_at": 1795226122341
       },
       {
-        "title": "김수현 논란",
-        "matched_keyword": "김수현 수사 잇단 송치 상황",
-        "lead_min": 405,
-        "matched_at": 1795188022351
+        "title": "김신영 논란",
+        "matched_keyword": "김신영 수영복 공개 논란",
+        "lead_min": 235,
+        "matched_at": 1795226122341
       },
       {
-        "title": "김수현 열애",
-        "matched_keyword": "김수현 수사 잇단 송치 상황",
-        "lead_min": 315,
-        "matched_at": 1795188022351
+        "title": "최미나수 수상",
+        "matched_keyword": "최미나수, 레드카펫 추위 고생",
+        "lead_min": 50,
+        "matched_at": 1795222522342
       },
       {
-        "title": "허각 근황",
-        "matched_keyword": "허각, 성시경 도움 24kg 감량",
-        "lead_min": 520,
-        "matched_at": 1795185922348
+        "title": "리센느 에이티즈 1위",
+        "matched_keyword": "리센느 1위·에이티즈 2위·임영웅 3위",
+        "lead_min": 40,
+        "matched_at": 1795222522342
       },
       {
-        "title": "감량 근황",
-        "matched_keyword": "허각, 성시경 도움 24kg 감량",
-        "lead_min": 345,
-        "matched_at": 1795185922348
+        "title": "최미나수 출연",
+        "matched_keyword": "최미나수, 레드카펫 추위 고생",
+        "lead_min": 5,
+        "matched_at": 1795222522342
       },
       {
-        "title": "신세계 CL 공개",
-        "matched_keyword": "CL 애니, K-POP 신세계 콜라보",
+        "title": "김수현 광고 열애",
+        "matched_keyword": "김수현 광고 소송 8억7천만 배상",
+        "lead_min": 30,
+        "matched_at": 1795221922411
+      },
+      {
+        "title": "장나라 첫방송",
+        "matched_keyword": "장나라 굿파트너2 첫방 8.4%",
+        "lead_min": 2845,
+        "matched_at": 1795221322342
+      },
+      {
+        "title": "방탄소년단 수상",
+        "matched_keyword": "방탄소년단 지민, 가오슝 빛낸 초신성",
+        "lead_min": 20204,
+        "matched_at": 1795219522343
+      },
+      {
+        "title": "고원희 이혼",
+        "matched_keyword": "고원희, 두 번 이혼 후 당당 복귀",
         "lead_min": 65,
-        "matched_at": 1795182322344
-      },
-      {
-        "title": "장나라 김혜윤 케미",
-        "matched_keyword": "장나라 김혜윤 굿파트너2 신드롬 기대",
-        "lead_min": 12234,
-        "matched_at": 1795181722344
-      },
-      {
-        "title": "장나라 고백",
-        "matched_keyword": "장나라 김혜윤 굿파트너2 신드롬 기대",
-        "lead_min": 4545,
-        "matched_at": 1795181722344
-      },
-      {
-        "title": "와인 콘서트",
-        "matched_keyword": "2026 이마트 하반기 와인장터 추천 리스트",
-        "lead_min": 250,
-        "matched_at": 1795181722344
+        "matched_at": 1795218922341
       }
     ]
   }

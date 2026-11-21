@@ -1,196 +1,196 @@
 {
   "success": true,
-  "updatedAt": "2026-11-20T20:30:36.958Z",
-  "updatedAtKst": "2026. 11. 21. AM 5:30:36",
+  "updatedAt": "2026-11-21T02:27:58.868Z",
+  "updatedAtKst": "2026. 11. 21. AM 11:27:58",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "이해란 삼성생명 단독 1위!"
+        "keyword": "트럼프 한반도 논의"
       },
       {
         "rank": 2,
-        "keyword": "2026년 11월 21일 운세"
+        "keyword": "경부선 화물열차 운행"
       },
       {
         "rank": 3,
-        "keyword": "민주유공자법 국회 통과"
+        "keyword": "굿파트너 2"
       },
       {
         "rank": 4,
-        "keyword": "트럼프 우크라 지원 중단 압박"
+        "keyword": "유현조, Q시리즈 공동 6위"
       },
       {
         "rank": 5,
-        "keyword": "장나라의 굿파트너2 첫방 등장"
+        "keyword": "재혼 황후 45개국 1위"
       },
       {
         "rank": 6,
-        "keyword": "공사 생도 퇴교 사건"
+        "keyword": "일본 레코드 대상 3년 연속 수상"
       },
       {
         "rank": 7,
-        "keyword": "성북 10대 피의자 아들 성범죄 기소"
+        "keyword": "두산베어스"
       },
       {
         "rank": 8,
-        "keyword": "한파"
+        "keyword": "주말 전국 영하권 추위"
       },
       {
         "rank": 9,
-        "keyword": "컬리 개인정보 유출"
+        "keyword": "이란 미국 종전 합의"
       },
       {
         "rank": 10,
-        "keyword": "프랑스 러시아 방문 조건"
+        "keyword": "패딩"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "이해란 삼성생명 단독 동일"
+        "keyword": "경부선 화물열차 운행 동일"
       },
       {
         "rank": 2,
-        "keyword": "트럼프 데이터센터 세금 상승 4"
+        "keyword": "굿파트너 2 동일"
       },
       {
         "rank": 3,
-        "keyword": "엔하이픈 2026 마마 new"
+        "keyword": "재혼 글로벌 1위 new"
       },
       {
         "rank": 4,
-        "keyword": "굿파트너 동일"
+        "keyword": "다저스 전체 영입 new"
       },
       {
         "rank": 5,
-        "keyword": "한국전력 5년 만에 상승 2"
+        "keyword": "조희대 탄핵 당론 상승 2"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "미 무역대표 301조 조사"
+        "keyword": "트럼프 한반도 논의"
       },
       {
         "rank": 2,
-        "keyword": "미중 AI 군사 결정 합의"
+        "keyword": "소정리역 화물열차 탈선"
       },
       {
         "rank": 3,
-        "keyword": "엔비디아 H200 수출 허용"
+        "keyword": "주말 전국 영하권 추위"
       },
       {
         "rank": 4,
-        "keyword": "서울지하철 노조 준법투쟁"
+        "keyword": "이란 미국 종전 합의"
       },
       {
         "rank": 5,
-        "keyword": "민주유공자법 국회 통과"
+        "keyword": "나스닥 급락"
       },
       {
         "rank": 6,
-        "keyword": "컬리 개인정보 유출"
+        "keyword": "일본 핵추진 잠수함 도입"
       },
       {
         "rank": 7,
-        "keyword": "공시가격 현실화율 동결"
+        "keyword": "노동장관 국가자격시험 점검"
       },
       {
         "rank": 8,
-        "keyword": "프랑스 러시아 방문 조건"
+        "keyword": "페루 규모 6.7 지진"
       },
       {
         "rank": 9,
-        "keyword": "트럼프 우크라 지원 중단 압박"
+        "keyword": "클로드 리만 가설 증명"
       },
       {
         "rank": 10,
-        "keyword": "푸틴 키이우 교량 공격"
+        "keyword": "장성 화물차 추락 사고"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "한파"
+        "keyword": "편의점"
       },
       {
         "rank": 2,
-        "keyword": "알아흘리 사우디 대 알나스르"
+        "keyword": "nh농협카드"
       },
       {
         "rank": 3,
-        "keyword": "riemann hypothesis"
+        "keyword": "매일경제"
       },
       {
         "rank": 4,
-        "keyword": "변상 일"
+        "keyword": "두산베어스"
       },
       {
         "rank": 5,
-        "keyword": "fear and greed"
+        "keyword": "전북특별자치도"
       },
       {
         "rank": 6,
-        "keyword": "india a cricket team vs nepal national cricket team standings"
+        "keyword": "패딩"
       },
       {
         "rank": 7,
-        "keyword": "의·치의학교육입문검사"
+        "keyword": "동아일보"
       },
       {
         "rank": 8,
-        "keyword": "리만가설 증명"
+        "keyword": "lpga"
       },
       {
         "rank": 9,
-        "keyword": "세계사 2 번"
+        "keyword": "지스타"
       },
       {
         "rank": 10,
-        "keyword": "공포지수"
+        "keyword": "공군사관학교"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "연준 유아차 선물"
-      },
-      {
-        "rank": 2,
-        "keyword": "김종국 소속사 사무실"
-      },
-      {
-        "rank": 3,
-        "keyword": "강지환 틱톡 계정 삭제"
-      },
-      {
-        "rank": 4,
-        "keyword": "나혼산"
-      },
-      {
-        "rank": 5,
-        "keyword": "김신영 수영복 자태 공개"
-      },
-      {
-        "rank": 6,
-        "keyword": "김정영 배우"
-      },
-      {
-        "rank": 7,
-        "keyword": "엔하이픈 2026 MAMA 대상"
-      },
-      {
-        "rank": 8,
         "keyword": "굿파트너 2"
       },
       {
+        "rank": 2,
+        "keyword": "최교진 교육부 장관"
+      },
+      {
+        "rank": 3,
+        "keyword": "승용차 화물차 추돌 사고"
+      },
+      {
+        "rank": 4,
+        "keyword": "경부선 화물열차 탈선"
+      },
+      {
+        "rank": 5,
+        "keyword": "다저스 로이스 루이스 영입"
+      },
+      {
+        "rank": 6,
+        "keyword": "최미나수 레드카펫 추위"
+      },
+      {
+        "rank": 7,
+        "keyword": "푸른길"
+      },
+      {
+        "rank": 8,
+        "keyword": "정철원 롯데 트레이드"
+      },
+      {
         "rank": 9,
-        "keyword": "리센느 원이 약속"
+        "keyword": "ktx"
       },
       {
         "rank": 10,
-        "keyword": "gta6"
+        "keyword": "이재명 대장동 기소"
       }
     ]
   },
