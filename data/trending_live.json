@@ -1,70 +1,70 @@
 {
   "success": true,
-  "updatedAt": "2026-11-21T02:27:58.868Z",
-  "updatedAtKst": "2026. 11. 21. AM 11:27:58",
+  "updatedAt": "2026-11-21T11:22:46.023Z",
+  "updatedAtKst": "2026. 11. 21. PM 8:22:46",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "트럼프 한반도 논의"
+        "keyword": "이재명 탈옥법 규탄대회"
       },
       {
         "rank": 2,
-        "keyword": "경부선 화물열차 운행"
+        "keyword": "수원 삼성, 승격과 우승 확정"
       },
       {
         "rank": 3,
-        "keyword": "굿파트너 2"
+        "keyword": "FBI 범죄정보망 해킹"
       },
       {
         "rank": 4,
-        "keyword": "유현조, Q시리즈 공동 6위"
+        "keyword": "호르무즈 유조선 피격"
       },
       {
         "rank": 5,
-        "keyword": "재혼 황후 45개국 1위"
+        "keyword": "클로드 리만 가설 증명"
       },
       {
         "rank": 6,
-        "keyword": "일본 레코드 대상 3년 연속 수상"
+        "keyword": "트럼프 한반도 논의"
       },
       {
         "rank": 7,
-        "keyword": "두산베어스"
+        "keyword": "추성훈 은퇴전 팬들로 들썩"
       },
       {
         "rank": 8,
-        "keyword": "주말 전국 영하권 추위"
+        "keyword": "김종국"
       },
       {
         "rank": 9,
-        "keyword": "이란 미국 종전 합의"
+        "keyword": "이란 추가공격 압박"
       },
       {
         "rank": 10,
-        "keyword": "패딩"
+        "keyword": "파워리프팅"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "경부선 화물열차 운행 동일"
+        "keyword": "22일 첫차부터 운행 new"
       },
       {
         "rank": 2,
-        "keyword": "굿파트너 2 동일"
+        "keyword": "코르티스 데뷔 대상 동일"
       },
       {
         "rank": 3,
-        "keyword": "재혼 글로벌 1위 new"
+        "keyword": "추성훈 상승 1"
       },
       {
         "rank": 4,
-        "keyword": "다저스 전체 영입 new"
+        "keyword": "수원 삼성 우승 new"
       },
       {
         "rank": 5,
-        "keyword": "조희대 탄핵 당론 상승 2"
+        "keyword": "울산 전통시장 방문 new"
       }
     ],
     "zum": [
@@ -74,123 +74,123 @@
       },
       {
         "rank": 2,
-        "keyword": "소정리역 화물열차 탈선"
+        "keyword": "호르무즈 유조선 피격"
       },
       {
         "rank": 3,
-        "keyword": "주말 전국 영하권 추위"
+        "keyword": "FBI 범죄정보망 해킹"
       },
       {
         "rank": 4,
-        "keyword": "이란 미국 종전 합의"
+        "keyword": "소정리역 화물열차 탈선"
       },
       {
         "rank": 5,
-        "keyword": "나스닥 급락"
+        "keyword": "구글 인도네시아 유튜브 삭제"
       },
       {
         "rank": 6,
-        "keyword": "일본 핵추진 잠수함 도입"
+        "keyword": "인도네시아 규모 6.8 지진"
       },
       {
         "rank": 7,
-        "keyword": "노동장관 국가자격시험 점검"
-      },
-      {
-        "rank": 8,
-        "keyword": "페루 규모 6.7 지진"
-      },
-      {
-        "rank": 9,
         "keyword": "클로드 리만 가설 증명"
       },
       {
+        "rank": 8,
+        "keyword": "이란 추가공격 압박"
+      },
+      {
+        "rank": 9,
+        "keyword": "유엔 킬러로봇 규제"
+      },
+      {
         "rank": 10,
-        "keyword": "장성 화물차 추락 사고"
+        "keyword": "수능 부정 신고 포상금"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "편의점"
+        "keyword": "로이킴"
       },
       {
         "rank": 2,
-        "keyword": "nh농협카드"
+        "keyword": "최백호"
       },
       {
         "rank": 3,
-        "keyword": "매일경제"
+        "keyword": "강원 fc 대 대전 하나 시티즌 순위"
       },
       {
         "rank": 4,
-        "keyword": "두산베어스"
+        "keyword": "김종국"
       },
       {
         "rank": 5,
-        "keyword": "전북특별자치도"
+        "keyword": "파워리프팅"
       },
       {
         "rank": 6,
-        "keyword": "패딩"
+        "keyword": "k리그1"
       },
       {
         "rank": 7,
-        "keyword": "동아일보"
+        "keyword": "삼성 엑시노스"
       },
       {
         "rank": 8,
-        "keyword": "lpga"
+        "keyword": "빅뱅 마마"
       },
       {
         "rank": 9,
-        "keyword": "지스타"
+        "keyword": "중일 관계"
       },
       {
         "rank": 10,
-        "keyword": "공군사관학교"
+        "keyword": "england vs australia"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "굿파트너 2"
+        "keyword": "경비지도사"
       },
       {
         "rank": 2,
-        "keyword": "최교진 교육부 장관"
+        "keyword": "코레일 경부선 일반열차"
       },
       {
         "rank": 3,
-        "keyword": "승용차 화물차 추돌 사고"
+        "keyword": "유노윤호 와일드카드 합류"
       },
       {
         "rank": 4,
-        "keyword": "경부선 화물열차 탈선"
+        "keyword": "추성훈 은퇴경기"
       },
       {
         "rank": 5,
-        "keyword": "다저스 로이스 루이스 영입"
+        "keyword": "수험생들 교육장관 사퇴"
       },
       {
         "rank": 6,
-        "keyword": "최미나수 레드카펫 추위"
+        "keyword": "정은지 앙코르 콘서트 개최"
       },
       {
         "rank": 7,
-        "keyword": "푸른길"
+        "keyword": "권정열 존박 쟁탈전"
       },
       {
         "rank": 8,
-        "keyword": "정철원 롯데 트레이드"
+        "keyword": "최성수 불후의 명곡 막내"
       },
       {
         "rank": 9,
-        "keyword": "ktx"
+        "keyword": "푸른길"
       },
       {
         "rank": 10,
-        "keyword": "이재명 대장동 기소"
+        "keyword": "호르무즈 유조선 피격"
       }
     ]
   },
