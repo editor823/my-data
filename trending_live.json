@@ -1,108 +1,108 @@
 {
   "success": true,
-  "updatedAt": "2026-11-22T01:24:59.233Z",
-  "updatedAtKst": "2026. 11. 22. AM 10:24:59",
+  "updatedAt": "2026-11-22T11:39:00.159Z",
+  "updatedAtKst": "2026. 11. 22. PM 8:39:00",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "바레인 이란 공격 화재"
+        "keyword": "남자 5000M 계주 금메달"
       },
       {
         "rank": 2,
-        "keyword": "주거 안전용품 지원 사업"
+        "keyword": "증안펀드 가동 준비"
       },
       {
         "rank": 3,
-        "keyword": "김아림 LPGA 선두"
+        "keyword": "한전 개인정보 유출"
       },
       {
         "rank": 4,
-        "keyword": "김유정 박진영 빗속 입맞춤"
+        "keyword": "최교진 교육부 장관 면직"
       },
       {
         "rank": 5,
-        "keyword": "경찰 관계성범죄 국민참여단"
+        "keyword": "수능 수학 1등급 미적분 선택"
       },
       {
         "rank": 6,
-        "keyword": "성시경, 채령에게 어필 논란"
+        "keyword": "원자력 잠수함"
       },
       {
         "rank": 7,
-        "keyword": "수출규제"
+        "keyword": "굿파트너 2"
       },
       {
         "rank": 8,
-        "keyword": "FBI 범죄정보망 해킹"
+        "keyword": "100일의 거짓말"
       },
       {
         "rank": 9,
-        "keyword": "인공지능"
+        "keyword": "서울 경전철 서부선"
       },
       {
         "rank": 10,
-        "keyword": "대법원 과거사 배상 판결"
+        "keyword": "고경표 음주운전으로 사과"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "흑백요리사 트리플스타 발표 동일"
+        "keyword": "100일의 거짓말 하락 2"
       },
       {
         "rank": 2,
-        "keyword": "취약계층 안전용품 지원 new"
+        "keyword": "최교진 면직안 재가 상승 1"
       },
       {
         "rank": 3,
-        "keyword": "테이블 생방송 중 주인은 new"
+        "keyword": "김가은 하락 1"
       },
       {
         "rank": 4,
-        "keyword": "김태희 아침마다 감동 new"
+        "keyword": "주현영 new"
       },
       {
         "rank": 5,
-        "keyword": "30대가 고가주택 보유자 new"
+        "keyword": "열린음악회 하락 4"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "영아반 단독 어린이집"
+        "keyword": "최교진 교육부 장관 면직"
       },
       {
         "rank": 2,
-        "keyword": "12월 제조업 경기 전망"
+        "keyword": "한전 개인정보 유출"
       },
       {
         "rank": 3,
-        "keyword": "30대 고가주택 보유 급증"
+        "keyword": "젤렌스키 3자 종전협상 동의"
       },
       {
         "rank": 4,
-        "keyword": "앤트로픽 IPO 급등락"
+        "keyword": "수능 수학 1등급 미적분 선택"
       },
       {
         "rank": 5,
-        "keyword": "경찰 관계성범죄 국민참여단"
+        "keyword": "증안펀드 가동 준비"
       },
       {
         "rank": 6,
-        "keyword": "수능 부정 신고 포상금"
+        "keyword": "트럼프 이란 합의 발언"
       },
       {
         "rank": 7,
-        "keyword": "바레인 이란 공격 화재"
+        "keyword": "진도 어선 전복 구조"
       },
       {
         "rank": 8,
-        "keyword": "이란 미 F-16 공격 주장"
+        "keyword": "최교진 수능 사의"
       },
       {
         "rank": 9,
-        "keyword": "FBI 범죄정보망 해킹"
+        "keyword": "북미회담 무산"
       },
       {
         "rank": 10,
@@ -112,144 +112,172 @@
     "google": [
       {
         "rank": 1,
-        "keyword": "inter miami vs columbus"
+        "keyword": "남진"
       },
       {
         "rank": 2,
-        "keyword": "수출규제"
+        "keyword": "수능 부정행위"
       },
       {
         "rank": 3,
-        "keyword": "수험"
+        "keyword": "원자력 잠수함"
       },
       {
         "rank": 4,
-        "keyword": "인공지능"
+        "keyword": "정상회담"
       },
       {
         "rank": 5,
-        "keyword": "군인"
+        "keyword": "서울 경전철 서부선"
       },
       {
         "rank": 6,
-        "keyword": "털"
+        "keyword": "무신사"
       },
       {
         "rank": 7,
-        "keyword": "알테오젠"
+        "keyword": "회계사"
       },
       {
         "rank": 8,
-        "keyword": "real madrid vs rc celta de vigo standings"
+        "keyword": "방시혁"
       },
       {
         "rank": 9,
-        "keyword": "삼전 닉스"
+        "keyword": "김혜윤"
       },
       {
         "rank": 10,
-        "keyword": "부동산"
+        "keyword": "금융위기"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "1251회 로또 당첨 번호"
+        "keyword": "주현영 연애 질문"
       },
       {
         "rank": 2,
-        "keyword": "은가은 모녀 갈등"
+        "keyword": "나인 투 식스"
       },
       {
         "rank": 3,
-        "keyword": "대법 과거사 국가배상"
+        "keyword": "한전 개인정보 유출"
       },
       {
         "rank": 4,
-        "keyword": "김아림 투어 챔피언십 선두"
+        "keyword": "최교진 장관 면직안 재가"
       },
       {
         "rank": 5,
-        "keyword": "브라이언 환희 재결합"
+        "keyword": "박연수 이혼 아픔 고백"
       },
       {
         "rank": 6,
-        "keyword": "추성훈 은퇴전 판정패"
+        "keyword": "철도노조 안전운행 투쟁 연기"
       },
       {
         "rank": 7,
-        "keyword": "경비지도사"
+        "keyword": "지예은 주현영 텃세 폭로"
       },
       {
         "rank": 8,
-        "keyword": "소설"
+        "keyword": "굿파트너 2"
       },
       {
         "rank": 9,
-        "keyword": "이채연 모친 희귀암 투병"
+        "keyword": "1251회 로또 당첨 번호"
       },
       {
         "rank": 10,
-        "keyword": "깡촌캉스"
+        "keyword": "김원효 트랜스젠더 바"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "‘치이카와’ 300만 관객 돌파…개봉 53일 만에 애니메이션 흥행 새 기록",
+      "title": "김동완, 결국 SNS 떠난다…“무너지면 또 올게”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261122/135065866/1",
-      "publishedAt": "수집 11. 22. 10:24 KST",
-      "publishedOrder": 1795310694255
+      "url": "https://sports.donga.com/ent/article/all/20261122/135068731/1",
+      "publishedAt": "수집 11. 22. 20:39 KST",
+      "publishedOrder": 1795347540131
     },
     {
-      "title": "전현무, 추신수 닮은꼴 자부…“나도 야구단 출신” (현무로드)",
+      "title": "손태영, 미국 생활 6년 만에 첫 피부과…“얼굴에 뭔가 해야 하나”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261122/135065855/1",
-      "publishedAt": "수집 11. 22. 10:24 KST",
-      "publishedOrder": 1795310694255
+      "url": "https://sports.donga.com/ent/article/all/20261122/135068670/1",
+      "publishedAt": "수집 11. 22. 20:39 KST",
+      "publishedOrder": 1795347540131
     },
     {
-      "title": "이민호, 버츄얼 아이돌 된다…박규영과 ‘버츄얼 러브’ 호흡",
+      "title": "윤선우♥김가은, 2세는 딸…“공주 둘 괜찮아?”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261122/135065845/1",
-      "publishedAt": "수집 11. 22. 10:24 KST",
-      "publishedOrder": 1795310694255
+      "url": "https://sports.donga.com/ent/article/all/20261122/135068655/1",
+      "publishedAt": "수집 11. 22. 20:39 KST",
+      "publishedOrder": 1795347540131
     },
     {
-      "title": "스티브 로저스부터 엑스맨까지…‘어벤져스: 둠스데이’, 역대급 히어로 집결",
+      "title": "추성훈, 22년 격투 인생 마침표…은퇴전 역대 최다 관중",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261122/135065820/1",
-      "publishedAt": "수집 11. 22. 10:24 KST",
-      "publishedOrder": 1795310694255
+      "url": "https://sports.donga.com/ent/article/all/20261122/135066553/1",
+      "publishedAt": "수집 11. 22. 20:39 KST",
+      "publishedOrder": 1795347540131
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 22. 10:24 KST",
-      "publishedOrder": 1795310693322
+      "publishedAt": "수집 11. 22. 20:38 KST",
+      "publishedOrder": 1795347539722
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 22. 10:24 KST",
-      "publishedOrder": 1795310693322
+      "publishedAt": "수집 11. 22. 20:38 KST",
+      "publishedOrder": 1795347539722
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 22. 10:24 KST",
-      "publishedOrder": 1795310693322
+      "publishedAt": "수집 11. 22. 20:38 KST",
+      "publishedOrder": 1795347539722
     },
     {
-      "title": "빅뱅 지드래곤, 비녀→파격 장발 스타일링까지..\"머리가 힘드네요\"[스타이슈]",
+      "title": "박지윤과 남사친, 그리고 사실혼 배우자..미국 여행서 무슨 일이[스타이슈]",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/21/2026112119021660518",
-      "publishedAt": "수집 11. 22. 10:24 KST",
-      "publishedOrder": 1795310693322
+      "url": "https://www.starnewskorea.com/star/2026/11/22/2026111815023322220",
+      "publishedAt": "수집 11. 22. 20:38 KST",
+      "publishedOrder": 1795347539722
+    },
+    {
+      "title": "‘예능 대세’ 허경환, 연예대상 최우수상 야심… 주우재에 선전포고 (옥문아)",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBiWnoyckEzY1Y2b0pVWTgwQnZVeVY2NTRvUHFpOVFEaXBtaks5V05NdGJoQ2VXbWVBc0RtM3F3a09MUEl2SUxPeVR5a3d3UFRuUWJKTHlZQjM2WGs?oc=5",
+      "publishedAt": "11. 22. 12:07 KST",
+      "publishedOrder": 1795316820000
+    },
+    {
+      "title": "연예N｜성시경, 22살 어린 채령에 연애 질문…“아빠뻘이 왜?” 갑론을박",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9NckpvNnkyRVlrWWMxTGY0dEJWZmNjMHY0Y2FfR1d2MlNYbXpoeUxlOGVUOEY2Rjg2NjcxVGFvSGR1SUFPQ1p4dm9QdHZnNnl3cEcwb21YMlNsaXdlWGx2ZHdMQXp4R3BjeFE?oc=5",
+      "publishedAt": "11. 22. 10:21 KST",
+      "publishedOrder": 1795310472000
+    },
+    {
+      "title": "허경환 \"'2026 연예대상' 최우수상 노린다..주우재, 엄청난 걸림돌\" [옥문아]",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9Ja0tCLUp0S0JGX3JaRTYxbVNWN0JRY0E1a3ozSlVxcjdfRHZlZlRlb1JOTHd6TWZwVndGanVGbGJQdzJzMWx1Y29fSjN5Y2l0ei1jck1mZDJCTVAwZWNkMEl2VVR4eFR2R0JweVdLVV9VVG8?oc=5",
+      "publishedAt": "11. 22. 10:10 KST",
+      "publishedOrder": 1795309845000
+    },
+    {
+      "title": "허경환, 연예대상 최우수상 욕심…“주우재가 걸림돌” (옥문아)",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1kNzNrT1haSjJSTjN1LWljTHF3LWxIb1YzVWhXSTRzMUpMclZoc2dzOHNSM1BTdlVTTmtDT2hrMm11MzJxMWgyR0c1VVJPZTRXRmVDS0ltUVJxRXdOOEpYc2x1ek9UQTUtbHotOVlR?oc=5",
+      "publishedAt": "11. 22. 09:27 KST",
+      "publishedOrder": 1795307278000
     }
   ]
 }
