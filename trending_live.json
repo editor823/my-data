@@ -1,92 +1,92 @@
 {
   "success": true,
-  "updatedAt": "2026-11-22T19:49:41.833Z",
-  "updatedAtKst": "2026. 11. 23. AM 4:49:41",
+  "updatedAt": "2026-11-23T01:49:31.707Z",
+  "updatedAtKst": "2026. 11. 23. AM 10:49:31",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "유엔기후총회 합의문 채택 실패"
+        "keyword": "2027년 전망 하나증권"
       },
       {
         "rank": 2,
-        "keyword": "100일의 거짓말"
+        "keyword": "박종복 은행연합회장 내정"
       },
       {
         "rank": 3,
-        "keyword": "한전 고객 150만 개인정보 유출"
+        "keyword": "코스피 3%대 하락"
       },
       {
         "rank": 4,
-        "keyword": "밀란 대 프로시노네"
+        "keyword": "조희대 대법원장 탄핵"
       },
       {
         "rank": 5,
-        "keyword": "해광호 수색 부이 발견"
+        "keyword": "오지헌"
       },
       {
         "rank": 6,
-        "keyword": "아시아모델어워즈 부문 수상"
+        "keyword": "11월 수출 역대 최대"
       },
       {
         "rank": 7,
-        "keyword": "리비아 러시아 군함 피격"
+        "keyword": "이란 미사일 발사대 공개"
       },
       {
         "rank": 8,
-        "keyword": "문무와 AI의 가능성"
+        "keyword": "100일의 거짓말 시청률 최고"
       },
       {
         "rank": 9,
-        "keyword": "맨유"
+        "keyword": "발언하는 장동혁 대표"
       },
       {
         "rank": 10,
-        "keyword": "북미회담 무산"
+        "keyword": "강금실"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "화석연료 합의문 채택 상승 1"
+        "keyword": "��지헌 상승 2"
       },
       {
         "rank": 2,
-        "keyword": "100일의 거짓말 하락 1"
+        "keyword": "스쿠발 메츠와 투수 new"
       },
       {
         "rank": 3,
-        "keyword": "아시아모델어워즈 부문 수상 동일"
+        "keyword": "출근하는 조희대 대법원장 상승 1"
       },
       {
         "rank": 4,
-        "keyword": "솔비 이규한 상승 4"
+        "keyword": "에이티즈 통산 1위 new"
       },
       {
         "rank": 5,
-        "keyword": "조희대 탄핵 상승 6"
+        "keyword": "LG전자 싱가포르에 AI홈 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "젤렌스키 3자 종전협상 동의"
+        "keyword": "11월 수출 역대 최대"
       },
       {
         "rank": 2,
-        "keyword": "유엔기후총회 합의 무산"
+        "keyword": "조희대 대법원장 탄핵"
       },
       {
         "rank": 3,
-        "keyword": "리비아 러시아 군함 피격"
+        "keyword": "코스피 급락"
       },
       {
         "rank": 4,
-        "keyword": "해광호 수색 부이 발견"
+        "keyword": "이란 미사일 발사대 공개"
       },
       {
         "rank": 5,
-        "keyword": "북미회담 무산"
+        "keyword": "은행 불공정 약관 시정"
       },
       {
         "rank": 6,
@@ -94,162 +94,162 @@
       },
       {
         "rank": 7,
-        "keyword": "앨리스 황 칩 밀수"
+        "keyword": "이재명 대통령 지지율"
       },
       {
         "rank": 8,
-        "keyword": "정년연장 정부안 제시"
+        "keyword": "한국 남녀 임금 격차"
       },
       {
         "rank": 9,
-        "keyword": "증안펀드 가동 준비"
+        "keyword": "경기도 철도 파업 비상수송"
       },
       {
         "rank": 10,
-        "keyword": "김정은 러시아 대사 신임장"
+        "keyword": "간호사 태움 사건 송치"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "집"
+        "keyword": "부산항"
       },
       {
         "rank": 2,
-        "keyword": "밀란 대 프로시노네"
+        "keyword": "수원 fc"
       },
       {
         "rank": 3,
-        "keyword": "liverpool đấu với man utd"
+        "keyword": "kospi"
       },
       {
         "rank": 4,
-        "keyword": "맨유"
+        "keyword": "오지헌"
       },
       {
         "rank": 5,
-        "keyword": "빗썸"
+        "keyword": "강금실"
       },
       {
         "rank": 6,
-        "keyword": "라싱 산탄데르 대 레알 소시에다드"
+        "keyword": "getafe cf vs atlético madrid standings"
       },
       {
         "rank": 7,
-        "keyword": "ลิเวอร์พูล พบ แมนยู"
+        "keyword": "스쿠발"
       },
       {
         "rank": 8,
-        "keyword": "청년문화예술패스"
+        "keyword": "정유라"
       },
       {
         "rank": 9,
-        "keyword": "라민 야말"
+        "keyword": "김하성"
       },
       {
         "rank": 10,
-        "keyword": "liverpool vs man utd"
+        "keyword": "조세호"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "최백호 나이"
+        "keyword": "에이티즈 빌보드 200 1위"
       },
       {
         "rank": 2,
-        "keyword": "이규한 첫키스 가글"
+        "keyword": "삼성증권 개인정보 유출"
       },
       {
         "rank": 3,
-        "keyword": "이혜영 미우새"
+        "keyword": "김정근 배우 데뷔"
       },
       {
         "rank": 4,
-        "keyword": "공매도란"
-      },
-      {
-        "rank": 5,
-        "keyword": "신라 김춘추"
-      },
-      {
-        "rank": 6,
-        "keyword": "최교진 사의 수락"
-      },
-      {
-        "rank": 7,
         "keyword": "정년연장"
       },
       {
+        "rank": 5,
+        "keyword": "최교진 퇴진"
+      },
+      {
+        "rank": 6,
+        "keyword": "이부진 아들 성"
+      },
+      {
+        "rank": 7,
+        "keyword": "정승환 안테나 계약 종료"
+      },
+      {
         "rank": 8,
-        "keyword": "철도 파업"
+        "keyword": "오지헌 딸 공개"
       },
       {
         "rank": 9,
-        "keyword": "먹을텐데"
+        "keyword": "이혜영 남편"
       },
       {
         "rank": 10,
-        "keyword": "u-17 월드컵"
+        "keyword": "블리츠웨이 엔터테인먼트"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "비♥김태희, 두 딸 입맛에 결국 백기…“캐비아 아니라고 바로 알아채”",
+      "title": "태그호이어, 앰버서더 이정후와 함께한 지큐 코리아 12월호 커버 공개",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261122/135070525/1",
-      "publishedAt": "수집 11. 23. 04:49 KST",
-      "publishedOrder": 1795376975096
+      "url": "https://sports.donga.com/ent/article/all/20261123/135071833/1",
+      "publishedAt": "수집 11. 23. 10:21 KST",
+      "publishedOrder": 1795396886828
     },
     {
-      "title": "솔비, 이규한과 첫 키스 비화 폭로…“가글부터 하더라” (미우새)",
+      "title": "혜리, 2년 연속 선플재단 이사장상 수상…“데뷔 17년, 책임감 느껴”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261122/135070456/1",
-      "publishedAt": "수집 11. 23. 04:49 KST",
-      "publishedOrder": 1795376975096
+      "url": "https://sports.donga.com/ent/article/all/20261123/135071801/1",
+      "publishedAt": "수집 11. 23. 10:21 KST",
+      "publishedOrder": 1795396886828
     },
     {
-      "title": "이혜영, ‘전남편’ 이상민 출연한 ‘미우새’ 등장…♥재혼 남편 “미쳤냐고”",
+      "title": "강호동 “당분간 인터뷰 금지”…출연자에 옐로카드 경고 (천만기인쇼)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261122/135070502/1",
-      "publishedAt": "수집 11. 23. 04:49 KST",
-      "publishedOrder": 1795376975096
+      "url": "https://sports.donga.com/ent/article/all/20261123/135071808/1",
+      "publishedAt": "수집 11. 23. 10:21 KST",
+      "publishedOrder": 1795396886828
     },
     {
-      "title": "이규한, ♥솔비와 연애도 전에 프러포즈?…母 앞서 “평생 책임지겠다”",
+      "title": "“춤 없는 뮤비 처음” 엔하이픈, 따뜻한 팝 알앤비 ‘아이 원트 유’로 승부수",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261122/135070459/1",
-      "publishedAt": "수집 11. 23. 04:49 KST",
-      "publishedOrder": 1795376975096
+      "url": "https://sports.donga.com/ent/article/all/20261123/135071655/1",
+      "publishedAt": "수집 11. 23. 10:21 KST",
+      "publishedOrder": 1795396886828
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 23. 04:49 KST",
-      "publishedOrder": 1795376974475
+      "publishedAt": "수집 11. 23. 10:21 KST",
+      "publishedOrder": 1795396886785
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 23. 04:49 KST",
-      "publishedOrder": 1795376974475
+      "publishedAt": "수집 11. 23. 10:21 KST",
+      "publishedOrder": 1795396886785
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 23. 04:49 KST",
-      "publishedOrder": 1795376974475
+      "publishedAt": "수집 11. 23. 10:21 KST",
+      "publishedOrder": 1795396886785
     },
     {
-      "title": "박지윤과 남사친, 그리고 사실혼 배우자..미국 여행서 무슨 일이[스타이슈]",
+      "title": "\"부끄럽지 않은 남편될 것\" 트리플스타, 전처 논란 딛고 재혼..'흑백요리사'들 축하[종합]",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/22/2026111815023322220",
-      "publishedAt": "수집 11. 23. 04:49 KST",
-      "publishedOrder": 1795376974475
+      "url": "https://www.starnewskorea.com/star/2026/11/22/2026112210051645160",
+      "publishedAt": "수집 11. 23. 10:21 KST",
+      "publishedOrder": 1795396886785
     }
   ]
 }
