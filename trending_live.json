@@ -1,154 +1,154 @@
 {
   "success": true,
-  "updatedAt": "2026-11-23T13:10:05.081Z",
-  "updatedAtKst": "2026. 11. 23. PM 10:10:05",
+  "updatedAt": "2026-11-24T02:19:08.367Z",
+  "updatedAtKst": "2026. 11. 24. AM 11:19:08",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "고경표, 경찰 조사 출석하며 사죄"
+        "keyword": "젠슨 황 CEO 복귀 소식"
       },
       {
         "rank": 2,
-        "keyword": "리비아 러시아 군함 피격"
+        "keyword": "삼성전자 임원 131명 승진"
       },
       {
         "rank": 3,
-        "keyword": "수능 부정신고 5억 포상"
+        "keyword": "울릉도 경계경보 혼선"
       },
       {
         "rank": 4,
-        "keyword": "박준현 서면사과 취소"
+        "keyword": "원내대책회의 정점식 원내대표"
       },
       {
         "rank": 5,
-        "keyword": "상장"
+        "keyword": "우지원"
       },
       {
         "rank": 6,
-        "keyword": "앨리스 황 중국 정보기관 접촉"
+        "keyword": "이용철 청문회 공소취소"
       },
       {
         "rank": 7,
-        "keyword": "국힘 조작기소특검법 권한쟁의"
+        "keyword": "현혹 내년 1월 공개"
       },
       {
         "rank": 8,
-        "keyword": "가족관계증명서"
+        "keyword": "홈플러스 온라인 배송 중단"
       },
       {
         "rank": 9,
-        "keyword": "AI 에이전트 고객센터 제한"
+        "keyword": "조규성 자책골 유도"
       },
       {
         "rank": 10,
-        "keyword": "한성숙, 카타르 및 몽골 장관 접견"
+        "keyword": "김민석 취임 100일, 당청 안정 ���요"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "음주운전 고경표 경찰 동일"
+        "keyword": "젠슨 황 복귀 동일"
       },
       {
         "rank": 2,
-        "keyword": "신한은행 하나은행 4연승 new"
+        "keyword": "삼성전자 임원 승진 상승 2"
       },
       {
         "rank": 3,
-        "keyword": "나의 유죄인간 new"
+        "keyword": "국무회의 이재명 대통령 new"
       },
       {
         "rank": 4,
-        "keyword": "한성숙 총리 접견 new"
+        "keyword": "원내대책회의 정점식 원내대표 하락 1"
       },
       {
         "rank": 5,
-        "keyword": "가족관계증명서 하락 1"
+        "keyword": "김서형 대시 하차 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "리비아 러시아 군함 피격"
+        "keyword": "서울 지하철 파업 비상수송대책"
       },
       {
         "rank": 2,
-        "keyword": "앨리스 황 중국 정보기관 접촉"
+        "keyword": "코스피 급등 사이드카"
       },
       {
         "rank": 3,
-        "keyword": "고경표 음주운전 조사"
+        "keyword": "이용철 청문회 공소취소"
       },
       {
         "rank": 4,
-        "keyword": "AI 에이전트 고객센터 제한"
+        "keyword": "젠슨 황 CEO 복귀"
       },
       {
         "rank": 5,
-        "keyword": "국힘 조작기소특검법 권한쟁의"
+        "keyword": "뉴욕 연은 총재 금리인상"
       },
       {
         "rank": 6,
-        "keyword": "수능 스마트기기 부정행위 고발"
+        "keyword": "국민주권의 날 지정"
       },
       {
         "rank": 7,
-        "keyword": "원전 공론화 확대 측 참여 중단"
+        "keyword": "이재명 버블 특검 추진"
       },
       {
         "rank": 8,
-        "keyword": "독일 학교 폭탄 협박"
+        "keyword": "수능 부정행위 응시 제한 확대"
       },
       {
         "rank": 9,
-        "keyword": "오픈AI 개발 상한"
+        "keyword": "부산 사하구 주택 화재"
       },
       {
         "rank": 10,
-        "keyword": "러시아 핵무장 위성 발사"
+        "keyword": "러시아 군용기 울릉도 접근"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "상장"
+        "keyword": "남도일보"
       },
       {
         "rank": 2,
-        "keyword": "m"
+        "keyword": "세종의사당"
       },
       {
         "rank": 3,
-        "keyword": "공항"
+        "keyword": "세인트루이스 시티 sc 대 엘에이 fc"
       },
       {
         "rank": 4,
-        "keyword": "반도체 메모리"
+        "keyword": "우지원"
       },
       {
         "rank": 5,
-        "keyword": "중위소득"
+        "keyword": "청약홈"
       },
       {
         "rank": 6,
-        "keyword": "브레인악셀"
+        "keyword": "필라데피아 대 포틀랜드"
       },
       {
         "rank": 7,
-        "keyword": "일론 머스크"
+        "keyword": "cj그룹"
       },
       {
         "rank": 8,
-        "keyword": "이진관 판사"
+        "keyword": "차두리"
       },
       {
         "rank": 9,
-        "keyword": "가석방"
+        "keyword": "박윤영"
       },
       {
         "rank": 10,
-        "keyword": "딜라이트"
+        "keyword": "사이드카"
       }
     ],
     "daum": [
@@ -158,98 +158,98 @@
       },
       {
         "rank": 2,
-        "keyword": "중앙소방학교"
+        "keyword": "박보경 대체 투입"
       },
       {
         "rank": 3,
-        "keyword": "한준호 행안부 장관 후보"
+        "keyword": "한준호 발탁"
       },
       {
         "rank": 4,
-        "keyword": "신한은행 4연승"
+        "keyword": "젠슨 황 엔비디아 복귀"
       },
       {
         "rank": 5,
-        "keyword": "고경표 음주운전 경찰 조사"
+        "keyword": "서울시 비상수송대책"
       },
       {
         "rank": 6,
-        "keyword": "강유정 문체부 장관 내정"
+        "keyword": "김서형 드라마 하차"
       },
       {
         "rank": 7,
-        "keyword": "김미경 오토바이 사고"
+        "keyword": "남다름 길스토리이엔티"
       },
       {
         "rank": 8,
-        "keyword": "홍익표 통일부 장관"
+        "keyword": "안철수 강금실 지명"
       },
       {
         "rank": 9,
-        "keyword": "노소영 증인신문 청구"
+        "keyword": "울릉도 경계경보"
       },
       {
         "rank": 10,
-        "keyword": "이재명 지명"
+        "keyword": "러시아 군용기 카디즈 진입"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "고개 숙인 고경표, 경찰 출석하며 연신 울먹…“무책임한 행동, 성실히 조사받겠다”",
+      "title": "몬스타엑스 ‘시그’ 비주얼 극성수기…뉴스룸 앵커↔악동 오가는 매력",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261123/135076557/1",
-      "publishedAt": "수집 11. 23. 22:10 KST",
-      "publishedOrder": 1795439402560
+      "url": "https://sports.donga.com/ent/article/all/20261124/135079369/1",
+      "publishedAt": "수집 11. 24. 10:50 KST",
+      "publishedOrder": 1795485034146
     },
     {
-      "title": "‘기안장2’ 의리 빛났다…카즈하·김연경, 오사카 거리서 다정한 투샷",
+      "title": "학부모 커뮤니티 어떻길래…이현이X김영희 진심 조언 (말자쇼)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261123/135074655/1",
-      "publishedAt": "수집 11. 23. 22:10 KST",
-      "publishedOrder": 1795439402560
+      "url": "https://sports.donga.com/ent/article/all/20261124/135079299/1",
+      "publishedAt": "수집 11. 24. 10:50 KST",
+      "publishedOrder": 1795485034146
     },
     {
-      "title": "트와이스 나연, 머리부터 발끝까지 블루…파격 변신 ‘깜짝’ [DA★]",
+      "title": "한때 틀면 나오던 황치열 복귀…이경규와 손잡았다 (어른왕자)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261123/135074693/1",
-      "publishedAt": "수집 11. 23. 22:10 KST",
-      "publishedOrder": 1795439402560
+      "url": "https://sports.donga.com/ent/article/all/20261124/135079236/1",
+      "publishedAt": "수집 11. 24. 10:50 KST",
+      "publishedOrder": 1795485034146
     },
     {
-      "title": "유어즈, 마라톤 축제서 러닝 하고 무대도 하고 ‘열정 활활’",
+      "title": "효린, 인간 트리 됐다…몸에 전구 감싼 채 ‘우아한 매력’",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261123/135074597/1",
-      "publishedAt": "수집 11. 23. 22:10 KST",
-      "publishedOrder": 1795439402560
+      "url": "https://sports.donga.com/ent/article/all/20261124/135079121/1",
+      "publishedAt": "수집 11. 24. 10:50 KST",
+      "publishedOrder": 1795485034146
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 23. 22:10 KST",
-      "publishedOrder": 1795439400024
+      "publishedAt": "수집 11. 24. 10:50 KST",
+      "publishedOrder": 1795485033361
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 23. 22:10 KST",
-      "publishedOrder": 1795439400024
+      "publishedAt": "수집 11. 24. 10:50 KST",
+      "publishedOrder": 1795485033361
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 23. 22:10 KST",
-      "publishedOrder": 1795439400024
+      "publishedAt": "수집 11. 24. 10:50 KST",
+      "publishedOrder": 1795485033361
     },
     {
-      "title": "'30kg 감량' 야옹이 작가, 비현실적 개미허리..충격적 뼈말라 몸매 \"완전 방전\"",
+      "title": "\"남친과 포르노\"vs\"XX하면 비위 맞춰\" 최동석·박지윤, 최악의 험담들[스타이슈]",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/23/2026112300154162400",
-      "publishedAt": "수집 11. 23. 22:10 KST",
-      "publishedOrder": 1795439400024
+      "url": "https://www.starnewskorea.com/star/2026/11/23/2026112313540827778",
+      "publishedAt": "수집 11. 24. 10:50 KST",
+      "publishedOrder": 1795485033361
     }
   ]
 }
