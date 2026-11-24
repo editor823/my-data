@@ -1,198 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-11-24T13:56:01.949Z",
-  "updatedAtKst": "2026. 11. 24. PM 10:56:01",
+  "updatedAt": "2026-11-24T23:57:00.038Z",
+  "updatedAtKst": "2026. 11. 25. AM 8:57:00",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "김병기 송치 완료"
+        "keyword": "김하성, 디트로이트와 계약"
       },
       {
         "rank": 2,
-        "keyword": "정상빈 1골 1도움"
+        "keyword": "미국 과잉생산 관세 조사"
       },
       {
         "rank": 3,
-        "keyword": "중국 대미 수출통제 유예"
+        "keyword": "서울지하철 타결로 철회"
       },
       {
         "rank": 4,
-        "keyword": "젠슨 황 11일 만에 복귀"
+        "keyword": "젠슨 황 복귀 이틀만에 효과 감소"
       },
       {
         "rank": 5,
-        "keyword": "치안감"
+        "keyword": "전국 영하권 추위"
       },
       {
         "rank": 6,
-        "keyword": "수능 시험지 폐기"
+        "keyword": "에이티즈 빌보드 200 정상 4회"
       },
       {
         "rank": 7,
-        "keyword": "내신 부정행위 퇴학 최대"
+        "keyword": "데블스 플랜3"
       },
       {
         "rank": 8,
-        "keyword": "아라우조 떠나고 비예나 합류"
+        "keyword": "박윤영"
       },
       {
         "rank": 9,
-        "keyword": "한총리 오만 외교장관 접견"
+        "keyword": "한미 외교안보라인 교체"
       },
       {
         "rank": 10,
-        "keyword": "EU 하이브리드차 수입 제한"
+        "keyword": "나의 유죄인간 아쉬운 ��"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "아시아모델어워즈 부문 수상 new"
+        "keyword": "과잉생산 관세 15% 동일"
       },
       {
         "rank": 2,
-        "keyword": "지하철 파업 상승 1"
+        "keyword": "나의 유죄인간 동일"
       },
       {
         "rank": 3,
-        "keyword": "득점왕 출신 비예나 new"
+        "keyword": "황인범 교체 1-0 new"
       },
       {
         "rank": 4,
-        "keyword": "카이 AI 사주 동일"
+        "keyword": "데블스 플랜3 하락 4"
       },
       {
         "rank": 5,
-        "keyword": "양홍원 결국 이혼 new"
+        "keyword": "김영훈 장관 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "중국 대미 수출통제 유예"
+        "keyword": "한국 수출 1조 달러"
       },
       {
         "rank": 2,
-        "keyword": "전광훈 구속영장 신청"
+        "keyword": "전국 영하권 추위"
       },
       {
         "rank": 3,
-        "keyword": "수능 시험지 폐기"
+        "keyword": "서울 지하철 노사 협상 타결"
       },
       {
         "rank": 4,
-        "keyword": "한총리 오만 외교장관 접견"
-      },
-      {
-        "rank": 5,
         "keyword": "미국 과잉생산 관세 조사"
       },
       {
+        "rank": 5,
+        "keyword": "하나저축은행 개인정보 유출"
+      },
+      {
         "rank": 6,
-        "keyword": "국민주권의 날 지정"
+        "keyword": "한미 외교안보라인 교체"
       },
       {
         "rank": 7,
-        "keyword": "천지닝 상하이 당서기 조사"
+        "keyword": "화웨이 미국 유죄 평결"
       },
       {
         "rank": 8,
-        "keyword": "EU 하이브리드차 수입 제한"
+        "keyword": "국내 코인 발행 허용"
       },
       {
         "rank": 9,
-        "keyword": "강은희 교육감 재산 허위신고 송치"
+        "keyword": "5·18 진압경찰 포상취소"
       },
       {
         "rank": 10,
-        "keyword": "민주당 사제폭탄 협박"
+        "keyword": "천지닝 상하이 당서기 조사"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "꽁안 하노이 fc 대 비셀 고베"
+        "keyword": "장인화"
       },
       {
         "rank": 2,
-        "keyword": "화재"
+        "keyword": "thứ hạng của real madrid gặp psv"
       },
       {
         "rank": 3,
-        "keyword": "united arab emirates national cricket team vs india a cricket team standings"
+        "keyword": "롯데손해보험"
       },
       {
         "rank": 4,
-        "keyword": "대전 하나 시티즌 대 베이징 궈안 순위"
+        "keyword": "금융통화위원회"
       },
       {
         "rank": 5,
-        "keyword": "치안감"
+        "keyword": "필라델피아 반도체 지수"
       },
       {
         "rank": 6,
-        "keyword": "비"
+        "keyword": "교수"
       },
       {
         "rank": 7,
-        "keyword": "陈吉宁"
+        "keyword": "채무"
       },
       {
         "rank": 8,
-        "keyword": "최재훈"
+        "keyword": "김포시"
       },
       {
         "rank": 9,
-        "keyword": "무궁화호"
+        "keyword": "real madrid vs psv eindhoven standings"
       },
       {
         "rank": 10,
-        "keyword": "의식불명"
+        "keyword": "mu"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "김재욱 기타 실력"
+        "keyword": "이돈호 변호사"
       },
       {
         "rank": 2,
-        "keyword": "지하철 파업"
+        "keyword": "임지연 이도현 결별"
       },
       {
         "rank": 3,
-        "keyword": "천지닝 반부패 조사"
+        "keyword": "이순재 1주기"
       },
       {
         "rank": 4,
-        "keyword": "김미경 배우"
+        "keyword": "김새롬 재혼 발표"
       },
       {
         "rank": 5,
-        "keyword": "양홍원 원현주 이혼"
+        "keyword": "美 과잉생산 관세 발표"
       },
       {
         "rank": 6,
-        "keyword": "한강 버스"
+        "keyword": "강지영 MBC 금의환향"
       },
       {
         "rank": 7,
-        "keyword": "리하가섬"
+        "keyword": "김영훈 반도체팹 인력 양성"
       },
       {
         "rank": 8,
-        "keyword": "가수 비"
+        "keyword": "정년연장"
       },
       {
         "rank": 9,
-        "keyword": "남다름 길스토리 전속계약"
+        "keyword": "권미경 최고위원"
       },
       {
         "rank": 10,
-        "keyword": "김새롬 재혼"
+        "keyword": "슬픈 열대"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "이민기·곽선영, ‘박지영 딸’ 문희 구했다…최고 5.2% (크래시2)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261125/135085322/1",
+      "publishedAt": "수집 11. 25. 08:56 KST",
+      "publishedOrder": 1795564615087
+    },
+    {
+      "title": "‘듄: 파트 3’, 예매 오픈 4시간 만 전체 예매율 1위 등극…미친 화력",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261125/135085309/1",
+      "publishedAt": "수집 11. 25. 08:56 KST",
+      "publishedOrder": 1795564615087
+    },
+    {
+      "title": "김현주, 美 감춰진 민낯 전한다…다큐 내레이터 변신",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261125/135085300/1",
+      "publishedAt": "수집 11. 25. 08:56 KST",
+      "publishedOrder": 1795564615087
+    },
+    {
+      "title": "김종민 “진짜 간헐적 천재”…신동도 진땀 (대탈출)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261125/135085289/1",
+      "publishedAt": "수집 11. 25. 08:56 KST",
+      "publishedOrder": 1795564615087
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 11. 25. 08:56 KST",
+      "publishedOrder": 1795564613875
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 11. 25. 08:56 KST",
+      "publishedOrder": 1795564613875
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 11. 25. 08:56 KST",
+      "publishedOrder": 1795564613875
+    },
+    {
+      "title": "\"두 자녀, 영국계 국제학교 전학\"..배용준♥박수진, 하와이 떠나 '반포 고급 아파트' 이사 [스타이슈]",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/11/24/2026112414155874410",
+      "publishedAt": "수집 11. 25. 08:56 KST",
+      "publishedOrder": 1795564613875
+    }
+  ]
 }
