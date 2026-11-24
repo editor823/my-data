@@ -1,76 +1,12 @@
 {
   "success": true,
-  "updatedAt": "2026-11-24T05:36:18.910Z",
-  "updatedAtKst": "2026. 11. 24. PM 2:36:18",
+  "updatedAt": "2026-11-24T05:44:35.537Z",
+  "updatedAtKst": "2026. 11. 24. PM 2:44:35",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "젠슨 황 복귀로 주가 상승"
-      },
-      {
-        "rank": 2,
-        "keyword": "이용철 후보자 답변"
-      },
-      {
-        "rank": 3,
-        "keyword": "목동역 화재 발생"
-      },
-      {
-        "rank": 4,
-        "keyword": "희귀질환 본인부담률 인하"
-      },
-      {
-        "rank": 5,
-        "keyword": "정상빈 1골 1도움 폭발!"
-      },
-      {
-        "rank": 6,
-        "keyword": "대전 서남부 종합스포츠타운"
-      },
-      {
-        "rank": 7,
-        "keyword": "그랜드 테프트 오토 vi"
-      },
-      {
-        "rank": 8,
-        "keyword": "이재명 시험 부정행위 처벌"
-      },
-      {
-        "rank": 9,
-        "keyword": "강성범 오늘 부친상"
-      },
-      {
-        "rank": 10,
-        "keyword": "고경표 경찰 조사 인정"
-      }
-    ],
-    "nate": [
-      {
-        "rank": 1,
-        "keyword": "젠슨 황 복귀 상승 1"
-      },
-      {
-        "rank": 2,
-        "keyword": "정상빈 1골 1도움 상승 1"
-      },
-      {
-        "rank": 3,
-        "keyword": "강성범 오늘 부친상 상승 1"
-      },
-      {
-        "rank": 4,
-        "keyword": "코리아 그랜드 소싱페어 상승 2"
-      },
-      {
-        "rank": 5,
-        "keyword": "홈플러스 온라인배송 중단 new"
-      }
-    ],
-    "zum": [
-      {
-        "rank": 1,
-        "keyword": "희귀질환 본인부담률 인하"
+        "keyword": "젠슨 황, 엔비디아 복귀"
       },
       {
         "rank": 2,
@@ -78,31 +14,95 @@
       },
       {
         "rank": 3,
-        "keyword": "젠슨 황 CEO 복귀"
+        "keyword": "정상빈 1골 1도움 활약"
       },
       {
         "rank": 4,
-        "keyword": "부산 사하구 주택 화재"
+        "keyword": "홈플러스, 26일 온라인배송 중단"
       },
       {
         "rank": 5,
-        "keyword": "EU 전기차 우대 제외"
+        "keyword": "강성범 오늘 부친상"
       },
       {
         "rank": 6,
-        "keyword": "이재명 시험 부정행위 처벌"
+        "keyword": "퇴직"
       },
       {
         "rank": 7,
-        "keyword": "제주 중학생 숨진 채 발견"
+        "keyword": "경기도교육청 교복 비리"
       },
       {
         "rank": 8,
-        "keyword": "성평등정책 전담부서 확대"
+        "keyword": "코리아 그랜드 소싱페어"
       },
       {
         "rank": 9,
-        "keyword": "목동역 화재"
+        "keyword": "불법공매도 합동점검 TF"
+      },
+      {
+        "rank": 10,
+        "keyword": "울산 중학생 폭파 협박범"
+      }
+    ],
+    "nate": [
+      {
+        "rank": 1,
+        "keyword": "젠슨 황 복귀 동일"
+      },
+      {
+        "rank": 2,
+        "keyword": "정상빈 1골 1도움 동일"
+      },
+      {
+        "rank": 3,
+        "keyword": "김새롬 이혼 법적 new"
+      },
+      {
+        "rank": 4,
+        "keyword": "코리아 그랜드 소싱페어 동일"
+      },
+      {
+        "rank": 5,
+        "keyword": "신세계백화점 울산 중학생 상승 1"
+      }
+    ],
+    "zum": [
+      {
+        "rank": 1,
+        "keyword": "이용철 인사청문회"
+      },
+      {
+        "rank": 2,
+        "keyword": "경기도교육청 교복 비리"
+      },
+      {
+        "rank": 3,
+        "keyword": "불법공매도 합동점검 TF"
+      },
+      {
+        "rank": 4,
+        "keyword": "희귀질환 본인부담률 인하"
+      },
+      {
+        "rank": 5,
+        "keyword": "젠슨 황 CEO 복귀"
+      },
+      {
+        "rank": 6,
+        "keyword": "김성우 성폭력 보완수사"
+      },
+      {
+        "rank": 7,
+        "keyword": "경찰 정부포상 취소"
+      },
+      {
+        "rank": 8,
+        "keyword": "제주 중학생 숨진 채 발견"
+      },
+      {
+        "rank": 9,
+        "keyword": "EU 전기차 우대 제외"
       },
       {
         "rank": 10,
@@ -112,43 +112,43 @@
     "google": [
       {
         "rank": 1,
-        "keyword": "대전 서남부 종합스포츠타운"
+        "keyword": "장기 기증"
       },
       {
         "rank": 2,
-        "keyword": "그랜드 테프트 오토 vi"
+        "keyword": "퇴직"
       },
       {
         "rank": 3,
-        "keyword": "12월 3일"
+        "keyword": "12 월 3 일"
       },
       {
         "rank": 4,
-        "keyword": "중고"
+        "keyword": "지방세"
       },
       {
         "rank": 5,
-        "keyword": "삼성전자 임원 인사"
+        "keyword": "김서형"
       },
       {
         "rank": 6,
-        "keyword": "반포자이"
+        "keyword": "트롯 데스매치 금타는 금요일"
       },
       {
         "rank": 7,
-        "keyword": "윤하정"
+        "keyword": "강호동"
       },
       {
         "rank": 8,
-        "keyword": "k9 자주포"
+        "keyword": "치이카와 클리닉"
       },
       {
         "rank": 9,
-        "keyword": "농업"
+        "keyword": "팝콘"
       },
       {
         "rank": 10,
-        "keyword": "미사일"
+        "keyword": "과즙 세연 방시혁"
       }
     ],
     "daum": [
@@ -158,35 +158,35 @@
       },
       {
         "rank": 2,
-        "keyword": "한준호 행���부장관 후보"
+        "keyword": "한준호 발탁"
       },
       {
         "rank": 3,
-        "keyword": "정상빈 1골 1도움"
+        "keyword": "김새롬 재혼"
       },
       {
         "rank": 4,
-        "keyword": "정영란 부산인재개발원장 학력"
+        "keyword": "신세계백화점 폭파 협박"
       },
       {
         "rank": 5,
-        "keyword": "국민주권의 날 지정"
+        "keyword": "배용준 박수진 한국 이주"
       },
       {
         "rank": 6,
-        "keyword": "강성범 부친상"
+        "keyword": "정상빈 1골 1도움"
       },
       {
         "rank": 7,
-        "keyword": "공무원 난임휴직"
+        "keyword": "정영란 부산인재개발원장 학력"
       },
       {
         "rank": 8,
-        "keyword": "박보경 대체 투입"
+        "keyword": "최윤서 강사"
       },
       {
         "rank": 9,
-        "keyword": "김서형 드라마 하차"
+        "keyword": "국가장학금"
       },
       {
         "rank": 10,
@@ -194,62 +194,5 @@
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "아이브 장원영, 웃음기 제로 시크한 분위기 ‘색다르네’ [화보]",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261124/135080574/1",
-      "publishedAt": "수집 11. 24. 14:11 KST",
-      "publishedOrder": 1795497074214
-    },
-    {
-      "title": "김새롬, 이찬오와 이혼 9년 만에 재혼…이미 법적 부부 됐다",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261124/135080510/1",
-      "publishedAt": "수집 11. 24. 14:11 KST",
-      "publishedOrder": 1795497074214
-    },
-    {
-      "title": "조정석♥거미, 딸까지 예술가 기질…7살에 엄마 앨범 재킷 장식",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261124/135080431/1",
-      "publishedAt": "수집 11. 24. 14:11 KST",
-      "publishedOrder": 1795497074214
-    },
-    {
-      "title": "“상상에 맡겨”, 임시완♥설인아→김정현♥연우 결말 주목 (나의 유죄인간)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261124/135080479/1",
-      "publishedAt": "수집 11. 24. 14:11 KST",
-      "publishedOrder": 1795497074214
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 24. 14:11 KST",
-      "publishedOrder": 1795497071567
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 24. 14:11 KST",
-      "publishedOrder": 1795497071567
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 24. 14:11 KST",
-      "publishedOrder": 1795497071567
-    },
-    {
-      "title": "\"남친과 포르노\"vs\"XX하면 비위 맞춰\" 최동석·박지윤, 최악의 험담들[스타이슈]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/23/2026112313540827778",
-      "publishedAt": "수집 11. 24. 14:11 KST",
-      "publishedOrder": 1795497071567
-    }
-  ]
+  "entertainment": []
 }
