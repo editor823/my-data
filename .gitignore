@@ -13,3 +13,4 @@ scratch/
 stock-intelligence/
 data/telegram_config.json
 telegram_config.json
+.claude/settings.local.json

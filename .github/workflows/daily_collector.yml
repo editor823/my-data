@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'scripts/auto_collector.js'
+      - 'scripts/collect_homefeed_topics.js'
       - 'scripts/check_keyword_freshness.js'
       - '.github/workflows/daily_collector.yml'
   schedule:

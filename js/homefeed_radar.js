@@ -292,6 +292,133 @@
     return card;
   }
 
+
+  // =========================================================
+  // 32개 주제별 홈판 키워드 (data/homefeed_topics_data.js)
+  // scripts/collect_homefeed_topics.js 가 네이버 블로그 주제별 글에서 생성
+  // =========================================================
+  const topicState = { group: 1, seq: null }; // 연예 쏠림을 피하려고 '생활·노하우·쇼핑'부터 보여줌
+
+  function ensureTopicsDataLoaded(callback) {
+    if (window.HOMEFEED_TOPICS_DATA) return callback();
+    let script = document.getElementById('lazy-homefeed-topics-data');
+    if (!script) {
+      script = document.createElement('script');
+      script.id = 'lazy-homefeed-topics-data';
+      script.src = 'data/homefeed_topics_data.js?v=' + Math.floor(Date.now() / 3600000); // 1시간 단위 캐시
+      document.body.appendChild(script);
+    }
+    script.addEventListener('load', () => callback());
+    script.addEventListener('error', () => callback());
+  }
+
+  function renderTopicSection(sec) {
+    sec.replaceChildren();
+    const td = window.HOMEFEED_TOPICS_DATA;
+    if (!td || !Array.isArray(td.topics) || !td.topics.length) {
+      sec.append(el('p', 'hf-notice', '주제별 홈판 키워드를 불러오지 못했습니다. 잠시 후 다시 열어 주세요.'));
+      return;
+    }
+    const groups = Array.isArray(td.groups) && td.groups.length ? td.groups : [];
+    const bySeq = new Map(td.topics.map(t => [t.seq, t]));
+    if (topicState.group >= groups.length) topicState.group = 0;
+    const group = groups[topicState.group];
+    const groupTopics = group ? group.topics.map(t => bySeq.get(t.seq)).filter(Boolean) : td.topics;
+    if (!groupTopics.some(t => t.seq === topicState.seq)) {
+      // 키워드가 가장 풍부한 주제를 먼저 보여줌
+      const richest = [...groupTopics].sort((x, y) =>
+        ((y.keywords || []).length - (x.keywords || []).length) || ((y.postCount || 0) - (x.postCount || 0)))[0];
+      topicState.seq = richest ? richest.seq : null;
+    }
+
+    const head = el('div', 'hft-head');
+    head.append(el('h3', '', `주제별 홈판 키워드 · ${td.topics.length}개 주제`));
+    const genTime = validDate(td.generatedAt)
+      ? new Date(td.generatedAt).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false })
+      : '';
+    head.append(el('p', 'hf-notice',
+      `네이버 블로그 주제별 추천 글 ${fmt(td.totalPosts) || ''}개(최근 ${Math.round((td.windowHours || 168) / 24)}일)의 제목에서 여러 블로거가 함께 쓴 말을 뽑았습니다.` +
+      (genTime ? ` · ${genTime} 기준` : '') + ' · 키워드를 누르면 키워드 분석기로 넘어갑니다.'));
+    sec.append(head);
+
+    // 대분류 4개
+    const groupBar = el('div', 'hft-groups');
+    groups.forEach((g, i) => {
+      const b = btn(g.name, () => { topicState.group = i; topicState.seq = null; renderTopicSection(sec); }, 'hft-group');
+      if (i === topicState.group) { b.classList.add('hft-on'); b.setAttribute('aria-pressed', 'true'); }
+      groupBar.append(b);
+    });
+    sec.append(groupBar);
+
+    // 소주제 칩
+    const topicBar = el('div', 'hft-topics');
+    groupTopics.forEach(t => {
+      const n = (t.keywords || []).length;
+      const b = btn(`${t.name} ${n ? '· ' + n : ''}`.trim(), () => { topicState.seq = t.seq; renderTopicSection(sec); }, 'hft-topic');
+      if (t.seq === topicState.seq) { b.classList.add('hft-on'); b.setAttribute('aria-pressed', 'true'); }
+      if (!n) b.classList.add('hft-empty');
+      topicBar.append(b);
+    });
+    sec.append(topicBar);
+
+    const topic = bySeq.get(topicState.seq);
+    if (!topic) return;
+    const body = el('div', 'hft-body');
+
+    // 키워드 순위
+    const kwBox = el('div', 'hft-keywords');
+    kwBox.append(el('div', 'hft-label', `${topic.name} 키워드 TOP ${(topic.keywords || []).length} · 글 ${fmt(topic.postCount) || 0}개 분석`));
+    if (!topic.keywords || !topic.keywords.length) {
+      kwBox.append(el('p', 'hf-notice', '이 주제는 최근 글이 적어 겹치는 키워드가 없습니다. 오른쪽 인기 글을 참고하세요.'));
+    }
+    const ol = el('ol', 'hft-kw-list');
+    (topic.keywords || []).forEach((k, i) => {
+      const li = el('li', 'hft-kw');
+      li.append(el('span', 'hft-rank', String(i + 1)));
+      const main = el('div', 'hft-kw-main');
+      const name = btn(k.keyword, () => window.sbOpenInAnalyzer && window.sbOpenInAnalyzer(k.keyword), 'hft-kw-name');
+      name.title = `'${k.keyword}' 키워드 분석`;
+      main.append(name);
+      const meta = `블로거 ${fmt(k.posts)}명` + (k.recent6h ? ` · 6시간 내 ${fmt(k.recent6h)}` : '') + (k.engagement ? ` · 공감·댓글 ${fmt(k.engagement)}` : '');
+      main.append(el('span', 'hft-kw-meta', meta));
+      if (Array.isArray(k.samples) && k.samples.length) {
+        const ex = el('div', 'hft-kw-samples');
+        k.samples.forEach(sp => {
+          const a = el('a', '', clean(sp.title));
+          a.href = sp.link; a.target = '_blank'; a.rel = 'noopener noreferrer';
+          ex.append(a);
+        });
+        main.append(ex);
+      }
+      li.append(main);
+      li.append(btn('복사', e => copy(k.keyword, e.currentTarget), 'hft-copy'));
+      ol.append(li);
+    });
+    kwBox.append(ol);
+    body.append(kwBox);
+
+    // 반응 좋은 글
+    const postBox = el('div', 'hft-posts');
+    postBox.append(el('div', 'hft-label', '반응 좋은 글'));
+    (topic.topPosts || []).forEach(p => {
+      const a = el('a', 'hft-post');
+      a.href = p.link; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      if (p.thumb) {
+        const img = document.createElement('img');
+        img.src = p.thumb; img.alt = ''; img.loading = 'lazy'; img.referrerPolicy = 'no-referrer';
+        img.onerror = () => img.remove();
+        a.append(img);
+      }
+      const txt = el('div', 'hft-post-text');
+      txt.append(el('strong', '', clean(p.title)));
+      txt.append(el('span', '', `${p.blogName || ''} · 공감 ${fmt(p.likes) || 0} · 댓글 ${fmt(p.comments) || 0}`));
+      a.append(txt);
+      postBox.append(a);
+    });
+    body.append(postBox);
+    sec.append(body);
+  }
+
   function renderRadar() {
     const hub = document.getElementById('kc-homefeed-container');
     if (!hub) return;
@@ -311,6 +438,11 @@
     const noticeLine = el('p', 'hf-notice', '홈판형 블로그 채널의 최근 48시간 공개 글(제목·썸네일·요약·링크)을 모은 것입니다. 실제 홈판 노출 여부와는 다를 수 있고, 원문 내용을 그대로 옮기지 말고 사실 확인 후 내 글로 쓰세요.');
     headerSec.append(title, statusLine, noticeLine);
     hub.append(headerSec);
+
+    // 1-1. 32개 주제별 홈판 키워드 (연예·방송·스포츠 쏠림 보완)
+    const topicSec = el('section', 'hft-section');
+    hub.append(topicSec);
+    ensureTopicsDataLoaded(() => renderTopicSection(topicSec));
 
     // 2. 오늘의 홈판 흐름 (Collapsible Details)
     const flowDetails = el('details', 'hfr-details');

@@ -8,6 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 const crypto = require('crypto');
+const { collectHomefeedTopics } = require('./collect_homefeed_topics');
 
 // 환경변수 로드 (.env.local 또는 GitHub Secrets)
 function loadEnv() {
@@ -333,6 +334,13 @@ async function runDailyCollector() {
 
     // (5) 월별 시즌성 키워드 최신화
     await collectSeasonalCalendarData();
+
+    // (6) 네이버 블로그 32개 주제별 홈판 키워드 수집 (연예·방송·스포츠 쏠림 보완)
+    try {
+      await collectHomefeedTopics();
+    } catch (e) {
+      console.warn('  ⚠️ 주제별 홈판 키워드 수집 실패:', e && e.message ? e.message : e);
+    }
 
     console.log(`[${new Date().toISOString()}] 🎉 일일 자동 갱신 완료!`);
   } catch (error) {
