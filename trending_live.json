@@ -1,7 +1,7 @@
 {
   "success": true,
-  "updatedAt": "2026-11-24T13:47:03.927Z",
-  "updatedAtKst": "2026. 11. 24. PM 10:47:03",
+  "updatedAt": "2026-11-24T13:56:01.949Z",
+  "updatedAtKst": "2026. 11. 24. PM 10:56:01",
   "trending": {
     "naver": [
       {
@@ -48,23 +48,23 @@
     "nate": [
       {
         "rank": 1,
-        "keyword": "손흥민 1골 1도움 동일"
+        "keyword": "아시아모델어워즈 부문 수상 new"
       },
       {
         "rank": 2,
-        "keyword": "젠슨 황 복귀 상승 1"
+        "keyword": "지하철 파업 상승 1"
       },
       {
         "rank": 3,
-        "keyword": "징맨 황철순 배상 new"
+        "keyword": "득점왕 출신 비예나 new"
       },
       {
         "rank": 4,
-        "keyword": "이관희 민폐 하객 new"
+        "keyword": "카이 AI 사주 동일"
       },
       {
         "rank": 5,
-        "keyword": "중 내신도 최대 new"
+        "keyword": "양홍원 결국 이혼 new"
       }
     ],
     "zum": [
@@ -74,81 +74,81 @@
       },
       {
         "rank": 2,
-        "keyword": "수능 시험지 폐기"
-      },
-      {
-        "rank": 3,
-        "keyword": "한총리 오만 외교장관 접견"
-      },
-      {
-        "rank": 4,
-        "keyword": "EU 하이브리드차 수입 제한"
-      },
-      {
-        "rank": 5,
-        "keyword": "천지닝 상하이 당서기 조사"
-      },
-      {
-        "rank": 6,
         "keyword": "전광훈 구속영장 신청"
       },
       {
+        "rank": 3,
+        "keyword": "수능 시험지 폐기"
+      },
+      {
+        "rank": 4,
+        "keyword": "한총리 오만 외교장관 접견"
+      },
+      {
+        "rank": 5,
+        "keyword": "미국 과잉생산 관세 조사"
+      },
+      {
+        "rank": 6,
+        "keyword": "국민주권의 날 지정"
+      },
+      {
         "rank": 7,
-        "keyword": "강은희 교육감 재산 허위신고 송치"
+        "keyword": "천지닝 상하이 당서기 조사"
       },
       {
         "rank": 8,
-        "keyword": "민주당 사제폭탄 협박"
+        "keyword": "EU 하이브리드차 수입 제한"
       },
       {
         "rank": 9,
-        "keyword": "하나저축은행 개인정보 유출"
+        "keyword": "강은희 교육감 재산 허위신고 송치"
       },
       {
         "rank": 10,
-        "keyword": "호르무즈 유조선 기뢰 충돌"
+        "keyword": "민주당 사제폭탄 협박"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "united arab emirates national cricket team vs india a cricket team standings"
+        "keyword": "꽁안 하노이 fc 대 비셀 고베"
       },
       {
         "rank": 2,
-        "keyword": "대전 하나 시티즌 대 베이징 궈안 순위"
+        "keyword": "화재"
       },
       {
         "rank": 3,
-        "keyword": "치안감"
+        "keyword": "united arab emirates national cricket team vs india a cricket team standings"
       },
       {
         "rank": 4,
-        "keyword": "비"
+        "keyword": "대전 하나 시티즌 대 베이징 궈안 순위"
       },
       {
         "rank": 5,
-        "keyword": "陈吉宁"
+        "keyword": "치안감"
       },
       {
         "rank": 6,
-        "keyword": "최재훈"
+        "keyword": "비"
       },
       {
         "rank": 7,
-        "keyword": "무궁화호"
+        "keyword": "陈吉宁"
       },
       {
         "rank": 8,
-        "keyword": "의식불명"
+        "keyword": "최재훈"
       },
       {
         "rank": 9,
-        "keyword": "부천시"
+        "keyword": "무궁화호"
       },
       {
         "rank": 10,
-        "keyword": "acc emerging teams asia cup"
+        "keyword": "의식불명"
       }
     ],
     "daum": [
@@ -162,27 +162,27 @@
       },
       {
         "rank": 3,
-        "keyword": "대전 베이징 제압"
+        "keyword": "천지닝 반부패 조사"
       },
       {
         "rank": 4,
-        "keyword": "리하가섬"
+        "keyword": "김미경 배우"
       },
       {
         "rank": 5,
-        "keyword": "권양숙 김혜경 오찬"
+        "keyword": "양홍원 원현주 이혼"
       },
       {
         "rank": 6,
-        "keyword": "양홍원 이혼"
+        "keyword": "한강 버스"
       },
       {
         "rank": 7,
-        "keyword": "가수 비"
+        "keyword": "리하가섬"
       },
       {
         "rank": 8,
-        "keyword": "마나도 여행"
+        "keyword": "가수 비"
       },
       {
         "rank": 9,
@@ -190,7 +190,7 @@
       },
       {
         "rank": 10,
-        "keyword": "한블리 출연진"
+        "keyword": "김새롬 재혼"
       }
     ]
   },
