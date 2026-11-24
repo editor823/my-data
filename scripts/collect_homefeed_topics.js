@@ -19,6 +19,7 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+const crypto = require('crypto');
 
 const BASE = 'https://section.blog.naver.com';
 const MAX_PAGES = 10;          // 주제당 페이지 수 (페이지당 10개 글 → 주제당 최대 100개)
@@ -270,6 +271,224 @@ async function runPool(items, worker, limit) {
   return results;
 }
 
+
+// =========================================================
+// 키워드 지표: 검색량(PC·모바일) · 블로그 문서수 · 경쟁 · 등급
+//  - 검색량: 네이버 검색광고 API (NAVER_AD_CUSTOMER_ID / NAVER_AD_ACCESS_LICENSE / NAVER_AD_SECRET_KEY)
+//  - 문서수·최근 30일 발행: 네이버 API HUB 블로그 검색(최신순 100개) (NAVER_HUB_CLIENT_ID / NAVER_HUB_CLIENT_SECRET)
+//  계산 기준은 사이트 키워드 분석기(worker/keyword-worker.mjs)와 같다: 경쟁·발행 추천(S/A/B/C)·기회지수·난이도
+//  키가 없으면 그 지표만 비워 두고 나머지는 그대로 만든다. 키 값은 로그에 남기지 않는다.
+//  같은 키워드는 24시간 동안 data/homefeed_keyword_stats.json 에 저장한 값을 다시 쓴다(호출 수 절약).
+// =========================================================
+const STATS_FILE = path.join(__dirname, '..', 'data', 'homefeed_keyword_stats.json');
+const STATS_TTL_MS = 24 * 3600 * 1000;
+
+function readEnv() {
+  const env = { ...process.env };
+  for (const name of ['.env.local', '.env']) {
+    try {
+      for (const line of fs.readFileSync(path.join(__dirname, '..', name), 'utf8').split(/\r?\n/)) {
+        const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*"?([^"\r\n]*)"?\s*$/);
+        if (m && !env[m[1]]) env[m[1]] = m[2];
+      }
+    } catch (_) { /* 파일 없음 */ }
+  }
+  return env;
+}
+
+function httpsJson(options) {
+  return new Promise((resolve, reject) => {
+    const req = https.request({ timeout: 15000, ...options }, res => {
+      let body = '';
+      res.setEncoding('utf8');
+      res.on('data', c => { body += c; });
+      res.on('end', () => {
+        if (res.statusCode !== 200) return reject(new Error(`HTTP ${res.statusCode}`));
+        try { resolve(JSON.parse(body)); } catch (e) { reject(new Error('JSON 아님')); }
+      });
+    });
+    req.on('timeout', () => req.destroy(new Error('timeout')));
+    req.on('error', reject);
+    req.end();
+  });
+}
+
+const squash = k => String(k).replace(/\s+/g, '').toUpperCase();
+const qc = v => (typeof v === 'number' ? v : 5); // "< 10" 은 사이트 분석기와 같이 5로 계산
+
+// 검색광고 API: 한 번에 5개까지. 실패한 묶음은 하나씩 다시 묻는다.
+async function fetchVolumes(words, env) {
+  const out = new Map();
+  if (!env.NAVER_AD_CUSTOMER_ID || !env.NAVER_AD_ACCESS_LICENSE || !env.NAVER_AD_SECRET_KEY) {
+    console.warn('  ⚠️ 검색광고 API 키가 없어 검색량을 건너뜁니다.');
+    return out;
+  }
+  async function ask(batch) {
+    const uri = '/keywordstool';
+    const ts = String(Date.now());
+    const sig = crypto.createHmac('sha256', env.NAVER_AD_SECRET_KEY).update(`${ts}.GET.${uri}`).digest('base64');
+    const hints = batch.map(w => w.replace(/\s+/g, '')).join(',');
+    const j = await httpsJson({
+      hostname: 'api.searchad.naver.com',
+      path: `${uri}?hintKeywords=${encodeURIComponent(hints)}&showDetail=1`,
+      method: 'GET',
+      headers: { 'X-Timestamp': ts, 'X-API-KEY': env.NAVER_AD_ACCESS_LICENSE, 'X-Customer': env.NAVER_AD_CUSTOMER_ID, 'X-Signature': sig }
+    });
+    const byKey = new Map((j.keywordList || []).map(x => [squash(x.relKeyword), x]));
+    for (const w of batch) {
+      const hit = byKey.get(squash(w));
+      const pc = hit ? qc(hit.monthlyPcQcCnt) : 0;
+      const mobile = hit ? qc(hit.monthlyMobileQcCnt) : 0;
+      out.set(w, { pc, mobile, total: pc + mobile });
+    }
+  }
+  for (let i = 0; i < words.length; i += 5) {
+    const batch = words.slice(i, i + 5);
+    try { await ask(batch); }
+    catch (_) {
+      for (const w of batch) {
+        try { await ask([w]); } catch (e) { /* 검색광고가 받지 않는 말(특수문자 등) */ }
+        await sleep(250);
+      }
+    }
+    await sleep(300);
+  }
+  return out;
+}
+
+async function fetchBlogCounts(words, env) {
+  const out = new Map();
+  if (!env.NAVER_HUB_CLIENT_ID || !env.NAVER_HUB_CLIENT_SECRET) {
+    console.warn('  ⚠️ 네이버 API HUB 키가 없어 문서수를 건너뜁니다.');
+    return out;
+  }
+  await runPool(words, async w => {
+    try {
+      const j = await httpsJson({
+        hostname: 'naverapihub.apigw.ntruss.com',
+        path: `/search/v1/blog?query=${encodeURIComponent(w)}&display=100&sort=date`,
+        method: 'GET',
+        headers: { 'X-NCP-APIGW-API-KEY-ID': env.NAVER_HUB_CLIENT_ID, 'X-NCP-APIGW-API-KEY': env.NAVER_HUB_CLIENT_SECRET }
+      });
+      if (typeof j.total === 'number') out.set(w, { blogCount: j.total, ...recentTitleCount(j.items || [], w) });
+    } catch (_) { /* 한 개 실패는 비워 둔다 */ }
+    await sleep(120);
+  }, 3);
+  return out;
+}
+
+const DAY = 24 * 3600 * 1000;
+const normKw = v => String(v || '').replace(/\s+/g, '').toLowerCase();
+const stripTags = v => String(v || '').replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#39;/g, "'");
+const postdateMs = p => (/^\d{8}$/.test(p || '') ? new Date(`${p.slice(0, 4)}-${p.slice(4, 6)}-${p.slice(6, 8)}T00:00:00+09:00`).getTime() : null);
+
+// 최근 30일 동안 제목에 키워드가 들어간 글 수 (최신 100개 표본, 30일을 다 못 덮으면 비율로 어림)
+function recentTitleCount(items, keyword) {
+  const k = normKw(keyword);
+  const now = Date.now();
+  const dated = items.map(it => ({ t: postdateMs(it.postdate), title: normKw(stripTags(it.title)) })).filter(x => x.t != null);
+  if (!dated.length) return { recent30: 0, recentApprox: false };
+  const oldest = Math.min(...dated.map(x => x.t));
+  const covered = Math.max(1, Math.min(30, (now - oldest) / DAY));
+  const inWindow = dated.filter(x => now - x.t <= 30 * DAY && x.title.includes(k)).length;
+  const approx = items.length >= 100 && covered < 30;
+  return { recent30: approx ? Math.round(inWindow * (30 / covered)) : inWindow, recentApprox: approx };
+}
+
+// 검색량 등급 (사이트 황금키워드와 같은 구간)
+function tierOf(total) {
+  if (total >= 500000) return '레전드';
+  if (total >= 100000) return '챌린저';
+  if (total >= 50000) return '마스터';
+  if (total >= 10000) return '전문가';
+  if (total >= 2000) return '고급자';
+  if (total >= 500) return '중급자';
+  return '초보자';
+}
+// 경쟁 = 블로그 문서수 ÷ 월 검색량
+function competitionOf(blogCount, total) {
+  if (blogCount == null || !total) return { competition: '', competitionRatio: null };
+  const r = blogCount / total;
+  const competition = r < 1 ? '낮음' : r < 5 ? '보통' : r < 20 ? '높음' : '매우 높음';
+  return { competition, competitionRatio: Math.round(r * 100) / 100 };
+}
+// 발행 추천: 최근 30일 글 1개당 월 검색수
+function publishGradeOf(total, recent) {
+  const spp = total / Math.max(1, recent);
+  if (total >= 1000 && spp >= 50) return 'S';
+  if (total >= 300 && spp >= 20) return 'A';
+  if (total >= 100 && spp >= 5) return 'B';
+  return 'C';
+}
+function opportunityOf(total, recent) {
+  const vol = Math.min(1, Math.log10(Math.max(1, total)) / 4.5);
+  const spp = total / Math.max(1, recent);
+  const fresh = Math.min(1, Math.log10(spp + 1) / 2);
+  return Math.round(100 * (0.35 * vol + 0.65 * fresh));
+}
+// 작성 난이도: 최근 30일 경쟁 글 수
+function levelOf(recent) {
+  if (recent <= 10) return '초보자';
+  if (recent <= 50) return '중급자';
+  if (recent <= 200) return '상급자';
+  return '고수';
+}
+
+async function enrichKeywordStats(topics) {
+  const env = readEnv();
+  let saved = {};
+  try { saved = JSON.parse(fs.readFileSync(STATS_FILE, 'utf8')); } catch (_) { saved = {}; }
+  const now = Date.now();
+  const words = [...new Set(topics.flatMap(t => t.keywords.map(k => k.keyword)))];
+  const fresh = w => saved[w] && now - new Date(saved[w].checkedAt).getTime() < STATS_TTL_MS;
+  const needVolume = words.filter(w => !(fresh(w) && saved[w].total != null));
+  const needDocs = words.filter(w => !(fresh(w) && saved[w].recent30 != null));
+  console.log(`  📊 키워드 지표: 전체 ${words.length}개 · 검색량 새로 ${needVolume.length}개 · 문서수 새로 ${needDocs.length}개`);
+
+  const volumes = await fetchVolumes(needVolume, env);
+  const docs = await fetchBlogCounts(needDocs, env);
+  const stamp = new Date(now).toISOString();
+  for (const w of words) {
+    const next = fresh(w) ? { ...saved[w] } : {};
+    if (volumes.has(w)) Object.assign(next, volumes.get(w));
+    if (docs.has(w)) Object.assign(next, docs.get(w));
+    if (volumes.has(w) || docs.has(w)) next.checkedAt = stamp;
+    if (next.checkedAt) saved[w] = next;
+  }
+  // 7일 지난 항목 정리
+  for (const [w, st] of Object.entries(saved)) {
+    if (!st.checkedAt || now - new Date(st.checkedAt).getTime() > 7 * 24 * 3600 * 1000) delete saved[w];
+  }
+  fs.mkdirSync(path.dirname(STATS_FILE), { recursive: true });
+  fs.writeFileSync(STATS_FILE, JSON.stringify(saved), 'utf8');
+
+  let withVolume = 0;
+  let withDocs = 0;
+  for (const t of topics) {
+    for (const k of t.keywords) {
+      const st = saved[k.keyword] || {};
+      const total = st.total != null ? st.total : null;
+      if (total != null) withVolume++;
+      if (st.blogCount != null) withDocs++;
+      const hasRecent = st.recent30 != null && total != null;
+      Object.assign(k, {
+        total,
+        pc: st.pc != null ? st.pc : null,
+        mobile: st.mobile != null ? st.mobile : null,
+        blogCount: st.blogCount != null ? st.blogCount : null,
+        recent30: st.recent30 != null ? st.recent30 : null,
+        recentApprox: !!st.recentApprox,
+        tier: total != null ? tierOf(total) : '',
+        ...competitionOf(st.blogCount, total),
+        publishGrade: hasRecent ? publishGradeOf(total, st.recent30) : '',
+        opportunity: hasRecent ? opportunityOf(total, st.recent30) : null,
+        level: st.recent30 != null ? levelOf(st.recent30) : ''
+      });
+    }
+  }
+  console.log(`  ✅ 키워드 지표 붙임: 검색량 ${withVolume}개 · 문서수 ${withDocs}개`);
+}
+
 async function collectHomefeedTopics(outPath = path.join(__dirname, '..', 'data', 'homefeed_topics_data.js')) {
   console.log('📡 네이버 블로그 32개 주제별 홈판 키워드 수집 시작...');
   const groups = await loadDirectories();
@@ -297,6 +516,12 @@ async function collectHomefeedTopics(outPath = path.join(__dirname, '..', 'data'
     // 대부분 실패하면 기존 파일을 덮어쓰지 않는다 (빈 화면 방지)
     console.warn(`  ⚠️ 키워드가 나온 주제가 ${okTopics}개뿐이라 기존 데이터를 유지합니다.`);
     return null;
+  }
+
+  try {
+    await enrichKeywordStats(topics);
+  } catch (e) {
+    console.warn('  ⚠️ 키워드 지표 붙이기 실패(키워드 목록은 그대로 저장):', e.message);
   }
 
   const output = {
