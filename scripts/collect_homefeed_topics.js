@@ -540,7 +540,11 @@ async function collectHomefeedTopics(outPath = path.join(__dirname, '..', 'data'
   return output;
 }
 
-module.exports = { collectHomefeedTopics, extractKeywords, tokenize };
+module.exports = {
+  collectHomefeedTopics, extractKeywords, tokenize,
+  // 주제별 추천 키워드 수집기(collect_topic_keywords.js)가 함께 쓰는 도구
+  readEnv, httpsJson, fetchBlogCounts, runPool, sleep, tierOf, FALLBACK_DIRECTORIES
+};
 
 if (require.main === module) {
   collectHomefeedTopics().catch(err => {

@@ -9,6 +9,7 @@ const path = require('path');
 const https = require('https');
 const crypto = require('crypto');
 const { collectHomefeedTopics } = require('./collect_homefeed_topics');
+const { collectTopicKeywords } = require('./collect_topic_keywords');
 
 // 환경변수 로드 (.env.local 또는 GitHub Secrets)
 function loadEnv() {
@@ -340,6 +341,13 @@ async function runDailyCollector() {
       await collectHomefeedTopics();
     } catch (e) {
       console.warn('  ⚠️ 주제별 홈판 키워드 수집 실패:', e && e.message ? e.message : e);
+    }
+
+    // (7) 12. 주제별 키워드: 32개 주제 × 오늘 추천 키워드 (20시간에 한 번만 새로 만듦)
+    try {
+      await collectTopicKeywords();
+    } catch (e) {
+      console.warn('  ⚠️ 주제별 키워드 수집 실패:', e && e.message ? e.message : e);
     }
 
     console.log(`[${new Date().toISOString()}] 🎉 일일 자동 갱신 완료!`);

@@ -1,0 +1,62 @@
+/* 12. 주제별 키워드 탭 — 블로그 UI 라이트 테마 */
+#kc-topic-container { display: none; }
+.tk-wrap { background: #ffffff; border: 1px solid #a7f3d0; border-radius: 18px; padding: 22px 24px; color: #0f172a; }
+.tk-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.tk-eyebrow { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .04em; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 6px 10px; }
+.tk-title { margin: 12px 0 8px; font-size: 24px; font-weight: 800; color: #0f172a; }
+.tk-desc { margin: 0; color: #475569; font-size: 14px; line-height: 1.6; }
+.tk-free { flex: none; font-size: 12px; font-weight: 700; color: #047857; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 7px 10px; }
+.tk-status { margin: 16px 0 0; padding: 12px 14px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 13px; color: #334155; background: #ffffff; }
+
+.tk-groups, .tk-topics { display: flex; flex-wrap: wrap; gap: 8px; }
+.tk-groups { margin-top: 16px; padding-bottom: 14px; border-bottom: 1px solid #e2e8f0; }
+.tk-topics { margin-top: 14px; }
+.tk-group, .tk-topic { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #cbd5e1; background: #ffffff; color: #1e293b; font-size: 13px; font-weight: 700; border-radius: 999px; padding: 8px 14px; cursor: pointer; transition: background .15s, border-color .15s; }
+.tk-group:hover, .tk-topic:hover { border-color: #059669; }
+.tk-group.tk-on, .tk-topic.tk-on { background: #065f46; border-color: #065f46; color: #ffffff; }
+.tk-topic:disabled { opacity: .45; cursor: default; }
+.tk-count { font-size: 11px; font-weight: 800; background: #f1f5f9; color: #475569; border-radius: 6px; padding: 2px 7px; }
+.tk-on .tk-count { background: rgba(255,255,255,.2); color: #ffffff; }
+
+.tk-crumb { margin: 20px 0 12px; font-size: 14px; font-weight: 800; color: #1e293b; }
+.tk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.tk-card { border: 1px solid #e2e8f0; border-radius: 14px; padding: 18px; background: #ffffff; display: flex; flex-direction: column; gap: 10px; }
+.tk-card-head { display: flex; align-items: center; gap: 10px; }
+.tk-num { flex: none; width: 26px; height: 26px; border-radius: 7px; background: #e0f2fe; color: #0369a1; font-weight: 800; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; }
+.tk-kw { margin: 0; font-size: 18px; font-weight: 800; color: #0f172a; text-decoration: underline; text-decoration-color: #cbd5e1; text-underline-offset: 4px; }
+.tk-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tk-tag { font-size: 12px; font-weight: 700; color: #334155; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 4px 8px; }
+.tk-grade-s { color: #b45309; background: #fffbeb; border-color: #f59e0b; }
+.tk-grade-a { color: #0369a1; background: #f0f9ff; border-color: #7dd3fc; }
+.tk-grade-b { color: #047857; background: #ecfdf5; border-color: #6ee7b7; }
+.tk-grade-c { color: #64748b; }
+.tk-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.tk-metric { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.tk-metric-label { font-size: 11px; color: #475569; font-weight: 600; }
+.tk-metric-value { font-size: 17px; font-weight: 800; color: #0f172a; font-variant-numeric: tabular-nums; }
+.tk-split { margin: -2px 0 0; font-size: 12px; color: #64748b; }
+.tk-reason { background: #ecfdf5; border-left: 3px solid #059669; border-radius: 8px; padding: 12px 14px; }
+.tk-reason strong { font-size: 13px; color: #0f172a; }
+.tk-reason p { margin: 6px 0 0; font-size: 13px; color: #334155; line-height: 1.55; }
+
+.tk-plan { border-top: 1px solid #e2e8f0; padding-top: 10px; }
+.tk-plan summary { cursor: pointer; font-size: 13px; font-weight: 800; color: #0f172a; }
+.tk-plan-body { margin-top: 10px; background: #f8fafc; border-radius: 10px; padding: 14px; }
+.tk-plan-body h5 { margin: 14px 0 8px; font-size: 14px; font-weight: 800; color: #0f172a; }
+.tk-plan-body h5:first-child { margin-top: 0; }
+.tk-title-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 6px 0; }
+.tk-title-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.tk-title-kind { font-size: 11px; color: #475569; font-weight: 600; }
+.tk-title-text strong { font-size: 13px; color: #0f172a; }
+.tk-copy { flex: none; border: 1px solid #cbd5e1; background: #ffffff; color: #0f172a; font-size: 12px; font-weight: 700; border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+.tk-copy:hover { border-color: #0284c7; color: #0284c7; }
+.tk-copy.tk-copied { border-color: #059669; color: #059669; }
+.tk-list { margin: 0; padding-left: 20px; font-size: 13px; color: #334155; line-height: 2; }
+.tk-analyze { align-self: flex-start; border: 1px solid #6ee7b7; background: #ecfdf5; color: #047857; font-size: 12px; font-weight: 800; border-radius: 8px; padding: 9px 12px; cursor: pointer; }
+.tk-analyze:hover { background: #d1fae5; }
+
+@media (max-width: 860px) {
+  .tk-grid { grid-template-columns: 1fr; }
+  .tk-top { flex-direction: column; }
+  .tk-wrap { padding: 16px; }
+}

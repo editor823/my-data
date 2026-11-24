@@ -221,6 +221,7 @@ window.switchKcTab = function(type) {
   const seasonalContainer = document.getElementById('kc-seasonal-container');
   const tab9Container = document.getElementById('kc-tab9-container');
   const homefeedContainer = document.getElementById('kc-homefeed-container');
+  const topicContainer = document.getElementById('kc-topic-container');
   const secretContainer = document.getElementById('kc-secret-container');
   const excelContainer = document.getElementById('kc-excel-container');
   const subFilterBar = document.querySelector('.kc-sub-filter-bar');
@@ -230,6 +231,7 @@ window.switchKcTab = function(type) {
   if (seasonalContainer) seasonalContainer.style.display = 'none';
   if (tab9Container) tab9Container.style.display = 'none';
   if (homefeedContainer) homefeedContainer.style.display = 'none';
+  if (topicContainer) topicContainer.style.display = 'none';
   if (secretContainer) secretContainer.style.display = 'none';
   if (excelContainer) excelContainer.style.display = 'none';
   if (subFilterBar) subFilterBar.style.display = 'none';
@@ -253,6 +255,12 @@ window.switchKcTab = function(type) {
     if (tab9Container) {
       tab9Container.style.display = 'block';
       renderYoutubeGrid();
+    }
+  } else if (type === 'type-11') {
+    // 12번 탭: 주제별 키워드 (32개 주제 × 오늘 추천 키워드)
+    if (topicContainer) {
+      topicContainer.style.display = 'block';
+      if (typeof window.renderTopicKeywordsTab === 'function') window.renderTopicKeywordsTab();
     }
   } else if (type === 'type-find') {
     // 키워드 찾으러 가기 -> 메인 키워드 분석기 이동
