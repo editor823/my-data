@@ -62,7 +62,9 @@ jobs:
         continue-on-error: true
         run: node scripts/update_us_market.js
 
-      - name: 텔레그램 주식 브리핑 자동 발송
+      - name: 텔레그램 주식 브리핑 자동 발송 (꺼짐)
+        # 오전장/오후장 텔레그램 알람 중지. 다시 켜려면 아래 줄을 삭제하세요.
+        if: false
         continue-on-error: true
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
