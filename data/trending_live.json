@@ -1,198 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-11-25T02:38:10.353Z",
-  "updatedAtKst": "2026. 11. 25. AM 11:38:10",
+  "updatedAt": "2026-11-25T08:49:06.146Z",
+  "updatedAtKst": "2026. 11. 25. PM 5:49:06",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "조국혁신당 조희대 탄핵 촛불집회"
+        "keyword": "코스피 6%대 급락"
       },
       {
         "rank": 2,
-        "keyword": "젠슨 황 효과 하루 만에 종료"
+        "keyword": "김건희 매관매직 대법 선고"
       },
       {
         "rank": 3,
-        "keyword": "김민석 대표 활동"
+        "keyword": "홈플러스 전 점포 임시휴업"
       },
       {
         "rank": 4,
-        "keyword": "진시몬, 아들 자랑스러워"
+        "keyword": "질문에 답하는 감독"
       },
       {
         "rank": 5,
-        "keyword": "수능 시험지 1→5년 보관 추진"
+        "keyword": "장동혁 특검법 저지"
       },
       {
         "rank": 6,
-        "keyword": "디에고 시메오네"
+        "keyword": "박민영 육성재 고수 로코 드라마"
       },
       {
         "rank": 7,
-        "keyword": "염전 임금체불 적발"
+        "keyword": "대한민국 법무부"
       },
       {
         "rank": 8,
-        "keyword": "김종철 경찰청장, 영등포역 순찰"
+        "keyword": "엔비디아 ceo 미국 의회 조사 최신 뉴스 알려줘"
       },
       {
         "rank": 9,
-        "keyword": "폭설"
+        "keyword": "선저우 24호 발사"
       },
       {
         "rank": 10,
-        "keyword": "디트로이트 타이거스"
+        "keyword": "창원지법 법관 탄핵 우려"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "김하성 1년 합의 new"
+        "keyword": "코스피 6%대 급락 동일"
       },
       {
         "rank": 2,
-        "keyword": "이관희 유시은 민폐 하락 6"
+        "keyword": "질문에 답하는 감독 new"
       },
       {
         "rank": 3,
-        "keyword": "연속 수상 상승 2"
+        "keyword": "특검법 장동혁 대표 동일"
       },
       {
         "rank": 4,
-        "keyword": "원전 공론화 new"
+        "keyword": "박민영 육성재 고수 동일"
       },
       {
         "rank": 5,
-        "keyword": "LG 케네디와 재계약 new"
+        "keyword": "이재명 대통령 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "조국혁신당 조희대 탄핵 촛불집회"
+        "keyword": "이재명 공적임대주택"
       },
       {
         "rank": 2,
-        "keyword": "염전 임금체불 적발"
+        "keyword": "홈플러스 전 점포 임시휴업"
       },
       {
         "rank": 3,
-        "keyword": "이재명 가정폭력 법개정"
+        "keyword": "러시아 폭격기 울릉도 비행"
       },
       {
         "rank": 4,
-        "keyword": "선저우 24호 발사"
+        "keyword": "앨리스황 중국 정보 제공"
       },
       {
         "rank": 5,
-        "keyword": "김민석 조희대 탄핵 5당"
+        "keyword": "김건희 매관매직 대법 선고"
       },
       {
         "rank": 6,
-        "keyword": "인천 보복살인 송치"
+        "keyword": "선저우 24호 발사"
       },
       {
         "rank": 7,
-        "keyword": "창원지법 판사회의 출근"
+        "keyword": "금융당국 디지털 뱅크런 훈련"
       },
       {
         "rank": 8,
-        "keyword": "65세 정년 연장 입법 촉구"
+        "keyword": "북한 스위스 외교사무소 폐쇄"
       },
       {
         "rank": 9,
-        "keyword": "모두의카드 청소년 확대"
+        "keyword": "전환금융 모범규준 확정"
       },
       {
         "rank": 10,
-        "keyword": "한동훈 조희대 탄핵 의원직"
+        "keyword": "공군 여군 하사 숨진 발견"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "3기 신도시"
+        "keyword": "최명길"
       },
       {
         "rank": 2,
-        "keyword": "디에고 시메오네"
+        "keyword": "증안 펀드"
       },
       {
         "rank": 3,
-        "keyword": "폭설"
+        "keyword": "행동"
       },
       {
         "rank": 4,
-        "keyword": "디트로이트 타이거스"
+        "keyword": "thanksgiving 2026"
       },
       {
         "rank": 5,
-        "keyword": "южная корея"
+        "keyword": "대한민국 법무부"
       },
       {
         "rank": 6,
-        "keyword": "급여 지원"
+        "keyword": "하이닉스"
       },
       {
         "rank": 7,
-        "keyword": "atp 월드 투어"
+        "keyword": "sk하이닉스 채용"
       },
       {
         "rank": 8,
-        "keyword": "국민카드"
+        "keyword": "불광역"
       },
       {
         "rank": 9,
-        "keyword": "국민은행"
+        "keyword": "주간한국"
       },
       {
         "rank": 10,
-        "keyword": "부산은행"
+        "keyword": "엔비디아 ceo 미국 의회 조사 최신 뉴스 알려줘"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "정년연장"
+        "keyword": "진시몬 큰���들 아침마당"
       },
       {
         "rank": 2,
-        "keyword": "양홍원 원현주 이혼"
+        "keyword": "조희대 탄핵 추진"
       },
       {
         "rank": 3,
-        "keyword": "모두의��드 청소년 이용"
+        "keyword": "송영길 정청래 설전"
       },
       {
         "rank": 4,
-        "keyword": "염전 23곳 노동법 위반"
+        "keyword": "나인 투 식스"
       },
       {
         "rank": 5,
-        "keyword": "이도현 임지연 결별"
+        "keyword": "홈플러스 전 점포 임시휴업"
       },
       {
         "rank": 6,
-        "keyword": "국민연금"
+        "keyword": "정년연장"
       },
       {
         "rank": 7,
-        "keyword": "수능 시험지 5년 보관 추진"
+        "keyword": "진경 이선균 추억"
       },
       {
         "rank": 8,
-        "keyword": "딘딘 엄마"
+        "keyword": "임광현 부정행위 방지대책"
       },
       {
         "rank": 9,
-        "keyword": "정청래 송영길 공개 경고"
+        "keyword": "황윤성 부친 농장 공개"
       },
       {
         "rank": 10,
-        "keyword": "양대노총 정년연장 입법 촉구"
+        "keyword": "청룡영화제"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "“연기 자세에 150% 만족”…‘신병 더 무비’ 트와이스 정연 아닌 ‘배우 유정연’의 첫걸음(종합)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261125/135087135/1",
+      "publishedAt": "수집 11. 25. 17:49 KST",
+      "publishedOrder": 1795596540520
+    },
+    {
+      "title": "박은영, 결혼 후 악플에서 해방?…“육성재 앞치마 매줘도 욕 안 먹어”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261125/135089616/1",
+      "publishedAt": "수집 11. 25. 17:49 KST",
+      "publishedOrder": 1795596540520
+    },
+    {
+      "title": "이나연, 남희두와 결별설에도 침묵하더니…“돌아가서 근황 폭주”",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261125/135089527/1",
+      "publishedAt": "수집 11. 25. 17:49 KST",
+      "publishedOrder": 1795596540520
+    },
+    {
+      "title": "몬베베 피켓팅이다…몬스타엑스 기현, 12월 24일 팬 파티 개최",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261125/135089475/1",
+      "publishedAt": "수집 11. 25. 17:49 KST",
+      "publishedOrder": 1795596540520
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 11. 25. 17:48 KST",
+      "publishedOrder": 1795596539654
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 11. 25. 17:48 KST",
+      "publishedOrder": 1795596539654
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 11. 25. 17:48 KST",
+      "publishedOrder": 1795596539654
+    },
+    {
+      "title": "\"역시 디올의 얼굴\" 방탄소년단 지민, 꾸미지 않은 일상 속 감성 데일리 룩",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/11/25/2026112508083168997",
+      "publishedAt": "수집 11. 25. 17:48 KST",
+      "publishedOrder": 1795596539654
+    }
+  ]
 }

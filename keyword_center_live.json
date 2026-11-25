@@ -5,7 +5,7 @@
   "cached": true,
   "stale": false,
   "sharedDaily": true,
-  "refreshRule": "황금·쇼핑·애드센스·mate 키워드는 매일 갱신되며, 지식iN 질문 동향은 3일 주기로 갱신됩니다.",
+  "refreshRule": "황금·쇼핑·애드센스·mate 키워드는 매일 갱신되며, 지식iN 질문은 조회수가 늘었는데 답변이 적은 질문으로 3일마다 새로 고릅니다.",
   "access": "paid",
   "testMode": false,
   "freePreviewPercent": 40,
@@ -107,10 +107,10 @@
         "naverHomeTitle": "조권 구용규, 지금 찾는 사람이 많은 이유",
         "seoTitle": "[2026 핵심 정보] 조권 구용규: 꼭 알아둘 기준과 확인법",
         "homeTitle": "조권 구용규, 지금 찾는 사람이 많은 이유",
-        "cta": "조권 구용규 핵심 정보 확인하기",
+        "cta": "조권 구용규 핵심 정보 확인하���",
         "outline": [
           "조권 구용규 한눈에 보는 핵심",
-          "��색 의도와 핵심 답변",
+          "검색 의도와 핵심 답변",
           "조권 구용규 확인 순서와 방법",
           "자주 틀리는 부분과 주의점",
           "연관 질문으로 범위 넓히기",
@@ -202,9 +202,9 @@
           "일산 메가주 2026 확인 방법",
           "일산 메가주 2026 적용 대상",
           "일산 메가주 2026 주의사항",
-          "일산 메가주 2026 공식 안내"
+          "일�� 메가주 2026 공식 안내"
         ],
-        "intent": "구체적인 답�� 판단 기준을 찾는 검색",
+        "intent": "구체적인 답과 판단 기준을 찾는 검색",
         "naverCategory": "기타 정보",
         "contentCategory": "기타 정보",
         "publishingPlatform": "Blog",
@@ -269,7 +269,7 @@
         "coupang": null,
         "shoppingScore": null,
         "goldenLane": "ratio",
-        "naverHomeTitle": "라이어 기본정보 몇부작, 실제로 도움 되는 정보만 모았���니다",
+        "naverHomeTitle": "라이어 기본정보 몇부작, 실제로 도움 되는 정보만 모았습니다",
         "seoTitle": "[2026 체크리스트] 라이어 기본정보 몇부작: 상황별 확인 순서",
         "homeTitle": "라이어 기본정보 몇부작, 실제로 도움 되는 정보만 모았습니다",
         "cta": "라이어 기본정보 몇부작 핵심 정보 확인하기",
@@ -309,9 +309,9 @@
         "relatedKeywords": [],
         "recommendationKeywords": [
           "김원효 바 방문 논란 핵심 기준",
-          "김원효 바 방문 논란 확인 방법",
+          "김원효 바 방문 논란 확인 방��",
           "김원효 바 방문 논란 적용 대상",
-          "���원효 바 방문 논란 주의사항",
+          "김원효 바 방문 논란 주의사항",
           "김원효 바 방문 논란 공식 안내"
         ],
         "intent": "구체적인 답과 판단 기준을 찾는 검색",
@@ -655,8 +655,8 @@
         "shoppingScore": null,
         "goldenLane": "ratio",
         "naverHomeTitle": "김승수박혜연, 실제로 도움 되는 정보만 모았습니다",
-        "seoTitle": "[2026 체크리스트] 김승수박혜연: 상황별 확인 순서",
-        "homeTitle": "��승수박혜연, 실제로 도움 되는 정보만 모았습니다",
+        "seoTitle": "[2026 체크리스트] 김승수��혜연: 상황별 확인 순서",
+        "homeTitle": "김승수박혜연, 실제로 도움 되는 정보만 모았습니다",
         "cta": "김승수박혜연 핵심 정보 확인하기",
         "outline": [
           "김승수박혜연 한눈에 보는 핵심",
@@ -820,7 +820,7 @@
         "shoppingScore": null,
         "goldenLane": "ratio",
         "naverHomeTitle": "2026 마마 라인업, 실제로 도움 되는 정보만 모았습니다",
-        "seoTitle": "[2026 체크리스트] 2026 마마 라인업: 상황별 확인 순서",
+        "seoTitle": "[2026 체크리스트] 2026 마�� 라인업: 상황별 확인 순서",
         "homeTitle": "2026 마마 라인업, 실제로 도움 되는 정보만 모았습니다",
         "cta": "2026 마마 라인업 핵심 정보 확인하기",
         "outline": [
@@ -866,7 +866,7 @@
         ],
         "intent": "구체적인 답과 판단 기준을 찾는 검색",
         "naverCategory": "기타 정보",
-        "contentCategory": "기타 ���보",
+        "contentCategory": "기타 정보",
         "publishingPlatform": "Blog",
         "searchScope": "네이버 검색 수요",
         "aiReview": null,
@@ -987,7 +987,7 @@
         "naverHomeTitle": "100일의 거짓말 신태진, 실제로 도움 되는 정보만 모았습니다",
         "seoTitle": "[2026 체크리스트] 100일의 거짓말 신태진: 상황별 확인 순서",
         "homeTitle": "100일의 거짓말 신태진, 실제로 도움 되는 정보만 모았습니다",
-        "cta": "100일의 거짓말 신태진 핵심 정보 확���하기",
+        "cta": "100일의 거짓말 신태진 핵심 정보 확인하기",
         "outline": [
           "100일의 거짓말 신태진 한눈에 보는 핵심",
           "상황별 필요한 정보",
@@ -1033,7 +1033,7 @@
         "naverCategory": "기타 정보",
         "contentCategory": "기타 정보",
         "publishingPlatform": "Blog",
-        "searchScope": "네이버 ���색 수요",
+        "searchScope": "네이버 검색 수요",
         "aiReview": null,
         "rpmReference": null,
         "coupang": null,
@@ -1160,7 +1160,7 @@
           "모델별 차이와 후기 해석법",
           "그래니스미스비니거 가격대와 구성품 비교",
           "실사용 후기에서 볼 장단점",
-          "유지비·AS·소모품 체크",
+          "��지비·AS·소모품 체크",
           "내게 맞는 최종 선택 기준"
         ]
       },
@@ -1208,7 +1208,7 @@
         "cta": "노바스크정5MG 구매 전 비교하기",
         "outline": [
           "노바스크정5MG 구매 전 10초 결론",
-          "모델별 차이와 후기 해석법",
+          "모델�� 차이와 후기 해석법",
           "노바스크정5MG 가격대와 구성품 비교",
           "실사용 후기에서 볼 장단점",
           "유지비·AS·소모품 체크",
@@ -1256,7 +1256,7 @@
         "monthlyDocs": 71,
         "monthlyDocsCapped": false,
         "monthlyRatio": 0.2088235294117647,
-        "naverHomeTitle": "닥터자르트폼클렌징, 가격보다 중요한 구매 전 확인 포인트",
+        "naverHomeTitle": "닥터자르트폼클렌징, 가격보다 중요한 구매 전 확인 ���인트",
         "seoTitle": "[2026 구매 가이드] 닥터자르트폼클렌징: 기능·가격·후기 비교",
         "homeTitle": "닥터자르트폼클렌징, 가격보다 중요한 구매 전 확인 포인트",
         "cta": "닥터자르트폼클렌징 구매 전 비교하기",
@@ -1300,7 +1300,7 @@
           "디뷰스쿠션 실사용 후기",
           "디뷰스쿠션 장단점",
           "디뷰스쿠션 구매 전 확인",
-          "디뷰스쿠션 관리 방법"
+          "디뷰스쿠션 관리 방���"
         ],
         "intent": "최근 30일 발행 11건 · 30일 문서/검색 0.01",
         "naverCategory": "상품리뷰",
@@ -1527,7 +1527,7 @@
         "trend30": null,
         "relatedKeywords": [],
         "recommendationKeywords": [
-          "���울방한무릎보호대 가격 비교",
+          "롱울방한무릎보호대 가격 비교",
           "롱울방한무릎보호대 모델 차이",
           "롱울방한무릎보호대 실사용 후기",
           "롱울방한무릎보호대 장단점",
@@ -1656,7 +1656,7 @@
         "monthlyDocsCapped": false,
         "monthlyRatio": 0.025675675675675677,
         "naverHomeTitle": "벨프리모아토로션, 내 상황에 맞는 모델 고르는 법",
-        "seoTitle": "[2026 선택 가이드] 벨프리모���토로션: 용도·가격대·관리비 정리",
+        "seoTitle": "[2026 선택 가이드] 벨프리모아토로션: 용도·가격대·관리비 정리",
         "homeTitle": "벨프리모아토로션, 내 상황에 맞는 모델 고르는 법",
         "cta": "벨프리모아토로션 구매 전 비교하기",
         "outline": [
@@ -1701,7 +1701,7 @@
           "브릴리에잇쿠션 구매 전 확인",
           "브릴리에잇쿠션 관리 방법"
         ],
-        "intent": "최근 30일 발�� 18건 · 30일 문서/검색 0.01",
+        "intent": "최근 30일 발행 18건 · 30일 문서/검색 0.01",
         "naverCategory": "상품리뷰",
         "contentCategory": "상품리뷰",
         "publishingPlatform": "Blog",
@@ -1829,8 +1829,8 @@
         "monthlyDocs": 71,
         "monthlyDocsCapped": false,
         "monthlyRatio": 0.023432343234323433,
-        "naverHomeTitle": "비레디트루톤로션, 가격보다 중요한 구매 전 확인 포인트",
-        "seoTitle": "[2026 구매 가이드] 비레디���루톤로션: 기능·가격·후기 비교",
+        "naverHomeTitle": "비레디트루톤로션, 가격보다 중요한 구매 전 확인 포인��",
+        "seoTitle": "[2026 구매 가이드] 비레디트루톤로션: 기능·가격·후기 비교",
         "homeTitle": "비레디트루톤로션, 가격보다 중요한 구매 전 확인 포인트",
         "cta": "비레디트루톤로션 구매 전 비교하기",
         "outline": [
@@ -1965,7 +1965,7 @@
       {
         "keyword": "아이소이쿠션",
         "category": "shopping",
-        "sourceType": "실제 검색량·문서수 검증",
+        "sourceType": "실제 ���색량·문서수 검증",
         "pc": 40,
         "mobile": 530,
         "total": 570,
@@ -2103,7 +2103,7 @@
           "코스노리톤업크림 가격 비교",
           "코스노리톤업크림 모델 차이",
           "코스노리톤업크림 실사용 후기",
-          "코스노리톤업크림 장단점",
+          "코스노리톤업크림 ��단점",
           "코스노리톤업크림 구매 전 확인",
           "코스노리톤업크림 관리 방법"
         ],
@@ -2233,7 +2233,7 @@
           "탁벼시 구매 전 10초 결론",
           "핵심 기능과 실제 사용 기준",
           "탁벼시 가격대와 구성품 비교",
-          "실사용 후기에서 볼 장단점",
+          "실사용 후��에서 볼 장단점",
           "유지비·AS·소모품 체크",
           "내게 맞는 최종 선택 기준"
         ]
@@ -2758,7 +2758,7 @@
             "competition": "낮음"
           },
           {
-            "keyword": "라이나���아보험가입",
+            "keyword": "라이나치아보험가입",
             "total": 30,
             "pc": 10,
             "mobile": 20,
@@ -3077,7 +3077,7 @@
           "H2 · 연말정산 미리보기 대상과 조건",
           "H2 · 연말정산 미리보기 이용 일정 정리",
           "H2 · 순위·기록 정리",
-          "H2 · 자주 묻는 질문 (FAQ)"
+          "H2 · 자주 ��는 질문 (FAQ)"
         ],
         "volumeMeasuredAt": "2026-11-24T16:36:00.982Z",
         "documentsMeasuredAt": "2026-11-24T16:40:59.289Z",
@@ -3109,7 +3109,7 @@
         "sub_keywords": [],
         "benchEvidence": {
           "source": "rss",
-          "hosts": 13,
+          "hosts": 11,
           "days": 14,
           "posts": [
             {
@@ -3185,36 +3185,36 @@
               "n": 5
             },
             {
+              "text": "연말정산 미리보기 일정과 기간",
+              "n": 3
+            },
+            {
               "text": "연말정산 미리보기 비교와 차이점",
               "n": 2
             },
             {
               "text": "연말정산 미리보기 신청·이용 방법 단계별 정리",
-              "n": 5
+              "n": 4
             },
             {
               "text": "연말정산 미리보기 대상과 조건",
-              "n": 5
-            },
-            {
-              "text": "연말정산 미리보기 일정과 기간",
               "n": 4
             },
             {
               "text": "놓치기 쉬운 주의사항",
-              "n": 3
+              "n": 2
             }
           ],
           "guide": {
-            "posts": 13,
-            "chars": 2800,
+            "posts": 11,
+            "chars": 2600,
             "headings": 7,
-            "images": 5,
+            "images": 4,
             "tables": 1
           }
         },
-        "how_to_write": "상위 글 13곳의 중간값은 글자수 약 2,800자 · 소제목 7개 · 이미지 5개 · 표 1개입니다. 이보다 짧지 않게 쓰세요. 여러 글이 공통으로 다룬 순서: 연말정산 미리보기 핵심 요약 → 연말정산 미리보기 비교와 차이점 → 연말정산 미리보기 신청·이용 방법 단계별 정리 → 연말정산 미리보기 대상과 조건 → 연말정산 미리보기 일정과 기간 → 놓치기 쉬운 주의사항.",
-        "howToWrite": "상위 글 13곳의 중간값은 글자수 약 2,800자 · 소제목 7개 · 이미지 5개 · 표 1개입니다. 이보다 짧지 않게 쓰세요. 여러 글이 공통으로 다룬 순서: 연말정산 미리보기 핵심 요약 → 연말정산 미리보기 비교와 차이점 → 연말정산 미리보기 신��·이용 방법 단계별 정리 → 연말정산 미리보기 대상과 조건 → 연말정산 미리보기 일정과 기간 → 놓치기 쉬운 주의사항.",
+        "how_to_write": "상위 글 11곳의 중간값은 글자수 약 2,600자 · 소제목 7개 · 이미지 4개 · 표 1개입니다. 이보다 짧지 않게 쓰세요. 여러 글이 공통으로 다룬 순서: 연말정산 미리보기 핵심 요약 → 연말정산 미리보기 일정과 기간 → 연말정산 미리보기 비교와 차이점 → 연말정산 미리보기 신청·이용 방법 단계별 정리 → 연말정산 미리보기 대상과 조건 → 놓치기 쉬운 주의사항.",
+        "howToWrite": "상위 글 11곳의 중간값은 글자수 약 2,600자 · 소제목 7개 · 이미지 4개 · 표 1개입니다. 이보다 짧지 않게 쓰세요. 여러 글이 공통으로 다룬 순서: 연말정산 미리보기 핵심 요약 → 연말정산 미리보기 일정과 기간 → 연말정산 미리보기 비교와 차이점 → 연말정산 미리보기 신청·이용 방법 단계별 정리 → 연말정산 미리보기 대상과 조건 → 놓치기 쉬운 주의사항.",
         "nicheKeywords": [
           {
             "keyword": "연말정산 미리보기 계산 입력 방법",
@@ -3424,7 +3424,7 @@
           "계산에 쓰는 기준과 공제 항목",
           "신고 기한과 준비 서류",
           "실수하기 쉬운 예외·가산세",
-          "공식 계산기와 상담 활용법"
+          "공식 ���산기와 상담 활용법"
         ],
         "measuredKeyword": "연말정산 계산기",
         "target_keyword": "연말정산 계산기",
@@ -3440,7 +3440,7 @@
         "laneLabel": "💰 고단가",
         "badge": "$5.2+ · 💰 고단가",
         "blogTopic": {
-          "hosts": 21,
+          "hosts": 19,
           "days": 7,
           "topic": "연말정산"
         },
@@ -3697,13 +3697,13 @@
         "laneLabel": "💰 고단가",
         "badge": "$5.2+ · 💰 고단가",
         "blogTopic": {
-          "hosts": 5,
+          "hosts": 4,
           "days": 7,
           "topic": "근로장려금"
         },
         "adsGroup": "고단가",
         "sub_keywords": [],
-        "how_to_write": "2026 근로장려금 신청기간: 받을 수 있는 조건, 금액 계산 예시, 신청 순서와 기한을 차례로 쓰고, 못 받는 ��우를 표로 정리하세요.",
+        "how_to_write": "2026 근로장려금 신청기간: 받을 수 있는 조건, 금액 계산 예시, 신청 ��서와 기한을 차례로 쓰고, 못 받는 경우를 표로 정리하세요.",
         "howToWrite": "2026 근로장려금 신청기간: 받을 수 있는 조건, 금액 계산 예시, 신청 순서와 기한을 차례로 쓰고, 못 받는 경우를 표로 정리하세요.",
         "nicheKeywords": [
           {
@@ -4236,7 +4236,7 @@
             "competition": "보통"
           },
           {
-            "keyword": "종합소���세 과세표준 확정신고",
+            "keyword": "종합소득세 과세표준 확정신고",
             "total": 200,
             "pc": 120,
             "mobile": 80,
@@ -4564,6 +4564,415 @@
         ]
       },
       {
+        "keyword": "종합소득세 중간예납 분납",
+        "category": "adsense",
+        "sourceType": "최근 블로그 화제 · 실제 검색량·문서수 검증",
+        "pc": 3540,
+        "mobile": 460,
+        "total": 4000,
+        "blogCount": 10783,
+        "blogCountUnavailable": false,
+        "competitionRatio": 2.69575,
+        "competition": "",
+        "tier": "고급자",
+        "goldenScore": 80,
+        "sourceSeed": "종합소득세 중간예납",
+        "sourceSeedKind": "blogtopic",
+        "sourcePool": "",
+        "excelOpportunity": 0,
+        "excelTier": "",
+        "shoppingKind": "",
+        "trend30": null,
+        "relatedKeywords": [],
+        "recommendationKeywords": [
+          "종합소득세 신고 대상",
+          "종합소득세 신고 기한",
+          "종합소득세 필요 서류",
+          "종합소득세 계산 기준",
+          "종합소득세 공제 항목",
+          "종합소득세 가산세 기준"
+        ],
+        "intent": "구체적인 답과 판단 기준을 찾는 검색",
+        "naverCategory": "세금·회계",
+        "contentCategory": "세금·회계",
+        "publishingPlatform": "WordPress",
+        "searchScope": "네이버·구글·빙 통합 SEO",
+        "aiReview": null,
+        "rpmReference": {
+          "score": 35,
+          "tier": "광고수요 참고",
+          "low": 5000,
+          "high": 12000,
+          "currency": "KRW",
+          "basis": "페이지뷰 1,000회당 가정 RPM 참고 범위",
+          "note": "실제 RPM·CPC·수익은 광고 단가, 방문자 국가, 광고 노출, 콘텐츠 품질과 정책에 따라 달라지며 보장되지 않습니다."
+        },
+        "coupang": null,
+        "shoppingScore": null,
+        "naverHomeTitle": "종합소득세 중간예납 분납, 신고 전에 꼭 확인할 기준",
+        "seoTitle": "[2026 세금 가이드] 종합소득세 중간예납 분납: 계산 기준·신고 기한·절세 유의점",
+        "homeTitle": "종합소득세 중간예납 분납, 계산보다 먼저 챙길 신고 일정",
+        "cta": "종합소득세 중간예납 분납 신고 기준 확인하기",
+        "outline": [
+          "종합소득세 중간예납 분납 핵심 개념부터 보기",
+          "누가 언제 신고해야 하나",
+          "계산에 쓰는 기준과 공제 항목",
+          "신고 기한과 준비 서류",
+          "실수하기 쉬운 예외·가산세",
+          "공식 계산기와 상담 활용법"
+        ],
+        "measuredKeyword": "종합소득세 중간예납 분납",
+        "target_keyword": "종합소득세 중간예납 분납",
+        "targetKeyword": "종합소득세 중간예납 분납",
+        "seed_keyword": "종합소득세 중간예납",
+        "basis_keyword": "종합소득세 중간예납 분납",
+        "cpcBadge": "$5.2+",
+        "estimatedCpc": "$5.2+",
+        "adDemandScore": 4,
+        "basis_proof": "메인 키워드 [종합소득세 중간예납 분납] 실측 4,000건 기반",
+        "basis_text": "월 4,000회 (PC 3,540 / MO 460) · 블로그 문서 10,783건 · 경쟁비율 2.70",
+        "adsLane": "measured",
+        "laneLabel": "💰 고단가",
+        "badge": "$5.2+ · 💰 고단가",
+        "blogTopic": {
+          "hosts": 3,
+          "days": 7,
+          "topic": "종합소득세 중간예납"
+        },
+        "adsGroup": "고단가",
+        "sub_keywords": [],
+        "benchEvidence": {
+          "source": "rss",
+          "hosts": 3,
+          "days": 14,
+          "posts": [
+            {
+              "platform": "TS",
+              "title": "종합소득세 중간예납 분납｜1천만 원 초과분 2월 1일까지",
+              "link": "https://doleman.tistory.com/entry/%EC%A2%85%ED%95%A9%EC%86%8C%EB%93%9D%EC%84%B8-%EC%A4%91%EA%B0%84%EC%98%88%EB%82%A9-%EB%B6%84%EB%82%A9%EF%BD%9C1%EC%B2%9C%EB%A7%8C-%EC%9B%90-%EC%B4%88%EA%B3%BC%EB%B6%84-2%EC%9B%94-1%EC%9D%BC%EA%B9%8C%EC%A7%80",
+              "host": "doleman.tistory.com",
+              "date": "11.19",
+              "chars": 6514,
+              "heads": 22,
+              "imgs": 12,
+              "tables": 6
+            },
+            {
+              "platform": "WP",
+              "title": "종합소득세 중간예납 기간과 분납 ���법, 고지서 금액 그대로 내야 할까? 11월 30일 전 추계신고까지 7가지 Q&A",
+              "link": "https://bangulnote.com/entry/income-tax-interim-prepayment-qa/",
+              "host": "bangulnote.com",
+              "date": "11.15",
+              "chars": null,
+              "heads": null,
+              "imgs": null,
+              "tables": null
+            },
+            {
+              "platform": "WP",
+              "title": "종합소득세 중간예납 분납하고, 1,000만 원 초과 기준과 미납 가산세 알아보세요",
+              "link": "https://cookriches.com/%ec%a2%85%ed%95%a9%ec%86%8c%eb%93%9d%ec%84%b8-%ec%a4%91%ea%b0%84%ec%98%88%eb%82%a9-%eb%b6%84%eb%82%a9/",
+              "host": "cookriches.com",
+              "date": "11.12",
+              "chars": 2447,
+              "heads": 8,
+              "imgs": 0,
+              "tables": 1
+            }
+          ],
+          "outline": [
+            {
+              "text": "종합소득세 중간예납 분납 일정과 기간",
+              "n": 2
+            }
+          ],
+          "guide": {
+            "posts": 2,
+            "chars": 6500,
+            "headings": 22,
+            "images": 12,
+            "tables": 6
+          }
+        },
+        "how_to_write": "상위 글 2곳의 중간값은 글자수 약 6,500자 · 소제목 22개 · 이미지 12개 · 표 6개입니다. 이보다 짧지 않게 쓰세요. 여러 글이 공통으로 다룬 순서: 종합소득세 중간예납 분납 일정과 기간.",
+        "howToWrite": "상위 글 2곳의 중간값은 글자수 약 6,500자 · 소제목 22개 · 이미지 12개 · 표 6개입니다. 이보다 짧지 않게 쓰세요. 여러 글이 공통으로 다룬 순서: 종합소득세 중간예납 분납 일정과 기간.",
+        "nicheKeywords": [
+          {
+            "keyword": "종합소득세 중간예납 분납신청 작성방법",
+            "total": 30,
+            "pc": 20,
+            "mobile": 10,
+            "docs": 1632,
+            "ratio": 54.4,
+            "hits": 0,
+            "competition": "낮음"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납일자",
+            "total": 20,
+            "pc": 10,
+            "mobile": 10,
+            "docs": 387,
+            "ratio": 19.4,
+            "hits": 0,
+            "competition": "낮음"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납신청기간",
+            "total": 20,
+            "pc": 10,
+            "mobile": 10,
+            "docs": 4827,
+            "ratio": 241.4,
+            "hits": 0,
+            "competition": "낮음"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납 납부일",
+            "total": 20,
+            "pc": 10,
+            "mobile": 10,
+            "docs": 9930,
+            "ratio": 496.5,
+            "hits": 0,
+            "competition": "낮음"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납 한도",
+            "total": 20,
+            "pc": 10,
+            "mobile": 10,
+            "docs": 1224,
+            "ratio": 61.2,
+            "hits": 0,
+            "competition": "낮음"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납 신고방법",
+            "total": 20,
+            "pc": 10,
+            "mobile": 10,
+            "docs": 8675,
+            "ratio": 433.8,
+            "hits": 2,
+            "competition": "낮음"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납 금액",
+            "total": 20,
+            "pc": 10,
+            "mobile": 10,
+            "docs": 8562,
+            "ratio": 428.1,
+            "hits": 5,
+            "competition": "낮음"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납 기간",
+            "total": 180,
+            "pc": 170,
+            "mobile": 10,
+            "docs": 7999,
+            "ratio": 44.4,
+            "hits": 10,
+            "competition": "보통"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납신청",
+            "total": 730,
+            "pc": 670,
+            "mobile": 60,
+            "docs": 6419,
+            "ratio": 8.8,
+            "hits": 12,
+            "competition": "보통"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납 납부방법",
+            "total": 20,
+            "pc": 10,
+            "mobile": 10,
+            "docs": 8804,
+            "ratio": 440.2,
+            "hits": 13,
+            "competition": "보통"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납 고지서",
+            "total": 330,
+            "pc": 320,
+            "mobile": 10,
+            "docs": 6692,
+            "ratio": 20.3,
+            "hits": 22,
+            "competition": "조금 높음"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납 기한",
+            "total": 210,
+            "pc": 200,
+            "mobile": 10,
+            "docs": 9395,
+            "ratio": 44.7,
+            "hits": 25,
+            "competition": "조금 높음"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납 방법",
+            "total": 1670,
+            "pc": 1500,
+            "mobile": 170,
+            "docs": 8955,
+            "ratio": 5.4,
+            "hits": 27,
+            "competition": "조금 높음"
+          },
+          {
+            "keyword": "종합소득세 중간예납 분납 납부기한",
+            "total": 60,
+            "pc": 50,
+            "mobile": 10,
+            "docs": 9342,
+            "ratio": 155.7,
+            "hits": 27,
+            "competition": "조금 높음"
+          }
+        ]
+      },
+      {
+        "keyword": "자동차세 납부기간",
+        "category": "adsense",
+        "sourceType": "최근 블로그 화제 · 실제 검색량·문서수 검증",
+        "pc": 1150,
+        "mobile": 4080,
+        "total": 5230,
+        "blogCount": 154372,
+        "blogCountUnavailable": false,
+        "competitionRatio": 29.51663479923518,
+        "competition": "",
+        "tier": "고급자",
+        "goldenScore": 65,
+        "sourceSeed": "자동차세",
+        "sourceSeedKind": "blogtopic",
+        "sourcePool": "",
+        "excelOpportunity": 0,
+        "excelTier": "",
+        "shoppingKind": "",
+        "trend30": null,
+        "relatedKeywords": [],
+        "recommendationKeywords": [
+          "자동차세 납부기간 신청 자격",
+          "자동차세 납부기간 필요 서류",
+          "자동차세 납부기간 예상 비용",
+          "자동차세 납부기간 처리 기간",
+          "자동차세 납부기간 진행 절차",
+          "자동차세 납부기간 공식 확인처"
+        ],
+        "intent": "구체적인 답과 판단 기준을 찾는 검색",
+        "naverCategory": "고단가 생활금융",
+        "contentCategory": "고단가 생활금융",
+        "publishingPlatform": "WordPress",
+        "searchScope": "네이버·구글·빙 통합 SEO",
+        "aiReview": null,
+        "rpmReference": {
+          "score": 43,
+          "tier": "광고수요 참고",
+          "low": 5000,
+          "high": 12000,
+          "currency": "KRW",
+          "basis": "페이지뷰 1,000회당 가정 RPM 참고 범위",
+          "note": "실제 RPM·CPC·수익은 광고 단가, 방문자 국가, 광고 노출, 콘텐츠 품질과 정책에 따라 달라지며 보장되지 않습니다."
+        },
+        "coupang": null,
+        "shoppingScore": null,
+        "naverHomeTitle": "자동차세 납부기간, 내 상황에 적용되는지 확인하는 법",
+        "seoTitle": "[2026 안내] 자동차세 납부기간: 핵심 조건과 공식 확인 방법",
+        "homeTitle": "자동차세 납부기간, 내 상황에 적용되는지 확인하는 법",
+        "cta": "자동차세 납부기간 핵심 기준 확인하기",
+        "outline": [
+          "자동차세 납부기간 핵심부터 이해하기",
+          "비용·기간·공식 확인처",
+          "자동차세 납부기간 진행 전 확인할 비용과 기간",
+          "신청·이용 단계별 체크",
+          "자주 헷갈리는 예외 사항",
+          "공식 정보 재확인 방법"
+        ],
+        "measuredKeyword": "자동차세 납부기간",
+        "target_keyword": "자동차세 납부기간",
+        "targetKeyword": "자동차세 납부기간",
+        "seed_keyword": "자동차세",
+        "basis_keyword": "자동차세 납부기간",
+        "cpcBadge": "$5.2+",
+        "estimatedCpc": "$5.2+",
+        "adDemandScore": 4,
+        "basis_proof": "메인 키워드 [자동차세 납부기간] 실측 5,230건 기반",
+        "basis_text": "월 5,230회 (PC 1,150 / MO 4,080) · 블로그 문서 154,372건 · 경쟁비율 29.52",
+        "adsLane": "measured",
+        "laneLabel": "💰 고단가",
+        "badge": "$5.2+ · 💰 고단가",
+        "blogTopic": {
+          "hosts": 3,
+          "days": 7,
+          "topic": "자동차세"
+        },
+        "adsGroup": "고단가",
+        "sub_keywords": [],
+        "how_to_write": "자동차세 납부기간: 올해 기준 날짜를 첫 줄에 쓰고, 신청부터 지급까지 일정표를 붙이세요.",
+        "howToWrite": "자동차세 납부기간: 올해 기준 날짜를 첫 줄에 쓰고, 신청부터 지급까지 일정표를 붙이세요.",
+        "nicheKeywords": [
+          {
+            "keyword": "자동차세 납부기간 지나면",
+            "total": 20,
+            "pc": 10,
+            "mobile": 10,
+            "docs": 38110,
+            "ratio": 1905.5,
+            "hits": 2,
+            "competition": "낮음"
+          },
+          {
+            "keyword": "자동차세 납부기간 연체",
+            "total": 20,
+            "pc": 10,
+            "mobile": 10,
+            "docs": 7179,
+            "ratio": 359,
+            "hits": 13,
+            "competition": "보통"
+          },
+          {
+            "keyword": "자동차세 납부기간 2기",
+            "total": 30,
+            "pc": 10,
+            "mobile": 20,
+            "docs": 29344,
+            "ratio": 978.1,
+            "hits": 28,
+            "competition": "조금 높음"
+          },
+          {
+            "keyword": "자동차세 납부기간 연납",
+            "total": 60,
+            "pc": 20,
+            "mobile": 40,
+            "docs": 36203,
+            "ratio": 603.4,
+            "hits": 56,
+            "competition": "높음"
+          },
+          {
+            "keyword": "자동차세 납부기간 조회",
+            "total": 40,
+            "pc": 10,
+            "mobile": 30,
+            "docs": 39138,
+            "ratio": 978.5,
+            "hits": 77,
+            "competition": "높음"
+          }
+        ]
+      },
+      {
         "keyword": "연말정산 환급금 조회",
         "category": "adsense",
         "sourceType": "최근 블로그 화제 · 실제 검색량·문서수 검증",
@@ -4610,7 +5019,7 @@
         "coupang": null,
         "shoppingScore": null,
         "naverHomeTitle": "연말정산 환급금 조회, 신고 전에 꼭 확인할 기준",
-        "seoTitle": "[2026 세금 가이드] 연말정산 환급금 조회: 계산 기준·신고 기한·절세 유의점",
+        "seoTitle": "[2026 세금 가이드] 연말정산 환급금 조회: 계산 ��준·신고 기한·절세 유의점",
         "homeTitle": "연말정산 환급금 조회, 계산보다 먼저 챙길 신고 일정",
         "cta": "연말정산 환급금 조회 신고 기준 확인하기",
         "outline": [
@@ -4798,12 +5207,12 @@
         "keyword": "퇴직금 지급일",
         "category": "adsense",
         "sourceType": "최근 블로그 화제 · 실제 검색량·문서수 검증",
-        "pc": 2420,
-        "mobile": 8240,
-        "total": 10660,
-        "blogCount": 50268,
+        "pc": 2320,
+        "mobile": 8270,
+        "total": 10590,
+        "blogCount": 51374,
         "blogCountUnavailable": false,
-        "competitionRatio": 4.715572232645403,
+        "competitionRatio": 4.851180358829084,
         "competition": "",
         "tier": "전문가",
         "goldenScore": 77,
@@ -4836,7 +5245,7 @@
           "high": 12000,
           "currency": "KRW",
           "basis": "페이지뷰 1,000회당 가정 RPM 참고 범위",
-          "note": "실제 RPM·CPC·수익은 광고 단가, 방문��� 국가, 광고 노출, 콘텐츠 품질과 정책에 따라 달라지며 보장되지 않습니다."
+          "note": "실제 RPM·CPC·수익은 광고 단가, 방문자 국가, 광고 노출, 콘텐츠 품질과 정책에 따라 달라지며 보장되지 않습니다."
         },
         "coupang": null,
         "shoppingScore": null,
@@ -4860,8 +5269,8 @@
         "cpcBadge": "$5.2+",
         "estimatedCpc": "$5.2+",
         "adDemandScore": 4,
-        "basis_proof": "메인 키워드 [퇴직금 지급일] 실측 10,660건 기반",
-        "basis_text": "월 10,660회 (PC 2,420 / MO 8,240) · 블로그 문서 50,268건 · 경쟁비율 4.72",
+        "basis_proof": "메인 키워드 [퇴직금 지급일] 실측 10,590건 기반",
+        "basis_text": "월 10,590회 (PC 2,320 / MO 8,270) · 블로그 문서 51,374건 · 경쟁비율 4.85",
         "adsLane": "measured",
         "laneLabel": "💰 고단가",
         "badge": "$5.2+ · 💰 고단가",
@@ -4984,261 +5393,6 @@
             "ratio": 751.7,
             "hits": 22,
             "competition": "조금 높음"
-          }
-        ]
-      },
-      {
-        "keyword": "건강보험료 계산",
-        "category": "adsense",
-        "sourceType": "최근 블로그 화제 · 실제 검색량·문서수 검증",
-        "pc": 3210,
-        "mobile": 3220,
-        "total": 6430,
-        "blogCount": 634659,
-        "blogCountUnavailable": false,
-        "competitionRatio": 98.70279937791602,
-        "competition": "",
-        "tier": "고급자",
-        "goldenScore": 59,
-        "sourceSeed": "건강보험료",
-        "sourceSeedKind": "blogtopic",
-        "sourcePool": "",
-        "excelOpportunity": 0,
-        "excelTier": "",
-        "shoppingKind": "",
-        "trend30": null,
-        "relatedKeywords": [],
-        "recommendationKeywords": [
-          "건강보험 가입 조건",
-          "건강보험 보장 범위",
-          "건강보험 면책기간",
-          "건강보험 보험료 비교",
-          "건강보험 청구 서류",
-          "건강보험 제외 조건"
-        ],
-        "intent": "실제 지출과 조건을 확인하는 검색",
-        "naverCategory": "보험·보장",
-        "contentCategory": "보험·보장",
-        "publishingPlatform": "WordPress",
-        "searchScope": "네이버·구글·빙 통합 SEO",
-        "aiReview": null,
-        "rpmReference": {
-          "score": 67,
-          "tier": "광고수요 높음",
-          "low": 8000,
-          "high": 18000,
-          "currency": "KRW",
-          "basis": "페이지뷰 1,000회당 가정 RPM 참고 범위",
-          "note": "실제 RPM·CPC·수익은 광고 단가, 방문자 국가, 광고 노출, 콘텐츠 품질과 정책에 따라 달라지며 ��장되지 않습니다."
-        },
-        "coupang": null,
-        "shoppingScore": null,
-        "naverHomeTitle": "건강보험료 계산, 가입 전 보장과 제외 조건 정리",
-        "seoTitle": "[2026 보험 가이드] 건강보험료 계산: 가입 조건·보장 범위·주의사항",
-        "homeTitle": "건강보험료 계산, 보장보다 먼저 확인할 가입 조건",
-        "cta": "건강보험료 계산 가입 조건 확인하기",
-        "outline": [
-          "건강보험료 계산 핵심 요약",
-          "가입 대상과 필요한 조건",
-          "보장되는 경우와 제외되는 경우",
-          "보험료·한도·갱신 조건",
-          "청구 또는 가입 진행 순서",
-          "가입 전 확인할 공식 자료"
-        ],
-        "measuredKeyword": "건강보험료 계산",
-        "target_keyword": "건강보험료 계산",
-        "targetKeyword": "건강보험료 계산",
-        "seed_keyword": "건강보험료",
-        "basis_keyword": "건강보험료 계산",
-        "cpcBadge": "$7.5+",
-        "estimatedCpc": "$7.5+",
-        "adDemandScore": 5,
-        "basis_proof": "메인 키워드 [건강보험료 계산] 실측 6,430건 기반",
-        "basis_text": "월 6,430회 (PC 3,210 / MO 3,220) · 블로그 문서 634,659건 · 경쟁비율 98.70",
-        "adsLane": "measured",
-        "laneLabel": "💰 고단가",
-        "badge": "$7.5+ · 💰 고단가",
-        "blogTopic": {
-          "hosts": 3,
-          "days": 7,
-          "topic": "건강보험료"
-        },
-        "adsGroup": "고단가",
-        "sub_keywords": [],
-        "benchEvidence": {
-          "source": "rss",
-          "hosts": 4,
-          "days": 14,
-          "posts": [
-            {
-              "platform": "TS",
-              "title": "지역가입자 건강보험료 산정기준, 지역가입자 건보료 계산과 지역가입자 피부양자",
-              "link": "https://gab106a.tistory.com/684",
-              "host": "gab106a.tistory.com",
-              "date": "11.22",
-              "chars": 3018,
-              "heads": 10,
-              "imgs": 4,
-              "tables": 2
-            },
-            {
-              "platform": "TS",
-              "title": "건강보험료 계산, 어렵지 않아요! 내 보험료가 나오는 원리 쉽게 정리",
-              "link": "https://dalswlife.tistory.com/entry/%EA%B1%B4%EA%B0%95%EB%B3%B4%ED%97%98%EB%A3%8C-%EA%B3%84%EC%82%B0-%EC%96%B4%EB%A0%B5%EC%A7%80-%EC%95%8A%EC%95%84%EC%9A%94-%EB%82%B4-%EB%B3%B4%ED%97%98%EB%A3%8C%EA%B0%80-%EB%82%98%EC%98%A4%EB%8A%94-%EC%9B%90%EB%A6%AC-%EC%89%BD%EA%B2%8C-%EC%A0%95%EB%A6%AC",
-              "host": "dalswlife.tistory.com",
-              "date": "11.21",
-              "chars": 1791,
-              "heads": 6,
-              "imgs": 16,
-              "tables": 0
-            },
-            {
-              "platform": "TS",
-              "title": "지역건강보험료 산정 공식 총정리: 소득분과 재산분 계산 예시",
-              "link": "https://oneldoum.tistory.com/265",
-              "host": "oneldoum.tistory.com",
-              "date": "11.20",
-              "chars": 1887,
-              "heads": 9,
-              "imgs": 2,
-              "tables": 2
-            },
-            {
-              "platform": "TS",
-              "title": "퇴직 후 건강보험료 계산, 제가 겪은 충격적인 일",
-              "link": "https://zsewqzsewq.tistory.com/444",
-              "host": "zsewqzsewq.tistory.com",
-              "date": "11.13",
-              "chars": 3280,
-              "heads": 8,
-              "imgs": 2,
-              "tables": 1
-            }
-          ],
-          "outline": [
-            {
-              "text": "건강보험료 계산 신청·이용 방법 단계별 정리",
-              "n": 4
-            },
-            {
-              "text": "건강보험료 계산 대상과 조건",
-              "n": 2
-            },
-            {
-              "text": "자주 묻는 질문 (FAQ)",
-              "n": 3
-            }
-          ],
-          "guide": {
-            "posts": 4,
-            "chars": 3000,
-            "headings": 9,
-            "images": 4,
-            "tables": 2
-          }
-        },
-        "how_to_write": "상위 글 4곳의 중간값은 글자수 약 3,000자 · 소제목 9개 · 이미지 4개 · 표 2개입니다. 이보다 짧지 않게 쓰세요. 여러 글이 공통으로 다룬 순서: 건강보험료 계산 신청·이용 방법 단계별 정리 → 건강보험료 계산 대상과 조건 → 자주 묻는 질문 (FAQ).",
-        "howToWrite": "상위 글 4곳의 중간값은 글자수 약 3,000자 · 소제목 9개 · 이미지 4개 · 표 2개입니다. 이보다 짧지 않게 쓰세요. 여러 글이 공통으로 다룬 순서: 건강보험료 계산 신청·이용 방법 단계별 정리 → 건강보험료 계산 대상과 조건 → 자주 묻는 질문 (FAQ).",
-        "nicheKeywords": [
-          {
-            "keyword": "건강보험료 계산기간",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 362725,
-            "ratio": 18136.3,
-            "hits": 0,
-            "competition": "낮음"
-          },
-          {
-            "keyword": "건강보험료 계산 금액",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 465645,
-            "ratio": 23282.3,
-            "hits": 2,
-            "competition": "낮음"
-          },
-          {
-            "keyword": "건강보험료 계산 방식",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 289222,
-            "ratio": 14461.1,
-            "hits": 3,
-            "competition": "낮음"
-          },
-          {
-            "keyword": "지역건강보험료 계산기",
-            "total": 660,
-            "pc": 250,
-            "mobile": 410,
-            "docs": 70251,
-            "ratio": 106.4,
-            "hits": 8,
-            "competition": "보통"
-          },
-          {
-            "keyword": "건강보험료 계산 자동차",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 140804,
-            "ratio": 7040.2,
-            "hits": 9,
-            "competition": "보통"
-          },
-          {
-            "keyword": "지역건강보험료 계산",
-            "total": 1800,
-            "pc": 560,
-            "mobile": 1240,
-            "docs": 206105,
-            "ratio": 114.5,
-            "hits": 12,
-            "competition": "보통"
-          },
-          {
-            "keyword": "건강보험료 계산 소득",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 364036,
-            "ratio": 18201.8,
-            "hits": 32,
-            "competition": "조금 높음"
-          },
-          {
-            "keyword": "건강보험료 계산 기준",
-            "total": 30,
-            "pc": 20,
-            "mobile": 10,
-            "docs": 476603,
-            "ratio": 15886.8,
-            "hits": 41,
-            "competition": "조금 높음"
-          },
-          {
-            "keyword": "지역가입자 건강보험료 계산",
-            "total": 590,
-            "pc": 230,
-            "mobile": 360,
-            "docs": 136706,
-            "ratio": 231.7,
-            "hits": 52,
-            "competition": "높음"
-          },
-          {
-            "keyword": "건강보험료 계산 방법",
-            "total": 90,
-            "pc": 50,
-            "mobile": 40,
-            "docs": 468494,
-            "ratio": 5205.5,
-            "hits": 56,
-            "competition": "높음"
           }
         ]
       },
@@ -5639,7 +5793,7 @@
             },
             {
               "platform": "TS",
-              "title": "모르면 돈 날리는 연말정산 신용카드 체크카드 실전 공제 전략",
+              "title": "모르면 돈 날리는 ��말정산 신용카드 체크카드 실전 공제 전략",
               "link": "https://zsewqzsewq.tistory.com/491",
               "host": "zsewqzsewq.tistory.com",
               "date": "11.21",
@@ -5811,7 +5965,7 @@
             "competition": "조금 높음"
           },
           {
-            "keyword": "연말정산 신용카��� 공제 25%",
+            "keyword": "연말정산 신용카드 공제 25%",
             "total": 60,
             "pc": 40,
             "mobile": 20,
@@ -5961,7 +6115,7 @@
             },
             {
               "platform": "WP",
-              "title": "어금니 임플란트 가격 및 비용, 실제 후기",
+              "title": "어금니 임플란트 가격 및 비용, 실제 후��",
               "link": "https://dentalnam.com/%EC%96%B4%EA%B8%88%EB%8B%88-%EC%9E%84%ED%94%8C%EB%9E%80%ED%8A%B8-%EA%B0%80%EA%B2%A9-%EB%B0%8F-%EB%B9%84%EC%9A%A9-%EC%8B%A4%EC%A0%9C-%ED%9B%84%EA%B8%B0/",
               "host": "dentalnam.com",
               "date": "2024.04.21",
@@ -6643,9 +6797,9 @@
         "rationale": "메인 키워드 [여권 분실 재발급] 월 검색 3,200회(검색광고 실측), 블로그 문서 63,999건(검색 1회당 20.00건). 네이버 자동완성에 함께 뜨는 질문 1개가 있어 질문형 글에 맞습니다. 메인 키워드 검색 상위 블로그 30개·지식iN 20개 제목에서 '신고'(14.5곳)·'분실시'(12곳)·'비용'(11곳)을 가장 많이 다뤄 제목에 상위 2개를 넣었습니다(실제 인용 블로그는 주제어로 시작하는 35자 안팎의 단순한 제목이 많았습니다)."
       },
       {
-        "keyword": "공무원 육아휴직 기간, 날짜��� 놓치기 쉬운 기한",
+        "keyword": "공무원 육아휴직 기간, 날짜와 놓치기 쉬운 기한",
         "category": "naverMate",
-        "sourceType": "실제 검색량·문서수 검증(메인 키워드 기준)",
+        "sourceType": "���제 검색량·문서수 검증(메인 키워드 기준)",
         "measured": true,
         "measuredKeyword": "공무원 육아휴직 기간",
         "target_keyword": "공무원 육아휴직 기간",
@@ -6863,8 +7017,8 @@
         "contentCategory": "생활 정보",
         "naverHomeTitle": "국민연금 임의가입 방법, 신청 방법과 납부 방법",
         "home_title": "국민연금 임의가입 방법, 신청 방법과 납부 방법",
-        "homeTitle": "국민연��� 임의가입 방법, 신청 방법과 납부 방법",
-        "seoTitle": "국민연금 임의가입 방법, 신청 방법과 납부 방법",
+        "homeTitle": "국민연금 임의가입 방법, 신청 방법과 납부 방법",
+        "seoTitle": "국민���금 임의가입 방법, 신청 방법과 납부 방법",
         "seo_title": "국민연금 임의가입 방법, 신청 방법과 납부 방법",
         "ai_answer_template": "첫 문장을 \"국민연금 임의가입 방법은(는) …\"으로 시작해 답(대상 · 기준 숫자 · 방법)을 바로 쓰세요. 아래 '함께 찾는 질문'을 소제목으로 하나씩 답하고, 정부24·법령 같은 공식 출처를 인용하세요. AI 브리핑은 공식 페이지를 1순위로, 쉽게 풀어 쓴 최근 블로그(작성 1~2개월 이내)를 보조 출처로 인용합니다 — 발행 후 1~2개월 안에 내용을 갱신하세요.",
         "aiAnswerTemplate": "",
@@ -7019,7 +7173,7 @@
           "보험금 청구 서류 질병코드"
         ],
         "relatedKeywords": [
-          "��험금 청구기간",
+          "보험금 청구기간",
           "보험금 청구서류",
           "보험금 청구방법",
           "aia 보험금 청구 방법",
@@ -7642,7 +7796,7 @@
         "homeTitle": "사업자등록증 조회와 발급 방법",
         "seoTitle": "사업자등록증 조회와 발급 방법",
         "seo_title": "사업자등록증 조회와 발급 방법",
-        "ai_answer_template": "첫 문장을 \"사업자등록증 조회은(는) …\"으로 시작해 답(대상 · 기준 숫자 · 방법)을 바로 쓰세요. 아래 '함께 찾는 질문'을 소제목으로 하나씩 답하고, 정부24·법령 같은 공식 출처를 인용하세요. AI 브리핑은 공식 페이지를 1순위로, 쉽게 풀어 쓴 최근 블로그(작성 1~2개월 이내)를 보조 출처로 인용합니다 — 발행 후 1~2개월 안에 내용을 갱신하세요.",
+        "ai_answer_template": "첫 문장을 \"사업자등록증 조회은(는) …\"으로 시작해 답(대상 · 기준 숫자 · 방법)을 바로 쓰���요. 아래 '함께 찾는 질문'을 소제목으로 하나씩 답하고, 정부24·법령 같은 공식 출처를 인용하세요. AI 브리핑은 공식 페이지를 1순위로, 쉽게 풀어 쓴 최근 블로그(작성 1~2개월 이내)를 보조 출처로 인용합니다 — 발행 후 1~2개월 안에 내용을 갱신하세요.",
         "aiAnswerTemplate": "",
         "aio_strategy": "1 · 2 · 3 번호 목록으로 순서를 쓰고, 단계마다 화면 캡처 1장을 넣으세요.",
         "aioStrategy": "",
@@ -8011,7 +8165,7 @@
         "rank": 14
       },
       {
-        "keyword": "농구화 신고 걸을��마다 뒷굼치가 들려요",
+        "keyword": "농구화 신고 걸을때마다 뒷굼치가 들려요",
         "title": "농구화 신고 걸을때마다 뒷굼치가 들려요",
         "category": "jisikQin",
         "contentCategory": "지식iN 질문 동향",
@@ -8147,7 +8301,7 @@
   "totalCounts": {
     "golden": 20,
     "shopping": 20,
-    "adsense": 21,
+    "adsense": 22,
     "naverMate": 20,
     "jisikQin": 20
   },
@@ -8260,7 +8414,7 @@
       "lastError": "2026-11-12T06:51:51.561Z D1_ERROR: Your account is generating too much load on D1 DBs. Please back off and try again later.",
       "stemTotal": 221,
       "mateShown": 20,
-      "adsenseShown": 21,
+      "adsenseShown": 22,
       "adsenseLowValueDropped": 0,
       "adsenseLowValueBench": 0,
       "adsenseBenchShown": 4,
@@ -8272,31 +8426,31 @@
       "adsenseBlogTopic": 13,
       "adsenseBtPool": {
         "day": "2026-11-25",
-        "money": 13,
+        "money": 12,
         "life": 2,
         "detail": {
           "ready": 11,
-          "wait": 1,
+          "wait": 0,
           "none": 3
         },
         "shownBefore": 10
       },
       "adsenseMix": {
-        "topic": 8,
+        "topic": 9,
         "old": 11
       },
       "adsenseNiche": {
-        "ready": 18,
+        "ready": 19,
         "pending": 0,
         "short": 3,
-        "dropped": 3
+        "dropped": 2
       }
     },
     "bench": {
-      "blogs": 6972,
-      "feedsOk": 1525,
-      "posts": 6867,
-      "hosts": 331,
+      "blogs": 6987,
+      "feedsOk": 1529,
+      "posts": 6698,
+      "hosts": 328,
       "last": {
         "found": 14,
         "ts": 0,
@@ -8319,16 +8473,16 @@
           "posts": 0
         },
         "NB": {
-          "blogs": 1270,
+          "blogs": 1281,
           "posts": 0
         },
         "TS": {
           "blogs": 1673,
-          "posts": 4845
+          "posts": 4700
         },
         "WP": {
-          "blogs": 4022,
-          "posts": 2041
+          "blogs": 4026,
+          "posts": 2011
         }
       },
       "funnel": {
@@ -8348,6 +8502,12 @@
           "sent": 10
         }
       }
+    },
+    "jisik": {
+      "source": "previous",
+      "day": "",
+      "count": 0,
+      "nextUpdateAt": 0
     }
   }
 }
