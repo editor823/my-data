@@ -1,6 +1,6 @@
 /**
  * 외부 유입글 생성기 스크립트 (external.js)
- * - 머니대외비(boutique-info.com) 외부유입글생성 1:1 완벽 인터페이스 및 기능 구현
+ * - 블데이터(boutique-info.com) 외부유입글생성 1:1 완벽 인터페이스 및 기능 구현
  * - BYOK (개인 Gemini API 키) 직접 호출
  * - API 키 브라우저(localStorage) 안전 저장/삭제
  * - 최대 4개 채널 동시 선택 및 채널별 고유 프롬프트 적용

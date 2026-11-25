@@ -264,7 +264,7 @@ async function collectShortContentsData() {
     console.warn('  ⚠️ 곧 뜰 숏텐츠 후보 원본 갱신 실패:', e.message);
   }
 }
-// 5-3. 머니대외비 비밀 키워드 100개 자동 수집 (2일마다 오전 7시 새 목록 · 매일 아침 검색량·문서수 재확인)
+// 5-3. 블데이터 비밀 키워드 100개 자동 수집 (2일마다 오전 7시 새 목록 · 매일 아침 검색량·문서수 재확인)
 async function collectSecretKeywordsData() {
   const ts = Date.now();
   const secretUrl = `https://www.boutique-info.com/api/analysis?action=getSecretKeywords&paidAccessKey=AAAB4Z6KNMC6EYW5&_t=${ts}`;
@@ -278,6 +278,7 @@ async function collectSecretKeywordsData() {
         if (docA !== docB) return docA - docB;
         return Number(b.total || 0) - Number(a.total || 0);
       });
+      if (typeof sRes.title === 'string') sRes.title = sRes.title.split('머니대외비').join('블데이터');
 
       const pLive = path.join(__dirname, '..', 'data', 'secret_keywords_live.json');
       fs.writeFileSync(pLive, JSON.stringify(sRes, null, 2), 'utf8');
@@ -288,10 +289,10 @@ async function collectSecretKeywordsData() {
       const pJs = path.join(__dirname, '..', 'data', 'secret_keywords.js');
       fs.writeFileSync(pJs, `window.SECRET_KEYWORDS_STATIC_DATA = ${JSON.stringify(sRes)};`, 'utf8');
 
-      console.log(`  ✅ 머니대외비 비밀 키워드 동기화 완료 (총 ${sRes.items.length}개, 기준주: ${sRes.week}, 다음 갱신: ${sRes.nextUpdateAt})`);
+      console.log(`  ✅ 블데이터 비밀 키워드 동기화 완료 (총 ${sRes.items.length}개, 기준주: ${sRes.week}, 다음 갱신: ${sRes.nextUpdateAt})`);
     }
   } catch (e) {
-    console.warn('  ⚠️ 머니대외비 비밀 키워드 원본 갱신 실패:', e.message);
+    console.warn('  ⚠️ 블데이터 비밀 키워드 원본 갱신 실패:', e.message);
   }
 }
 
@@ -330,7 +331,7 @@ async function runDailyCollector() {
     // (3) 실시간 숏텐츠 최신화
     await collectShortContentsData();
 
-    // (4) 머니대외비 비밀 키워드 최신화
+    // (4) 블데이터 비밀 키워드 최신화
     await collectSecretKeywordsData();
 
     // (5) 월별 시즌성 키워드 최신화

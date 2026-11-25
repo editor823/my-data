@@ -9,7 +9,7 @@
  * - [5. 월별 시즌성]: seasonal-keywords.json (1월~12월 캘린더 + [분석하러가기] 연동)
  * - [6. 지식iN Q&A]: response.categories.jisikQin
  * - [7. 정책신호형]: adsense 데이터 중 policySignal === true
- * - [8. 머니대외비 추천]: lanes.verifiedCore 배열
+ * - [8. 블데이터 추천]: lanes.verifiedCore 배열
  * - [9. 바이럴숏폼 · 유튜브 실시간]: getShorts / videos 배열
  */
 
@@ -272,7 +272,7 @@ window.switchKcTab = function(type) {
       renderExcelBulkTab();
     }
   } else if (type === 'type-secret') {
-    // 🔒 머니대외비 비밀 키워드 전용 화면 렌더링
+    // 🔒 블데이터 비밀 키워드 전용 화면 렌더링
     if (secretContainer) {
       secretContainer.style.display = 'block';
       renderSecretKeywordsTab();
@@ -635,11 +635,11 @@ window.exportExcelResults = function() {
   XLSX.utils.book_append_sheet(wb, ws, '대량분석결과');
 
   const todayStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-  XLSX.writeFile(wb, `머니대외비_대량키워드분석_${todayStr}.xlsx`);
+  XLSX.writeFile(wb, `블데이터_대량키워드분석_${todayStr}.xlsx`);
 };
 
 /**
- * [비밀 키워드] 🔒 머니대외비 비밀 키워드 화면 렌더링 함수 (유료키 제한 해제 & 원본 역공학 5열 200개 완전 지원)
+ * [비밀 키워드] 🔒 블데이터 비밀 키워드 화면 렌더링 함수 (유료키 제한 해제 & 원본 역공학 5열 200개 완전 지원)
  */
 let secretKeywordsCache = null;
 let currentSecretCategory = 'all';
@@ -1225,7 +1225,7 @@ function getBaseItemsByTabType(type) {
         }
       }
       break;
-    case 'type-9': // [9. 이번주 머니대외비 추천 애드센스 키워드]
+    case 'type-9': // [9. 이번주 블데이터 추천 애드센스 키워드]
       {
         const adsList = cats.adsense || kcRawResponse.adsense || [];
         const coreList = adsList.filter(item => item.adsLane === 'head');

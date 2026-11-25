@@ -66,4 +66,4 @@ jobs:
           if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then exit 0; fi
           curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
-            --data-urlencode "text=🚨 [머니대외비] 거미줄치기 추천 묶음 갱신 실패 ${RUN_URL}" > /dev/null || true
+            --data-urlencode "text=🚨 [블데이터] 거미줄치기 추천 묶음 갱신 실패 ${RUN_URL}" > /dev/null || true

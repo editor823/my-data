@@ -221,10 +221,10 @@ function formatKstNextUpdate(date) {
 
 function copySecretNoticeText() {
   const { count } = getSecretKeywordInfo();
-  const text = `[머니대외비] 비밀 키워드 ${count}개 새 목록 업데이트 완료!
+  const text = `[블데이터] 비밀 키워드 ${count}개 새 목록 업데이트 완료!
 - 기준: 월간 검색 100 이상 · 문서/검색 0.3 미만 블루오션
 - 2일마다 오전 7시 새 목록 ${count}개 (매일 아침 검색량·문서수 다시 확인)
-지금 머니대외비에서 확인해보세요: ` + window.location.origin + "/?page=keywordcenter";
+지금 블데이터에서 확인해보세요: ` + window.location.origin + "/?page=keywordcenter";
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => {
       showToast('단톡방 공지 문구가 복사되었습니다! 📋');
@@ -241,7 +241,7 @@ function updateSecretCapsuleNextDate() {
   const el = document.getElementById('secret-capsule-next');
   if (!el) return;
   const { count, next } = getSecretKeywordInfo();
-  el.textContent = `머니대외비 비밀 키워드 ${count}개 공개 · 2일마다 오전 7시 새 목록` + (next ? ` · 다음 갱신 ${formatKstNextUpdate(next)}` : '');
+  el.textContent = `블데이터 비밀 키워드 ${count}개 공개 · 2일마다 오전 7시 새 목록` + (next ? ` · 다음 갱신 ${formatKstNextUpdate(next)}` : '');
 }
 // data/secret_keywords.js 는 app.js 보다 뒤에 로드되므로(defer) DOMContentLoaded 시점에 실행
 if (document.readyState === 'complete') {

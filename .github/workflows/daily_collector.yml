@@ -88,7 +88,7 @@ jobs:
           fi
           REPORT=""
           [ -f freshness_report.txt ] && REPORT="$(cat freshness_report.txt)"
-          TEXT="🚨 [머니대외비] 블로그 키워드 자동 갱신 실패
+          TEXT="🚨 [블데이터] 블로그 키워드 자동 갱신 실패
           ${REPORT}
 
           실행 기록: ${RUN_URL}"

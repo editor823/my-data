@@ -1,6 +1,6 @@
 /**
  * 이미지 일괄 변환기 스크립트 (converter.js)
- * - 머니대외비(boutique-info.com) ?page=converter 1:1 완벽 인터페이스 및 기능 구현
+ * - 블데이터(boutique-info.com) ?page=converter 1:1 완벽 인터페이스 및 기능 구현
  * - 브라우저 Canvas 재인코딩을 통한 AI 생성 정보 / GPS / 저작권 메타데이터 완전 박멸
  * - 출력 포맷 선택 (WebP / JPG / PNG)
  * - 슬라이더 실시간 품질 조절 (10% ~ 100%)
