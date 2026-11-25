@@ -1,255 +1,198 @@
 {
   "success": true,
-  "updatedAt": "2026-11-24T23:57:00.038Z",
-  "updatedAtKst": "2026. 11. 25. AM 8:57:00",
+  "updatedAt": "2026-11-25T02:38:10.353Z",
+  "updatedAtKst": "2026. 11. 25. AM 11:38:10",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "김하성, 디트로이트와 계약"
+        "keyword": "조국혁신당 조희대 탄핵 촛불집회"
       },
       {
         "rank": 2,
-        "keyword": "미국 과잉생산 관세 조사"
+        "keyword": "젠슨 황 효과 하루 만에 종료"
       },
       {
         "rank": 3,
-        "keyword": "서울지하철 타결로 철회"
+        "keyword": "김민석 대표 활동"
       },
       {
         "rank": 4,
-        "keyword": "젠슨 황 복귀 이틀만에 효과 감소"
+        "keyword": "진시몬, 아들 자랑스러워"
       },
       {
         "rank": 5,
-        "keyword": "전국 영하권 추위"
+        "keyword": "수능 시험지 1→5년 보관 추진"
       },
       {
         "rank": 6,
-        "keyword": "에이티즈 빌보드 200 정상 4회"
+        "keyword": "디에고 시메오네"
       },
       {
         "rank": 7,
-        "keyword": "데블스 플랜3"
+        "keyword": "염전 임금체불 적발"
       },
       {
         "rank": 8,
-        "keyword": "박윤영"
+        "keyword": "김종철 경찰청장, 영등포역 순찰"
       },
       {
         "rank": 9,
-        "keyword": "한미 외교안보라인 교체"
+        "keyword": "폭설"
       },
       {
         "rank": 10,
-        "keyword": "나의 유죄인간 아쉬운 ��"
+        "keyword": "디트로이트 타이거스"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "과잉생산 관세 15% 동일"
+        "keyword": "김하성 1년 합의 new"
       },
       {
         "rank": 2,
-        "keyword": "나의 유죄인간 동일"
+        "keyword": "이관희 유시은 민폐 하락 6"
       },
       {
         "rank": 3,
-        "keyword": "황인범 교체 1-0 new"
+        "keyword": "연속 수상 상승 2"
       },
       {
         "rank": 4,
-        "keyword": "데블스 플랜3 하락 4"
+        "keyword": "원전 공론화 new"
       },
       {
         "rank": 5,
-        "keyword": "김영훈 장관 new"
+        "keyword": "LG 케네디와 재계약 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "한국 수출 1조 달러"
+        "keyword": "조국혁신당 조희대 탄핵 촛불집회"
       },
       {
         "rank": 2,
-        "keyword": "전국 영하권 추위"
+        "keyword": "염전 임금체불 적발"
       },
       {
         "rank": 3,
-        "keyword": "서울 지하철 노사 협상 타결"
+        "keyword": "이재명 가정폭력 법개정"
       },
       {
         "rank": 4,
-        "keyword": "미국 과잉생산 관세 조사"
+        "keyword": "선저우 24호 발사"
       },
       {
         "rank": 5,
-        "keyword": "하나저축은행 개인정보 유출"
+        "keyword": "김민석 조희대 탄핵 5당"
       },
       {
         "rank": 6,
-        "keyword": "한미 외교안보라인 교체"
+        "keyword": "인천 보복살인 송치"
       },
       {
         "rank": 7,
-        "keyword": "화웨이 미국 유죄 평결"
+        "keyword": "창원지법 판사회의 출근"
       },
       {
         "rank": 8,
-        "keyword": "국내 코인 발행 허용"
+        "keyword": "65세 정년 연장 입법 촉구"
       },
       {
         "rank": 9,
-        "keyword": "5·18 진압경찰 포상취소"
+        "keyword": "모두의카드 청소년 확대"
       },
       {
         "rank": 10,
-        "keyword": "천지닝 상하이 당서기 조사"
+        "keyword": "한동훈 조희대 탄핵 의원직"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "장인화"
+        "keyword": "3기 신도시"
       },
       {
         "rank": 2,
-        "keyword": "thứ hạng của real madrid gặp psv"
+        "keyword": "디에고 시메오네"
       },
       {
         "rank": 3,
-        "keyword": "롯데손해보험"
+        "keyword": "폭설"
       },
       {
         "rank": 4,
-        "keyword": "금융통화위원회"
+        "keyword": "디트로이트 타이거스"
       },
       {
         "rank": 5,
-        "keyword": "필라델피아 반도체 지수"
+        "keyword": "южная корея"
       },
       {
         "rank": 6,
-        "keyword": "교수"
+        "keyword": "급여 지원"
       },
       {
         "rank": 7,
-        "keyword": "채무"
+        "keyword": "atp 월드 투어"
       },
       {
         "rank": 8,
-        "keyword": "김포시"
+        "keyword": "국민카드"
       },
       {
         "rank": 9,
-        "keyword": "real madrid vs psv eindhoven standings"
+        "keyword": "국민은행"
       },
       {
         "rank": 10,
-        "keyword": "mu"
+        "keyword": "부산은행"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "이돈호 변호사"
-      },
-      {
-        "rank": 2,
-        "keyword": "임지연 이도현 결별"
-      },
-      {
-        "rank": 3,
-        "keyword": "이순재 1주기"
-      },
-      {
-        "rank": 4,
-        "keyword": "김새롬 재혼 발표"
-      },
-      {
-        "rank": 5,
-        "keyword": "美 과잉생산 관세 발표"
-      },
-      {
-        "rank": 6,
-        "keyword": "강지영 MBC 금의환향"
-      },
-      {
-        "rank": 7,
-        "keyword": "김영훈 반도체팹 인력 양성"
-      },
-      {
-        "rank": 8,
         "keyword": "정년연장"
       },
       {
+        "rank": 2,
+        "keyword": "양홍원 원현주 이혼"
+      },
+      {
+        "rank": 3,
+        "keyword": "모두의��드 청소년 이용"
+      },
+      {
+        "rank": 4,
+        "keyword": "염전 23곳 노동법 위반"
+      },
+      {
+        "rank": 5,
+        "keyword": "이도현 임지연 결별"
+      },
+      {
+        "rank": 6,
+        "keyword": "국민연금"
+      },
+      {
+        "rank": 7,
+        "keyword": "수능 시험지 5년 보관 추진"
+      },
+      {
+        "rank": 8,
+        "keyword": "딘딘 엄마"
+      },
+      {
         "rank": 9,
-        "keyword": "권미경 최고위원"
+        "keyword": "정청래 송영길 공개 경고"
       },
       {
         "rank": 10,
-        "keyword": "슬픈 열대"
+        "keyword": "양대노총 정년연장 입법 촉구"
       }
     ]
   },
-  "entertainment": [
-    {
-      "title": "이민기·곽선영, ‘박지영 딸’ 문희 구했다…최고 5.2% (크래시2)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261125/135085322/1",
-      "publishedAt": "수집 11. 25. 08:56 KST",
-      "publishedOrder": 1795564615087
-    },
-    {
-      "title": "‘듄: 파트 3’, 예매 오픈 4시간 만 전체 예매율 1위 등극…미친 화력",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261125/135085309/1",
-      "publishedAt": "수집 11. 25. 08:56 KST",
-      "publishedOrder": 1795564615087
-    },
-    {
-      "title": "김현주, 美 감춰진 민낯 전한다…다큐 내레이터 변신",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261125/135085300/1",
-      "publishedAt": "수집 11. 25. 08:56 KST",
-      "publishedOrder": 1795564615087
-    },
-    {
-      "title": "김종민 “진짜 간헐적 천재”…신동도 진땀 (대탈출)",
-      "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261125/135085289/1",
-      "publishedAt": "수집 11. 25. 08:56 KST",
-      "publishedOrder": 1795564615087
-    },
-    {
-      "title": "AAA 2026 인기상 결선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 25. 08:56 KST",
-      "publishedOrder": 1795564613875
-    },
-    {
-      "title": "AAA 2026 인기상 예선 투표",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 25. 08:56 KST",
-      "publishedOrder": 1795564613875
-    },
-    {
-      "title": "STARNEWS APP",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 25. 08:56 KST",
-      "publishedOrder": 1795564613875
-    },
-    {
-      "title": "\"두 자녀, 영국계 국제학교 전학\"..배용준♥박수진, 하와이 떠나 '반포 고급 아파트' 이사 [스타이슈]",
-      "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/24/2026112414155874410",
-      "publishedAt": "수집 11. 25. 08:56 KST",
-      "publishedOrder": 1795564613875
-    }
-  ]
+  "entertainment": []
 }

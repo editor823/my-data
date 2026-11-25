@@ -110,7 +110,7 @@
         "cta": "조권 구용규 핵심 정보 확인하기",
         "outline": [
           "조권 구용규 한눈에 보는 핵심",
-          "검색 의도와 핵심 답변",
+          "��색 의도와 핵심 답변",
           "조권 구용규 확인 순서와 방법",
           "자주 틀리는 부분과 주의점",
           "연관 질문으로 범위 넓히기",
@@ -204,7 +204,7 @@
           "일산 메가주 2026 주의사항",
           "일산 메가주 2026 공식 안내"
         ],
-        "intent": "구체적인 답과 판단 기준을 찾는 검색",
+        "intent": "구체적인 답�� 판단 기준을 찾는 검색",
         "naverCategory": "기타 정보",
         "contentCategory": "기타 정보",
         "publishingPlatform": "Blog",
@@ -224,7 +224,7 @@
           "일산 메가주 2026 확인 순서와 방법",
           "자주 틀리는 부분과 주의점",
           "연관 질문으로 범위 넓히기",
-          "공식 정��� 다시 확인하기"
+          "공식 정보 다시 확인하기"
         ],
         "volumeMeasuredAt": "2026-11-24T20:40:31.302Z",
         "documentsMeasuredAt": "2026-11-24T20:50:28.112Z",
@@ -1527,7 +1527,7 @@
         "trend30": null,
         "relatedKeywords": [],
         "recommendationKeywords": [
-          "롱울방한무릎보호대 가격 비교",
+          "���울방한무릎보호대 가격 비교",
           "롱울방한무릎보호대 모델 차이",
           "롱울방한무릎보호대 실사용 후기",
           "롱울방한무릎보호대 장단점",
@@ -1656,7 +1656,7 @@
         "monthlyDocsCapped": false,
         "monthlyRatio": 0.025675675675675677,
         "naverHomeTitle": "벨프리모아토로션, 내 상황에 맞는 모델 고르는 법",
-        "seoTitle": "[2026 선택 가이드] 벨프리모아토로션: 용도·가격대·관리비 정리",
+        "seoTitle": "[2026 선택 가이드] 벨프리모���토로션: 용도·가격대·관리비 정리",
         "homeTitle": "벨프리모아토로션, 내 상황에 맞는 모델 고르는 법",
         "cta": "벨프리모아토로션 구매 전 비교하기",
         "outline": [
@@ -1701,7 +1701,7 @@
           "브릴리에잇쿠션 구매 전 확인",
           "브릴리에잇쿠션 관리 방법"
         ],
-        "intent": "최근 30일 발행 18건 · 30일 문서/검색 0.01",
+        "intent": "최근 30일 발�� 18건 · 30일 문서/검색 0.01",
         "naverCategory": "상품리뷰",
         "contentCategory": "상품리뷰",
         "publishingPlatform": "Blog",
@@ -1754,7 +1754,7 @@
         "recommendationKeywords": [
           "비레디톤로션 가격 비교",
           "비레디톤로션 모델 차이",
-          "비레디톤���션 실사용 후기",
+          "비레디톤로션 실사용 후기",
           "비레디톤로션 장단점",
           "비레디톤로션 구매 전 확인",
           "비레디톤로션 관리 방법"
@@ -3440,7 +3440,7 @@
         "laneLabel": "💰 고단가",
         "badge": "$5.2+ · 💰 고단가",
         "blogTopic": {
-          "hosts": 22,
+          "hosts": 21,
           "days": 7,
           "topic": "연말정산"
         },
@@ -4564,19 +4564,19 @@
         ]
       },
       {
-        "keyword": "청년미래적금 이자",
+        "keyword": "연말정산 환급금 조회",
         "category": "adsense",
         "sourceType": "최근 블로그 화제 · 실제 검색량·문서수 검증",
-        "pc": 1460,
-        "mobile": 6840,
-        "total": 8300,
-        "blogCount": 102231,
+        "pc": 3280,
+        "mobile": 4030,
+        "total": 7310,
+        "blogCount": 113013,
         "blogCountUnavailable": false,
-        "competitionRatio": 12.31698795180723,
+        "competitionRatio": 15.460054719562244,
         "competition": "",
         "tier": "고급자",
-        "goldenScore": 70,
-        "sourceSeed": "청년미래적금",
+        "goldenScore": 69,
+        "sourceSeed": "연말정산 환급금",
         "sourceSeedKind": "blogtopic",
         "sourcePool": "",
         "excelOpportunity": 0,
@@ -4585,16 +4585,16 @@
         "trend30": null,
         "relatedKeywords": [],
         "recommendationKeywords": [
-          "청년미래적금 이자 신청 자격",
-          "청년미래적금 이자 필요 서류",
-          "청년미래적금 이자 예상 비용",
-          "청년미래적금 이자 처리 기간",
-          "청년미래적금 이자 진행 절차",
-          "청년미래적금 이자 공식 확인처"
+          "연말정산 신청 자격",
+          "연말정산 필요 서류",
+          "연말정산 예상 비용",
+          "연말정산 처리 기간",
+          "연말정산 진행 절차",
+          "연말정산 공식 확인처"
         ],
         "intent": "구체적인 답과 판단 기준을 찾는 검색",
-        "naverCategory": "고단가 생활금융",
-        "contentCategory": "고단가 생활금융",
+        "naverCategory": "세금·회계",
+        "contentCategory": "세금·회계",
         "publishingPlatform": "WordPress",
         "searchScope": "네이버·구글·빙 통합 SEO",
         "aiReview": null,
@@ -4609,180 +4609,188 @@
         },
         "coupang": null,
         "shoppingScore": null,
-        "naverHomeTitle": "청년미래적금 이자, 신청 전에 놓치기 쉬운 기준",
-        "seoTitle": "[2026 최신] 청년미래적금 이자: 자격·서류·주의사항 정리",
-        "homeTitle": "청년미래적금 이자, 신청 전에 놓치기 쉬운 기준",
-        "cta": "청년미래적금 이자 핵심 기준 확인하기",
+        "naverHomeTitle": "연말정산 환급금 조회, 신고 전에 꼭 확인할 기준",
+        "seoTitle": "[2026 세금 가이드] 연말정산 환급금 조회: 계산 기준·신고 기한·절세 유의점",
+        "homeTitle": "연말정산 환급금 조회, 계산보다 먼저 챙길 신고 일정",
+        "cta": "연말정산 환급금 조회 신고 기준 확인하기",
         "outline": [
-          "청년미래적금 이자 핵심부터 이해하기",
-          "준비 서류와 진행 단계",
-          "청년미래적금 이자 진행 전 확인할 비용과 기간",
-          "신청·이용 단계별 체크",
-          "자주 헷갈리는 예외 사항",
-          "공식 정보 재확인 방법"
+          "연말정산 환급금 조회 핵심 개념부터 보기",
+          "누가 언제 신고해야 하나",
+          "계산에 쓰는 기준과 공제 항목",
+          "신고 기한과 준비 서류",
+          "실수하기 쉬운 예외·가산세",
+          "공식 계산기와 상담 활용법"
         ],
-        "measuredKeyword": "청년미래적금 이자",
-        "target_keyword": "청년미래적금 이자",
-        "targetKeyword": "청년미래적금 이자",
-        "seed_keyword": "청년미래적금",
-        "basis_keyword": "청년미래적금 이자",
+        "measuredKeyword": "연말정산 환급금 조회",
+        "target_keyword": "연말정산 환급금 조회",
+        "targetKeyword": "연말정산 환급금 조회",
+        "seed_keyword": "연말정산 환급금",
+        "basis_keyword": "연말정산 환급금 조회",
         "cpcBadge": "$5.2+",
         "estimatedCpc": "$5.2+",
         "adDemandScore": 4,
-        "basis_proof": "메인 키워드 [청년미래적금 이자] 실측 8,300건 기반",
-        "basis_text": "월 8,300회 (PC 1,460 / MO 6,840) · 블로그 문서 102,231건 · 경쟁비율 12.32",
+        "basis_proof": "메인 키워드 [연말정산 환급금 조회] 실측 7,310건 기반",
+        "basis_text": "월 7,310회 (PC 3,280 / MO 4,030) · 블로그 문서 113,013건 · 경쟁비율 15.46",
         "adsLane": "measured",
         "laneLabel": "💰 고단가",
         "badge": "$5.2+ · 💰 고단가",
         "blogTopic": {
-          "hosts": 3,
+          "hosts": 4,
           "days": 7,
-          "topic": "청년미래적금"
+          "topic": "연말정산 환급금"
         },
         "adsGroup": "고단가",
         "sub_keywords": [],
-        "how_to_write": "청년미래적금 이자: 기관별 금리를 표(기본 금리·우대 조건·최고 금리·기준일)로 비교하고, 1,000만 원을 넣었을 때 받는 이자 예시를 계산해 넣으세요.",
-        "howToWrite": "청년미래적금 이자: 기관별 금리를 표(기본 금리·우대 조건·최고 금리·기준일)로 비교하고, 1,000만 원을 넣었을 때 받는 이자 예시를 계산해 넣으세요.",
+        "benchEvidence": {
+          "source": "rss",
+          "hosts": 6,
+          "days": 14,
+          "posts": [
+            {
+              "platform": "TS",
+              "title": "2026 연말정산 미리보기 조회방법｜홈택스 예상 환급금 계산 순서",
+              "link": "https://studying-money19.tistory.com/entry/2026-%EC%97%B0%EB%A7%90%EC%A0%95%EC%82%B0-%EB%AF%B8%EB%A6%AC%EB%B3%B4%EA%B8%B0-%EC%A1%B0%ED%9A%8C%EB%B0%A9%EB%B2%95%EF%BD%9C%ED%99%88%ED%83%9D%EC%8A%A4-%EC%98%88%EC%83%81-%ED%99%98%EA%B8%89%EA%B8%88-%EA%B3%84%EC%82%B0-%EC%88%9C%EC%84%9C",
+              "host": "studying-money19.tistory.com",
+              "date": "11.23",
+              "chars": 693,
+              "heads": 4,
+              "imgs": 4,
+              "tables": 0
+            },
+            {
+              "platform": "TS",
+              "title": "연말정산 환급금 조회, 홈택스에서 5분 만에 확인하는 방법",
+              "link": "https://dalswlife.tistory.com/entry/%EC%97%B0%EB%A7%90%EC%A0%95%EC%82%B0-%ED%99%98%EA%B8%89%EA%B8%88-%EC%A1%B0%ED%9A%8C-%ED%99%88%ED%83%9D%EC%8A%A4%EC%97%90%EC%84%9C-5%EB%B6%84-%EB%A7%8C%EC%97%90-%ED%99%95%EC%9D%B8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95",
+              "host": "dalswlife.tistory.com",
+              "date": "11.19",
+              "chars": 1584,
+              "heads": 6,
+              "imgs": 17,
+              "tables": 0
+            },
+            {
+              "platform": "TS",
+              "title": "연말정산 환급금 조회 방법과 차감징수세액 마이너스 확인법",
+              "link": "https://jio-chol.tistory.com/399",
+              "host": "jio-chol.tistory.com",
+              "date": "11.19",
+              "chars": 3565,
+              "heads": 8,
+              "imgs": 5,
+              "tables": 5
+            },
+            {
+              "platform": "TS",
+              "title": "2026 연말정산 미리보기 12월 18일 종료｜환급금 조회부터 월세·카드·기부금 절세까지",
+              "link": "https://michae1.tistory.com/84",
+              "host": "michae1.tistory.com",
+              "date": "11.18",
+              "chars": 5635,
+              "heads": 0,
+              "imgs": 6,
+              "tables": 0
+            },
+            {
+              "platform": "TS",
+              "title": "연말정산 의료비 조회, 홈택스에 안 뜨는 환급금 챙기는 법 3가지",
+              "link": "https://agdo.tistory.com/1243",
+              "host": "agdo.tistory.com",
+              "date": "11.16",
+              "chars": 3127,
+              "heads": 8,
+              "imgs": 4,
+              "tables": 0
+            },
+            {
+              "platform": "TS",
+              "title": "2026 연말정산 미리보기 방법 총정리｜2027 환급금 조회·신용카드 공제·달라진 세법까지",
+              "link": "https://content54051.tistory.com/59",
+              "host": "content54051.tistory.com",
+              "date": "11.12",
+              "chars": 5032,
+              "heads": 25,
+              "imgs": 5,
+              "tables": 7
+            }
+          ],
+          "outline": [
+            {
+              "text": "연말정산 환급금 조회 신청·이용 방법 단계별 정리",
+              "n": 3
+            },
+            {
+              "text": "연말정산 환급금 조회 핵심 요약",
+              "n": 3
+            },
+            {
+              "text": "자주 묻는 질문 (FAQ)",
+              "n": 2
+            },
+            {
+              "text": "한 줄 정리",
+              "n": 2
+            }
+          ],
+          "guide": {
+            "posts": 6,
+            "chars": 3600,
+            "headings": 8,
+            "images": 5,
+            "tables": 0
+          }
+        },
+        "how_to_write": "상위 글 6곳의 중간값은 글자수 약 3,600자 · 소제목 8개 · 이미지 5개 · 표 0개입니다. 이보다 짧지 않게 쓰세요. 여러 글이 공통으로 다룬 순서: 연말정산 환급금 조회 신청·이용 방법 단계별 정리 → 연말정산 환급금 조회 핵심 요약 → 자주 묻는 질문 (FAQ) → 한 줄 정리.",
+        "howToWrite": "상위 글 6곳의 중간값은 글자수 약 3,600자 · 소제목 8개 · 이미지 5개 · 표 0개입니다. 이보다 짧지 않게 쓰세요. 여러 글이 공통으로 다룬 순서: 연말정산 환급금 조회 신청·이용 방법 단계별 정리 → 연말정산 환급금 조회 핵심 요약 → 자주 묻는 질문 (FAQ) → 한 줄 정리.",
         "nicheKeywords": [
           {
-            "keyword": "청년미래적금 이자율 높이는법",
-            "total": 30,
+            "keyword": "5월연말정산환급금조회",
+            "total": 20,
             "pc": 10,
-            "mobile": 20,
-            "docs": 3267,
-            "ratio": 108.9,
+            "mobile": 10,
+            "docs": 59838,
+            "ratio": 2991.9,
             "hits": 0,
             "competition": "낮음"
           },
           {
-            "keyword": "청년미래적금 이자 6%",
-            "total": 110,
-            "pc": 30,
-            "mobile": 80,
-            "docs": 76265,
-            "ratio": 693.3,
+            "keyword": "연말정산 환급금 조회 서류보는법",
+            "total": 20,
+            "pc": 10,
+            "mobile": 10,
+            "docs": 35150,
+            "ratio": 1757.5,
             "hits": 1,
             "competition": "낮음"
           },
           {
-            "keyword": "청년미래적금 이자율 비교",
+            "keyword": "연말정산 환급금 조회 손택스",
+            "total": 30,
+            "pc": 10,
+            "mobile": 20,
+            "docs": 23726,
+            "ratio": 790.9,
+            "hits": 16,
+            "competition": "보통"
+          },
+          {
+            "keyword": "연말정산 환급금 조회 기간",
             "total": 60,
             "pc": 10,
             "mobile": 50,
-            "docs": 21037,
-            "ratio": 350.6,
-            "hits": 1,
-            "competition": "낮음"
-          },
-          {
-            "keyword": "청년미래적금 이자 계산 방법",
-            "total": 30,
-            "pc": 10,
-            "mobile": 20,
-            "docs": 42301,
-            "ratio": 1410,
-            "hits": 1,
-            "competition": "낮음"
-          },
-          {
-            "keyword": "청년미래적금 이자율 계산",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 16356,
-            "ratio": 817.8,
-            "hits": 1,
-            "competition": "낮음"
-          },
-          {
-            "keyword": "청년미래적금 이자 5%",
-            "total": 30,
-            "pc": 10,
-            "mobile": 20,
-            "docs": 73760,
-            "ratio": 2458.7,
-            "hits": 3,
-            "competition": "낮음"
-          },
-          {
-            "keyword": "청년미래적금 이자 세금",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 32866,
-            "ratio": 1643.3,
-            "hits": 3,
-            "competition": "낮음"
-          },
-          {
-            "keyword": "청년미래적금 이자계산",
-            "total": 750,
-            "pc": 170,
-            "mobile": 580,
-            "docs": 54871,
-            "ratio": 73.2,
-            "hits": 10,
-            "competition": "보통"
-          },
-          {
-            "keyword": "청년미래적금 이자 비교",
-            "total": 30,
-            "pc": 10,
-            "mobile": 20,
-            "docs": 61696,
-            "ratio": 2056.5,
-            "hits": 10,
-            "competition": "보통"
-          },
-          {
-            "keyword": "청년미래적금 이자 얼마",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 28623,
-            "ratio": 1431.2,
-            "hits": 11,
-            "competition": "보통"
-          },
-          {
-            "keyword": "청년미래적금 이자 언제",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 23915,
-            "ratio": 1195.8,
-            "hits": 12,
-            "competition": "보통"
-          },
-          {
-            "keyword": "청년미래적금 이자 우대",
-            "total": 30,
-            "pc": 10,
-            "mobile": 20,
-            "docs": 69196,
-            "ratio": 2306.5,
-            "hits": 22,
+            "docs": 68481,
+            "ratio": 1141.4,
+            "hits": 39,
             "competition": "조금 높음"
           },
           {
-            "keyword": "청년미래적금 이자 만기",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 75901,
-            "ratio": 3795.1,
-            "hits": 25,
-            "competition": "조금 높음"
-          },
-          {
-            "keyword": "청년미래적금 이자 조건",
-            "total": 50,
-            "pc": 20,
-            "mobile": 30,
-            "docs": 88354,
-            "ratio": 1767.1,
-            "hits": 34,
-            "competition": "조금 높음"
+            "keyword": "연말정산 환급금 조회 방법",
+            "total": 100,
+            "pc": 30,
+            "mobile": 70,
+            "docs": 97259,
+            "ratio": 972.6,
+            "hits": 80,
+            "competition": "높음"
           }
         ]
       },
@@ -4828,7 +4836,7 @@
           "high": 12000,
           "currency": "KRW",
           "basis": "페이지뷰 1,000회당 가정 RPM 참고 범위",
-          "note": "실제 RPM·CPC·수익은 광고 단가, 방문자 국가, 광고 노출, 콘텐츠 품질과 정책에 따라 달라지며 보장되지 않습니다."
+          "note": "실제 RPM·CPC·수익은 광고 단가, 방문��� 국가, 광고 노출, 콘텐츠 품질과 정책에 따라 달라지며 보장되지 않습니다."
         },
         "coupang": null,
         "shoppingScore": null,
@@ -5021,7 +5029,7 @@
           "high": 18000,
           "currency": "KRW",
           "basis": "페이지뷰 1,000회당 가정 RPM 참고 범위",
-          "note": "실제 RPM·CPC·수익은 광고 단가, 방문자 국가, 광고 노출, 콘텐츠 품질과 정책에 따라 달라지며 보장되지 않습니다."
+          "note": "실제 RPM·CPC·수익은 광고 단가, 방문자 국가, 광고 노출, 콘텐츠 품질과 정책에 따라 달라지며 ��장되지 않습니다."
         },
         "coupang": null,
         "shoppingScore": null,
@@ -5259,7 +5267,7 @@
           "직장건강보험 자격득실확인서 발급",
           "직장건강보험 자격득실확인서 무인발급기",
           "직장건강보험 자격득실확인서 어디서발급",
-          "직���건강보험자격득실확인서 뜻",
+          "직장건강보험자격득실확인서 뜻",
           "직장건강보험자격득실 확인서 암호 푸는법"
         ],
         "intent": "절차·대상·준비물을 확인하는 검색",
@@ -5542,7 +5550,7 @@
         "competition": "높음",
         "tier": "고급자",
         "goldenScore": 60,
-        "sourceSeed": "연말���산 신용카드",
+        "sourceSeed": "연말정산 신용카드",
         "sourceSeedKind": "bench",
         "sourcePool": "",
         "excelOpportunity": 0,
@@ -5803,7 +5811,7 @@
             "competition": "조금 높음"
           },
           {
-            "keyword": "연말정산 신용카드 공제 25%",
+            "keyword": "연말정산 신용카��� 공제 25%",
             "total": 60,
             "pc": 40,
             "mobile": 20,
@@ -5820,194 +5828,6 @@
             "docs": 120648,
             "ratio": 204.5,
             "hits": 57,
-            "competition": "높음"
-          }
-        ]
-      },
-      {
-        "keyword": "청년미래적금 신청기간",
-        "category": "adsense",
-        "sourceType": "실제 검색량·문서수 검증",
-        "pc": 4840,
-        "mobile": 17500,
-        "total": 22340,
-        "blogCount": 99993,
-        "blogCountUnavailable": false,
-        "competitionRatio": 4.475962399283796,
-        "competition": "낮음",
-        "tier": "전문가",
-        "goldenScore": 100,
-        "sourceSeed": "청년미래적금",
-        "sourceSeedKind": "measured",
-        "sourcePool": "",
-        "excelOpportunity": 0,
-        "excelTier": "",
-        "shoppingKind": "",
-        "trend30": null,
-        "relatedKeywords": [],
-        "recommendationKeywords": [
-          "청년미래적금 신청기간 신청 자격",
-          "청년미래적금 신청기간 필요 서류",
-          "청년미래적금 신청기간 예상 비용",
-          "청년미래적금 신청기간 처리 기간",
-          "청년미래적금 신청기간 진행 절차",
-          "청년미래적금 신청기간 공식 확인처"
-        ],
-        "intent": "절차·대상·준비물을 확인하는 검색",
-        "naverCategory": "고단가 생활금융",
-        "contentCategory": "고단가 생활금융",
-        "publishingPlatform": "WordPress",
-        "searchScope": "네이버·구글·빙 통합 SEO",
-        "aiReview": null,
-        "rpmReference": {
-          "score": 43,
-          "tier": "광고수요 참고",
-          "low": 5000,
-          "high": 12000,
-          "currency": "KRW",
-          "basis": "페이지뷰 1,000회당 가정 RPM 참고 범위",
-          "note": "실제 RPM·CPC·수익은 광고 단가, 방문자 국가, 광고 노출, 콘텐츠 품질과 정책에 따라 달라지며 보장되지 않습니다."
-        },
-        "coupang": null,
-        "shoppingScore": null,
-        "naverHomeTitle": "청년미래적금 신청기간, 시작일·마감일과 지연되는 경우",
-        "seoTitle": "청년미래적금 신청기간: 단계별 소요기간·마감일·연장 및 지연 대응",
-        "homeTitle": "청년미래적금 신청기간, 달력에 표시할 핵심 일정",
-        "cta": "청년미래적금 신청기간 일정과 예외 확인하기",
-        "outline": [
-          "청년미래적금 신청기간 기간을 세는 기준일",
-          "신청·신고 마감 일정",
-          "단계별 예상 소요기간",
-          "연장·보완 요청이 생기는 경우",
-          "기한을 넘겼을 때 불이익",
-          "진행 상태 확인 방법"
-        ],
-        "measuredKeyword": "청년미래적금 신청기간",
-        "target_keyword": "청년미래적금 신청기간",
-        "targetKeyword": "청년미래적금 신청기간",
-        "seed_keyword": "청년미래적금",
-        "basis_keyword": "청년미래적금 신청기간",
-        "cpcBadge": "$5.2+",
-        "estimatedCpc": "$5.2+",
-        "adDemandScore": 4,
-        "basis_proof": "메인 키워드 [청년미래적금 신청기간] 실측 22,340건 기반",
-        "basis_text": "월 22,340회 (PC 4,840 / MO 17,500) · 블로그 문서 99,993건 · 경쟁비율 4.48",
-        "adsLane": "measured",
-        "laneLabel": "💰 고단가",
-        "badge": "$5.2+ · 💰 고단가",
-        "adsGroup": "고단가",
-        "sub_keywords": [],
-        "how_to_write": "청년미래적금 신청기간: 기관별 금리를 표(기본 금리·우대 조건·최고 금리·기준일)로 비교하고, 1,000만 원을 넣었을 때 받는 이자 예시를 계산해 넣으세요.",
-        "howToWrite": "청년미래적금 신청기간: 기관별 금리를 표(기본 금리·우대 조건·최고 금리·기준일)로 비교하고, 1,000만 원을 넣었을 때 받는 이자 예시를 계산해 넣으세요.",
-        "nicheKeywords": [
-          {
-            "keyword": "청년미래적금 신청기간 놓침",
-            "total": 60,
-            "pc": 10,
-            "mobile": 50,
-            "docs": 53272,
-            "ratio": 887.9,
-            "hits": 0,
-            "competition": "낮음"
-          },
-          {
-            "keyword": "청년미래적금 신청기간 지남",
-            "total": 30,
-            "pc": 10,
-            "mobile": 20,
-            "docs": 133,
-            "ratio": 4.4,
-            "hits": 0,
-            "competition": "낮음"
-          },
-          {
-            "keyword": "청년미래적금 신청기간 지나면",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 22292,
-            "ratio": 1114.6,
-            "hits": 0,
-            "competition": "낮음"
-          },
-          {
-            "keyword": "청년미래적금 신청기간 1차",
-            "total": 70,
-            "pc": 10,
-            "mobile": 60,
-            "docs": 37124,
-            "ratio": 530.3,
-            "hits": 8,
-            "competition": "보통"
-          },
-          {
-            "keyword": "청년미래적금 신청기간 11월",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 30627,
-            "ratio": 1531.4,
-            "hits": 9,
-            "competition": "보통"
-          },
-          {
-            "keyword": "청년미래적금 신청기간 12월",
-            "total": 150,
-            "pc": 20,
-            "mobile": 130,
-            "docs": 60971,
-            "ratio": 406.5,
-            "hits": 13,
-            "competition": "보통"
-          },
-          {
-            "keyword": "청년미래적금 신청기간 2027",
-            "total": 970,
-            "pc": 180,
-            "mobile": 790,
-            "docs": 14886,
-            "ratio": 15.3,
-            "hits": 22,
-            "competition": "조금 높음"
-          },
-          {
-            "keyword": "청년미래적금 신청기간 3차 기간",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 42861,
-            "ratio": 2143.1,
-            "hits": 45,
-            "competition": "조금 높음"
-          },
-          {
-            "keyword": "청년미래적금 신청기간 3차",
-            "total": 2320,
-            "pc": 450,
-            "mobile": 1870,
-            "docs": 42861,
-            "ratio": 18.5,
-            "hits": 63,
-            "competition": "높음"
-          },
-          {
-            "keyword": "청년미래적금 신청기간 기간",
-            "total": 20,
-            "pc": 10,
-            "mobile": 10,
-            "docs": 101120,
-            "ratio": 5056,
-            "hits": 66,
-            "competition": "높음"
-          },
-          {
-            "keyword": "청년미래적금 신청기간 2차",
-            "total": 190,
-            "pc": 40,
-            "mobile": 150,
-            "docs": 44410,
-            "ratio": 233.7,
-            "hits": 67,
             "competition": "높음"
           }
         ]
@@ -6494,7 +6314,7 @@
         "laneLabel": "💰 고단가",
         "badge": "$5.2+ · 💰 고단가",
         "blogTopic": {
-          "hosts": 4,
+          "hosts": 3,
           "days": 7,
           "topic": "고향사랑기부제"
         },
@@ -6823,7 +6643,7 @@
         "rationale": "메인 키워드 [여권 분실 재발급] 월 검색 3,200회(검색광고 실측), 블로그 문서 63,999건(검색 1회당 20.00건). 네이버 자동완성에 함께 뜨는 질문 1개가 있어 질문형 글에 맞습니다. 메인 키워드 검색 상위 블로그 30개·지식iN 20개 제목에서 '신고'(14.5곳)·'분실시'(12곳)·'비용'(11곳)을 가장 많이 다뤄 제목에 상위 2개를 넣었습니다(실제 인용 블로그는 주제어로 시작하는 35자 안팎의 단순한 제목이 많았습니다)."
       },
       {
-        "keyword": "공무원 육아휴직 기간, 날짜와 놓치기 쉬운 기한",
+        "keyword": "공무원 육아휴직 기간, 날짜��� 놓치기 쉬운 기한",
         "category": "naverMate",
         "sourceType": "실제 검색량·문서수 검증(메인 키워드 기준)",
         "measured": true,
@@ -7043,7 +6863,7 @@
         "contentCategory": "생활 정보",
         "naverHomeTitle": "국민연금 임의가입 방법, 신청 방법과 납부 방법",
         "home_title": "국민연금 임의가입 방법, 신청 방법과 납부 방법",
-        "homeTitle": "국민연금 임의가입 방법, 신청 방법과 납부 방법",
+        "homeTitle": "국민연��� 임의가입 방법, 신청 방법과 납부 방법",
         "seoTitle": "국민연금 임의가입 방법, 신청 방법과 납부 방법",
         "seo_title": "국민연금 임의가입 방법, 신청 방법과 납부 방법",
         "ai_answer_template": "첫 문장을 \"국민연금 임의가입 방법은(는) …\"으로 시작해 답(대상 · 기준 숫자 · 방법)을 바로 쓰세요. 아래 '함께 찾는 질문'을 소제목으로 하나씩 답하고, 정부24·법령 같은 공식 출처를 인용하세요. AI 브리핑은 공식 페이지를 1순위로, 쉽게 풀어 쓴 최근 블로그(작성 1~2개월 이내)를 보조 출처로 인용합니다 — 발행 후 1~2개월 안에 내용을 갱신하세요.",
@@ -7131,7 +6951,7 @@
         "related_questions": [
           "전기차 입문용으로 1700만원대 폭스바겐 세단 괜찮을까요?",
           "전기차 보조금, 지역별 차이 큰가요?",
-          "전기차 ���조금, 지자체별로 차이가 큰가요?",
+          "전기차 보조금, 지자체별로 차이가 큰가요?",
           "기아 PV5 전기차, 보조금 받고 구매해도 괜찮을까요?",
           "27년 gv70 전기차는 가격이 어떻게 될까요?"
         ],
@@ -7199,7 +7019,7 @@
           "보험금 청구 서류 질병코드"
         ],
         "relatedKeywords": [
-          "보험금 청구기간",
+          "��험금 청구기간",
           "보험금 청구서류",
           "보험금 청구방법",
           "aia 보험금 청구 방법",
@@ -7826,7 +7646,7 @@
         "aiAnswerTemplate": "",
         "aio_strategy": "1 · 2 · 3 번호 목록으로 순서를 쓰고, 단계마다 화면 캡처 1장을 넣으세요.",
         "aioStrategy": "",
-        "rationale": "메인 키워드 [사업자등록증 조회] 월 검색 9,810회(검색광고 실측), 블로그 문서 503,223건(검색 1회당 51.30건). 네이버 자동완성에 함께 뜨는 질문 6개가 있어 질문형 글에 맞습니다. 메인 키워드 검색 상위 블로그 30개·지식iN 20개 제목에서 '홈택스'(14.5곳)·'발급'(9.5곳)·'번호'(8곳)을 가장 ��이 다뤄 제목에 상위 2개를 넣었습니다(실제 인용 블로그는 주제어로 시작하는 35자 안팎의 단순한 제목이 많았습니다)."
+        "rationale": "메인 키워드 [사업자등록증 조회] 월 검색 9,810회(검색광고 실측), 블로그 문서 503,223건(검색 1회당 51.30건). 네이버 자동완성에 함께 뜨는 질문 6개가 있어 질문형 글에 맞습니다. 메인 키워드 검색 상위 블로그 30개·지식iN 20개 제목에서 '홈택스'(14.5곳)·'발급'(9.5곳)·'번호'(8곳)을 가장 많이 다뤄 제목에 상위 2개를 넣었습니다(실제 인용 블로그는 주제어로 시작하는 35자 안팎의 단순한 제목이 많았습니다)."
       },
       {
         "keyword": "출입국 사실증명서 발급과 수수료",
@@ -8191,7 +8011,7 @@
         "rank": 14
       },
       {
-        "keyword": "농구화 신고 걸을때마다 뒷굼치가 들려요",
+        "keyword": "농구화 신고 걸을��마다 뒷굼치가 들려요",
         "title": "농구화 신고 걸을때마다 뒷굼치가 들려요",
         "category": "jisikQin",
         "contentCategory": "지식iN 질문 동향",
@@ -8327,7 +8147,7 @@
   "totalCounts": {
     "golden": 20,
     "shopping": 20,
-    "adsense": 22,
+    "adsense": 21,
     "naverMate": 20,
     "jisikQin": 20
   },
@@ -8440,43 +8260,43 @@
       "lastError": "2026-11-12T06:51:51.561Z D1_ERROR: Your account is generating too much load on D1 DBs. Please back off and try again later.",
       "stemTotal": 221,
       "mateShown": 20,
-      "adsenseShown": 22,
+      "adsenseShown": 21,
       "adsenseLowValueDropped": 0,
       "adsenseLowValueBench": 0,
       "adsenseBenchShown": 4,
       "adsenseEvidence": {
-        "rss": 7,
+        "rss": 8,
         "web": 5,
-        "none": 12
+        "none": 11
       },
-      "adsenseBlogTopic": 12,
+      "adsenseBlogTopic": 13,
       "adsenseBtPool": {
         "day": "2026-11-25",
-        "money": 12,
+        "money": 13,
         "life": 2,
         "detail": {
-          "ready": 10,
+          "ready": 11,
           "wait": 1,
           "none": 3
         },
-        "shownBefore": 9
+        "shownBefore": 10
       },
       "adsenseMix": {
         "topic": 8,
-        "old": 12
+        "old": 11
       },
       "adsenseNiche": {
-        "ready": 19,
+        "ready": 18,
         "pending": 0,
         "short": 3,
-        "dropped": 2
+        "dropped": 3
       }
     },
     "bench": {
-      "blogs": 6966,
-      "feedsOk": 1523,
-      "posts": 6970,
-      "hosts": 332,
+      "blogs": 6972,
+      "feedsOk": 1525,
+      "posts": 6867,
+      "hosts": 331,
       "last": {
         "found": 14,
         "ts": 0,
@@ -8499,16 +8319,16 @@
           "posts": 0
         },
         "NB": {
-          "blogs": 1261,
+          "blogs": 1270,
           "posts": 0
         },
         "TS": {
           "blogs": 1673,
-          "posts": 4916
+          "posts": 4845
         },
         "WP": {
-          "blogs": 4019,
-          "posts": 2061
+          "blogs": 4022,
+          "posts": 2041
         }
       },
       "funnel": {
