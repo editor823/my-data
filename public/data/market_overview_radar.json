@@ -1,15 +1,15 @@
 {
   "success": true,
-  "updated_at": "2026-11-25T02:36:55.612Z",
+  "updated_at": "2026-11-25T05:35:18.419Z",
   "market_overview": {
     "kospi": {
       "value": "2,680.50",
-      "change_rate": "-5.61%",
+      "change_rate": "-6.22%",
       "is_up": false
     },
     "kosdaq": {
       "value": "875.20",
-      "change_rate": "-2.44%",
+      "change_rate": "-2.64%",
       "is_up": false
     },
     "investor_trend": {
@@ -25,137 +25,47 @@
   },
   "top_themes": [
     {
-      "theme_id": "radar_110",
-      "theme_name": "화장품",
-      "full_theme_name": "화장품",
-      "change_rate": "+2.33%",
-      "composite_score": 82,
-      "total_stocks_count": 95,
-      "leader_stock": "뷰티스킨",
-      "leader_ratio": 26.55,
-      "sub_leader_stock": "실리콘투",
-      "other_stocks": [
-        "한국화장품",
-        "한국화장품제조",
-        "코스메카코리아"
-      ],
-      "sub_stocks_top3": [
-        {
-          "name": "실리콘투",
-          "rate": "+16.1%"
-        },
-        {
-          "name": "한국화장품",
-          "rate": "+15.1%"
-        },
-        {
-          "name": "한국화장품제조",
-          "rate": "+12.2%"
-        }
-      ],
-      "past_trigger_reason": "[속보 기사] 제닉, 반도체 약세 속 화장품 테마 수급 쏠림에 1만6,700원선 돌... : 테마 내에서는 뷰티스킨(+24.74%), 실리콘투(+14.53%), 한국화장품(+12.76%), 본느(+11.28%), 에이피알(+9.87%), 코스메카코리아(+9.78%) 등이 일제히 강세를 보였다. 20...",
-      "future_momentum": "화장품 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 3043,
-      "is_real_leading": true,
-      "pullback_rate": "-25.0%",
-      "ma5_recovered": true,
-      "trigger_summary": "[특징주] 제닉, 반도체 약세 속 화장품 테마 수급 쏠림에 1만6,700원선 돌...",
-      "today_rising_fact": "[속보 기사] 제닉, 반도체 약세 속 화장품 테마 수급 쏠림에 1만6,700원선 돌... : 테마 내에서는 뷰티스킨(+24.74%), 실리콘투(+14.53%), 한국화장품(+12.76%), 본느(+11.28%), 에이피알(+9.87%), 코스메카코리아(+9.78%) 등이 일제히 강세를 보였다. 20...",
-      "top_article": {
-        "title": "[특징주] 제닉, 반도체 약세 속 화장품 테마 수급 쏠림에 1만6,700원선 돌...",
-        "press": "증시 속보",
-        "url": "https://www.widedaily.com/news/articleView.html?idxno=304732",
-        "published_at": "2026-11-25T02:36:53.180Z"
-      },
-      "timeline": []
-    },
-    {
       "theme_id": "radar_55",
       "theme_name": "보안주",
       "full_theme_name": "보안주(정보)",
-      "change_rate": "+1.26%",
-      "composite_score": 76,
+      "change_rate": "+4.05%",
+      "composite_score": 90,
       "total_stocks_count": 52,
-      "leader_stock": "파수AI",
-      "leader_ratio": 24.96,
-      "sub_leader_stock": "안랩",
+      "leader_stock": "안랩",
+      "leader_ratio": 29.96,
+      "sub_leader_stock": "파수AI",
       "other_stocks": [
-        "이글루",
         "지니언스",
-        "한싹"
+        "라온시큐어",
+        "이글루"
       ],
       "sub_stocks_top3": [
         {
-          "name": "안랩",
-          "rate": "+15.0%"
-        },
-        {
-          "name": "이글루",
-          "rate": "+11.7%"
+          "name": "파수AI",
+          "rate": "+29.9%"
         },
         {
           "name": "지니언스",
-          "rate": "+8.9%"
+          "rate": "+21.9%"
+        },
+        {
+          "name": "라온시큐어",
+          "rate": "+15.2%"
         }
       ],
-      "past_trigger_reason": "[속보 기사] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반... : 알테오젠(196170)과 엠비디, 파수AI(150900)도 순매수 상위권에 이름을 올렸다. 반면 장 초반 순매수 3위였던 삼성전자우(005935)는 5위로 밀려난 뒤 상위 5위권에서 벗어났다. 순매도에서는 ...",
+      "past_trigger_reason": "[속보 기사] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑ : 테마 내에서는 안랩(+29.96%)과 파수AI(+29.95%)가 나란히 상한가를 기록한 가운데 지니언스(+26.13%), 라온시큐어(+21.01%), 한싹(+14.91%), 에스피소프트(+14.32%) 등 ...",
       "future_momentum": "보안주 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 4290,
+      "trading_value_eok": 7780,
       "is_real_leading": true,
       "pullback_rate": "-25.0%",
-      "ma5_recovered": false,
-      "trigger_summary": "[특징주] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반...",
-      "today_rising_fact": "[속보 기사] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반... : 알테오젠(196170)과 엠비디, 파수AI(150900)도 순매수 상위권에 이름을 올렸다. 반면 장 초반 순매수 3위였던 삼성전자우(005935)는 5위로 밀려난 뒤 상위 5위권에서 벗어났다. 순매도에서는 ...",
+      "ma5_recovered": true,
+      "trigger_summary": "[특징주] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑",
+      "today_rising_fact": "[속보 기사] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑ : 테마 내에서는 안랩(+29.96%)과 파수AI(+29.95%)가 나란히 상한가를 기록한 가운데 지니언스(+26.13%), 라온시큐어(+21.01%), 한싹(+14.91%), 에스피소프트(+14.32%) 등 ...",
       "top_article": {
-        "title": "[특징주] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반...",
+        "title": "[특징주] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑",
         "press": "증시 속보",
-        "url": "https://www.newstnt.com/news/articleView.html?idxno=730441",
-        "published_at": "2026-11-25T02:36:53.562Z"
-      },
-      "timeline": []
-    },
-    {
-      "theme_id": "radar_241",
-      "theme_name": "바이오시밀러",
-      "full_theme_name": "바이오시밀러(복제 바이오의약품)",
-      "change_rate": "+1.69%",
-      "composite_score": 67,
-      "total_stocks_count": 21,
-      "leader_stock": "삼성에피스홀딩스",
-      "leader_ratio": 11.79,
-      "sub_leader_stock": "한올바이오파마",
-      "other_stocks": [
-        "알테오젠",
-        "녹십자",
-        "삼천당제약"
-      ],
-      "sub_stocks_top3": [
-        {
-          "name": "한올바이오파마",
-          "rate": "+6.5%"
-        },
-        {
-          "name": "알테오젠",
-          "rate": "+5.7%"
-        },
-        {
-          "name": "녹십자",
-          "rate": "+5.6%"
-        }
-      ],
-      "past_trigger_reason": "[속보 기사] 삼성에피스홀딩스, 바이오시밀러 대형주 수급 유입에 13%대 급... : 글로벌 바이오시밀러 시장 성장 기대감 속에 대형주 중심의 매수세가 유입되면서 삼성에피스홀딩스가 오전장 급등하고 있다. 25일 오전 10시 39분 기준 유가증권시장에서 삼성에피스홀딩스는 전 거래일 대비 4만4...",
-      "future_momentum": "바이오시밀러 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 2167,
-      "is_real_leading": true,
-      "pullback_rate": "-25.0%",
-      "ma5_recovered": false,
-      "trigger_summary": "[특징주] 삼성에피스홀딩스, 바이오시밀러 대형주 수급 유입에 13%대 급...",
-      "today_rising_fact": "[속보 기사] 삼성에피스홀딩스, 바이오시밀러 대형주 수급 유입에 13%대 급... : 글로벌 바이오시밀러 시장 성장 기대감 속에 대형주 중심의 매수세가 유입되면서 삼성에피스홀딩스가 오전장 급등하고 있다. 25일 오전 10시 39분 기준 유가증권시장에서 삼성에피스홀딩스는 전 거래일 대비 4만4...",
-      "top_article": {
-        "title": "[특징주] 삼성에피스홀딩스, 바이오시밀러 대형주 수급 유입에 13%대 급...",
-        "press": "증시 속보",
-        "url": "https://www.widedaily.com/news/articleView.html?idxno=304695",
-        "published_at": "2026-11-25T02:36:54.053Z"
+        "url": "https://www.widedaily.com/news/articleView.html?idxno=304746",
+        "published_at": "2026-11-25T05:35:16.223Z"
       },
       "timeline": []
     },
@@ -163,44 +73,89 @@
       "theme_id": "radar_387",
       "theme_name": "블록체인",
       "full_theme_name": "블록체인",
-      "change_rate": "+0.68%",
-      "composite_score": 66,
+      "change_rate": "+2.97%",
+      "composite_score": 84,
       "total_stocks_count": 23,
       "leader_stock": "파수AI",
-      "leader_ratio": 24.96,
+      "leader_ratio": 29.95,
       "sub_leader_stock": "라온시큐어",
       "other_stocks": [
-        "위메이드",
-        "시큐브",
-        "삼성에스디에스"
+        "SGA솔루션즈",
+        "케이사인",
+        "위메이드"
       ],
       "sub_stocks_top3": [
         {
           "name": "라온시큐어",
-          "rate": "+5.4%"
+          "rate": "+15.2%"
         },
         {
-          "name": "위메이드",
-          "rate": "+2.9%"
+          "name": "SGA솔루션즈",
+          "rate": "+8.9%"
         },
         {
-          "name": "시큐브",
-          "rate": "+2.2%"
+          "name": "케이사인",
+          "rate": "+5.2%"
         }
       ],
-      "past_trigger_reason": "[속보 기사] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반... : 알테오젠(196170)과 엠비디, 파수AI(150900)도 순매수 상위권에 이름을 올렸다. 반면 장 초반 순매수 3위였던 삼성전자우(005935)는 5위로 밀려난 뒤 상위 5위권에서 벗어났다. 순매도에서는 ...",
+      "past_trigger_reason": "[속보 기사] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑ : 테마 내에서는 안랩(+29.96%)과 파수AI(+29.95%)가 나란히 상한가를 기록한 가운데 지니언스(+26.13%), 라온시큐어(+21.01%), 한싹(+14.91%), 에스피소프트(+14.32%) 등 ...",
       "future_momentum": "블록체인 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 1630,
+      "trading_value_eok": 1952,
       "is_real_leading": true,
       "pullback_rate": "-25.0%",
-      "ma5_recovered": false,
-      "trigger_summary": "[특징주] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반...",
-      "today_rising_fact": "[속보 기사] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반... : 알테오젠(196170)과 엠비디, 파수AI(150900)도 순매수 상위권에 이름을 올렸다. 반면 장 초반 순매수 3위였던 삼성전자우(005935)는 5위로 밀려난 뒤 상위 5위권에서 벗어났다. 순매도에서는 ...",
+      "ma5_recovered": true,
+      "trigger_summary": "[특징주] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑",
+      "today_rising_fact": "[속보 기사] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑ : 테마 내에서는 안랩(+29.96%)과 파수AI(+29.95%)가 나란히 상한가를 기록한 가운데 지니언스(+26.13%), 라온시큐어(+21.01%), 한싹(+14.91%), 에스피소프트(+14.32%) 등 ...",
       "top_article": {
-        "title": "[특징주] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반...",
+        "title": "[특징주] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑",
         "press": "증시 속보",
-        "url": "https://www.newstnt.com/news/articleView.html?idxno=730441",
-        "published_at": "2026-11-25T02:36:54.376Z"
+        "url": "https://www.widedaily.com/news/articleView.html?idxno=304746",
+        "published_at": "2026-11-25T05:35:16.648Z"
+      },
+      "timeline": []
+    },
+    {
+      "theme_id": "radar_566",
+      "theme_name": "딥페이크",
+      "full_theme_name": "딥페이크(deepfake)",
+      "change_rate": "+2.72%",
+      "composite_score": 82,
+      "total_stocks_count": 14,
+      "leader_stock": "파수AI",
+      "leader_ratio": 29.95,
+      "sub_leader_stock": "라온시큐어",
+      "other_stocks": [
+        "에스피소프트",
+        "샌즈랩",
+        "아이씨티케이"
+      ],
+      "sub_stocks_top3": [
+        {
+          "name": "라온시큐어",
+          "rate": "+15.2%"
+        },
+        {
+          "name": "에스피소프트",
+          "rate": "+11.2%"
+        },
+        {
+          "name": "샌즈랩",
+          "rate": "+4.4%"
+        }
+      ],
+      "past_trigger_reason": "[속보 기사] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑ : 테마 내에서는 안랩(+29.96%)과 파수AI(+29.95%)가 나란히 상한가를 기록한 가운데 지니언스(+26.13%), 라온시큐어(+21.01%), 한싹(+14.91%), 에스피소프트(+14.32%) 등 ...",
+      "future_momentum": "딥페이크 밸류체인 실질 공급 계약 및 후속 수주 기대감",
+      "trading_value_eok": 1899,
+      "is_real_leading": true,
+      "pullback_rate": "-25.0%",
+      "ma5_recovered": true,
+      "trigger_summary": "[특징주] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑",
+      "today_rising_fact": "[속보 기사] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑ : 테마 내에서는 안랩(+29.96%)과 파수AI(+29.95%)가 나란히 상한가를 기록한 가운데 지니언스(+26.13%), 라온시큐어(+21.01%), 한싹(+14.91%), 에스피소프트(+14.32%) 등 ...",
+      "top_article": {
+        "title": "[특징주] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑",
+        "press": "증시 속보",
+        "url": "https://www.widedaily.com/news/articleView.html?idxno=304746",
+        "published_at": "2026-11-25T05:35:16.998Z"
       },
       "timeline": []
     },
@@ -208,51 +163,96 @@
       "theme_id": "radar_507",
       "theme_name": "마이데이터",
       "full_theme_name": "마이데이터",
-      "change_rate": "+2.85%",
-      "composite_score": 64,
+      "change_rate": "+3.81%",
+      "composite_score": 81,
       "total_stocks_count": 12,
       "leader_stock": "파수AI",
-      "leader_ratio": 24.96,
+      "leader_ratio": 29.95,
       "sub_leader_stock": "파이오링크",
       "other_stocks": [
-        "세종텔레콤",
+        "아톤",
         "NICE평가정보",
-        "아톤"
+        "세종텔레콤"
       ],
       "sub_stocks_top3": [
         {
           "name": "파이오링크",
-          "rate": "+5.4%"
+          "rate": "+8.5%"
         },
         {
-          "name": "세종텔레콤",
-          "rate": "+3.3%"
+          "name": "아톤",
+          "rate": "+5.7%"
         },
         {
           "name": "NICE평가정보",
-          "rate": "+2.9%"
+          "rate": "+3.7%"
         }
       ],
-      "past_trigger_reason": "[속보 기사] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반... : 알테오젠(196170)과 엠비디, 파수AI(150900)도 순매수 상위권에 이름을 올렸다. 반면 장 초반 순매수 3위였던 삼성전자우(005935)는 5위로 밀려난 뒤 상위 5위권에서 벗어났다. 순매도에서는 ...",
+      "past_trigger_reason": "[속보 기사] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑ : 테마 내에서는 안랩(+29.96%)과 파수AI(+29.95%)가 나란히 상한가를 기록한 가운데 지니언스(+26.13%), 라온시큐어(+21.01%), 한싹(+14.91%), 에스피소프트(+14.32%) 등 ...",
       "future_momentum": "마이데이터 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 1017,
+      "trading_value_eok": 1607,
       "is_real_leading": true,
       "pullback_rate": "-25.0%",
       "ma5_recovered": true,
-      "trigger_summary": "[특징주] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반...",
-      "today_rising_fact": "[속보 기사] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반... : 알테오젠(196170)과 엠비디, 파수AI(150900)도 순매수 상위권에 이름을 올렸다. 반면 장 초반 순매수 3위였던 삼성전자우(005935)는 5위로 밀려난 뒤 상위 5위권에서 벗어났다. 순매도에서는 ...",
+      "trigger_summary": "[특징주] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑",
+      "today_rising_fact": "[속보 기사] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑ : 테마 내에서는 안랩(+29.96%)과 파수AI(+29.95%)가 나란히 상한가를 기록한 가운데 지니언스(+26.13%), 라온시큐어(+21.01%), 한싹(+14.91%), 에스피소프트(+14.32%) 등 ...",
       "top_article": {
-        "title": "[특징주] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반...",
+        "title": "[특징주] 모니터랩, CIA 해킹 피해 소식에 보안주 매수세 집중…10%↑",
         "press": "증시 속보",
-        "url": "https://www.newstnt.com/news/articleView.html?idxno=730441",
-        "published_at": "2026-11-25T02:36:54.694Z"
+        "url": "https://www.widedaily.com/news/articleView.html?idxno=304746",
+        "published_at": "2026-11-25T05:35:17.266Z"
+      },
+      "timeline": []
+    },
+    {
+      "theme_id": "radar_110",
+      "theme_name": "화장품",
+      "full_theme_name": "화장품",
+      "change_rate": "+1.72%",
+      "composite_score": 79,
+      "total_stocks_count": 95,
+      "leader_stock": "뷰티스킨",
+      "leader_ratio": 26.8,
+      "sub_leader_stock": "한국화장품제조",
+      "other_stocks": [
+        "코스메카코리아",
+        "코스맥스",
+        "실리콘투"
+      ],
+      "sub_stocks_top3": [
+        {
+          "name": "한국화장품제조",
+          "rate": "+11.8%"
+        },
+        {
+          "name": "코스메카코리아",
+          "rate": "+11.7%"
+        },
+        {
+          "name": "코스맥스",
+          "rate": "+11.5%"
+        }
+      ],
+      "past_trigger_reason": "[속보 기사] 한국화장품제조, 연말 성수기·한중 FTA 수혜 기대감에 12%대 급... : 테마 내에서는 뷰티스킨(+24.74%), 실리콘투(+12.79%), 코스맥스(+11.66%), 에이피알(+11.57%), 엘앤씨바이오(+11.30%), 코스메카코리아(+10.83%) 등이 동반 강세를 나타냈...",
+      "future_momentum": "화장품 밸류체인 실질 공급 계약 및 후속 수주 기대감",
+      "trading_value_eok": 2444,
+      "is_real_leading": true,
+      "pullback_rate": "-25.0%",
+      "ma5_recovered": false,
+      "trigger_summary": "[특징주] 한국화장품제조, 연말 성수기·한중 FTA 수혜 기대감에 12%대 급...",
+      "today_rising_fact": "[속보 기사] 한국화장품제조, 연말 성수기·한중 FTA 수혜 기대감에 12%대 급... : 테마 내에서는 뷰티스킨(+24.74%), 실리콘투(+12.79%), 코스맥스(+11.66%), 에이피알(+11.57%), 엘앤씨바이오(+11.30%), 코스메카코리아(+10.83%) 등이 동반 강세를 나타냈...",
+      "top_article": {
+        "title": "[특징주] 한국화장품제조, 연말 성수기·한중 FTA 수혜 기대감에 12%대 급...",
+        "press": "증시 속보",
+        "url": "https://www.widedaily.com/news/articleView.html?idxno=304741",
+        "published_at": "2026-11-25T05:35:17.645Z"
       },
       "timeline": []
     }
   ],
   "pullback_themes": [
     {
-      "theme_id": "pb_1795574215154_5w6b",
+      "theme_id": "pb_1795584918037_fm7j",
       "theme_name": "조선 및 조선기자재",
       "leader_stock": "한화오션",
       "pullback_rate": "-26.4%",
@@ -264,11 +264,11 @@
         "title": "[특징주] 외국인 대한광통신·휴림로봇, 기관 삼성전자·심텍홀딩스 순...",
         "press": "증시 속보",
         "url": "https://www.newstnt.com/news/articleView.html?idxno=730132",
-        "published_at": "2026-11-25T02:36:55.154Z"
+        "published_at": "2026-11-25T05:35:18.037Z"
       }
     },
     {
-      "theme_id": "pb_1795574215612_m10k",
+      "theme_id": "pb_1795584918419_mw4t",
       "theme_name": "원자력발전 및 SMR",
       "leader_stock": "성광벤드",
       "pullback_rate": "-34.8%",
@@ -280,7 +280,7 @@
         "title": "'어닝쇼크' 성광벤드, 신저가 경신...목표가 4.3만원→4만원",
         "press": "증시 속보",
         "url": "https://www.mt.co.kr/stock/2026/11/09/2026110909275097483",
-        "published_at": "2026-11-25T02:36:55.612Z"
+        "published_at": "2026-11-25T05:35:18.419Z"
       }
     }
   ],

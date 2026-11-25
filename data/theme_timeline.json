@@ -46,149 +46,6 @@
       ]
     },
     {
-      "theme_id": "hbm_glass",
-      "theme_name": "차세대 HBM4 & 유리기판",
-      "category": "반도체/AI",
-      "today_score": 96,
-      "today_change_rate": "+8.45%",
-      "today_trading_volume": "1조 8,400억",
-      "lead_stocks": [
-        "SK하이닉스",
-        "와이씨",
-        "에프에스티",
-        "필옵틱스"
-      ],
-      "today_reason": "엔비디아 차세대 AI 가속기 로드맵 가속화 및 유리기판/HBM4 장비 공급망 수급 집중",
-      "timeline": [
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-25",
-          "news_title": "코스피 5000선 붕괴…삼성전자·SK하이닉스 6%대 급락",
-          "news_url": "http://www.newskr.kr/news/articleView.html?idxno=108284",
-          "press": "센트럴경제",
-          "impact": "단기 조정"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "한화에어로스페이스",
-          "date": "2026-11-24",
-          "news_title": "삼성전자·SK하이닉스 거래대금 감소…비중 50.69%",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795532541693450276",
-          "press": "광주매일신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-23",
-          "news_title": "삼성전자·SK하이닉스 거래대금 7조7천억…11.2% 증가",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795435081693317276",
-          "press": "광주매일신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-23",
-          "news_title": "삼성전자·SK하이닉스 4조원대 거래…전 거래일 대비 36.6% 증가",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795405751693186276",
-          "press": "광주매일신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "한화에어로스페이스",
-          "date": "2026-11-20",
-          "news_title": "삼성전자·SK하이닉스 거래대금 23% 증가…반도체주 집중",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795174811693007276",
-          "press": "광주매일신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "한화에어로스페이스",
-          "date": "2026-11-20",
-          "news_title": "삼성전자·SK하이닉스 인버스 ETF 12%대 상승",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795188663692999276",
-          "press": "광주매일신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-20",
-          "news_title": "삼성전자·SK하이닉스 거래 24.78% 급감…상위 50종목도 위축",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795144275692970276",
-          "press": "광주매일신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "LIG넥스원",
-          "date": "2026-11-19",
-          "news_title": "미중러 정상회담에도 반도체·관세 합의 없었다…삼성전자·SK하이닉스...",
-          "news_url": "https://www.topstarnews.net/news/articleView.html?idxno=16281009",
-          "press": "톱스타뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-19",
-          "news_title": "코스피 5090선 강보합…삼전·SK하이닉스 상승 전환",
-          "news_url": "https://www.etoday.co.kr/news/view/2650325",
-          "press": "이투데이",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-18",
-          "news_title": "삼성전자·SK하이닉스 거래대금 비중 축소…전체 15조 육박",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795003038692854276",
-          "press": "광주매일신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-18",
-          "news_title": "휴머노이드 ETF 9%대 급등…SK하이닉스 레버리지 8%대 상승",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795015708692758276",
-          "press": "광주매일신문",
-          "impact": "강한 상승"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "한화에어로스페이스",
-          "date": "2026-11-17",
-          "news_title": "삼성전자·SK하이닉스 거래대금 7조4천억원…비중 53%로 하락",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1794917771692713276",
-          "press": "광주매일신문",
-          "impact": "단기 조정"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-16",
-          "news_title": "코스피 3%대 급락해 5120선⋯삼성전자 4%·SK하이닉스 6%↓",
-          "news_url": "https://www.etoday.co.kr/news/view/2648652",
-          "press": "이투데이",
-          "impact": "단기 조정"
-        },
-        {
-          "theme": "차세대 HBM4 & 유리기판",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-16",
-          "news_title": "코스피 5100선까지 밀려…SK하이닉스 6%대 급락",
-          "news_url": "https://www.edaily.co.kr/News/Read?newsId=02296006645646376&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article",
-          "press": "이데일리",
-          "impact": "단기 조정"
-        }
-      ]
-    },
-    {
       "theme_id": "ai_dc_hardware",
       "theme_name": "AI데이터센터 - 반도체/하드웨어",
       "category": "AI 데이터센터 인프라",
@@ -393,6 +250,42 @@
       ],
       "today_reason": "루마니아·폴란드 후속 탄약운반차 및 전차 2차 실행계약 연내 체결 임박에 따른 수주 랠리",
       "timeline": [
+        {
+          "theme": "K-방산 수출 & 자주포/미사일",
+          "target_stock": "현대로템",
+          "date": "2026-11-25",
+          "news_title": "K방산 상생금융 8200억 협약에 LIG·신한은 왜 빠졌을까",
+          "news_url": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=721284",
+          "press": "뉴스프리존",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "K-방산 수출 & 자주포/미사일",
+          "target_stock": "현대로템",
+          "date": "2026-11-25",
+          "news_title": "K-방산 곳간 줄고, K-조선 수주는 작년 실적 넘어",
+          "news_url": "https://www.dnews.co.kr/uhtml/view.jsp?idxno=202611241440450640401",
+          "press": "대한경제",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "K-방산 수출 & 자주포/미사일",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-25",
+          "news_title": "대전시의회 조성칠 의장 \"대전을 대한민국 미래 국방산업의 혁신거점으...",
+          "news_url": "https://www.ccdn.co.kr/news/articleView.html?idxno=1113357",
+          "press": "충청매일",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "K-방산 수출 & 자주포/미사일",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-25",
+          "news_title": "한화에어로스페이스 63만7000원…장중 저점서 2만2000원 올라",
+          "news_url": "https://www.job-post.co.kr/news/articleView.html?idxno=240875",
+          "press": "잡포스트",
+          "impact": "모멘텀 지속"
+        },
         {
           "theme": "K-방산 수출 & 자주포/미사일",
           "target_stock": "한국항공우주",
@@ -801,6 +694,149 @@
       ]
     },
     {
+      "theme_id": "hbm_glass",
+      "theme_name": "차세대 HBM4 & 유리기판",
+      "category": "반도체/AI",
+      "today_score": 94,
+      "today_change_rate": "+8.45%",
+      "today_trading_volume": "1조 8,400억",
+      "lead_stocks": [
+        "SK하이닉스",
+        "와이씨",
+        "에프에스티",
+        "필옵틱스"
+      ],
+      "today_reason": "엔비디아 차세대 AI 가속기 로드맵 가속화 및 유리기판/HBM4 장비 공급망 수급 집중",
+      "timeline": [
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-25",
+          "news_title": "코스피 5000선 붕괴…삼성전자·SK하이닉스 6%대 급락",
+          "news_url": "http://www.newskr.kr/news/articleView.html?idxno=108284",
+          "press": "센트럴경제",
+          "impact": "단기 조정"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-24",
+          "news_title": "삼성전자·SK하이닉스 거래대금 감소…비중 50.69%",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795532541693450276",
+          "press": "광주매일신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-23",
+          "news_title": "삼성전자·SK하이닉스 거래대금 7조7천억…11.2% 증가",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795435081693317276",
+          "press": "광주매일신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-23",
+          "news_title": "삼성전자·SK하이닉스 4조원대 거래…전 거래일 대비 36.6% 증가",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795405751693186276",
+          "press": "광주매일신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-20",
+          "news_title": "삼성전자·SK하이닉스 거래대금 23% 증가…반도체주 집중",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795174811693007276",
+          "press": "광주매일신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-20",
+          "news_title": "삼성전자·SK하이닉스 인버스 ETF 12%대 상승",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795188663692999276",
+          "press": "광주매일신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-20",
+          "news_title": "삼성전자·SK하이닉스 거래 24.78% 급감…상위 50종목도 위축",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795144275692970276",
+          "press": "광주매일신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "LIG넥스원",
+          "date": "2026-11-19",
+          "news_title": "미중러 정상회담에도 반도체·관세 합의 없었다…삼성전자·SK하이닉스...",
+          "news_url": "https://www.topstarnews.net/news/articleView.html?idxno=16281009",
+          "press": "톱스타뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-19",
+          "news_title": "코스피 5090선 강보합…삼전·SK하이닉스 상승 전환",
+          "news_url": "https://www.etoday.co.kr/news/view/2650325",
+          "press": "이투데이",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-18",
+          "news_title": "삼성전자·SK하이닉스 거래대금 비중 축소…전체 15조 육박",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795003038692854276",
+          "press": "광주매일신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-18",
+          "news_title": "휴머노이드 ETF 9%대 급등…SK하이닉스 레버리지 8%대 상승",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795015708692758276",
+          "press": "광주매일신문",
+          "impact": "강한 상승"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-17",
+          "news_title": "삼성전자·SK하이닉스 거래대금 7조4천억원…비중 53%로 하락",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1794917771692713276",
+          "press": "광주매일신문",
+          "impact": "단기 조정"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-16",
+          "news_title": "코스피 3%대 급락해 5120선⋯삼성전자 4%·SK하이닉스 6%↓",
+          "news_url": "https://www.etoday.co.kr/news/view/2648652",
+          "press": "이투데이",
+          "impact": "단기 조정"
+        },
+        {
+          "theme": "차세대 HBM4 & 유리기판",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-16",
+          "news_title": "코스피 5100선까지 밀려…SK하이닉스 6%대 급락",
+          "news_url": "https://www.edaily.co.kr/News/Read?newsId=02296006645646376&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article",
+          "press": "이데일리",
+          "impact": "단기 조정"
+        }
+      ]
+    },
+    {
       "theme_id": "ai_dc_ess",
       "theme_name": "AI데이터센터 - ESS(에너지저장장치, BESS)",
       "category": "AI 데이터센터 인프라",
@@ -1130,10 +1166,116 @@
       ]
     },
     {
+      "theme_id": "glp1_bio",
+      "theme_name": "비만치료제 GLP-1 & 경구용 펩타이드",
+      "category": "바이오/제약",
+      "today_score": 91,
+      "today_change_rate": "+6.12%",
+      "today_trading_volume": "9,200억",
+      "lead_stocks": [
+        "삼천당제약",
+        "인벤티지랩",
+        "디앤디파마텍",
+        "펩트론"
+      ],
+      "today_reason": "글로벌 제약사 기술수출 본계약 협상 및 주사제가 아닌 먹는 비만약(경구용) 상용화 기대감 고조",
+      "timeline": [
+        {
+          "theme": "비만치료제 GLP-1 & 경구용 펩타이드",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-18",
+          "news_title": "KT, 서울대병원과 AI 로봇 의료 현장 실증 추진…비임상 서비스 적용",
+          "news_url": "https://www.cstimes.com/news/articleView.html?idxno=728359",
+          "press": "컨슈머타임스",
+          "impact": "모멘텀 지속"
+        }
+      ]
+    },
+    {
+      "theme_id": "custom_defense_2026",
+      "theme_name": "방산",
+      "category": "방산/안보",
+      "today_change_rate": "+3.90%",
+      "today_score": 91,
+      "lead_stocks": [
+        "한화에어로스페이스",
+        "현대로템",
+        "한화시스템",
+        "LIG넥스원"
+      ],
+      "risks_summary": "폴란드 정권 교체 및 금융지원 한도 소진에 따른 2차 계약 지연, 유럽 EDIS 무기 블록화",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "한국경제",
+          "news_title": "[호재] 현대로템 루마니아 K2 전차 2.8조 수출 기본계약 및 폴란드 K9 추가 실행계약 가시화",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=현대로템+한화에어로스페이스+방산+수출",
+          "summary": "동유럽 및 중동 안보 위기 고조로 대한민국 K-방산 납기 경쟁력 부각되며 수주 랠리"
+        },
+        {
+          "date": "2026-11-01",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "연합뉴스",
+          "news_title": "[⚠️ 계약 악재] 폴란드 수출입은행 2차 금융지원 법안 국회 심사 지연… 잔여 계약 체결 차질 우려",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=폴란드+방산+금융지원+지연+수출입은행",
+          "summary": "수출금융 한도 증액 후속 절차 지연 시 현대로템 K2 2차 본계약 이행 시기 지연 가능성"
+        },
+        {
+          "date": "2026-10-29",
+          "stage": "증권사 리포트",
+          "impact_type": "GOOD",
+          "is_report": true,
+          "press": "메리츠증권",
+          "news_title": "[리포트] 현대로템, K2 전차 3분기 실적 어닝 서프라이즈 및 루마니아 차기 전차 도입 유력",
+          "news_url": "https://finance.naver.com/research/company_list.naver?keyword=현대로템",
+          "summary": "투자의견: Buy(상향) | 목표가 68,000원 | 글로벌 방산 수주잔고 사상 최대치 경신"
+        }
+      ]
+    },
+    {
+      "theme_id": "radar_586",
+      "theme_name": "광통신",
+      "category": "통신",
+      "today_change_rate": "+5.10%",
+      "today_score": 91,
+      "lead_stocks": [
+        "대한광통신",
+        "옵티코어",
+        "오이솔루션",
+        "우리로"
+      ],
+      "risks_summary": "광섬유 모재 가격 하락 및 중국산 저가 광케이블 글로벌 유입 경쟁",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "시장 판도 레이더",
+          "news_title": "[호재] AI 데이터센터 초고속 광트랜시버 수요 폭증… 광통신 섹터 수급 유입",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=광통신+대한광통신+옵티코어",
+          "summary": "대장주: 옵티코어, 대한광통신 | 초고속 광전송 모듈 단가 상승으로 마진 회복세"
+        },
+        {
+          "date": "2026-10-30",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "전자신문",
+          "news_title": "[⚠️ 판가 악재] 중국 양쯔광학(YOFC) 저가 광섬유 덤핑 출회… 동남아 시장 판가 하락",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=광섬유+덤핑+판가하락+중국",
+          "summary": "범용 광케이블 제품의 판가 하락 압력으로 고부가가치 AI 데이터센터용 특수 광케이블 비중 확대 필요"
+        }
+      ]
+    },
+    {
       "theme_id": "robot_ai",
       "theme_name": "로봇용 액추에이터 & 피지컬 AI",
       "category": "로봇/AI",
-      "today_score": 91,
+      "today_score": 89,
       "today_change_rate": "+3.90%",
       "today_trading_volume": "5,400억",
       "lead_stocks": [
@@ -1144,6 +1286,15 @@
       ],
       "today_reason": "빅테크 제조 라인 내 휴머노이드 투입 및 정밀 감속기 부품 국산화 양산 납품 본격화",
       "timeline": [
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-25",
+          "news_title": "뉴로메카, 휴머노이드 수술 보조 실증 성공…의료로봇 사업 확대",
+          "news_url": "https://www.hellot.net/news/article.html?no=116603",
+          "press": "헬로티",
+          "impact": "모멘텀 지속"
+        },
         {
           "theme": "로봇용 액추에이터 & 피지컬 AI",
           "target_stock": "뉴로메카",
@@ -1732,112 +1883,6 @@
       ]
     },
     {
-      "theme_id": "glp1_bio",
-      "theme_name": "비만치료제 GLP-1 & 경구용 펩타이드",
-      "category": "바이오/제약",
-      "today_score": 91,
-      "today_change_rate": "+6.12%",
-      "today_trading_volume": "9,200억",
-      "lead_stocks": [
-        "삼천당제약",
-        "인벤티지랩",
-        "디앤디파마텍",
-        "펩트론"
-      ],
-      "today_reason": "글로벌 제약사 기술수출 본계약 협상 및 주사제가 아닌 먹는 비만약(경구용) 상용화 기대감 고조",
-      "timeline": [
-        {
-          "theme": "비만치료제 GLP-1 & 경구용 펩타이드",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-18",
-          "news_title": "KT, 서울대병원과 AI 로봇 의료 현장 실증 추진…비임상 서비스 적용",
-          "news_url": "https://www.cstimes.com/news/articleView.html?idxno=728359",
-          "press": "컨슈머타임스",
-          "impact": "모멘텀 지속"
-        }
-      ]
-    },
-    {
-      "theme_id": "custom_defense_2026",
-      "theme_name": "방산",
-      "category": "방산/안보",
-      "today_change_rate": "+3.90%",
-      "today_score": 91,
-      "lead_stocks": [
-        "한화에어로스페이스",
-        "현대로템",
-        "한화시스템",
-        "LIG넥스원"
-      ],
-      "risks_summary": "폴란드 정권 교체 및 금융지원 한도 소진에 따른 2차 계약 지연, 유럽 EDIS 무기 블록화",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "한국경제",
-          "news_title": "[호재] 현대로템 루마니아 K2 전차 2.8조 수출 기본계약 및 폴란드 K9 추가 실행계약 가시화",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=현대로템+한화에어로스페이스+방산+수출",
-          "summary": "동유럽 및 중동 안보 위기 고조로 대한민국 K-방산 납기 경쟁력 부각되며 수주 랠리"
-        },
-        {
-          "date": "2026-11-01",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "연합뉴스",
-          "news_title": "[⚠️ 계약 악재] 폴란드 수출입은행 2차 금융지원 법안 국회 심사 지연… 잔여 계약 체결 차질 우려",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=폴란드+방산+금융지원+지연+수출입은행",
-          "summary": "수출금융 한도 증액 후속 절차 지연 시 현대로템 K2 2차 본계약 이행 시기 지연 가능성"
-        },
-        {
-          "date": "2026-10-29",
-          "stage": "증권사 리포트",
-          "impact_type": "GOOD",
-          "is_report": true,
-          "press": "메리츠증권",
-          "news_title": "[리포트] 현대로템, K2 전차 3분기 실적 어닝 서프라이즈 및 루마니아 차기 전차 도입 유력",
-          "news_url": "https://finance.naver.com/research/company_list.naver?keyword=현대로템",
-          "summary": "투자의견: Buy(상향) | 목표가 68,000원 | 글로벌 방산 수주잔고 사상 최대치 경신"
-        }
-      ]
-    },
-    {
-      "theme_id": "radar_586",
-      "theme_name": "광통신",
-      "category": "통신",
-      "today_change_rate": "+5.10%",
-      "today_score": 91,
-      "lead_stocks": [
-        "대한광통신",
-        "옵티코어",
-        "오이솔루션",
-        "우리로"
-      ],
-      "risks_summary": "광섬유 모재 가격 하락 및 중국산 저가 광케이블 글로벌 유입 경쟁",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "시장 판도 레이더",
-          "news_title": "[호재] AI 데이터센터 초고속 광트랜시버 수요 폭증… 광통신 섹터 수급 유입",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=광통신+대한광통신+옵티코어",
-          "summary": "대장주: 옵티코어, 대한광통신 | 초고속 광전송 모듈 단가 상승으로 마진 회복세"
-        },
-        {
-          "date": "2026-10-30",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "전자신문",
-          "news_title": "[⚠️ 판가 악재] 중국 양쯔광학(YOFC) 저가 광섬유 덤핑 출회… 동남아 시장 판가 하락",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=광섬유+덤핑+판가하락+중국",
-          "summary": "범용 광케이블 제품의 판가 하락 압력으로 고부가가치 AI 데이터센터용 특수 광케이블 비중 확대 필요"
-        }
-      ]
-    },
-    {
       "theme_id": "ai_dc_cloud",
       "theme_name": "AI데이터센터 - 클라우드 및 운영 소프트웨어 (CSP / MSP)",
       "category": "AI 데이터센터 인프라",
@@ -2224,10 +2269,89 @@
       ]
     },
     {
+      "theme_id": "radar_269",
+      "theme_name": "LED장비",
+      "category": "IT부품",
+      "today_change_rate": "+2.80%",
+      "today_score": 84,
+      "lead_stocks": [
+        "서울반도체",
+        "루멘스",
+        "영우디에스피",
+        "프로텍"
+      ],
+      "risks_summary": "중국 디스플레이 업계의 저가 마이크로LED 패널 공세 및 글로벌 TV 세트 판매 둔화",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "시장 판도 레이더",
+          "news_title": "[호재] 마이크로LED 및 자동차 전장용 지능형 헤드램프 LED 채택율 급증",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=서울반도체+마이크로LED+전장",
+          "summary": "대장주: 서울반도체 | 고수익성 전장용 와이캅(WICOP) LED 특허 경쟁력 부각"
+        },
+        {
+          "date": "2026-10-29",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "디일렉",
+          "news_title": "[⚠️ 수요 악재] 글로벌 스마트워치 및 대형 TV용 마이크로LED 양산 원가 한계… 도입 시기 지연",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=마이크로LED+원가한계+양산지연",
+          "summary": "높은 칩 전사(Transfer) 비용으로 인해 프리미엄 가전 외 일반 상용화 확산 지체"
+        }
+      ]
+    },
+    {
+      "theme_id": "battery_solid",
+      "theme_name": "2차전지 전고체 & 실리콘 음극재",
+      "category": "2차전지/소재",
+      "today_score": 84,
+      "today_change_rate": "+3.40%",
+      "today_trading_volume": "5,200억",
+      "lead_stocks": [
+        "이수스페셜티케미컬",
+        "레이크머티리얼즈",
+        "대주전자재료",
+        "포스코홀딩스"
+      ],
+      "today_reason": "꿈의 배터리 전고체 배터리 핵심 원료 고객사 납품 승인 및 차세대 음극재 채택 확대",
+      "timeline": [
+        {
+          "theme": "2차전지 전고체 & 실리콘 음극재",
+          "target_stock": "한화시스템",
+          "date": "2026-11-25",
+          "news_title": "공매도 비중 상위 10개 중 절반이 2차전지주…'공매도 놀이터' 됐나 [fn마...",
+          "news_url": "https://www.fnnews.com/news/202611251354031931",
+          "press": "파이낸셜뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "2차전지 전고체 & 실리콘 음극재",
+          "target_stock": "한화시스템",
+          "date": "2026-11-19",
+          "news_title": "[IPO 전망대] 북미 배터리 수주 발판 삼아 유럽·미 반도체까지… 솔리...",
+          "news_url": "https://www.cbci.co.kr/news/articleView.html?idxno=628823",
+          "press": "CBC뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "2차전지 전고체 & 실리콘 음극재",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-18",
+          "news_title": "[Space Tech Expo Europe 2026] 일켐, 규격 셀로 만든 우주용 배터리팩…...",
+          "news_url": "https://kr.aving.net/news/articleView.html?idxno=1817187",
+          "press": "에이빙뉴스",
+          "impact": "모멘텀 지속"
+        }
+      ]
+    },
+    {
       "theme_id": "valueup_finance",
       "theme_name": "밸류업 지배구조 & 금융/지주사",
       "category": "정책/금융",
-      "today_score": 86,
+      "today_score": 82,
       "today_change_rate": "+2.10%",
       "today_trading_volume": "6,100억",
       "lead_stocks": [
@@ -2275,77 +2399,7 @@
           "impact": "모멘텀 지속"
         }
       ]
-    },
-    {
-      "theme_id": "radar_269",
-      "theme_name": "LED장비",
-      "category": "IT부품",
-      "today_change_rate": "+2.80%",
-      "today_score": 84,
-      "lead_stocks": [
-        "서울반도체",
-        "루멘스",
-        "영우디에스피",
-        "프로텍"
-      ],
-      "risks_summary": "중국 디스플레이 업계의 저가 마이크로LED 패널 공세 및 글로벌 TV 세트 판매 둔화",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "시장 판도 레이더",
-          "news_title": "[호재] 마이크로LED 및 자동차 전장용 지능형 헤드램프 LED 채택율 급증",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=서울반도체+마이크로LED+전장",
-          "summary": "대장주: 서울반도체 | 고수익성 전장용 와이캅(WICOP) LED 특허 경쟁력 부각"
-        },
-        {
-          "date": "2026-10-29",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "디일렉",
-          "news_title": "[⚠️ 수요 악재] 글로벌 스마트워치 및 대형 TV용 마이크로LED 양산 원가 한계… 도입 시기 지연",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=마이크로LED+원가한계+양산지연",
-          "summary": "높은 칩 전사(Transfer) 비용으로 인해 프리미엄 가전 외 일반 상용화 확산 지체"
-        }
-      ]
-    },
-    {
-      "theme_id": "battery_solid",
-      "theme_name": "2차전지 전고체 & 실리콘 음극재",
-      "category": "2차전지/소재",
-      "today_score": 80,
-      "today_change_rate": "+3.40%",
-      "today_trading_volume": "5,200억",
-      "lead_stocks": [
-        "이수스페셜티케미컬",
-        "레이크머티리얼즈",
-        "대주전자재료",
-        "포스코홀딩스"
-      ],
-      "today_reason": "꿈의 배터리 전고체 배터리 핵심 원료 고객사 납품 승인 및 차세대 음극재 채택 확대",
-      "timeline": [
-        {
-          "theme": "2차전지 전고체 & 실리콘 음극재",
-          "target_stock": "한화시스템",
-          "date": "2026-11-19",
-          "news_title": "[IPO 전망대] 북미 배터리 수주 발판 삼아 유럽·미 반도체까지… 솔리...",
-          "news_url": "https://www.cbci.co.kr/news/articleView.html?idxno=628823",
-          "press": "CBC뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "2차전지 전고체 & 실리콘 음극재",
-          "target_stock": "한화에어로스페이스",
-          "date": "2026-11-18",
-          "news_title": "[Space Tech Expo Europe 2026] 일켐, 규격 셀로 만든 우주용 배터리팩…...",
-          "news_url": "https://kr.aving.net/news/articleView.html?idxno=1817187",
-          "press": "에이빙뉴스",
-          "impact": "모멘텀 지속"
-        }
-      ]
     }
   ],
-  "last_updated": "2026-11-25T02:37:08.962Z"
+  "last_updated": "2026-11-25T05:35:30.384Z"
 }
