@@ -1,6 +1,6 @@
 {
   "version": "3.0.0",
-  "updated_at": "2026-11-25 03:59:41",
+  "updated_at": "2026-11-25 11:37:09",
   "reference_date": "2026-11-25",
   "approved_events": [
     {
@@ -493,6 +493,24 @@
       "desc": "정부가 국내 증시 변동성에 대응하기 위해 24일부터 내년 2월 23일까지 3개월간 상장사의 1일 자사주 매수주문 수량 한도를 전면 완화한다. 기업들이 자사주를 적극적으로 매입해 주가 하락을 방어하고 증시 안정을 도모",
       "press": "이데일리",
       "sourceTitle": "상장사 ‘자사주 매입 빗장’ 풀었지만…지수 방어 효과는 의문",
+      "sourceUrl": "https://n.news.naver.com/mnews/article/018/0006414914",
+      "news_url": "https://n.news.naver.com/mnews/article/018/0006414914",
+      "detectedAt": "2026-11-25",
+      "status": "pending",
+      "diff_days": 90,
+      "d_day": "D-90"
+    },
+    {
+      "id": "news_evt_20270223_1ajp8zn",
+      "title": "자사주 풀매수로 코스피 방어?…결국 삼전·닉스에 달렸다",
+      "date": "2027-02-23",
+      "dateDisplay": "2027-02-23 (화)",
+      "category": "산업·정책",
+      "tag": "산업·정책",
+      "key_point": "정부가 국내 증시 변동성에 대응하기 위해 24일부터 내년 2월 23일까지 3개월간 상장사의 1일 자사주 매수주문 수량 한도를 전면 완화한다. 기업들이 자사주를 적극적으로 매입해 주가 하락을 방어하고 증시 안정을 도모",
+      "desc": "정부가 국내 증시 변동성에 대응하기 위해 24일부터 내년 2월 23일까지 3개월간 상장사의 1일 자사주 매수주문 수량 한도를 전면 완화한다. 기업들이 자사주를 적극적으로 매입해 주가 하락을 방어하고 증시 안정을 도모",
+      "press": "이데일리",
+      "sourceTitle": "자사주 풀매수로 코스피 방어?…결국 삼전·닉스에 달렸다",
       "sourceUrl": "https://n.news.naver.com/mnews/article/018/0006414914",
       "news_url": "https://n.news.naver.com/mnews/article/018/0006414914",
       "detectedAt": "2026-11-25",

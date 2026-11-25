@@ -1,16 +1,16 @@
 {
   "success": true,
-  "updated_at": "2026-11-24T18:59:27.742Z",
+  "updated_at": "2026-11-25T02:36:55.612Z",
   "market_overview": {
     "kospi": {
       "value": "2,680.50",
-      "change_rate": "+6.32%",
-      "is_up": true
+      "change_rate": "-5.61%",
+      "is_up": false
     },
     "kosdaq": {
       "value": "875.20",
-      "change_rate": "+4.79%",
-      "is_up": true
+      "change_rate": "-2.44%",
+      "is_up": false
     },
     "investor_trend": {
       "kospi": {
@@ -25,234 +25,234 @@
   },
   "top_themes": [
     {
-      "theme_id": "radar_505",
-      "theme_name": "로봇",
-      "full_theme_name": "로봇(산업용/협동로봇 등)",
-      "change_rate": "+6.41%",
-      "composite_score": 99,
-      "total_stocks_count": 77,
-      "leader_stock": "KH바텍",
-      "leader_ratio": 29.96,
-      "sub_leader_stock": "휴림로봇",
+      "theme_id": "radar_110",
+      "theme_name": "화장품",
+      "full_theme_name": "화장품",
+      "change_rate": "+2.33%",
+      "composite_score": 82,
+      "total_stocks_count": 95,
+      "leader_stock": "뷰티스킨",
+      "leader_ratio": 26.55,
+      "sub_leader_stock": "실리콘투",
       "other_stocks": [
-        "아이티엠반도체",
-        "한국피아이엠",
-        "에스피지"
+        "한국화장품",
+        "한국화장품제조",
+        "코스메카코리아"
       ],
       "sub_stocks_top3": [
         {
-          "name": "휴림로봇",
-          "rate": "+29.9%"
+          "name": "실리콘투",
+          "rate": "+16.1%"
         },
         {
-          "name": "아이티엠반도체",
-          "rate": "+29.9%"
+          "name": "한국화장품",
+          "rate": "+15.1%"
         },
         {
-          "name": "한국피아이엠",
-          "rate": "+24.9%"
+          "name": "한국화장품제조",
+          "rate": "+12.2%"
         }
       ],
-      "past_trigger_reason": "[속보 기사] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상... : 아이씨에이치(30.00%), KH바텍(29.96%), 아이티엠반도체(29.88%), 한국피아이엠(29.87%) 등도 상한가를 기록 중이다. 로봇 대장주로 꼽히는 레인보우로보틱스는 19.28% 오른 47만95...",
-      "future_momentum": "로봇 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 6747,
+      "past_trigger_reason": "[속보 기사] 제닉, 반도체 약세 속 화장품 테마 수급 쏠림에 1만6,700원선 돌... : 테마 내에서는 뷰티스킨(+24.74%), 실리콘투(+14.53%), 한국화장품(+12.76%), 본느(+11.28%), 에이피알(+9.87%), 코스메카코리아(+9.78%) 등이 일제히 강세를 보였다. 20...",
+      "future_momentum": "화장품 밸류체인 실질 공급 계약 및 후속 수주 기대감",
+      "trading_value_eok": 3043,
       "is_real_leading": true,
       "pullback_rate": "-25.0%",
       "ma5_recovered": true,
-      "trigger_summary": "[특징주] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상...",
-      "today_rising_fact": "[속보 기사] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상... : 아이씨에이치(30.00%), KH바텍(29.96%), 아이티엠반도체(29.88%), 한국피아이엠(29.87%) 등도 상한가를 기록 중이다. 로봇 대장주로 꼽히는 레인보우로보틱스는 19.28% 오른 47만95...",
+      "trigger_summary": "[특징주] 제닉, 반도체 약세 속 화장품 테마 수급 쏠림에 1만6,700원선 돌...",
+      "today_rising_fact": "[속보 기사] 제닉, 반도체 약세 속 화장품 테마 수급 쏠림에 1만6,700원선 돌... : 테마 내에서는 뷰티스킨(+24.74%), 실리콘투(+14.53%), 한국화장품(+12.76%), 본느(+11.28%), 에이피알(+9.87%), 코스메카코리아(+9.78%) 등이 일제히 강세를 보였다. 20...",
       "top_article": {
-        "title": "[특징주] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상...",
+        "title": "[특징주] 제닉, 반도체 약세 속 화장품 테마 수급 쏠림에 1만6,700원선 돌...",
         "press": "증시 속보",
-        "url": "https://www.ajunews.com/view/20261124133936063",
-        "published_at": "2026-11-24T18:59:24.995Z"
+        "url": "https://www.widedaily.com/news/articleView.html?idxno=304732",
+        "published_at": "2026-11-25T02:36:53.180Z"
       },
       "timeline": []
     },
     {
-      "theme_id": "radar_587",
-      "theme_name": "피지컬 AI/휴머노이드 로봇",
-      "full_theme_name": "피지컬 AI/휴머노이드 로봇",
-      "change_rate": "+6.23%",
-      "composite_score": 99,
-      "total_stocks_count": 49,
-      "leader_stock": "한국피아이엠",
-      "leader_ratio": 24.94,
-      "sub_leader_stock": "현대오토에버",
+      "theme_id": "radar_55",
+      "theme_name": "보안주",
+      "full_theme_name": "보안주(정보)",
+      "change_rate": "+1.26%",
+      "composite_score": 76,
+      "total_stocks_count": 52,
+      "leader_stock": "파수AI",
+      "leader_ratio": 24.96,
+      "sub_leader_stock": "안랩",
       "other_stocks": [
-        "로보티즈",
-        "씨메스로보틱스",
-        "레인보우로보틱스"
+        "이글루",
+        "지니언스",
+        "한싹"
       ],
       "sub_stocks_top3": [
         {
-          "name": "현대오토에버",
-          "rate": "+24.4%"
+          "name": "안랩",
+          "rate": "+15.0%"
         },
         {
-          "name": "로보티즈",
-          "rate": "+14.4%"
+          "name": "이글루",
+          "rate": "+11.7%"
         },
         {
-          "name": "씨메스로보틱스",
-          "rate": "+13.9%"
+          "name": "지니언스",
+          "rate": "+8.9%"
         }
       ],
-      "past_trigger_reason": "[속보 기사] 한국피아이엠, 젠슨 황 복귀 훈풍에 상한가…휴머노이드 감속... : 금속분말사출성형(MIM) 전문기업 한국피아이엠이 젠슨 황 엔비디아 최고경영자(CEO)의 복귀 소식에 따른 로봇주 강세 속에서 상한가를 기록했다. 휴머노이드 로봇에 들어가는 초소형 감속기와 인공지능(AI) 데...",
-      "future_momentum": "피지컬 AI/휴머노이드 로봇 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 5869,
+      "past_trigger_reason": "[속보 기사] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반... : 알테오젠(196170)과 엠비디, 파수AI(150900)도 순매수 상위권에 이름을 올렸다. 반면 장 초반 순매수 3위였던 삼성전자우(005935)는 5위로 밀려난 뒤 상위 5위권에서 벗어났다. 순매도에서는 ...",
+      "future_momentum": "보안주 밸류체인 실질 공급 계약 및 후속 수주 기대감",
+      "trading_value_eok": 4290,
       "is_real_leading": true,
       "pullback_rate": "-25.0%",
-      "ma5_recovered": true,
-      "trigger_summary": "[특징주] 한국피아이엠, 젠슨 황 복귀 훈풍에 상한가…휴머노이드 감속...",
-      "today_rising_fact": "[속보 기사] 한국피아이엠, 젠슨 황 복귀 훈풍에 상한가…휴머노이드 감속... : 금속분말사출성형(MIM) 전문기업 한국피아이엠이 젠슨 황 엔비디아 최고경영자(CEO)의 복귀 소식에 따른 로봇주 강세 속에서 상한가를 기록했다. 휴머노이드 로봇에 들어가는 초소형 감속기와 인공지능(AI) 데...",
+      "ma5_recovered": false,
+      "trigger_summary": "[특징주] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반...",
+      "today_rising_fact": "[속보 기사] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반... : 알테오젠(196170)과 엠비디, 파수AI(150900)도 순매수 상위권에 이름을 올렸다. 반면 장 초반 순매수 3위였던 삼성전자우(005935)는 5위로 밀려난 뒤 상위 5위권에서 벗어났다. 순매도에서는 ...",
       "top_article": {
-        "title": "[특징주] 한국피아이엠, 젠슨 황 복귀 훈풍에 상한가…휴머노이드 감속...",
+        "title": "[특징주] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반...",
         "press": "증시 속보",
-        "url": "https://www.moneystorm.kr/news/articleView.html?idxno=8807",
-        "published_at": "2026-11-24T18:59:25.484Z"
+        "url": "https://www.newstnt.com/news/articleView.html?idxno=730441",
+        "published_at": "2026-11-25T02:36:53.562Z"
       },
       "timeline": []
     },
     {
-      "theme_id": "radar_388",
-      "theme_name": "아이폰",
-      "full_theme_name": "아이폰",
-      "change_rate": "+4.84%",
-      "composite_score": 94,
-      "total_stocks_count": 20,
-      "leader_stock": "아이티엠반도체",
-      "leader_ratio": 29.88,
-      "sub_leader_stock": "삼성SDI",
-      "other_stocks": [
-        "LG화학",
-        "비에이치",
-        "LG이노텍"
-      ],
-      "sub_stocks_top3": [
-        {
-          "name": "삼성SDI",
-          "rate": "+8.8%"
-        },
-        {
-          "name": "LG화학",
-          "rate": "+7.2%"
-        },
-        {
-          "name": "비에이치",
-          "rate": "+6.3%"
-        }
-      ],
-      "past_trigger_reason": "[속보 기사] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상... : 아이씨에이치(30.00%), KH바텍(29.96%), 아이티엠반도체(29.88%), 한국피아이엠(29.87%) 등도 상한가를 기록 중이다. 로봇 대장주로 꼽히는 레인보우로보틱스는 19.28% 오른 47만95...",
-      "future_momentum": "아이폰 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 12171,
-      "is_real_leading": true,
-      "pullback_rate": "-25.0%",
-      "ma5_recovered": true,
-      "trigger_summary": "[특징주] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상...",
-      "today_rising_fact": "[속보 기사] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상... : 아이씨에이치(30.00%), KH바텍(29.96%), 아이티엠반도체(29.88%), 한국피아이엠(29.87%) 등도 상한가를 기록 중이다. 로봇 대장주로 꼽히는 레인보우로보틱스는 19.28% 오른 47만95...",
-      "top_article": {
-        "title": "[특징주] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상...",
-        "press": "증시 속보",
-        "url": "https://www.ajunews.com/view/20261124133936063",
-        "published_at": "2026-11-24T18:59:25.940Z"
-      },
-      "timeline": []
-    },
-    {
-      "theme_id": "radar_501",
-      "theme_name": "리비안",
-      "full_theme_name": "리비안(RIVIAN)",
-      "change_rate": "+4.71%",
-      "composite_score": 94,
+      "theme_id": "radar_241",
+      "theme_name": "바이오시밀러",
+      "full_theme_name": "바이오시밀러(복제 바이오의약품)",
+      "change_rate": "+1.69%",
+      "composite_score": 67,
       "total_stocks_count": 21,
-      "leader_stock": "모베이스전자",
-      "leader_ratio": 29.98,
-      "sub_leader_stock": "HL만도",
+      "leader_stock": "삼성에피스홀딩스",
+      "leader_ratio": 11.79,
+      "sub_leader_stock": "한올바이오파마",
       "other_stocks": [
-        "삼성SDI",
-        "피에이치에이",
-        "피엔티"
+        "알테오젠",
+        "녹십자",
+        "삼천당제약"
       ],
       "sub_stocks_top3": [
         {
-          "name": "HL만도",
-          "rate": "+9.1%"
+          "name": "한올바이오파마",
+          "rate": "+6.5%"
         },
         {
-          "name": "삼성SDI",
-          "rate": "+8.8%"
+          "name": "알테오젠",
+          "rate": "+5.7%"
         },
         {
-          "name": "피에이치에이",
-          "rate": "+7.8%"
+          "name": "녹십자",
+          "rate": "+5.6%"
         }
       ],
-      "past_trigger_reason": "[속보 기사] 美 전기차 리비안 판매 호조.. 알멕 등 부품업체 '강세' : TCC스틸은 10.70%, 모베이스전자 8.79%, 상신이디피 6.95% 등이 강세다. 지난 2일(현지시간) 리비안은 3분기 차량 인도 실적이 시장 기대를 웃돌았다고 밝혔다. 리비안은 3분기 차량 1만924...",
-      "future_momentum": "리비안 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 3929,
+      "past_trigger_reason": "[속보 기사] 삼성에피스홀딩스, 바이오시밀러 대형주 수급 유입에 13%대 급... : 글로벌 바이오시밀러 시장 성장 기대감 속에 대형주 중심의 매수세가 유입되면서 삼성에피스홀딩스가 오전장 급등하고 있다. 25일 오전 10시 39분 기준 유가증권시장에서 삼성에피스홀딩스는 전 거래일 대비 4만4...",
+      "future_momentum": "바이오시밀러 밸류체인 실질 공급 계약 및 후속 수주 기대감",
+      "trading_value_eok": 2167,
       "is_real_leading": true,
       "pullback_rate": "-25.0%",
-      "ma5_recovered": true,
-      "trigger_summary": "[특징주] 美 전기차 리비안 판매 호조.. 알멕 등 부품업체 '강세'",
-      "today_rising_fact": "[속보 기사] 美 전기차 리비안 판매 호조.. 알멕 등 부품업체 '강세' : TCC스틸은 10.70%, 모베이스전자 8.79%, 상신이디피 6.95% 등이 강세다. 지난 2일(현지시간) 리비안은 3분기 차량 인도 실적이 시장 기대를 웃돌았다고 밝혔다. 리비안은 3분기 차량 1만924...",
+      "ma5_recovered": false,
+      "trigger_summary": "[특징주] 삼성에피스홀딩스, 바이오시밀러 대형주 수급 유입에 13%대 급...",
+      "today_rising_fact": "[속보 기사] 삼성에피스홀딩스, 바이오시밀러 대형주 수급 유입에 13%대 급... : 글로벌 바이오시밀러 시장 성장 기대감 속에 대형주 중심의 매수세가 유입되면서 삼성에피스홀딩스가 오전장 급등하고 있다. 25일 오전 10시 39분 기준 유가증권시장에서 삼성에피스홀딩스는 전 거래일 대비 4만4...",
       "top_article": {
-        "title": "[특징주] 美 전기차 리비안 판매 호조.. 알멕 등 부품업체 '강세'",
+        "title": "[특징주] 삼성에피스홀딩스, 바이오시밀러 대형주 수급 유입에 13%대 급...",
         "press": "증시 속보",
-        "url": "https://www.g-enews.com/view.php?ud=20261006102632846444093b5d4e_1",
-        "published_at": "2026-11-24T18:59:26.389Z"
+        "url": "https://www.widedaily.com/news/articleView.html?idxno=304695",
+        "published_at": "2026-11-25T02:36:54.053Z"
       },
       "timeline": []
     },
     {
-      "theme_id": "radar_326",
-      "theme_name": "3D 프린터",
-      "full_theme_name": "3D 프린터",
-      "change_rate": "+6.03%",
-      "composite_score": 93,
-      "total_stocks_count": 11,
-      "leader_stock": "휴림로봇",
-      "leader_ratio": 29.9,
-      "sub_leader_stock": "TPC로보틱스",
+      "theme_id": "radar_387",
+      "theme_name": "블록체인",
+      "full_theme_name": "블록체인",
+      "change_rate": "+0.68%",
+      "composite_score": 66,
+      "total_stocks_count": 23,
+      "leader_stock": "파수AI",
+      "leader_ratio": 24.96,
+      "sub_leader_stock": "라온시큐어",
       "other_stocks": [
-        "로보스타",
-        "링크솔루션",
-        "모아텍"
+        "위메이드",
+        "시큐브",
+        "삼성에스디에스"
       ],
       "sub_stocks_top3": [
         {
-          "name": "TPC로보틱스",
-          "rate": "+9.8%"
+          "name": "라온시큐어",
+          "rate": "+5.4%"
         },
         {
-          "name": "로보스타",
-          "rate": "+9.2%"
+          "name": "위메이드",
+          "rate": "+2.9%"
         },
         {
-          "name": "링크솔루션",
-          "rate": "+7.5%"
+          "name": "시큐브",
+          "rate": "+2.2%"
         }
       ],
-      "past_trigger_reason": "[속보 기사] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상... : 24일 한국거래소에 따르면 이날 오후 1시36분 기준 휴림로봇은 전 거래일 대비 1710원(29.90%) 오른 7430원에 거래되고 있다. 아이씨에이치(30.00%), KH바텍(29.96%), 아이티엠반도체...",
-      "future_momentum": "3D 프린터 밸류체인 실질 공급 계약 및 후속 수주 기대감",
-      "trading_value_eok": 1665,
+      "past_trigger_reason": "[속보 기사] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반... : 알테오젠(196170)과 엠비디, 파수AI(150900)도 순매수 상위권에 이름을 올렸다. 반면 장 초반 순매수 3위였던 삼성전자우(005935)는 5위로 밀려난 뒤 상위 5위권에서 벗어났다. 순매도에서는 ...",
+      "future_momentum": "블록체인 밸류체인 실질 공급 계약 및 후속 수주 기대감",
+      "trading_value_eok": 1630,
+      "is_real_leading": true,
+      "pullback_rate": "-25.0%",
+      "ma5_recovered": false,
+      "trigger_summary": "[특징주] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반...",
+      "today_rising_fact": "[속보 기사] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반... : 알테오젠(196170)과 엠비디, 파수AI(150900)도 순매수 상위권에 이름을 올렸다. 반면 장 초반 순매수 3위였던 삼성전자우(005935)는 5위로 밀려난 뒤 상위 5위권에서 벗어났다. 순매도에서는 ...",
+      "top_article": {
+        "title": "[특징주] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반...",
+        "press": "증시 속보",
+        "url": "https://www.newstnt.com/news/articleView.html?idxno=730441",
+        "published_at": "2026-11-25T02:36:54.376Z"
+      },
+      "timeline": []
+    },
+    {
+      "theme_id": "radar_507",
+      "theme_name": "마이데이터",
+      "full_theme_name": "마이데이터",
+      "change_rate": "+2.85%",
+      "composite_score": 64,
+      "total_stocks_count": 12,
+      "leader_stock": "파수AI",
+      "leader_ratio": 24.96,
+      "sub_leader_stock": "파이오링크",
+      "other_stocks": [
+        "세종텔레콤",
+        "NICE평가정보",
+        "아톤"
+      ],
+      "sub_stocks_top3": [
+        {
+          "name": "파이오링크",
+          "rate": "+5.4%"
+        },
+        {
+          "name": "세종텔레콤",
+          "rate": "+3.3%"
+        },
+        {
+          "name": "NICE평가정보",
+          "rate": "+2.9%"
+        }
+      ],
+      "past_trigger_reason": "[속보 기사] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반... : 알테오젠(196170)과 엠비디, 파수AI(150900)도 순매수 상위권에 이름을 올렸다. 반면 장 초반 순매수 3위였던 삼성전자우(005935)는 5위로 밀려난 뒤 상위 5위권에서 벗어났다. 순매도에서는 ...",
+      "future_momentum": "마이데이터 밸류체인 실질 공급 계약 및 후속 수주 기대감",
+      "trading_value_eok": 1017,
       "is_real_leading": true,
       "pullback_rate": "-25.0%",
       "ma5_recovered": true,
-      "trigger_summary": "[특징주] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상...",
-      "today_rising_fact": "[속보 기사] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상... : 24일 한국거래소에 따르면 이날 오후 1시36분 기준 휴림로봇은 전 거래일 대비 1710원(29.90%) 오른 7430원에 거래되고 있다. 아이씨에이치(30.00%), KH바텍(29.96%), 아이티엠반도체...",
+      "trigger_summary": "[특징주] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반...",
+      "today_rising_fact": "[속보 기사] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반... : 알테오젠(196170)과 엠비디, 파수AI(150900)도 순매수 상위권에 이름을 올렸다. 반면 장 초반 순매수 3위였던 삼성전자우(005935)는 5위로 밀려난 뒤 상위 5위권에서 벗어났다. 순매도에서는 ...",
       "top_article": {
-        "title": "[특징주] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상...",
+        "title": "[특징주] 외국인 에스텍·기관 다올투자증권 순매수 1위…삼성전자 동반...",
         "press": "증시 속보",
-        "url": "https://www.ajunews.com/view/20261124133936063",
-        "published_at": "2026-11-24T18:59:26.842Z"
+        "url": "https://www.newstnt.com/news/articleView.html?idxno=730441",
+        "published_at": "2026-11-25T02:36:54.694Z"
       },
       "timeline": []
     }
   ],
   "pullback_themes": [
     {
-      "theme_id": "pb_1795546767292_844x",
+      "theme_id": "pb_1795574215154_5w6b",
       "theme_name": "조선 및 조선기자재",
       "leader_stock": "한화오션",
       "pullback_rate": "-26.4%",
@@ -264,11 +264,11 @@
         "title": "[특징주] 외국인 대한광통신·휴림로봇, 기관 삼성전자·심텍홀딩스 순...",
         "press": "증시 속보",
         "url": "https://www.newstnt.com/news/articleView.html?idxno=730132",
-        "published_at": "2026-11-24T18:59:27.292Z"
+        "published_at": "2026-11-25T02:36:55.154Z"
       }
     },
     {
-      "theme_id": "pb_1795546767742_t9yf",
+      "theme_id": "pb_1795574215612_m10k",
       "theme_name": "원자력발전 및 SMR",
       "leader_stock": "성광벤드",
       "pullback_rate": "-34.8%",
@@ -280,7 +280,7 @@
         "title": "'어닝쇼크' 성광벤드, 신저가 경신...목표가 4.3만원→4만원",
         "press": "증시 속보",
         "url": "https://www.mt.co.kr/stock/2026/11/09/2026110909275097483",
-        "published_at": "2026-11-24T18:59:27.742Z"
+        "published_at": "2026-11-25T02:36:55.612Z"
       }
     }
   ],
