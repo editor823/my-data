@@ -1,198 +1,283 @@
 {
   "success": true,
-  "updatedAt": "2026-11-25T19:25:06.264Z",
-  "updatedAtKst": "2026. 11. 26. AM 4:25:06",
+  "updatedAt": "2026-11-26T03:38:48.829Z",
+  "updatedAtKst": "2026. 11. 26. PM 12:38:48",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "미국 과잉생산 관세 조사"
+        "keyword": "한은 기준금리 인상 3.25%"
       },
       {
         "rank": 2,
-        "keyword": "전도연 청룡상 3관왕"
+        "keyword": "한준호 후보자, 취재진에?뤄"
       },
       {
         "rank": 3,
-        "keyword": "빗썸 해킹 추가 피해"
+        "keyword": "윤석열 위증 무죄 확정"
       },
       {
         "rank": 4,
-        "keyword": "도로공사 6연승 선두"
+        "keyword": "이진우 리트 의혹 수사"
       },
       {
         "rank": 5,
-        "keyword": "나는 솔로"
+        "keyword": "육아휴직"
       },
       {
         "rank": 6,
-        "keyword": "젠슨 황 필요없다 고집 유지"
+        "keyword": "해외 의약품 밀반입 적발"
       },
       {
         "rank": 7,
-        "keyword": "조희대 탄핵 논의 활발"
+        "keyword": "신현송 한국은행 총재"
       },
       {
         "rank": 8,
-        "keyword": "다나와"
+        "keyword": "안민석"
       },
       {
         "rank": 9,
-        "keyword": "매일경제"
+        "keyword": "에어부산"
       },
       {
         "rank": 10,
-        "keyword": "출생아 수 증가율"
+        "keyword": "이대통령 지지율"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "관세 15% 유지 동��"
+        "keyword": "한준호 장관 후보��� 동일"
       },
       {
         "rank": 2,
-        "keyword": "가능한 사랑 전도연 동일"
+        "keyword": "위증 무죄 확정 동일"
       },
       {
         "rank": 3,
-        "keyword": "도로공사 6연승 선두 상승 4"
+        "keyword": "안덕수 국세청장 후보자 동일"
       },
       {
         "rank": 4,
-        "keyword": "나는 솔로 하락 1"
+        "keyword": "한은 기준금리 인상 동일"
       },
       {
         "rank": 5,
-        "keyword": "젠슨 황 하락 1"
+        "keyword": "LG 김민식 영입 동일"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "미국 과잉생산 관세 조사"
+        "keyword": "3분기 실질소득 감소"
       },
       {
         "rank": 2,
-        "keyword": "빗썸 해킹 추가 피해"
+        "keyword": "이진우 리트 의혹 수사"
       },
       {
         "rank": 3,
-        "keyword": "미국 10월 PCE 물가"
+        "keyword": "이대통령 지지율"
       },
       {
         "rank": 4,
-        "keyword": "김건희 매관매직 대법 선고"
+        "keyword": "해외 의약품 밀반입 적발"
       },
       {
         "rank": 5,
-        "keyword": "이란 호르무즈 통행료"
-      },
-      {
-        "rank": 6,
         "keyword": "앨리스황 중국 정보 제공"
       },
       {
+        "rank": 6,
+        "keyword": "한은 기준금리 인상"
+      },
+      {
         "rank": 7,
-        "keyword": "GH 전세사기 피해 조사"
+        "keyword": "윤석열 위증 무죄 확정"
       },
       {
         "rank": 8,
-        "keyword": "김민석 조희대 탄핵 5당"
+        "keyword": "광명 아파트 화재"
       },
       {
         "rank": 9,
-        "keyword": "한국투자저축은행 개인정보 유출"
+        "keyword": "AI 가짜 의사 광고 금지"
       },
       {
         "rank": 10,
-        "keyword": "청해부대 임무 확대"
+        "keyword": "한은 금통위"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "다나와"
+        "keyword": "문가영"
       },
       {
         "rank": 2,
-        "keyword": "sabah vs barcelona"
+        "keyword": "학교 폭력"
       },
       {
         "rank": 3,
-        "keyword": "sabah 대 바르셀로나"
+        "keyword": "육아휴직"
       },
       {
         "rank": 4,
-        "keyword": "매일경제"
+        "keyword": "안민석"
       },
       {
         "rank": 5,
-        "keyword": "정부"
+        "keyword": "에어부산"
       },
       {
         "rank": 6,
-        "keyword": "선수"
+        "keyword": "민원24"
       },
       {
         "rank": 7,
-        "keyword": "데이비스컵"
+        "keyword": "전기자동차 배터리"
       },
       {
         "rank": 8,
-        "keyword": "대한광통신"
+        "keyword": "삼성"
       },
       {
         "rank": 9,
-        "keyword": "qqq"
+        "keyword": "호랑이"
       },
       {
         "rank": 10,
-        "keyword": "성시경"
+        "keyword": "초전마을"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "청룡영화제"
-      },
-      {
-        "rank": 2,
         "keyword": "나인 투 식스"
       },
       {
+        "rank": 2,
+        "keyword": "청룡영화제"
+      },
+      {
         "rank": 3,
-        "keyword": "최재림 동물 발성법 시연"
+        "keyword": "금리인상"
       },
       {
         "rank": 4,
-        "keyword": "가능한 사랑"
+        "keyword": "레이예스 재계약"
       },
       {
         "rank": 5,
-        "keyword": "설경구 남우주연상 수상"
+        "keyword": "신현송 물가 목표 수렴"
       },
       {
         "rank": 6,
-        "keyword": "전이경 항암"
+        "keyword": "리��� 만점자 압수수색"
       },
       {
         "rank": 7,
-        "keyword": "데블스 플랜 3 우승자"
+        "keyword": "홈플러스"
       },
       {
         "rank": 8,
-        "keyword": "왕과 사는 남자"
+        "keyword": "이 대통령 국정 지지율"
       },
       {
         "rank": 9,
-        "keyword": "데이비스컵 테니스 대회"
+        "keyword": "함영주 파기환송심 무죄"
       },
       {
         "rank": 10,
-        "keyword": "서수빈 신인여우상 수상"
+        "keyword": "마용주 대법관"
       }
     ]
   },
-  "entertainment": []
+  "entertainment": [
+    {
+      "title": "장한별, ‘가요무대’부터 ‘더트롯쇼’까지…무대 영상 합산 20만 뷰",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261126/135094996/1",
+      "publishedAt": "수집 11. 26. 12:38 KST",
+      "publishedOrder": 1795664328793
+    },
+    {
+      "title": "김혜윤, 장나라 따끔한 조언에 울상…무슨 일? (굿파트너2)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261126/135094793/1",
+      "publishedAt": "수집 11. 26. 12:38 KST",
+      "publishedOrder": 1795664328793
+    },
+    {
+      "title": "‘라���업’ 시즌2인가? 이경규·김용만 ‘어른왕자’ 30일 첫방",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261126/135094692/1",
+      "publishedAt": "수집 11. 26. 12:38 KST",
+      "publishedOrder": 1795664328793
+    },
+    {
+      "title": "한보름, 바리스타부터 재즈댄스 강사까지 ‘반전’ (솔로라서2)",
+      "source": "스포츠동아",
+      "url": "https://sports.donga.com/ent/article/all/20261126/135094630/1",
+      "publishedAt": "수집 11. 26. 12:38 KST",
+      "publishedOrder": 1795664328793
+    },
+    {
+      "title": "AAA 2026 인기상 결선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
+      "publishedAt": "수집 11. 26. 12:38 KST",
+      "publishedOrder": 1795664322854
+    },
+    {
+      "title": "AAA 2026 인기상 예선 투표",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
+      "publishedAt": "수집 11. 26. 12:38 KST",
+      "publishedOrder": 1795664322854
+    },
+    {
+      "title": "STARNEWS APP",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/app-download",
+      "publishedAt": "수집 11. 26. 12:38 KST",
+      "publishedOrder": 1795664322854
+    },
+    {
+      "title": "이정재, 논란 속..수척한 모습으로 오른 청룡 무대 \"많이 망설였다\" [스타이슈]",
+      "source": "스타뉴스",
+      "url": "https://www.starnewskorea.com/star/2026/11/26/2026112600154376708",
+      "publishedAt": "수집 11. 26. 12:38 KST",
+      "publishedOrder": 1795664322854
+    },
+    {
+      "title": "[단독] 야호! 전현무·장도연·미나미 뭉쳤다..'2026 MBC 방송연예대상' MC 발탁",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNMldqRnVReGpfbUVxQkpXV1hpUlpORlFKRmpFd29odXd3b0Y3VkpxSGRxRWJoblowM2hoSkJrdUQwTGFYNUh4R1FNZWhHYnAwbWdpUzJ0WmlvZWwwLU9GRV9hR2xBNGRsMVV0WENaOE5kYWgwY2ZaWGEwVEhYaXg1eA?oc=5",
+      "publishedAt": "11. 26. 12:20 KST",
+      "publishedOrder": 1795663241000
+    },
+    {
+      "title": "허찬미, 대한민국 문화연예대상 우수상…빛나는 성인가요 무대",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1QZDdMSEJqdm9RbzdzWVRkY1AzM3hVSmZfc2JmVEY4WXZzemRrRDNzeTUtblZxMEFsdzk2UzAxV2huc253NFhIQ0VEZHpBMlNtTGlYdVNscnJJOGx1SjAzYUNIS2RJS2RhbW1HV3p4SQ?oc=5",
+      "publishedAt": "11. 26. 11:25 KST",
+      "publishedOrder": 1795659920000
+    },
+    {
+      "title": "배정남, 문화연예대상 남자 우수상에 2관왕",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFA3LXo2STU3WFNGaFR2NUZ1TDRqZUptWmhOajNxc0JvVG5xX3A1VEFvM1VJMDRhT3otSnV5LXNCbEFjaThDN0dzQnZ2MVQ4dVlvZUJ2QmhPbFZRcDNfUWFFc3BXOUlMRnFLNUFObVBpRUhNZw?oc=5",
+      "publishedAt": "11. 26. 10:12 KST",
+      "publishedOrder": 1795655547000
+    },
+    {
+      "title": "하이키, 국내외 아우른 활약 빛났다! ‘대한민국문화연예대상’서 수상 영예",
+      "source": "Google 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBoOGRoeElIeGRTYmowa29QamwtZW1CdE9SY09YRGt2aEl4aHkwbXQ1NUpRejM4YXphdGFJbFFLY0ZpQS12ZGozSGEwNE0yT081c19uV2lwcEtIQV9iRFHSAWNBVV95cUxQX19YME91V0IzMV9PMG1LSmFsMVZUWHphNU5CSi1CTWlnWmFWbmlmalp1VEJzSy1NNGlBOUVodmZRaW8yZmxma0tNTWpmSmU1amZ6SE5XdHFjZnpPUmp0Ri1xdnc?oc=5",
+      "publishedAt": "11. 26. 06:03 KST",
+      "publishedOrder": 1795640580000
+    }
+  ]
 }
