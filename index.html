@@ -19,16 +19,16 @@
   <link rel="stylesheet" href="css/home_magazine.css?v=20261029_v2">
 
   <!-- 서브 탭 및 부가 컴포넌트 스타일시트 비동기 로드 (초기 렌더링 차단 제거) -->
-  <link rel="preload" href="css/components.css?v=20261004_blog_light_guide" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="css/components.css?v=20261126_viral_search" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="css/keyword.css?v=20261119_detail" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="css/spider.css?v=20261119_v1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="css/spider.css?v=20261125_v2" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="css/homefeed_radar.css?v=20261124_topics" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="css/topic_keywords.css?v=20261124" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" as="style" crossorigin onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
-    <link rel="stylesheet" href="css/components.css?v=20261004_blog_light_guide">
+    <link rel="stylesheet" href="css/components.css?v=20261126_viral_search">
     <link rel="stylesheet" href="css/keyword.css?v=20261119_detail">
-    <link rel="stylesheet" href="css/spider.css?v=20261119_v1">
+    <link rel="stylesheet" href="css/spider.css?v=20261125_v2">
     <link rel="stylesheet" href="css/homefeed_radar.css?v=20261124_topics">
     <link rel="stylesheet" href="css/topic_keywords.css?v=20261124">
   </noscript>
@@ -2340,13 +2340,15 @@
           <p class="sp-desc">
             <b>메인 키워드</b>를 넣으면 사람들이 <b>지식iN에 실제로 물어본 질문</b>과 네이버·구글 검색창의 연관 검색어를 모아,
             메인 글(A 계정)로 이어 줄 <b>연결 글 키워드</b>를 만듭니다.
-            <b>B 계정</b>에는 검색창 연관 검색어, <b>C 계정</b>에는 지식iN 질문에서 뽑은 키워드가 최대 7개씩 들어가고, 남는 것은 예비로 갑니다.
+            <b>B 계정</b>에는 검색창 연관 검색어, <b>C 계정</b>에는 지식iN 질문에서 뽑은 키워드가 최대 7개씩 들어가고, <b>질문형 키워드</b>(신청 방법·대상·언제부터…)와 예비도 함께 나옵니다.
+            키워드마다 <b>블로그 문서수와 제목 경쟁</b>을 재서 <b>빈집</b>부터 보여 주고, 기사에서 뽑은 <b>지킬 사실</b>로 A 글 가이드를 만들며, <b>날짜를 나눈 발행 일정표</b>까지 짜 드립니다.
           </p>
           <details class="sp-how">
             <summary>거미줄 구조가 뭔가요?</summary>
             <div class="sp-how-body">
               <p><b>A 계정</b>에는 신청 방법·금액·조건을 모두 정리한 메인 글을 씁니다. <b>B·C 계정</b>에는 거기서 갈라지는 좁은 질문 하나만 다룬 짧은 글을 씁니다.</p>
               <p>작은 질문 글은 경쟁이 약해서 먼저 노출됩니다. 그 글을 읽은 사람이 전체 내용을 보러 A의 메인 글로 넘어오도록 <b>링크 1개</b>를 넣습니다. 작은 글이 길목을 잡고, 메인 글이 손님을 받는 구조입니다.</p>
+              <p>큰 키워드는 처음부터 노리지 않습니다. 작은 질문 글이 쌓여 사이트가 검색에 자주 노출되면 그때 메인 키워드도 첫 페이지를 노려 볼 수 있습니다. A 메인 글에서는 <b>내 다른 글</b>로 다시 버튼을 걸어 방문자가 사이트 안에서 계속 이동하게 하고, 계정에 다 못 쓴 키워드는 <b>외부 유입</b>(블로그·카페·SNS)으로 내 글에 링크를 겁니다.</p>
             </div>
           </details>
 
@@ -2357,12 +2359,15 @@
           <div id="spHist" class="sp-hist"></div>
 
           <div class="sp-rules">
-            <div class="sp-rules-t">꼭 지켜 주세요</div>
+            <div class="sp-rules-t">꼭 지켜 주세요 · 7가지</div>
             <ol>
-              <li>최대 7개까지 보여 드리지만, 한 계정에는 한 세트에서 <b>3~4개까지만</b> 골라 쓰세요. 한 계정에 몰아 쓰면 구글·네이버에서 스팸으로 분류될 수 있습니다.</li>
-              <li>같은 날 여러 글을 한꺼번에 올리지 말고 날짜를 나눠 올리세요.</li>
-              <li>메인 글로 가는 링크는 글 하나에 <b>1개만</b> 넣으세요.</li>
-              <li>검색량과 문서 수는 재지 않은 목록입니다. 쓰기 전에 키워드분석기로 확인해 보세요.</li>
+              <li>한 사이트(계정)에는 하루 <b>3~4개까지만</b> 쓰고, 한 세트에서도 계정마다 <b>4개까지만</b> 고르세요. 몰아 쓰면 스팸으로 분류될 수 있습니다.</li>
+              <li>한 세트를 같은 날 몰아 올리지 말고 <b>날짜를 나눠</b> 올리세요. 아래 발행 일정표가 대신 나눠 드립니다.</li>
+              <li><b>A 메인 글을 먼저</b> 발행하고, 그 주소를 연결 글 버튼에 넣으세요.</li>
+              <li>메인 글로 가는 링크는 연결 글 하나에 <b>1개만</b> 넣으세요.</li>
+              <li>기사에 없는 금액·날짜는 쓰지 마세요. 아직 확정 전이면 <b>"정부안 기준"</b>이라고 밝히세요.</li>
+              <li><b>빈집·진입 가능</b> 키워드부터 쓰세요. <b>공식 자료가 위 차지</b>·<b>경쟁 많음</b>은 메인 글 소제목이나 외부 유입으로 돌리세요.</li>
+              <li>남는 키워드는 버리지 말고 <b>외부유입 생성기</b>로 블로그·카페·SNS 글을 만들어 내 글에 링크를 거세요.</li>
             </ol>
           </div>
 
@@ -2390,6 +2395,8 @@
               <p><b>주제 고르기</b>: 최근 7일 정책·지원금 뉴스 제목에서 신청·접수·지급 표현이 있는 정책 이름을 뽑고, 기사가 2건 이상이면서 네이버 자동완성에 연관 검색어가 3개 이상 붙는 것만 남깁니다. 월 검색량(네이버 검색광고 기준) 순으로 10개를 고릅니다.</p>
               <p><b>보충 주제</b>: 뉴스에서 10개가 안 되면, 해마다 신청 일정이 있는 정책으로 채우고 "상시 주제"로 표시합니다.</p>
               <p><b>일정 힌트</b>는 기사 제목에 적힌 날짜를 그대로 옮긴 것입니다. 금액·날짜·조건은 반드시 공식 발표에서 다시 확인하세요.</p>
+              <p><b>정책브리핑</b> 표시는 정부 부처가 직접 낸 정책브리핑(korea.kr) 기사가 근거에 들어간 주제입니다. <b>근거 n문장</b>은 뉴스 요약에서 일정·금액·대상·방법이 들어간 문장을 출처와 함께 뽑아 A 글 가이드에 넣은 것입니다.</p>
+              <p><b>경쟁도</b>: 연결 키워드마다 네이버 블로그 검색 상위 100개 중 제목에 키워드가 그대로 들어간 글 수, 상위 10개 글의 평균 나이, 공식 블로그 수를 잽니다. 정부24 혜택 이름도 좋은 출발점이니 <a href="https://www.gov.kr/portal/rcvfvrSvc/main" target="_blank" rel="noopener noreferrer">정부24 혜택 알리미</a>에서 찾은 이름을 위 입력칸에 넣어 보세요.</p>
             </div>
           </details>
         </div>
@@ -2947,13 +2954,13 @@
   <script defer src="js/trending.js?v=20261029_perf1"></script>
   <script defer src="js/keyword.js?v=20261119_detail"></script>
   <script defer src="js/viral_shorts_data.js?v=20260915_loading"></script>
-  <script defer src="js/adsense.js?v=20261124_topics"></script>
+  <script defer src="js/adsense.js?v=20261126_viral_search"></script>
   <script defer src="data/prompts.js?v=20261002_prompts_v1"></script>
   <script defer src="js/prompt.js?v=20261002_clean_single_btn"></script>
   <script defer src="js/admin.js?v=20260914_final"></script>
   <script defer src="js/external.js?v=20260914_final"></script>
-  <script defer src="data/spider_bundles.js?v=20261119_v1"></script>
-  <script defer src="js/spider.js?v=20261119_v1"></script>
+  <script defer src="data/spider_bundles.js?v=20261125_v2"></script>
+  <script defer src="js/spider.js?v=20261125_v2"></script>
   <script defer src="js/converter.js?v=20260926_soft_warm_light"></script>
   <script defer src="js/imggen.js?v=20260915_imagen3_v2_fallback"></script>
   <script defer src="data/blog_exposure_editer0823.js?v=20261029_v1"></script>

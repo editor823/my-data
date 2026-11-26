@@ -5,6 +5,9 @@
  * - /api/keyword          : 키워드 분석 (검색량·문서수·최근 30일 발행·발행 추천·연관 키워드)
  * - /api/keyword/insight  : 검색 추이·성별·연령 (네이버 데이터랩, 키가 있을 때만)
  * - /api/spider           : 거미줄치기 키워드 세트 (spider-core.mjs)
+ * - /api/spider/compete   : 연결 키워드 경쟁도 (문서수·상위 100개 중 제목 일치·상위글 나이·공식 블로그) 최대 10개
+ * - /api/spider/facts     : 메인 글에 넣을 사실 문장 (뉴스에서 일정·금액·대상·방법)
+ * - /api/youtube/viral    : 바이럴숏폼 유튜브 검색 (키워드·국가·기간·정렬·영상 형태, youtube-viral.mjs)
  *
  * 필요한 비밀 값(환경변수 / Worker Secret):
  *   NAVER_AD_CUSTOMER_ID, NAVER_AD_ACCESS_LICENSE, NAVER_AD_SECRET_KEY  (검색광고 API: 검색량·연관키워드)
@@ -13,7 +16,8 @@
  *
  * Cloudflare 무료 요금제는 요청 1번에 외부 호출 50번까지라, 분석(/api/keyword)과 데이터랩(/insight)을 나눠 둡니다.
  */
-import { buildSpiderSet, fetchNaverSuggest, fetchGoogleSuggest } from './spider-core.mjs';
+import { buildSpiderSet, fetchNaverSuggest, fetchGoogleSuggest, extractFacts } from './spider-core.mjs';
+import { searchViral } from './youtube-viral.mjs';
 
 const ALLOWED_ORIGINS = [
   'https://editor823.github.io',
@@ -313,6 +317,94 @@ export async function analyzeKeyword(rawKeyword, env, engine = 'naver') {
   };
 }
 
+/* ---------- 거미줄치기: 연결 키워드 경쟁도 · 기사 근거 ---------- */
+
+const COMPETE_MAX = 10; // 키워드 1개당 블로그 검색 2번 + 검색량 2번 → 요청 1번에 외부 호출 22번
+// 상위 글 블로거 이름이 이런 말로 끝나거나 들어가면 공식 블로그로 봅니다 (공식 자료가 위를 막고 있는지 판단)
+const OFFICIAL_RE = /(대한민국|정책브리핑|정부|청와대|부$|처$|청$|위원회|공단|공사|진흥원|재단|시청|군청|구청|도청|시$|군$|구$|공식|보건소|교육청|경찰|소방)/;
+
+function verdictOf(m) {
+  if (m.blogCount === 0 || m.titleMatch <= 3) return { code: 'empty', label: '빈집' };
+  if (m.officialTop >= 4) return { code: 'official', label: '공식 자료가 위 차지' };
+  // 제목 경쟁이 적거나, 중간 정도라도 상위 10개에 2주 안 새 글이 3개 이상 보이면(새 글이 올라가는 키워드) 진입 가능
+  if (m.titleMatch <= 15 || (m.titleMatch <= 40 && m.freshTop >= 3)) return { code: 'open', label: '진입 가능' };
+  return { code: 'hard', label: '경쟁 많음' };
+}
+
+export async function spiderCompete(rawList, env) {
+  const list = [...new Set(String(rawList || '').split('|').map((k) => k.trim().replace(/\s+/g, ' ')).filter((k) => k && k.length <= 40))].slice(0, COMPETE_MAX);
+  if (!list.length) return { status: 400, body: { success: false, error: '키워드를 넣어 주세요.' } };
+  if (!hasHubKeys(env)) return { status: 503, body: { success: false, error: '블로그 검색 키가 없어 경쟁도를 잴 수 없습니다.' } };
+
+  const hasAd = !!(env.NAVER_AD_CUSTOMER_ID && env.NAVER_AD_ACCESS_LICENSE && env.NAVER_AD_SECRET_KEY);
+  const adChunks = [];
+  for (let i = 0; i < list.length; i += 5) adChunks.push(list.slice(i, i + 5));
+  const [ads, sims, dates] = await Promise.all([
+    hasAd ? Promise.all(adChunks.map((c) => fetchSearchAd(c, env).catch(() => []))).then((a) => a.flat()) : Promise.resolve([]),
+    Promise.all(list.map((k) => hubSearch('blog', k, env, { display: 100, sort: 'sim' }).catch(() => null))),
+    Promise.all(list.map((k) => hubSearch('blog', k, env, { display: 100, sort: 'date' }).catch(() => null))),
+  ]);
+
+  const items = list.map((keyword, i) => {
+    const sim = sims[i];
+    if (!sim) return { keyword, error: true };
+    const k = norm(keyword);
+    const top = sim.items || [];
+    const top10 = top.slice(0, 10);
+    const ages = top10.map((it) => postdateToAgeDays(it.postdate)).filter((v) => v != null);
+    const ad = ads.find((a) => norm(a.keyword) === k);
+    const rec = dates[i] ? recentTitleCount(dates[i].items || [], keyword) : null;
+    const m = {
+      keyword,
+      volume: ad ? ad.total : (hasAd ? 0 : null),
+      under10: ad ? !!ad.under10 : false,
+      blogCount: Number(sim.total) || 0,
+      titleMatch: top.filter((it) => norm(stripTags(it.title)).includes(k)).length,
+      sampled: top.length,
+      avgAgeDays: ages.length ? Math.round(ages.reduce((s, v) => s + v, 0) / ages.length) : null,
+      freshTop: ages.filter((a) => a <= 14).length,
+      officialTop: top10.filter((it) => OFFICIAL_RE.test(String(it.bloggername || '').trim())).length,
+      recent30: rec ? rec.count : null,
+    };
+    m.verdict = verdictOf(m);
+    return m;
+  });
+  return { status: 200, body: { success: true, items, measuredAt: new Date().toISOString() } };
+}
+
+export async function spiderFacts(rawKeyword, env) {
+  const keyword = String(rawKeyword || '').trim().replace(/\s+/g, ' ');
+  if (!keyword || keyword.length > 30) return { status: 400, body: { success: false, error: '키워드를 확인해 주세요.' } };
+  if (!hasHubKeys(env)) return { status: 503, body: { success: false, error: '뉴스 검색 키가 없습니다.' } };
+  const [sim, recent] = await Promise.all([
+    hubSearch('news', keyword, env, { display: 30, sort: 'sim' }).catch(() => ({ items: [] })),
+    hubSearch('news', keyword, env, { display: 20, sort: 'date' }).catch(() => ({ items: [] })),
+  ]);
+  const seen = new Set();
+  const news = [];
+  (recent.items || []).concat(sim.items || []).forEach((n) => {
+    const link = n.originallink || n.link;
+    if (seen.has(link)) return;
+    seen.add(link);
+    let source = '';
+    try { source = new URL(link).hostname.replace(/^www\./, ''); } catch { /* 주소가 이상하면 출처 생략 */ }
+    news.push({ title: stripTags(n.title), description: stripTags(n.description), link, source, pubDate: n.pubDate });
+  });
+  const { facts, schedule, draft } = extractFacts(news, keyword);
+  return {
+    status: 200,
+    body: {
+      success: true,
+      keyword,
+      facts,
+      schedule,
+      draft,
+      news: news.slice(0, 3).map(({ title, link, source, pubDate }) => ({ title, link, source, pubDate })),
+      measuredAt: new Date().toISOString(),
+    },
+  };
+}
+
 /* ---------- 데이터랩: 검색 추이 · 성별 · 연령 ---------- */
 
 const ANCHOR = '날씨'; // 성별·연령 비교용 기준 키워드 (누구나 고르게 찾는 말)
@@ -422,7 +514,13 @@ export default {
     const q = url.searchParams.get('q');
 
     if (url.pathname === '/api/spider') return reply(() => buildSpiderSet(q), 600);
+    if (url.pathname === '/api/spider/compete') return reply(() => spiderCompete(url.searchParams.get('k'), env), 21600);
+    if (url.pathname === '/api/spider/facts') return reply(() => spiderFacts(q, env), 3600);
     if (url.pathname === '/api/keyword/insight') return reply(() => keywordInsight(q, env), 3600);
+    if (url.pathname === '/api/youtube/viral') {
+      const p = url.searchParams;
+      return reply(() => searchViral({ q, region: p.get('region'), period: p.get('period'), sort: p.get('sort'), format: p.get('format') }), 1800);
+    }
     if (url.pathname === '/api/keyword') {
       const engine = url.searchParams.get('engine') === 'google' ? 'google' : 'naver';
       return reply(() => analyzeKeyword(q, env, engine), 300);

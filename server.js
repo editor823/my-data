@@ -3795,13 +3795,34 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 9-1c. [바이럴숏폼 유튜브 검색] (/api/youtube/viral?q=&region=&period=&sort=&format=) - worker/youtube-viral.mjs 와 같은 코드
+  if (req.url.startsWith('/api/youtube/viral')) {
+    (async () => {
+      try {
+        const p = new URL(req.url, 'http://localhost').searchParams;
+        const mod = await import('./worker/youtube-viral.mjs');
+        const { status, body } = await mod.searchViral({ q: p.get('q'), region: p.get('region'), period: p.get('period'), sort: p.get('sort'), format: p.get('format') });
+        res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify(body));
+      } catch (err) {
+        res.writeHead(502, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ success: false, error: err.message }));
+      }
+    })();
+    return;
+  }
+
   // 9-2. [거미줄치기 키워드 세트] (/api/spider?q=...) - worker/spider-core.mjs 와 같은 코드를 사용합니다.
   if (req.url.startsWith('/api/spider')) {
     (async () => {
       try {
-        const mod = await import('./worker/spider-core.mjs');
-        const q = new URL(req.url, 'http://localhost').searchParams.get('q');
-        const { status, body } = await mod.buildSpiderSet(q);
+        const u = new URL(req.url, 'http://localhost');
+        const q = u.searchParams.get('q');
+        let result;
+        if (u.pathname === '/api/spider/compete') result = await (await import('./worker/keyword-worker.mjs')).spiderCompete(u.searchParams.get('k'), process.env);
+        else if (u.pathname === '/api/spider/facts') result = await (await import('./worker/keyword-worker.mjs')).spiderFacts(q, process.env);
+        else result = await (await import('./worker/spider-core.mjs')).buildSpiderSet(q);
+        const { status, body } = result;
         res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
         res.end(JSON.stringify(body));
       } catch (err) {
