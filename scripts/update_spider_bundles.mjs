@@ -2,10 +2,11 @@
  * 거미줄치기 추천 묶음 생성 (scripts/update_spider_bundles.mjs)
  *
  * 하는 일
- *  1) 최근 정부 정책·지원금 뉴스 제목에서 "신청·지급 일정이 있는" 정책 이름을 뽑습니다.
+ *  1) 최근 정부 정책·지원금 뉴스(정책브리핑 korea.kr 포함) 제목에서 "신청·지급 일정이 있는" 정책 이름을 뽑습니다.
  *  2) 네이버 자동완성에 실제로 연관 검색어가 붙는지 확인합니다 (= 사람들이 검색하는 주제).
  *  3) 검색광고 키가 있으면 월 검색량으로 정렬합니다.
- *  4) 상위 10개를 메인 키워드로 잡고, 각각 거미줄치기 세트(B·C·예비)를 만들어 저장합니다.
+ *  4) 상위 10개를 메인 키워드로 잡고, 각각 거미줄치기 세트(B·C·D 질문형·예비)를 만들어 저장합니다.
+ *  5) API HUB 키가 있으면 뉴스 본문 요약에서 "지킬 사실"(일정·금액·대상·방법)과 출처를 뽑아 A 글 가이드에 넣습니다.
  *
  * 저장: data/spider_bundles.json, data/spider_bundles.js (window.SPIDER_BUNDLES)
  * 주기: 사흘(72시간)마다 새로 만듭니다. 그 사이에 실행되면 건너뜁니다. --force 로 강제 실행.
@@ -14,7 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { buildSpiderSet, fetchNaverSuggest } from '../worker/spider-core.mjs';
+import { buildSpiderSet, fetchNaverSuggest, extractFacts } from '../worker/spider-core.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -46,7 +47,10 @@ function loadDotEnv() {
 const NEWS_QUERIES = [
   '지원금 신청 시작', '바우처 신청', '지급일 지원금', '수당 신청 접수', '장려금 신청',
   '환급 신청 기간', '정부 지원사업 신청 접수', '신청 마감 지원', '보조금 신청', '급여 신청 대상',
+  // 정책브리핑(정부 부처 발표 원문): 개인이 신청하거나 돈·기한이 달라지는 정책
+  'site:korea.kr 신청', 'site:korea.kr 지원금', 'site:korea.kr 지급', 'site:korea.kr 환급',
 ];
+const isOfficial = (n) => /korea\.kr|정책브리핑/.test(`${n.link} ${n.source}`);
 
 function decode(s) {
   return String(s || '').replace(/<!\[CDATA\[|\]\]>/g, '').replace(/<[^>]+>/g, ' ')
@@ -68,6 +72,7 @@ async function fetchNews(q) {
     let title = get('title');
     const source = get('source');
     if (source && title.endsWith(` - ${source}`)) title = title.slice(0, -(source.length + 3));
+    title = title.replace(/\s-\s[^-]*\|[^-]*$/, '').trim(); // "… - 카드/한컷 | 멀티미디어" 같은 꼬리 제거
     items.push({ title, link: get('link'), source, pubDate: get('pubDate') });
   }
   return items;
@@ -132,6 +137,31 @@ async function fetchVolume(keyword) {
   return hit ? toN(hit.monthlyPcQcCnt) + toN(hit.monthlyMobileQcCnt) : 0;
 }
 
+/* ---------- 4) 기사 근거 (API HUB 뉴스 검색, 키가 있을 때만) ---------- */
+
+async function fetchHubNews(keyword) {
+  const { NAVER_HUB_CLIENT_ID: id, NAVER_HUB_CLIENT_SECRET: secret } = process.env;
+  if (!id || !secret) return null;
+  const strip = (s) => decode(s);
+  const one = async (sort, display) => {
+    const qs = new URLSearchParams({ query: keyword, display: String(display), sort }).toString();
+    const res = await fetch(`https://naverapihub.apigw.ntruss.com/search/v1/news?${qs}`, {
+      headers: { 'X-NCP-APIGW-API-KEY-ID': id, 'X-NCP-APIGW-API-KEY': secret },
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!res.ok) return [];
+    return (await res.json()).items || [];
+  };
+  const [a, b] = await Promise.all([one('date', 20), one('sim', 30)]);
+  const seen = new Set();
+  return a.concat(b).map((n) => {
+    const link = n.originallink || n.link;
+    let source = '';
+    try { source = new URL(link).hostname.replace(/^www\./, ''); } catch { /* 출처 생략 */ }
+    return { title: strip(n.title), description: strip(n.description), link, source };
+  }).filter((n) => (seen.has(n.link) ? false : seen.add(n.link)));
+}
+
 /* ---------- 실행 ---------- */
 
 // 뉴스에서 후보가 모자랄 때만 쓰는, 해마다 신청 일정이 있는 정책 목록
@@ -177,7 +207,8 @@ async function main() {
     });
   });
   const ranked = [...cand.values()]
-    .map((e) => ({ ...e, score: e.articles.length + e.sources.size }))
+    // 정책브리핑 기사는 정부가 직접 발표한 것이라 2점 더 줍니다.
+    .map((e) => ({ ...e, score: e.articles.length + e.sources.size + (e.articles.some(isOfficial) ? 2 : 0) }))
     .filter((e) => e.articles.length >= 2)
     .sort((a, b) => b.score - a.score)
     .slice(0, 30);
@@ -212,19 +243,26 @@ async function main() {
     const { body } = await buildSpiderSet(t.keyword);
     if (!body.success || body.counts.total < 5) { console.warn(`[spider] ${t.keyword}: 연결 키워드 부족, 제외`); continue; }
     const texts = t.articles.map((a) => a.title);
+    const hubNews = await fetchHubNews(t.keyword).catch(() => null);
+    const factSrc = hubNews && hubNews.length ? hubNews : t.articles.map((a) => ({ title: a.title, description: '', link: a.link, source: a.source }));
+    const fx = extractFacts(factSrc, t.keyword);
     out.push({
       keyword: body.keyword,
       origin: t.origin,
       volume: t.volume,
       articleCount: t.articles.length,
-      schedule: scheduleHintOf(texts),
+      schedule: scheduleHintOf(texts) || fx.schedule,
+      official: t.articles.some(isOfficial),
+      facts: fx.facts,
+      draft: fx.draft,
       news: t.articles.slice(0, 3).map((a) => ({ title: a.title, link: a.link, source: a.source, pubDate: a.pubDate })),
       b: body.b,
       c: body.c,
+      d: body.d || [],
       spare: body.spare,
       counts: body.counts,
     });
-    console.log(`[spider] ✓ ${body.keyword}  B${body.b.length} C${body.c.length} 예비${body.spare.length}`);
+    console.log(`[spider] ✓ ${body.keyword}  B${body.b.length} C${body.c.length} D${(body.d || []).length} 예비${body.spare.length} 사실${fx.facts.length}`);
     await sleep(600);
   }
 

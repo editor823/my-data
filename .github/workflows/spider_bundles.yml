@@ -37,6 +37,8 @@ jobs:
           NAVER_AD_CUSTOMER_ID: ${{ secrets.NAVER_AD_CUSTOMER_ID }}
           NAVER_AD_ACCESS_LICENSE: ${{ secrets.NAVER_AD_ACCESS_LICENSE }}
           NAVER_AD_SECRET_KEY: ${{ secrets.NAVER_AD_SECRET_KEY }}
+          NAVER_HUB_CLIENT_ID: ${{ secrets.NAVER_HUB_CLIENT_ID }}
+          NAVER_HUB_CLIENT_SECRET: ${{ secrets.NAVER_HUB_CLIENT_SECRET }}
 
       - name: 변경 사항 커밋
         run: |

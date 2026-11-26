@@ -97,6 +97,83 @@
 #tab-spider .sp-toast { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); background: #0f172a; color: #fff; padding: 10px 18px; border-radius: 999px; font-size: 13.5px; font-weight: 700; z-index: 9999; opacity: 0; transition: opacity .2s; pointer-events: none; }
 #tab-spider .sp-toast.show { opacity: 1; }
 
+/* ---------- 경쟁도 · 가이드 · 일정표 (2026-11 강화) ---------- */
+#tab-spider .sp-cols { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+#tab-spider .sp-kw { display: grid; gap: 4px; }
+#tab-spider .sp-kw-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+#tab-spider .sp-kw-row.sub { justify-content: flex-start; flex-wrap: wrap; }
+#tab-spider .sp-kw-t { min-width: 0; }
+#tab-spider .sp-stat { font-size: 11.5px; color: #64748b; }
+#tab-spider .sp-src.question { color: #0f766e; }
+#tab-spider .sp-src.region { color: #0369a1; }
+#tab-spider .sp-src.mine { color: #be185d; }
+#tab-spider .sp-v { flex: none; border-radius: 6px; padding: 2px 7px; font-size: 11px; font-weight: 800; white-space: nowrap; }
+#tab-spider .sp-v.empty { background: #059669; color: #fff; }
+#tab-spider .sp-v.open { background: #e0f2fe; color: #075985; }
+#tab-spider .sp-v.official { background: #fef2f2; color: #b91c1c; }
+#tab-spider .sp-v.hard { background: #f1f5f9; color: #64748b; }
+#tab-spider .sp-v.wait { background: #f8fafc; color: #94a3b8; font-weight: 600; }
+#tab-spider .sp-tag.off { background: #eff6ff; color: #1d4ed8; }
+
+#tab-spider .sp-main-stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+#tab-spider .sp-main-stats:empty { display: none; }
+#tab-spider .sp-mcell { display: grid; gap: 2px; min-width: 96px; padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 10px; background: #f8fafc; }
+#tab-spider .sp-mcell small { font-size: 11px; color: #64748b; }
+#tab-spider .sp-mcell b { font-size: 15px; color: #0f172a; }
+#tab-spider .sp-main-tip { flex-basis: 100%; margin: 2px 0 0; font-size: 12.5px; color: #475569; }
+
+#tab-spider .sp-step { display: flex; align-items: center; gap: 8px; margin: 22px 0 10px; }
+#tab-spider .sp-step-n { width: 24px; height: 24px; border-radius: 50%; background: #0f172a; color: #fff; font-size: 13px; font-weight: 900; display: grid; place-items: center; }
+#tab-spider .sp-step-t { font-size: 16px; font-weight: 900; color: #0f172a; }
+#tab-spider .sp-sort { margin-left: auto; font-size: 13px; color: #475569; display: flex; align-items: center; gap: 4px; cursor: pointer; }
+#tab-spider .sp-compete-note { margin: 0 0 10px; font-size: 12.5px; color: #64748b; line-height: 1.6; }
+#tab-spider .sp-compete-note:empty { display: none; }
+
+#tab-spider .sp-guide-t small { font-weight: 600; color: #059669; margin-left: 4px; }
+#tab-spider .sp-guide pre { max-height: 230px; overflow: auto; padding-right: 6px; }
+#tab-spider .sp-facts { list-style: none; margin: 10px 0 0; padding: 10px 0 0; border-top: 1px dashed #cbd5e1; display: grid; gap: 6px; font-size: 12.5px; color: #334155; line-height: 1.6; }
+#tab-spider .sp-facts a { color: #0284c7; white-space: nowrap; }
+#tab-spider .sp-ft { display: inline-block; margin-right: 6px; padding: 0 6px; border-radius: 5px; background: #ecfdf5; color: #047857; font-size: 11px; font-weight: 800; }
+
+#tab-spider .sp-cta { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px; padding: 12px 14px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; }
+#tab-spider .sp-cta label { display: grid; gap: 4px; font-size: 12.5px; font-weight: 800; color: #0f172a; flex: 1 1 220px; }
+#tab-spider .sp-cta input, #tab-spider .sp-tool textarea, #tab-spider .sp-mini-form input, #tab-spider .sp-plan-opts input, #tab-spider .sp-plan-opts select {
+  height: 38px; padding: 0 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; color: #0f172a; font-size: 13.5px; font-family: inherit; }
+#tab-spider .sp-cta .sp-btn { height: 38px; }
+#tab-spider .sp-cta-tip { flex-basis: 100%; margin: 0; font-size: 12px; color: #64748b; }
+
+#tab-spider .sp-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; margin-top: 12px; }
+#tab-spider .sp-tool { border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; background: #fff; display: grid; gap: 8px; align-content: start; }
+#tab-spider .sp-tool-t { font-size: 13px; font-weight: 900; color: #0f172a; }
+#tab-spider .sp-tool-t small { font-weight: 600; color: #64748b; margin-left: 4px; }
+#tab-spider .sp-region-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+#tab-spider .sp-region-chips .sp-chip { padding: 3px 9px; font-size: 12.5px; }
+#tab-spider .sp-mini-form { display: flex; gap: 6px; }
+#tab-spider .sp-mini-form input { flex: 1; min-width: 0; }
+#tab-spider .sp-tool textarea { height: auto; padding: 8px 10px; resize: vertical; line-height: 1.5; }
+#tab-spider .sp-tool .sp-pill { justify-self: start; }
+#tab-spider .sp-compare-out { font-size: 12.5px; color: #334155; line-height: 1.7; }
+#tab-spider .sp-compare-out:empty { display: none; }
+
+#tab-spider .sp-plan-opts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 10px; font-size: 13px; font-weight: 700; color: #0f172a; }
+#tab-spider .sp-plan-opts label { display: flex; align-items: center; gap: 6px; }
+#tab-spider .sp-plan-wrap { overflow-x: auto; border: 1px solid #e2e8f0; border-radius: 12px; }
+#tab-spider .sp-plan { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+#tab-spider .sp-plan th { text-align: left; padding: 9px 12px; background: #f8fafc; color: #475569; font-size: 12px; font-weight: 800; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
+#tab-spider .sp-plan td { padding: 8px 12px; border-bottom: 1px solid #f1f5f9; color: #0f172a; white-space: nowrap; }
+#tab-spider .sp-plan td.kw { white-space: normal; font-weight: 700; }
+#tab-spider .sp-plan td.kw small { font-weight: 600; color: #0284c7; margin-left: 4px; }
+#tab-spider .sp-plan tr.main td { background: #f0f9ff; }
+#tab-spider .sp-acc { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 6px; font-weight: 900; font-size: 12.5px; color: #fff; background: #0284c7; }
+#tab-spider .sp-acc.B { background: #059669; }
+#tab-spider .sp-acc.C { background: #7c3aed; }
+#tab-spider .sp-left { margin-top: 12px; padding: 12px 14px; border: 1px dashed #cbd5e1; border-radius: 12px; background: #f8fafc; display: grid; gap: 8px; }
+#tab-spider .sp-left-t { font-size: 13.5px; font-weight: 900; color: #0f172a; }
+#tab-spider .sp-left-t small { font-weight: 600; color: #64748b; margin-left: 4px; }
+#tab-spider .sp-left-list { display: flex; flex-wrap: wrap; gap: 5px; }
+#tab-spider .sp-left-list .sp-chip { cursor: default; }
+#tab-spider .sp-left .sp-btn { justify-self: start; }
+
 @media (max-width: 900px) {
   #tab-spider .sp-cols { grid-template-columns: 1fr; }
 }

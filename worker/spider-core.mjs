@@ -6,7 +6,9 @@
  * 결과 구성
  *   B 계정: 검색창 연관 검색어 (네이버·구글 자동완성)  최대 7개
  *   C 계정: 지식iN 실제 질문에서 뽑은 키워드            최대 7개
+ *   D 질문형: 메인 키워드 + 질문 꼬리말(신청 방법·대상·언제부터…) 최대 7개, 자동완성으로 검색 확인
  *   예비  : 남는 것                                     최대 6개
+ * 그 밖에 extractFacts(): 뉴스 문장에서 일정·금액·대상·방법 사실을 출처와 함께 뽑습니다.
  */
 
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
@@ -138,7 +140,91 @@ export function questionToKeyword(title, mainKeyword) {
   return tidy(`${main} ${picked.join(' ')}`);
 }
 
-/* ---------- 3) 세트 만들기 ---------- */
+/* ---------- 3) 질문형 키워드 (질문 하나에 답하는 좁은 키워드) ---------- */
+
+// 사람들이 정책·제도마다 묻는 질문을 키워드 꼬리말로 만든 것. 검색창 자동완성이 붙으면 "검색 확인"으로 표시합니다.
+export const QUESTION_SUFFIXES = ['신청 방법', '신청 기간', '대상', '조건', '언제부터', '지급일', '금액', '필요 서류', '조회', '온라인 신청', '중복', '기한'];
+
+export async function fetchQuestionKeywords(keyword) {
+  const main = tidy(keyword);
+  const checks = await Promise.all(QUESTION_SUFFIXES.map((s) =>
+    fetchNaverSuggest(`${main} ${s}`).then((list) => list.length > 0).catch(() => false)));
+  return QUESTION_SUFFIXES.map((s, i) => ({ keyword: `${main} ${s}`, source: 'question', verified: checks[i] }));
+}
+
+/* ---------- 4) 기사에서 "지킬 사실" 뽑기 ---------- */
+
+const FACT_RULES = [
+  { type: '일정', re: /(\d{1,2}월\s?\d{1,2}일|\d{1,2}일\s?(부터|까지)|\d{4}년\s?\d{1,2}월|연중|상시|마감|개시|시작)/ },
+  { type: '금액', re: /(\d[\d,.]*\s?(만|억|천)?\s?원|\d+\s?%)/ },
+  { type: '대상', re: /(대상|자격|소득|가구|세\s?이상|세\s?이하|이하인|이상인|수급자|가입자|청년|노인|아동|소상공인)/ },
+  { type: '방법', re: /(신청|접수|앱|홈페이지|누리집|주민센터|행정복지센터|방문|온라인|정부24|복지로|조회)/ },
+];
+// 아직 확정 전인 정책을 가리키는 표현 (이때는 글에 '정부안 기준'이라고 밝힘)
+const DRAFT_RE = /(정부안|입법예고|개편안|개정안|법안|국회\s?통과|추진\s?중|검토\s?중|도입\s?예정|시행\s?예정|논의\s?중)/;
+
+function splitSentences(text) {
+  return decodeEntities(text).replace(/\s+/g, ' ').split(/(?<=[.!?。])\s+|\s?…\s?/)
+    .map((s) => s.trim()).filter((s) => s.length >= 12 && s.length <= 160);
+}
+
+// 글자 2개 묶음 겹침 비율로 같은 내용의 다른 기사 문장을 걸러 냅니다.
+function bigrams(s) { const t = norm(s); const out = new Set(); for (let i = 0; i < t.length - 1; i++) out.add(t.slice(i, i + 2)); return out; }
+function similar(a, b) {
+  const A = bigrams(a); const B = bigrams(b);
+  let hit = 0; A.forEach((x) => { if (B.has(x)) hit += 1; });
+  return hit / Math.max(1, Math.min(A.size, B.size)) > 0.55;
+}
+
+const DATE_HINT_RE = /(\d{1,2}월\s?\d{1,2}일(?:\s?(?:~|부터|-)\s?(?:\d{1,2}월\s?)?\d{1,2}일(?:까지)?)?|\d{1,2}일까지|\d{1,2}일부터|연중\s?신청|상시\s?신청|\d{1,2}월\s?(?:중|초|말|부터|까지))/;
+
+/**
+ * 뉴스 묶음({title, description, link, source}) → 메인 글에 넣을 사실 문장, 일정 힌트, 정부안 단계 여부
+ * 지어내지 않도록 기사 문장을 그대로 옮기고 출처 링크를 붙입니다.
+ */
+export function extractFacts(news, keyword, limit = 6) {
+  const mainRe = mainRegex(keyword);
+  const tokens = tidy(keyword).split(' ').filter((t) => t.length >= 2);
+  const related = (s) => mainRe.test(s) || tokens.some((t) => s.includes(t));
+  const seen = new Set();
+  const facts = [];
+  let schedule = '';
+  let scheduleStrong = false;
+  let draft = false;
+  news.forEach((n) => {
+    const texts = [n.title, n.description].filter(Boolean);
+    texts.forEach((t) => {
+      // 일정 힌트: 신청·마감·접수·지급이 함께 적힌 문장의 날짜를 먼저 씁니다.
+      if (related(t)) {
+        const m = decodeEntities(t).match(DATE_HINT_RE);
+        const strong = /(신청|마감|접수|지급|발급)/.test(t);
+        if (m && (!schedule || (strong && !scheduleStrong))) { schedule = m[0].replace(/\s+/g, ' '); scheduleStrong = strong; }
+      }
+      if (DRAFT_RE.test(t) && related(t)) draft = true;
+    });
+    splitSentences(texts.join('. ')).forEach((s) => {
+      if (!related(s)) return;
+      const types = FACT_RULES.filter((r) => r.re.test(s)).map((r) => r.type);
+      if (!types.length) return;
+      const key = norm(s).slice(0, 40);
+      if (seen.has(key) || facts.some((f) => similar(f.text, s))) return;
+      seen.add(key);
+      facts.push({ text: s, types, score: types.length + (/\d/.test(s) ? 1 : 0), link: n.link || '', source: n.source || '' });
+    });
+  });
+  facts.sort((a, b) => b.score - a.score);
+  // 종류가 골고루 들어가도록: 종류별 최고 1개씩 먼저, 그다음 점수순
+  const out = [];
+  FACT_RULES.forEach((r) => { const f = facts.find((x) => x.types.includes(r.type) && !out.includes(x)); if (f) out.push(f); });
+  facts.forEach((f) => { if (out.length < limit && !out.includes(f)) out.push(f); });
+  return {
+    facts: out.slice(0, limit).map(({ text, types, link, source }) => ({ text, types, link, source })),
+    schedule,
+    draft,
+  };
+}
+
+/* ---------- 5) 세트 만들기 ---------- */
 
 export async function buildSpiderSet(rawKeyword) {
   const keyword = tidy(rawKeyword);
@@ -146,10 +232,11 @@ export async function buildSpiderSet(rawKeyword) {
   if (keyword.length > 30) return { status: 400, body: { success: false, error: '키워드가 너무 깁니다. (30자 이하)' } };
 
   const mainN = norm(keyword);
-  const [nav, ggl, kin] = await Promise.all([
+  const [nav, ggl, kin, qs] = await Promise.all([
     fetchNaverSuggest(keyword).catch(() => []),
     fetchGoogleSuggest(keyword).catch(() => []),
     fetchKinQuestions(keyword).catch(() => []),
+    fetchQuestionKeywords(keyword).catch(() => []),
   ]);
   // 구글은 끝에 한 칸 띄운 질의로 한 번 더 받아 후보를 늘립니다.
   const ggl2 = await fetchGoogleSuggest(`${keyword} `).catch(() => []);
@@ -192,7 +279,13 @@ export async function buildSpiderSet(rawKeyword) {
   }
   const spare = spareSrc.slice(0, SPARE_MAX);
 
-  const all = b.concat(c, spare);
+  // D: 질문형 키워드 (검색창에서 확인된 것 먼저, 앞의 목록과 겹치면 뺍니다)
+  const qOut = [];
+  qs.filter((x) => x.verified).concat(qs.filter((x) => !x.verified)).forEach((x) => {
+    if (qOut.length < PER_ACCOUNT && take(x.keyword)) qOut.push(x);
+  });
+
+  const all = b.concat(c, qOut, spare);
   return {
     status: 200,
     body: {
@@ -200,8 +293,9 @@ export async function buildSpiderSet(rawKeyword) {
       keyword,
       b,
       c,
+      d: qOut,
       spare,
-      counts: { total: all.length, kin: all.filter((x) => x.source === 'kin').length },
+      counts: { total: all.length, kin: all.filter((x) => x.source === 'kin').length, question: qOut.length },
       sources: { naver: nav.length, google: ggl.length + ggl2.length, kinQuestions: kin.length },
       generatedAt: new Date().toISOString(),
     },
