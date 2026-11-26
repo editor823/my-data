@@ -19,6 +19,7 @@ export const YT_REGIONS = {
 };
 
 // 방송사·언론 채널 (전체 종합에서 비중을 제한)
+const NEWS_TITLE = /뉴스|news|\[속보\]|\[단독\]|ニュース|新聞|新闻/i;
 const NEWS_CHANNEL = /뉴스|news|ytn|mbc|kbs|sbs|jtbc|mbn|채널\s?a|tv조선|연합|ニュース|新聞|新闻|cnn|fox|abc|nbc|cbs|bbc|reuters|times|post/i;
 
 // date: 유튜브 업로드 날짜 필터 (2=오늘, 3=이번 주, 4=이번 달, 5=올해), days: 게시 경과일 상한
@@ -40,6 +41,11 @@ function searchParams({ date, short }) {
   if (short) filter.push(0x18, 0x04);
   const bytes = [0x08, 0x03, 0x12, filter.length, ...filter];
   return btoa(String.fromCharCode(...bytes));
+}
+
+// 업로드 날짜만 건 필터. 정렬·유형 필터를 걸면 유튜브가 Shorts 묶음(세로 영상)을 안 줍니다.
+function dateOnlyParams(date) {
+  return btoa(String.fromCharCode(0x12, 0x02, 0x08, date));
 }
 
 async function ytPost(body, { gl, hl }) {
@@ -72,6 +78,13 @@ function pickItems(json) {
   for (const s of sections) {
     for (const c of s.itemSectionRenderer?.contents || []) {
       if (c.videoRenderer) videos.push(c.videoRenderer);
+      else if (c.gridShelfViewModel || c.reelShelfRenderer) {
+        (function walk(x) {
+          if (!x || typeof x !== 'object') return;
+          if (x.shortsLockupViewModel) { videos.push({ lockup: x.shortsLockupViewModel }); return; }
+          for (const k in x) walk(x[k]);
+        })(c);
+      }
     }
     const t = s.continuationItemRenderer?.continuationEndpoint?.continuationCommand?.token;
     if (t) token = t;
@@ -113,6 +126,42 @@ function koAge(hours, fallback) {
   return Math.round(hours / 8760) + '년 전';
 }
 
+// "조회수 2.9만회" / "1.2K views" / "3.4万回視聴" → 숫자
+const COMPACT = [[/천/, 1e3], [/만|万|萬/, 1e4], [/억|億|亿/, 1e8], [/K\b/i, 1e3], [/M\b/i, 1e6], [/B\b/i, 1e9]];
+function parseCompactViews(s) {
+  const m = /([\d.,]+)\s*([^\d\s.,]*)/.exec((s || '').replace(/^[^\d]*/, ''));
+  if (!m) return 0;
+  const num = parseFloat(m[1].replace(/,/g, ''));
+  const unit = COMPACT.find(([re]) => re.test(m[2]));
+  return Math.round(num * (unit ? unit[1] : 1));
+}
+
+function normalizeLockup(l) {
+  const id = l.onTap?.innertubeCommand?.reelWatchEndpoint?.videoId || (l.entityId || '').replace(/^shorts-shelf-item-/, '');
+  const title = l.overlayMetadata?.primaryText?.content || (l.accessibilityText || '').split(',')[0];
+  if (!id || !title) return null;
+  const viewText = l.overlayMetadata?.secondaryText?.content || '';
+  const viewCount = parseCompactViews(viewText);
+  const src = l.thumbnailViewModel?.thumbnailViewModel?.image?.sources || l.thumbnail?.sources || [];
+  return {
+    id,
+    title,
+    channel: 'YouTube Shorts',
+    channelKnown: false,
+    views: viewText ? (/조회수/.test(viewText) ? viewText : '조회수 ' + viewText) : '조회수 없음',
+    viewCount,
+    published: '기간 필터 기준',
+    ageHours: null,
+    viewsPerHour: 0,
+    duration: 'Shorts',
+    seconds: 0,
+    isShorts: true,
+    vertical: true,
+    thumbnail: src.length ? src[0].url : 'https://i.ytimg.com/vi/' + id + '/oar2.jpg',
+    url: 'https://www.youtube.com/shorts/' + id,
+  };
+}
+
 function parseViews(s) {
   const digits = (s || '').replace(/[^0-9]/g, '');
   return digits ? Number(digits) : 0;
@@ -129,6 +178,7 @@ function isKoreanTitle(title) {
 }
 
 function normalize(v) {
+  if (v.lockup) return normalizeLockup(v.lockup);
   const id = v.videoId;
   const title = text(v.title);
   const lengthText = text(v.lengthText);
@@ -144,6 +194,7 @@ function normalize(v) {
     id,
     title,
     channel: text(v.ownerText) || text(v.longBylineText) || '유튜브',
+    channelKnown: true,
     views: viewCount ? '조회수 ' + viewCount.toLocaleString('ko-KR') + '회' : viewText || '조회수 없음',
     viewCount,
     published: koAge(hours, published),
@@ -181,20 +232,25 @@ export async function searchViral(opts = {}) {
   const limit = 40;
 
   // 전체 종합 + 영상 형태 '전체'는 숏츠·롱폼을 따로 찾으므로 분야를 8개로 줄여 요청 수를 맞춥니다.
-  const queries = query ? [query] : format === 'all' ? region.seeds.slice(0, 8) : region.seeds;
+  const queries = query ? [query] : format === 'all' ? region.seeds.slice(0, 8) : format === 'shorts' ? region.seeds.slice(0, 10) : region.seeds;
   // 키워드 검색: 2페이지(2·6개월·1년은 '올해' 결과에서 걸러내므로 3페이지). 전체 종합은 분야가 많아 1페이지씩.
   const pages = query ? 2 + (period.date === 5 ? 1 : 0) : 1;
   const kinds = format === 'all' ? [true, false] : [format === 'shorts'];
 
   const jobs = [];
-  for (const q of queries) for (const short of kinds) jobs.push(collect(q, searchParams({ date: period.date, short }), region, pages).then((list) => ({ q, list })));
+  for (const q of queries) {
+    for (const short of kinds) jobs.push(collect(q, searchParams({ date: period.date, short }), region, pages).then((list) => ({ q, list })));
+    // 숏츠: "<검색어> shorts" + 업로드 날짜 필터 → 유튜브 Shorts 묶음(세로 영상)
+    if (kinds.includes(true)) jobs.push(collect(q + ' shorts', dateOnlyParams(period.date), region, 1).then((list) => ({ q, list })));
+  }
   const settled = await Promise.allSettled(jobs);
   const ok = settled.filter((r) => r.status === 'fulfilled').map((r) => r.value);
   if (!ok.some((r) => r.list.length) && settled.some((r) => r.status === 'rejected')) {
     throw new Error(settled.find((r) => r.status === 'rejected').reason?.message || '유튜브 검색 실패');
   }
 
-  const score = sort === 'rising' ? (v) => v.viewsPerHour : (v) => v.viewCount;
+  const assumedHours = Math.max(1, (period.days * 24) / 2); // 게시일을 모르는 Shorts 묶음 영상은 기간 중간에 올라왔다고 봅니다
+  const score = sort === 'rising' ? (v) => (v.ageHours != null ? v.viewsPerHour : Math.round(v.viewCount / assumedHours)) : (v) => v.viewCount;
   const keep = (n) => {
     if (!n) return false;
     if (format === 'shorts' && !n.isShorts) return false;
@@ -236,8 +292,8 @@ export async function searchViral(opts = {}) {
   for (const n of pool) {
     if (videos.length >= limit) break;
     const c = perChannel.get(n.channel) || 0;
-    if (c >= channelMax) continue;
-    const isNews = NEWS_CHANNEL.test(n.channel);
+    if (n.channelKnown && c >= channelMax) continue;
+    const isNews = NEWS_CHANNEL.test(n.channel) || NEWS_TITLE.test(n.title);
     if (isNews && newsCount >= newsMax) continue;
     perChannel.set(n.channel, c + 1);
     if (isNews) newsCount++;

@@ -2522,7 +2522,8 @@ const ytState = { q: '', region: 'KR', period: 'week', sort: 'views', format: 's
 function ytApiUrl() {
   const h = location.hostname;
   const base = (h === 'localhost' || h === '127.0.0.1') ? '' : YT_VIRAL_WORKER;
-  const p = new URLSearchParams({ q: ytState.q, region: ytState.region, period: ytState.period, sort: ytState.sort, format: ytState.format });
+  // v: 워커 응답 형식이 바뀌면 올려서 브라우저 캐시를 새로 받습니다
+  const p = new URLSearchParams({ q: ytState.q, region: ytState.region, period: ytState.period, sort: ytState.sort, format: ytState.format, v: '3' });
   return base + '/api/youtube/viral?' + p.toString();
 }
 
@@ -2613,7 +2614,7 @@ function ytSyncControls() {
     btn.classList.toggle('active', btn.dataset.quick === ytState.q);
   });
   const note = container.querySelector('#ytv-note');
-  if (note) note.textContent = YT_REGION_NOTE[ytState.region] + ' 숏츠는 3분 이하 영상, 롱폼은 그 외 일반 영상입니다.';
+  if (note) note.textContent = YT_REGION_NOTE[ytState.region] + ' 숏츠는 3분 이하 영상, 롱폼은 그 외 일반 영상입니다. 유튜브 Shorts 묶음에서 가져온 영상은 채널·게시일이 제공되지 않아 "YouTube Shorts · 기간 필터 기준"으로 표시합니다.';
 }
 
 async function ytFetch() {
@@ -2679,29 +2680,64 @@ function ytRenderResults() {
       ? '실시간 검색에 실패해 마지막으로 저장된 바이럴 영상을 보여줍니다.'
       : '선택 기간 안에 게시된 것으로 확인된 영상만 표시합니다.' + (rising ? ' 조회급상승 순은 게시 후 시간당 평균 조회수 기준입니다.' : '')}</div>`;
 
-  grid.innerHTML = videos.map((item) => {
+  ytState.shown = videos;
+  grid.classList.toggle('ytv-grid-shorts', ytState.format === 'shorts');
+  grid.innerHTML = videos.map((item, idx) => {
     const isShorts = !!item.isShorts;
+    const vertical = isShorts && ytState.format === 'shorts';
     const title = item.title || '유튜브 영상';
     const url = item.url || `https://www.youtube.com/results?search_query=${encodeURIComponent(title)}`;
+    // 세로 카드에서는 가로 썸네일을 가운데 기준으로 잘라 보여줍니다 (CSS object-fit: cover)
     const thumb = item.thumbnail || item.thumb || `https://i.ytimg.com/vi/${item.id}/hqdefault.jpg`;
+    const fallbackThumb = item.id ? `https://i.ytimg.com/vi/${item.id}/hqdefault.jpg` : '';
     const metaRight = rising && item.viewsPerHour ? `시간당 ${Number(item.viewsPerHour).toLocaleString('ko-KR')}회` : (item.published || '최근');
     return `
-      <a class="kc-yt-card" href="${escapeHtml(url)}" target="_blank" rel="noopener">
-        <div class="kc-yt-thumb-wrap">
-          <img src="${escapeHtml(thumb)}" alt="${escapeHtml(title)}" class="kc-yt-thumb-img" loading="lazy" referrerpolicy="no-referrer" />
-          ${item.duration ? `<span class="kc-yt-badge-duration">${escapeHtml(item.duration)}</span>` : ''}
-          ${isShorts ? '<span class="kc-yt-badge-shorts">#Shorts</span>' : ''}
-        </div>
+      <article class="kc-yt-card ytv-card${vertical ? ' ytv-card-vertical' : ''}">
+        <a class="kc-yt-thumb-wrap" href="${escapeHtml(url)}" target="_blank" rel="noopener">
+          <img src="${escapeHtml(thumb)}" alt="${escapeHtml(title)}" class="kc-yt-thumb-img" loading="lazy" referrerpolicy="no-referrer"
+            onerror="if(this.dataset.fb!=='1'){this.dataset.fb='1';this.src='${escapeHtml(fallbackThumb)}';}" />
+          ${isShorts ? '<span class="ytv-badge-shorts">⚡ Shorts</span>' : ''}
+          <span class="ytv-badge-rank">TOP ${idx + 1}</span>
+          <span class="ytv-badge-views">👁 ${escapeHtml((item.views || '').replace(/^조회수\s*/, '조회수 '))}</span>
+          ${!vertical && item.duration && item.duration !== 'Shorts' ? `<span class="kc-yt-badge-duration">${escapeHtml(item.duration)}</span>` : ''}
+        </a>
         <div class="kc-yt-card-body">
-          <h4 class="kc-yt-card-title">${escapeHtml(title)}</h4>
-          <div class="kc-yt-card-channel">📺 ${escapeHtml(item.channel || '유튜브')}</div>
-          <div class="kc-yt-card-meta">
-            <span>👁️ ${escapeHtml(item.views || '')}</span>
-            <span>${escapeHtml(metaRight)}</span>
+          <h4 class="kc-yt-card-title" title="${escapeHtml(title)}">${escapeHtml(title)}</h4>
+          <div class="ytv-card-sub">
+            <span class="kc-yt-card-channel">📺 ${escapeHtml(item.channel || '유튜브')}</span>
+            <span class="ytv-card-date">${escapeHtml(metaRight)}</span>
+          </div>
+          <a class="ytv-watch-btn" href="${escapeHtml(url)}" target="_blank" rel="noopener">▶ 유튜브 시청하기</a>
+          <div class="ytv-copy-row">
+            <button type="button" class="ytv-copy-btn" data-copy="title" data-idx="${idx}">📋 제목 복사</button>
+            <button type="button" class="ytv-copy-btn" data-copy="idea" data-idx="${idx}">💡 글감 복사</button>
           </div>
         </div>
-      </a>`;
+      </article>`;
   }).join('');
+
+  grid.querySelectorAll('.ytv-copy-btn').forEach((btn) => btn.addEventListener('click', () => {
+    const v = (ytState.shown || [])[Number(btn.dataset.idx)];
+    if (!v) return;
+    if (btn.dataset.copy === 'title') {
+      window.copySnippetDirect(v.title, '영상 제목이 복사되었습니다!');
+      return;
+    }
+    const kw = ytState.q || '실시간 바이럴';
+    const text = [
+      '[유튜브 바이럴 글감]',
+      '제목: ' + v.title,
+      '채널: ' + (v.channel || '유튜브') + (v.isShorts ? ' (Shorts)' : ''),
+      '조회수: ' + (v.views || '-') + ' · 게시: ' + (v.published || '-'),
+      '링크: ' + v.url,
+      '',
+      '▶ 블로그 글 아이디어',
+      '- 이 영상이 왜 화제인지 핵심 장면·포인트를 3가지로 정리',
+      '- "' + kw + '" 관련 검색자가 궁금해할 정보(배경·방법·주의점)를 덧붙여 설명',
+      '- 영상 링크를 출처로 넣고, 내 의견이나 경험을 한 문단 추가',
+    ].join('\n');
+    window.copySnippetDirect(text, '블로그 글감이 복사되었습니다!');
+  }));
 }
 
 // ===== 복사 헬퍼 함수 =====

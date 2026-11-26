@@ -6464,3 +6464,33 @@ a.kc-yt-card { text-decoration: none; color: inherit; }
   .ytv-info { grid-template-columns: 1fr; }
   .ytv-search-btn { padding: 10px 14px; }
 }
+
+/* 바이럴숏폼 카드: TOP 순위·조회수 배지·시청/복사 버튼, 숏츠는 세로(9:16) 카드 */
+.ytv-card { cursor: default; }
+.ytv-card .kc-yt-thumb-wrap { display: block; }
+.ytv-grid-shorts { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)) !important; gap: 16px !important; }
+.ytv-card-vertical .kc-yt-thumb-wrap { aspect-ratio: 9 / 16; background: #0f172a; }
+.ytv-badge-shorts, .ytv-badge-rank, .ytv-badge-views {
+  position: absolute; font-size: 0.7rem; font-weight: 900; border-radius: 6px; padding: 3px 7px; line-height: 1.2;
+}
+.ytv-badge-shorts { top: 8px; left: 8px; background: #dc2626; color: #ffffff; }
+.ytv-badge-rank { top: 8px; right: 8px; background: #ffffff; color: #dc2626; border: 1px solid #fecaca; }
+.ytv-badge-views { bottom: 8px; right: 8px; background: rgba(15, 23, 42, 0.82); color: #ffffff; }
+.ytv-card .kc-yt-badge-duration { bottom: 8px; left: 8px; right: auto; }
+.ytv-card .kc-yt-card-body { gap: 8px; padding: 12px; }
+.ytv-card .kc-yt-card-title { font-size: 0.86rem; }
+.ytv-card-sub { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-size: 0.74rem; }
+.ytv-card-sub .kc-yt-card-channel { font-size: 0.74rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.ytv-card-date { color: #94a3b8; white-space: nowrap; flex-shrink: 0; }
+.ytv-watch-btn {
+  display: block; text-align: center; background: #dc2626; color: #ffffff !important; text-decoration: none;
+  border-radius: 8px; padding: 8px 0; font-size: 0.8rem; font-weight: 800; margin-top: auto; transition: background 0.15s ease;
+}
+.ytv-watch-btn:hover { background: #b91c1c; }
+.ytv-copy-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.ytv-copy-btn {
+  background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 7px 0;
+  font-size: 0.74rem; font-weight: 700; color: #1e293b; cursor: pointer; transition: all 0.15s ease;
+}
+.ytv-copy-btn:hover { background: #f1f5f9; border-color: #cbd5e1; }
+.ytv-card .kc-yt-card-meta { display: none; }

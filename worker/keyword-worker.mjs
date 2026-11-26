@@ -519,7 +519,7 @@ export default {
     if (url.pathname === '/api/keyword/insight') return reply(() => keywordInsight(q, env), 3600);
     if (url.pathname === '/api/youtube/viral') {
       const p = url.searchParams;
-      return reply(() => searchViral({ q, region: p.get('region'), period: p.get('period'), sort: p.get('sort'), format: p.get('format') }), 1800);
+      return reply(() => searchViral({ q, region: p.get('region'), period: p.get('period'), sort: p.get('sort'), format: p.get('format') }), 600);
     }
     if (url.pathname === '/api/keyword') {
       const engine = url.searchParams.get('engine') === 'google' ? 'google' : 'naver';
