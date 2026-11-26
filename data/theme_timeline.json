@@ -1,662 +1,6 @@
 {
   "themes": [
     {
-      "theme_id": "robot_ai",
-      "theme_name": "로봇용 액추에이터 & 피지컬 AI",
-      "category": "로봇/AI",
-      "today_score": 99,
-      "today_change_rate": "+3.90%",
-      "today_trading_volume": "5,400억",
-      "lead_stocks": [
-        "레인보우로보틱스",
-        "에스피지",
-        "로보티즈",
-        "두산로보틱스"
-      ],
-      "today_reason": "빅테크 제조 라인 내 휴머노이드 투입 및 정밀 감속기 부품 국산화 양산 납품 본격화",
-      "timeline": [
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "에스비비테크",
-          "date": "2026-11-25",
-          "news_title": "삼성 휴머노이드 관전 포인트는 로봇 손 …현대모비스·HL만도는 양산 수...",
-          "news_url": "https://www.ekoreanews.co.kr/news/articleView.html?idxno=89391",
-          "press": "이코리아",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-25",
-          "news_title": "뉴로메카, 자체 개발 로봇 '에이르' 기반 수술보조로봇 실증 성공",
-          "news_url": "https://www.industrynews.co.kr/news/articleView.html?idxno=90212",
-          "press": "인더스트리뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-25",
-          "news_title": "두산로보틱스·KH바텍 등 3종목 26일 공매도 금지",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795619817693599276",
-          "press": "광주매일신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-25",
-          "news_title": "\"하루 1800병 척척\"…日 편의점, 음료 진열하는 AI 로봇 도입",
-          "news_url": "https://www.newsis.com/view/NISX20261125_0003882389",
-          "press": "뉴시스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-25",
-          "news_title": "[기획특집 ③] 중국 피지컬 AI 산업 전략이 한국에 던지는 과제…'로봇...",
-          "news_url": "https://www.irobotnews.com/news/articleView.html?idxno=49782",
-          "press": "로봇신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-25",
-          "news_title": "뉴로메카, 휴머노이드 수술 보조 실증 성공…의료로봇 사업 확대",
-          "news_url": "https://www.hellot.net/news/article.html?no=116603",
-          "press": "헬로티",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-25",
-          "news_title": "뉴로메카, 자체 개발 로봇 '에이르' 기반 수술보조로봇 실증 성공…의료...",
-          "news_url": "https://www.irobotnews.com/news/articleView.html?idxno=49786",
-          "press": "로봇신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-25",
-          "news_title": "뉴로메카, 자체 개발 로봇 '에이르' 기반 수술보조 실증 성공",
-          "news_url": "https://www.edaily.co.kr/News/Read?newsId=02309126645649328&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article",
-          "press": "이데일리",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-25",
-          "news_title": "'CES 2027' 로봇 전쟁…삼성전자 휴머노이드 출격 주목",
-          "news_url": "https://www.irobotnews.com/news/articleView.html?idxno=49794",
-          "press": "로봇신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "엔젤로보틱스",
-          "date": "2026-11-24",
-          "news_title": "웨어러블 로봇·드론 스테이션 품은 軍, 민간 혁신기술로 전투력·병영...",
-          "news_url": "https://www.fnnews.com/news/202611241436318387",
-          "press": "파이낸셜뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "에스비비테크",
-          "date": "2026-11-24",
-          "news_title": "유진투자증권 \"삼성전자 HR·HE 공개 임박 기대…레인보우로보틱스 몸값...",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=507651",
-          "press": "핀포인트뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-24",
-          "news_title": "로보티즈·휴림로봇 기계주 '후끈'…로봇에서 건설장비까지 매수 온기 ...",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=507614",
-          "press": "핀포인트뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-24",
-          "news_title": "한국AI·로봇산업협회, 회원사 500개 돌파",
-          "news_url": "https://www.klnews.co.kr/news/articleView.html?idxno=323679",
-          "press": "물류신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-24",
-          "news_title": "2차전지 레버리지 ETF 17%↑…로봇·반도체도 급등",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795533573693359276",
-          "press": "광주매일신문",
-          "impact": "강한 상승"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-24",
-          "news_title": "에스피지·로보티즈 24%·19% 급등…로봇주 강세",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795533668693451276",
-          "press": "광주매일신문",
-          "impact": "강한 상승"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-24",
-          "news_title": "[특징주] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상...",
-          "news_url": "https://www.ajunews.com/view/20261124133936063",
-          "press": "아주경제",
-          "impact": "강한 상승"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-24",
-          "news_title": "로보티즈·레인보우로보틱스 폭풍 질주… 휴머노이드 로봇 상용화 기대...",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=507490",
-          "press": "핀포인트뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-24",
-          "news_title": "두산로보틱스 주가, 11월 24일 52,900원 11.25% 상승",
-          "news_url": "https://www.joongangenews.com/news/articleView.html?idxno=566252",
-          "press": "중앙이코노미뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "한화에어로스페이스",
-          "date": "2026-11-24",
-          "news_title": "경북도, AI‧반도체‧로봇 등 인재 4만 2천 명 양성",
-          "news_url": "https://www.dkilbo.com/news/articleView.html?idxno=561964",
-          "press": "대경일보",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "에스비비테크",
-          "date": "2026-11-23",
-          "news_title": "휴림로봇 상한가…피지컬 AI 확산에 로봇주 '들썩'",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=506986",
-          "press": "핀포인트뉴스",
-          "impact": "강한 상승"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-23",
-          "news_title": "두산로보틱스·레인보우로보틱스 상승 대열…기계주 실적 따라 희비",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=507238",
-          "press": "핀포인트뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-23",
-          "news_title": "레인보우로보틱스·에스엠 공매도 과열…24일 공매도 금지",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795446153693321276",
-          "press": "광주매일신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-23",
-          "news_title": "HD현대로보틱스 개인정보 유출, 첨단 로봇 1위도 기본 보안 구멍…'보안...",
-          "news_url": "https://www.job-post.co.kr/news/articleView.html?idxno=240347",
-          "press": "잡포스트",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-23",
-          "news_title": "한국AI·로봇산업협회, 회원사 500개 돌파…AI·로봇 생태계 확대",
-          "news_url": "https://www.etnews.com/20261123000167",
-          "press": "전자신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-23",
-          "news_title": "한국AI·로봇산업협회, 회원사 500개 돌파⋯삼성·현대차·퀄컴 포진",
-          "news_url": "http://www.inews24.com/view/2029096",
-          "press": "아이뉴스24",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-23",
-          "news_title": "한국로봇산업진흥원-한국화학융합시험연구원, 첨단로봇 지원 공동 네트...",
-          "news_url": "https://www.irobotnews.com/news/articleView.html?idxno=49740",
-          "press": "로봇신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-20",
-          "news_title": "반등 신호일까, 추세 이탈일까…레인보우로보틱스·두산로보틱스 하락...",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=506341",
-          "press": "핀포인트뉴스",
-          "impact": "단기 조정"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-20",
-          "news_title": "코스닥, 5%대 낙폭에 650선 밑으로...이오테크닉스, 로보티즈 등 하락",
-          "news_url": "http://www.econonews.co.kr/news/articleView.html?idxno=447480",
-          "press": "이코노뉴스",
-          "impact": "단기 조정"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-20",
-          "news_title": "인간 위해 거짓말하는 로봇, 80년 전 ‘AI 아첨’ 예견",
-          "news_url": "https://www.chosun.com/culture-life/book/2026/11/21/IAU7HLULOFA5ZNYQBDSS7MJJ5Y/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
-          "press": "조선일보",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "LIG넥스원",
-          "date": "2026-11-20",
-          "news_title": "한화가 탐낸 '방산용 로봇개'…700억 투자 무산된 이유",
-          "news_url": "https://www.hankyung.com/article/202611209167r",
-          "press": "한국경제",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-20",
-          "news_title": "로봇주 동반 급락…앤트로픽 상장에도 기술주 한파, 코스피 4900도 붕괴...",
-          "news_url": "https://www.cbci.co.kr/news/articleView.html?idxno=629021",
-          "press": "CBC뉴스",
-          "impact": "단기 조정"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-20",
-          "news_title": "\"로봇·수소 초광역특구 전북 지정\"…도의회, 촉구 건의안",
-          "news_url": "https://www.newsis.com/view/NISX20261120_0003876520",
-          "press": "뉴시스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "한화에어로스페이스",
-          "date": "2026-11-20",
-          "news_title": "순천시, 문화콘텐츠 페어·로봇 페스타·시민화합 행사 20~21일 개최",
-          "news_url": "https://www.pressian.com/pages/articles/2026112012501770746?utm_source=naver&utm_medium=search",
-          "press": "프레시안",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-19",
-          "news_title": "[실적+] 완성로봇 4사 양극화…레인보우·두산 성장세, 뉴로메카·유일...",
-          "news_url": "https://www.greened.kr/news/articleView.html?idxno=355080",
-          "press": "녹색경제신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-19",
-          "news_title": "마음AI, 한양대 ERICA·두산로보틱스와 피지컬AI 산학협력 MOU",
-          "news_url": "https://zdnet.co.kr/view/?no=20261119200855",
-          "press": "지디넷코리아",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-19",
-          "news_title": "강원대병원, 포스코1%나눔재단 기부로 보행재활로봇 도입",
-          "news_url": "https://www.medigatenews.com/news/479367600",
-          "press": "메디게이트뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-19",
-          "news_title": "철강도시 포항, 로봇·AI 품고 첨단산업 거점으로 ‘업그레이드’ [지방...",
-          "news_url": "https://www.segye.com/newsView/20261116519759?OutUrl=naver",
-          "press": "세계일보",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-19",
-          "news_title": "마음AI, 한양대 ERICA·두산로보틱스와 피지컬AI 협력",
-          "news_url": "https://www.betanews.net/article/view/beta202611190048",
-          "press": "베타뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-19",
-          "news_title": "LSK아이로봇, AI 스마트안경·초소형 카메라 탐지 시장 진출 추진",
-          "news_url": "https://view.asiae.co.kr/article/2026111913210098842",
-          "press": "아시아경제",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-18",
-          "news_title": "협동로봇부터 정밀 감속기까지…기계산업 성장축 달라졌다",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=505588",
-          "press": "핀포인트뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-18",
-          "news_title": "레인보우로보틱스 20%·로보티즈 13% 주가 급등",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795003823692855276",
-          "press": "광주매일신문",
-          "impact": "강한 상승"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-18",
-          "news_title": "에이엘로봇 회전율 331%…노랑풍선 75% 손바뀜",
-          "news_url": "http://www.kjdaily.com/article.php?aid=1795015209692856276",
-          "press": "광주매일신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-18",
-          "news_title": "삼성·LG 로봇 투자 기대… 감속기부터 자동화 장비까지 들썩",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=505305",
-          "press": "핀포인트뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-18",
-          "news_title": "대전권 대학‧기업, '앵커 기반' 로봇‧미래모빌리티 분야 교육과정 반...",
-          "news_url": "https://news.unn.net/news/articleView.html?idxno=600848",
-          "press": "한국대학신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-18",
-          "news_title": "반도체 앞지른 로봇 ETF···휴머노이드株 '날개'",
-          "news_url": "http://www.finomy.com/news/articleView.html?idxno=267099",
-          "press": "현대경제신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-18",
-          "news_title": "갤럭시코퍼레이션, 홍콩서 피지컬 AI 패션쇼 개최…휴머노이드 로봇 공...",
-          "news_url": "https://www.hankyung.com/article/202611184543O",
-          "press": "한국경제",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "현대로템",
-          "date": "2026-11-18",
-          "news_title": "에스피지 주가 폭풍질주…철도 인프라 투자 확대에 관련주 '요동'",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=505418",
-          "press": "핀포인트뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-17",
-          "news_title": "계양전기 주가는 폭등 했는데…레인보우로보틱스·두산로보틱스는 '휘청...",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=505126",
-          "press": "핀포인트뉴스",
-          "impact": "강한 상승"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-17",
-          "news_title": "수술실부터 재활병동까지…의료현장 파고드는 K-로봇",
-          "news_url": "https://zdnet.co.kr/view/?no=20261113175551",
-          "press": "지디넷코리아",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-17",
-          "news_title": "코스닥, 2%대 낙폭에 650선 턱걸이...레인보우로보틱스, 에코프로 등 하...",
-          "news_url": "http://www.econonews.co.kr/news/articleView.html?idxno=447310",
-          "press": "이코노뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-17",
-          "news_title": "\"70톤 초대형 컨테이너, AI 로봇이 알아서 옮긴다\"… 에이스웍스, 부산항...",
-          "news_url": "https://www.woodkorea.co.kr/news/articleView.html?idxno=92647",
-          "press": "한국목재신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-17",
-          "news_title": "몸집 키우는 韓 로봇업계, 적자는 눈덩이⋯'실속 없는 성장' 딜레마",
-          "news_url": "https://www.autodaily.co.kr/news/articleView.html?idxno=602155",
-          "press": "엠투데이",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-16",
-          "news_title": "교육부, 17일 ‘산업계 대학교육 혁신포럼’… 로봇·미래모빌리티 인재...",
-          "news_url": "https://edu.chosun.com/site/data/html_dir/2026/11/16/2026111680151.html",
-          "press": "조선에듀",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-16",
-          "news_title": "로봇부터 건설기계까지 매도세 확산…기계업종 옥석 가리기 주목",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=504759",
-          "press": "핀포인트뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-16",
-          "news_title": "레인보우로보틱스, 3분기 매출 30%↑...영업손실 2.5배 확대",
-          "news_url": "https://zdnet.co.kr/view/?no=20261116183333",
-          "press": "지디넷코리아",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-16",
-          "news_title": "레인보우로보틱스 3분기 매출 늘고 영업손실 확대",
-          "news_url": "https://www.vegannews.co.kr/news/article.html?no=406092",
-          "press": "비건뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-16",
-          "news_title": "배에 흉터 없이 자궁 수술… 다빈치SP 로봇으로 정밀성 높인다",
-          "news_url": "https://www.kmib.co.kr/article/20261116501867",
-          "press": "국민일보",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-16",
-          "news_title": "교육부, 대학교육 혁신포럼…로봇·미래차 인재 양성 해법 찾는다",
-          "news_url": "http://www.metroseoul.co.kr/article/20261116500303",
-          "press": "메트로신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-16",
-          "news_title": "전진건설로봇, 3분기 누적 영업이익 195억 원 집계",
-          "news_url": "https://www.the-stock.kr/news/articleView.html?idxno=33812",
-          "press": "더스탁",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "엔젤로보틱스",
-          "date": "2026-11-16",
-          "news_title": "로봇 쏠림 거둔 중국 벤처자본, 다시 반도체로 향한 이유",
-          "news_url": "https://www.g-enews.com/view.php?ud=2026111608182159058c1ed9d56c_1",
-          "press": "글로벌이코노믹",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "에스비비테크",
-          "date": "2026-11-16",
-          "news_title": "[이 시각 시황] 외국인·기관 매도에 증시 약세…AI 안경·로봇주 강세",
-          "news_url": "https://biz.sbs.co.kr/article_hub/20000346564?division=NAVER",
-          "press": "SBS Biz",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "에스비비테크",
-          "date": "2026-11-16",
-          "news_title": "제조 현장 무인화 빨라진다…산업용·협동로봇주 들썩",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=504380",
-          "press": "핀포인트뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-16",
-          "news_title": "산업계가 원하는 로봇·미래차 인재는…교육부, 대학 교육 혁신 논의",
-          "news_url": "https://www.newspim.com/news/view/20261116000132",
-          "press": "뉴스핌",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-16",
-          "news_title": "로봇·미래모빌리티 인재 어떻게 키우나",
-          "news_url": "https://www.fnnews.com/news/202611161421091247",
-          "press": "파이낸셜뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-16",
-          "news_title": "사람은 색으로, 로봇은 카메라로 읽는 '전자 이름표' 개발",
-          "news_url": "https://www.nocutnews.co.kr/news/6607432?utm_source=naver&utm_medium=article&utm_campaign=20261116142457",
-          "press": "노컷뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-16",
-          "news_title": "LG전자, 휴머노이드 국내 안전 시범인증 추진…상용화 대비",
-          "news_url": "https://www.m-i.kr/news/articleView.html?idxno=2019073",
-          "press": "매일일보",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-16",
-          "news_title": "인하대학교, 국제 재난로봇 학술대회 'IEEE SSRR 2026' 개최… 구조로봇...",
-          "news_url": "https://www.lecturernews.com/news/articleView.html?idxno=213786",
-          "press": "한국강사신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-13",
-          "news_title": "휴머노이드 로봇부터 원전까지…기계株에 돈 몰리는 이유 보니",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=503674",
-          "press": "핀포인트뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "뉴로메카",
-          "date": "2026-11-13",
-          "news_title": "공장에 로봇이 들어온다…협동로봇부터 부품주까지 매수 온기",
-          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=503812",
-          "press": "핀포인트뉴스",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "두산로보틱스",
-          "date": "2026-11-13",
-          "news_title": "엑스와이지-KAIST,휴머노이드 기반 인간–로봇 상호작용 공동 연구 협약...",
-          "news_url": "https://www.irobotnews.com/news/articleView.html?idxno=49571",
-          "press": "로봇신문",
-          "impact": "모멘텀 지속"
-        },
-        {
-          "theme": "로봇용 액추에이터 & 피지컬 AI",
-          "target_stock": "레인보우로보틱스",
-          "date": "2026-11-13",
-          "news_title": "로보티즈 거래대금 52,253백만원…장중 259,000원 터치",
-          "news_url": "https://www.job-post.co.kr/news/articleView.html?idxno=238323",
-          "press": "잡포스트",
-          "impact": "모멘텀 지속"
-        }
-      ]
-    },
-    {
       "theme_id": "ai_dc_power",
       "theme_name": "AI데이터센터 - 전력 인프라 및 에너지원 (원전/SMR)",
       "category": "AI 데이터센터 인프라",
@@ -757,10 +101,145 @@
       ]
     },
     {
+      "theme_id": "ai_dc_cooling",
+      "theme_name": "AI데이터센터 - 열관리 및 냉각 솔루션 (액침냉각)",
+      "category": "AI 데이터센터 인프라",
+      "today_change_rate": "+6.10%",
+      "today_score": 95,
+      "lead_stocks": [
+        "GST",
+        "케이엔솔",
+        "유니셈",
+        "워트"
+      ],
+      "risks_summary": "액침냉각 표준 규격 제정 지연 및 초기 설비 도입 비용(CapEx) 부담으로 상용화 속도 둔화 가능성",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "머니투데이",
+          "news_title": "[호재] 엔비디아 블랙웰 TDP 1200W 돌파… 액체냉각(Liquid Cooling) 도입 필수화",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=GST+케이엔솔+액침냉각",
+          "summary": "기존 공랭식 한계 직면으로 수랭식 냉각 및 2상 액침냉각 쿨러 시장 연평균 48% 고성장 전망"
+        },
+        {
+          "date": "2026-10-30",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "전자신문",
+          "news_title": "[⚠️ 기술적 리스크] 액침냉각 전용 합성유 환경규제(PFAS) 이슈 및 유지보수 단가 부담",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=액침냉각+PFAS+환경규제+리스크",
+          "summary": "유럽연합(EU)의 불소계 화합물 규제 움직임 및 냉각액 누출 방지 인증 절차 장기화 리스크 상존"
+        },
+        {
+          "date": "2026-10-29",
+          "stage": "DART 공시",
+          "impact_type": "GOOD",
+          "is_dart": true,
+          "press": "DART 전자공시",
+          "news_title": "[공시] GST, 데이터센터용 대용량 칠러(Chiller) 신규 양산 라인 250억 시설투자",
+          "news_url": "https://dart.fss.or.kr/dsab007/main.do?autoSearch=true&textCrpNm=GST",
+          "summary": "글로벌 CSP 데이터센터 전용 냉각 장비 납품 대응을 위한 평택 신공장 증설 완료"
+        }
+      ]
+    },
+    {
+      "theme_id": "radar_123",
+      "theme_name": "전력설비",
+      "category": "인프라",
+      "today_change_rate": "+6.80%",
+      "today_score": 95,
+      "lead_stocks": [
+        "선도전기",
+        "대한전선",
+        "가온전선",
+        "LS에코에너지"
+      ],
+      "risks_summary": "단기 과열 지정 위험 및 구리 선물 가격 급등에 따른 원가 부담, 차익 실현 출회",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "시장 판도 레이더",
+          "news_title": "[호재 속보] 북미 노후 변전소 초고압 변압기 리드타임 4년 지속… 전력망 수퍼 사이클",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=전력설비+초고압변압기+선도전기",
+          "summary": "대장주: 선도전기, 대한전선 | 북미 전력망 교체 및 신재생 계통 연계 수주잔고 역대 최대"
+        },
+        {
+          "date": "2026-11-01",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "한국경제TV",
+          "news_title": "[⚠️ 수급 악재] 전력설비 단기 급등에 따른 단기과열종목 지정 및 전환사채(CB) 오버행 부담",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=전력설비+단기과열+오버행+전환사채",
+          "summary": "선도전기 등 중소형 전력설비주들의 미상환 전환사채 주식 전환 청구 가능성으로 단기 매물 출회 경고"
+        },
+        {
+          "date": "2026-10-31",
+          "stage": "DART 공시",
+          "impact_type": "GOOD",
+          "is_dart": true,
+          "press": "DART 전자공시",
+          "news_title": "[공시] 선도전기, 초고압 변전설비 공급 단일판매·공급계약체결 (320억원 규모)",
+          "news_url": "https://dart.fss.or.kr/dsab007/main.do?autoSearch=true&textCrpNm=선도전기",
+          "summary": "공급지역: 북미 및 국내 데이터센터 전력망 | 계약금액: 최근 매출액 대비 28.4% 규모"
+        },
+        {
+          "date": "2026-10-28",
+          "stage": "증권사 리포트",
+          "impact_type": "GOOD",
+          "is_report": true,
+          "press": "대신증권 리포트",
+          "news_title": "[리포트] 선도전기, 북미 노후 변압기 교체 사이클과 전력 쇼티지 최대 수혜",
+          "news_url": "https://finance.naver.com/research/company_list.naver?keyword=선도전기",
+          "summary": "투자의견: Buy(신규) | 목표주가: 4,500원 | 글로벌 송배전망 투자 확대로 영업이익률 12% 돌파 전망"
+        }
+      ]
+    },
+    {
+      "theme_id": "robot_physical_ai",
+      "theme_name": "휴머노이드 로봇 & 피지컬 AI",
+      "category": "미래기술",
+      "today_change_rate": "+6.20%",
+      "today_score": 95,
+      "lead_stocks": [
+        "레인보우로보틱스",
+        "두산로보틱스",
+        "엔젤로보틱스",
+        "에스피지"
+      ],
+      "risks_summary": "대형주 중심 수급 쏠림으로 부품 후발주 거래대금 급감 및 외인 공매도 타깃 주의",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "조선비즈",
+          "news_title": "[호재] 엔비디아 '프로젝트 그루트' 파트너십 발표… 국내 정밀 감속기 수주 확대",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=피지컬AI+휴머노이드+에스피지",
+          "summary": "대장주: 레인보우로보틱스, 에스피지 | 피지컬 AI 액추에이터 및 정밀 하모닉 감속기 직납 기대"
+        },
+        {
+          "date": "2026-10-30",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "한국경제TV",
+          "news_title": "[⚠️ 단기 과열 리스크] 코스닥 로봇주 밸류에이션 부담 가중… 대주주 지분 매도(블록딜) 경계",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=로봇주+단기과열+블록딜+차익실현",
+          "summary": "주가 급등기에 나타나는 초기 투자 VC(벤처캐피탈) 의무보유등록 해제 및 차익실현 매물 경고"
+        }
+      ]
+    },
+    {
       "theme_id": "hbm_glass",
       "theme_name": "차세대 HBM4 & 유리기판",
       "category": "반도체/AI",
-      "today_score": 96,
+      "today_score": 94,
       "today_change_rate": "+8.45%",
       "today_trading_volume": "1조 8,400억",
       "lead_stocks": [
@@ -905,141 +384,6 @@
           "news_url": "https://www.edaily.co.kr/News/Read?newsId=02296006645646376&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article",
           "press": "이데일리",
           "impact": "단기 조정"
-        }
-      ]
-    },
-    {
-      "theme_id": "ai_dc_cooling",
-      "theme_name": "AI데이터센터 - 열관리 및 냉각 솔루션 (액침냉각)",
-      "category": "AI 데이터센터 인프라",
-      "today_change_rate": "+6.10%",
-      "today_score": 95,
-      "lead_stocks": [
-        "GST",
-        "케이엔솔",
-        "유니셈",
-        "워트"
-      ],
-      "risks_summary": "액침냉각 표준 규격 제정 지연 및 초기 설비 도입 비용(CapEx) 부담으로 상용화 속도 둔화 가능성",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "머니투데이",
-          "news_title": "[호재] 엔비디아 블랙웰 TDP 1200W 돌파… 액체냉각(Liquid Cooling) 도입 필수화",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=GST+케이엔솔+액침냉각",
-          "summary": "기존 공랭식 한계 직면으로 수랭식 냉각 및 2상 액침냉각 쿨러 시장 연평균 48% 고성장 전망"
-        },
-        {
-          "date": "2026-10-30",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "전자신문",
-          "news_title": "[⚠️ 기술적 리스크] 액침냉각 전용 합성유 환경규제(PFAS) 이슈 및 유지보수 단가 부담",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=액침냉각+PFAS+환경규제+리스크",
-          "summary": "유럽연합(EU)의 불소계 화합물 규제 움직임 및 냉각액 누출 방지 인증 절차 장기화 리스크 상존"
-        },
-        {
-          "date": "2026-10-29",
-          "stage": "DART 공시",
-          "impact_type": "GOOD",
-          "is_dart": true,
-          "press": "DART 전자공시",
-          "news_title": "[공시] GST, 데이터센터용 대용량 칠러(Chiller) 신규 양산 라인 250억 시설투자",
-          "news_url": "https://dart.fss.or.kr/dsab007/main.do?autoSearch=true&textCrpNm=GST",
-          "summary": "글로벌 CSP 데이터센터 전용 냉각 장비 납품 대응을 위한 평택 신공장 증설 완료"
-        }
-      ]
-    },
-    {
-      "theme_id": "radar_123",
-      "theme_name": "전력설비",
-      "category": "인프라",
-      "today_change_rate": "+6.80%",
-      "today_score": 95,
-      "lead_stocks": [
-        "선도전기",
-        "대한전선",
-        "가온전선",
-        "LS에코에너지"
-      ],
-      "risks_summary": "단기 과열 지정 위험 및 구리 선물 가격 급등에 따른 원가 부담, 차익 실현 출회",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "시장 판도 레이더",
-          "news_title": "[호재 속보] 북미 노후 변전소 초고압 변압기 리드타임 4년 지속… 전력망 수퍼 사이클",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=전력설비+초고압변압기+선도전기",
-          "summary": "대장주: 선도전기, 대한전선 | 북미 전력망 교체 및 신재생 계통 연계 수주잔고 역대 최대"
-        },
-        {
-          "date": "2026-11-01",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "한국경제TV",
-          "news_title": "[⚠️ 수급 악재] 전력설비 단기 급등에 따른 단기과열종목 지정 및 전환사채(CB) 오버행 부담",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=전력설비+단기과열+오버행+전환사채",
-          "summary": "선도전기 등 중소형 전력설비주들의 미상환 전환사채 주식 전환 청구 가능성으로 단기 매물 출회 경고"
-        },
-        {
-          "date": "2026-10-31",
-          "stage": "DART 공시",
-          "impact_type": "GOOD",
-          "is_dart": true,
-          "press": "DART 전자공시",
-          "news_title": "[공시] 선도전기, 초고압 변전설비 공급 단일판매·공급계약체결 (320억원 규모)",
-          "news_url": "https://dart.fss.or.kr/dsab007/main.do?autoSearch=true&textCrpNm=선도전기",
-          "summary": "공급지역: 북미 및 국내 데이터센터 전력망 | 계약금액: 최근 매출액 대비 28.4% 규모"
-        },
-        {
-          "date": "2026-10-28",
-          "stage": "증권사 리포트",
-          "impact_type": "GOOD",
-          "is_report": true,
-          "press": "대신증권 리포트",
-          "news_title": "[리포트] 선도전기, 북미 노후 변압기 교체 사이클과 전력 쇼티지 최대 수혜",
-          "news_url": "https://finance.naver.com/research/company_list.naver?keyword=선도전기",
-          "summary": "투자의견: Buy(신규) | 목표주가: 4,500원 | 글로벌 송배전망 투자 확대로 영업이익률 12% 돌파 전망"
-        }
-      ]
-    },
-    {
-      "theme_id": "robot_physical_ai",
-      "theme_name": "휴머노이드 로봇 & 피지컬 AI",
-      "category": "미래기술",
-      "today_change_rate": "+6.20%",
-      "today_score": 95,
-      "lead_stocks": [
-        "레인보우로보틱스",
-        "두산로보틱스",
-        "엔젤로보틱스",
-        "에스피지"
-      ],
-      "risks_summary": "대형주 중심 수급 쏠림으로 부품 후발주 거래대금 급감 및 외인 공매도 타깃 주의",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "조선비즈",
-          "news_title": "[호재] 엔비디아 '프로젝트 그루트' 파트너십 발표… 국내 정밀 감속기 수주 확대",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=피지컬AI+휴머노이드+에스피지",
-          "summary": "대장주: 레인보우로보틱스, 에스피지 | 피지컬 AI 액추에이터 및 정밀 하모닉 감속기 직납 기대"
-        },
-        {
-          "date": "2026-10-30",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "한국경제TV",
-          "news_title": "[⚠️ 단기 과열 리스크] 코스닥 로봇주 밸류에이션 부담 가중… 대주주 지분 매도(블록딜) 경계",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=로봇주+단기과열+블록딜+차익실현",
-          "summary": "주가 급등기에 나타나는 초기 투자 VC(벤처캐피탈) 의무보유등록 해제 및 차익실현 매물 경고"
         }
       ]
     },
@@ -1865,10 +1209,701 @@
       ]
     },
     {
+      "theme_id": "robot_ai",
+      "theme_name": "로봇용 액추에이터 & 피지컬 AI",
+      "category": "로봇/AI",
+      "today_score": 85,
+      "today_change_rate": "+3.90%",
+      "today_trading_volume": "5,400억",
+      "lead_stocks": [
+        "레인보우로보틱스",
+        "에스피지",
+        "로보티즈",
+        "두산로보틱스"
+      ],
+      "today_reason": "빅테크 제조 라인 내 휴머노이드 투입 및 정밀 감속기 부품 국산화 양산 납품 본격화",
+      "timeline": [
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "에스비비테크",
+          "date": "2026-11-25",
+          "news_title": "삼성 휴머노이드 관전 포인트는 로봇 손 …현대모비스·HL만도는 양산 수...",
+          "news_url": "https://www.ekoreanews.co.kr/news/articleView.html?idxno=89391",
+          "press": "이코리아",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-25",
+          "news_title": "뉴로메카, 자체 개발 로봇 '에이르' 기반 수술보조로봇 실증 성공",
+          "news_url": "https://www.industrynews.co.kr/news/articleView.html?idxno=90212",
+          "press": "인더스트리뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-25",
+          "news_title": "두산로보틱스·KH바텍 등 3종목 26일 공매도 금지",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795619817693599276",
+          "press": "광주매일신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-25",
+          "news_title": "\"하루 1800병 척척\"…日 편의점, 음료 진열하는 AI 로봇 도입",
+          "news_url": "https://www.newsis.com/view/NISX20261125_0003882389",
+          "press": "뉴시스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-25",
+          "news_title": "[기획특집 ③] 중국 피지컬 AI 산업 전략이 한국에 던지는 과제…'로봇...",
+          "news_url": "https://www.irobotnews.com/news/articleView.html?idxno=49782",
+          "press": "로봇신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-25",
+          "news_title": "뉴로메카, 휴머노이드 수술 보조 실증 성공…의료로봇 사업 확대",
+          "news_url": "https://www.hellot.net/news/article.html?no=116603",
+          "press": "헬로티",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-25",
+          "news_title": "뉴로메카, 자체 개발 로봇 '에이르' 기반 수술보조로봇 실증 성공…의료...",
+          "news_url": "https://www.irobotnews.com/news/articleView.html?idxno=49786",
+          "press": "로봇신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-25",
+          "news_title": "뉴로메카, 자체 개발 로봇 '에이르' 기반 수술보조 실증 성공",
+          "news_url": "https://www.edaily.co.kr/News/Read?newsId=02309126645649328&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article",
+          "press": "이데일리",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-25",
+          "news_title": "'CES 2027' 로봇 전쟁…삼성전자 휴머노이드 출격 주목",
+          "news_url": "https://www.irobotnews.com/news/articleView.html?idxno=49794",
+          "press": "로봇신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "엔젤로보틱스",
+          "date": "2026-11-24",
+          "news_title": "웨어러블 로봇·드론 스테이션 품은 軍, 민간 혁신기술로 전투력·병영...",
+          "news_url": "https://www.fnnews.com/news/202611241436318387",
+          "press": "파이낸셜뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "에스비비테크",
+          "date": "2026-11-24",
+          "news_title": "유진투자증권 \"삼성전자 HR·HE 공개 임박 기대…레인보우로보틱스 몸값...",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=507651",
+          "press": "핀포인트뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-24",
+          "news_title": "로보티즈·휴림로봇 기계주 '후끈'…로봇에서 건설장비까지 매수 온기 ...",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=507614",
+          "press": "핀포인트뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-24",
+          "news_title": "한국AI·로봇산업협회, 회원사 500개 돌파",
+          "news_url": "https://www.klnews.co.kr/news/articleView.html?idxno=323679",
+          "press": "물류신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-24",
+          "news_title": "2차전지 레버리지 ETF 17%↑…로봇·반도체도 급등",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795533573693359276",
+          "press": "광주매일신문",
+          "impact": "강한 상승"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-24",
+          "news_title": "에스피지·로보티즈 24%·19% 급등…로봇주 강세",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795533668693451276",
+          "press": "광주매일신문",
+          "impact": "강한 상승"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-24",
+          "news_title": "[특징주] 엔비디아발 훈풍에 로봇주 무더기 급등…휴림로봇 등 5종목 상...",
+          "news_url": "https://www.ajunews.com/view/20261124133936063",
+          "press": "아주경제",
+          "impact": "강한 상승"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-24",
+          "news_title": "로보티즈·레인보우로보틱스 폭풍 질주… 휴머노이드 로봇 상용화 기대...",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=507490",
+          "press": "핀포인트뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-24",
+          "news_title": "두산로보틱스 주가, 11월 24일 52,900원 11.25% 상승",
+          "news_url": "https://www.joongangenews.com/news/articleView.html?idxno=566252",
+          "press": "중앙이코노미뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-24",
+          "news_title": "경북도, AI‧반도체‧로봇 등 인재 4만 2천 명 양성",
+          "news_url": "https://www.dkilbo.com/news/articleView.html?idxno=561964",
+          "press": "대경일보",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "에스비비테크",
+          "date": "2026-11-23",
+          "news_title": "휴림로봇 상한가…피지컬 AI 확산에 로봇주 '들썩'",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=506986",
+          "press": "핀포인트뉴스",
+          "impact": "강한 상승"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-23",
+          "news_title": "두산로보틱스·레인보우로보틱스 상승 대열…기계주 실적 따라 희비",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=507238",
+          "press": "핀포인트뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-23",
+          "news_title": "레인보우로보틱스·에스엠 공매도 과열…24일 공매도 금지",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795446153693321276",
+          "press": "광주매일신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-23",
+          "news_title": "HD현대로보틱스 개인정보 유출, 첨단 로봇 1위도 기본 보안 구멍…'보안...",
+          "news_url": "https://www.job-post.co.kr/news/articleView.html?idxno=240347",
+          "press": "잡포스트",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-23",
+          "news_title": "한국AI·로봇산업협회, 회원사 500개 돌파…AI·로봇 생태계 확대",
+          "news_url": "https://www.etnews.com/20261123000167",
+          "press": "전자신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-23",
+          "news_title": "한국AI·로봇산업협회, 회원사 500개 돌파⋯삼성·현대차·퀄컴 포진",
+          "news_url": "http://www.inews24.com/view/2029096",
+          "press": "아이뉴스24",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-23",
+          "news_title": "한국로봇산업진흥원-한국화학융합시험연구원, 첨단로봇 지원 공동 네트...",
+          "news_url": "https://www.irobotnews.com/news/articleView.html?idxno=49740",
+          "press": "로봇신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-20",
+          "news_title": "반등 신호일까, 추세 이탈일까…레인보우로보틱스·두산로보틱스 하락...",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=506341",
+          "press": "핀포인트뉴스",
+          "impact": "단기 조정"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-20",
+          "news_title": "코스닥, 5%대 낙폭에 650선 밑으로...이오테크닉스, 로보티즈 등 하락",
+          "news_url": "http://www.econonews.co.kr/news/articleView.html?idxno=447480",
+          "press": "이코노뉴스",
+          "impact": "단기 조정"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-20",
+          "news_title": "인간 위해 거짓말하는 로봇, 80년 전 ‘AI 아첨’ 예견",
+          "news_url": "https://www.chosun.com/culture-life/book/2026/11/21/IAU7HLULOFA5ZNYQBDSS7MJJ5Y/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "press": "조선일보",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "LIG넥스원",
+          "date": "2026-11-20",
+          "news_title": "한화가 탐낸 '방산용 로봇개'…700억 투자 무산된 이유",
+          "news_url": "https://www.hankyung.com/article/202611209167r",
+          "press": "한국경제",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-20",
+          "news_title": "로봇주 동반 급락…앤트로픽 상장에도 기술주 한파, 코스피 4900도 붕괴...",
+          "news_url": "https://www.cbci.co.kr/news/articleView.html?idxno=629021",
+          "press": "CBC뉴스",
+          "impact": "단기 조정"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-20",
+          "news_title": "\"로봇·수소 초광역특구 전북 지정\"…도의회, 촉구 건의안",
+          "news_url": "https://www.newsis.com/view/NISX20261120_0003876520",
+          "press": "뉴시스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "한화에어로스페이스",
+          "date": "2026-11-20",
+          "news_title": "순천시, 문화콘텐츠 페어·로봇 페스타·시민화합 행사 20~21일 개최",
+          "news_url": "https://www.pressian.com/pages/articles/2026112012501770746?utm_source=naver&utm_medium=search",
+          "press": "프레시안",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-19",
+          "news_title": "[실적+] 완성로봇 4사 양극화…레인보우·두산 성장세, 뉴로메카·유일...",
+          "news_url": "https://www.greened.kr/news/articleView.html?idxno=355080",
+          "press": "녹색경제신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-19",
+          "news_title": "마음AI, 한양대 ERICA·두산로보틱스와 피지컬AI 산학협력 MOU",
+          "news_url": "https://zdnet.co.kr/view/?no=20261119200855",
+          "press": "지디넷코리아",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-19",
+          "news_title": "강원대병원, 포스코1%나눔재단 기부로 보행재활로봇 도입",
+          "news_url": "https://www.medigatenews.com/news/479367600",
+          "press": "메디게이트뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-19",
+          "news_title": "철강도시 포항, 로봇·AI 품고 첨단산업 거점으로 ‘업그레이드’ [지방...",
+          "news_url": "https://www.segye.com/newsView/20261116519759?OutUrl=naver",
+          "press": "세계일보",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-19",
+          "news_title": "마음AI, 한양대 ERICA·두산로보틱스와 피지컬AI 협력",
+          "news_url": "https://www.betanews.net/article/view/beta202611190048",
+          "press": "베타뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-19",
+          "news_title": "LSK아이로봇, AI 스마트안경·초소형 카메라 탐지 시장 진출 추진",
+          "news_url": "https://view.asiae.co.kr/article/2026111913210098842",
+          "press": "아시아경제",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-18",
+          "news_title": "협동로봇부터 정밀 감속기까지…기계산업 성장축 달라졌다",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=505588",
+          "press": "핀포인트뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-18",
+          "news_title": "레인보우로보틱스 20%·로보티즈 13% 주가 급등",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795003823692855276",
+          "press": "광주매일신문",
+          "impact": "강한 상승"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-18",
+          "news_title": "에이엘로봇 회전율 331%…노랑풍선 75% 손바뀜",
+          "news_url": "http://www.kjdaily.com/article.php?aid=1795015209692856276",
+          "press": "광주매일신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-18",
+          "news_title": "삼성·LG 로봇 투자 기대… 감속기부터 자동화 장비까지 들썩",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=505305",
+          "press": "핀포인트뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-18",
+          "news_title": "대전권 대학‧기업, '앵커 기반' 로봇‧미래모빌리티 분야 교육과정 반...",
+          "news_url": "https://news.unn.net/news/articleView.html?idxno=600848",
+          "press": "한국대학신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-18",
+          "news_title": "반도체 앞지른 로봇 ETF···휴머노이드株 '날개'",
+          "news_url": "http://www.finomy.com/news/articleView.html?idxno=267099",
+          "press": "현대경제신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-18",
+          "news_title": "갤럭시코퍼레이션, 홍콩서 피지컬 AI 패션쇼 개최…휴머노이드 로봇 공...",
+          "news_url": "https://www.hankyung.com/article/202611184543O",
+          "press": "한국경제",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "현대로템",
+          "date": "2026-11-18",
+          "news_title": "에스피지 주가 폭풍질주…철도 인프라 투자 확대에 관련주 '요동'",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=505418",
+          "press": "핀포인트뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-17",
+          "news_title": "계양전기 주가는 폭등 했는데…레인보우로보틱스·두산로보틱스는 '휘청...",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=505126",
+          "press": "핀포인트뉴스",
+          "impact": "강한 상승"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-17",
+          "news_title": "수술실부터 재활병동까지…의료현장 파고드는 K-로봇",
+          "news_url": "https://zdnet.co.kr/view/?no=20261113175551",
+          "press": "지디넷코리아",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-17",
+          "news_title": "코스닥, 2%대 낙폭에 650선 턱걸이...레인보우로보틱스, 에코프로 등 하...",
+          "news_url": "http://www.econonews.co.kr/news/articleView.html?idxno=447310",
+          "press": "이코노뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-17",
+          "news_title": "\"70톤 초대형 컨테이너, AI 로봇이 알아서 옮긴다\"… 에이스웍스, 부산항...",
+          "news_url": "https://www.woodkorea.co.kr/news/articleView.html?idxno=92647",
+          "press": "한국목재신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-17",
+          "news_title": "몸집 키우는 韓 로봇업계, 적자는 눈덩이⋯'실속 없는 성장' 딜레마",
+          "news_url": "https://www.autodaily.co.kr/news/articleView.html?idxno=602155",
+          "press": "엠투데이",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-16",
+          "news_title": "교육부, 17일 ‘산업계 대학교육 혁신포럼’… 로봇·미래모빌리티 인재...",
+          "news_url": "https://edu.chosun.com/site/data/html_dir/2026/11/16/2026111680151.html",
+          "press": "조선에듀",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-16",
+          "news_title": "로봇부터 건설기계까지 매도세 확산…기계업종 옥석 가리기 주목",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=504759",
+          "press": "핀포인트뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-16",
+          "news_title": "레인보우로보틱스, 3분기 매출 30%↑...영업손실 2.5배 확대",
+          "news_url": "https://zdnet.co.kr/view/?no=20261116183333",
+          "press": "지디넷코리아",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-16",
+          "news_title": "레인보우로보틱스 3분기 매출 늘고 영업손실 확대",
+          "news_url": "https://www.vegannews.co.kr/news/article.html?no=406092",
+          "press": "비건뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-16",
+          "news_title": "배에 흉터 없이 자궁 수술… 다빈치SP 로봇으로 정밀성 높인다",
+          "news_url": "https://www.kmib.co.kr/article/20261116501867",
+          "press": "국민일보",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-16",
+          "news_title": "교육부, 대학교육 혁신포럼…로봇·미래차 인재 양성 해법 찾는다",
+          "news_url": "http://www.metroseoul.co.kr/article/20261116500303",
+          "press": "메트로신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-16",
+          "news_title": "전진건설로봇, 3분기 누적 영업이익 195억 원 집계",
+          "news_url": "https://www.the-stock.kr/news/articleView.html?idxno=33812",
+          "press": "더스탁",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "엔젤로보틱스",
+          "date": "2026-11-16",
+          "news_title": "로봇 쏠림 거둔 중국 벤처자본, 다시 반도체로 향한 이유",
+          "news_url": "https://www.g-enews.com/view.php?ud=2026111608182159058c1ed9d56c_1",
+          "press": "글로벌이코노믹",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "에스비비테크",
+          "date": "2026-11-16",
+          "news_title": "[이 시각 시황] 외국인·기관 매도에 증시 약세…AI 안경·로봇주 강세",
+          "news_url": "https://biz.sbs.co.kr/article_hub/20000346564?division=NAVER",
+          "press": "SBS Biz",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "에스비비테크",
+          "date": "2026-11-16",
+          "news_title": "제조 현장 무인화 빨라진다…산업용·협동로봇주 들썩",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=504380",
+          "press": "핀포인트뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-16",
+          "news_title": "산업계가 원하는 로봇·미래차 인재는…교육부, 대학 교육 혁신 논의",
+          "news_url": "https://www.newspim.com/news/view/20261116000132",
+          "press": "뉴스핌",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-16",
+          "news_title": "로봇·미래모빌리티 인재 어떻게 키우나",
+          "news_url": "https://www.fnnews.com/news/202611161421091247",
+          "press": "파이낸셜뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-16",
+          "news_title": "사람은 색으로, 로봇은 카메라로 읽는 '전자 이름표' 개발",
+          "news_url": "https://www.nocutnews.co.kr/news/6607432?utm_source=naver&utm_medium=article&utm_campaign=20261116142457",
+          "press": "노컷뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-16",
+          "news_title": "LG전자, 휴머노이드 국내 안전 시범인증 추진…상용화 대비",
+          "news_url": "https://www.m-i.kr/news/articleView.html?idxno=2019073",
+          "press": "매일일보",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-16",
+          "news_title": "인하대학교, 국제 재난로봇 학술대회 'IEEE SSRR 2026' 개최… 구조로봇...",
+          "news_url": "https://www.lecturernews.com/news/articleView.html?idxno=213786",
+          "press": "한국강사신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-13",
+          "news_title": "휴머노이드 로봇부터 원전까지…기계株에 돈 몰리는 이유 보니",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=503674",
+          "press": "핀포인트뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "뉴로메카",
+          "date": "2026-11-13",
+          "news_title": "공장에 로봇이 들어온다…협동로봇부터 부품주까지 매수 온기",
+          "news_url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=503812",
+          "press": "핀포인트뉴스",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "두산로보틱스",
+          "date": "2026-11-13",
+          "news_title": "엑스와이지-KAIST,휴머노이드 기반 인간–로봇 상호작용 공동 연구 협약...",
+          "news_url": "https://www.irobotnews.com/news/articleView.html?idxno=49571",
+          "press": "로봇신문",
+          "impact": "모멘텀 지속"
+        },
+        {
+          "theme": "로봇용 액추에이터 & 피지컬 AI",
+          "target_stock": "레인보우로보틱스",
+          "date": "2026-11-13",
+          "news_title": "로보티즈 거래대금 52,253백만원…장중 259,000원 터치",
+          "news_url": "https://www.job-post.co.kr/news/articleView.html?idxno=238323",
+          "press": "잡포스트",
+          "impact": "모멘텀 지속"
+        }
+      ]
+    },
+    {
+      "theme_id": "radar_269",
+      "theme_name": "LED장비",
+      "category": "IT부품",
+      "today_change_rate": "+2.80%",
+      "today_score": 84,
+      "lead_stocks": [
+        "서울반도체",
+        "루멘스",
+        "영우디에스피",
+        "프로텍"
+      ],
+      "risks_summary": "중국 디스플레이 업계의 저가 마이크로LED 패널 공세 및 글로벌 TV 세트 판매 둔화",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "stage": "호재 뉴스",
+          "impact_type": "GOOD",
+          "press": "시장 판도 레이더",
+          "news_title": "[호재] 마이크로LED 및 자동차 전장용 지능형 헤드램프 LED 채택율 급증",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=서울반도체+마이크로LED+전장",
+          "summary": "대장주: 서울반도체 | 고수익성 전장용 와이캅(WICOP) LED 특허 경쟁력 부각"
+        },
+        {
+          "date": "2026-10-29",
+          "stage": "⚠️ 악재·리스크",
+          "impact_type": "BAD",
+          "is_risk": true,
+          "press": "디일렉",
+          "news_title": "[⚠️ 수요 악재] 글로벌 스마트워치 및 대형 TV용 마이크로LED 양산 원가 한계… 도입 시기 지연",
+          "news_url": "https://search.naver.com/search.naver?where=news&query=마이크로LED+원가한계+양산지연",
+          "summary": "높은 칩 전사(Transfer) 비용으로 인해 프리미엄 가전 외 일반 상용화 확산 지체"
+        }
+      ]
+    },
+    {
       "theme_id": "defense_k",
       "theme_name": "K-방산 수출 & 자주포/미사일",
       "category": "방산/항공",
-      "today_score": 85,
+      "today_score": 83,
       "today_change_rate": "+2.80%",
       "today_trading_volume": "4,500억",
       "lead_stocks": [
@@ -2332,41 +2367,6 @@
       ]
     },
     {
-      "theme_id": "radar_269",
-      "theme_name": "LED장비",
-      "category": "IT부품",
-      "today_change_rate": "+2.80%",
-      "today_score": 84,
-      "lead_stocks": [
-        "서울반도체",
-        "루멘스",
-        "영우디에스피",
-        "프로텍"
-      ],
-      "risks_summary": "중국 디스플레이 업계의 저가 마이크로LED 패널 공세 및 글로벌 TV 세트 판매 둔화",
-      "timeline": [
-        {
-          "date": "2026-11-02",
-          "stage": "호재 뉴스",
-          "impact_type": "GOOD",
-          "press": "시장 판도 레이더",
-          "news_title": "[호재] 마이크로LED 및 자동차 전장용 지능형 헤드램프 LED 채택율 급증",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=서울반도체+마이크로LED+전장",
-          "summary": "대장주: 서울반도체 | 고수익성 전장용 와이캅(WICOP) LED 특허 경쟁력 부각"
-        },
-        {
-          "date": "2026-10-29",
-          "stage": "⚠️ 악재·리스크",
-          "impact_type": "BAD",
-          "is_risk": true,
-          "press": "디일렉",
-          "news_title": "[⚠️ 수요 악재] 글로벌 스마트워치 및 대형 TV용 마이크로LED 양산 원가 한계… 도입 시기 지연",
-          "news_url": "https://search.naver.com/search.naver?where=news&query=마이크로LED+원가한계+양산지연",
-          "summary": "높은 칩 전사(Transfer) 비용으로 인해 프리미엄 가전 외 일반 상용화 확산 지체"
-        }
-      ]
-    },
-    {
       "theme_id": "valueup_finance",
       "theme_name": "밸류업 지배구조 & 금융/지주사",
       "category": "정책/금융",
@@ -2464,5 +2464,5 @@
       ]
     }
   ],
-  "last_updated": "2026-11-25T18:04:27.792Z"
+  "last_updated": "2026-11-26T05:18:09.777Z"
 }
