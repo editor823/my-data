@@ -1,255 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-11-27T12:43:35.094Z",
-  "updatedAtKst": "2026. 11. 27. PM 9:43:35",
+  "updatedAt": "2026-11-27T23:31:54.784Z",
+  "updatedAtKst": "2026. 11. 28. AM 8:31:54",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "홍민기 前 여친 실종"
+        "keyword": "인터넷우체국 개인정보 유출"
       },
       {
         "rank": 2,
-        "keyword": "김범수 무죄 확정"
+        "keyword": "2026년 11월 28일 운세"
       },
       {
         "rank": 3,
-        "keyword": "남경주 국민참여재판"
+        "keyword": "남경주 제자 성관계 시도"
       },
       {
         "rank": 4,
-        "keyword": "신지아 6차 쇼트 2위"
+        "keyword": "필라델피아 반도체 지수"
       },
       {
         "rank": 5,
-        "keyword": "농협은행"
-      },
-      {
-        "rank": 6,
-        "keyword": "황교안"
-      },
-      {
-        "rank": 7,
         "keyword": "조희대 탄핵 국제 우려"
       },
       {
+        "rank": 6,
+        "keyword": "젠슨 황 디올 재킷 복귀"
+      },
+      {
+        "rank": 7,
+        "keyword": "미 공군 클라우드 해킹"
+      },
+      {
         "rank": 8,
-        "keyword": "국민연금 적립금 감소"
+        "keyword": "트럼프 푸틴 유럽 공격 중단"
       },
       {
         "rank": 9,
-        "keyword": "김보현 훈남과 내년 결혼"
+        "keyword": "이란 해상봉쇄 돌파"
       },
       {
         "rank": 10,
-        "keyword": "선관위 특검, 노태악 압수수색"
+        "keyword": "AI 관련�� 상승"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "실바 30점 5연승 new"
+        "keyword": "이서진 블핑 지수 상승 1"
       },
       {
         "rank": 2,
-        "keyword": "가족관계증명서 상승 2"
+        "keyword": "젠슨 황 new"
       },
       {
         "rank": 3,
-        "keyword": "최민희 당원자격 정지 new"
+        "keyword": "이동연 반전 인증샷에 new"
       },
       {
         "rank": 4,
-        "keyword": "이혼 LJ 이혼할 new"
+        "keyword": "홍민기 배우 상승 1"
       },
       {
         "rank": 5,
-        "keyword": "황교안 징역 구형 new"
+        "keyword": "100일의 거짓말 상승 1"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "남경주 국민참여재판"
+        "keyword": "주유소 기름값 하락"
       },
       {
         "rank": 2,
-        "keyword": "조희대 탄핵 국제 우려"
+        "keyword": "인터넷우체국 개인정보 유출"
       },
       {
         "rank": 3,
-        "keyword": "국민연금 적립금 감소"
+        "keyword": "조희대 탄핵 국제 우려"
       },
       {
         "rank": 4,
-        "keyword": "서울 중구 여인숙 화재"
-      },
-      {
-        "rank": 5,
-        "keyword": "대구 배출가스 5등급 운행제한"
-      },
-      {
-        "rank": 6,
-        "keyword": "이나인페이 해킹 피해"
-      },
-      {
-        "rank": 7,
-        "keyword": "김이현 뺑소니 사고"
-      },
-      {
-        "rank": 8,
-        "keyword": "맹장 수술 본인부담 인하"
-      },
-      {
-        "rank": 9,
         "keyword": "노태악 압수수색"
       },
       {
+        "rank": 5,
+        "keyword": "미 공군 클라우드 해킹"
+      },
+      {
+        "rank": 6,
+        "keyword": "트럼프 푸틴 유럽 공격 중단"
+      },
+      {
+        "rank": 7,
+        "keyword": "미군 이란 상선 무력화"
+      },
+      {
+        "rank": 8,
+        "keyword": "삼성증권 개인정보 유출"
+      },
+      {
+        "rank": 9,
+        "keyword": "국민연금 적립금 감소"
+      },
+      {
         "rank": 10,
-        "keyword": "대장동 2심 공소청 항소기각"
+        "keyword": "라이어 서현진 긴급체포"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "jyp엔터테인먼트"
+        "keyword": "김정화"
       },
       {
         "rank": 2,
-        "keyword": "농협은행"
+        "keyword": "보편적 기본소득"
       },
       {
         "rank": 3,
-        "keyword": "박훈정"
+        "keyword": "위암"
       },
       {
         "rank": 4,
-        "keyword": "황교안"
+        "keyword": "이승엽"
       },
       {
         "rank": 5,
-        "keyword": "블랙 프라이데이"
+        "keyword": "s&p 500"
       },
       {
         "rank": 6,
-        "keyword": "bangladesh a vs pakistan a"
+        "keyword": "포포투"
       },
       {
         "rank": 7,
-        "keyword": "agf"
+        "keyword": "대한간호협회"
       },
       {
         "rank": 8,
-        "keyword": "김이현"
+        "keyword": "서울경제"
       },
       {
         "rank": 9,
-        "keyword": "서울교통공사 채용"
+        "keyword": "이상민"
       },
       {
         "rank": 10,
-        "keyword": "aus vs eng"
+        "keyword": "skhy"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "홍민기 전 여자친구 실종"
+        "keyword": "홍민기 전 연인 실종"
       },
       {
         "rank": 2,
-        "keyword": "그냥 사람 친구"
+        "keyword": "최민희 당원권 정지"
       },
       {
         "rank": 3,
-        "keyword": "박정수 배우"
+        "keyword": "이상이 배우"
       },
       {
         "rank": 4,
-        "keyword": "GS칼텍스 5연승"
+        "keyword": "손연재 부��� 30억 기부"
       },
       {
         "rank": 5,
-        "keyword": "김용건 정연 조언"
+        "keyword": "박홍근 서영교 충돌"
       },
       {
         "rank": 6,
-        "keyword": "산독기 프로젝트"
+        "keyword": "허은아 사직"
       },
       {
         "rank": 7,
-        "keyword": "박홍근 서영교 법사위 언쟁"
+        "keyword": "황교안 내란선동 혐의"
       },
       {
         "rank": 8,
-        "keyword": "삼성전자 배당금"
+        "keyword": "남경필 아들"
       },
       {
         "rank": 9,
-        "keyword": "몬스타엑스 주헌"
+        "keyword": "그냥 사람 친구"
       },
       {
         "rank": 10,
-        "keyword": "이재명 정정 요구"
+        "keyword": "손새은 임찬규 결혼"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "혜리, 7년 기른 머리 싹둑…파격 숏컷 변신 이유? [DA클립]",
+      "title": "이지아, 유튜브 시작…첫 콘텐츠부터 연애관 공개",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261127/135105963/1",
-      "publishedAt": "수집 11. 27. 21:43 KST",
-      "publishedOrder": 1795783409462
+      "url": "https://sports.donga.com/ent/article/all/20261128/135106836/1",
+      "publishedAt": "수집 11. 28. 08:31 KST",
+      "publishedOrder": 1795822310897
     },
     {
-      "title": "임찬규♥손새은, 5년 열애 끝…손나은과 진짜 가족 된다",
+      "title": "황정민, 17년 전 조정석 영입하려 했다…“내가 잘될 줄 알았어”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261127/135105912/1",
-      "publishedAt": "수집 11. 27. 21:43 KST",
-      "publishedOrder": 1795783409462
+      "url": "https://sports.donga.com/ent/article/all/20261128/135106813/1",
+      "publishedAt": "수집 11. 28. 08:31 KST",
+      "publishedOrder": 1795822310897
     },
     {
-      "title": "‘환승연애’ 김보현, 깜짝 결혼 발표…훈남 예비신랑 정체",
+      "title": "‘연매출 500억��� 박미희, 주민 40명에 수육 100인분 (사당귀)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261127/135105921/1",
-      "publishedAt": "수집 11. 27. 21:43 KST",
-      "publishedOrder": 1795783409462
+      "url": "https://sports.donga.com/ent/article/all/20261128/135106826/1",
+      "publishedAt": "수집 11. 28. 08:31 KST",
+      "publishedOrder": 1795822310897
     },
     {
-      "title": "‘CD 플레이어 없어도 CD 산다’…실물 음반 흥행 이끄는 동력은 K팝",
+      "title": "AOA 출신 지민, 속옷만 입고 파격… 민망하네 [DA★]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261127/135094375/1",
-      "publishedAt": "수집 11. 27. 21:43 KST",
-      "publishedOrder": 1795783409462
+      "url": "https://sports.donga.com/ent/article/all/20261128/135106821/1",
+      "publishedAt": "수집 11. 28. 08:31 KST",
+      "publishedOrder": 1795822310897
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 27. 21:43 KST",
-      "publishedOrder": 1795783408508
+      "publishedAt": "수집 11. 28. 08:31 KST",
+      "publishedOrder": 1795822309897
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 27. 21:43 KST",
-      "publishedOrder": 1795783408508
+      "publishedAt": "수집 11. 28. 08:31 KST",
+      "publishedOrder": 1795822309897
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 27. 21:43 KST",
-      "publishedOrder": 1795783408508
+      "publishedAt": "수집 11. 28. 08:31 KST",
+      "publishedOrder": 1795822309897
     },
     {
-      "title": "팬들 편지, 안 읽고 쓰레기봉투 값마저 아까워 분리배출..\"뮤지컬배우 이동연, 해명해\" 비난 폭주 [스타이슈]",
+      "title": "'성매매 벌금형' 지나 맞아? 고속노화 비주얼..10년 공백 후 달라진 얼굴",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/27/2026112707024610910",
-      "publishedAt": "수집 11. 27. 21:43 KST",
-      "publishedOrder": 1795783408508
+      "url": "https://www.starnewskorea.com/star/2026/11/27/2026112709020623498",
+      "publishedAt": "수집 11. 28. 08:31 KST",
+      "publishedOrder": 1795822309897
     }
   ]
 }
