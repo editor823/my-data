@@ -1,258 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-11-26T17:03:59.038Z",
-  "updatedAtKst": "2026. 11. 27. AM 2:03:59",
+  "updatedAt": "2026-11-27T01:47:39.342Z",
+  "updatedAtKst": "2026. 11. 27. AM 10:47:39",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "경찰, 세무사 구속영장 신청"
+        "keyword": "발언하는 정점식 원내대표"
       },
       {
         "rank": 2,
-        "keyword": "중진 만찬 참석 의원들"
+        "keyword": "문근영, 기립성 저혈압으로 쓰러졌다"
       },
       {
         "rank": 3,
-        "keyword": "국힘 조은석 특검 고발"
+        "keyword": "김가영, 스롱 꺾고 4강 진출"
       },
       {
         "rank": 4,
-        "keyword": "미국 과잉생산 관세 조사"
+        "keyword": "나주 오리농장 AI 항원 검출"
       },
       {
         "rank": 5,
-        "keyword": "부부의 갈등과 외도"
+        "keyword": "트럼프 관세 경제적 자해"
       },
       {
         "rank": 6,
-        "keyword": "강금실 인사청문요구서 재가"
+        "keyword": "경찰, 한동훈 유출 수사"
       },
       {
         "rank": 7,
-        "keyword": "김민"
+        "keyword": "코스피 상승 출발"
       },
       {
         "rank": 8,
-        "keyword": "김세진 감독, 힘내라!"
+        "keyword": "주주"
       },
       {
         "rank": 9,
-        "keyword": "회계사"
+        "keyword": "국가안보실 해킹 2차 피해 대응"
       },
       {
         "rank": 10,
-        "keyword": "스파이"
+        "keyword": "전 연인들 구속송치"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "경찰 구속���장 신청 동일"
+        "keyword": "중기부 장관 표창 동일"
       },
       {
         "rank": 2,
-        "keyword": "만찬 참석하는 의원 동일"
+        "keyword": "10대 피의자 송치 상승 3"
       },
       {
         "rank": 3,
-        "keyword": "이숙캠 미성숙 아내 new"
+        "keyword": "이동연 상승 1"
       },
       {
         "rank": 4,
-        "keyword": "김세진 감독 동일"
+        "keyword": "제자 성폭행 혐의 상승 10"
       },
       {
         "rank": 5,
-        "keyword": "강금실 인사청문요구서 재가 동일"
+        "keyword": "김민석 대표 new"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "국힘 조은석 특검 고발"
+        "keyword": "나주 오리농장 AI 항원 검출"
       },
       {
         "rank": 2,
-        "keyword": "미국 과잉생산 관세 조사"
+        "keyword": "국가안보실 해킹 2차 피해 대응"
       },
       {
         "rank": 3,
-        "keyword": "조작기소 특검 후보"
+        "keyword": "서울 중구 여인숙 화재"
       },
       {
         "rank": 4,
-        "keyword": "언론 4법 문체위 통과"
+        "keyword": "트럼프 관세 경제적 자해"
       },
       {
         "rank": 5,
-        "keyword": "한전 개인정보 유출"
+        "keyword": "남경주 국민참여재판"
       },
       {
         "rank": 6,
-        "keyword": "희귀질환 건보 부담률 인하"
-      },
-      {
-        "rank": 7,
-        "keyword": "금융위 증시 긴급회의"
-      },
-      {
-        "rank": 8,
-        "keyword": "검찰총장 후보자 추가 천거"
-      },
-      {
-        "rank": 9,
         "keyword": "북한 러 군사지원 중단"
       },
       {
+        "rank": 7,
+        "keyword": "북한 MDL 침범"
+      },
+      {
+        "rank": 8,
+        "keyword": "미국 중국 자동차 규제법"
+      },
+      {
+        "rank": 9,
+        "keyword": "쿠웨이트 이란 드론 공격"
+      },
+      {
         "rank": 10,
-        "keyword": "주택 종부세 73만명"
+        "keyword": "미국 과잉생산 관세 평균관세율"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "이관희"
+        "keyword": "h&m"
       },
       {
         "rank": 2,
-        "keyword": "리플"
+        "keyword": "김아현의 금빛 스탁"
       },
       {
         "rank": 3,
-        "keyword": "심우정"
+        "keyword": "주주"
       },
       {
         "rank": 4,
-        "keyword": "롯데 자이언츠"
+        "keyword": "연비"
       },
       {
         "rank": 5,
-        "keyword": "지하철"
+        "keyword": "포수"
       },
       {
         "rank": 6,
-        "keyword": "대한민국 고용노동부"
+        "keyword": "과학기술인공제회"
       },
       {
         "rank": 7,
-        "keyword": "sporting cp vs manchester united f.c. standings"
+        "keyword": "신창재"
       },
       {
         "rank": 8,
-        "keyword": "thứ hạng của sporting gặp man utd"
+        "keyword": "국가보훈부"
       },
       {
         "rank": 9,
-        "keyword": "주한 중국 대사"
+        "keyword": "남경주"
       },
       {
         "rank": 10,
-        "keyword": "mu"
+        "keyword": "모두의 ai"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "미국증시 휴장일"
+        "keyword": "삼성전자 배당금 지급일"
       },
       {
         "rank": 2,
-        "keyword": "연우 10kg 감량 후 두드러기"
+        "keyword": "남경주 제자 성폭행 혐의"
       },
       {
         "rank": 3,
-        "keyword": "지나 10년 공백 근황"
+        "keyword": "나인 투 식스 로맨스 시동"
       },
       {
         "rank": 4,
-        "keyword": "황윤성 농사 규모"
+        "keyword": "연우 다이어트 감량"
       },
       {
         "rank": 5,
-        "keyword": "김도영 MVP 탈환"
+        "keyword": "정영란 부산인재개발원장 학력"
       },
       {
         "rank": 6,
-        "keyword": "무쇠소녀단 3"
+        "keyword": "종부세 과세대상"
       },
       {
         "rank": 7,
-        "keyword": "추수감사절"
+        "keyword": "미국 관세 으름장"
       },
       {
         "rank": 8,
-        "keyword": "윤석열 위증 무죄 확정"
+        "keyword": "곽빈 결혼 발표"
       },
       {
         "rank": 9,
-        "keyword": "철도 파업"
+        "keyword": "투컷 존박 디스곡"
       },
       {
         "rank": 10,
-        "keyword": "곽진언 존박 디스랩"
+        "keyword": "김용범 위원장 내정"
       }
-    ],
-    "googleError": "google trends HTTP 429",
-    "googleStale": true,
-    "googleAsOf": "2026-11-26T00:21:03.271Z"
+    ]
   },
   "entertainment": [
     {
-      "title": "한가인, 3분 거리도 못 걷던 시절…“미친 여자라고 생각했겠지”",
+      "title": "이동연, 팬레터 인증샷 찍고 버렸나…봉인 스티커도 그대로 [SD이슈]",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261126/135099851/1",
-      "publishedAt": "수집 11. 27. 02:03 KST",
-      "publishedOrder": 1795712636731
+      "url": "https://sports.donga.com/ent/article/all/20261127/135102001/1",
+      "publishedAt": "수집 11. 27. 10:47 KST",
+      "publishedOrder": 1795744054159
     },
     {
-      "title": "연우, 하루 밥 두 숟갈 먹고 10kg 감량…“이렇게 살면 안 되겠다”",
+      "title": "아내는 외도vs남편은 폭언, 혼인신고 3개월 만에 ’환장’ (이혼숙려캠프)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261126/135099831/1",
-      "publishedAt": "수집 11. 27. 02:03 KST",
-      "publishedOrder": 1795712636731
+      "url": "https://sports.donga.com/ent/article/all/20261127/135101913/1",
+      "publishedAt": "수집 11. 27. 10:47 KST",
+      "publishedOrder": 1795744054159
     },
     {
-      "title": "김연교 “오래오래 연기하고 싶다”…배우로서의 진심",
+      "title": "서인영, 꽃장식만 1억 썼는데…재혼은 스몰웨딩 (미우새)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261126/135098560/1",
-      "publishedAt": "수집 11. 27. 02:03 KST",
-      "publishedOrder": 1795712636731
+      "url": "https://sports.donga.com/ent/article/all/20261127/135101824/1",
+      "publishedAt": "수집 11. 27. 10:47 KST",
+      "publishedOrder": 1795744054159
     },
     {
-      "title": "신예 차승우, ‘기프트’ 캐스팅…고교 야구선수 변신",
+      "title": "‘제자 성폭행 혐의’ 남경주 법정 출석…오늘 국민참여재판",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261126/135098508/1",
-      "publishedAt": "수집 11. 27. 02:03 KST",
-      "publishedOrder": 1795712636731
+      "url": "https://sports.donga.com/ent/article/all/20261127/135101724/1",
+      "publishedAt": "수집 11. 27. 10:47 KST",
+      "publishedOrder": 1795744054159
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 27. 02:03 KST",
-      "publishedOrder": 1795712633003
+      "publishedAt": "수집 11. 27. 10:47 KST",
+      "publishedOrder": 1795744053072
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 27. 02:03 KST",
-      "publishedOrder": 1795712633003
+      "publishedAt": "수집 11. 27. 10:47 KST",
+      "publishedOrder": 1795744053072
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 27. 02:03 KST",
-      "publishedOrder": 1795712633003
+      "publishedAt": "수집 11. 27. 10:47 KST",
+      "publishedOrder": 1795744053072
     },
     {
-      "title": "이정재, 논란 속..수척한 모습으로 오른 청룡 무대 \"많이 망설였다\" [스타이슈]",
+      "title": "'월드와이드 핸섬' BTS 진, 스타랭킹 男아이돌 3위",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/26/2026112600154376708",
-      "publishedAt": "수집 11. 27. 02:03 KST",
-      "publishedOrder": 1795712633003
+      "url": "https://www.starnewskorea.com/star/2026/11/26/2026112619345332397",
+      "publishedAt": "수집 11. 27. 10:47 KST",
+      "publishedOrder": 1795744053072
     }
   ]
 }
