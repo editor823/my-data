@@ -6,12 +6,12 @@
     "badge": "인도 사상최대 IPO",
     "badgeColor": "#38bdf8",
     "oneLine": "인도 법인 사상 최대 4.5조원 IPO 자금 유입 및 하이브리드 중심 분기 최대 영업이익 질주.",
-    "currentPrice": "269,500원",
-    "changeRate": "+4.05%",
+    "currentPrice": "270,500원",
+    "changeRate": "+4.44%",
     "rateType": "up",
-    "marketCap": "54조 8,342억원",
+    "marketCap": "55조 377억원",
     "foreignRate": "23.76%",
-    "perPbr": "PER 9.42배 · PBR 0.61배 · ROE 18.5%",
+    "perPbr": "PER 9.45배 · PBR 0.61배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -65,11 +65,11 @@
     ],
     "articles": [
       {
-        "title": "현대차證, 대학생 서포터즈 3기 해단식 개최…3개월 활동 마무리",
-        "media": "이데일리",
-        "time": "11월 27일",
+        "title": "‘두 발’이냐 ‘바퀴’냐… 휴머노이드, 이동 방식 전쟁",
+        "media": "조선일보",
+        "time": "11월 28일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/018/0006416580"
+        "link": "https://n.news.naver.com/mnews/article/023/0004012215"
       }
     ],
     "events": [
@@ -94,12 +94,12 @@
     "badge": "양극재 풀체인 1위",
     "badgeColor": "#10b981",
     "oneLine": "폐배터리 리사이클-전구체-리튬-양극재를 아우르는 클로즈드 루프 에코시스템 독점력.",
-    "currentPrice": "72,700원",
-    "changeRate": "+13.59%",
+    "currentPrice": "73,400원",
+    "changeRate": "+14.69%",
     "rateType": "up",
-    "marketCap": "9조 8,709억원",
+    "marketCap": "9조 9,660억원",
     "foreignRate": "17.41%",
-    "perPbr": "PER 70.17배 · PBR 4.42배 · ROE 18.5%",
+    "perPbr": "PER 70.85배 · PBR 4.46배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -153,11 +153,11 @@
     ],
     "articles": [
       {
-        "title": "코스피, 4900선 회복 시도…코스닥은 7%대 상승",
-        "media": "아시아경제",
+        "title": "삼성 휴머노이드 기대에 로봇株 질주…바이오도 불기둥",
+        "media": "서울경제",
         "time": "11월 27일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/277/0005848859"
+        "link": "https://n.news.naver.com/mnews/article/011/0004687025"
       }
     ],
     "events": [
@@ -182,12 +182,12 @@
     "badge": "K2 전차 폴란드 2차",
     "badgeColor": "#f59e0b",
     "oneLine": "폴란드 K2 흑표 전차 2차 10조원 본계약 체결 가시화 및 루마니아 차기 전차 도입 유력.",
-    "currentPrice": "62,000원",
-    "changeRate": "+6.71%",
+    "currentPrice": "62,300원",
+    "changeRate": "+7.23%",
     "rateType": "up",
-    "marketCap": "6조 7,668억원",
+    "marketCap": "6조 7,996억원",
     "foreignRate": "39.29%",
-    "perPbr": "PER 8.61배 · PBR 1.89배 · ROE 18.5%",
+    "perPbr": "PER 8.65배 · PBR 1.90배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -241,11 +241,11 @@
     ],
     "articles": [
       {
-        "title": "현대위아, 방산 사업 매각안 임시 주총 통과…&quot;로보틱스 집중&quot;",
-        "media": "뉴시스",
+        "title": "&quot;이젠 전차 부품까지&quot;… 현대로템 방산사업 확대",
+        "media": "매일경제",
         "time": "11월 27일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/003/0014349180"
+        "link": "https://n.news.naver.com/mnews/article/009/0005770097"
       }
     ],
     "events": [
@@ -270,12 +270,12 @@
     "badge": "FLNG 세계 1위",
     "badgeColor": "#38bdf8",
     "oneLine": "글로벌 FLNG(부유식 LNG 설비) 점유율 80% 독점 및 카타르 LNG선 고선가 랠리 수혜.",
-    "currentPrice": "14,570원",
-    "changeRate": "+4.82%",
+    "currentPrice": "14,620원",
+    "changeRate": "+5.18%",
     "rateType": "up",
-    "marketCap": "12조 8,216억원",
+    "marketCap": "12조 8,656억원",
     "foreignRate": "28.75%",
-    "perPbr": "PER 14.34배 · PBR 2.98배 · ROE 18.5%",
+    "perPbr": "PER 14.39배 · PBR 2.99배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -329,11 +329,11 @@
     ],
     "articles": [
       {
-        "title": "나신평, 삼성중공업 신용등급 'A' 상향…&quot;재무안정성 개선&quot;",
-        "media": "뉴시스",
+        "title": "한국 기업 '3조' 들이고 눈물 흘렸는데…中 기업 인수하더니 '대반전...",
+        "media": "한국경제TV",
         "time": "11월 27일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/003/0014349545"
+        "link": "https://n.news.naver.com/mnews/article/215/0001274248"
       }
     ],
     "events": [
@@ -358,12 +358,12 @@
     "badge": "글로벌 D램 1위",
     "badgeColor": "#38bdf8",
     "oneLine": "엔비디아 HBM3E 12단 퀄 테스트 통과 및 CXL·유리기판 등 차세대 AI 반도체 전방위 공세.",
-    "currentPrice": "178,800원",
-    "changeRate": "+4.38%",
+    "currentPrice": "179,500원",
+    "changeRate": "+4.79%",
     "rateType": "up",
-    "marketCap": "1,045조 3,146억원",
+    "marketCap": "1,049조 4,070억원",
     "foreignRate": "45.84%",
-    "perPbr": "PER 5.62배 · PBR 1.92배 · ROE 18.5%",
+    "perPbr": "PER 5.64배 · PBR 1.93배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -385,6 +385,16 @@
     },
     "disclosures": [
       {
+        "date": "2026-11-27",
+        "title": "삼성전자(주) 기타 경영사항(자율공시)",
+        "tag": "정기공시"
+      },
+      {
+        "date": "2026-11-27",
+        "title": "삼성전자(주) 기타 경영사항(자율공시)",
+        "tag": "정기공시"
+      },
+      {
         "date": "2026-11-25",
         "title": "삼성전자(주) 주식선물ㆍ주식옵션 2단계 가격제한폭 확대요건 도달(하락)",
         "tag": "정기공시"
@@ -403,25 +413,15 @@
         "date": "2026-10-29",
         "title": "삼성전자(주) 기타 경영사항(자율공시)",
         "tag": "정기공시"
-      },
-      {
-        "date": "2026-10-29",
-        "title": "삼성전자(주) 기타 경영사항(자율공시)",
-        "tag": "정기공시"
-      },
-      {
-        "date": "2026-10-29",
-        "title": "삼성전자(주) 자기주식 처분 결정",
-        "tag": "정기공시"
       }
     ],
     "articles": [
       {
-        "title": "&quot;굉장히 힘든 시장인데 잘 이겨 나가셔야…&quot; 폭락장에 생방송 중 눈물...",
-        "media": "매일신문",
-        "time": "11월 27일",
+        "title": "&quot;뭘 더 해줄 수 있나&quot; 한마디에‥머스크도 진땀",
+        "media": "MBC",
+        "time": "11월 28일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/088/0001042695"
+        "link": "https://n.news.naver.com/mnews/article/214/0001538606"
       }
     ],
     "events": [
@@ -452,12 +452,12 @@
     "badge": "코스닥 시총 1위",
     "badgeColor": "#f472b6",
     "oneLine": "머크(MSD) 면역항암제 키트루다 SC 독점 계약. 연간 조 단위 로열티 수취 임박.",
-    "currentPrice": "187,900원",
-    "changeRate": "+10.33%",
+    "currentPrice": "188,100원",
+    "changeRate": "+10.45%",
     "rateType": "up",
-    "marketCap": "13조 910억원",
+    "marketCap": "13조 1,049억원",
     "foreignRate": "17.25%",
-    "perPbr": "PER 62.07배 · PBR 24.26배 · ROE 18.5%",
+    "perPbr": "PER 62.14배 · PBR 24.28배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -511,11 +511,11 @@
     ],
     "articles": [
       {
-        "title": "코스피, 4900선 회복 시도…코스닥은 7%대 상승",
-        "media": "아시아경제",
+        "title": "AI 매도세 진정, ‘증안펀드’ 기대감에 4900선 회복… ‘팔자’ 외국...",
+        "media": "주간동아",
         "time": "11월 27일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/277/0005848859"
+        "link": "https://n.news.naver.com/mnews/article/037/0000039227"
       }
     ],
     "events": [
@@ -540,12 +540,12 @@
     "badge": "HBM4 세계 1위",
     "badgeColor": "#38bdf8",
     "oneLine": "엔비디아 HBM 점유율 1위 독점 공급자. 16단 HBM4 및 유리기판 양산 주도.",
-    "currentPrice": "1,102,000원",
-    "changeRate": "+4.65%",
+    "currentPrice": "1,111,000원",
+    "changeRate": "+5.51%",
     "rateType": "up",
-    "marketCap": "778조 8,926억원",
+    "marketCap": "785조 2,538억원",
     "foreignRate": "49.23%",
-    "perPbr": "PER 4.21배 · PBR 2.54배 · ROE 18.5%",
+    "perPbr": "PER 4.25배 · PBR 2.56배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -566,6 +566,11 @@
       "point": "고부가가치 주력 제품군 판매 확대 및 글로벌 수주 파이프라인 가동으로 구조적 이익 레벨업."
     },
     "disclosures": [
+      {
+        "date": "2026-11-27",
+        "title": "에스케이하이닉스(주) 풍문 또는 보도에 대한 해명(미확정)",
+        "tag": "정기공시"
+      },
       {
         "date": "2026-11-26",
         "title": "에스케이하이닉스(주) 중간(분기)배당락 기준가격 안내",
@@ -590,20 +595,15 @@
         "date": "2026-11-24",
         "title": "에스케이하이닉스(주) 주식선물ㆍ주식옵션 2단계 가격제한폭 확대요건 도달(상승)",
         "tag": "정기공시"
-      },
-      {
-        "date": "2026-11-20",
-        "title": "에스케이하이닉스(주) (정정)타법인주식및출자증권취득결정",
-        "tag": "정기공시"
       }
     ],
     "articles": [
       {
-        "title": "&quot;굉장히 힘든 시장인데 잘 이겨 나가셔야…&quot; 폭락장에 생방송 중 눈물...",
-        "media": "매일신문",
-        "time": "11월 27일",
+        "title": "&quot;뭘 더 해줄 수 있나&quot; 한마디에‥머스크도 진땀",
+        "media": "MBC",
+        "time": "11월 28일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/088/0001042695"
+        "link": "https://n.news.naver.com/mnews/article/214/0001538606"
       }
     ],
     "events": [
@@ -634,12 +634,12 @@
     "badge": "경구용 인슐린 독점",
     "badgeColor": "#f472b6",
     "oneLine": "아일리아 바이오시밀러 및 경구용 GLP-1 비만/당뇨 치료제 글로벌 독점 공급.",
-    "currentPrice": "190,700원",
-    "changeRate": "+14.60%",
+    "currentPrice": "191,300원",
+    "changeRate": "+14.96%",
     "rateType": "up",
-    "marketCap": "4조 4,733억원",
+    "marketCap": "4조 4,874억원",
     "foreignRate": "2.58%",
-    "perPbr": "PER 333.98배 · PBR 14.88배 · ROE 18.5%",
+    "perPbr": "PER 335.03배 · PBR 14.93배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -693,11 +693,11 @@
     ],
     "articles": [
       {
-        "title": "‘증안펀드 기대’ 코스닥 700선 회복…코스피도 4% 급등",
-        "media": "이데일리",
+        "title": "돌아온 외국인, 코스피 4900선 회복…코스닥은 8% 넘게 폭등",
+        "media": "매일신문",
         "time": "11월 27일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/018/0006416568"
+        "link": "https://n.news.naver.com/mnews/article/088/0001042721"
       }
     ],
     "events": [
@@ -722,12 +722,12 @@
     "badge": "체코 원전 주기기",
     "badgeColor": "#10b981",
     "oneLine": "체코 24조원 원전 주기기 독점 공급 및 미국 뉴스케일파워 SMR 파운드리 수주 본격화.",
-    "currentPrice": "43,600원",
-    "changeRate": "+7.65%",
+    "currentPrice": "44,100원",
+    "changeRate": "+8.89%",
     "rateType": "up",
-    "marketCap": "27조 9,285억원",
+    "marketCap": "28조 2,487억원",
     "foreignRate": "22.31%",
-    "perPbr": "PER 128.61배 · PBR 3.74배 · ROE 18.5%",
+    "perPbr": "PER 130.09배 · PBR 3.79배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -781,11 +781,11 @@
     ],
     "articles": [
       {
-        "title": "산업부, “관계 기관과 힘 합쳐 체코 두코바니 원전 사업 차질 없이 완...",
-        "media": "국제신문",
+        "title": "두산·창원상의, ‘에너지 취약계층’ 1억 8천만 원 기탁",
+        "media": "KBS",
         "time": "11월 27일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/658/0000162447"
+        "link": "https://n.news.naver.com/mnews/article/056/0012302972"
       }
     ],
     "events": [
@@ -810,12 +810,12 @@
     "badge": "삼성 피지컬 AI",
     "badgeColor": "#f59e0b",
     "oneLine": "삼성전자 피지컬 AI 휴머노이드 투입 가시화 및 양팔 로봇 로봇자동화 라인 공급.",
-    "currentPrice": "522,500원",
-    "changeRate": "+11.88%",
+    "currentPrice": "532,000원",
+    "changeRate": "+13.92%",
     "rateType": "up",
-    "marketCap": "10조 1,364억원",
+    "marketCap": "10조 3,207억원",
     "foreignRate": "4.83%",
-    "perPbr": "PER 5,937.50배 · PBR 76.29배 · ROE 18.5%",
+    "perPbr": "PER 6,045.45배 · PBR 77.68배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -869,11 +869,11 @@
     ],
     "articles": [
       {
-        "title": "코스피, 4900선 회복 시도…코스닥은 7%대 상승",
-        "media": "아시아경제",
+        "title": "AI 매도세 진정, ‘증안펀드’ 기대감에 4900선 회복… ‘팔자’ 외국...",
+        "media": "주간동아",
         "time": "11월 27일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/277/0005848859"
+        "link": "https://n.news.naver.com/mnews/article/037/0000039227"
       }
     ],
     "events": [
@@ -898,12 +898,12 @@
     "badge": "K9·천무 동유럽 수출",
     "badgeColor": "#f59e0b",
     "oneLine": "K9 자주포 및 다연장 로켓 천무 폴란드·루마니아 2차 실행계약 및 인적분할 가치 재평가.",
-    "currentPrice": "662,000원",
-    "changeRate": "+5.58%",
+    "currentPrice": "661,000원",
+    "changeRate": "+5.42%",
     "rateType": "up",
-    "marketCap": "34조 1,350억원",
+    "marketCap": "34조 834억원",
     "foreignRate": "44.85%",
-    "perPbr": "PER 23.34배 · PBR 3.06배 · ROE 18.5%",
+    "perPbr": "PER 23.30배 · PBR 3.05배 · ROE 18.5%",
     "financials": {
       "q26_1": {
         "sales": "1분기 실적 달성",
@@ -924,6 +924,11 @@
       "point": "고부가가치 주력 제품군 판매 확대 및 글로벌 수주 파이프라인 가동으로 구조적 이익 레벨업."
     },
     "disclosures": [
+      {
+        "date": "2026-11-27",
+        "title": "한화에어로스페이스(주) (정정)단일판매ㆍ공급계약체결",
+        "tag": "주요계약"
+      },
       {
         "date": "2026-11-24",
         "title": "한화에어로스페이스(주) 주식선물ㆍ주식옵션 2단계 가격제한폭 확대요건 도달(상승)",
@@ -948,20 +953,15 @@
         "date": "2026-10-22",
         "title": "한화에어로스페이스(주) (정정)단일판매ㆍ공급계약체결",
         "tag": "주요계약"
-      },
-      {
-        "date": "2026-10-20",
-        "title": "한화에어로스페이스(주) 주식선물ㆍ주식옵션 2단계 가격제한폭 확대요건 도달(하락)",
-        "tag": "정기공시"
       }
     ],
     "articles": [
       {
-        "title": "‘증안펀드 기대’ 코스닥 700선 회복…코스피도 4% 급등",
-        "media": "이데일리",
+        "title": "[기업] 한화클래식 2026 폐막...&quot;문화예술 향유 기회 넓혀&quot;",
+        "media": "YTN",
         "time": "11월 27일",
         "date": "최신",
-        "link": "https://n.news.naver.com/mnews/article/018/0006416568"
+        "link": "https://n.news.naver.com/mnews/article/052/0002439086"
       }
     ],
     "events": [
