@@ -1,6 +1,6 @@
 {
   "success": true,
-  "generatedAt": "2026-11-27T01:45:52.118Z",
+  "generatedAt": "2026-11-27T12:40:23.604Z",
   "windowMin": 90,
   "notice": "기사 흐름으로 추정한 후보입니다. 글을 쓰기 전 원문 기사로 사실을 확인하세요.",
   "paid": true,
@@ -8,84 +8,26 @@
   "lockedCount": 0,
   "predictions": [
     {
-      "id": "병문안+오정세|결혼",
-      "title": "오정세 병문안 결혼",
-      "keyword": "오정세 병문안 결혼",
-      "headline": "오정세, 병문안 결혼식 축가",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "오정세, 병문안 결혼식 축가"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "오정세, 미담 병문안·장례식·결혼식까지"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "병문안 오정세 미담, 암투병 위해 결혼"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "오정세, 팬 병문안→결혼식 축가까지…뒤늦게 전해진 미담 '뭉클'"
-        }
-      ],
-      "entities": [
-        "오정세",
-        "병문안"
-      ],
-      "event": "결혼",
-      "score": 41,
-      "articles": 5,
-      "press": 5,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-27T00:13:00.000Z",
-      "lastArticleAt": "2026-11-27T01:34:00.000Z",
-      "trendHit": true,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "오정세 미담 뒤늦게 공개, 병문안부터 장례식·결혼식까지",
-          "press": "bntnews.co.kr",
-          "link": "https://www.bntnews.co.kr/article/view/bnt202611270172",
-          "at": "2026-11-27T01:34:00.000Z"
-        },
-        {
-          "title": "“평생 잊지 못할 큰 선물”…오정세, 병문안·조문·축가까지",
-          "press": "mk.co.kr",
-          "link": "https://www.mk.co.kr/article/12219970",
-          "at": "2026-11-27T01:19:00.000Z"
-        },
-        {
-          "title": "오정세, 팬 병문안→결혼식 축가까지…뒤늦게 전해진 미담 '뭉클'",
-          "press": "celuvmedia.com",
-          "link": "http://www.celuvmedia.com/article.php?aid=1795739574531642006",
-          "at": "2026-11-27T01:08:00.000Z"
-        }
-      ]
-    },
-    {
       "id": "이서진+한지민|",
       "title": "이서진 한지민",
       "keyword": "이서진 한지민",
-      "headline": "이서진, 한지민",
+      "headline": "이서진, 갔다온 한지민 지적",
       "titles": [
         {
           "style": "숏텐츠형",
-          "title": "이서진, 한지민"
+          "title": "이서진, 갔다온 한지민 지적"
         },
         {
           "style": "숏텐츠형",
-          "title": "이서진, 한지민 직설 수습"
+          "title": "한지민 이서진"
         },
         {
           "style": "숏텐츠형",
-          "title": "이서진, 한지민 발언"
+          "title": "이서진·한지민, 첫만남 파국"
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "이서진, 한지민에 \"억척스러운 중년 여성 모습... 갱년기 앓는 줄\""
+          "title": "이서진, 숍 갔다온 한지민에..보자마자 ‘외모’ 지적 “화장 떴네?”"
         }
       ],
       "entities": [
@@ -93,1482 +35,663 @@
         "한지민"
       ],
       "event": null,
-      "score": 39,
-      "articles": 9,
+      "score": 57,
+      "articles": 11,
       "press": 9,
-      "recent20": 1,
+      "recent20": 5,
       "firstArticleAt": "2026-11-26T05:48:00.000Z",
-      "lastArticleAt": "2026-11-27T01:26:00.000Z",
+      "lastArticleAt": "2026-11-27T12:39:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "tvN ‘그냥사람친구’ 이서진·한지민·김용건·박정수·주헌·정연, 유...",
-          "press": "wikitree.co.kr",
-          "link": "https://www.wikitree.co.kr/articles/1178268",
-          "at": "2026-11-27T01:26:00.000Z"
+          "title": "이서진, 숍 갔다온 한지민에..보자마자 ‘외모’ 지적 “화장 떴네?” ...",
+          "press": "osen.co.kr",
+          "link": "http://www.osen.co.kr/article/G1112916018",
+          "at": "2026-11-27T12:39:00.000Z"
         },
         {
-          "title": "“갱년기 안타깝다” 이서진이 뭐라든…한지민, 한층 깊어진 청순 미모",
-          "press": "sports.khan.co.kr",
-          "link": "https://sports.khan.co.kr/article/202611271004003?pt=nv",
-          "at": "2026-11-27T01:06:00.000Z"
+          "title": "한지민 당황…이서진 \"둘이서 와인 네 병\" 깜짝 폭로, \"그때 기어서 갔...",
+          "press": "xportsnews.com",
+          "link": "https://www.xportsnews.com/article/2223919",
+          "at": "2026-11-27T12:37:00.000Z"
         },
         {
-          "title": "이서진, 한지민에 \"갱년기 심하게 앓는 듯\" 발언 설왕설래",
-          "press": "newsis.com",
-          "link": "https://www.newsis.com/view/NISX20261127_0003885690",
-          "at": "2026-11-27T01:04:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "김재원+나연|",
-      "title": "나연 김재원",
-      "keyword": "나연 김재원",
-      "headline": "김재원, 트와이스 나연 BOY MV 출연",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "김재원, 트와이스 나연 BOY MV 출연"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "김재원 트와이스 나연 BOY 누군가"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "김재원, 트와이스 나연 MV 출연"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "김재원, 트와이스 나연 'BOY' MV 출연…풋풋한 로맨스 호흡"
-        }
-      ],
-      "entities": [
-        "나연",
-        "김재원"
-      ],
-      "event": null,
-      "score": 36,
-      "articles": 6,
-      "press": 6,
-      "recent20": 4,
-      "firstArticleAt": "2026-11-27T00:11:00.000Z",
-      "lastArticleAt": "2026-11-27T01:44:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "김재원, 트와이스 나연 '보이' MV 출연",
-          "press": "bntnews.co.kr",
-          "link": "https://www.bntnews.co.kr/article/view/bnt202611270184",
-          "at": "2026-11-27T01:44:00.000Z"
-        },
-        {
-          "title": "로맨틱한 김재원, 나연 홀린다",
-          "press": "sports.khan.co.kr",
-          "link": "https://sports.khan.co.kr/article/202611271042003?pt=nv",
-          "at": "2026-11-27T01:43:00.000Z"
-        },
-        {
-          "title": "김재원, 트와이스 나연 'BOY' MV 출연",
-          "press": "topstarnews.net",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16287698",
-          "at": "2026-11-27T01:32:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "향한|별세",
-      "title": "향한 별세",
-      "keyword": "향한 별세",
-      "headline": "이서환 무명 제자들 향한 츤데레 속정 별세",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "이서환 무명 제자들 향한 츤데레 속정 별세"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "박재범 에디 향한 먹먹 추모 별세"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "향한 66년 한결같 믿음 동행 별세"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "이서환, 무명 제자들 향한 츤데레 속정…\"노력한 만큼 이번엔 잘됐으면"
-        }
-      ],
-      "entities": [
-        "향한"
-      ],
-      "event": "별세",
-      "score": 27,
-      "articles": 4,
-      "press": 3,
-      "recent20": 3,
-      "firstArticleAt": "2026-11-27T00:58:00.000Z",
-      "lastArticleAt": "2026-11-27T01:38:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "'낮은 곳으로 향한 카메라'… 故 홍기선 감독 10주기 추모전 개최",
-          "press": "abcn.kr",
-          "link": "https://www.abcn.kr/news/articleView.html?idxno=95146",
-          "at": "2026-11-27T01:38:00.000Z"
-        },
-        {
-          "title": "이서환, 무명 제자들 향한 츤데레 속정…\"노력한 만큼 이번엔 잘됐으면...",
-          "press": "mhnse.com",
-          "link": "https://mhnse.com/news/articleView.html?idxno=1713739",
-          "at": "2026-11-27T01:37:00.000Z"
-        },
-        {
-          "title": "[N포커스] 66년 한결같은 믿음의 동행...암 투병 아내 트루디 여사 향한...",
-          "press": "nc.press",
-          "link": "https://www.nc.press/news/articleView.html?idxno=632032",
-          "at": "2026-11-27T01:35:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "공연+앙코르|출연",
-      "title": "앙코르 공연 출연",
-      "keyword": "앙코르 공연 출연",
-      "headline": "한유정 연극 핑크트럭 앙코르 공연 합류 출연",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "한유정 연극 핑크트럭 앙코르 공연 합류 출연"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "대학 앙코르 공연 합류 출연"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "엔믹스 첫 대미 장식 앙코르 공연 출연"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "한유정, 장항준 원작 연극 ‘핑크트럭’ 앙코르 공연 합류"
-        }
-      ],
-      "entities": [
-        "앙코르",
-        "공연"
-      ],
-      "event": "출연",
-      "score": 26,
-      "articles": 4,
-      "press": 4,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-26T22:36:00.000Z",
-      "lastArticleAt": "2026-11-27T01:36:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "엔믹스, 인천서 앙코르 공연 개최",
-          "press": "bntnews.co.kr",
-          "link": "https://www.bntnews.co.kr/article/view/bnt202611270174",
-          "at": "2026-11-27T01:36:00.000Z"
-        },
-        {
-          "title": "엔믹스, 첫 월드투어 대미 장식 앙코르 공연 D-DAY…명곡 퍼레이드 선사...",
-          "press": "beyondpost.co.kr",
-          "link": "http://www.beyondpost.co.kr/view.php?ud=202611271019098351d3244b4fed_30",
-          "at": "2026-11-27T01:22:00.000Z"
-        },
-        {
-          "title": "한유정, 장항준 원작 연극 ‘핑크트럭’ 앙코르 공연 합류",
-          "press": "sportsworldi.com",
-          "link": "https://www.sportsworldi.com/newsView/20261127504782",
-          "at": "2026-11-27T01:18:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "이찬원+황윤성|",
-      "title": "이찬원 황윤성",
-      "keyword": "이찬원 황윤성",
-      "headline": "이찬원, 황윤성 남다른 환대",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "이찬원, 황윤성 남다른 환대"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "이찬원 절친 황윤성 부농 아들"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "이찬원, 황윤성 따라갔다 김장 400포기"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "이찬원, 황윤성 父 남다른 환대에 깜짝…\"대스타 오는데 돼지 한 마리 잡"
-        }
-      ],
-      "entities": [
-        "이찬원",
-        "황윤성"
-      ],
-      "event": null,
-      "score": 23,
-      "articles": 3,
-      "press": 3,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-26T04:08:00.000Z",
-      "lastArticleAt": "2026-11-27T01:12:00.000Z",
-      "trendHit": true,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "이찬원, 황윤성 父 남다른 환대에 깜짝…\"대스타 오는데 돼지 한 마리 잡...",
-          "press": "slist.kr",
-          "link": "https://www.slist.kr/news/articleView.html?idxno=785301",
-          "at": "2026-11-27T01:12:00.000Z"
-        },
-        {
-          "title": "'이찬원 절친' 황윤성, 알고 보니 부농의 아들...\"도련님이었네\"",
-          "press": "raonnews.com",
-          "link": "https://www.raonnews.com/news/article.html?no=63126",
-          "at": "2026-11-27T00:56:00.000Z"
-        },
-        {
-          "title": "\"여행 가자며?\"… 이찬원, 황윤성 따라갔다가 김장 400포기",
-          "press": "newsmap.co.kr",
-          "link": "https://www.newsmap.co.kr/news/articleView.html?idxno=5895",
-          "at": "2026-11-27T00:44:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "김가영+스롱|",
-      "title": "김가영 스롱",
-      "keyword": "김가영 스롱",
-      "headline": "당구 여제 김가영 라이벌 스롱",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "당구 여제 김가영 라이벌 스롱"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "20승 보인다…'당구 여제' 김가영, 라이벌 스롱 꺾고 준결승행→정수빈"
-        }
-      ],
-      "entities": [
-        "김가영",
-        "스롱"
-      ],
-      "event": null,
-      "score": 23,
-      "articles": 3,
-      "press": 3,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-26T23:17:00.000Z",
-      "lastArticleAt": "2026-11-27T01:14:00.000Z",
-      "trendHit": true,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "이제 20승까지 단 두 걸음! '당구 여제' 김가영, '라이벌' 스롱 꺾고 준...",
+          "title": "이서진·한지민, '그사친' 첫만남부터 파국…\"20년만 절교할 수도\"",
           "press": "sportschosun.com",
-          "link": "https://www.sportschosun.com/sports-news/2026-11-27/202611270100170640015753",
-          "at": "2026-11-27T01:14:00.000Z"
-        },
-        {
-          "title": "20승 보인다…'당구 여제' 김가영, 라이벌 스롱 꺾고 준결승행→정수빈...",
-          "press": "mhnse.com",
-          "link": "https://mhnse.com/news/articleView.html?idxno=1713652",
-          "at": "2026-11-27T00:55:00.000Z"
-        },
-        {
-          "title": "20승 보인다! ‘당구 여제’ 김가영 ‘라이벌’ 스롱 꺾고 준결승행…김...",
-          "press": "sportsworldi.com",
-          "link": "https://www.sportsworldi.com/newsView/20261127503778",
-          "at": "2026-11-27T00:40:00.000Z"
+          "link": "https://www.sportschosun.com/entertainment/2026-11-27/202611270100173020016096",
+          "at": "2026-11-27T12:28:00.000Z"
         }
       ]
     },
     {
-      "id": "ai+방지|",
-      "title": "AI방지",
-      "keyword": "AI방지",
-      "headline": "이해민 AI 커닝 방지 한국이 제일",
+      "id": "홍익표+후보자|",
+      "title": "홍익표 후보자",
+      "keyword": "홍익표 후보자",
+      "headline": "홍익표 후보자, 재산 65억원",
       "titles": [
         {
           "style": "숏텐츠형",
-          "title": "이해민 AI 커닝 방지 한국이 제일"
+          "title": "홍익표 후보자, 재산 65억원"
         },
         {
           "style": "숏텐츠형",
-          "title": "AI 방지 워터마크"
+          "title": "홍익표 후보자 재산 65억원 1주택 논란"
+        },
+        {
+          "style": "숏텐츠형",
+          "title": "강금실 후보자, 홍익표 후보 65억"
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "靑 이해민 “AI 커닝 방지, ‘전 세계 공조’ 한국이 제일 먼"
+          "title": "홍익표 후보자, 재산 65억원 신고…비거주 아파트·방배동엔 전세"
         }
       ],
       "entities": [
-        "AI",
-        "방지"
+        "홍익표",
+        "후보자"
       ],
       "event": null,
-      "score": 22,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-27T00:09:00.000Z",
-      "lastArticleAt": "2026-11-27T01:30:00.000Z",
-      "trendHit": true,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "[이주의 키워드] AI 방지 워터마크",
-          "press": "sisajournal.com",
-          "link": "https://www.sisajournal.com/news/articleView.html?idxno=395154",
-          "at": "2026-11-27T01:30:00.000Z"
-        },
-        {
-          "title": "[시선집중] 靑 이해민 “AI 커닝 방지, ‘전 세계 공조’ 한국이 제일 먼...",
-          "press": "n.news.naver.com",
-          "link": "https://n.news.naver.com/mnews/article/214/0001538441?sid=100",
-          "at": "2026-11-27T01:21:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "kb자산운용+한한령|",
-      "title": "KB자산운용 한한령",
-      "keyword": "KB자산운용 한한령",
-      "headline": "KB자산운용, 한한령 완화 기대 RISE",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "KB자산운용, 한한령 완화 기대 RISE"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "KB자산운용, 한한령 완화 ETF RISE"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "한한령 KB자산운용 RISE K엔터&여행레저"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "KB자산운용, 한한령 완화 기대에 'RISE K엔터&여행레저' ETF"
-        }
-      ],
-      "entities": [
-        "KB자산운용",
-        "한한령"
-      ],
-      "event": null,
-      "score": 22,
-      "articles": 4,
-      "press": 4,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-26T23:46:00.000Z",
-      "lastArticleAt": "2026-11-27T01:30:00.000Z",
+      "score": 29,
+      "articles": 5,
+      "press": 5,
+      "recent20": 2,
+      "firstArticleAt": "2026-11-27T07:24:00.000Z",
+      "lastArticleAt": "2026-11-27T12:38:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "KB자산운용, 한한령 완화 기대에 'RISE K엔터&여행레저' ETF 주목",
-          "press": "pinpointnews.co.kr",
-          "link": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=508712",
-          "at": "2026-11-27T01:30:00.000Z"
+          "title": "홍익표 통일장관 후보자, 재산 65억원 신고...비거주 1주택 논란",
+          "press": "ajunews.com",
+          "link": "https://www.ajunews.com/view/20261127213130534",
+          "at": "2026-11-27T12:38:00.000Z"
         },
         {
-          "title": "KB자산운용, 한한령 완화 기대에 ‘RISE K엔터&여행레저 ETF’ 제시",
-          "press": "seoultimes.news",
-          "link": "https://www.seoultimes.news/news/article.html?no=2000102785",
-          "at": "2026-11-27T01:20:00.000Z"
+          "title": "홍익표 후보자, 재산 65억원 신고…비거주 아파트·방배동엔 전세",
+          "press": "yonhapnewstv.co.kr",
+          "link": "http://www.yonhapnewstv.co.kr/news/AKR20261127212952QZE",
+          "at": "2026-11-27T12:30:00.000Z"
         },
         {
-          "title": "KB자산운용, 한한령 완화 수혜 ETF로 'RISE K엔터&여행레저' 제시",
-          "press": "beyondpost.co.kr",
-          "link": "http://www.beyondpost.co.kr/view.php?ud=202611270956073744be44c0aacd_30",
-          "at": "2026-11-27T01:06:00.000Z"
+          "title": "재산 ‘2억6500만원’…강금실 후보자 신고, 홍익표 후보는 65억",
+          "press": "munhwa.com",
+          "link": "https://www.munhwa.com/article/11634715?ref=naver",
+          "at": "2026-11-27T12:17:00.000Z"
         }
       ]
     },
     {
-      "id": "ai+장동민|",
-      "title": "장동민 AI",
-      "keyword": "장동민 AI",
-      "headline": "장동민, AI 인정",
+      "id": "민혜연+주진모|임신",
+      "title": "주진모 민혜연 임신",
+      "keyword": "주진모 민혜연 임신",
+      "headline": "주진모, 민혜연 7년만 임신 오열 옛날 여보",
       "titles": [
         {
           "style": "숏텐츠형",
-          "title": "장동민, AI 인정"
+          "title": "주진모, 민혜연 7년만 임신 오열 옛날 여보"
         },
         {
           "style": "숏텐츠형",
-          "title": "장동민, 굴욕 AI 악연"
+          "title": "주진모, 민혜연 임신 오열"
+        },
+        {
+          "style": "숏텐츠형",
+          "title": "주진모, 민혜연 임신 소식 오열 옛날 아기"
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "장동민, AI가 인정한 '추남'이었다… \"왜 나만 이런 모욕을\""
+          "title": "주진모, ♥민혜연 7년만 임신에 오열 \"옛날부터 갖고 싶었다, 여보 고마"
         }
       ],
       "entities": [
-        "장동민",
-        "AI"
+        "주진모",
+        "민혜연"
       ],
-      "event": null,
-      "score": 20,
-      "articles": 2,
-      "press": 2,
+      "event": "임신",
+      "score": 24,
+      "articles": 4,
+      "press": 4,
       "recent20": 1,
-      "firstArticleAt": "2026-11-26T23:34:00.000Z",
-      "lastArticleAt": "2026-11-27T01:29:00.000Z",
-      "trendHit": true,
+      "firstArticleAt": "2026-11-27T10:40:00.000Z",
+      "lastArticleAt": "2026-11-27T12:37:00.000Z",
+      "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "장동민, AI가 인정한 '추남'이었다… \"왜 나만 이런 모욕을\" ('독박투어...",
-          "press": "mhnse.com",
-          "link": "https://mhnse.com/news/articleView.html?idxno=1713719",
-          "at": "2026-11-27T01:29:00.000Z"
+          "title": "'딩크' 부부였는데…주진모, ♥민혜연 8년만 임신에 오열 \"다 키워줄게...",
+          "press": "tenasia.co.kr",
+          "link": "https://www.tenasia.co.kr/article/2026112755694",
+          "at": "2026-11-27T12:37:00.000Z"
         },
         {
-          "title": "'독박투어' 장동민, '서바이벌 GOAT'의 굴욕? AI와 뜻밖의 악연 '폭소'",
-          "press": "socialvalue.kr",
-          "link": "https://www.socialvalue.kr/news/view/1065572558800895",
-          "at": "2026-11-27T00:40:00.000Z"
+          "title": "주진모, ♥민혜연 7년만 임신에 오열 \"옛날부터 갖고 싶었다, 여보 고마...",
+          "press": "xportsnews.com",
+          "link": "https://www.xportsnews.com/article/2223906",
+          "at": "2026-11-27T12:07:00.000Z"
+        },
+        {
+          "title": "주진모, ♥민혜연 임신 소식에 오열 \"옛날부터 아기 갖고 싶었는데 말 ...",
+          "press": "joynews24.com",
+          "link": "http://www.joynews24.com/view/2031471",
+          "at": "2026-11-27T12:02:00.000Z"
         }
       ]
     },
     {
-      "id": "이서진+지수|",
-      "title": "지수 이서진",
-      "keyword": "지수 이서진",
-      "headline": "이서진, 눈물 블핑 지수 하는",
+      "id": "손새은+임찬규|결혼",
+      "title": "임찬규 손새은 결혼",
+      "keyword": "임찬규 손새은 결혼",
+      "headline": "LG 임찬규, 손나은 동생 손새은 결혼식 올리나",
       "titles": [
         {
           "style": "숏텐츠형",
-          "title": "이서진, 눈물 블핑 지수 하는"
+          "title": "LG 임찬규, 손나은 동생 손새은 결혼식 올리나"
         },
         {
           "style": "숏텐츠형",
-          "title": "비서진 지수 수발 이서진·김광규 곡소리"
+          "title": "LG 임찬규, 손나은 동생 손새은 12월 결혼"
         },
         {
           "style": "숏텐츠형",
-          "title": "이서진, 블핑 지수 눈물"
+          "title": "임찬규, 손나은 동생 손새은 12월 결혼 5년만"
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "이서진, 눈물 터졌다..블핑 지수에 “왜 헤어지자고 하는 거야”(‘비서"
+          "title": "LG 임찬규, '손나은 동생' 손새은과 19일 결혼식 올리나"
         }
       ],
       "entities": [
-        "지수",
-        "이서진"
+        "임찬규",
+        "손새은"
+      ],
+      "event": "결혼",
+      "score": 22,
+      "articles": 4,
+      "press": 4,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-27T07:34:00.000Z",
+      "lastArticleAt": "2026-11-27T12:34:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "LG 임찬규, '손나은 동생' 손새은과 12월 19일 결혼",
+          "press": "celuvmedia.com",
+          "link": "http://www.celuvmedia.com/article.php?aid=1795782672531683006",
+          "at": "2026-11-27T12:34:00.000Z"
+        },
+        {
+          "title": "임찬규, ‘손나은 동생’ ♥손새은과 12월 19일 결혼..공개열애 5년만 결...",
+          "press": "osen.co.kr",
+          "link": "http://www.osen.co.kr/article/G1112915986",
+          "at": "2026-11-27T11:56:00.000Z"
+        },
+        {
+          "title": "임찬규♥손새은, 5년 열애 끝…손나은과 진짜 가족 된다",
+          "press": "sports.donga.com",
+          "link": "https://sports.donga.com/ent/article/all/20261127/135105912/1",
+          "at": "2026-11-27T11:32:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "선관위+특검|",
+      "title": "선관위 특검",
+      "keyword": "선관위 특검",
+      "headline": "선관위 특검, 노태악 추가 압수수색",
+      "titles": [
+        {
+          "style": "숏텐츠형",
+          "title": "선관위 특검, 노태악 추가 압수수색"
+        },
+        {
+          "style": "숏텐츠형",
+          "title": "선관위 특검, 의혹 노태악 추가 압수수색"
+        },
+        {
+          "style": "숏텐츠형",
+          "title": "선관위 특검, 노태악 선관위원장 추가 압수수색"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "선관위 특검, 노태악 추가 압수수색…“증거인멸 정황 포착”"
+        }
+      ],
+      "entities": [
+        "선관위",
+        "특검"
       ],
       "event": null,
       "score": 19,
       "articles": 5,
       "press": 5,
       "recent20": 0,
-      "firstArticleAt": "2026-11-26T00:32:00.000Z",
-      "lastArticleAt": "2026-11-27T01:10:00.000Z",
+      "firstArticleAt": "2026-11-27T08:09:00.000Z",
+      "lastArticleAt": "2026-11-27T11:46:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "이서진, 블핑 지수 앞에서 눈물…\"왜 헤어지자고 하는 거야\" [비서진]",
-          "press": "mydaily.co.kr",
-          "link": "https://www.mydaily.co.kr/page/view/2026112709463395333",
-          "at": "2026-11-27T01:10:00.000Z"
+          "title": "선관위 특검, 노태악 추가 압수수색…“증거인멸 정황 포착”",
+          "press": "biz.chosun.com",
+          "link": "https://biz.chosun.com/topics/law_firm/2026/11/27/DGRDL254RNAF5COAPR7C2OKOKM/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+          "at": "2026-11-27T11:46:00.000Z"
         },
         {
-          "title": "블핑 지수, '대문자T' 이서진 울렸다…\"앞으로 볼 일 없어\"",
-          "press": "atstar1.com",
-          "link": "http://www.atstar1.com/news/articleView.html?idxno=6041238",
-          "at": "2026-11-27T00:57:00.000Z"
+          "title": "선관위 특검, 노태악 전 선관위원장 추가 압수수색…증거인멸 정황",
+          "press": "etoday.co.kr",
+          "link": "https://www.etoday.co.kr/news/view/2654140",
+          "at": "2026-11-27T11:42:00.000Z"
         },
         {
-          "title": "'비서진' 지수 수발에 이서진·김광규 곡소리…\"그냥 군대 가\"",
-          "press": "ize.co.kr",
-          "link": "https://www.ize.co.kr/news/articleView.html?idxno=83052",
-          "at": "2026-11-27T00:44:00.000Z"
+          "title": "선관위 특검, ‘공추비 부당 지급’ 의혹 노태악 추가 압수수색",
+          "press": "sedaily.com",
+          "link": "https://www.sedaily.com/article/20120062?ref=naver",
+          "at": "2026-11-27T11:36:00.000Z"
         }
       ]
     },
     {
-      "id": "갱년기+조승우|결혼",
-      "title": "조승우 갱년기 결혼",
-      "keyword": "조승우 갱년기 결혼",
-      "headline": "조승우, 갱년기 고백 결혼 고민",
+      "id": "느낌+신동|",
+      "title": "신동 느낌",
+      "keyword": "신동 느낌",
+      "headline": "느낌 신동, 마운자 25kg",
       "titles": [
         {
           "style": "숏텐츠형",
-          "title": "조승우, 갱년기 고백 결혼 고민"
+          "title": "느낌 신동, 마운자 25kg"
         },
         {
           "style": "숏텐츠형",
-          "title": "46세 조승우, 갱년기 고백 장가 결혼"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "조승우, 갱년기 고백 결혼 못한 이유"
+          "title": "집대성 느낌 신동 마운자 감량 부작용"
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "조승우, 갱년기 고백부터 결혼 고민까지…\"나는 좁쌀영감\" 셀프 폭로"
+          "title": "신동, 마운자로 25kg 뺐는데..부작용 호소 \"점점 면봉되는 느낌,"
         }
       ],
       "entities": [
-        "조승우",
-        "갱년기"
+        "신동",
+        "느낌"
       ],
-      "event": "결혼",
+      "event": null,
       "score": 19,
       "articles": 3,
       "press": 3,
-      "recent20": 0,
-      "firstArticleAt": "2026-11-26T17:00:00.000Z",
-      "lastArticleAt": "2026-11-27T01:22:00.000Z",
+      "recent20": 2,
+      "firstArticleAt": "2026-11-27T10:29:00.000Z",
+      "lastArticleAt": "2026-11-27T12:38:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "조승우, 갱년기 고백부터 결혼 고민까지…\"나는 좁쌀영감\" 셀프 폭로",
-          "press": "celuvmedia.com",
-          "link": "http://www.celuvmedia.com/article.php?aid=1795741424531646010",
-          "at": "2026-11-27T01:22:00.000Z"
+          "title": "'25kg 감량' 신동 \"살 빠지니까 면봉되는 느낌...최근 어깨뽕 구입\"",
+          "press": "joynews24.com",
+          "link": "http://www.joynews24.com/view/2031474",
+          "at": "2026-11-27T12:38:00.000Z"
         },
         {
-          "title": "조승우, 갱년기 고백…결혼 못한 이유?",
-          "press": "topstarnews.net",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16287638",
-          "at": "2026-11-27T01:10:00.000Z"
+          "title": "신동, 마운자로 25kg 뺐는데..부작용 호소 \"점점 면봉되는 느낌, 비율 안...",
+          "press": "sportschosun.com",
+          "link": "https://www.sportschosun.com/entertainment/2026-11-27/202611270100173060016099",
+          "at": "2026-11-27T12:35:00.000Z"
         },
         {
-          "title": "“엄마 때문에 결혼 못해” 46세 조승우, 갱년기 고백 이어 ‘장가 못 간...",
-          "press": "sports.khan.co.kr",
-          "link": "https://sports.khan.co.kr/article/202611271000003?pt=nv",
-          "at": "2026-11-27T01:01:00.000Z"
+          "title": "신동, 마운자로 '25kg' 감량 부작용…\"점점 면봉 되는 느낌\" ('집대성')",
+          "press": "tenasia.co.kr",
+          "link": "https://www.tenasia.co.kr/article/2026112755954",
+          "at": "2026-11-27T12:11:00.000Z"
         }
       ]
     },
     {
-      "id": "달라진+지나|",
-      "title": "지나 달라진",
-      "keyword": "지나 달라진",
-      "headline": "지나, 3개월만 달라진 고생 많이",
+      "id": "정연+주헌|",
+      "title": "주헌 정연",
+      "keyword": "주헌 정연",
+      "headline": "그냥사람친구 주헌·정연, 나이 초월 우정 GO",
       "titles": [
         {
           "style": "숏텐츠형",
-          "title": "지나, 3개월만 달라진 고생 많이"
+          "title": "그냥사람친구 주헌·정연, 나이 초월 우정 GO"
         },
         {
           "style": "숏텐츠형",
-          "title": "지나, 청순함 어디 달라진 근황"
+          "title": "김용건 주헌·정연에 현실 조언"
         },
         {
           "style": "숏텐츠형",
-          "title": "지나, 10년 만에 사뭇 달라진 분위기"
+          "title": "주헌·정연의 10년 우정 온도 VS"
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "‘성매매 벌금형’ 지나, 3개월만 확 달라진 비주얼..“고생 많이 했나"
+          "title": "'그냥사람친구' 주헌·정연, 나이 초월 우정 여행지 GO…촬영 시작 장소"
         }
       ],
       "entities": [
-        "지나",
-        "달라진"
+        "주헌",
+        "정연"
       ],
       "event": null,
       "score": 18,
       "articles": 4,
       "press": 4,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-26T10:47:00.000Z",
-      "lastArticleAt": "2026-11-27T01:41:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "‘성매매 벌금형’ 지나, 3개월만 확 달라진 비주얼..“고생 많이 했나...",
-          "press": "heraldmuse.com",
-          "link": "https://www.heraldmuse.com/article/10951437?ref=naver",
-          "at": "2026-11-27T01:41:00.000Z"
-        },
-        {
-          "title": "'10년 만에 복귀' 예고한 가수 지나, '확 달라진 근황' 눈길",
-          "press": "wowtv.co.kr",
-          "link": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202611270023&t=NN",
-          "at": "2026-11-27T01:05:00.000Z"
-        },
-        {
-          "title": "지나, 10년 만에 사뭇 달라진 분위기 '깜짝'",
-          "press": "sportsworldi.com",
-          "link": "https://www.sportsworldi.com/newsView/20261127503789",
-          "at": "2026-11-27T00:43:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "서동주|임신",
-      "title": "서동주 임신",
-      "keyword": "서동주 임신",
-      "headline": "서동주, 임신 위해 향수",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "서동주, 임신 위해 향수"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "서동주, 임신 위해 생활 습관"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "‘난임’ 서동주, 임신 위해 향수도 끊었다…“로션도 무향 무취”"
-        }
-      ],
-      "entities": [
-        "서동주"
-      ],
-      "event": "임신",
-      "score": 16,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-26T12:42:00.000Z",
-      "lastArticleAt": "2026-11-27T01:38:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "‘난임’ 서동주, 임신 위해 향수도 끊었다…“로션도 무향 무취”",
-          "press": "biz.heraldcorp.com",
-          "link": "https://biz.heraldcorp.com/article/10951427?ref=naver",
-          "at": "2026-11-27T01:38:00.000Z"
-        },
-        {
-          "title": "서동주, 임신 위해 생활 습관 바꿨다…“향 들어간 건 안 써”",
-          "press": "mk.co.kr",
-          "link": "https://www.mk.co.kr/article/12219951",
-          "at": "2026-11-27T01:00:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "박성웅+이석훈|출연",
-      "title": "박성웅 이석훈 출연",
-      "keyword": "박성웅 이석훈 출연",
-      "headline": "박성웅·이석훈·최지수 합류 출연",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "박성웅·이석훈·최지수 합류 출연"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "지구마불4 박성웅·이석훈·최지수 합류 출연"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "'지구마불 세계여행4' 박성웅·이석훈·최지수 합류"
-        }
-      ],
-      "entities": [
-        "박성웅",
-        "이석훈"
-      ],
-      "event": "출연",
-      "score": 16,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-27T01:10:00.000Z",
-      "lastArticleAt": "2026-11-27T01:40:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "'지구마불 세계여행4' 박성웅·이석훈·최지수 합류",
-          "press": "bntnews.co.kr",
-          "link": "https://www.bntnews.co.kr/article/view/bnt202611270179",
-          "at": "2026-11-27T01:40:00.000Z"
-        },
-        {
-          "title": "지구마불4, 박성웅·이석훈·최지수 합류",
-          "press": "topstarnews.net",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16287650",
-          "at": "2026-11-27T01:10:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "정현규+중도|하차",
-      "title": "정현규 중도 하차",
-      "keyword": "정현규 중도 하차",
-      "headline": "정현규, 데블스 플랜3 중도 하차 심경",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "정현규, 데블스 플랜3 중도 하차 심경"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "정현규, 데블스 플랜3 중도 하차 심경 고백 반복"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "\"공황 증세 재발, 겁났다\" 정현규, '데블스 플랜3' 중도 하차 심경"
-        }
-      ],
-      "entities": [
-        "정현규",
-        "중도"
-      ],
-      "event": "하차",
-      "score": 16,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-26T07:28:00.000Z",
-      "lastArticleAt": "2026-11-27T01:30:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "\"공황 증세 재발, 겁났다\" 정현규, '데블스 플랜3' 중도 하차 심경",
-          "press": "nocutnews.co.kr",
-          "link": "https://www.nocutnews.co.kr/news/6613547?utm_source=naver&utm_medium=article&utm_campaign=20261127102936",
-          "at": "2026-11-27T01:30:00.000Z"
-        },
-        {
-          "title": "정현규, '데블스 플랜3' 중도 하차 심경 고백 \"지난 시즌 반복할까 두려...",
-          "press": "celuvmedia.com",
-          "link": "http://www.celuvmedia.com/article.php?aid=1795739634531643005",
-          "at": "2026-11-27T00:52:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "남경주+뮤지컬|",
-      "title": "뮤지컬 남경주",
-      "keyword": "뮤지컬 남경주",
-      "headline": "국민참여재판 출석 뮤지컬 배우 남경주",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "국민참여재판 출석 뮤지컬 배우 남경주"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "법정 향하 뮤지컬 배우 남경주"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "국민참여재판 출석하는 뮤지컬 배우 남경주"
-        }
-      ],
-      "entities": [
-        "뮤지컬",
-        "남경주"
-      ],
-      "event": null,
-      "score": 14,
-      "articles": 3,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-26T15:14:00.000Z",
-      "lastArticleAt": "2026-11-27T01:30:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "[포토] 국민참여재판 출석하는 뮤지컬 배우 남경주",
-          "press": "newdaily.co.kr",
-          "link": "https://www.newdaily.co.kr/site/data/html/2026/11/27/2026112750090.html",
-          "at": "2026-11-27T01:30:00.000Z"
-        },
-        {
-          "title": "법정 향하는 뮤지컬 배우 남경주",
-          "press": "ilyo.co.kr",
-          "link": "https://ilyo.co.kr/?ac=article_view&entry_id=513822",
-          "at": "2026-11-27T01:16:00.000Z"
-        },
-        {
-          "title": "국민참여재판에 출석한 뮤지컬 배우 남경주",
-          "press": "ilyo.co.kr",
-          "link": "https://ilyo.co.kr/?ac=article_view&entry_id=513820",
-          "at": "2026-11-27T01:16:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "설인아+지프|",
-      "title": "지프 설인아",
-      "keyword": "지프 설인아",
-      "headline": "지프 핑크빛 랭글러에 올라탄 설인아",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "지프 핑크빛 랭글러에 올라탄 설인아"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "지프 앰배서더 설인아 랭글러 화보 공개"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "\"핑크빛 랭글러에 올라탄 설인아\"…지프, 보그 코리아 화보 공개"
-        }
-      ],
-      "entities": [
-        "지프",
-        "설인아"
-      ],
-      "event": null,
-      "score": 14,
-      "articles": 2,
-      "press": 2,
-      "recent20": 2,
-      "firstArticleAt": "2026-11-27T00:34:00.000Z",
-      "lastArticleAt": "2026-11-27T01:40:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "지프 앰배서더 설인아, 랭글러 투스카데·사하라 화보 공개",
-          "press": "sisacast.kr",
-          "link": "http://www.sisacast.kr/news/articleView.html?idxno=102448",
-          "at": "2026-11-27T01:40:00.000Z"
-        },
-        {
-          "title": "\"핑크빛 랭글러에 올라탄 설인아\"…지프, 보그 코리아 화보 공개",
-          "press": "gpkorea.com",
-          "link": "https://www.gpkorea.com/news/articleView.html?idxno=149088",
-          "at": "2026-11-27T01:26:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "미성숙+외도|",
-      "title": "미성숙 외도",
-      "keyword": "미성숙 외도",
-      "headline": "미성숙 부부, 아내 외도 고백",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "미성숙 부부, 아내 외도 고백"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "이혼숙려캠프 미성숙 부부 외도·폭언 충돌"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "'이숙캠' 미성숙 부부, 아내는 외도 고백→남편은 폭언"
-        }
-      ],
-      "entities": [
-        "미성숙",
-        "외도"
-      ],
-      "event": null,
-      "score": 14,
-      "articles": 2,
-      "press": 2,
-      "recent20": 2,
-      "firstArticleAt": "2026-11-26T14:00:00.000Z",
-      "lastArticleAt": "2026-11-27T01:40:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "'이숙캠' 미성숙 부부, 아내는 외도 고백→남편은 폭언 '충격'...자체 최...",
-          "press": "ize.co.kr",
-          "link": "https://www.ize.co.kr/news/articleView.html?idxno=83059",
-          "at": "2026-11-27T01:40:00.000Z"
-        },
-        {
-          "title": "이혼숙려캠프, 미성숙 부부 외도·폭언 충돌",
-          "press": "topstarnews.net",
-          "link": "https://www.topstarnews.net/news/articleView.html?idxno=16287691",
-          "at": "2026-11-27T01:26:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "양띠+전현무|",
-      "title": "전현무 양띠",
-      "keyword": "전현무 양띠",
-      "headline": "전현무, 양띠 결혼 운명 당신 인생",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "전현무, 양띠 결혼 운명 당신 인생"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "양띠 전현무, 결혼 47살-35살-23살"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "전현무, 양띠 女와 결혼할 운명?..“당신의 인생 구한다”(‘현무로드’"
-        }
-      ],
-      "entities": [
-        "전현무",
-        "양띠"
-      ],
-      "event": null,
-      "score": 14,
-      "articles": 2,
-      "press": 2,
-      "recent20": 2,
-      "firstArticleAt": "2026-11-26T23:47:00.000Z",
-      "lastArticleAt": "2026-11-27T01:30:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "'곧 50살' 전현무, 결혼은 누구와 47살-35살-23살…\"♥양띠 여성이 인생...",
-          "press": "atstar1.com",
-          "link": "http://www.atstar1.com/news/articleView.html?idxno=6041241",
-          "at": "2026-11-27T01:30:00.000Z"
-        },
-        {
-          "title": "전현무, 양띠 女와 결혼할 운명?..“당신의 인생 구한다”(‘현무로드’...",
-          "press": "heraldmuse.com",
-          "link": "https://www.heraldmuse.com/article/10951409?ref=naver",
-          "at": "2026-11-27T01:30:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "ab6ix+전웅|",
-      "title": "AB6IX 전웅",
-      "keyword": "AB6IX 전웅",
-      "headline": "AB6IX 전웅, 30일 싱글 공개",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "AB6IX 전웅, 30일 싱글 공개"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "AB6IX 전웅, 첫 솔로 출격"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "AB6IX 전웅, 30일 싱글 '문득' 공개…솔로 아티스트로 첫발"
-        }
-      ],
-      "entities": [
-        "AB6IX",
-        "전웅"
-      ],
-      "event": null,
-      "score": 14,
-      "articles": 2,
-      "press": 2,
-      "recent20": 2,
-      "firstArticleAt": "2026-11-26T22:06:00.000Z",
-      "lastArticleAt": "2026-11-27T01:44:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "AB6IX 전웅, 30일 싱글 '문득' 공개…솔로 아티스트로 첫발",
-          "press": "enews.imbc.com",
-          "link": "http://enews.imbc.com/News/RetrieveNewsInfo/526240",
-          "at": "2026-11-27T01:44:00.000Z"
-        },
-        {
-          "title": "AB6IX 전웅, 첫 솔로 출격",
-          "press": "bntnews.co.kr",
-          "link": "https://www.bntnews.co.kr/article/view/bnt202611270181",
-          "at": "2026-11-27T01:42:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "ott+오세영|",
-      "title": "오세영 OTT",
-      "keyword": "오세영 OTT",
-      "headline": "보스의 노골적 취향 오세영 로맨스 연기 국내외 OTT",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "보스의 노골적 취향 오세영 로맨스 연기 국내외 OTT"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "보스의 노골적 취향 성훈·오세영·이정신 삼자대면"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "'보스의 노골적 취향' 오세영, 섬세한 로맨스 연기로 국내외 OTT"
-        }
-      ],
-      "entities": [
-        "오세영",
-        "OTT"
-      ],
-      "event": null,
-      "score": 12,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-27T00:56:00.000Z",
-      "lastArticleAt": "2026-11-27T01:28:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "'보스의 노골적 취향' 성훈·오세영·이정신 삼자대면… 日·美 OTT 1위 기...",
-          "press": "newscj.com",
-          "link": "https://www.newscj.com/news/articleView.html?idxno=3452560",
-          "at": "2026-11-27T01:28:00.000Z"
-        },
-        {
-          "title": "'보스의 노골적 취향' 오세영, 섬세한 로맨스 연기로 국내외 OTT 흥행 견...",
-          "press": "cbci.co.kr",
-          "link": "https://www.cbci.co.kr/news/articleView.html?idxno=631254",
-          "at": "2026-11-27T00:56:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "괴산군+외국인|",
-      "title": "괴산군 외국인",
-      "keyword": "괴산군 외국인",
-      "headline": "괴산군, 외국인 1171명 배정 신청 170명",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "괴산군, 외국인 1171명 배정 신청 170명"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "괴산군, 2027년 외국인 신청 17%"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "괴산군, 외국인 계절근로자 1171명 배정 신청…작년보다 170명↑"
-        }
-      ],
-      "entities": [
-        "괴산군",
-        "외국인"
-      ],
-      "event": null,
-      "score": 12,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-27T00:30:00.000Z",
-      "lastArticleAt": "2026-11-27T01:29:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "괴산군, 2027년 외국인 계절근로자 1171명 신청…전년보다 17%↑",
-          "press": "newsis.com",
-          "link": "https://www.newsis.com/view/NISX20261127_0003885867",
-          "at": "2026-11-27T01:29:00.000Z"
-        },
-        {
-          "title": "괴산군, 외국인 계절근로자 1171명 배정 신청…작년보다 170명↑",
-          "press": "news1.kr",
-          "link": "https://www.news1.kr/local/sejong-chungbuk/6368077",
-          "at": "2026-11-27T01:09:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "러닝+한가인|",
-      "title": "한가인 러닝",
-      "keyword": "한가인 러닝",
-      "headline": "한가인, 둘째 아들 러닝 기록 경악",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "한가인, 둘째 아들 러닝 기록 경악"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "한가인, 션 둘째 아들 '선수급' 러닝 기록에 경악…\"집에 도둑 들면"
-        }
-      ],
-      "entities": [
-        "한가인",
-        "러닝"
-      ],
-      "event": null,
-      "score": 12,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-26T23:58:00.000Z",
-      "lastArticleAt": "2026-11-27T01:39:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "한가인 \"저혈압으로 3분 거리도 못 걸었는데…러닝 덕에 나았다\"",
-          "press": "news1.kr",
-          "link": "https://www.news1.kr/entertain/celebrity-topic/6368120",
-          "at": "2026-11-27T01:39:00.000Z"
-        },
-        {
-          "title": "한가인, 션 둘째 아들 '선수급' 러닝 기록에 경악…\"집에 도둑 들면 무조...",
-          "press": "osen.co.kr",
-          "link": "http://www.osen.co.kr/article/G1112915633",
-          "at": "2026-11-27T01:16:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "공연+뮤지컬|",
-      "title": "뮤지컬 공연",
-      "keyword": "뮤지컬 공연",
-      "headline": "케이엠엔터프라이즈 뮤지컬 으로 공연 첫발",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "케이엠엔터프라이즈 뮤지컬 으로 공연 첫발"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "뮤지컬 12월 14 15일 충남 공연"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "케이엠엔터프라이즈, 뮤지컬 '로미오와 줄리엣'으로 공연 시장 첫발"
-        }
-      ],
-      "entities": [
-        "뮤지컬",
-        "공연"
-      ],
-      "event": null,
-      "score": 12,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-26T13:44:00.000Z",
-      "lastArticleAt": "2026-11-27T01:38:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "케이엠엔터프라이즈, 뮤지컬 '로미오와 줄리엣'으로 공연 시장 첫발",
-          "press": "ftoday.co.kr",
-          "link": "http://www.ftoday.co.kr/news/articleView.html?idxno=370718",
-          "at": "2026-11-27T01:38:00.000Z"
-        },
-        {
-          "title": "뮤지컬 '사의 찬미' 12월 14~15일 충남도 문예회관서 공연",
-          "press": "goodmorningcc.com",
-          "link": "https://www.goodmorningcc.com/news/articleView.html?idxno=456682",
-          "at": "2026-11-27T01:16:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "이도현+임지연|",
-      "title": "임지연 이도현",
-      "keyword": "임지연 이도현",
-      "headline": "이도현, 임지연 결별 첫 포착 온통",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "이도현, 임지연 결별 첫 포착 온통"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "임지연 결별 이도현 한소희"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "이도현, 임지연과 결별 후 첫 포착‥온통 새까맣게→반쪽 하트로 인사"
-        }
-      ],
-      "entities": [
-        "임지연",
-        "이도현"
-      ],
-      "event": null,
-      "score": 12,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-24T06:33:00.000Z",
-      "lastArticleAt": "2026-11-27T01:37:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "이도현, 임지연과 결별 후 첫 포착‥온통 새까맣게→반쪽 하트로 인사",
-          "press": "newsen.com",
-          "link": "https://www.newsen.com/news_view.php?uid=202611271023125710",
-          "at": "2026-11-27T01:37:00.000Z"
-        },
-        {
-          "title": "'임지연과 결별' 이도현, 한소희 곁 지켰다...망설임 없이 옷 벗어준 '다...",
-          "press": "tvreport.co.kr",
-          "link": "https://www.tvreport.co.kr/entertainment/article/1094155/",
-          "at": "2026-11-27T00:59:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "jyp+오브더블루|",
-      "title": "JYP 오브더블루",
-      "keyword": "JYP 오브더블루",
-      "headline": "JYP 신인 오브더블루 무결점 취향",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "JYP 신인 오브더블루 무결점 취향"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "JYP 신예 오브더블루 데뷔 콘셉트 4인 첫선"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "'JYP 신인' 오브더블루, 무결점 비주얼+확고한 취향"
-        }
-      ],
-      "entities": [
-        "JYP",
-        "오브더블루"
-      ],
-      "event": null,
-      "score": 12,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-25T23:10:00.000Z",
-      "lastArticleAt": "2026-11-27T01:36:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "'JYP 신인' 오브더블루, 무결점 비주얼+확고한 취향",
-          "press": "joynews24.com",
-          "link": "http://www.joynews24.com/view/2031154",
-          "at": "2026-11-27T01:36:00.000Z"
-        },
-        {
-          "title": "JYP 신예 오브더블루, 데뷔 앨범 콘셉트 포토 공개…4인 비주얼 첫선",
-          "press": "nc.press",
-          "link": "https://www.nc.press/news/articleView.html?idxno=632029",
-          "at": "2026-11-27T01:10:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "박영준+석좌교수|",
-      "title": "박영준 석좌교수",
-      "keyword": "박영준 석좌교수",
-      "headline": "광운대 박영준 석좌교수",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "광운대 박영준 석좌교수"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "박영준 광운대 석좌교수 한류 제시"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "광운대 박영준 석좌교수, 英 옥스퍼드대서 '한류의 영향과 미래' 특별강"
-        }
-      ],
-      "entities": [
-        "박영준",
-        "석좌교수"
-      ],
-      "event": null,
-      "score": 12,
-      "articles": 2,
-      "press": 2,
-      "recent20": 1,
-      "firstArticleAt": "2026-11-27T01:05:00.000Z",
-      "lastArticleAt": "2026-11-27T01:30:00.000Z",
-      "trendHit": false,
-      "exclusive": false,
-      "inShortents": false,
-      "samples": [
-        {
-          "title": "박영준 광운대 석좌교수, 英 옥스퍼드대서 한류의 미래 제시",
-          "press": "newsfreezone.co.kr",
-          "link": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=721659",
-          "at": "2026-11-27T01:30:00.000Z"
-        },
-        {
-          "title": "광운대 박영준 석좌교수, 英 옥스퍼드대서 '한류의 영향과 미래' 특별강...",
-          "press": "enewstoday.co.kr",
-          "link": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2497994",
-          "at": "2026-11-27T01:05:00.000Z"
-        }
-      ]
-    },
-    {
-      "id": "딘딘+리센느|",
-      "title": "리센느 딘딘",
-      "keyword": "리센느 딘딘",
-      "headline": "리센느, 1박 2일 오프닝 기습 방문 딘딘 줄행랑",
-      "titles": [
-        {
-          "style": "숏텐츠형",
-          "title": "리센느, 1박 2일 오프닝 기습 방문 딘딘 줄행랑"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "1박 2일 딘딘 리센느 등장 줄행랑"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "리센느, 1박 2일 딘딘 줄행랑"
-        },
-        {
-          "style": "설명형(둘째 줄)",
-          "title": "리센느, ‘1박 2일’ 오프닝 기습 방문에 딘딘 줄행랑…당찬 예능감까지"
-        }
-      ],
-      "entities": [
-        "리센느",
-        "딘딘"
-      ],
-      "event": null,
-      "score": 11,
-      "articles": 3,
-      "press": 3,
       "recent20": 0,
-      "firstArticleAt": "2026-11-26T23:24:00.000Z",
-      "lastArticleAt": "2026-11-27T01:06:00.000Z",
+      "firstArticleAt": "2026-11-26T06:00:00.000Z",
+      "lastArticleAt": "2026-11-27T12:13:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "리센느, ‘1박 2일’ 오프닝 기습 방문에 딘딘 줄행랑…당찬 예능감까지...",
-          "press": "sportsseoul.com",
-          "link": "https://www.sportsseoul.com/news/read/1652693?ref=naver",
-          "at": "2026-11-27T01:06:00.000Z"
-        },
-        {
-          "title": "'1박 2일' 딘딘, 리센느 등장에 '동공 지진' 줄행랑",
-          "press": "newsinside.kr",
-          "link": "https://www.newsinside.kr/news/articleView.html?idxno=5057927",
-          "at": "2026-11-27T00:42:00.000Z"
-        },
-        {
-          "title": "‘대대세’ 리센느, ‘1박 2일’에 떴다…딘딘은 줄행랑",
+          "title": "김용건, 주헌·정연에 현실 조언..“명품 파는데 기웃거리면 안돼” (‘...",
           "press": "osen.co.kr",
-          "link": "http://www.osen.co.kr/article/G1112915740",
-          "at": "2026-11-27T00:41:00.000Z"
+          "link": "http://www.osen.co.kr/article/G1112916007",
+          "at": "2026-11-27T12:13:00.000Z"
+        },
+        {
+          "title": "'그사친' 주헌·정연의 10년 우정 온도 차 \"특별해\" VS \"저는 아닌데\" 폭...",
+          "press": "stoo.com",
+          "link": "http://www.stoo.com/article.php?aid=110128681104",
+          "at": "2026-11-27T12:02:00.000Z"
+        },
+        {
+          "title": "트와이스 정연· 몬스타엑스 주헌 '그냥 사람 친구'",
+          "press": "sports.hankooki.com",
+          "link": "https://sports.hankooki.com/news/articleView.html?idxno=6944281",
+          "at": "2026-11-27T12:00:00.000Z"
         }
       ]
     },
     {
-      "id": "뮤지컬+이동연|",
-      "title": "뮤지컬 이동연",
-      "keyword": "뮤지컬 이동연",
-      "headline": "뮤지컬 배우 이동연 팬레터 폐기 의혹",
+      "id": "이철우+지사|",
+      "title": "이철우 지사",
+      "keyword": "이철우 지사",
+      "headline": "이철우 지사, AI 중심 경제",
       "titles": [
         {
           "style": "숏텐츠형",
-          "title": "뮤지컬 배우 이동연 팬레터 폐기 의혹"
-        },
-        {
-          "style": "숏텐츠형",
-          "title": "뮤지컬 배우 이동연 폐기"
+          "title": "이철우 지사, AI 중심 경제"
         },
         {
           "style": "설명형(둘째 줄)",
-          "title": "뮤지컬 배우 이동연, 팬레터 '폐기' 의혹…분리수거장서 발견된 편지"
+          "title": "경북도, 대구와 200조 원 경제권 구상…이철우 지사, AI 중심 경제"
         }
       ],
       "entities": [
-        "뮤지컬",
-        "이동연"
+        "이철우",
+        "지사"
+      ],
+      "event": null,
+      "score": 12,
+      "articles": 2,
+      "press": 2,
+      "recent20": 1,
+      "firstArticleAt": "2026-11-27T07:08:00.000Z",
+      "lastArticleAt": "2026-11-27T12:38:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "경북도, 대구와 200조 원 경제권 구상…이철우 지사, AI 중심 경제 혁신...",
+          "press": "metroseoul.co.kr",
+          "link": "http://www.metroseoul.co.kr/article/20261127500337",
+          "at": "2026-11-27T12:38:00.000Z"
+        },
+        {
+          "title": "이철우 지사 \"대구경북 통합으로 200조 원 경제권 구축해야\"",
+          "press": "newstown.co.kr",
+          "link": "http://www.newstown.co.kr/news/articleView.html?idxno=723621",
+          "at": "2026-11-27T11:56:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "서인영+홍진경|",
+      "title": "서인영 홍진경",
+      "keyword": "서인영 홍진경",
+      "headline": "서인영, 혼전임신 검사 보란 홍진경",
+      "titles": [
+        {
+          "style": "숏텐츠형",
+          "title": "서인영, 혼전임신 검사 보란 홍진경"
+        },
+        {
+          "style": "숏텐츠형",
+          "title": "홍진경 서인영, 99만 유튜브 채널 삭제 공약"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "서인영, 혼전임신 검사해 보란 홍진경에…\"그럴 리 없어\" 해명 ('산독기"
+        }
+      ],
+      "entities": [
+        "서인영",
+        "홍진경"
       ],
       "event": null,
       "score": 10,
       "articles": 2,
       "press": 2,
       "recent20": 0,
-      "firstArticleAt": "2026-11-26T22:11:00.000Z",
-      "lastArticleAt": "2026-11-27T01:20:00.000Z",
+      "firstArticleAt": "2026-11-27T07:32:00.000Z",
+      "lastArticleAt": "2026-11-27T12:17:00.000Z",
       "trendHit": false,
       "exclusive": false,
       "inShortents": false,
       "samples": [
         {
-          "title": "분리수거장서 발견된 팬레터에 팬들 충격…뮤지컬 배우 이동연 '폐기' 논...",
-          "press": "news.tvchosun.com",
-          "link": "https://news.tvchosun.com/site/data/html_dir/2026/11/27/2026112790105.html",
-          "at": "2026-11-27T01:20:00.000Z"
+          "title": "서인영, 99만 유튜브 채널 삭제 공약까지 걸었다… 홍진경 \"너 왜 그래\"...",
+          "press": "mhnse.com",
+          "link": "https://mhnse.com/news/articleView.html?idxno=1714797",
+          "at": "2026-11-27T12:17:00.000Z"
         },
         {
-          "title": "뮤지컬 배우 이동연, 팬레터 '폐기' 의혹…분리수거장서 발견된 편지",
-          "press": "star.ytn.co.kr",
-          "link": "https://star.ytn.co.kr/_sn/0117_202611270956417823",
-          "at": "2026-11-27T00:56:00.000Z"
+          "title": "서인영, 혼전임신 검사해 보란 홍진경에…\"그럴 리 없어\" 해명 ('산독기...",
+          "press": "tvreport.co.kr",
+          "link": "https://www.tvreport.co.kr/broadcast/article/1094394/",
+          "at": "2026-11-27T12:11:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "소이원+조준현|",
+      "title": "조준현 소이원",
+      "keyword": "조준현 소이원",
+      "headline": "조준현, 쌍둥이 조준호 없이 소이원 여행",
+      "titles": [
+        {
+          "style": "숏텐츠형",
+          "title": "조준현, 쌍둥이 조준호 없이 소이원 여행"
+        },
+        {
+          "style": "숏텐츠형",
+          "title": "조준현, 소이원 고백"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "조준현, 쌍둥이 형 조준호 없이 소이원과 여행… \"진지하게 사귀자\""
+        }
+      ],
+      "entities": [
+        "조준현",
+        "소이원"
+      ],
+      "event": null,
+      "score": 10,
+      "articles": 2,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-26T01:25:00.000Z",
+      "lastArticleAt": "2026-11-27T11:50:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "조준현, 쌍둥이 형 조준호 없이 소이원과 여행… \"진지하게 사귀자\"",
+          "press": "gukjenews.com",
+          "link": "https://www.gukjenews.com/news/articleView.html?idxno=3765490",
+          "at": "2026-11-27T11:50:00.000Z"
+        },
+        {
+          "title": "‘신랑수업2’ 조준현, 드디어 ♥소이원에 고백 “사귀면서 알아갔으면...",
+          "press": "enews.imbc.com",
+          "link": "http://enews.imbc.com/News/RetrieveNewsInfo/526283",
+          "at": "2026-11-27T11:50:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "실수+황정민|",
+      "title": "황정민 실수",
+      "keyword": "황정민 실수",
+      "headline": "황정민, 사과 공연 실수",
+      "titles": [
+        {
+          "style": "숏텐츠형",
+          "title": "황정민, 사과 공연 실수"
+        },
+        {
+          "style": "숏텐츠형",
+          "title": "황정민, 근황 공연 실수 아들한테"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "'사생활 의혹' 황정민, 子에 제대로 혼나고 사과까지..\"공연 중"
+        }
+      ],
+      "entities": [
+        "황정민",
+        "실수"
+      ],
+      "event": null,
+      "score": 8,
+      "articles": 2,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-27T11:14:00.000Z",
+      "lastArticleAt": "2026-11-27T12:14:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "'사생활 의혹' 황정민, 子에 제대로 혼나고 사과까지..\"공연 중 실수, 너...",
+          "press": "sportschosun.com",
+          "link": "https://www.sportschosun.com/entertainment/2026-11-27/202611270100172960016093",
+          "at": "2026-11-27T12:14:00.000Z"
+        },
+        {
+          "title": "'사생활 논란' 황정민, 근황 직접 전했다 \"공연 실수, 아들한테 혼났다...",
+          "press": "xportsnews.com",
+          "link": "https://www.xportsnews.com/article/2223867",
+          "at": "2026-11-27T11:14:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "lj+이선정|",
+      "title": "LJ 이선정",
+      "keyword": "LJ 이선정",
+      "headline": "LJ, 이선정 이혼 15년 만에 속내",
+      "titles": [
+        {
+          "style": "숏텐츠형",
+          "title": "LJ, 이선정 이혼 15년 만에 속내"
+        },
+        {
+          "style": "숏텐츠형",
+          "title": "이선정 14년만 최초고백 LJ"
+        },
+        {
+          "style": "설명형(둘째 줄)",
+          "title": "LJ, 이선정과 이혼 15년 만에 속내⋯\"그때도 사랑하고 있었다\""
+        }
+      ],
+      "entities": [
+        "LJ",
+        "이선정"
+      ],
+      "event": null,
+      "score": 8,
+      "articles": 2,
+      "press": 2,
+      "recent20": 0,
+      "firstArticleAt": "2026-11-27T09:51:00.000Z",
+      "lastArticleAt": "2026-11-27T11:58:00.000Z",
+      "trendHit": false,
+      "exclusive": false,
+      "inShortents": false,
+      "samples": [
+        {
+          "title": "LJ, 이선정과 이혼 15년 만에 속내���\"그때도 사랑하고 있었다\"",
+          "press": "etoday.co.kr",
+          "link": "https://www.etoday.co.kr/news/view/2654142",
+          "at": "2026-11-27T11:58:00.000Z"
+        },
+        {
+          "title": "14년만에 최초고백..LJ \"이선정과 이혼할때도 사랑했다\" [순간포착]",
+          "press": "osen.co.kr",
+          "link": "http://www.osen.co.kr/article/G1112915973",
+          "at": "2026-11-27T11:33:00.000Z"
         }
       ]
     }
   ],
   "alreadyShown": [
-    "양홍원 출산"
+    "홍민기 열애",
+    "차트 1위"
   ],
   "hitRate": {
     "days": 7,
-    "predicted": 1580,
-    "matched": 227,
-    "avgLeadMin": 286,
+    "predicted": 1459,
+    "matched": 202,
+    "avgLeadMin": 278,
     "recent": [
+      {
+        "title": "베스티 차트 1위",
+        "matched_keyword": "베스티 연애의 조건, 차트 1위",
+        "lead_min": 509,
+        "matched_at": 1795768504001
+      },
+      {
+        "title": "베스티 1위",
+        "matched_keyword": "베스티 연애의 조건, 차트 1위",
+        "lead_min": 389,
+        "matched_at": 1795768504001
+      },
+      {
+        "title": "베스티 연애 1위",
+        "matched_keyword": "베스티 연애의 조건, 차트 1위",
+        "lead_min": 199,
+        "matched_at": 1795768504001
+      },
+      {
+        "title": "존박 투컷",
+        "matched_keyword": "투컷, 존박 디스 랩에 곽진언 소환",
+        "lead_min": 1630,
+        "matched_at": 1795757736346
+      },
+      {
+        "title": "아일릿 모카 복귀",
+        "matched_keyword": "아일릿 모카, 5개월 만 복귀",
+        "lead_min": 90,
+        "matched_at": 1795755936349
+      },
+      {
+        "title": "헥스마녀왕국",
+        "matched_keyword": "영화 헥스 마녀왕국 후기 및 OST 정보",
+        "lead_min": 320,
+        "matched_at": 1795754136337
+      },
       {
         "title": "김혜윤 박준면",
         "matched_keyword": "김혜윤 상담 실수, 박준면 반응",
@@ -1592,42 +715,6 @@
         "matched_keyword": "‘100일의 거짓말’ 작가 박진영 김유정 언급",
         "lead_min": 550,
         "matched_at": 1795700136333
-      },
-      {
-        "title": "작가 논란",
-        "matched_keyword": "‘100일의 거짓말’ 작가 박진영 김유정 언급",
-        "lead_min": 330,
-        "matched_at": 1795700136333
-      },
-      {
-        "title": "구교환 수상",
-        "matched_keyword": "구교환 김윤석 영화 폭설 후기 및 해석",
-        "lead_min": 280,
-        "matched_at": 1795700136333
-      },
-      {
-        "title": "거미 논란",
-        "matched_keyword": "거미, 생얼 아닌 사진 해명",
-        "lead_min": 205,
-        "matched_at": 1795694736338
-      },
-      {
-        "title": "거미 사과",
-        "matched_keyword": "거미, 생얼 아닌 사진 해명",
-        "lead_min": 154,
-        "matched_at": 1795694736338
-      },
-      {
-        "title": "리센느 에스파",
-        "matched_keyword": "리센느·에스파·BTS, 국가별 인기 K팝 스타",
-        "lead_min": 680,
-        "matched_at": 1795692936332
-      },
-      {
-        "title": "리센느 BTS",
-        "matched_keyword": "리센느·에스파·BTS, 국가별 인기 K팝 스타",
-        "lead_min": 405,
-        "matched_at": 1795692936332
       }
     ]
   }
