@@ -1,283 +1,255 @@
 {
   "success": true,
-  "updatedAt": "2026-11-28T08:01:32.605Z",
-  "updatedAtKst": "2026. 11. 28. PM 5:01:32",
+  "updatedAt": "2026-11-28T17:39:29.193Z",
+  "updatedAtKst": "2026. 11. 29. AM 2:39:29",
   "trending": {
     "naver": [
       {
         "rank": 1,
-        "keyword": "부스 방문한 한성숙 총리"
+        "keyword": "이재명 대통령 방문"
       },
       {
         "rank": 2,
-        "keyword": "영국 미공군기지 드론"
+        "keyword": "신지아 시니어 첫 금메달"
       },
       {
         "rank": 3,
-        "keyword": "김민석 청소년 만남"
+        "keyword": "포스코 임금교섭 타결"
       },
       {
         "rank": 4,
-        "keyword": "이해욱 회장 질책"
+        "keyword": "수지 제니 와인 데이트"
       },
       {
         "rank": 5,
-        "keyword": "황민현, 14년 플레디스 떠난다"
+        "keyword": "비정규직"
       },
       {
         "rank": 6,
-        "keyword": "강금실 한준호 인사청문회"
+        "keyword": "인터넷우체국 개인정보 유출"
       },
       {
         "rank": 7,
-        "keyword": "이재명 AI 데이터센터"
+        "keyword": "맨유 경기"
       },
       {
         "rank": 8,
-        "keyword": "김기동 감독 우승 축하해"
+        "keyword": "굿파트너 2"
       },
       {
         "rank": 9,
-        "keyword": "사고"
+        "keyword": "김용준 전 헌법재판소장 별세"
       },
       {
         "rank": 10,
-        "keyword": "한남동"
+        "keyword": "강금실 무보수 명예직"
       }
     ],
     "nate": [
       {
         "rank": 1,
-        "keyword": "��파트너 2 동일"
+        "keyword": "찾��� 이재명 대통령 동일"
       },
       {
         "rank": 2,
-        "keyword": "이지아 후회되는 연애 new"
+        "keyword": "신지아 시니어 그랑프리 동일"
       },
       {
         "rank": 3,
-        "keyword": "개리 AI 합성 new"
+        "keyword": "수지 제니 와인 상승 6"
       },
       {
         "rank": 4,
-        "keyword": "황 중국 시설서 new"
+        "keyword": "철도노조 105대 지연 동일"
       },
       {
         "rank": 5,
-        "keyword": "한국 핵잠수함 중국 new"
+        "keyword": "굿파트너 2 동일"
       }
     ],
     "zum": [
       {
         "rank": 1,
-        "keyword": "영국 미공군기지 드론"
+        "keyword": "포스코 임금교섭 타결"
       },
       {
         "rank": 2,
-        "keyword": "강금실 한준호 인사청문회"
+        "keyword": "대만 지방선거 개표"
       },
       {
         "rank": 3,
-        "keyword": "북창 공군기지 운영재개"
-      },
-      {
-        "rank": 4,
-        "keyword": "주유소 기름값 하락"
-      },
-      {
-        "rank": 5,
-        "keyword": "캐나다 퀘벡 히잡 금지법"
-      },
-      {
-        "rank": 6,
-        "keyword": "미 공군 클라우드 해킹"
-      },
-      {
-        "rank": 7,
-        "keyword": "이재명 AI 데이터센터"
-      },
-      {
-        "rank": 8,
         "keyword": "한국 핵잠수함 미중 충돌"
       },
       {
+        "rank": 4,
+        "keyword": "인터넷우체국 개인정보 유출"
+      },
+      {
+        "rank": 5,
+        "keyword": "이재명 천연물 바이오 간담회"
+      },
+      {
+        "rank": 6,
+        "keyword": "트럼프 이라크 지지"
+      },
+      {
+        "rank": 7,
+        "keyword": "북창 공군기지 운영재개"
+      },
+      {
+        "rank": 8,
+        "keyword": "영국 미공군기지 드론"
+      },
+      {
         "rank": 9,
-        "keyword": "예산안 미래대응기금"
+        "keyword": "철도노조 준법투쟁 지연"
       },
       {
         "rank": 10,
-        "keyword": "미국 OPEC 탈퇴 압박"
+        "keyword": "강금실 한준호 인사청문회"
       }
     ],
     "google": [
       {
         "rank": 1,
-        "keyword": "이자"
+        "keyword": "비정규직"
       },
       {
         "rank": 2,
-        "keyword": "전현무"
+        "keyword": "hamburg vs bayern"
       },
       {
         "rank": 3,
-        "keyword": "최형우"
+        "keyword": "맨유 경기"
       },
       {
         "rank": 4,
-        "keyword": "남승민"
+        "keyword": "맨유"
       },
       {
         "rank": 5,
-        "keyword": "매매"
+        "keyword": "바이에른 뮌헨"
       },
       {
         "rank": 6,
-        "keyword": "한남동"
+        "keyword": "black tv"
       },
       {
         "rank": 7,
-        "keyword": "사고"
+        "keyword": "쾰른 대 엘버스베르크"
       },
       {
         "rank": 8,
-        "keyword": "신민아"
+        "keyword": "man utd đấu với brentford"
       },
       {
         "rank": 9,
-        "keyword": "루친스키"
+        "keyword": "웨스트 햄 대 스토크 시티"
       },
       {
         "rank": 10,
-        "keyword": "목동"
+        "keyword": "แมนยู พบ เบรนต์ฟอร์ด"
       }
     ],
     "daum": [
       {
         "rank": 1,
-        "keyword": "홍민기 전 연인 실종"
+        "keyword": "조은희셰프"
       },
       {
         "rank": 2,
-        "keyword": "dl그룹"
+        "keyword": "신지아 그랑프리 첫 우승"
       },
       {
         "rank": 3,
-        "keyword": "KB 3연승"
+        "keyword": "유지애 결혼식"
       },
       {
         "rank": 4,
-        "keyword": "dl 이앤씨"
+        "keyword": "정수빈 당구선수"
       },
       {
         "rank": 5,
-        "keyword": "이 대통령 주문진시장 방문"
+        "keyword": "1252회 로또 당첨 번호"
       },
       {
         "rank": 6,
-        "keyword": "서울 우승 대관식"
+        "keyword": "전지적 참견 시점"
       },
       {
         "rank": 7,
-        "keyword": "이상이 본가 공개"
+        "keyword": "박정수 배우"
       },
       {
         "rank": 8,
-        "keyword": "유리 백덤블링 연속 4회 성공"
+        "keyword": "서현 효연 숙소 생활 폭로"
       },
       {
         "rank": 9,
-        "keyword": "지나 외모 변화"
+        "keyword": "보검 매직컬 시즌2"
       },
       {
         "rank": 10,
-        "keyword": "한국인 마운자로 원정 구매"
+        "keyword": "헝거게임"
       }
     ]
   },
   "entertainment": [
     {
-      "title": "주진모, ♥민혜연 임신에 오열…“아이 갖고 싶었는데 말 못해”",
+      "title": "이현이, 43세 되니 몸이 달라졌다…“애 둘 낳고 탄력 안 돌아와”",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261128/135107312/1",
-      "publishedAt": "수집 11. 28. 16:59 KST",
-      "publishedOrder": 1795852748391
+      "url": "https://sports.donga.com/ent/article/all/20261129/135107962/1",
+      "publishedAt": "수집 11. 29. 02:39 KST",
+      "publishedOrder": 1795887562642
     },
     {
-      "title": "장윤주, 런던서 결국 눈물…♥4세 연하 남편 생일에 무슨 일",
+      "title": "쌈디, 성시경에게 절교 통보받고 사과까지 거절당해 (고막남친)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261128/135107301/1",
-      "publishedAt": "수집 11. 28. 16:59 KST",
-      "publishedOrder": 1795852748391
+      "url": "https://sports.donga.com/ent/article/all/20261128/135107911/1",
+      "publishedAt": "수집 11. 29. 02:39 KST",
+      "publishedOrder": 1795887562642
     },
     {
-      "title": "서현진, 긴급 체포되더니 태도 돌변 (라이어)",
+      "title": "김종민, ‘1박 2일’ 초창기 제작진 입수 제안 거부 왜?",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261128/135107419/1",
-      "publishedAt": "수집 11. 28. 16:59 KST",
-      "publishedOrder": 1795852748391
+      "url": "https://sports.donga.com/ent/article/all/20261128/135107907/1",
+      "publishedAt": "수집 11. 29. 02:39 KST",
+      "publishedOrder": 1795887562642
     },
     {
-      "title": "이현욱, 수많은 시신 사이 홀로 눈 떴다 (문무)",
+      "title": "이영자, 세계 41위 한식당에 식재료 직접 납품 (전참시)",
       "source": "스포츠동아",
-      "url": "https://sports.donga.com/ent/article/all/20261128/135107414/1",
-      "publishedAt": "수집 11. 28. 16:59 KST",
-      "publishedOrder": 1795852748391
+      "url": "https://sports.donga.com/ent/article/all/20261128/135107903/1",
+      "publishedAt": "수집 11. 29. 02:39 KST",
+      "publishedOrder": 1795887562642
     },
     {
       "title": "AAA 2026 인기상 결선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-final/actor",
-      "publishedAt": "수집 11. 28. 16:59 KST",
-      "publishedOrder": 1795852744910
+      "publishedAt": "수집 11. 29. 02:39 KST",
+      "publishedOrder": 1795887561834
     },
     {
       "title": "AAA 2026 인기상 예선 투표",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/entertainment/vote-preliminary/actor",
-      "publishedAt": "수집 11. 28. 16:59 KST",
-      "publishedOrder": 1795852744910
+      "publishedAt": "수집 11. 29. 02:39 KST",
+      "publishedOrder": 1795887561834
     },
     {
       "title": "STARNEWS APP",
       "source": "스타뉴스",
       "url": "https://www.starnewskorea.com/app-download",
-      "publishedAt": "수집 11. 28. 16:59 KST",
-      "publishedOrder": 1795852744910
+      "publishedAt": "수집 11. 29. 02:39 KST",
+      "publishedOrder": 1795887561834
     },
     {
-      "title": "교제폭력 논란→의식불명..경찰, 홍민기 前여친 소재파악 나섰다",
+      "title": "법정서 울려 퍼진 \"성관계 싫다\" 제자의 절규..피해자 변호인 '눈물', 남경주는 증인 안부 챙기는 '여유' [스타이슈]",
       "source": "스타뉴스",
-      "url": "https://www.starnewskorea.com/star/2026/11/27/2026112718254230315",
-      "publishedAt": "수집 11. 28. 16:59 KST",
-      "publishedOrder": 1795852744910
-    },
-    {
-      "title": "공원, 28일 단독 콘서�� ‘TAKE 01’ 개막",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA2N2pNZFJ4LUZ3WVB6M291Sm56TGtEMlZaNEloMmJiQ2UyU2ZXNE9KeWV3Q0s0cV9VVHBQbEhZazEwVmtDYmdwNHFEM3ZrbkJJMXhtTXdMVE9qQTB5anJHWlFHMzAyNmVtNGI3WNIBcEFVX3lxTE9QbWdXLThxbWhSSTBHN1JMWlEzUG81QzdyeHZlcGtpeHlZTTM3b05uSm5VY3pYTS1lX19jOUxTYmhkNkU3NGFwTzFmZ3BXRFdyWktZYWtGU3BXMFBTd3EwT3l3LUFBdVRNWHZ4QThhbWI?oc=5",
-      "publishedAt": "11. 28. 10:12 KST",
-      "publishedOrder": 1795828325000
-    },
-    {
-      "title": "FT아일랜드, 콘서트 'FTSODE' 아시아 지역 개최",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1QQnZBcmVnMTZXYnRkUTJkdXhQYWtSRUlvZlRpLXdwajd0SGlMRnEzTTUzMC1IWTlVXzZQUWRFcm9HYnF5TVpKalBhUEVCUk5xbUNwTk44djZYcTdFYjlHbWkzUGNvd3l0enpsSdIBcEFVX3lxTE5xemtucnZRV3k3YWZHNHl6bXlySHFCT3Q4RmRjYnVYQnRadl9UdmV0V2stYldYckprYWV5X05vTjlNbFBZdEIyTG91WnNZMTNFa3BiQ29wc1ZmajhCLVdQNWJ0elVGMFU5Skh2ODZrUmE?oc=5",
-      "publishedAt": "11. 28. 10:12 KST",
-      "publishedOrder": 1795828325000
-    },
-    {
-      "title": "가수 인어, 압구정 로데오 달군 무반주 ‘숟가락 콘서트’ 진행",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9MQ09IN3prcW9UOWp1YkJDdzNJNm84Y2ViX1lBckktX1YyTDZoTFJxWERZdDRaNkdqdGFWWk4xaHo5QUVzeU1xTTdaaDhaeTdWdU1VaWNjelZQc280a01kUWdKWlFrZEJsdUJj0gFvQVVfeXFMTnF6Mnh4c3pTZlViYWVxTnRNWDh4WF9fRlhRT3RmYXNGT3lDSjZCMm9kUTNNdmUyb21nT2o1ck1LOC1yLUJOeXl4VUl5RnViT3JTdHFoVU9yVFN5R3lJUlU2eEtvOFhWUEZuamFISWY0?oc=5",
-      "publishedAt": "11. 28. 09:28 KST",
-      "publishedOrder": 1795825715000
-    },
-    {
-      "title": "백지영, 강렬한 흑백 카리스마에서 사랑스러운 미소까지, 반전화보",
-      "source": "Google 뉴스",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5EblBXMWRKZHoycnJMb2pxOEtFTUhvaFNjSDZvcTYwZlZVQ3NocGY0YmNNbzJiYUxaN04ydkR5YTk4WHFFa05nMUxiNDhQZTZNX25JNW9MODFyb1Z1WHgxVzlrZ244SVE4UFE?oc=5",
-      "publishedAt": "11. 28. 05:03 KST",
-      "publishedOrder": 1795809802000
+      "url": "https://www.starnewskorea.com/star/2026/11/28/2026112808074117003",
+      "publishedAt": "수집 11. 29. 02:39 KST",
+      "publishedOrder": 1795887561834
     }
   ]
 }
